@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		06AC2E6FDEFC33BBCEB95429E2674D91 /* Pods-AwesomeMedia_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B07B6F1D77DABA663156DDD928B1E63 /* Pods-AwesomeMedia_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0A58303D1E2C71160078BF1C /* AwesomeMediaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A58303C1E2C71160078BF1C /* AwesomeMediaView.swift */; };
+		0A5830431E2CC1550078BF1C /* AwesomeMedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5830421E2CC1550078BF1C /* AwesomeMedia.swift */; };
+		0A5830451E2CEA330078BF1C /* AVPlayerItem+MV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5830441E2CEA330078BF1C /* AVPlayerItem+MV.swift */; };
 		0AEC5E158587A80B63F256F71D698430 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
 		504AD97038280D7BF3C1D298DFBA0965 /* AwesomeMedia-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D4B69033E9CD4957F1BB7C9AA60575AD /* AwesomeMedia-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		51C2FEEEF7F2446ABC0336098C44E3EB /* Pods-AwesomeMedia_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB5C93EE2E2E1EB3219B21FC03EDEAC /* Pods-AwesomeMedia_Tests-dummy.m */; };
@@ -29,6 +32,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0A58303C1E2C71160078BF1C /* AwesomeMediaView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AwesomeMediaView.swift; sourceTree = "<group>"; };
+		0A5830421E2CC1550078BF1C /* AwesomeMedia.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AwesomeMedia.swift; sourceTree = "<group>"; };
+		0A5830441E2CEA330078BF1C /* AVPlayerItem+MV.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AVPlayerItem+MV.swift"; sourceTree = "<group>"; };
 		155597C4AC8668C4898DA341DE4CEEC9 /* AwesomeMedia-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AwesomeMedia-prefix.pch"; sourceTree = "<group>"; };
 		1B07B6F1D77DABA663156DDD928B1E63 /* Pods-AwesomeMedia_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-AwesomeMedia_Tests-umbrella.h"; sourceTree = "<group>"; };
 		1B3171463E824BE827794C980FB280BC /* Pods-AwesomeMedia_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-AwesomeMedia_Tests-resources.sh"; sourceTree = "<group>"; };
@@ -107,6 +113,7 @@
 		0A58303A1E2C69440078BF1C /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				0A5830441E2CEA330078BF1C /* AVPlayerItem+MV.swift */,
 			);
 			path = Library;
 			sourceTree = "<group>";
@@ -114,6 +121,7 @@
 		0A58303B1E2C69440078BF1C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0A58303C1E2C71160078BF1C /* AwesomeMediaView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -157,6 +165,7 @@
 		69020F5B8E0FB234BB7D41FEA4B393C2 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				0A5830421E2CC1550078BF1C /* AwesomeMedia.swift */,
 				0A58303A1E2C69440078BF1C /* Library */,
 				0A5830391E2C69440078BF1C /* Controllers */,
 				0A58303B1E2C69440078BF1C /* Views */,
@@ -378,6 +387,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				9B8CB45D8E061872BDF6EFF68DA8B883 /* AwesomeMedia-dummy.m in Sources */,
+				0A5830451E2CEA330078BF1C /* AVPlayerItem+MV.swift in Sources */,
+				0A5830431E2CC1550078BF1C /* AwesomeMedia.swift in Sources */,
+				0A58303D1E2C71160078BF1C /* AwesomeMediaView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -449,6 +461,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E35AB2FD567696480A56A0F76439D867 /* AwesomeMedia.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -638,6 +651,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E35AB2FD567696480A56A0F76439D867 /* AwesomeMedia.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";

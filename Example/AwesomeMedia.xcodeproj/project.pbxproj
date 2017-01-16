@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A5830401E2CAA320078BF1C /* VideoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A58303E1E2CAA320078BF1C /* VideoView.xib */; };
 		24F56BE79B1195921E87889F /* Pods_AwesomeMedia_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D656F860DB22E07522156E20 /* Pods_AwesomeMedia_Tests.framework */; };
 		3B937D42F5B06383D1145A55 /* Pods_AwesomeMedia_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4A06B53AFBFB2748198248D /* Pods_AwesomeMedia_Example.framework */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
@@ -28,6 +29,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0A58303F1E2CAA320078BF1C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/VideoView.xib; sourceTree = "<group>"; };
 		239201DD6C8FF57F9A784D75 /* Pods-AwesomeMedia_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AwesomeMedia_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-AwesomeMedia_Example/Pods-AwesomeMedia_Example.release.xcconfig"; sourceTree = "<group>"; };
 		3ADDBAE5D0EF0107CB21B977 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		3C97A11521544F30C1FEEE7C /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
@@ -69,6 +71,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A5830411E2CAA400078BF1C /* VideoView */ = {
+			isa = PBXGroup;
+			children = (
+				0A58303E1E2CAA320078BF1C /* VideoView.xib */,
+			);
+			name = VideoView;
+			sourceTree = "<group>";
+		};
 		607FACC71AFB9204008FA782 = {
 			isa = PBXGroup;
 			children = (
@@ -95,6 +105,7 @@
 			children = (
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
+				0A5830411E2CAA400078BF1C /* VideoView */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
@@ -250,6 +261,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A5830401E2CAA320078BF1C /* VideoView.xib in Resources */,
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
@@ -387,6 +399,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		0A58303E1E2CAA320078BF1C /* VideoView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0A58303F1E2CAA320078BF1C /* Base */,
+			);
+			name = VideoView.xib;
+			sourceTree = "<group>";
+		};
 		607FACD91AFB9204008FA782 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

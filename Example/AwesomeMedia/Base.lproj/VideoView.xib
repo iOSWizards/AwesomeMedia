@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X8g-j3-iJ3" customClass="AwesomeMediaView" customModule="AwesomeMedia">
+            <rect key="frame" x="0.0" y="0.0" width="500" height="310"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gn2-Iq-cYT">
+                    <rect key="frame" x="0.0" y="266" width="500" height="44"/>
+                    <subviews>
+                        <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="aCh-51-z62">
+                            <rect key="frame" x="88" y="8" width="304" height="31"/>
+                        </slider>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bdY-HC-pTK">
+                            <rect key="frame" x="8" y="8" width="41" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="41" id="0wv-iN-xdl"/>
+                                <constraint firstAttribute="height" constant="30" id="Tmr-qc-5wJ"/>
+                            </constraints>
+                            <state key="normal" title="Play"/>
+                            <state key="selected" title="Pause"/>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c8s-Ph-hEh">
+                            <rect key="frame" x="432" y="8" width="60" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="60" id="69v-Pd-Egl"/>
+                                <constraint firstAttribute="height" constant="30" id="Vp0-d0-tHr"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <state key="normal" title="Enlarge"/>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="13:12" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8lV-IW-u1U">
+                            <rect key="frame" x="57" y="13" width="25.5" height="21"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="21" id="cEw-oG-wlb"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="13:12" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ngd-s8-7mJ">
+                            <rect key="frame" x="398" y="13" width="25.5" height="21"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="21" id="AGr-GE-kic"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="0.095207966549999995" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="ngd-s8-7mJ" firstAttribute="centerY" secondItem="c8s-Ph-hEh" secondAttribute="centerY" id="9bq-of-5m7"/>
+                        <constraint firstItem="aCh-51-z62" firstAttribute="centerY" secondItem="8lV-IW-u1U" secondAttribute="centerY" id="Bxq-dX-9rM"/>
+                        <constraint firstItem="bdY-HC-pTK" firstAttribute="leading" secondItem="gn2-Iq-cYT" secondAttribute="leading" constant="8" id="Ijo-Ye-HLW"/>
+                        <constraint firstAttribute="height" constant="44" id="OAc-3N-AA4"/>
+                        <constraint firstItem="8lV-IW-u1U" firstAttribute="leading" secondItem="bdY-HC-pTK" secondAttribute="trailing" constant="8" id="PU4-jd-wnD"/>
+                        <constraint firstAttribute="trailing" secondItem="c8s-Ph-hEh" secondAttribute="trailing" constant="8" id="X34-dm-dHh"/>
+                        <constraint firstAttribute="bottom" secondItem="c8s-Ph-hEh" secondAttribute="bottom" constant="6" id="aJ0-4P-yCv"/>
+                        <constraint firstItem="8lV-IW-u1U" firstAttribute="centerY" secondItem="bdY-HC-pTK" secondAttribute="centerY" id="ate-Jm-SNM"/>
+                        <constraint firstItem="aCh-51-z62" firstAttribute="leading" secondItem="8lV-IW-u1U" secondAttribute="trailing" constant="8" id="eGi-7d-PA8"/>
+                        <constraint firstItem="ngd-s8-7mJ" firstAttribute="leading" secondItem="aCh-51-z62" secondAttribute="trailing" constant="8" id="qZG-mM-FCf"/>
+                        <constraint firstItem="c8s-Ph-hEh" firstAttribute="leading" secondItem="ngd-s8-7mJ" secondAttribute="trailing" constant="8" id="sRt-mp-Lcc"/>
+                        <constraint firstAttribute="bottom" secondItem="bdY-HC-pTK" secondAttribute="bottom" constant="6" id="shd-Mp-qTN"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="gn2-Iq-cYT" secondAttribute="trailing" id="WX7-9o-KYQ"/>
+                <constraint firstItem="gn2-Iq-cYT" firstAttribute="leading" secondItem="X8g-j3-iJ3" secondAttribute="leading" id="sVD-N4-bu7"/>
+                <constraint firstAttribute="bottom" secondItem="gn2-Iq-cYT" secondAttribute="bottom" id="uFM-Vo-fbM"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="controlsView" destination="gn2-Iq-cYT" id="SHr-60-gW0"/>
+                <outlet property="fullscreenButton" destination="c8s-Ph-hEh" id="8XY-pN-EDi"/>
+                <outlet property="maxTimeLabel" destination="ngd-s8-7mJ" id="I6z-Jj-RdF"/>
+                <outlet property="minTimeLabel" destination="8lV-IW-u1U" id="1JR-gU-CVP"/>
+                <outlet property="playButton" destination="bdY-HC-pTK" id="Vya-Sv-j1A"/>
+                <outlet property="timeSlider" destination="aCh-51-z62" id="opV-aX-oFl"/>
+            </connections>
+            <point key="canvasLocation" x="26" y="-34"/>
+        </view>
+    </objects>
+</document>
