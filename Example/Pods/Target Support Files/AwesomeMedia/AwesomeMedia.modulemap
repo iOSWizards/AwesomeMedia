@@ -1,0 +1,6 @@
+framework module AwesomeMedia {
+  umbrella header "AwesomeMedia-umbrella.h"
+
+  export *
+  module * { export * }
+}

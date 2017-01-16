@@ -1,0 +1,22 @@
+{
+  "name": "AwesomeMedia",
+  "version": "0.1.0",
+  "summary": "A short description of AwesomeMedia.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/<GITHUB_USERNAME>/AwesomeMedia",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Evandro Harrison Hoffmann": "ehh85@yahoo.com.br"
+  },
+  "source": {
+    "git": "https://github.com/<GITHUB_USERNAME>/AwesomeMedia.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "AwesomeMedia/Classes/**/*"
+}

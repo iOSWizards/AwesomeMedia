@@ -1,0 +1,6 @@
+framework module Pods_AwesomeMedia_Example {
+  umbrella header "Pods-AwesomeMedia_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}

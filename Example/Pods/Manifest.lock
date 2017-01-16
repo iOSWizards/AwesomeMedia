@@ -1,0 +1,16 @@
+PODS:
+  - AwesomeMedia (0.1.0)
+
+DEPENDENCIES:
+  - AwesomeMedia (from `../`)
+
+EXTERNAL SOURCES:
+  AwesomeMedia:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  AwesomeMedia: 70669f397964b3151bb723a351ba413000634286
+
+PODFILE CHECKSUM: 90fb36de56720965d409286376842220e7ba9340
+
+COCOAPODS: 1.1.1
