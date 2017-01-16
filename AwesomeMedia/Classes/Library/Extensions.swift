@@ -19,5 +19,16 @@ extension AVPlayerItem {
     public func remainingTime(_ value: Float) -> Float64 {
         return CMTimeGetSeconds(duration) - elapsedTime(value)
     }
-    
+}
+
+extension Float {
+    public var decimal: Float {
+        return self.truncatingRemainder(dividingBy: floor(abs(self)))
+    }
+}
+
+extension Float64 {
+    public var formatedTime: String {
+        return String(format: "%02d:%02d", ((lround(self) / 60) % 60), lround(self) % 60)
+    }
 }

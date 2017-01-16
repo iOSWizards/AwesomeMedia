@@ -235,6 +235,7 @@ extension AwesomeMedia {
         for playerSpeedOption in playerSpeedOptions {
             if returnNext {
                 currentRate = playerSpeedOption
+                avPlayer.rate = currentRate
                 return currentRate
             }
             
@@ -243,6 +244,29 @@ extension AwesomeMedia {
         
         //if got here, means it was the last one, so pick the first item on the list
         currentRate = playerSpeedOptions.first ?? avPlayer.rate
+        avPlayer.rate = currentRate
+        return currentRate
+    }
+    
+    public func toggleRateSpeedBackward() -> Float{
+        if avPlayer.rate == 0 {
+            return 1
+        }
+        
+        var returnNext = false
+        for i in (0..<playerSpeedOptions.count).reversed() {
+            if returnNext {
+                currentRate = playerSpeedOptions[i]
+                avPlayer.rate = currentRate
+                return currentRate
+            }
+            
+            returnNext = playerSpeedOptions[i] == currentRate
+        }
+        
+        //if got here, means it was the first one, so pick the last item on the list
+        currentRate = playerSpeedOptions.last ?? avPlayer.rate
+        avPlayer.rate = currentRate
         return currentRate
     }
 }
@@ -348,16 +372,31 @@ extension AwesomeMedia {
         let commandCenter = MPRemoteCommandCenter.shared()
         
         //play/pause
+        commandCenter.pauseCommand.isEnabled = true
         commandCenter.pauseCommand.addTarget(self, action: #selector(AwesomeMedia.pause))
+        
+        commandCenter.playCommand.isEnabled = true
         commandCenter.playCommand.addTarget(self, action: #selector(AwesomeMedia.play))
         
-        //seek forward
+        commandCenter.stopCommand.isEnabled = true
+        commandCenter.stopCommand.addTarget(self, action: #selector(AwesomeMedia.stop))
+        
+        commandCenter.togglePlayPauseCommand.isEnabled = true
+        commandCenter.togglePlayPauseCommand.addTarget(self, action: #selector(AwesomeMedia.togglePlay))
+        
+        //seek
         commandCenter.seekForwardCommand.isEnabled = true
         commandCenter.seekForwardCommand.addTarget(self, action: #selector(AwesomeMedia.seekRemotely(_:)))
         
-        //seek backward
         commandCenter.seekBackwardCommand.isEnabled = true
         commandCenter.seekBackwardCommand.addTarget(self, action: #selector(AwesomeMedia.seekRemotely(_:)))
+        
+        //skip
+        commandCenter.skipForwardCommand.isEnabled = true
+        commandCenter.skipForwardCommand.addTarget(self, action: #selector(AwesomeMedia.toggleRateSpeed))
+        
+        commandCenter.skipBackwardCommand.isEnabled = true
+        commandCenter.skipBackwardCommand.addTarget(self, action: #selector(AwesomeMedia.toggleRateSpeedBackward))
     }
     
     public func removePlayerControls(){
