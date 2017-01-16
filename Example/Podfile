@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'AwesomeMedia_Example' do
+  pod 'AwesomeMedia', :path => '../'
+
+  target 'AwesomeMedia_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
