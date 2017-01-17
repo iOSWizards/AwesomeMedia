@@ -18,6 +18,7 @@
 		65C3781434AB04E9F6F82E3D47515042 /* Pods-AwesomeMedia_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E9E79FAB727AB094255A04A0E6E71162 /* Pods-AwesomeMedia_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		66496EA33B42DA0073273D52D1218865 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
 		9B8CB45D8E061872BDF6EFF68DA8B883 /* AwesomeMedia-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B282BEC3FB9BD18ED1BD7FD80E13AC1 /* AwesomeMedia-dummy.m */; };
+		A7E145521E2ED67C009A186B /* AwesomeMediaPlayerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E145511E2ED67C009A186B /* AwesomeMediaPlayerDelegate.swift */; };
 		F1B190BEA3716F69FDDCB88EA3655609 /* Pods-AwesomeMedia_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E485B39E4C7719B39206C2C9D5D6A51D /* Pods-AwesomeMedia_Example-dummy.m */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +51,7 @@
 		98E9A3FB9EE92D40C85CEF1DA1E4C1D7 /* Pods-AwesomeMedia_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-AwesomeMedia_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		99B0B5275537077EEA540A7496F8A4F1 /* AwesomeMedia.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = AwesomeMedia.modulemap; sourceTree = "<group>"; };
 		A7CFD13E849A6315C2209509DA13FD8B /* Pods-AwesomeMedia_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-AwesomeMedia_Example-resources.sh"; sourceTree = "<group>"; };
+		A7E145511E2ED67C009A186B /* AwesomeMediaPlayerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AwesomeMediaPlayerDelegate.swift; sourceTree = "<group>"; };
 		BBC750A2A6D2F255BB4F556183078D23 /* Pods-AwesomeMedia_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-AwesomeMedia_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		BC7A37B0FF669F6190A083B9398083C4 /* AwesomeMedia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AwesomeMedia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C18A1F6A6B8021A1CCB20B855A2C24FD /* Pods-AwesomeMedia_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AwesomeMedia_Tests.release.xcconfig"; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 			isa = PBXGroup;
 			children = (
 				0A5830421E2CC1550078BF1C /* AwesomeMedia.swift */,
+				A7E145501E2ED662009A186B /* Protocols */,
 				0A58303A1E2C69440078BF1C /* Library */,
 				0A5830391E2C69440078BF1C /* Controllers */,
 				0A58303B1E2C69440078BF1C /* Views */,
@@ -222,6 +225,14 @@
 			);
 			name = "Support Files";
 			path = "Example/Pods/Target Support Files/AwesomeMedia";
+			sourceTree = "<group>";
+		};
+		A7E145501E2ED662009A186B /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				A7E145511E2ED67C009A186B /* AwesomeMediaPlayerDelegate.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		A7F02392EA6105EFD4E5FA3016A57E4C /* Products */ = {
@@ -386,6 +397,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7E145521E2ED67C009A186B /* AwesomeMediaPlayerDelegate.swift in Sources */,
 				9B8CB45D8E061872BDF6EFF68DA8B883 /* AwesomeMedia-dummy.m in Sources */,
 				0A5830451E2CEA330078BF1C /* Extensions.swift in Sources */,
 				0A5830431E2CC1550078BF1C /* AwesomeMedia.swift in Sources */,

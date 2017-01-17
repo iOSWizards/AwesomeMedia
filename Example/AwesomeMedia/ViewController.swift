@@ -7,12 +7,14 @@
 //
 
 import UIKit
+import AwesomeMedia
 
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        AwesomeMedia.shared.playerDelegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -22,3 +24,29 @@ class ViewController: UIViewController {
 
 }
 
+extension UIViewController: AwesomeMediaPlayerDelegate {
+    
+    
+    public func didChangeSpeed(to: Float) {
+        // do anything (tracking)
+    }
+    
+    public func didChangeSlider(to: Float) {
+        
+    }
+    
+    public func didStopPlaying(stop: Bool) {
+        
+    }
+    
+    public func didStartPlaying(start: Bool) {
+        
+    }
+    
+    public func didPausePlaying(pause: Bool) {
+        
+    }
+    
+
+    
+}

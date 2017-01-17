@@ -32,6 +32,8 @@ public class AwesomeMedia: NSObject {
     fileprivate var timeObserver: AnyObject?
     fileprivate var playHistory = [URL]()
     
+    public weak var playerDelegate: AwesomeMediaPlayerDelegate?
+    
     public let avPlayer = AVPlayer()
     public var avPlayerLayer = AVPlayerLayer()
     public let notificationCenter = NotificationCenter()
@@ -177,6 +179,7 @@ extension AwesomeMedia {
         
         updateMediaInfo()
         
+        playerDelegate?.didStartPlaying(start: true)
         notify(kAwesomeMediaStartedPlaying)
     }
     
@@ -188,6 +191,7 @@ extension AwesomeMedia {
         currentRate = avPlayer.rate
         avPlayer.pause()
         
+        playerDelegate?.didPausePlaying(pause: true)
         notify(kAwesomeMediaPausedPlaying)
     }
     
@@ -201,6 +205,7 @@ extension AwesomeMedia {
         //removes remote controls
         removePlayerControls()
         
+        playerDelegate?.didStopPlaying(stop: true)
         notify(kAwesomeMediaStopedPlaying)
     }
     
@@ -228,6 +233,7 @@ extension AwesomeMedia {
     
     public func toggleRateSpeed() -> Float{
         if avPlayer.rate == 0 {
+            playerDelegate?.didChangeSpeed(to: 1)
             return 1
         }
         
@@ -236,6 +242,7 @@ extension AwesomeMedia {
             if returnNext {
                 currentRate = playerSpeedOption
                 avPlayer.rate = currentRate
+                playerDelegate?.didChangeSpeed(to: currentRate)
                 return currentRate
             }
             
@@ -245,6 +252,7 @@ extension AwesomeMedia {
         //if got here, means it was the last one, so pick the first item on the list
         currentRate = playerSpeedOptions.first ?? avPlayer.rate
         avPlayer.rate = currentRate
+        playerDelegate?.didChangeSpeed(to: currentRate)
         return currentRate
     }
     
@@ -280,6 +288,7 @@ extension AwesomeMedia {
             return
         }
         
+        playerDelegate?.didChangeSlider(to: timeSliderValue)
         notify(kAwesomeMediaTimeUpdated, object: currentItem)
     }
     
