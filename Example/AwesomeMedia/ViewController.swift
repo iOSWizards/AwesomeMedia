@@ -7,18 +7,21 @@
 //
 
 import UIKit
+import AwesomeMedia
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var mediaView: AwesomeMediaView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        AwesomeMedia.showLogs = true
+        mediaView.prepareMedia(withUrl: URL(string: "http://overmind2.mindvalleyacademy.com/api/v1/assets/267bb3c6-d042-40ea-b1bd-9c9325c413eb.m3u8")!)
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
     }
-
 }
 

@@ -15,6 +15,7 @@ open class AwesomeMediaView: UIView {
     // MARK: - Components
     
     @IBOutlet open weak var controlsView: UIView?
+    @IBOutlet open weak var mediaView: UIView?
     @IBOutlet weak var timeSlider: UISlider?
     @IBOutlet weak var minTimeLabel: UILabel?
     @IBOutlet weak var maxTimeLabel: UILabel?
@@ -24,19 +25,24 @@ open class AwesomeMediaView: UIView {
     @IBOutlet weak var markersButton: UIButton?
     @IBOutlet weak var forwardButton: UIButton?
     @IBOutlet weak var rewindButton: UIButton?
-    @IBOutlet weak var controlsButton: UIButton?
     
     // MARK: - Configurations
     
     fileprivate var isSeeking = false
+    fileprivate var isControlHidden = false
     fileprivate var autoHideTimer: Timer?
     
-    @IBInspectable open var seekTime: Int = 10
+    @IBInspectable open var seekTime: Int = 15
     @IBInspectable open var autoHideControlsTime: Int = 3
     @IBInspectable open var fullscreenOnLandscape: Bool = false
     @IBInspectable open var canToggleControls: Bool = true
 
     open override func awakeFromNib() {
+        //Video layer
+        self.layer.insertSublayer(AwesomeMedia.shared.avPlayerLayer, at: 0)
+        self.layer.masksToBounds = true
+        
+        //Controls
         timeSlider?.addTarget(self, action: #selector(AwesomeMediaView.timeSliderUpdated(_:)), for: .valueChanged)
         timeSlider?.addTarget(self, action: #selector(AwesomeMediaView.timeSliderBeganUpdating(_:)), for: .touchDown)
         timeSlider?.addTarget(self, action: #selector(AwesomeMediaView.timeSliderEndedUpdating(_:)), for: .touchUpInside)
@@ -44,19 +50,40 @@ open class AwesomeMediaView: UIView {
         
         playButton?.addTarget(self, action: #selector(AwesomeMediaView.togglePlay(_:)), for: .touchUpInside)
         
-        fullscreenButton?.addTarget(self, action: #selector(AwesomeMediaView.togglePlay(_:)), for: .touchUpInside)
+        fullscreenButton?.addTarget(self, action: #selector(AwesomeMediaView.toggleFullscreen(_:)), for: .touchUpInside)
         
         forwardButton?.addTarget(self, action: #selector(AwesomeMediaView.seekForward(_:)), for: .touchUpInside)
         rewindButton?.addTarget(self, action: #selector(AwesomeMediaView.seekBackward(_:)), for: .touchUpInside)
         
-        controlsButton?.addTarget(self, action: #selector(AwesomeMediaView.toggleControls(_:)), for: .touchUpInside)
+        //observers
+        addMediaObservers()
     }
-
+    
+    deinit {
+        removeMediaObservers()
+    }
+    
+    open override func layoutSublayers(of layer: CALayer) {
+        super.layoutSublayers(of: layer)
+        AwesomeMedia.shared.avPlayerLayer.frame = CGRect(x: 0, y: 0, width: self.bounds.size.width, height: self.bounds.size.height)
+    }
 }
 
 // MARK: - Events
 
 extension AwesomeMediaView {
+    
+    open func prepareMedia(withUrl url: URL?, replaceCurrent: Bool = false, startPlaying: Bool = false) {
+        AwesomeMedia.shared.prepareMedia(withUrl: url, replaceCurrent: replaceCurrent, startPlaying: startPlaying)
+    }
+    
+    // MARK: - Touches
+    
+    open override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if let touch = touches.first, touch.view == mediaView {
+            toggleControls(self)
+        }
+    }
     
     // MARK: - Play / Pause
     
@@ -160,14 +187,11 @@ extension AwesomeMediaView {
             return
         }
         
-        guard let controlsButton = controlsButton else {
-            return
-        }
-        controlsButton.isSelected = !controlsButton.isSelected
+        isControlHidden = !isControlHidden
         
         //self.navigationController?.setNavigationBarHidden(controlsButton?.isSelected ?? false, animated: true)
         
-        showControls(!controlsButton.isSelected)
+        showControls(!isControlHidden)
     }
     
     open func enableControls(_ enable: Bool){
@@ -191,19 +215,19 @@ extension AwesomeMediaView {
     }
     
     open func showControls(_ show: Bool){
-        controlsButton?.isSelected = !show
+        isControlHidden = !show
         
         autoHideTimer?.invalidate()
         
         if show {
-            self.controlsView?.translatesAutoresizingMaskIntoConstraints = false
             UIView.animate(withDuration: 0.2, animations: {
                 self.controlsView?.frame.origin.y = self.frame.size.height-(self.controlsView?.frame.size.height ?? 0)
+                self.controlsView?.alpha = 1
             })
         }else{
-            controlsView?.translatesAutoresizingMaskIntoConstraints = true
             UIView.animate(withDuration: 0.2, animations: {
                 self.controlsView?.frame.origin.y = self.frame.size.height
+                self.controlsView?.alpha = 0
             })
         }
     }
@@ -291,5 +315,4 @@ extension AwesomeMediaView {
         self.minTimeLabel?.text = currentTime.formatedTime
         self.maxTimeLabel?.text = remainingTime.formatedTime
     }
-    
 }

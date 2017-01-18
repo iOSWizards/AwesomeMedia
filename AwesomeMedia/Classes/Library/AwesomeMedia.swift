@@ -26,6 +26,7 @@ public let kAwesomeMediaTimeFinishedUpdating = "kAwesomeMediaTimeFinishedUpdatin
 public class AwesomeMedia: NSObject {
     
     public static let shared = AwesomeMedia()
+    public static var showLogs = false
     
     fileprivate var playbackLikelyToKeepUpContext = 0
     fileprivate var currentRate: Float = 0
@@ -36,6 +37,7 @@ public class AwesomeMedia: NSObject {
     public var avPlayerLayer = AVPlayerLayer()
     public let notificationCenter = NotificationCenter()
     public var playerSpeedOptions: [Float] = [0.75, 1, 1.25, 1.5, 2]
+    public var skipTime: Int = 15
     public var playerIsPlaying: Bool {
         return avPlayer.rate > 0
     }
@@ -54,6 +56,12 @@ public class AwesomeMedia: NSObject {
     
     public func notify(_ name: String, object: AnyObject? = nil) {
         notificationCenter.post(name: Notification.Name(rawValue: name), object: object)
+    }
+    
+    fileprivate func log(_ message: String){
+        if AwesomeMedia.showLogs {
+            print("AwesomeMedia \(message)")
+        }
     }
 }
 
@@ -142,8 +150,11 @@ extension AwesomeMedia {
         if playHistory.last == url {
             if avPlayer.rate == 0 || (avPlayer.rate != 0 && replaceCurrent) {
                 avPlayer.replaceCurrentItem(with: playerItem)
+                log("replaced current item with url \(url)")
             }
         }else{
+            log("replaced [\(playHistory.last?.absoluteString ?? "")] with url [\(url)]")
+            
             playHistory.append(url)
             
             avPlayer.replaceCurrentItem(with: playerItem)
@@ -156,7 +167,9 @@ extension AwesomeMedia {
         //Adds observers
         addObservers()
         
-        //start playing right away if not a video as we want to improve it's quality before start playing
+        //Backgrond play
+        configBackgroundPlay()
+        
         if startPlaying && avPlayer.rate == 0 {
             play()
         }
@@ -178,6 +191,8 @@ extension AwesomeMedia {
         updateMediaInfo()
         
         notify(kAwesomeMediaStartedPlaying)
+        
+        log("started playing")
     }
     
     public func pause(){
@@ -189,6 +204,8 @@ extension AwesomeMedia {
         avPlayer.pause()
         
         notify(kAwesomeMediaPausedPlaying)
+        
+        log("paused")
     }
     
     public func stop(){
@@ -202,6 +219,8 @@ extension AwesomeMedia {
         removePlayerControls()
         
         notify(kAwesomeMediaStopedPlaying)
+        
+        log("stopped playing")
     }
     
     public func didFinishPlaying(_ sender: AnyObject){
@@ -217,19 +236,22 @@ extension AwesomeMedia {
             return
         }
         
+        log("toggled play")
+        
         let playerIsPlaying = avPlayer.rate > 0
         if playerIsPlaying {
             pause()
         } else {
             play()
         }
-        
     }
     
     public func toggleRateSpeed() -> Float{
         if avPlayer.rate == 0 {
             return 1
         }
+        
+        log("toggled speed rate")
         
         var returnNext = false
         for playerSpeedOption in playerSpeedOptions {
@@ -252,6 +274,8 @@ extension AwesomeMedia {
         if avPlayer.rate == 0 {
             return 1
         }
+        
+        log("toggled speed rate backward")
         
         var returnNext = false
         for i in (0..<playerSpeedOptions.count).reversed() {
@@ -281,6 +305,8 @@ extension AwesomeMedia {
         }
         
         notify(kAwesomeMediaTimeUpdated, object: currentItem)
+        
+        log("time slider updated with value \(timeSliderValue)")
     }
     
     public func beginSeeking() {
@@ -291,6 +317,8 @@ extension AwesomeMedia {
         pause()
         
         notify(kAwesomeMediaTimeStartedUpdating, object: currentItem)
+        
+        log("time slider began seeking")
     }
     
     public func endSeeking(_ timeSliderValue: Float) {
@@ -305,6 +333,8 @@ extension AwesomeMedia {
         })
         
         notify(kAwesomeMediaTimeFinishedUpdating, object: currentItem)
+        
+        log("time slider ended seeking with value \(timeSliderValue)")
     }
     
     public func seek(addingSeconds seconds: Double){
@@ -316,6 +346,16 @@ extension AwesomeMedia {
         avPlayer.currentItem?.seek(to: time)
         
         notify(kAwesomeMediaTimeUpdated, object: currentItem)
+        
+        log("seek with seconds \(seconds)")
+    }
+    
+    public func skipForward(){
+        seek(addingSeconds: Double(skipTime))
+    }
+    
+    public func skipBackward(){
+        seek(addingSeconds: -Double(skipTime))
     }
     
     public func seek(toTime time: Double){
@@ -326,6 +366,8 @@ extension AwesomeMedia {
         avPlayer.currentItem?.seek(to: CMTime(seconds: time, preferredTimescale: avPlayer.currentTime().timescale))
         
         notify(kAwesomeMediaTimeUpdated, object: currentItem)
+        
+        log("seek to time \(time)")
     }
     
     public func currentTime() -> Double {
@@ -342,8 +384,10 @@ extension AwesomeMedia {
             //beginSeeking()
         }else if (seekEvent.type == .endSeeking) {
             print("End Seeking")
-            //endSeeking(seekEvent.positionTime)
+            //endSeeking(Float(seekEvent.timestamp))
         }
+        
+        log("seeking remotely with event type \(seekEvent.type)")
     }
 }
 
@@ -362,6 +406,8 @@ extension AwesomeMedia {
         
         //controls
         addPlayerControls()
+        
+        log("background play configured")
     }
     
     // MARK: - Player controls
@@ -393,14 +439,17 @@ extension AwesomeMedia {
         
         //skip
         commandCenter.skipForwardCommand.isEnabled = true
-        commandCenter.skipForwardCommand.addTarget(self, action: #selector(AwesomeMedia.toggleRateSpeed))
+        commandCenter.skipForwardCommand.addTarget(self, action: #selector(AwesomeMedia.skipForward))
         
         commandCenter.skipBackwardCommand.isEnabled = true
-        commandCenter.skipBackwardCommand.addTarget(self, action: #selector(AwesomeMedia.toggleRateSpeedBackward))
+        commandCenter.skipBackwardCommand.addTarget(self, action: #selector(AwesomeMedia.skipBackward))
+        
+        log("added command center controls")
     }
     
     public func removePlayerControls(){
         UIApplication.shared.endReceivingRemoteControlEvents()
+        log("removed command center controls")
     }
     
     // MARK: - Media Info Art
