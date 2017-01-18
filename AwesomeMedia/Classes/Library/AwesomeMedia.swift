@@ -192,7 +192,7 @@ extension AwesomeMedia {
         
         updateMediaInfo()
         
-        playerDelegate?.didStartPlaying(start: true)
+        playerDelegate?.didStartPlaying()
         notify(kAwesomeMediaStartedPlaying)
         
         log("started playing")
@@ -206,7 +206,7 @@ extension AwesomeMedia {
         currentRate = avPlayer.rate
         avPlayer.pause()
         
-        playerDelegate?.didPausePlaying(pause: true)
+        playerDelegate?.didPausePlaying()
         notify(kAwesomeMediaPausedPlaying)
         
         log("paused")
@@ -222,7 +222,7 @@ extension AwesomeMedia {
         //removes remote controls
         removePlayerControls()
         
-        playerDelegate?.didStopPlaying(stop: true)
+        playerDelegate?.didStopPlaying()
         notify(kAwesomeMediaStopedPlaying)
         
         log("stopped playing")
@@ -341,6 +341,7 @@ extension AwesomeMedia {
             }
         })
         
+        playerDelegate?.didChangeSlider(to: timeSliderValue)
         notify(kAwesomeMediaTimeFinishedUpdating, object: currentItem)
         
         log("time slider ended seeking with value \(timeSliderValue)")

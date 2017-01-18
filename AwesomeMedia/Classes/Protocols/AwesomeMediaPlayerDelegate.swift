@@ -11,9 +11,9 @@ import Foundation
 public protocol AwesomeMediaPlayerDelegate: class {
     
     func didChangeSpeed(to: Float)
-    func didStopPlaying(stop: Bool)
-    func didStartPlaying(start: Bool)
-    func didPausePlaying(pause: Bool)
+    func didStopPlaying()
+    func didStartPlaying()
+    func didPausePlaying()
     func didChangeSlider(to: Float)
     
 }

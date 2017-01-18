@@ -29,15 +29,15 @@ extension FullscreenMediaViewController: AwesomeMediaPlayerDelegate {
         print("FullscreenMediaViewController didChangeSlider(\(to))")
     }
     
-    public func didStopPlaying(stop: Bool) {
+    public func didStopPlaying() {
         print("FullscreenMediaViewController didStopPlaying")
     }
     
-    public func didStartPlaying(start: Bool) {
+    public func didStartPlaying() {
         print("FullscreenMediaViewController didStartPlaying")
     }
     
-    public func didPausePlaying(pause: Bool) {
+    public func didPausePlaying() {
         print("FullscreenMediaViewController didPausePlaying")
     }
 }

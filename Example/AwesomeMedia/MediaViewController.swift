@@ -38,15 +38,15 @@ extension MediaViewController: AwesomeMediaPlayerDelegate {
         print("MediaViewController didChangeSlider(\(to))")
     }
     
-    public func didStopPlaying(stop: Bool) {
+    public func didStopPlaying() {
         print("MediaViewController didStopPlaying")
     }
     
-    public func didStartPlaying(start: Bool) {
+    public func didStartPlaying() {
         print("MediaViewController didStartPlaying")
     }
     
-    public func didPausePlaying(pause: Bool) {
+    public func didPausePlaying() {
         print("MediaViewController didPausePlaying")
     }
     
