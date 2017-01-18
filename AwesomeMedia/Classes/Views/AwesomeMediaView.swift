@@ -39,7 +39,7 @@ open class AwesomeMediaView: UIView {
 
     open override func awakeFromNib() {
         //Video layer
-        self.layer.insertSublayer(AwesomeMedia.shared.avPlayerLayer, at: 0)
+        addPlayerLayer()
         self.layer.masksToBounds = true
         
         //Controls
@@ -49,8 +49,6 @@ open class AwesomeMediaView: UIView {
         timeSlider?.addTarget(self, action: #selector(AwesomeMediaView.timeSliderEndedUpdating(_:)), for: .touchUpOutside)
         
         playButton?.addTarget(self, action: #selector(AwesomeMediaView.togglePlay(_:)), for: .touchUpInside)
-        
-        fullscreenButton?.addTarget(self, action: #selector(AwesomeMediaView.toggleFullscreen(_:)), for: .touchUpInside)
         
         forwardButton?.addTarget(self, action: #selector(AwesomeMediaView.seekForward(_:)), for: .touchUpInside)
         rewindButton?.addTarget(self, action: #selector(AwesomeMediaView.seekBackward(_:)), for: .touchUpInside)
@@ -67,6 +65,10 @@ open class AwesomeMediaView: UIView {
         super.layoutSublayers(of: layer)
         AwesomeMedia.shared.avPlayerLayer.frame = CGRect(x: 0, y: 0, width: self.bounds.size.width, height: self.bounds.size.height)
     }
+    
+    open func addPlayerLayer(){
+        self.layer.insertSublayer(AwesomeMedia.shared.avPlayerLayer, at: 0)
+    }
 }
 
 // MARK: - Events
@@ -75,6 +77,9 @@ extension AwesomeMediaView {
     
     open func prepareMedia(withUrl url: URL?, replaceCurrent: Bool = false, startPlaying: Bool = false) {
         AwesomeMedia.shared.prepareMedia(withUrl: url, replaceCurrent: replaceCurrent, startPlaying: startPlaying)
+        
+        playButton?.isSelected = AwesomeMedia.shared.playerIsPlaying
+        mediaTimeHasUpdated()
     }
     
     // MARK: - Touches
@@ -155,29 +160,6 @@ extension AwesomeMediaView {
     @IBAction open func timeSliderEndedUpdating(_ sender: AnyObject){
         isSeeking = false
         AwesomeMedia.shared.endSeeking(timeSlider?.value ?? 0)
-    }
-    
-    // MARK: - Fullscreen
-    
-    @IBAction open func toggleFullscreen(_ sender: AnyObject){
-        guard let fullscreenButton = fullscreenButton else {
-            return
-        }
-        fullscreenButton.isSelected = !fullscreenButton.isSelected
-        
-        if fullscreenButton.isSelected {
-            fullscreen(sender)
-        }else{
-            smallscreen(sender)
-        }
-    }
-    
-    @IBAction open func fullscreen(_ sender: AnyObject){
-        
-    }
-    
-    @IBAction open func smallscreen(_ sender: AnyObject){
-        
     }
     
     // MARK: - Controls
@@ -290,7 +272,7 @@ extension AwesomeMediaView {
         
     }
     
-    open func mediaTimeHasUpdated(_ notification: Notification) {
+    open func mediaTimeHasUpdated(_ notification: Notification? = nil) {
         guard let currentItem = AwesomeMedia.shared.avPlayer.currentItem else {
             return
         }

@@ -9,7 +9,7 @@
 import UIKit
 import AwesomeMedia
 
-class ViewController: UIViewController {
+class MediaViewController: UIViewController {
 
     @IBOutlet weak var mediaView: AwesomeMediaView!
     
@@ -21,34 +21,33 @@ class ViewController: UIViewController {
         mediaView.prepareMedia(withUrl: URL(string: "http://overmind2.mindvalleyacademy.com/api/v1/assets/267bb3c6-d042-40ea-b1bd-9c9325c413eb.m3u8")!)
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        mediaView.addPlayerLayer()
     }
 }
 
-extension UIViewController: AwesomeMediaPlayerDelegate {
-    
+extension MediaViewController: AwesomeMediaPlayerDelegate {
     
     public func didChangeSpeed(to: Float) {
-        // do anything (tracking)
+        print("MediaViewController didChangeSpeed(\(to))")
     }
     
     public func didChangeSlider(to: Float) {
-        
+        print("MediaViewController didChangeSlider(\(to))")
     }
     
     public func didStopPlaying(stop: Bool) {
-        
+        print("MediaViewController didStopPlaying")
     }
     
     public func didStartPlaying(start: Bool) {
-        
+        print("MediaViewController didStartPlaying")
     }
     
     public func didPausePlaying(pause: Bool) {
-        
+        print("MediaViewController didPausePlaying")
     }
-    
-
     
 }

@@ -150,7 +150,7 @@ extension AwesomeMedia {
         
         //in case it's playing the same URL, only replace if is either paused or we are forcing replacing
         if playHistory.last == url {
-            if avPlayer.rate == 0 || (avPlayer.rate != 0 && replaceCurrent) {
+            if avPlayer.rate != 0 && replaceCurrent {
                 avPlayer.replaceCurrentItem(with: playerItem)
                 log("replaced current item with url \(url)")
             }
