@@ -32,7 +32,7 @@
                                         <rect key="frame" x="0.0" y="186" width="375" height="44"/>
                                         <subviews>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="HLJ-ZS-YyE">
-                                                <rect key="frame" x="88" y="8" width="179" height="31"/>
+                                                <rect key="frame" x="89" y="8" width="178" height="31"/>
                                             </slider>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a9R-eS-UiD">
                                                 <rect key="frame" x="8" y="8" width="41" height="30"/>
@@ -53,7 +53,7 @@
                                                 <state key="normal" title="Enlarge"/>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="13:12" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qRF-uk-GU6">
-                                                <rect key="frame" x="57" y="13" width="25.5" height="21"/>
+                                                <rect key="frame" x="57" y="13" width="26" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="21" id="diy-lA-VkG"/>
                                                 </constraints>
@@ -62,7 +62,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="13:12" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jid-Qa-Q4M">
-                                                <rect key="frame" x="273" y="13" width="25.5" height="21"/>
+                                                <rect key="frame" x="273" y="13" width="26" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="21" id="zCM-Lh-FI4"/>
                                                 </constraints>

@@ -11,6 +11,7 @@
 		0A58303D1E2C71160078BF1C /* AwesomeMediaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A58303C1E2C71160078BF1C /* AwesomeMediaView.swift */; };
 		0A5830451E2CEA330078BF1C /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5830441E2CEA330078BF1C /* Extensions.swift */; };
 		0A5830481E2F14530078BF1C /* AwesomeMedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5830471E2F14530078BF1C /* AwesomeMedia.swift */; };
+		0A58304B1E2F2C580078BF1C /* AwesomeMediaPlayerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A58304A1E2F2C580078BF1C /* AwesomeMediaPlayerDelegate.swift */; };
 		0AEC5E158587A80B63F256F71D698430 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
 		504AD97038280D7BF3C1D298DFBA0965 /* AwesomeMedia-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D4B69033E9CD4957F1BB7C9AA60575AD /* AwesomeMedia-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		51C2FEEEF7F2446ABC0336098C44E3EB /* Pods-AwesomeMedia_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB5C93EE2E2E1EB3219B21FC03EDEAC /* Pods-AwesomeMedia_Tests-dummy.m */; };
@@ -35,6 +36,7 @@
 		0A58303C1E2C71160078BF1C /* AwesomeMediaView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AwesomeMediaView.swift; sourceTree = "<group>"; };
 		0A5830441E2CEA330078BF1C /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		0A5830471E2F14530078BF1C /* AwesomeMedia.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AwesomeMedia.swift; sourceTree = "<group>"; };
+		0A58304A1E2F2C580078BF1C /* AwesomeMediaPlayerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AwesomeMediaPlayerDelegate.swift; sourceTree = "<group>"; };
 		155597C4AC8668C4898DA341DE4CEEC9 /* AwesomeMedia-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AwesomeMedia-prefix.pch"; sourceTree = "<group>"; };
 		1B07B6F1D77DABA663156DDD928B1E63 /* Pods-AwesomeMedia_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-AwesomeMedia_Tests-umbrella.h"; sourceTree = "<group>"; };
 		1B3171463E824BE827794C980FB280BC /* Pods-AwesomeMedia_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-AwesomeMedia_Tests-resources.sh"; sourceTree = "<group>"; };
@@ -127,6 +129,14 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		0A5830491E2F2C580078BF1C /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				0A58304A1E2F2C580078BF1C /* AwesomeMediaPlayerDelegate.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		4DCAB0E88D8B4587A32C1356CCBD5540 /* Pods-AwesomeMedia_Example */ = {
 			isa = PBXGroup;
 			children = (
@@ -167,6 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				0A58303A1E2C69440078BF1C /* Library */,
+				0A5830491E2F2C580078BF1C /* Protocols */,
 				0A5830391E2C69440078BF1C /* Controllers */,
 				0A58303B1E2C69440078BF1C /* Views */,
 				0A5830381E2C69440078BF1C /* Cells */,
@@ -386,6 +397,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A58304B1E2F2C580078BF1C /* AwesomeMediaPlayerDelegate.swift in Sources */,
 				0A5830481E2F14530078BF1C /* AwesomeMedia.swift in Sources */,
 				9B8CB45D8E061872BDF6EFF68DA8B883 /* AwesomeMedia-dummy.m in Sources */,
 				0A5830451E2CEA330078BF1C /* Extensions.swift in Sources */,
