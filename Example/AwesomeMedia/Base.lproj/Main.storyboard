@@ -52,7 +52,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <state key="normal" title="Enlarge"/>
                                                 <connections>
-                                                    <segue destination="dzY-E0-Wev" kind="presentation" modalTransitionStyle="crossDissolve" id="Aer-7M-M8G"/>
+                                                    <segue destination="dzY-E0-Wev" kind="presentation" identifier="presentFullScreenSegue" modalTransitionStyle="crossDissolve" id="Aer-7M-M8G"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="13:12" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qRF-uk-GU6">

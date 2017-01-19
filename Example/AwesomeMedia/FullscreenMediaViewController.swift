@@ -16,6 +16,17 @@ class FullscreenMediaViewController: AwesomeMediaViewController {
         
         AwesomeMedia.shared.playerDelegate = self
         prepareMedia(withUrl: URL(string: "http://overmind2.mindvalleyacademy.com/api/v1/assets/267bb3c6-d042-40ea-b1bd-9c9325c413eb.m3u8")!)
+        AwesomeMedia.shared.notificationCenter.addObserver(self, selector: #selector(FullscreenMediaViewController.myFuncPortrait), name: NSNotification.Name(rawValue: kAwesomeMediaIsPortrait), object: nil)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+//        AwesomeMedia.shared.notificationCenter.removeObserver(self)
+    }
+    
+    func myFuncPortrait() {
+        self.dismiss(animated: true, completion: nil)
     }
 }
 

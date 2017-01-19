@@ -53,6 +53,8 @@ open class AwesomeMediaView: UIView {
         forwardButton?.addTarget(self, action: #selector(AwesomeMediaView.seekForward(_:)), for: .touchUpInside)
         rewindButton?.addTarget(self, action: #selector(AwesomeMediaView.seekBackward(_:)), for: .touchUpInside)
         
+        fullscreenButton?.addTarget(self, action: #selector(AwesomeMediaView.showOrHideFullScreen(_:)), for: .touchUpInside)
+        
         //observers
         addMediaObservers()
     }
@@ -214,7 +216,34 @@ extension AwesomeMediaView {
         }
     }
     
+    
+    open func showOrHideFullScreen(_ sender: AnyObject) {
+        
+        if(AwesomeMedia.shared.isLandscapeMode) {
+            becomePortrait()
+        } else {
+            becomeLandscape()
+        }
+        
+    }
+    
 }
+
+// MARK: - App orientation
+
+extension AwesomeMediaView {
+    
+    open func becomeLandscape(){
+        AwesomeMedia.shared.isLandscapeMode = true
+        UIDevice.current.setValue(Int(UIInterfaceOrientation.landscapeRight.rawValue), forKey: "orientation")
+    }
+    
+    open func becomePortrait() {
+        AwesomeMedia.shared.isLandscapeMode = false
+        UIDevice.current.setValue(Int(UIInterfaceOrientation.portrait.rawValue), forKey: "orientation")
+    }
+}
+
 
 // MARK: - Observers
 

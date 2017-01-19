@@ -22,6 +22,8 @@ public let kAwesomeMediaStopedBuffering = "kAwesomeMediaStopedBuffering"
 public let kAwesomeMediaTimeUpdated = "kAwesomeMediaTimeUpdated"
 public let kAwesomeMediaTimeStartedUpdating = "kAwesomeMediaTimeStartedUpdating"
 public let kAwesomeMediaTimeFinishedUpdating = "kAwesomeMediaTimeFinishedUpdating"
+public let kAwesomeMediaIsPortrait = "kAwesomeMediaIsPortrait"
+public let kAwesomeMediaIsLandscape = "kAwesomeMediaIsLandscape"
 
 public class AwesomeMedia: NSObject {
     
@@ -35,6 +37,7 @@ public class AwesomeMedia: NSObject {
     
     public weak var playerDelegate: AwesomeMediaPlayerDelegate?
     
+    public var isLandscapeMode: Bool = false
     public let avPlayer = AVPlayer()
     public var avPlayerLayer = AVPlayerLayer()
     public let notificationCenter = NotificationCenter()
@@ -75,6 +78,12 @@ extension AwesomeMedia {
     public func addObservers(){
         addBufferObserver()
         addTimeObserver()
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(AwesomeMedia.rotated),
+                                               name: NSNotification.Name.UIDeviceOrientationDidChange,
+                                               object: nil)
+
         
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(AwesomeMedia.didFinishPlaying(_:)),
@@ -196,6 +205,19 @@ extension AwesomeMedia {
         notify(kAwesomeMediaStartedPlaying)
         
         log("started playing")
+    }
+    
+    func rotated() {
+        if UIDeviceOrientationIsLandscape(UIDevice.current.orientation) {
+            AwesomeMedia.shared.isLandscapeMode = true
+            notify(kAwesomeMediaIsLandscape)
+        }
+        
+        if UIDeviceOrientationIsPortrait(UIDevice.current.orientation) {
+            AwesomeMedia.shared.isLandscapeMode = false
+            notify(kAwesomeMediaIsPortrait)
+        }
+        
     }
     
     public func pause(){
