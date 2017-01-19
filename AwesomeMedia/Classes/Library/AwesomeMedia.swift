@@ -96,6 +96,20 @@ extension AwesomeMedia {
                                                object: avPlayer.currentItem)
     }
     
+    // MARK: - Orientation Observers
+    
+    public func addOrientationObserverGoingLandscape(observer aObserver: Any, selector: Selector) {
+        AwesomeMedia.shared.notificationCenter.addObserver(aObserver, selector: selector, name: NSNotification.Name(rawValue: kAwesomeMediaIsGoingLandscape), object: nil)
+    }
+    
+    public func addOrientationObserverGoingPortrait(observer aObserver: Any, selector: Selector) {
+        AwesomeMedia.shared.notificationCenter.addObserver(aObserver, selector: selector, name: NSNotification.Name(rawValue: kAwesomeMediaIsGoingPortrait), object: nil)
+    }
+    
+    public func removeOrientationObservers(_ observer: Any) {
+        AwesomeMedia.shared.notificationCenter.removeObserver(observer)
+    }
+    
     // MARK: - Time observer
     
     fileprivate func removeTimeObserver(){

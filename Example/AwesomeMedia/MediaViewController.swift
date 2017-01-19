@@ -23,7 +23,7 @@ class MediaViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        AwesomeMedia.shared.notificationCenter.addObserver(self, selector: #selector(MediaViewController.myFuncLand), name: NSNotification.Name(rawValue: kAwesomeMediaIsGoingLandscape), object: nil)
+        AwesomeMedia.shared.addOrientationObserverGoingLandscape(observer: self, selector: #selector(MediaViewController.goToLandscapeController))
         
         mediaView.addPlayerLayer()
     }
@@ -31,10 +31,10 @@ class MediaViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        AwesomeMedia.shared.notificationCenter.removeObserver(self)
+        AwesomeMedia.shared.removeOrientationObservers(self)
     }
     
-    func myFuncLand() {
+    func goToLandscapeController() {
         performSegue(withIdentifier: "presentFullScreenSegue", sender: self)
     }
 

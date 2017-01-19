@@ -21,17 +21,16 @@ class FullscreenMediaViewController: AwesomeMediaViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-         AwesomeMedia.shared.notificationCenter.addObserver(self, selector: #selector(FullscreenMediaViewController.myFuncPortrait), name: NSNotification.Name(rawValue: kAwesomeMediaIsGoingPortrait), object: nil)
-        
+        AwesomeMedia.shared.addOrientationObserverGoingPortrait(observer: self, selector: #selector(FullscreenMediaViewController.returnToPortraitController))
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        AwesomeMedia.shared.notificationCenter.removeObserver(self)
+        AwesomeMedia.shared.removeOrientationObservers(self)
     }
     
-    func myFuncPortrait() {
+    func returnToPortraitController() {
         self.dismiss(animated: true, completion: nil)
     }
     
