@@ -19,11 +19,11 @@ class MediaViewController: UIViewController {
         AwesomeMedia.shared.playerDelegate = self
         AwesomeMedia.showLogs = true
         mediaView.prepareMedia(withUrl: URL(string: "http://overmind2.mindvalleyacademy.com/api/v1/assets/267bb3c6-d042-40ea-b1bd-9c9325c413eb.m3u8")!)
-        AwesomeMedia.shared.notificationCenter.addObserver(self, selector: #selector(MediaViewController.myFuncLand), name: NSNotification.Name(rawValue: kAwesomeMediaIsLandscape), object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        AwesomeMedia.shared.notificationCenter.addObserver(self, selector: #selector(MediaViewController.myFuncLand), name: NSNotification.Name(rawValue: kAwesomeMediaIsGoingLandscape), object: nil)
         
         mediaView.addPlayerLayer()
     }
@@ -31,11 +31,22 @@ class MediaViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-//        AwesomeMedia.shared.notificationCenter.removeObserver(self)
+        AwesomeMedia.shared.notificationCenter.removeObserver(self)
     }
     
     func myFuncLand() {
         performSegue(withIdentifier: "presentFullScreenSegue", sender: self)
+    }
+
+}
+
+extension MediaViewController {
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.portrait
+    }
+    
+    override var shouldAutorotate: Bool {
+        return false
     }
 }
 
