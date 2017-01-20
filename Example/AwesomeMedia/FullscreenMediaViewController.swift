@@ -16,17 +16,33 @@ class FullscreenMediaViewController: AwesomeMediaViewController {
         
         AwesomeMedia.shared.playerDelegate = self
         prepareMedia(withUrl: URL(string: "http://overmind2.mindvalleyacademy.com/api/v1/assets/267bb3c6-d042-40ea-b1bd-9c9325c413eb.m3u8")!)
-        AwesomeMedia.shared.notificationCenter.addObserver(self, selector: #selector(FullscreenMediaViewController.myFuncPortrait), name: NSNotification.Name(rawValue: kAwesomeMediaIsPortrait), object: nil)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        AwesomeMedia.shared.addOrientationObserverGoingPortrait(observer: self, selector: #selector(FullscreenMediaViewController.returnToPortraitController))
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-//        AwesomeMedia.shared.notificationCenter.removeObserver(self)
+        AwesomeMedia.shared.removeOrientationObservers(self)
     }
     
-    func myFuncPortrait() {
+    func returnToPortraitController() {
         self.dismiss(animated: true, completion: nil)
+    }
+    
+}
+
+extension FullscreenMediaViewController {
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.landscape
+    }
+    
+    override var shouldAutorotate: Bool {
+        return false
     }
 }
 

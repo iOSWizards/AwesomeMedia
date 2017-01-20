@@ -31,3 +31,13 @@ extension AwesomeMediaViewController {
     }
     
 }
+
+extension AwesomeMediaViewController {
+    override open var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.landscape
+    }
+    
+    override open var shouldAutorotate: Bool {
+        return false
+    }
+}
