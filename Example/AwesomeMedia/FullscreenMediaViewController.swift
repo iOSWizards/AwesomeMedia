@@ -38,6 +38,9 @@ class FullscreenMediaViewController: AwesomeMediaViewController {
 
 extension FullscreenMediaViewController {
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        if(UIDevice.current.userInterfaceIdiom == .pad) {
+            return UIInterfaceOrientationMask.all
+        }
         return UIInterfaceOrientationMask.landscape
     }
     
