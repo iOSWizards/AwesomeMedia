@@ -10,5 +10,5 @@ language: objective-c
 # - gem install cocoapods # Since Travis is not always on latest version
 # - pod install --project-directory=Example
 script:
-- set -o pipefail && xcodebuild test -workspace Example/AwesomeMedia.xcworkspace -scheme AwesomeMedia-Example -sdk iphonesimulator10.2 ONLY_ACTIVE_ARCH=NO | xcpretty
-- pod lib lint
+- xcodebuild -workspace Example/AwesomeMedia.xcworkspace -scheme AwesomeMedia #-sdk iphonesimulator9.3 ONLY_ACTIVE_ARCH=NO | xcpretty
+- xcodebuild CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO -workspace Example/AwesomeMedia.xcworkspace -scheme AwesomeMedia-Example
