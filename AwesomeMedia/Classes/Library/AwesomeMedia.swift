@@ -12,18 +12,20 @@ import AVFoundation
 import AudioToolbox
 import MediaPlayer
 
-public let kAwesomeMediaStartedPlaying = "kAwesomeMediaStartedPlaying"
-public let kAwesomeMediaPausedPlaying = "kAwesomeMediaPausedPlaying"
-public let kAwesomeMediaStopedPlaying = "kAwesomeMediaStopedPlaying"
-public let kAwesomeMediaFinishedPlaying = "kAwesomeMediaFinishedPlaying"
-public let kAwesomeMediaFailedPlaying = "kAwesomeMediaFailedPlaying"
-public let kAwesomeMediaStartedBuffering = "kAwesomeMediaStartedBuffering"
-public let kAwesomeMediaStopedBuffering = "kAwesomeMediaStopedBuffering"
-public let kAwesomeMediaTimeUpdated = "kAwesomeMediaTimeUpdated"
-public let kAwesomeMediaTimeStartedUpdating = "kAwesomeMediaTimeStartedUpdating"
-public let kAwesomeMediaTimeFinishedUpdating = "kAwesomeMediaTimeFinishedUpdating"
-public let kAwesomeMediaIsGoingPortrait = "kAwesomeMediaIsPortrait"
-public let kAwesomeMediaIsGoingLandscape = "kAwesomeMediaIsLandscape"
+public enum AwesomeMediaEvent: String {
+    case startedPlaying = "startedPlaying"
+    case pausedPlaying = "pausedPlaying"
+    case stopedPlaying = "stopedPlaying"
+    case finishedPlaying = "finishedPlaying"
+    case failedPlaying = "failedPlaying"
+    case startedBuffering = "startedBuffering"
+    case stopedBuffering = "stopedBuffering"
+    case timeUpdated = "timeUpdated"
+    case timeStartedUpdating = "timeStartedUpdating"
+    case timeFinishedUpdating = "timeFinishedUpdating"
+    case isGoingPortrait = "isPortrait"
+    case isGoingLandscape = "isLandscape"
+}
 
 public class AwesomeMedia: NSObject {
     
@@ -58,14 +60,19 @@ public class AwesomeMedia: NSObject {
         return lastUrl == url
     }
     
-    public func notify(_ name: String, object: AnyObject? = nil) {
-        notificationCenter.post(name: Notification.Name(rawValue: name), object: object)
+    public func notify(_ event: AwesomeMediaEvent, object: AnyObject? = nil) {
+        notificationCenter.post(name: Notification.Name(rawValue: event.rawValue), object: object)
     }
     
     fileprivate func log(_ message: String){
         if AwesomeMedia.showLogs {
             print("AwesomeMedia \(message)")
         }
+    }
+    
+    open static func addObserver(_ observer: Any, selector: Selector, event: AwesomeMediaEvent){
+        
+        AwesomeMedia.shared.notificationCenter.addObserver(observer, selector: selector, name: NSNotification.Name(rawValue: event.rawValue), object: nil)
     }
 }
 
@@ -99,11 +106,11 @@ extension AwesomeMedia {
     // MARK: - Orientation Observers
     
     public func addOrientationObserverGoingLandscape(observer aObserver: Any, selector: Selector) {
-        AwesomeMedia.shared.notificationCenter.addObserver(aObserver, selector: selector, name: NSNotification.Name(rawValue: kAwesomeMediaIsGoingLandscape), object: nil)
+        AwesomeMedia.addObserver(aObserver, selector: selector, event: .isGoingLandscape)
     }
     
     public func addOrientationObserverGoingPortrait(observer aObserver: Any, selector: Selector) {
-        AwesomeMedia.shared.notificationCenter.addObserver(aObserver, selector: selector, name: NSNotification.Name(rawValue: kAwesomeMediaIsGoingPortrait), object: nil)
+        AwesomeMedia.addObserver(aObserver, selector: selector, event: .isGoingPortrait)
     }
     
     public func removeOrientationObservers(_ observer: Any) {
@@ -132,7 +139,7 @@ extension AwesomeMedia {
     fileprivate func observeTime(_ elapsedTime: CMTime) {
         let duration = CMTimeGetSeconds(AwesomeMedia.shared.avPlayer.currentItem!.duration)
         if duration.isFinite {
-            notify(kAwesomeMediaTimeUpdated)
+            notify(.timeUpdated)
         }
     }
     
@@ -150,10 +157,10 @@ extension AwesomeMedia {
         
         if context == &playbackLikelyToKeepUpContext {
             if AwesomeMedia.shared.avPlayer.currentItem!.isPlaybackLikelyToKeepUp {
-                notify(kAwesomeMediaStopedBuffering)
+                notify(.stopedBuffering)
                 updateMediaInfo()
             } else {
-                notify(kAwesomeMediaStartedBuffering)
+                notify(.startedBuffering)
             }
         }
     }
@@ -216,18 +223,18 @@ extension AwesomeMedia {
         updateMediaInfo()
         
         playerDelegate?.didStartPlaying()
-        notify(kAwesomeMediaStartedPlaying)
+        notify(.startedPlaying)
         
         log("started playing")
     }
     
     func rotated() {
         if UIDeviceOrientationIsLandscape(UIDevice.current.orientation) {
-            notify(kAwesomeMediaIsGoingLandscape)
+            notify(.isGoingLandscape)
         }
         
         if UIDeviceOrientationIsPortrait(UIDevice.current.orientation) {
-            notify(kAwesomeMediaIsGoingPortrait)
+            notify(.isGoingPortrait)
         }
         
     }
@@ -241,7 +248,7 @@ extension AwesomeMedia {
         avPlayer.pause()
         
         playerDelegate?.didPausePlaying()
-        notify(kAwesomeMediaPausedPlaying)
+        notify(.pausedPlaying)
         
         log("paused")
     }
@@ -257,17 +264,17 @@ extension AwesomeMedia {
         removePlayerControls()
         
         playerDelegate?.didStopPlaying()
-        notify(kAwesomeMediaStopedPlaying)
+        notify(.stopedPlaying)
         
         log("stopped playing")
     }
     
     public func didFinishPlaying(_ sender: AnyObject){
-        notify(kAwesomeMediaFinishedPlaying)
+        notify(.finishedPlaying)
     }
     
     public func didFailPlaying(_ sender: AnyObject){
-        notify(kAwesomeMediaFailedPlaying)
+        notify(.failedPlaying)
     }
     
     public func togglePlay(){
@@ -347,7 +354,7 @@ extension AwesomeMedia {
         }
         
         playerDelegate?.didChangeSlider(to: timeSliderValue)
-        notify(kAwesomeMediaTimeUpdated, object: currentItem)
+        notify(.timeUpdated, object: currentItem)
         
         log("time slider updated with value \(timeSliderValue)")
     }
@@ -359,7 +366,7 @@ extension AwesomeMedia {
         
         pause()
         
-        notify(kAwesomeMediaTimeStartedUpdating, object: currentItem)
+        notify(.timeStartedUpdating, object: currentItem)
         
         log("time slider began seeking")
     }
@@ -376,7 +383,7 @@ extension AwesomeMedia {
         })
         
         playerDelegate?.didChangeSlider(to: timeSliderValue)
-        notify(kAwesomeMediaTimeFinishedUpdating, object: currentItem)
+        notify(.timeFinishedUpdating, object: currentItem)
         
         log("time slider ended seeking with value \(timeSliderValue)")
     }
@@ -389,7 +396,7 @@ extension AwesomeMedia {
         let time = CMTimeMakeWithSeconds(CMTimeGetSeconds(avPlayer.currentTime()) + seconds, avPlayer.currentTime().timescale)
         avPlayer.currentItem?.seek(to: time)
         
-        notify(kAwesomeMediaTimeUpdated, object: currentItem)
+        notify(.timeUpdated, object: currentItem)
         
         log("seek with seconds \(seconds)")
     }
@@ -409,7 +416,7 @@ extension AwesomeMedia {
         
         avPlayer.currentItem?.seek(to: CMTime(seconds: time, preferredTimescale: avPlayer.currentTime().timescale))
         
-        notify(kAwesomeMediaTimeUpdated, object: currentItem)
+        notify(.timeUpdated, object: currentItem)
         
         log("seek to time \(time)")
     }

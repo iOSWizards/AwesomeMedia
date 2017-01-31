@@ -17,7 +17,7 @@ AwesomeMedia is available through [CocoaPods](http://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod "AwesomeMedia", git: 'https://github.com/iOSWizards/AwesomeMedia.git', tag: '0.1.0'
+pod "AwesomeMedia", git: 'https://github.com/iOSWizards/AwesomeMedia.git', tag: '0.1.1'
 ```
 
 ## Author

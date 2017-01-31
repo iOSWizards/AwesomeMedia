@@ -16,15 +16,15 @@ open class AwesomeMediaView: UIView {
     
     @IBOutlet open weak var controlsView: UIView?
     @IBOutlet open weak var mediaView: UIView?
-    @IBOutlet weak var timeSlider: UISlider?
-    @IBOutlet weak var minTimeLabel: UILabel?
-    @IBOutlet weak var maxTimeLabel: UILabel?
-    @IBOutlet weak var playButton: UIButton?
-    @IBOutlet weak var speedButton: UIButton?
-    @IBOutlet weak var fullscreenButton: UIButton?
-    @IBOutlet weak var markersButton: UIButton?
-    @IBOutlet weak var forwardButton: UIButton?
-    @IBOutlet weak var rewindButton: UIButton?
+    @IBOutlet open weak var timeSlider: UISlider?
+    @IBOutlet open weak var minTimeLabel: UILabel?
+    @IBOutlet open weak var maxTimeLabel: UILabel?
+    @IBOutlet open weak var playButton: UIButton?
+    @IBOutlet open weak var speedButton: UIButton?
+    @IBOutlet open weak var fullscreenButton: UIButton?
+    @IBOutlet open weak var markersButton: UIButton?
+    @IBOutlet open weak var forwardButton: UIButton?
+    @IBOutlet open weak var rewindButton: UIButton?
     
     // MARK: - Configurations
     
@@ -226,14 +226,14 @@ extension AwesomeMediaView {
     
     open func addMediaObservers(){
         // Add observers
-        AwesomeMedia.shared.notificationCenter.addObserver(self, selector: #selector(AwesomeMediaView.mediaStartedBuffering(_:)), name: NSNotification.Name(rawValue: kAwesomeMediaStartedBuffering), object: nil)
-        AwesomeMedia.shared.notificationCenter.addObserver(self, selector: #selector(AwesomeMediaView.mediaStopedBuffering(_:)), name: NSNotification.Name(rawValue: kAwesomeMediaStopedBuffering), object: nil)
-        AwesomeMedia.shared.notificationCenter.addObserver(self, selector: #selector(AwesomeMediaView.mediaStartedPlaying(_:)), name: NSNotification.Name(rawValue: kAwesomeMediaStartedPlaying), object: nil)
-        AwesomeMedia.shared.notificationCenter.addObserver(self, selector: #selector(AwesomeMediaView.mediaPausedPlaying(_:)), name: NSNotification.Name(rawValue: kAwesomeMediaPausedPlaying), object: nil)
-        AwesomeMedia.shared.notificationCenter.addObserver(self, selector: #selector(AwesomeMediaView.mediaStopedPlaying(_:)), name: NSNotification.Name(rawValue: kAwesomeMediaStopedPlaying), object: nil)
-        AwesomeMedia.shared.notificationCenter.addObserver(self, selector: #selector(AwesomeMediaView.mediaFailedPlaying(_:)), name: NSNotification.Name(rawValue: kAwesomeMediaFailedPlaying), object: nil)
-        AwesomeMedia.shared.notificationCenter.addObserver(self, selector: #selector(AwesomeMediaView.mediaFinishedPlaying(_:)), name: NSNotification.Name(rawValue: kAwesomeMediaFinishedPlaying), object: nil)
-        AwesomeMedia.shared.notificationCenter.addObserver(self, selector: #selector(AwesomeMediaView.mediaTimeHasUpdated(_:)), name: NSNotification.Name(rawValue: kAwesomeMediaTimeUpdated), object: nil)
+        AwesomeMedia.addObserver(self, selector: #selector(AwesomeMediaView.mediaStartedBuffering(_:)), event: .startedBuffering)
+        AwesomeMedia.addObserver(self, selector: #selector(AwesomeMediaView.mediaStopedBuffering(_:)), event: .stopedBuffering)
+        AwesomeMedia.addObserver(self, selector: #selector(AwesomeMediaView.mediaStartedPlaying(_:)), event: .startedPlaying)
+        AwesomeMedia.addObserver(self, selector: #selector(AwesomeMediaView.mediaPausedPlaying(_:)), event: .pausedPlaying)
+        AwesomeMedia.addObserver(self, selector: #selector(AwesomeMediaView.mediaStopedPlaying(_:)), event: .stopedPlaying)
+        AwesomeMedia.addObserver(self, selector: #selector(AwesomeMediaView.mediaFailedPlaying(_:)), event: .failedPlaying)
+        AwesomeMedia.addObserver(self, selector: #selector(AwesomeMediaView.mediaFinishedPlaying(_:)), event: .finishedPlaying)
+        AwesomeMedia.addObserver(self, selector: #selector(AwesomeMediaView.mediaTimeHasUpdated(_:)), event: .timeUpdated)
     }
     
     open func mediaStartedBuffering(_ notification: Notification) {
