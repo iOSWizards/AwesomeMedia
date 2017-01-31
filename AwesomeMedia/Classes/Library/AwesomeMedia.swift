@@ -71,9 +71,13 @@ public class AwesomeMedia: NSObject {
     }
     
     open static func addObserver(_ observer: Any, selector: Selector, event: AwesomeMediaEvent){
-        
         AwesomeMedia.shared.notificationCenter.addObserver(observer, selector: selector, name: NSNotification.Name(rawValue: event.rawValue), object: nil)
     }
+    
+    open static func removeObserver(_ observer: Any){
+        AwesomeMedia.shared.notificationCenter.removeObserver(observer)
+    }
+    
 }
 
 
