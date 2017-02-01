@@ -55,6 +55,8 @@ open class AwesomeMediaView: UIView {
         forwardButton?.addTarget(self, action: #selector(AwesomeMediaView.seekForward(_:)), for: .touchUpInside)
         rewindButton?.addTarget(self, action: #selector(AwesomeMediaView.seekBackward(_:)), for: .touchUpInside)
         
+        speedButton?.addTarget(self, action: #selector(AwesomeMediaView.toggleSpeed(_:)), for: .touchUpInside)
+        
         //observers
         addMediaObservers()
     }
