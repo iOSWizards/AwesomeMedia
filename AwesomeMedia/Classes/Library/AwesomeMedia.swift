@@ -47,6 +47,19 @@ public class AwesomeMedia: NSObject {
     public var playerIsPlaying: Bool {
         return avPlayer.rate > 0
     }
+    public var isPlayingVideo: Bool {
+        guard avPlayer.rate > 0 else {
+            return false
+        }
+        
+        if let currentItem = avPlayer.currentItem {
+            if currentItem.tracks.count > 0 {
+                return currentItem.tracks[0].currentVideoFrameRate != 0
+            }
+        }
+        
+        return false
+    }
     
     public static func isPlaying(_ url: URL?) -> Bool {
         if AwesomeMedia.shared.avPlayer.rate == 0 {
@@ -60,30 +73,35 @@ public class AwesomeMedia: NSObject {
         return lastUrl == url
     }
     
-    public func notify(_ event: AwesomeMediaEvent, object: AnyObject? = nil) {
-        notificationCenter.post(name: Notification.Name(rawValue: event.rawValue), object: object)
-    }
-    
     fileprivate func log(_ message: String){
         if AwesomeMedia.showLogs {
             print("AwesomeMedia \(message)")
         }
     }
     
-    open static func addObserver(_ observer: Any, selector: Selector, event: AwesomeMediaEvent){
-        AwesomeMedia.shared.notificationCenter.addObserver(observer, selector: selector, name: NSNotification.Name(rawValue: event.rawValue), object: nil)
+    public static func applicationDidEnterBackground(_ application: UIApplication) {
+        if AwesomeMedia.shared.isPlayingVideo {
+            AwesomeMedia.shared.pause()
+        }
     }
-    
-    open static func removeObserver(_ observer: Any){
-        AwesomeMedia.shared.notificationCenter.removeObserver(observer)
-    }
-    
 }
 
 
 // MARK: - Observers
 
 extension AwesomeMedia {
+    
+    public func notify(_ event: AwesomeMediaEvent, object: AnyObject? = nil) {
+        notificationCenter.post(name: Notification.Name(rawValue: event.rawValue), object: object)
+    }
+    
+    public static func addObserver(_ observer: Any, selector: Selector, event: AwesomeMediaEvent){
+        AwesomeMedia.shared.notificationCenter.addObserver(observer, selector: selector, name: NSNotification.Name(rawValue: event.rawValue), object: nil)
+    }
+    
+    public static func removeObserver(_ observer: Any){
+        AwesomeMedia.shared.notificationCenter.removeObserver(observer)
+    }
     
     public func addObservers(){
         addBufferObserver()
@@ -232,7 +250,7 @@ extension AwesomeMedia {
         log("started playing")
     }
     
-    func rotated() {
+    public func rotated() {
         if UIDeviceOrientationIsLandscape(UIDevice.current.orientation) {
             notify(.isGoingLandscape)
         }
@@ -275,10 +293,12 @@ extension AwesomeMedia {
     
     public func didFinishPlaying(_ sender: AnyObject){
         notify(.finishedPlaying)
+        playerDelegate?.didFinishPlaying()
     }
     
     public func didFailPlaying(_ sender: AnyObject){
         notify(.failedPlaying)
+        playerDelegate?.didFailPlaying()
     }
     
     public func togglePlay(){

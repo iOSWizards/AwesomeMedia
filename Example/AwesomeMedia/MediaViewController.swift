@@ -72,4 +72,12 @@ extension MediaViewController: AwesomeMediaPlayerDelegate {
         print("MediaViewController didPausePlaying")
     }
     
+    public func didFinishPlaying() {
+        print("FullscreenMediaViewController didFinishPlaying")
+    }
+    
+    public func didFailPlaying() {
+        print("FullscreenMediaViewController didFailPlaying")
+    }
+    
 }

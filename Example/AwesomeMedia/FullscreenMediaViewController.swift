@@ -70,4 +70,20 @@ extension FullscreenMediaViewController: AwesomeMediaPlayerDelegate {
     public func didPausePlaying() {
         print("FullscreenMediaViewController didPausePlaying")
     }
+    
+    public func didFinishPlaying() {
+        print("FullscreenMediaViewController didFinishPlaying")
+    }
+    
+    public func didFailPlaying() {
+        print("FullscreenMediaViewController didFailPlaying")
+    }
 }
+
+extension FullscreenMediaViewController: AwesomeMediaViewDelegate {
+    
+    public func didToggleControls(show: Bool) {
+        print("FullscreenMediaViewController didToggleControls: \(show)")
+    }
+}
+

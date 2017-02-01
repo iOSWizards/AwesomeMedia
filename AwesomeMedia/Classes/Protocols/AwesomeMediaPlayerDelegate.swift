@@ -14,6 +14,8 @@ public protocol AwesomeMediaPlayerDelegate: class {
     func didStopPlaying()
     func didStartPlaying()
     func didPausePlaying()
+    func didFinishPlaying()
+    func didFailPlaying()
     func didChangeSlider(to: Float)
     
 }

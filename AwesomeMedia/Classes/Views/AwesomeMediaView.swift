@@ -36,6 +36,8 @@ open class AwesomeMediaView: UIView {
     @IBInspectable open var autoHideControlsTime: Int = 3
     @IBInspectable open var fullscreenOnLandscape: Bool = false
     @IBInspectable open var canToggleControls: Bool = true
+    
+    public weak var delegate: AwesomeMediaViewDelegate?
 
     open override func awakeFromNib() {
         //Video layer
@@ -212,6 +214,8 @@ extension AwesomeMediaView {
                 self.controlsView?.alpha = 0
             })
         }
+        
+        delegate?.didToggleControls(show: show)
     }
     
 }
