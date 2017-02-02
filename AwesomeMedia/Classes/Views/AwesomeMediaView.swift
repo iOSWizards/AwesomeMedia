@@ -37,6 +37,8 @@ open class AwesomeMediaView: UIView {
     @IBInspectable open var fullscreenOnLandscape: Bool = false
     @IBInspectable open var canToggleControls: Bool = true
     
+    public var viewModel = AwesomeMediaViewModel()
+    
     public weak var delegate: AwesomeMediaViewDelegate?
 
     open override func awakeFromNib() {
@@ -80,8 +82,10 @@ open class AwesomeMediaView: UIView {
 
 extension AwesomeMediaView {
     
-    open func prepareMedia(withUrl url: URL?, replaceCurrent: Bool = false, startPlaying: Bool = false) {
-        AwesomeMedia.shared.prepareMedia(withUrl: url, replaceCurrent: replaceCurrent, startPlaying: startPlaying)
+    open func setup(mediaPath: String, coverImagePath: String? = nil, authorName: String? = nil, title: String? = nil, downloadPath: String? = nil, mediaMarkers: [AwesomeMediaMarker]? = nil, showHours: Bool = false, replaceCurrent: Bool = false, startPlaying: Bool = false) {
+        viewModel.set(mediaPath: mediaPath, coverImagePath: coverImagePath, authorName: authorName, title: title, downloadPath: downloadPath, mediaMarkers: mediaMarkers, showHours: showHours)
+        
+        AwesomeMedia.shared.prepareMedia(withUrl: viewModel.mediaUrl, replaceCurrent: replaceCurrent, startPlaying: startPlaying)
         
         playButton?.isSelected = AwesomeMedia.shared.playerIsPlaying
         mediaTimeHasUpdated()

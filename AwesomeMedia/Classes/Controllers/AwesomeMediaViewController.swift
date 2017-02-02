@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 open class AwesomeMediaViewController: UIViewController, AwesomeMediaMarkersViewControllerDelegate {
 
@@ -31,14 +32,29 @@ open class AwesomeMediaViewController: UIViewController, AwesomeMediaMarkersView
     open func markerSelected(marker: AwesomeMediaMarker) {
         AwesomeMedia.shared.seek(toTime: marker.time)
     }
+    
+    // MARK: - Navigation
+    
+    override open func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let viewController = segue.destination as? AwesomeMediaMarkersViewController {
+            if let currentItem = AwesomeMedia.shared.avPlayer.currentItem {
+                var currentTime = CMTimeGetSeconds(currentItem.currentTime())
+                viewController.viewModel.currentTime = currentTime ?? 0
+            }
+            
+            viewController.viewModel.markers = self.mediaView.viewModel.mediaMarkers
+            viewController.viewModel.showHours = self.mediaView.viewModel.showHours
+            viewController.delegate = self
+        }
+    }
 }
 
 // MARK: - Events
 
 extension AwesomeMediaViewController {
     
-    open func prepareMedia(withUrl url: URL?, replaceCurrent: Bool = false, startPlaying: Bool = false) {
-        mediaView.prepareMedia(withUrl: url, replaceCurrent: replaceCurrent, startPlaying: startPlaying)
+    open func setup(mediaPath: String, coverImagePath: String? = nil, authorName: String? = nil, title: String? = nil, downloadPath: String? = nil, mediaMarkers: [AwesomeMediaMarker]? = nil, showHours: Bool = false, replaceCurrent: Bool = false, startPlaying: Bool = false) {
+        mediaView.setup(mediaPath: mediaPath, coverImagePath: coverImagePath, authorName: authorName, title: title, downloadPath: downloadPath, mediaMarkers: mediaMarkers, showHours: showHours, replaceCurrent: replaceCurrent, startPlaying: startPlaying)
     }
     
 }

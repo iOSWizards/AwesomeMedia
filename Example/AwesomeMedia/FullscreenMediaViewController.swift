@@ -15,7 +15,7 @@ class FullscreenMediaViewController: AwesomeMediaViewController {
         super.viewDidLoad()
         
         AwesomeMedia.shared.playerDelegate = self
-        prepareMedia(withUrl: URL(string: "http://overmind2.mindvalleyacademy.com/api/v1/assets/267bb3c6-d042-40ea-b1bd-9c9325c413eb.m3u8")!)
+        setup(mediaPath: "http://overmind2.mindvalleyacademy.com/api/v1/assets/267bb3c6-d042-40ea-b1bd-9c9325c413eb.m3u8")
     }
     
     override func viewWillAppear(_ animated: Bool) {
