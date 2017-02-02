@@ -93,6 +93,8 @@ extension AwesomeMediaViewController {
             let storyboard = UIStoryboard(name: mediaMarkerStoryboardName, bundle: Bundle.main)
             awesomeMediaMarkersViewController = storyboard.instantiateViewController(withIdentifier: mediaMarkerViewControllerName) as! AwesomeMediaMarkersViewController
             awesomeMediaMarkersViewController?.openingFromPanning = true
+            awesomeMediaMarkersViewController?.viewModel.markers = self.mediaView.viewModel.mediaMarkers
+            awesomeMediaMarkersViewController?.viewModel.showHours = self.mediaView.viewModel.showHours
             awesomeMediaMarkersViewController?.delegate = self
             awesomeMediaMarkersViewController?.modalPresentationStyle = .overCurrentContext
             self.present(awesomeMediaMarkersViewController!, animated: false, completion: nil)

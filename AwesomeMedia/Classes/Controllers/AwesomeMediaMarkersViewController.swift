@@ -56,26 +56,20 @@ open class AwesomeMediaMarkersViewController: UIViewController {
         if !openingFromPanning {
             UIView.animate(withDuration: 0.3, animations: {
                 self.closeButton?.alpha = 1
-                self.contentView?.frame = CGRect(origin: originalFrame.origin, size: CGSize(width: originalFrame.size.width+20, height: originalFrame.size.height))
+                self.contentView?.frame = originalFrame
                 }) { (completed) in
-                    UIView.animate(withDuration: 0.1, animations: {
-                        self.contentView?.frame = originalFrame
-                    })
+                    
             }
         }
     }
     
     open func animateOut(completion:@escaping ()->Void){
-        UIView.animate(withDuration: 0.1, animations: {
-            self.contentView?.transform = CGAffineTransform(scaleX: 1.1, y: 1)
+        UIView.animate(withDuration: 0.2, animations: {
+            self.closeButton?.alpha = 0
+            self.contentView?.frame.origin.x = self.view.frame.size.width
+            self.contentView?.transform = CGAffineTransform(scaleX: 1, y: 1)
         }) { (completed) in
-            UIView.animate(withDuration: 0.2, animations: {
-                self.closeButton?.alpha = 0
-                self.contentView?.frame.origin.x = self.view.frame.size.width
-                self.contentView?.transform = CGAffineTransform(scaleX: 1, y: 1)
-            }) { (completed) in
-                completion()
-            }
+            completion()
         }
     }
 
@@ -91,6 +85,7 @@ open class AwesomeMediaMarkersViewController: UIViewController {
     
     fileprivate var initialCenter = CGPoint(x: 0, y: 0)
     fileprivate var initialTouchPoint = CGPoint(x: 0, y: 0)
+    fileprivate var lastDistanceFromTarget = CGPoint(x: 0, y: 0)
     fileprivate let distanceToClose: CGFloat = 100
     fileprivate let alphaAnimationTime: Double = 0.2
     
@@ -143,7 +138,7 @@ open class AwesomeMediaMarkersViewController: UIViewController {
         case .ended:
             openingFromPanning = false
             
-            if abs(distanceFromTarget.x) > distanceToClose {
+            if lastDistanceFromTarget.x > distanceFromTarget.x {
                 closeButtonPressed(self)
             }else{
                 //returns to initial configuration
@@ -159,9 +154,9 @@ open class AwesomeMediaMarkersViewController: UIViewController {
         default:
             break
         }
+        
+        lastDistanceFromTarget = distanceFromTarget
     }
-
-    
 }
 
 extension AwesomeMediaMarkersViewController: UITableViewDelegate, UITableViewDataSource{
