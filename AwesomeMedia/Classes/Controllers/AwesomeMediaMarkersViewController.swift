@@ -26,6 +26,8 @@ open class AwesomeMediaMarkersViewController: UIViewController {
     
     override open func viewDidLoad() {
         super.viewDidLoad()
+        
+        configurePan()
     }
     
     override open func viewWillAppear(_ animated: Bool) {
