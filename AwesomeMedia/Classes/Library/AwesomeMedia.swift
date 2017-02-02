@@ -33,9 +33,9 @@ public class AwesomeMedia: NSObject {
     public static var showLogs = false
     
     fileprivate var playbackLikelyToKeepUpContext = 0
-    fileprivate var currentRate: Float = 0
     fileprivate var timeObserver: AnyObject?
     fileprivate var playHistory = [URL]()
+    public var currentRate: Float = 1
     
     public weak var playerDelegate: AwesomeMediaPlayerDelegate?
     
@@ -44,6 +44,9 @@ public class AwesomeMedia: NSObject {
     public let notificationCenter = NotificationCenter()
     public var playerSpeedOptions: [Float] = [0.75, 1, 1.25, 1.5, 2]
     public var skipTime: Int = 15
+    public var preferredPeakBitRate: Double = 0
+    public var preferredForwardBufferDuration: TimeInterval = 0
+    public var canUseNetworkResourcesForLiveStreamingWhilePaused: Bool = true
     public var playerIsPlaying: Bool {
         return avPlayer.rate > 0
     }
@@ -54,6 +57,7 @@ public class AwesomeMedia: NSObject {
         
         if let currentItem = avPlayer.currentItem {
             if currentItem.tracks.count > 0 {
+                log("videoFrameRate \(currentItem.tracks[0].currentVideoFrameRate)")
                 return currentItem.tracks[0].currentVideoFrameRate != 0
             }
         }
@@ -224,6 +228,17 @@ extension AwesomeMedia {
         //Backgrond play
         configBackgroundPlay()
         
+        //setup streaming speed
+        if let currentItem = avPlayer.currentItem {
+            currentItem.preferredPeakBitRate = preferredPeakBitRate
+            if #available(iOS 10.0, *) {
+                currentItem.preferredForwardBufferDuration = preferredForwardBufferDuration
+                currentItem.canUseNetworkResourcesForLiveStreamingWhilePaused = canUseNetworkResourcesForLiveStreamingWhilePaused
+            } else {
+                // Fallback on earlier versions
+            }
+        }
+        
         if startPlaying && avPlayer.rate == 0 {
             play()
         }
@@ -317,10 +332,10 @@ extension AwesomeMedia {
     }
     
     public func toggleRateSpeed() -> Float{
-        if avPlayer.rate == 0 {
-            playerDelegate?.didChangeSpeed(to: 1)
-            return 1
-        }
+//        if avPlayer.rate == 0 {
+//            playerDelegate?.didChangeSpeed(to: 1)
+//            return 1
+//        }
         
         log("toggled speed rate")
         
@@ -328,7 +343,12 @@ extension AwesomeMedia {
         for playerSpeedOption in playerSpeedOptions {
             if returnNext {
                 currentRate = playerSpeedOption
-                avPlayer.rate = currentRate
+                
+                //if already playing, then change rate
+                if avPlayer.rate != 0 {
+                    avPlayer.rate = currentRate
+                }
+                
                 playerDelegate?.didChangeSpeed(to: currentRate)
                 return currentRate
             }
@@ -338,7 +358,12 @@ extension AwesomeMedia {
         
         //if got here, means it was the last one, so pick the first item on the list
         currentRate = playerSpeedOptions.first ?? avPlayer.rate
-        avPlayer.rate = currentRate
+        
+        //if already playing, then change rate
+        if avPlayer.rate != 0 {
+            avPlayer.rate = currentRate
+        }
+        
         playerDelegate?.didChangeSpeed(to: currentRate)
         return currentRate
     }

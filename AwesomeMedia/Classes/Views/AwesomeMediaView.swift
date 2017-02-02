@@ -56,6 +56,7 @@ open class AwesomeMediaView: UIView {
         rewindButton?.addTarget(self, action: #selector(AwesomeMediaView.seekBackward(_:)), for: .touchUpInside)
         
         speedButton?.addTarget(self, action: #selector(AwesomeMediaView.toggleSpeed(_:)), for: .touchUpInside)
+        updateSpeedButton(withSpeed: AwesomeMedia.shared.currentRate)
         
         //observers
         addMediaObservers()
@@ -126,6 +127,11 @@ extension AwesomeMediaView {
     @IBAction open func toggleSpeed(_ sender: AnyObject){
         let speed = AwesomeMedia.shared.toggleRateSpeed()
         
+        updateSpeedButton(withSpeed: speed)
+    }
+    
+    open func updateSpeedButton(withSpeed speed: Float) {
+        
         speedButton?.setTitle(String(format:"%.0fx", speed), for: .normal)
         
         if speed.decimal != 0 {
@@ -135,7 +141,6 @@ extension AwesomeMediaView {
                 speedButton?.setTitle(String(format:"%.1fx", speed), for: .normal)
             }
         }
-        
     }
     
     // MARK: - Seeking
@@ -302,5 +307,21 @@ extension AwesomeMediaView {
         
         self.minTimeLabel?.text = currentTime.formatedTime
         self.maxTimeLabel?.text = remainingTime.formatedTime
+        
+//        if let log = currentItem.accessLog() {
+//            for event in log.events {
+//                if #available(iOS 10.0, *) {
+//                    print("BitRate: \(event.averageAudioBitrate)  \(event.averageVideoBitrate)")
+//                } else {
+//                    // Fallback on earlier versions
+//                }
+//            }
+//        }
+//        
+//        if #available(iOS 10.0, *) {
+//            print("\(currentItem.preferredPeakBitRate) / \(currentItem.preferredForwardBufferDuration) / \(currentItem.canUseNetworkResourcesForLiveStreamingWhilePaused)")
+//        } else {
+//            // Fallback on earlier versions
+//        }
     }
 }

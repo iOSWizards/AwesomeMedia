@@ -153,7 +153,7 @@
                                         <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                                         <subviews>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="J1F-V8-hb9">
-                                                <rect key="frame" x="89" y="8" width="178" height="31"/>
+                                                <rect key="frame" x="89" y="8" width="140" height="31"/>
                                             </slider>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="km6-R8-y2R">
                                                 <rect key="frame" x="8" y="8" width="41" height="30"/>
@@ -186,7 +186,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="13:12" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qog-iz-NMb">
-                                                <rect key="frame" x="273" y="13" width="26" height="21"/>
+                                                <rect key="frame" x="235" y="13" width="26" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="21" id="DiY-cO-e90"/>
                                                 </constraints>
@@ -194,18 +194,24 @@
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VXt-Js-kbf">
+                                                <rect key="frame" x="269" y="8" width="30" height="30"/>
+                                                <state key="normal" title="1x"/>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="0.095207966549999995" colorSpace="calibratedWhite"/>
                                         <constraints>
+                                            <constraint firstItem="0QJ-sq-ncx" firstAttribute="leading" secondItem="VXt-Js-kbf" secondAttribute="trailing" constant="8" id="Dpf-RB-3IH"/>
                                             <constraint firstItem="Qog-iz-NMb" firstAttribute="centerY" secondItem="0QJ-sq-ncx" secondAttribute="centerY" id="EDm-19-Xhd"/>
                                             <constraint firstItem="km6-R8-y2R" firstAttribute="leading" secondItem="fCR-45-zFb" secondAttribute="leading" constant="8" id="HD2-Rt-Wno"/>
+                                            <constraint firstItem="VXt-Js-kbf" firstAttribute="centerY" secondItem="0QJ-sq-ncx" secondAttribute="centerY" id="Hj2-i1-Thr"/>
                                             <constraint firstAttribute="bottom" secondItem="km6-R8-y2R" secondAttribute="bottom" constant="6" id="Kr4-CI-M9J"/>
                                             <constraint firstItem="J1F-V8-hb9" firstAttribute="leading" secondItem="yhb-zw-Gt5" secondAttribute="trailing" constant="8" id="NTv-0Q-LkK"/>
+                                            <constraint firstItem="VXt-Js-kbf" firstAttribute="leading" secondItem="Qog-iz-NMb" secondAttribute="trailing" constant="8" id="Nsi-t2-vSX"/>
                                             <constraint firstItem="yhb-zw-Gt5" firstAttribute="leading" secondItem="km6-R8-y2R" secondAttribute="trailing" constant="8" id="QFS-aX-ErR"/>
                                             <constraint firstAttribute="height" constant="44" id="UCi-6H-Jnt"/>
                                             <constraint firstItem="J1F-V8-hb9" firstAttribute="centerY" secondItem="yhb-zw-Gt5" secondAttribute="centerY" id="dqK-oA-Ffy"/>
                                             <constraint firstItem="yhb-zw-Gt5" firstAttribute="centerY" secondItem="km6-R8-y2R" secondAttribute="centerY" id="fH4-5I-Gbm"/>
-                                            <constraint firstItem="0QJ-sq-ncx" firstAttribute="leading" secondItem="Qog-iz-NMb" secondAttribute="trailing" constant="8" id="mIH-6H-w5A"/>
                                             <constraint firstItem="Qog-iz-NMb" firstAttribute="leading" secondItem="J1F-V8-hb9" secondAttribute="trailing" constant="8" id="mjI-NB-BGr"/>
                                             <constraint firstAttribute="trailing" secondItem="0QJ-sq-ncx" secondAttribute="trailing" constant="8" id="u3B-LR-zYS"/>
                                             <constraint firstAttribute="bottom" secondItem="0QJ-sq-ncx" secondAttribute="bottom" constant="6" id="weZ-Fb-vFh"/>
@@ -229,6 +235,7 @@
                                     <outlet property="mediaView" destination="Evl-iz-Cqr" id="Ev1-vr-LfV"/>
                                     <outlet property="minTimeLabel" destination="yhb-zw-Gt5" id="tEt-u4-fcw"/>
                                     <outlet property="playButton" destination="km6-R8-y2R" id="lyb-q3-MFh"/>
+                                    <outlet property="speedButton" destination="VXt-Js-kbf" id="Gxk-ek-V3t"/>
                                     <outlet property="timeSlider" destination="J1F-V8-hb9" id="ndz-pd-BIb"/>
                                 </connections>
                             </view>
