@@ -10,12 +10,12 @@ import Foundation
 
 public protocol AwesomeMediaPlayerDelegate: class {
     
-    func didChangeSpeed(to: Float)
-    func didStopPlaying()
-    func didStartPlaying()
-    func didPausePlaying()
-    func didFinishPlaying()
-    func didFailPlaying()
-    func didChangeSlider(to: Float)
+    func didChangeSpeed(to: Float, mediaType: MVMediaType)
+    func didStopPlaying(mediaType: MVMediaType)
+    func didStartPlaying(mediaType: MVMediaType)
+    func didPausePlaying(mediaType: MVMediaType)
+    func didFinishPlaying(mediaType: MVMediaType)
+    func didFailPlaying(mediaType: MVMediaType)
+    func didChangeSlider(to: Float, mediaType: MVMediaType)
     
 }
