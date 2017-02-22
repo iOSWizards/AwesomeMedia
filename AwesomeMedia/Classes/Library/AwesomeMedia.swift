@@ -27,6 +27,11 @@ public enum AwesomeMediaEvent: String {
     case isGoingLandscape = "isLandscape"
 }
 
+public enum MVMediaType: String {
+    case video = "Video"
+    case audio = "Audio"
+}
+
 public class AwesomeMedia: NSObject {
     
     public static let shared = AwesomeMedia()
@@ -63,6 +68,18 @@ public class AwesomeMedia: NSObject {
         }
         
         return false
+    }
+    
+    public var mediaType: MVMediaType {
+        if let currentItem = avPlayer.currentItem {
+            if currentItem.asset.tracks(withMediaType: AVMediaTypeAudio).count > 0 {
+                return .audio
+            } else if currentItem.asset.tracks(withMediaType: AVMediaTypeVideo).count > 0 {
+                return .video
+            }
+        }
+        
+        return .video
     }
     
     public static func isPlaying(_ url: URL?) -> Bool {
@@ -129,7 +146,7 @@ extension AwesomeMedia {
                                                selector: #selector(AwesomeMedia.rotated),
                                                name: NSNotification.Name.UIDeviceOrientationDidChange,
                                                object: nil)
-
+        
         
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(AwesomeMedia.didFinishPlaying(_:)),
@@ -172,7 +189,7 @@ extension AwesomeMedia {
         let timeInterval: CMTime = CMTimeMakeWithSeconds(1.0, 10)
         timeObserver = AwesomeMedia.shared.avPlayer.addPeriodicTimeObserver(forInterval: timeInterval, queue: DispatchQueue.main) { (elapsedTime: CMTime) -> Void in
             self.observeTime(elapsedTime)
-        } as AnyObject?
+            } as AnyObject?
     }
     
     fileprivate func observeTime(_ elapsedTime: CMTime) {
@@ -272,7 +289,7 @@ extension AwesomeMedia {
         
         updateMediaInfo()
         
-        playerDelegate?.didStartPlaying()
+        playerDelegate?.didStartPlaying(mediaType: mediaType)
         notify(.startedPlaying)
         
         log("started playing")
@@ -297,7 +314,7 @@ extension AwesomeMedia {
         currentRate = avPlayer.rate
         avPlayer.pause()
         
-        playerDelegate?.didPausePlaying()
+        playerDelegate?.didPausePlaying(mediaType: mediaType)
         notify(.pausedPlaying)
         
         log("paused")
@@ -313,7 +330,7 @@ extension AwesomeMedia {
         //removes remote controls
         removePlayerControls()
         
-        playerDelegate?.didStopPlaying()
+        playerDelegate?.didStopPlaying(mediaType: mediaType)
         notify(.stopedPlaying)
         
         log("stopped playing")
@@ -321,12 +338,12 @@ extension AwesomeMedia {
     
     public func didFinishPlaying(_ sender: AnyObject){
         notify(.finishedPlaying)
-        playerDelegate?.didFinishPlaying()
+        playerDelegate?.didFinishPlaying(mediaType: mediaType)
     }
     
     public func didFailPlaying(_ sender: AnyObject){
         notify(.failedPlaying)
-        playerDelegate?.didFailPlaying()
+        playerDelegate?.didFailPlaying(mediaType: mediaType)
     }
     
     public func togglePlay(){
@@ -345,10 +362,10 @@ extension AwesomeMedia {
     }
     
     public func toggleRateSpeed() -> Float{
-//        if avPlayer.rate == 0 {
-//            playerDelegate?.didChangeSpeed(to: 1)
-//            return 1
-//        }
+        //        if avPlayer.rate == 0 {
+        //            playerDelegate?.didChangeSpeed(to: 1)
+        //            return 1
+        //        }
         
         log("toggled speed rate")
         
@@ -362,7 +379,7 @@ extension AwesomeMedia {
                     avPlayer.rate = currentRate
                 }
                 
-                playerDelegate?.didChangeSpeed(to: currentRate)
+                playerDelegate?.didChangeSpeed(to: currentRate, mediaType: mediaType)
                 return currentRate
             }
             
@@ -377,7 +394,7 @@ extension AwesomeMedia {
             avPlayer.rate = currentRate
         }
         
-        playerDelegate?.didChangeSpeed(to: currentRate)
+        playerDelegate?.didChangeSpeed(to: currentRate, mediaType: mediaType)
         return currentRate
     }
     
@@ -415,7 +432,7 @@ extension AwesomeMedia {
             return
         }
         
-        playerDelegate?.didChangeSlider(to: timeSliderValue)
+        playerDelegate?.didChangeSlider(to: timeSliderValue, mediaType: mediaType)
         notify(.timeUpdated, object: currentItem)
         
         log("time slider updated with value \(timeSliderValue)")
@@ -444,7 +461,7 @@ extension AwesomeMedia {
             }
         })
         
-        playerDelegate?.didChangeSlider(to: timeSliderValue)
+        playerDelegate?.didChangeSlider(to: timeSliderValue, mediaType: mediaType)
         notify(.timeFinishedUpdating, object: currentItem)
         
         log("time slider ended seeking with value \(timeSliderValue)")
