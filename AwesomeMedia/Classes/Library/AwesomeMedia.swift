@@ -87,6 +87,10 @@ public class AwesomeMedia: NSObject {
             return false
         }
         
+        return wasPlaying(url)
+    }
+    
+    public static func wasPlaying(_ url: URL?) -> Bool {
         guard let lastUrl = AwesomeMedia.shared.playHistory.last else {
             return false
         }
