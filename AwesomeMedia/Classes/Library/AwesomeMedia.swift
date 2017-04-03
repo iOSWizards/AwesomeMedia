@@ -36,8 +36,10 @@ public class AwesomeMedia: NSObject {
     
     public static let shared = AwesomeMedia()
     public static var showLogs = false
+    public static var shouldLockControlsWhenBuffering = true
     
     fileprivate var playbackLikelyToKeepUpContext = 0
+    fileprivate var playbackBufferFullContext = 1
     fileprivate var timeObserver: AnyObject?
     fileprivate var playHistory = [URL]()
     public var currentRate: Float = 1
@@ -207,20 +209,26 @@ extension AwesomeMedia {
     
     fileprivate func removeBufferObserver(){
         AwesomeMedia.shared.avPlayer.removeObserver(self, forKeyPath: "currentItem.playbackLikelyToKeepUp")
+        AwesomeMedia.shared.avPlayer.removeObserver(self, forKeyPath: "currentItem.playbackBufferFull")
     }
     
     fileprivate func addBufferObserver(){
         avPlayer.addObserver(self, forKeyPath: "currentItem.playbackLikelyToKeepUp", options: .new, context: &playbackLikelyToKeepUpContext)
+        avPlayer.addObserver(self, forKeyPath: "currentItem.playbackBufferFull", options: .new, context: &playbackBufferFullContext)
     }
     
     override open func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         
-        if context == &playbackLikelyToKeepUpContext {
-            if AwesomeMedia.shared.avPlayer.currentItem!.isPlaybackLikelyToKeepUp {
-                notify(.stopedBuffering)
+        if context == &playbackLikelyToKeepUpContext || context == &playbackBufferFullContext {
+            if AwesomeMedia.shared.avPlayer.currentItem!.isPlaybackLikelyToKeepUp || AwesomeMedia.shared.avPlayer.currentItem!.isPlaybackBufferFull {
                 updateMediaInfo()
+                if AwesomeMedia.shouldLockControlsWhenBuffering {
+                    notify(.stopedBuffering)
+                }
             } else {
-                notify(.startedBuffering)
+                if AwesomeMedia.shouldLockControlsWhenBuffering {
+                    notify(.startedBuffering)
+                }
             }
         }
     }
