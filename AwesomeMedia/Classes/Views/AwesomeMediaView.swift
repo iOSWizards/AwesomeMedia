@@ -11,7 +11,7 @@ import AVFoundation
 
 @IBDesignable
 open class AwesomeMediaView: UIView {
-
+    
     // MARK: - Components
     
     @IBOutlet open weak var controlsView: UIView?
@@ -40,7 +40,7 @@ open class AwesomeMediaView: UIView {
     public var viewModel = AwesomeMediaViewModel()
     
     public weak var delegate: AwesomeMediaViewDelegate?
-
+    
     open override func awakeFromNib() {
         //Video layer
         addPlayerLayer()
@@ -190,10 +190,12 @@ extension AwesomeMediaView {
     }
     
     open func enableControls(_ enable: Bool){
-        controlsView?.isUserInteractionEnabled = enable
-        UIView.animate(withDuration: 0.2, animations: {
-            self.controlsView?.alpha = enable ? 1.0 : 0.5
-        })
+        DispatchQueue.main.async {
+            self.controlsView?.isUserInteractionEnabled = enable
+            UIView.animate(withDuration: 0.2, animations: {
+                self.controlsView?.alpha = enable ? 1.0 : 0.5
+            })
+        }
     }
     
     open func setupAutoHideControlsTimer(){
@@ -252,11 +254,11 @@ extension AwesomeMediaView {
     }
     
     open func mediaStartedBuffering(_ notification: Notification) {
-        
+        enableControls(false)
     }
     
     open func mediaStopedBuffering(_ notification: Notification) {
-        
+        enableControls(true)
     }
     
     open func mediaStartedPlaying(_ notification: Notification) {
@@ -312,20 +314,20 @@ extension AwesomeMediaView {
         self.minTimeLabel?.text = currentTime.formatedTime
         self.maxTimeLabel?.text = remainingTime.formatedTime
         
-//        if let log = currentItem.accessLog() {
-//            for event in log.events {
-//                if #available(iOS 10.0, *) {
-//                    print("BitRate: \(event.averageAudioBitrate)  \(event.averageVideoBitrate)")
-//                } else {
-//                    // Fallback on earlier versions
-//                }
-//            }
-//        }
-//        
-//        if #available(iOS 10.0, *) {
-//            print("\(currentItem.preferredPeakBitRate) / \(currentItem.preferredForwardBufferDuration) / \(currentItem.canUseNetworkResourcesForLiveStreamingWhilePaused)")
-//        } else {
-//            // Fallback on earlier versions
-//        }
+        //        if let log = currentItem.accessLog() {
+        //            for event in log.events {
+        //                if #available(iOS 10.0, *) {
+        //                    print("BitRate: \(event.averageAudioBitrate)  \(event.averageVideoBitrate)")
+        //                } else {
+        //                    // Fallback on earlier versions
+        //                }
+        //            }
+        //        }
+        //
+        //        if #available(iOS 10.0, *) {
+        //            print("\(currentItem.preferredPeakBitRate) / \(currentItem.preferredForwardBufferDuration) / \(currentItem.canUseNetworkResourcesForLiveStreamingWhilePaused)")
+        //        } else {
+        //            // Fallback on earlier versions
+        //        }
     }
 }
