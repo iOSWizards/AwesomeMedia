@@ -11,7 +11,7 @@ import AVKit
 import AVFoundation
 
 extension AVPlayerItem {
-
+    
     public func elapsedTime(_ value: Float) -> Float64{
         return CMTimeGetSeconds(duration) * Float64(value)
     }

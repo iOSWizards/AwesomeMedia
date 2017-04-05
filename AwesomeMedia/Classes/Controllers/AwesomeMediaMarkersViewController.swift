@@ -13,7 +13,7 @@ public protocol AwesomeMediaMarkersViewControllerDelegate {
 }
 
 open class AwesomeMediaMarkersViewController: UIViewController {
-
+    
     @IBOutlet open weak var closeButton: UIButton?
     @IBOutlet open weak var tableView: UITableView?
     @IBOutlet open weak var headerView: UIView?
@@ -39,7 +39,7 @@ open class AwesomeMediaMarkersViewController: UIViewController {
         super.viewDidAppear(animated)
         animateIn()
     }
-
+    
     // MARK: - Animations
     
     open func prepareForAnimation(){
@@ -57,8 +57,8 @@ open class AwesomeMediaMarkersViewController: UIViewController {
             UIView.animate(withDuration: 0.3, animations: {
                 self.closeButton?.alpha = 1
                 self.contentView?.frame = originalFrame
-                }) { (completed) in
-                    
+            }) { (completed) in
+                
             }
         }
     }
@@ -72,7 +72,7 @@ open class AwesomeMediaMarkersViewController: UIViewController {
             completion()
         }
     }
-
+    
     // MARK: - Events
     
     @IBAction open func closeButtonPressed(_ sender: AnyObject) {

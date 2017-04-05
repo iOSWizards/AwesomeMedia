@@ -36,8 +36,10 @@ public class AwesomeMedia: NSObject {
     
     public static let shared = AwesomeMedia()
     public static var showLogs = false
+    public static var shouldLockControlsWhenBuffering = true
     
     fileprivate var playbackLikelyToKeepUpContext = 0
+    fileprivate var playbackBufferFullContext = 1
     fileprivate var timeObserver: AnyObject?
     fileprivate var playHistory = [URL]()
     public var currentRate: Float = 1
@@ -45,7 +47,7 @@ public class AwesomeMedia: NSObject {
     public weak var playerDelegate: AwesomeMediaPlayerDelegate?
     
     public let avPlayer = AVPlayer()
-    public var avPlayerLayer = AVPlayerLayer()
+    //public var avPlayerLayer = AVPlayerLayer()
     public let notificationCenter = NotificationCenter()
     public var playerSpeedOptions: [Float] = [0.75, 1, 1.25, 1.5, 2]
     public var skipTime: Int = 15
@@ -197,7 +199,11 @@ extension AwesomeMedia {
     }
     
     fileprivate func observeTime(_ elapsedTime: CMTime) {
-        let duration = CMTimeGetSeconds(AwesomeMedia.shared.avPlayer.currentItem!.duration)
+        guard let currentItem = AwesomeMedia.shared.avPlayer.currentItem else {
+            return
+        }
+        
+        let duration = CMTimeGetSeconds(currentItem.duration)
         if duration.isFinite {
             notify(.timeUpdated)
         }
@@ -207,20 +213,26 @@ extension AwesomeMedia {
     
     fileprivate func removeBufferObserver(){
         AwesomeMedia.shared.avPlayer.removeObserver(self, forKeyPath: "currentItem.playbackLikelyToKeepUp")
+        AwesomeMedia.shared.avPlayer.removeObserver(self, forKeyPath: "currentItem.playbackBufferFull")
     }
     
     fileprivate func addBufferObserver(){
         avPlayer.addObserver(self, forKeyPath: "currentItem.playbackLikelyToKeepUp", options: .new, context: &playbackLikelyToKeepUpContext)
+        avPlayer.addObserver(self, forKeyPath: "currentItem.playbackBufferFull", options: .new, context: &playbackBufferFullContext)
     }
     
     override open func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         
-        if context == &playbackLikelyToKeepUpContext {
-            if AwesomeMedia.shared.avPlayer.currentItem!.isPlaybackLikelyToKeepUp {
-                notify(.stopedBuffering)
+        if context == &playbackLikelyToKeepUpContext || context == &playbackBufferFullContext {
+            if let currentItem = AwesomeMedia.shared.avPlayer.currentItem, currentItem.isPlaybackLikelyToKeepUp || currentItem.isPlaybackBufferFull {
                 updateMediaInfo()
+                if AwesomeMedia.shouldLockControlsWhenBuffering {
+                    notify(.stopedBuffering)
+                }
             } else {
-                notify(.startedBuffering)
+                if AwesomeMedia.shouldLockControlsWhenBuffering {
+                    notify(.startedBuffering)
+                }
             }
         }
     }
@@ -253,8 +265,8 @@ extension AwesomeMedia {
         }
         
         //configure AVPlayerLayer
-        avPlayerLayer.player = avPlayer
-        avPlayerLayer.videoGravity = UI_USER_INTERFACE_IDIOM() == .pad ? AVLayerVideoGravityResizeAspect : AVLayerVideoGravityResizeAspectFill
+        //avPlayerLayer.player = avPlayer
+        //avPlayerLayer.videoGravity = UI_USER_INTERFACE_IDIOM() == .pad ? AVLayerVideoGravityResizeAspect : AVLayerVideoGravityResizeAspectFill
         
         //Adds observers
         addObservers()

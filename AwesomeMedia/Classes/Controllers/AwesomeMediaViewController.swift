@@ -10,7 +10,7 @@ import UIKit
 import AVFoundation
 
 open class AwesomeMediaViewController: UIViewController, AwesomeMediaMarkersViewControllerDelegate {
-
+    
     @IBOutlet open weak var mediaView: AwesomeMediaView!
     
     fileprivate var screenEdgePanGesture: UIScreenEdgePanGestureRecognizer!
@@ -21,6 +21,8 @@ open class AwesomeMediaViewController: UIViewController, AwesomeMediaMarkersView
     
     override open func viewDidLoad() {
         super.viewDidLoad()
+        
+        mediaView.requestPlayer()
     }
     
     @IBAction open func dismiss(_ sender: Any) {
@@ -91,7 +93,7 @@ extension AwesomeMediaViewController {
         switch rec.state {
         case .began:
             let storyboard = UIStoryboard(name: mediaMarkerStoryboardName, bundle: Bundle.main)
-            awesomeMediaMarkersViewController = storyboard.instantiateViewController(withIdentifier: mediaMarkerViewControllerName) as! AwesomeMediaMarkersViewController
+            awesomeMediaMarkersViewController = storyboard.instantiateViewController(withIdentifier: mediaMarkerViewControllerName) as? AwesomeMediaMarkersViewController
             awesomeMediaMarkersViewController?.openingFromPanning = true
             awesomeMediaMarkersViewController?.viewModel.markers = self.mediaView.viewModel.mediaMarkers
             awesomeMediaMarkersViewController?.viewModel.showHours = self.mediaView.viewModel.showHours

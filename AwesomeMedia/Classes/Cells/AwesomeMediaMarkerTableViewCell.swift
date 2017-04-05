@@ -9,7 +9,7 @@
 import UIKit
 
 open class AwesomeMediaMarkerTableViewCell: UITableViewCell {
-
+    
     @IBOutlet open weak var timeLabel: UILabel!
     @IBOutlet open weak var titleLabel: UILabel!
     
@@ -17,11 +17,11 @@ open class AwesomeMediaMarkerTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-
+    
     override open func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
-
+    
 }

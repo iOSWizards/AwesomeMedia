@@ -11,7 +11,7 @@ import AVFoundation
 
 @IBDesignable
 open class AwesomeMediaView: UIView {
-
+    
     // MARK: - Components
     
     @IBOutlet open weak var controlsView: UIView?
@@ -37,14 +37,19 @@ open class AwesomeMediaView: UIView {
     @IBInspectable open var fullscreenOnLandscape: Bool = false
     @IBInspectable open var canToggleControls: Bool = true
     
+    public let avPlayerLayer: AVPlayerLayer = {
+        var avPlayerLayer = AVPlayerLayer()
+        avPlayerLayer.videoGravity = AVLayerVideoGravityResizeAspectFill
+        return avPlayerLayer
+    }()
+    
     public var viewModel = AwesomeMediaViewModel()
     
     public weak var delegate: AwesomeMediaViewDelegate?
-
+    
     open override func awakeFromNib() {
         //Video layer
         addPlayerLayer()
-        self.layer.masksToBounds = true
         
         //Controls
         timeSlider?.addTarget(self, action: #selector(AwesomeMediaView.timeSliderUpdated(_:)), for: .valueChanged)
@@ -70,11 +75,16 @@ open class AwesomeMediaView: UIView {
     
     open override func layoutSublayers(of layer: CALayer) {
         super.layoutSublayers(of: layer)
-        AwesomeMedia.shared.avPlayerLayer.frame = CGRect(x: 0, y: 0, width: self.bounds.size.width, height: self.bounds.size.height)
+        avPlayerLayer.frame = CGRect(x: 0, y: 0, width: self.bounds.size.width, height: self.bounds.size.height)
     }
     
     open func addPlayerLayer(){
-        self.layer.insertSublayer(AwesomeMedia.shared.avPlayerLayer, at: 0)
+        self.layer.insertSublayer(avPlayerLayer, at: 0)
+        self.layer.masksToBounds = true
+    }
+    
+    open func requestPlayer(){
+        avPlayerLayer.player = AwesomeMedia.shared.avPlayer
     }
 }
 
@@ -85,7 +95,7 @@ extension AwesomeMediaView {
     open func setup(mediaPath: String, coverImagePath: String? = nil, authorName: String? = nil, title: String? = nil, downloadPath: String? = nil, mediaMarkers: [AwesomeMediaMarker]? = nil, showHours: Bool = false, replaceCurrent: Bool = false, startPlaying: Bool = false) {
         viewModel.set(mediaPath: mediaPath, coverImagePath: coverImagePath, authorName: authorName, title: title, downloadPath: downloadPath, mediaMarkers: mediaMarkers, showHours: showHours)
         
-        AwesomeMedia.shared.prepareMedia(withUrl: viewModel.mediaUrl, replaceCurrent: replaceCurrent, startPlaying: startPlaying)
+        _ = AwesomeMedia.shared.prepareMedia(withUrl: viewModel.mediaUrl, replaceCurrent: replaceCurrent, startPlaying: startPlaying)
         
         playButton?.isSelected = AwesomeMedia.shared.playerIsPlaying
         mediaTimeHasUpdated()
@@ -190,10 +200,12 @@ extension AwesomeMediaView {
     }
     
     open func enableControls(_ enable: Bool){
-        controlsView?.isUserInteractionEnabled = enable
-        UIView.animate(withDuration: 0.2, animations: {
-            self.controlsView?.alpha = enable ? 1.0 : 0.5
-        })
+        DispatchQueue.main.async {
+            self.controlsView?.isUserInteractionEnabled = enable
+            UIView.animate(withDuration: 0.2, animations: {
+                self.controlsView?.alpha = enable ? 1.0 : 0.5
+            })
+        }
     }
     
     open func setupAutoHideControlsTimer(){
@@ -218,6 +230,10 @@ extension AwesomeMediaView {
             UIView.animate(withDuration: 0.2, animations: {
                 self.controlsView?.frame.origin.y = self.frame.size.height-(self.controlsView?.frame.size.height ?? 0)
                 self.controlsView?.alpha = 1
+            }, completion: { (completed) in
+                if self.playButton?.isSelected ?? false {
+                    self.setupAutoHideControlsTimer()
+                }
             })
         }else{
             UIView.animate(withDuration: 0.2, animations: {
@@ -252,11 +268,11 @@ extension AwesomeMediaView {
     }
     
     open func mediaStartedBuffering(_ notification: Notification) {
-        
+        enableControls(false)
     }
     
     open func mediaStopedBuffering(_ notification: Notification) {
-        
+        enableControls(true)
     }
     
     open func mediaStartedPlaying(_ notification: Notification) {
@@ -288,6 +304,10 @@ extension AwesomeMediaView {
     }
     
     open func mediaTimeHasUpdated(_ notification: Notification? = nil) {
+        guard AwesomeMedia.isPlaying(viewModel.mediaUrl) else {
+            return
+        }
+        
         guard let currentItem = AwesomeMedia.shared.avPlayer.currentItem else {
             return
         }
@@ -310,22 +330,22 @@ extension AwesomeMediaView {
         let remainingTime = duration - currentTime
         
         self.minTimeLabel?.text = currentTime.formatedTime
-        self.maxTimeLabel?.text = remainingTime.formatedTime
+        self.maxTimeLabel?.text = remainingTime.isNaN ? "" : remainingTime.formatedTime
         
-//        if let log = currentItem.accessLog() {
-//            for event in log.events {
-//                if #available(iOS 10.0, *) {
-//                    print("BitRate: \(event.averageAudioBitrate)  \(event.averageVideoBitrate)")
-//                } else {
-//                    // Fallback on earlier versions
-//                }
-//            }
-//        }
-//        
-//        if #available(iOS 10.0, *) {
-//            print("\(currentItem.preferredPeakBitRate) / \(currentItem.preferredForwardBufferDuration) / \(currentItem.canUseNetworkResourcesForLiveStreamingWhilePaused)")
-//        } else {
-//            // Fallback on earlier versions
-//        }
+        //        if let log = currentItem.accessLog() {
+        //            for event in log.events {
+        //                if #available(iOS 10.0, *) {
+        //                    print("BitRate: \(event.averageAudioBitrate)  \(event.averageVideoBitrate)")
+        //                } else {
+        //                    // Fallback on earlier versions
+        //                }
+        //            }
+        //        }
+        //
+        //        if #available(iOS 10.0, *) {
+        //            print("\(currentItem.preferredPeakBitRate) / \(currentItem.preferredForwardBufferDuration) / \(currentItem.canUseNetworkResourcesForLiveStreamingWhilePaused)")
+        //        } else {
+        //            // Fallback on earlier versions
+        //        }
     }
 }
