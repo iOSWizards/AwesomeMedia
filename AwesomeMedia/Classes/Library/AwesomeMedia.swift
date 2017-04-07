@@ -54,6 +54,7 @@ public class AwesomeMedia: NSObject {
     public var preferredPeakBitRate: Double = 0
     public var preferredForwardBufferDuration: TimeInterval = 0
     public var canUseNetworkResourcesForLiveStreamingWhilePaused: Bool = true
+    public var isPlayingLandscapeMedia: Bool = false
     public var playerIsPlaying: Bool {
         return avPlayer.rate > 0
     }
@@ -313,10 +314,12 @@ extension AwesomeMedia {
     
     public func rotated() {
         if UIDeviceOrientationIsLandscape(UIDevice.current.orientation) {
+            AwesomeMedia.shared.isPlayingLandscapeMedia = true
             notify(.isGoingLandscape)
         }
         
         if UIDeviceOrientationIsPortrait(UIDevice.current.orientation) {
+            AwesomeMedia.shared.isPlayingLandscapeMedia = false
             notify(.isGoingPortrait)
         }
         
@@ -340,6 +343,7 @@ extension AwesomeMedia {
         if avPlayer.currentItem == nil {
             return
         }
+        AwesomeMedia.shared.isPlayingLandscapeMedia = false
         
         pause()
         
