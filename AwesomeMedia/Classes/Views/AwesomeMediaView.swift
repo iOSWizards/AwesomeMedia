@@ -30,7 +30,6 @@ open class AwesomeMediaView: UIView {
     
     fileprivate var isSeeking = false
     fileprivate var isControlHidden = false
-    fileprivate var autoHideTimer: Timer?
     
     @IBInspectable open var seekTime: Int = 15
     @IBInspectable open var autoHideControlsTime: Int = 3
@@ -217,11 +216,13 @@ extension AwesomeMediaView {
         }
         
         //hides control after start playing
-        autoHideTimer = Timer.scheduledTimer(timeInterval: TimeInterval(autoHideControlsTime),
-                                             target: self,
-                                             selector: #selector(AwesomeMediaView.hideControls),
-                                             userInfo: nil,
-                                             repeats: false)
+        let timer = DispatchTime.now() + .seconds(autoHideControlsTime)
+        DispatchQueue.main.asyncAfter(deadline: timer, execute: {
+            // we're checking it again cause it may be scheduled to execute.
+            if self.canToggleControls {
+                self.showControls(false)
+            }
+        })
     }
     
     open func hideControls(){
@@ -231,16 +232,12 @@ extension AwesomeMediaView {
     open func showControls(_ show: Bool){
         isControlHidden = !show
         
-        autoHideTimer?.invalidate()
-        
         if show {
             UIView.animate(withDuration: 0.2, animations: {
                 self.controlsView?.frame.origin.y = self.frame.size.height-(self.controlsView?.frame.size.height ?? 0)
                 self.controlsView?.alpha = 1
             }, completion: { (completed) in
-                if self.playButton?.isSelected ?? false {
-                    self.setupAutoHideControlsTimer()
-                }
+                self.setupAutoHideControlsTimer()
             })
         }else{
             UIView.animate(withDuration: 0.2, animations: {
@@ -293,14 +290,12 @@ extension AwesomeMediaView {
         playButton?.isSelected = false
         canToggleControls = false
         
-        autoHideTimer?.invalidate()
         showControls(true)
     }
     
     open func mediaStopedPlaying(_ notification: Notification) {
         playButton?.isSelected = false
         
-        autoHideTimer?.invalidate()
         showControls(true)
     }
     
