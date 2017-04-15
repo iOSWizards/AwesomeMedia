@@ -1,16 +1,16 @@
 PODS:
-  - AwesomeMedia (0.1.0)
+  - AwesomeMedia (0.2.7)
 
 DEPENDENCIES:
   - AwesomeMedia (from `../`)
 
 EXTERNAL SOURCES:
   AwesomeMedia:
-    :path: "../"
+    :path: ../
 
 SPEC CHECKSUMS:
-  AwesomeMedia: 70669f397964b3151bb723a351ba413000634286
+  AwesomeMedia: c7b7d4bc36971b3e28e3250e92eb65edb86e5463
 
 PODFILE CHECKSUM: 90fb36de56720965d409286376842220e7ba9340
 
-COCOAPODS: 1.1.1
+COCOAPODS: 1.2.0

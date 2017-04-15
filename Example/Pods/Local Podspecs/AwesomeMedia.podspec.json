@@ -1,22 +1,22 @@
 {
   "name": "AwesomeMedia",
-  "version": "0.1.0",
-  "summary": "A short description of AwesomeMedia.",
-  "description": "TODO: Add long description of the pod here.",
-  "homepage": "https://github.com/<GITHUB_USERNAME>/AwesomeMedia",
+  "version": "0.2.7",
+  "summary": "Play Sounds and Videos with AvPlayer.",
+  "description": "Play Media from any app using this library.",
+  "homepage": "https://github.com/iOSWizards/AwesomeMedia",
   "license": {
     "type": "MIT",
     "file": "LICENSE"
   },
   "authors": {
-    "Evandro Harrison Hoffmann": "ehh85@yahoo.com.br"
+    "Evandro Harrison Hoffmann": "evandro@itsdayoff.com"
   },
   "source": {
-    "git": "https://github.com/<GITHUB_USERNAME>/AwesomeMedia.git",
-    "tag": "0.1.0"
+    "git": "https://github.com/iOSWizards/AwesomeMedia.git",
+    "tag": "0.2.7"
   },
   "platforms": {
     "ios": "8.0"
   },
-  "source_files": "AwesomeMedia/Classes/**/*"
+  "source_files": "AwesomeMedia/Classes/**/*.{swift}"
 }

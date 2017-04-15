@@ -35,7 +35,7 @@ open class AwesomeMediaView: UIView {
     @IBInspectable open var seekTime: Int = 15
     @IBInspectable open var autoHideControlsTime: Int = 3
     @IBInspectable open var fullscreenOnLandscape: Bool = false
-    @IBInspectable open var canToggleControls: Bool = true
+    @IBInspectable open var canToggleControls: Bool = false
     
     public let avPlayerLayer: AVPlayerLayer = {
         var avPlayerLayer = AVPlayerLayer()
@@ -192,11 +192,9 @@ extension AwesomeMediaView {
             return
         }
         
-        isControlHidden = !isControlHidden
-        
         //self.navigationController?.setNavigationBarHidden(controlsButton?.isSelected ?? false, animated: true)
         
-        showControls(!isControlHidden)
+        showControls(isControlHidden)
     }
     
     open func enableControls(_ enable: Bool){
@@ -208,13 +206,22 @@ extension AwesomeMediaView {
         }
     }
     
-    open func setupAutoHideControlsTimer(){
+    open func autoHideControls() {
+        canToggleControls = true
+        setupAutoHideControlsTimer()
+    }
+    
+    private func setupAutoHideControlsTimer(){
         if !canToggleControls {
             return
         }
         
         //hides control after start playing
-        autoHideTimer = Timer.scheduledTimer(timeInterval: TimeInterval(autoHideControlsTime), target: self, selector: #selector(AwesomeMediaView.hideControls), userInfo: nil, repeats: false)
+        autoHideTimer = Timer.scheduledTimer(timeInterval: TimeInterval(autoHideControlsTime),
+                                             target: self,
+                                             selector: #selector(AwesomeMediaView.hideControls),
+                                             userInfo: nil,
+                                             repeats: false)
     }
     
     open func hideControls(){
@@ -277,12 +284,14 @@ extension AwesomeMediaView {
     
     open func mediaStartedPlaying(_ notification: Notification) {
         playButton?.isSelected = true
+        canToggleControls = true
         
-        setupAutoHideControlsTimer()
+        autoHideControls()
     }
     
     open func mediaPausedPlaying(_ notification: Notification) {
         playButton?.isSelected = false
+        canToggleControls = false
         
         autoHideTimer?.invalidate()
         showControls(true)
@@ -321,7 +330,6 @@ extension AwesomeMediaView {
                 currentTime = CMTimeGetSeconds(CMTimeMake(Int64(sliderValue), 1))
             }
             
-            autoHideTimer?.invalidate()
         }else{
             timeSlider?.value = Float(currentTime / CMTimeGetSeconds(currentItem.duration))
         }
