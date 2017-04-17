@@ -187,7 +187,7 @@ extension AwesomeMediaView {
     // MARK: - Controls
     
     @IBAction open func toggleControls(_ sender: AnyObject){
-        if !canToggleControls {
+        if !canToggleControls || AwesomeMedia.shared.mediaType == .audio {
             return
         }
         
@@ -206,8 +206,10 @@ extension AwesomeMediaView {
     }
     
     open func autoHideControls() {
-        canToggleControls = true
-        setupAutoHideControlsTimer()
+        if AwesomeMedia.shared.mediaType == .video {
+            canToggleControls = true
+            setupAutoHideControlsTimer()
+        }
     }
     
     private func setupAutoHideControlsTimer(){
