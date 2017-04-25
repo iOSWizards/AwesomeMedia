@@ -58,19 +58,15 @@ public class AwesomeMedia: NSObject {
     public var playerIsPlaying: Bool {
         return avPlayer.rate > 0
     }
+    
     public var isPlayingVideo: Bool {
-        guard avPlayer.rate > 0 else {
-            return false
+        return avPlayer.rate != 0 && avPlayer.error == nil && mediaType == .video
+    }
+    
+    public func clearHistory() {
+        if !AwesomeMedia.shared.playHistory.isEmpty {
+            AwesomeMedia.shared.playHistory = [URL]()
         }
-        
-        if let currentItem = avPlayer.currentItem {
-            if currentItem.tracks.count > 0 {
-                log("videoFrameRate \(currentItem.tracks[0].currentVideoFrameRate)")
-                return currentItem.tracks[0].currentVideoFrameRate != 0
-            }
-        }
-        
-        return false
     }
     
     public var mediaType: MVMediaType {
