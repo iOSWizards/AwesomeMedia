@@ -15,6 +15,7 @@ open class AwesomeMediaView: UIView {
     // MARK: - Components
     
     @IBOutlet open weak var controlsView: UIView?
+    @IBOutlet open weak var controlsParentView: UIView?
     @IBOutlet open weak var mediaView: UIView?
     @IBOutlet open weak var timeSlider: UISlider?
     @IBOutlet open weak var minTimeLabel: UILabel?
@@ -92,6 +93,7 @@ open class AwesomeMediaView: UIView {
 extension AwesomeMediaView {
     
     open func setup(mediaPath: String, coverImagePath: String? = nil, authorName: String? = nil, title: String? = nil, downloadPath: String? = nil, mediaMarkers: [AwesomeMediaMarker]? = nil, showHours: Bool = false, replaceCurrent: Bool = false, startPlaying: Bool = false) {
+        
         viewModel.set(mediaPath: mediaPath, coverImagePath: coverImagePath, authorName: authorName, title: title, downloadPath: downloadPath, mediaMarkers: mediaMarkers, showHours: showHours)
         
         _ = AwesomeMedia.shared.prepareMedia(withUrl: viewModel.mediaUrl, replaceCurrent: replaceCurrent, startPlaying: startPlaying)
@@ -104,7 +106,9 @@ extension AwesomeMediaView {
     
     open override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first, touch.view == mediaView {
-            toggleControls(self)
+            if AwesomeMedia.isPlaying(viewModel.mediaPath?.url) {
+                toggleControls(self)
+            }
         }
     }
     
@@ -191,8 +195,6 @@ extension AwesomeMediaView {
             return
         }
         
-        //self.navigationController?.setNavigationBarHidden(controlsButton?.isSelected ?? false, animated: true)
-        
         showControls(isControlHidden)
     }
     
@@ -212,7 +214,8 @@ extension AwesomeMediaView {
         }
     }
     
-    private func setupAutoHideControlsTimer(){
+    private func setupAutoHideControlsTimer() {
+        
         if !canToggleControls {
             return
         }
@@ -221,7 +224,7 @@ extension AwesomeMediaView {
         let timer = DispatchTime.now() + .seconds(autoHideControlsTime)
         DispatchQueue.main.asyncAfter(deadline: timer, execute: {
             // we're checking it again cause it may be scheduled to execute.
-            if self.canToggleControls {
+            if self.canToggleControls && AwesomeMedia.isPlaying(self.viewModel.mediaPath?.url) {
                 self.showControls(false)
             }
         })
@@ -231,19 +234,34 @@ extension AwesomeMediaView {
         showControls(false)
     }
     
-    open func showControls(_ show: Bool){
+    open func showControls(_ show: Bool, automaticHide: Bool = true, forceAutoHide: Bool = false) {
+        
         isControlHidden = !show
+        
+        var originHeight: CGFloat = 0
+        if let v = controlsParentView {
+            originHeight = v.frame.size.height
+        } else {
+            originHeight = self.frame.size.height
+        }
         
         if show {
             UIView.animate(withDuration: 0.2, animations: {
-                self.controlsView?.frame.origin.y = self.frame.size.height-(self.controlsView?.frame.size.height ?? 0)
+                
+                self.controlsView?.frame.origin.y = originHeight-(self.controlsView?.frame.size.height ?? 0)
                 self.controlsView?.alpha = 1
+                
             }, completion: { (completed) in
-                self.setupAutoHideControlsTimer()
+                if automaticHide {
+                    if forceAutoHide {
+                        self.canToggleControls = true
+                    }
+                    self.setupAutoHideControlsTimer()
+                }
             })
         }else{
             UIView.animate(withDuration: 0.2, animations: {
-                self.controlsView?.frame.origin.y = self.frame.size.height
+                self.controlsView?.frame.origin.y = originHeight
                 self.controlsView?.alpha = 0
             })
         }
