@@ -69,6 +69,10 @@ public class AwesomeMedia: NSObject {
         }
     }
     
+    public var lastPlayedUrlString: String? {
+        return playHistory.last?.absoluteString
+    }
+    
     public var mediaType: MVMediaType {
         if let currentItem = avPlayer.currentItem {
             if currentItem.asset.tracks(withMediaType: AVMediaTypeAudio).count > 0 {
@@ -240,50 +244,56 @@ extension AwesomeMedia {
 
 extension AwesomeMedia {
     
-    public func prepareMedia(withUrl url: URL?, replaceCurrent: Bool = false, startPlaying: Bool = false) -> Bool {
+    public func prepareMedia(withUrl url: URL?, replaceCurrent: Bool = false, startPlaying: Bool = false, completion:(()->Void)? = nil) -> Bool {
         guard let url = url else {
             return false
         }
         
-        let playerItem = AVPlayerItem(url: url)
-        
-        //in case it's playing the same URL, only replace if is either paused or we are forcing replacing
-        if playHistory.last == url {
-            if avPlayer.rate != 0 && replaceCurrent {
-                avPlayer.replaceCurrentItem(with: playerItem)
-                log("replaced current item with url \(url)")
-            }
-        }else{
-            log("replaced [\(playHistory.last?.absoluteString ?? "")] with url [\(url)]")
+        DispatchQueue.global().async {
+            let playerItem = AVPlayerItem(url: url)
             
-            playHistory.append(url)
-            
-            avPlayer.replaceCurrentItem(with: playerItem)
-        }
-        
-        //configure AVPlayerLayer
-        //avPlayerLayer.player = avPlayer
-        //avPlayerLayer.videoGravity = UI_USER_INTERFACE_IDIOM() == .pad ? AVLayerVideoGravityResizeAspect : AVLayerVideoGravityResizeAspectFill
-        
-        //Adds observers
-        addObservers()
-        
-        //Backgrond play
-        configBackgroundPlay()
-        
-        //setup streaming speed
-        if let currentItem = avPlayer.currentItem {
-            currentItem.preferredPeakBitRate = preferredPeakBitRate
-            if #available(iOS 10.0, *) {
-                currentItem.preferredForwardBufferDuration = preferredForwardBufferDuration
-                currentItem.canUseNetworkResourcesForLiveStreamingWhilePaused = canUseNetworkResourcesForLiveStreamingWhilePaused
-            } else {
-                // Fallback on earlier versions
+            //in case it's playing the same URL, only replace if is either paused or we are forcing replacing
+            if self.playHistory.last == url {
+                if self.avPlayer.rate != 0 && replaceCurrent {
+                    self.avPlayer.replaceCurrentItem(with: playerItem)
+                    self.log("replaced current item with url \(url)")
+                }
+            }else{
+                self.log("replaced [\(self.playHistory.last?.absoluteString ?? "")] with url [\(url)]")
+                
+                self.playHistory.append(url)
+                
+                self.avPlayer.replaceCurrentItem(with: playerItem)
             }
-        }
-        
-        if startPlaying && avPlayer.rate == 0 {
-            play()
+            
+            //configure AVPlayerLayer
+            //avPlayerLayer.player = avPlayer
+            //avPlayerLayer.videoGravity = UI_USER_INTERFACE_IDIOM() == .pad ? AVLayerVideoGravityResizeAspect : AVLayerVideoGravityResizeAspectFill
+            
+            //Adds observers
+            self.addObservers()
+            
+            //Backgrond play
+            self.configBackgroundPlay()
+            
+            //setup streaming speed
+            if let currentItem = self.avPlayer.currentItem {
+                currentItem.preferredPeakBitRate = self.preferredPeakBitRate
+                if #available(iOS 10.0, *) {
+                    currentItem.preferredForwardBufferDuration = self.preferredForwardBufferDuration
+                    currentItem.canUseNetworkResourcesForLiveStreamingWhilePaused = self.canUseNetworkResourcesForLiveStreamingWhilePaused
+                } else {
+                    // Fallback on earlier versions
+                }
+            }
+            
+            DispatchQueue.main.async {
+                if startPlaying && self.avPlayer.rate == 0 {
+                    self.play()
+                }
+                
+                completion?()
+            }
         }
         
         return true
