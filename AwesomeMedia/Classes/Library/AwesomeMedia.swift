@@ -458,7 +458,7 @@ extension AwesomeMedia {
             return
         }
         
-        playerDelegate?.didChangeSlider(to: timeSliderValue, mediaType: mediaType)
+        playerDelegate?.didChangeSlider(to: Float(CMTimeMakeWithSeconds(currentItem.elapsedTime(timeSliderValue), 100).seconds), mediaType: mediaType)
         notify(.timeUpdated, object: currentItem)
         
         log("time slider updated with value \(timeSliderValue)")
@@ -487,7 +487,7 @@ extension AwesomeMedia {
             }
         })
         
-        playerDelegate?.didChangeSlider(to: timeSliderValue, mediaType: mediaType)
+        playerDelegate?.didChangeSlider(to: Float(CMTimeMakeWithSeconds(currentItem.elapsedTime(timeSliderValue), 100).seconds), mediaType: mediaType)
         notify(.timeFinishedUpdating, object: currentItem)
         
         log("time slider ended seeking with value \(timeSliderValue)")
