@@ -52,31 +52,31 @@ extension MediaViewController {
 
 extension MediaViewController: AwesomeMediaPlayerDelegate {
     
-    public func didChangeSpeed(to: Float, mediaType: MVMediaType) {
+    public func didChangeSpeed(to: Float, mediaType: AMMediaType) {
         print("MediaViewController didChangeSpeed(\(to))")
     }
     
-    public func didChangeSlider(to: Float, mediaType: MVMediaType) {
+    public func didChangeSlider(to: Float, mediaType: AMMediaType) {
         print("MediaViewController didChangeSlider(\(to))")
     }
     
-    public func didStopPlaying(mediaType: MVMediaType) {
+    public func didStopPlaying(mediaType: AMMediaType) {
         print("MediaViewController didStopPlaying")
     }
     
-    public func didStartPlaying(mediaType: MVMediaType) {
+    public func didStartPlaying(mediaType: AMMediaType) {
         print("MediaViewController didStartPlaying")
     }
     
-    public func didPausePlaying(mediaType: MVMediaType) {
+    public func didPausePlaying(mediaType: AMMediaType) {
         print("MediaViewController didPausePlaying")
     }
     
-    public func didFinishPlaying(mediaType: MVMediaType) {
+    public func didFinishPlaying(mediaType: AMMediaType) {
         print("FullscreenMediaViewController didFinishPlaying")
     }
     
-    public func didFailPlaying(mediaType: MVMediaType) {
+    public func didFailPlaying(mediaType: AMMediaType) {
         print("FullscreenMediaViewController didFailPlaying")
     }
     

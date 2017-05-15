@@ -27,6 +27,9 @@ open class AwesomeMediaView: UIView {
     @IBOutlet open weak var forwardButton: UIButton?
     @IBOutlet open weak var rewindButton: UIButton?
     
+    // Controllers constraitns
+    @IBOutlet weak var constraWidthMarkersButton: NSLayoutConstraint?
+    
     // MARK: - Configurations
     
     fileprivate var isSeeking = false
@@ -57,6 +60,9 @@ open class AwesomeMediaView: UIView {
         timeSlider?.addTarget(self, action: #selector(AwesomeMediaView.timeSliderEndedUpdating(_:)), for: .touchUpInside)
         timeSlider?.addTarget(self, action: #selector(AwesomeMediaView.timeSliderEndedUpdating(_:)), for: .touchUpOutside)
         
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(AwesomeMediaView.sliderTapped(gestureRecognizer:)))
+        timeSlider?.addGestureRecognizer(tapGestureRecognizer)
+        
         playButton?.addTarget(self, action: #selector(AwesomeMediaView.togglePlay(_:)), for: .touchUpInside)
         
         forwardButton?.addTarget(self, action: #selector(AwesomeMediaView.seekForward(_:)), for: .touchUpInside)
@@ -86,6 +92,25 @@ open class AwesomeMediaView: UIView {
     open func requestPlayer(){
         avPlayerLayer.player = AwesomeMedia.shared.avPlayer
     }
+    
+    func sliderTapped(gestureRecognizer: UIGestureRecognizer) {
+        
+        guard let timeSlider = timeSlider else {
+            return
+        }
+        
+        let pointTapped: CGPoint = gestureRecognizer.location(in: self)
+        
+        let positionOfSlider: CGPoint = timeSlider.frame.origin
+        let widthOfSlider: CGFloat = timeSlider.frame.size.width
+        let newValue = ((pointTapped.x - positionOfSlider.x) * CGFloat(timeSlider.maximumValue) / widthOfSlider)
+        
+        isSeeking = true
+        AwesomeMedia.shared.beginSeeking()
+        timeSlider.setValue(Float(newValue), animated: true)
+        isSeeking = false
+        AwesomeMedia.shared.endSeeking(timeSlider.value)
+    }
 }
 
 // MARK: - Events
@@ -93,12 +118,14 @@ open class AwesomeMediaView: UIView {
 extension AwesomeMediaView {
     
     open func setup(mediaPath: String, coverImagePath: String? = nil, authorName: String? = nil, title: String? = nil, downloadPath: String? = nil, mediaMarkers: [AwesomeMediaMarker]? = nil, showHours: Bool = false, replaceCurrent: Bool = false, startPlaying: Bool = false) {
-        
         viewModel.set(mediaPath: mediaPath, coverImagePath: coverImagePath, authorName: authorName, title: title, downloadPath: downloadPath, mediaMarkers: mediaMarkers, showHours: showHours)
         
         _ = AwesomeMedia.shared.prepareMedia(withUrl: viewModel.mediaUrl, replaceCurrent: replaceCurrent, startPlaying: startPlaying)
         
         playButton?.isSelected = AwesomeMedia.shared.playerIsPlaying
+        
+        showMarkersButton(mediaMarkers)
+        
         mediaTimeHasUpdated()
     }
     
@@ -143,6 +170,8 @@ extension AwesomeMediaView {
     
     @IBAction open func toggleSpeed(_ sender: AnyObject){
         let speed = AwesomeMedia.shared.toggleRateSpeed()
+        
+        AwesomeMediaState.saveMediaPlayer(speed: speed, forMediaType: AwesomeMedia.shared.mediaType)
         
         updateSpeedButton(withSpeed: speed)
     }
@@ -238,6 +267,11 @@ extension AwesomeMediaView {
     
     open func showControls(_ show: Bool, automaticHide: Bool = true, forceAutoHide: Bool = false) {
         
+        // show / hide controls should only happens for Videos.
+        if AwesomeMedia.shared.mediaType == .audio {
+            return
+        }
+        
         isControlHidden = !show
         
         var originHeight: CGFloat = 0
@@ -269,6 +303,20 @@ extension AwesomeMediaView {
         }
         
         delegate?.didToggleControls(show: show)
+    }
+    
+    func showMarkersButton(_ mediaMarkers: [AwesomeMediaMarker]?) {
+        if let markersButton = markersButton {
+            
+            if let mediaMarkers = mediaMarkers, mediaMarkers.count > 0 {
+                markersButton.isHidden = false
+            } else {
+                // we're hiding the markers button by changing its constraint to 0
+                markersButton.isHidden = true
+                constraWidthMarkersButton?.constant = 0
+            }
+            
+        }
     }
     
 }
@@ -354,23 +402,10 @@ extension AwesomeMediaView {
         let duration = CMTimeGetSeconds(currentItem.duration)
         let remainingTime = duration - currentTime
         
-        self.minTimeLabel?.text = currentTime.formatedTime
-        self.maxTimeLabel?.text = remainingTime.isNaN ? "" : remainingTime.formatedTime
+        let showHours = currentTime / 3600 >= 1 || remainingTime / 3600 >= 1
         
-        //        if let log = currentItem.accessLog() {
-        //            for event in log.events {
-        //                if #available(iOS 10.0, *) {
-        //                    print("BitRate: \(event.averageAudioBitrate)  \(event.averageVideoBitrate)")
-        //                } else {
-        //                    // Fallback on earlier versions
-        //                }
-        //            }
-        //        }
-        //
-        //        if #available(iOS 10.0, *) {
-        //            print("\(currentItem.preferredPeakBitRate) / \(currentItem.preferredForwardBufferDuration) / \(currentItem.canUseNetworkResourcesForLiveStreamingWhilePaused)")
-        //        } else {
-        //            // Fallback on earlier versions
-        //        }
+        self.minTimeLabel?.text = currentTime.formatedTime(showHours: showHours)
+        self.maxTimeLabel?.text = remainingTime.isNaN ? "" : remainingTime.formatedTime(showHours: showHours)
+        
     }
 }

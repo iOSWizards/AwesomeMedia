@@ -27,7 +27,7 @@ public enum AwesomeMediaEvent: String {
     case isGoingLandscape = "isLandscape"
 }
 
-public enum MVMediaType: String {
+public enum AMMediaType: String {
     case video = "Video"
     case audio = "Audio"
 }
@@ -55,6 +55,7 @@ public class AwesomeMedia: NSObject {
     public var preferredForwardBufferDuration: TimeInterval = 0
     public var canUseNetworkResourcesForLiveStreamingWhilePaused: Bool = true
     public var isPlayingLandscapeMedia: Bool = false
+    public var isPlayingYouTubeMedia: Bool = false
     public var playerIsPlaying: Bool {
         return avPlayer.rate > 0
     }
@@ -73,12 +74,12 @@ public class AwesomeMedia: NSObject {
         return playHistory.last?.absoluteString
     }
     
-    public var mediaType: MVMediaType {
+    public var mediaType: AMMediaType {
         if let currentItem = avPlayer.currentItem {
-            if currentItem.asset.tracks(withMediaType: AVMediaTypeAudio).count > 0 {
-                return .audio
-            } else if currentItem.asset.tracks(withMediaType: AVMediaTypeVideo).count > 0 {
+            if currentItem.asset.tracks(withMediaType: AVMediaTypeVideo).count > 0 {
                 return .video
+            } else if currentItem.asset.tracks(withMediaType: AVMediaTypeAudio).count > 0 {
+                return .audio
             }
         }
         
@@ -245,54 +246,75 @@ extension AwesomeMedia {
 extension AwesomeMedia {
     
     public func prepareMedia(withUrl url: URL?, replaceCurrent: Bool = false, startPlaying: Bool = false, completion:(()->Void)? = nil) -> Bool {
+        
         guard let url = url else {
             return false
         }
         
-        DispatchQueue.global().async {
-            let playerItem = AVPlayerItem(url: url)
+        if let completion = completion {
             
-            //in case it's playing the same URL, only replace if is either paused or we are forcing replacing
-            if self.playHistory.last == url {
-                if self.avPlayer.rate != 0 && replaceCurrent {
-                    self.avPlayer.replaceCurrentItem(with: playerItem)
-                    self.log("replaced current item with url \(url)")
+            DispatchQueue.global().async {
+                
+                _ = self.commonPrepareMedia(withUrl: url, replaceCurrent: replaceCurrent, startPlaying: startPlaying)
+                
+                DispatchQueue.main.async {
+                    
+                    if startPlaying && self.avPlayer.rate == 0 {
+                        self.play()
+                    }
+                    
+                    completion()
                 }
-            }else{
-                self.log("replaced [\(self.playHistory.last?.absoluteString ?? "")] with url [\(url)]")
-                
-                self.playHistory.append(url)
-                
+            }
+            
+        } else {
+            
+            _ = commonPrepareMedia(withUrl: url, replaceCurrent: replaceCurrent, startPlaying: startPlaying)
+            
+            if startPlaying && avPlayer.rate == 0 {
+                play()
+            }
+        }
+        
+        return true
+    }
+    
+    private func commonPrepareMedia(withUrl url: URL, replaceCurrent: Bool = false, startPlaying: Bool = false) -> Bool {
+        
+        let playerItem = AVPlayerItem(url: url)
+        
+        //in case it's playing the same URL, only replace if is either paused or we are forcing replacing
+        if self.playHistory.last == url {
+            if self.avPlayer.rate != 0 && replaceCurrent {
                 self.avPlayer.replaceCurrentItem(with: playerItem)
+                self.log("replaced current item with url \(url)")
             }
+        }else{
+            self.log("replaced [\(self.playHistory.last?.absoluteString ?? "")] with url [\(url)]")
             
-            //configure AVPlayerLayer
-            //avPlayerLayer.player = avPlayer
-            //avPlayerLayer.videoGravity = UI_USER_INTERFACE_IDIOM() == .pad ? AVLayerVideoGravityResizeAspect : AVLayerVideoGravityResizeAspectFill
+            self.playHistory.append(url)
             
-            //Adds observers
-            self.addObservers()
-            
-            //Backgrond play
-            self.configBackgroundPlay()
-            
-            //setup streaming speed
-            if let currentItem = self.avPlayer.currentItem {
-                currentItem.preferredPeakBitRate = self.preferredPeakBitRate
-                if #available(iOS 10.0, *) {
-                    currentItem.preferredForwardBufferDuration = self.preferredForwardBufferDuration
-                    currentItem.canUseNetworkResourcesForLiveStreamingWhilePaused = self.canUseNetworkResourcesForLiveStreamingWhilePaused
-                } else {
-                    // Fallback on earlier versions
-                }
-            }
-            
-            DispatchQueue.main.async {
-                if startPlaying && self.avPlayer.rate == 0 {
-                    self.play()
-                }
-                
-                completion?()
+            self.avPlayer.replaceCurrentItem(with: playerItem)
+        }
+        
+        //configure AVPlayerLayer
+        //avPlayerLayer.player = avPlayer
+        //avPlayerLayer.videoGravity = UI_USER_INTERFACE_IDIOM() == .pad ? AVLayerVideoGravityResizeAspect : AVLayerVideoGravityResizeAspectFill
+        
+        //Adds observers
+        self.addObservers()
+        
+        //Backgrond play
+        self.configBackgroundPlay()
+        
+        //setup streaming speed
+        if let currentItem = self.avPlayer.currentItem {
+            currentItem.preferredPeakBitRate = self.preferredPeakBitRate
+            if #available(iOS 10.0, *) {
+                currentItem.preferredForwardBufferDuration = self.preferredForwardBufferDuration
+                currentItem.canUseNetworkResourcesForLiveStreamingWhilePaused = self.canUseNetworkResourcesForLiveStreamingWhilePaused
+            } else {
+                // Fallback on earlier versions
             }
         }
         
@@ -304,10 +326,15 @@ extension AwesomeMedia {
             return
         }
         avPlayer.play()
+
+        if let speed = AwesomeMediaState.speedFor(AwesomeMedia.shared.mediaType) {
+            currentRate = speed
+        }
         
         if currentRate != 1 && currentRate != 0 {
             avPlayer.rate = currentRate
         }
+        
         currentRate = avPlayer.rate
         
         updateMediaInfo()
@@ -658,5 +685,3 @@ extension AwesomeMedia {
     }
     
 }
-
-
