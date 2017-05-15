@@ -353,6 +353,11 @@ extension AwesomeMediaView {
         playButton?.isSelected = true
         canToggleControls = true
         
+        // updating the toggle speed button label with the last chosen speed selected by an user.
+        if let speed = AwesomeMediaState.speedFor(AwesomeMedia.shared.mediaType) {
+            updateSpeedButton(withSpeed: speed)
+        }
+        
         autoHideControls()
     }
     
