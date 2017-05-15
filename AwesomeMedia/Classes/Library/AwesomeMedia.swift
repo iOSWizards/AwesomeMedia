@@ -25,6 +25,7 @@ public enum AwesomeMediaEvent: String {
     case timeFinishedUpdating = "timeFinishedUpdating"
     case isGoingPortrait = "isPortrait"
     case isGoingLandscape = "isLandscape"
+    case appResignActive = "appResignActive"
 }
 
 public enum AMMediaType: String {
@@ -56,6 +57,7 @@ public class AwesomeMedia: NSObject {
     public var canUseNetworkResourcesForLiveStreamingWhilePaused: Bool = true
     public var isPlayingLandscapeMedia: Bool = false
     public var isPlayingYouTubeMedia: Bool = false
+    
     public var playerIsPlaying: Bool {
         return avPlayer.rate > 0
     }
@@ -133,6 +135,12 @@ public class AwesomeMedia: NSObject {
 
 extension AwesomeMedia {
     
+    public func notifyAppResignActive() {
+        if isPlayingVideo {
+            notify(AwesomeMediaEvent.appResignActive)
+        }
+    }
+    
     public func notify(_ event: AwesomeMediaEvent, object: AnyObject? = nil) {
         notificationCenter.post(name: Notification.Name(rawValue: event.rawValue), object: object)
     }
@@ -165,6 +173,13 @@ extension AwesomeMedia {
                                                selector: #selector(AwesomeMedia.didFailPlaying(_:)),
                                                name: .AVPlayerItemFailedToPlayToEndTime,
                                                object: avPlayer.currentItem)
+        
+        let nftName = NSNotification.Name(
+            rawValue: AwesomeMediaEvent.appResignActive.rawValue
+        )
+        notificationCenter.addObserver(
+            self, selector: #selector(pause), name: nftName, object: nil
+        )
     }
     
     // MARK: - Orientation Observers
