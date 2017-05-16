@@ -230,6 +230,12 @@ extension AwesomeMediaView {
     }
     
     open func enableControls(_ enable: Bool){
+        
+        // the enableControls event should ONLY be received by the MediaPlayer being executed.
+        if AwesomeMedia.shared.lastPlayedUrlString != viewModel.mediaPath {
+            return
+        }
+        
         DispatchQueue.main.async {
             self.controlsView?.isUserInteractionEnabled = enable
             UIView.animate(withDuration: 0.2, animations: {

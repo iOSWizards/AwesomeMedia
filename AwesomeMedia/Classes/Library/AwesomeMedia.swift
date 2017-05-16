@@ -54,9 +54,13 @@ public class AwesomeMedia: NSObject {
     public var skipTime: Int = 15
     public var preferredPeakBitRate: Double = 0
     public var preferredForwardBufferDuration: TimeInterval = 0
+    
+    // Configuration flags
     public var canUseNetworkResourcesForLiveStreamingWhilePaused: Bool = true
     public var isPlayingLandscapeMedia: Bool = false
     public var isPlayingYouTubeMedia: Bool = false
+    public var shouldStopVideoOnApplicationDidEnterBackground: Bool = false
+    public var shouldPauseVideoOnApplicationWillResignActive: Bool = false
     
     public var playerIsPlaying: Bool {
         return avPlayer.rate > 0
@@ -110,9 +114,25 @@ public class AwesomeMedia: NSObject {
         }
     }
     
+    public static func applicationWillResignActive(_ application: UIApplication) {
+        if AwesomeMedia.shared.isPlayingVideo && AwesomeMedia.shared.isPlayingLandscapeMedia &&
+            AwesomeMedia.shared.shouldPauseVideoOnApplicationWillResignActive {
+            AwesomeMedia.shared.pause()
+        }
+    }
+    
     public static func applicationDidEnterBackground(_ application: UIApplication) {
         if AwesomeMedia.shared.isPlayingVideo {
-            AwesomeMedia.shared.pause()
+            if AwesomeMedia.shared.shouldStopVideoOnApplicationDidEnterBackground {
+                AwesomeMedia.shared.stop()
+                
+                // we're cleaning the Media Info when the Media Player is playing
+                // a video and the app goes in background.
+                AwesomeMedia.shared.mediaInfo = [String: AnyObject]()
+                
+            } else {
+                AwesomeMedia.shared.pause()
+            }
         }
     }
     
@@ -134,12 +154,6 @@ public class AwesomeMedia: NSObject {
 // MARK: - Observers
 
 extension AwesomeMedia {
-    
-    public func notifyAppResignActive() {
-        if isPlayingVideo {
-            notify(AwesomeMediaEvent.appResignActive)
-        }
-    }
     
     public func notify(_ event: AwesomeMediaEvent, object: AnyObject? = nil) {
         notificationCenter.post(name: Notification.Name(rawValue: event.rawValue), object: object)
@@ -341,7 +355,7 @@ extension AwesomeMedia {
             return
         }
         avPlayer.play()
-
+        
         if let speed = AwesomeMediaState.speedFor(AwesomeMedia.shared.mediaType) {
             currentRate = speed
         }
