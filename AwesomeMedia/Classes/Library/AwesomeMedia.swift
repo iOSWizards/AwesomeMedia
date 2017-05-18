@@ -25,7 +25,6 @@ public enum AwesomeMediaEvent: String {
     case timeFinishedUpdating = "timeFinishedUpdating"
     case isGoingPortrait = "isPortrait"
     case isGoingLandscape = "isLandscape"
-    case appResignActive = "appResignActive"
 }
 
 public enum AMMediaType: String {
@@ -36,8 +35,9 @@ public enum AMMediaType: String {
 public class AwesomeMedia: NSObject {
     
     public static let shared = AwesomeMedia()
-    public static var showLogs = false
-    public static var shouldLockControlsWhenBuffering = true
+    
+    // store the MediaPlayer state for Audio media.
+    fileprivate var mediaPlayerWasPlayingMedia = false
     
     fileprivate var playbackLikelyToKeepUpContext = 0
     fileprivate var playbackBufferFullContext = 1
@@ -56,11 +56,18 @@ public class AwesomeMedia: NSObject {
     public var preferredForwardBufferDuration: TimeInterval = 0
     
     // Configuration flags
+    public static var showLogs = false
+    public static var shouldLockControlsWhenBuffering = true
     public var canUseNetworkResourcesForLiveStreamingWhilePaused: Bool = true
     public var isPlayingLandscapeMedia: Bool = false
     public var isPlayingYouTubeMedia: Bool = false
     public var shouldStopVideoOnApplicationDidEnterBackground: Bool = false
     public var shouldPauseVideoOnApplicationWillResignActive: Bool = false
+    
+    private override init() {
+        super.init()
+        addAppStateNotification()
+    }
     
     public var playerIsPlaying: Bool {
         return avPlayer.rate > 0
@@ -68,6 +75,10 @@ public class AwesomeMedia: NSObject {
     
     public var isPlayingVideo: Bool {
         return avPlayer.rate != 0 && avPlayer.error == nil && mediaType == .video
+    }
+    
+    public var isPlayingAudio: Bool {
+        return playerIsPlaying && !isPlayingVideo
     }
     
     public func clearHistory() {
@@ -114,28 +125,6 @@ public class AwesomeMedia: NSObject {
         }
     }
     
-    public static func applicationWillResignActive(_ application: UIApplication) {
-        if AwesomeMedia.shared.isPlayingVideo && AwesomeMedia.shared.isPlayingLandscapeMedia &&
-            AwesomeMedia.shared.shouldPauseVideoOnApplicationWillResignActive {
-            AwesomeMedia.shared.pause()
-        }
-    }
-    
-    public static func applicationDidEnterBackground(_ application: UIApplication) {
-        if AwesomeMedia.shared.isPlayingVideo {
-            if AwesomeMedia.shared.shouldStopVideoOnApplicationDidEnterBackground {
-                AwesomeMedia.shared.stop()
-                
-                // we're cleaning the Media Info when the Media Player is playing
-                // a video and the app goes in background.
-                AwesomeMedia.shared.mediaInfo = [String: AnyObject]()
-                
-            } else {
-                AwesomeMedia.shared.pause()
-            }
-        }
-    }
-    
     static open func offlineFileDestination(withPath path: String?) -> URL? {
         guard let downloadPath = path else {
             return nil
@@ -150,6 +139,66 @@ public class AwesomeMedia: NSObject {
     }
 }
 
+// MARK: - AppDelegate events
+
+extension AwesomeMedia {
+    
+    func applicationWillResignActive() {
+        
+        AwesomeMedia.shared.mediaPlayerWasPlayingMedia =
+            AwesomeMedia.shared.isPlayingAudio || AwesomeMedia.shared.isPlayingVideo
+        
+        if AwesomeMedia.shared.isPlayingVideo && AwesomeMedia.shared.isPlayingLandscapeMedia &&
+            AwesomeMedia.shared.shouldPauseVideoOnApplicationWillResignActive {
+            AwesomeMedia.shared.pause()
+        }
+    }
+    
+    func applicationDidEnterBackground() {
+        if AwesomeMedia.shared.isPlayingVideo {
+            if AwesomeMedia.shared.shouldStopVideoOnApplicationDidEnterBackground {
+                AwesomeMedia.shared.stop()
+                
+                // we're cleaning the Media Info when the Media Player is playing
+                // a video and the app goes in background.
+                AwesomeMedia.shared.mediaInfo = [String: AnyObject]()
+                
+            } else {
+                AwesomeMedia.shared.pause()
+            }
+        }
+    }
+    
+    func applicationDidBecomeActive() {
+        if AwesomeMedia.shared.mediaPlayerWasPlayingMedia {
+            AwesomeMedia.shared.play()
+        }
+    }
+    
+    func applicationWillTerminate() {
+        
+    }
+    
+    func addAppStateNotification() {
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(applicationWillResignActive),
+                                               name: .UIApplicationWillResignActive,
+                                               object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(applicationDidEnterBackground),
+                                               name: .UIApplicationDidEnterBackground,
+                                               object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(applicationDidBecomeActive),
+                                               name: .UIApplicationDidBecomeActive,
+                                               object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(applicationWillTerminate),
+                                               name: .UIApplicationWillTerminate,
+                                               object: nil)
+    }
+    
+}
 
 // MARK: - Observers
 
@@ -187,13 +236,6 @@ extension AwesomeMedia {
                                                selector: #selector(AwesomeMedia.didFailPlaying(_:)),
                                                name: .AVPlayerItemFailedToPlayToEndTime,
                                                object: avPlayer.currentItem)
-        
-        let nftName = NSNotification.Name(
-            rawValue: AwesomeMediaEvent.appResignActive.rawValue
-        )
-        notificationCenter.addObserver(
-            self, selector: #selector(pause), name: nftName, object: nil
-        )
     }
     
     // MARK: - Orientation Observers
