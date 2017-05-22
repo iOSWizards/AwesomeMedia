@@ -19,18 +19,21 @@ open class AwesomeMediaViewModel: NSObject {
     open var title: String?
     open var mediaPath: String?
     open var downloadPath: String?
+    open var mediaFileSizeDescription: String?
     open var coverImagePath: String?
     open var authorName: String?
     open var mediaMarkers = [AwesomeMediaMarker]()
     open var showHours = false
     
-    func set(mediaPath: String, coverImagePath: String? = nil, authorName: String? = nil, title: String? = nil, downloadPath: String? = nil, mediaMarkers: [AwesomeMediaMarker]? = nil, showHours: Bool = false){
+    func set(mediaPath: String, coverImagePath: String? = nil, authorName: String? = nil, title: String? = nil, downloadPath: String? = nil, mediaFileSizeDescription: String?, mediaMarkers: [AwesomeMediaMarker]? = nil, showHours: Bool = false) {
+        
         self.mediaPath = mediaPath
         self.downloadPath = downloadPath
         self.title = title
         self.authorName = authorName
         self.coverImagePath = coverImagePath
         self.showHours = showHours
+        self.mediaFileSizeDescription = mediaFileSizeDescription
         
         if let mediaMarkers = mediaMarkers {
             self.mediaMarkers = mediaMarkers
@@ -101,6 +104,24 @@ open class AwesomeMediaViewModel: NSObject {
             }).resume()
         }
     }
+    
+    open func deleteDownloadedMedia(completion: (_ deleted: Bool)->Void) {
+        
+        guard let offlineFileDestination = offlineFileDestination else {
+            completion(false)
+            return
+        }
+        
+        do {
+            try FileManager().removeItem(at: offlineFileDestination)
+            completion(true)
+        } catch let error as NSError {
+            print(error.localizedDescription)
+            completion(false)
+        }
+        
+    }
+    
 }
 
 extension String {
