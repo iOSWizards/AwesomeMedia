@@ -116,7 +116,9 @@ public class AwesomeMedia: NSObject {
             return false
         }
         
-        return lastUrl == url
+        // we may be playing a local file.
+        return lastUrl == url ||
+            lastUrl == offlineFileDestination(withPath: url?.absoluteString ?? "")
     }
     
     fileprivate func log(_ message: String){
