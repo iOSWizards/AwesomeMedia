@@ -117,8 +117,27 @@ open class AwesomeMediaView: UIView {
 
 extension AwesomeMediaView {
     
-    open func setup(mediaPath: String, coverImagePath: String? = nil, authorName: String? = nil, title: String? = nil, downloadPath: String? = nil, mediaMarkers: [AwesomeMediaMarker]? = nil, showHours: Bool = false, replaceCurrent: Bool = false, startPlaying: Bool = false) {
-        viewModel.set(mediaPath: mediaPath, coverImagePath: coverImagePath, authorName: authorName, title: title, downloadPath: downloadPath, mediaMarkers: mediaMarkers, showHours: showHours)
+    open func setup(
+        mediaPath: String,
+        coverImagePath: String? = nil,
+        authorName: String? = nil,
+        title: String? = nil,
+        downloadPath: String? = nil,
+        mediaFileSizeDescription: String?,
+        mediaMarkers: [AwesomeMediaMarker]? = nil,
+        showHours: Bool = false,
+        replaceCurrent: Bool = false,
+        startPlaying: Bool = false) {
+        
+        viewModel.set(
+            mediaPath: mediaPath,
+            coverImagePath: coverImagePath,
+            authorName: authorName,
+            title: title,
+            downloadPath: downloadPath,
+            mediaFileSizeDescription: mediaFileSizeDescription,
+            mediaMarkers: mediaMarkers,
+            showHours: showHours)
         
         _ = AwesomeMedia.shared.prepareMedia(withUrl: viewModel.mediaUrl, replaceCurrent: replaceCurrent, startPlaying: startPlaying)
         
