@@ -105,7 +105,7 @@ open class AwesomeMediaViewController: UIViewController, AwesomeMediaMarkersView
         // we should delete the media.
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .actionSheet)
         
-        alertController.addAction(UIAlertAction(title: labelConfirm, style: .default, handler: { (action) in
+        alertController.addAction(UIAlertAction(title: labelConfirm, style: .destructive, handler: { (action) in
             self.mediaView.viewModel.deleteDownloadedMedia(completion: {(deleted) in
                 self.updateDownloadView(self.mediaView.viewModel.mediaDownloadState, animated: true)
             })
