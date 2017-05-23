@@ -408,7 +408,9 @@ extension AwesomeMediaView {
     }
     
     open func mediaTimeHasUpdated(_ notification: Notification? = nil) {
-        guard AwesomeMedia.isPlaying(viewModel.mediaUrl) else {
+        
+        // this way we're preventing of another media other than the one being played of being updated.
+        guard AwesomeMedia.isPlaying(viewModel.mediaUrl) || AwesomeMedia.wasPlaying(viewModel.mediaUrl) else {
             return
         }
         
@@ -432,7 +434,7 @@ extension AwesomeMediaView {
         let duration = CMTimeGetSeconds(currentItem.duration)
         let remainingTime = duration - currentTime
         
-        let showHours = currentTime / 3600 >= 1 || remainingTime / 3600 >= 1
+        let showHours = (currentTime + remainingTime) / 3600 >= 1
         
         self.minTimeLabel?.text = currentTime.formatedTime(showHours: showHours)
         self.maxTimeLabel?.text = remainingTime.isNaN ? "" : remainingTime.formatedTime(showHours: showHours)
