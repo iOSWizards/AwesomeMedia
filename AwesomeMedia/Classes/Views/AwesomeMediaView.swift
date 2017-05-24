@@ -196,18 +196,8 @@ extension AwesomeMediaView {
     }
     
     open func updateSpeedButton(withSpeed speed: Float) {
-        
-        let speedValue = speed == 0 ? 1 : speed
-        
-        if speedValue == 1 {
-            speedButton?.setTitle(String(format:"%.0fx", speedValue), for: .normal)
-        } else {
-            speedButton?.setTitle(String(format:"%.2fx", speedValue), for: .normal)
-            
-            if (speedValue.decimal*10).decimal == 0 {
-                speedButton?.setTitle(String(format:"%.1fx", speedValue), for: .normal)
-            }
-        }
+        let speedLabel = String(speed == 0 ? 1 : speed).replacingOccurrences(of: ".0", with: "")
+        speedButton?.setTitle( speedLabel + "x", for: .normal)
     }
     
     // MARK: - Seeking
