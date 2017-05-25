@@ -125,9 +125,19 @@ public class AwesomeMedia: NSObject {
             return false
         }
         
-        // we may be playing a local file.
-        return lastUrl == url ||
-            lastUrl == offlineFileDestination(withPath: url?.absoluteString ?? "")
+        var urlEquals = lastUrl == url
+        
+        if !urlEquals {
+            // we may be playing a local file.
+            guard let offlineFileUrl = offlineFileDestination(withPath: url?.absoluteString ?? "") else {
+                return urlEquals
+            }
+            if let file1 = extractFileName(of: lastUrl),
+                let file2 = extractFileName(of: offlineFileUrl) {
+                urlEquals = file1 == file2
+            }
+        }
+        return urlEquals
     }
     
     fileprivate func log(_ message: String){
@@ -152,6 +162,10 @@ public class AwesomeMedia: NSObject {
         
         let documentsDirectoryURL =  FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
         return documentsDirectoryURL.appendingPathComponent(downloadUrl.lastPathComponent)
+    }
+    
+    fileprivate static func extractFileName(of url: URL) -> String? {
+        return url.lastPathComponent
     }
 }
 
