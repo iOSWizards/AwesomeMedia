@@ -8,6 +8,7 @@
 
 import Foundation
 import AVKit
+import CallKit
 import AVFoundation
 import AudioToolbox
 import MediaPlayer
@@ -64,8 +65,16 @@ public class AwesomeMedia: NSObject {
     public var shouldStopVideoOnApplicationDidEnterBackground: Bool = false
     public var shouldPauseVideoOnApplicationWillResignActive: Bool = false
     
+    private var callObserver: AnyObject!
+    
     private override init() {
         super.init()
+        
+        if #available(iOS 10.0, *) {
+            callObserver = CXCallObserver()
+            callObserver.setDelegate(self, queue: nil)
+        }
+        
         addAppStateNotification()
     }
     
@@ -127,6 +136,11 @@ public class AwesomeMedia: NSObject {
         }
     }
     
+    fileprivate func updatePlayerState() {
+        AwesomeMedia.shared.mediaPlayerWasPlayingMedia =
+            AwesomeMedia.shared.isPlayingAudio || AwesomeMedia.shared.isPlayingVideo
+    }
+    
     static open func offlineFileDestination(withPath path: String?) -> URL? {
         guard let downloadPath = path else {
             return nil
@@ -147,13 +161,6 @@ extension AwesomeMedia {
     
     func applicationWillResignActive() {
         
-        AwesomeMedia.shared.mediaPlayerWasPlayingMedia =
-            AwesomeMedia.shared.isPlayingAudio || AwesomeMedia.shared.isPlayingVideo
-        
-        if AwesomeMedia.shared.isPlayingVideo && AwesomeMedia.shared.isPlayingLandscapeMedia &&
-            AwesomeMedia.shared.shouldPauseVideoOnApplicationWillResignActive {
-            AwesomeMedia.shared.pause()
-        }
     }
     
     func applicationDidEnterBackground() {
@@ -420,7 +427,7 @@ extension AwesomeMedia {
     
     public func rotated() {
         if UIDeviceOrientationIsLandscape(UIDevice.current.orientation) {
-            AwesomeMedia.shared.isPlayingLandscapeMedia = true
+            AwesomeMedia.shared.isPlayingLandscapeMedia = isPlayingVideo
             notify(.isGoingLandscape)
         }
         
@@ -754,6 +761,37 @@ extension AwesomeMedia {
             nowPlayingInfo[MPNowPlayingInfoPropertyPlaybackRate] = NSNumber(value: AwesomeMedia.shared.avPlayer.rate as Float)
             
             mediaInfo = nowPlayingInfo
+        }
+    }
+    
+    
+}
+
+// MARK: - CXCallObserverDelegate
+
+extension AwesomeMedia : CXCallObserverDelegate {
+    
+    @available(iOS 10.0, *)
+    public func callObserver(_ callObserver: CXCallObserver, callChanged call: CXCall) {
+        if call.hasEnded == true {
+            log("CXCallObserverDelegate: Disconnected")
+            if AwesomeMedia.shared.mediaPlayerWasPlayingMedia {
+                AwesomeMedia.shared.play()
+            }
+        }
+        if call.isOutgoing == true && call.hasConnected == false {
+            log("CXCallObserverDelegate: Dialing")
+            updatePlayerState()
+            pause()
+        }
+        if call.isOutgoing == false && call.hasConnected == false && call.hasEnded == false {
+            log("CXCallObserverDelegate: Incoming")
+            updatePlayerState()
+            pause()
+        }
+        
+        if call.hasConnected == true && call.hasEnded == false {
+            log("CXCallObserverDelegate: Connected")
         }
     }
     
