@@ -44,6 +44,7 @@ public class AwesomeMedia: NSObject {
     fileprivate var playbackBufferFullContext = 1
     fileprivate var timeObserver: AnyObject?
     fileprivate var playHistory = [URL]()
+    fileprivate var isPlayingMPRemoteCommandCenter: Bool = true
     public var currentRate: Float = 1
     
     public weak var playerDelegate: AwesomeMediaPlayerDelegate?
@@ -193,7 +194,7 @@ extension AwesomeMedia {
     }
     
     func applicationDidBecomeActive() {
-        if AwesomeMedia.shared.mediaPlayerWasPlayingMedia {
+        if AwesomeMedia.shared.mediaPlayerWasPlayingMedia && isPlayingMPRemoteCommandCenter {
             AwesomeMedia.shared.play()
         }
     }
@@ -420,6 +421,7 @@ extension AwesomeMedia {
             return
         }
         avPlayer.play()
+        isPlayingMPRemoteCommandCenter = true
         
         if let speed = AwesomeMediaState.speedFor(AwesomeMedia.shared.mediaType) {
             currentRate = speed
@@ -696,7 +698,7 @@ extension AwesomeMedia {
         
         //play/pause
         commandCenter.pauseCommand.isEnabled = true
-        commandCenter.pauseCommand.addTarget(self, action: #selector(AwesomeMedia.pause))
+        commandCenter.pauseCommand.addTarget(self, action: #selector(AwesomeMedia.pauseMPRemoteCommandCenter))
         
         commandCenter.playCommand.isEnabled = true
         commandCenter.playCommand.addTarget(self, action: #selector(AwesomeMedia.play))
@@ -722,6 +724,11 @@ extension AwesomeMedia {
         commandCenter.skipBackwardCommand.addTarget(self, action: #selector(AwesomeMedia.skipBackward))
         
         log("added command center controls")
+    }
+    
+    func pauseMPRemoteCommandCenter() {
+        isPlayingMPRemoteCommandCenter = false
+        pause()
     }
     
     public func removePlayerControls(){
