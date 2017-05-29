@@ -123,7 +123,7 @@ extension AwesomeMediaView {
         authorName: String? = nil,
         title: String? = nil,
         downloadPath: String? = nil,
-        mediaFileSizeDescription: String?,
+        mediaFileSizeDescription: String? = nil,
         mediaMarkers: [AwesomeMediaMarker]? = nil,
         showHours: Bool = false,
         replaceCurrent: Bool = false,
