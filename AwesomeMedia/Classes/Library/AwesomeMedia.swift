@@ -175,7 +175,13 @@ public class AwesomeMedia: NSObject {
 extension AwesomeMedia {
     
     func applicationWillResignActive() {
+        AwesomeMedia.shared.mediaPlayerWasPlayingMedia =
+            AwesomeMedia.shared.isPlayingAudio || AwesomeMedia.shared.isPlayingVideo
         
+        if AwesomeMedia.shared.isPlayingVideo && AwesomeMedia.shared.isPlayingLandscapeMedia &&
+            AwesomeMedia.shared.shouldPauseVideoOnApplicationWillResignActive {
+            AwesomeMedia.shared.pause()
+        }
     }
     
     func applicationDidEnterBackground() {
