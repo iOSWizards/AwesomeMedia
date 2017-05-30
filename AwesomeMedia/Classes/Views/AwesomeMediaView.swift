@@ -414,7 +414,9 @@ extension AwesomeMediaView {
         if isSeeking {
             if let value = timeSlider?.value {
                 let sliderValue = Float(CMTimeGetSeconds(currentItem.duration)) * value
-                currentTime = CMTimeGetSeconds(CMTimeMake(Int64(sliderValue), 1))
+                if !sliderValue.isNaN {
+                    currentTime = CMTimeGetSeconds(CMTimeMake(Int64(sliderValue), 1))
+                }
             }
             
         }else{
