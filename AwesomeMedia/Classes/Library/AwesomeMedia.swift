@@ -623,7 +623,7 @@ extension AwesomeMedia {
     }
     
     public func seek(addingSeconds seconds: Double){
-        guard let currentItem = avPlayer.currentItem, currentItem.status == .readyToPlay else {
+        guard let currentItem = avPlayer.currentItem else {
             return
         }
         
@@ -644,7 +644,7 @@ extension AwesomeMedia {
     }
     
     public func seek(toTime time: Double){
-        guard let currentItem = avPlayer.currentItem, currentItem.status == .readyToPlay else {
+        guard let currentItem = avPlayer.currentItem else {
             return
         }
         
