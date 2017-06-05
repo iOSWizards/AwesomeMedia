@@ -122,6 +122,12 @@ open class AwesomeMediaViewController: UIViewController, AwesomeMediaMarkersView
     }
 }
 
+extension UIAlertController {
+    override open var shouldAutorotate: Bool {
+        return false
+    }
+}
+
 // MARK: - Events
 
 extension AwesomeMediaViewController {
