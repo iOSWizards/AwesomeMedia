@@ -40,7 +40,7 @@ extension AwesomeMediaMarkersViewModel{
         let cell = tableView.dequeueReusableCell(withIdentifier: "marker", for: indexPath) as! AwesomeMediaMarkerTableViewCell
         
         cell.titleLabel.text = markers[indexPath.row].title
-        cell.timeLabel.text = markers[indexPath.row].time.formatedTime(showHours: showHours)
+        cell.timeLabel.text = markers[indexPath.row].time.formatedTime
         
         return cell
     }

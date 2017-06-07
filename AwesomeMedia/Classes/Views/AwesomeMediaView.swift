@@ -428,8 +428,8 @@ extension AwesomeMediaView {
         
         let showHours = (currentTime + remainingTime) / 3600 >= 1
         
-        self.minTimeLabel?.text = currentTime.formatedTime(showHours: showHours)
-        self.maxTimeLabel?.text = remainingTime.isNaN ? "" : remainingTime.formatedTime(showHours: showHours)
+        self.minTimeLabel?.text = currentTime.formatedTime
+        self.maxTimeLabel?.text = remainingTime.isNaN ? "" : remainingTime.formatedTime
         
     }
 }
