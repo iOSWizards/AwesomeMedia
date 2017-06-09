@@ -45,6 +45,7 @@ public class AwesomeMedia: NSObject {
     fileprivate var timeObserver: AnyObject?
     fileprivate var playHistory = [URL]()
     fileprivate var isPlayingMPRemoteCommandCenter: Bool = true
+    fileprivate var haveBufferObservers: Bool = false
     public var currentRate: Float = 1
     
     public weak var playerDelegate: AwesomeMediaPlayerDelegate?
@@ -244,6 +245,7 @@ extension AwesomeMedia {
     
     public static func removeObserver(_ observer: Any){
         AwesomeMedia.shared.notificationCenter.removeObserver(observer)
+        AwesomeMedia.shared.removeBufferObserver()
     }
     
     public func addObservers(){
@@ -315,13 +317,17 @@ extension AwesomeMedia {
     // MARK: - Buffer observer
     
     fileprivate func removeBufferObserver(){
-        AwesomeMedia.shared.avPlayer.removeObserver(self, forKeyPath: "currentItem.playbackLikelyToKeepUp")
-        AwesomeMedia.shared.avPlayer.removeObserver(self, forKeyPath: "currentItem.playbackBufferFull")
+        if haveBufferObservers {
+            AwesomeMedia.shared.avPlayer.removeObserver(self, forKeyPath: "currentItem.playbackLikelyToKeepUp")
+            AwesomeMedia.shared.avPlayer.removeObserver(self, forKeyPath: "currentItem.playbackBufferFull")
+            haveBufferObservers = false
+        }
     }
     
     fileprivate func addBufferObserver(){
         avPlayer.addObserver(self, forKeyPath: "currentItem.playbackLikelyToKeepUp", options: .new, context: &playbackLikelyToKeepUpContext)
         avPlayer.addObserver(self, forKeyPath: "currentItem.playbackBufferFull", options: .new, context: &playbackBufferFullContext)
+        haveBufferObservers = true
     }
     
     override open func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
