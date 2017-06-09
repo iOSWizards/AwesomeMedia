@@ -426,8 +426,6 @@ extension AwesomeMediaView {
         let duration = CMTimeGetSeconds(currentItem.duration)
         let remainingTime = duration - currentTime
         
-        let showHours = (currentTime + remainingTime) / 3600 >= 1
-        
         self.minTimeLabel?.text = currentTime.formatedTime
         self.maxTimeLabel?.text = remainingTime.isNaN ? "" : remainingTime.formatedTime
         

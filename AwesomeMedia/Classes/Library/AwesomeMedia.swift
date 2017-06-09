@@ -318,8 +318,9 @@ extension AwesomeMedia {
     
     fileprivate func removeBufferObserver(){
         if haveBufferObservers {
-            AwesomeMedia.shared.avPlayer.removeObserver(self, forKeyPath: "currentItem.playbackLikelyToKeepUp")
-            AwesomeMedia.shared.avPlayer.removeObserver(self, forKeyPath: "currentItem.playbackBufferFull")
+            avPlayer.removeObserver(self, forKeyPath: "currentItem.playbackLikelyToKeepUp")
+            avPlayer.removeObserver(self, forKeyPath: "currentItem.playbackBufferFull")
+            avPlayer.currentItem?.removeObserver(self, forKeyPath: #keyPath(AVPlayerItem.status))
             haveBufferObservers = false
         }
     }
@@ -327,6 +328,7 @@ extension AwesomeMedia {
     fileprivate func addBufferObserver(){
         avPlayer.addObserver(self, forKeyPath: "currentItem.playbackLikelyToKeepUp", options: .new, context: &playbackLikelyToKeepUpContext)
         avPlayer.addObserver(self, forKeyPath: "currentItem.playbackBufferFull", options: .new, context: &playbackBufferFullContext)
+        avPlayer.currentItem?.addObserver(self, forKeyPath: #keyPath(AVPlayerItem.status), options: [.old, .new], context: nil)
         haveBufferObservers = true
     }
     
@@ -344,15 +346,48 @@ extension AwesomeMedia {
                 }
             }
         }
+        
+        
+        if keyPath == #keyPath(AVPlayerItem.status) {
+            let status: AVPlayerItemStatus
+            
+            // Get the status change from the change dictionary
+            if let statusNumber = change?[.newKey] as? NSNumber {
+                status = AVPlayerItemStatus(rawValue: statusNumber.intValue)!
+            } else {
+                status = .unknown
+            }
+            
+            // Switch over the status
+            switch status {
+            case .readyToPlay:
+                // Player item is ready to play.
+                log("readyToPlay - Player item is ready to play.")
+                if let delayed = delayedPlay {
+                    delayed()
+                    // after playing once we can desable it. (the readyTopPlay status is fired many times)
+                    delayedPlay = nil
+                }
+            case .failed:
+                // Player item failed. See error.
+                log("failed - Player item failed. See error.")
+            case .unknown:
+                // Player item is not yet ready.
+                log("unknown - Player item is not yet ready")
+            }
+        }
+        
     }
     
 }
+
+var delayedPlay: (() -> Void)?
 
 // MARK: - Events
 
 extension AwesomeMedia {
     
-    public func prepareMedia(withUrl url: URL?, replaceCurrent: Bool = false, startPlaying: Bool = false, completion:(()->Void)? = nil) -> Bool {
+    public func prepareMedia(withUrl url: URL?, replaceCurrent: Bool = false, startPlaying: Bool = false, seekingTo: Double = -1, completion:(()->Void)? = nil) -> Bool {
         
         guard let url = url else {
             return false
@@ -376,10 +411,23 @@ extension AwesomeMedia {
             
         } else {
             
-            _ = commonPrepareMedia(withUrl: url, replaceCurrent: replaceCurrent, startPlaying: startPlaying)
-            
-            if startPlaying && avPlayer.rate == 0 {
+            if url.absoluteString == lastPlayedUrlString {
                 play()
+                return false
+            }
+            
+            removeBufferObserver()
+            
+            _ = commonPrepareMedia(withUrl: url, replaceCurrent: replaceCurrent, startPlaying: startPlaying)
+            if seekingTo > -1 {
+                delayedPlay = {
+                    self.seek(toTime: seekingTo)
+                    self.play()
+                }
+            } else {
+                if startPlaying && avPlayer.rate == 0 {
+                    play()
+                }
             }
         }
         
@@ -403,10 +451,6 @@ extension AwesomeMedia {
             
             self.avPlayer.replaceCurrentItem(with: playerItem)
         }
-        
-        //configure AVPlayerLayer
-        //avPlayerLayer.player = avPlayer
-        //avPlayerLayer.videoGravity = UI_USER_INTERFACE_IDIOM() == .pad ? AVLayerVideoGravityResizeAspect : AVLayerVideoGravityResizeAspectFill
         
         //Adds observers
         self.addObservers()
@@ -523,10 +567,6 @@ extension AwesomeMedia {
     }
     
     public func toggleRateSpeed() -> Float{
-        //        if avPlayer.rate == 0 {
-        //            playerDelegate?.didChangeSpeed(to: 1)
-        //            return 1
-        //        }
         
         log("toggled speed rate")
         
@@ -628,8 +668,28 @@ extension AwesomeMedia {
         log("time slider ended seeking with value \(timeSliderValue)")
     }
     
+    public func skipForward(){
+        seek(addingSeconds: Double(skipTime))
+    }
+    
+    public func skipBackward(){
+        seek(addingSeconds: -Double(skipTime))
+    }
+    
+    public func seek(toTime time: Double) {
+        guard let currentItem = canSeekPlayer() else {
+            return
+        }
+        
+        avPlayer.currentItem?.seek(to: CMTime(seconds: time, preferredTimescale: avPlayer.currentTime().timescale))
+        
+        notify(.timeUpdated, object: currentItem)
+        
+        log("seek to time \(time)")
+    }
+    
     public func seek(addingSeconds seconds: Double){
-        guard let currentItem = avPlayer.currentItem else {
+        guard let currentItem = canSeekPlayer() else {
             return
         }
         
@@ -639,26 +699,6 @@ extension AwesomeMedia {
         notify(.timeUpdated, object: currentItem)
         
         log("seek with seconds \(seconds)")
-    }
-    
-    public func skipForward(){
-        seek(addingSeconds: Double(skipTime))
-    }
-    
-    public func skipBackward(){
-        seek(addingSeconds: -Double(skipTime))
-    }
-    
-    public func seek(toTime time: Double){
-        guard let currentItem = avPlayer.currentItem else {
-            return
-        }
-        
-        avPlayer.currentItem?.seek(to: CMTime(seconds: time, preferredTimescale: avPlayer.currentTime().timescale))
-        
-        notify(.timeUpdated, object: currentItem)
-        
-        log("seek to time \(time)")
     }
     
     public func currentTime() -> Double {
@@ -680,6 +720,20 @@ extension AwesomeMedia {
         
         log("seeking remotely with event type \(seekEvent.type)")
     }
+    
+    private func canSeekPlayer() -> AVPlayerItem? {
+        if let currentItem = avPlayer.currentItem {
+            if delayedPlay != nil {
+                if currentItem.status == .readyToPlay {
+                    return currentItem
+                }
+            } else {
+                return currentItem
+            }
+        }
+        return nil
+    }
+    
 }
 
 
