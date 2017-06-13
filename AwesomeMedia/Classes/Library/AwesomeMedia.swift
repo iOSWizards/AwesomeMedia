@@ -245,7 +245,6 @@ extension AwesomeMedia {
     
     public static func removeObserver(_ observer: Any){
         AwesomeMedia.shared.notificationCenter.removeObserver(observer)
-        AwesomeMedia.shared.removeBufferObserver()
     }
     
     public func addObservers(){
@@ -316,19 +315,10 @@ extension AwesomeMedia {
     
     // MARK: - Buffer observer
     
-    fileprivate func removeBufferObserver(){
-        if haveBufferObservers {
-            avPlayer.removeObserver(self, forKeyPath: "currentItem.playbackLikelyToKeepUp")
-            avPlayer.removeObserver(self, forKeyPath: "currentItem.playbackBufferFull")
-            avPlayer.currentItem?.removeObserver(self, forKeyPath: #keyPath(AVPlayerItem.status))
-            haveBufferObservers = false
-        }
-    }
-    
     fileprivate func addBufferObserver(){
-        avPlayer.addObserver(self, forKeyPath: "currentItem.playbackLikelyToKeepUp", options: .new, context: &playbackLikelyToKeepUpContext)
-        avPlayer.addObserver(self, forKeyPath: "currentItem.playbackBufferFull", options: .new, context: &playbackBufferFullContext)
-        avPlayer.currentItem?.addObserver(self, forKeyPath: #keyPath(AVPlayerItem.status), options: [.old, .new], context: nil)
+        avPlayer.currentItem?.addObserver(AwesomeMedia.shared, forKeyPath: "playbackLikelyToKeepUp", options: .new, context: &playbackLikelyToKeepUpContext)
+        avPlayer.currentItem?.addObserver(AwesomeMedia.shared, forKeyPath: "playbackBufferFull", options: .new, context: &playbackBufferFullContext)
+        avPlayer.currentItem?.addObserver(AwesomeMedia.shared, forKeyPath: "status", options: [.old, .new], context: nil)
         haveBufferObservers = true
     }
     
@@ -348,7 +338,7 @@ extension AwesomeMedia {
         }
         
         
-        if keyPath == #keyPath(AVPlayerItem.status) {
+        if keyPath == "status" {
             let status: AVPlayerItemStatus
             
             // Get the status change from the change dictionary
@@ -416,8 +406,6 @@ extension AwesomeMedia {
                 return false
             }
             
-            removeBufferObserver()
-            
             _ = commonPrepareMedia(withUrl: url, replaceCurrent: replaceCurrent, startPlaying: startPlaying)
             if seekingTo > -1 {
                 delayedPlay = {
@@ -436,7 +424,7 @@ extension AwesomeMedia {
     
     private func commonPrepareMedia(withUrl url: URL, replaceCurrent: Bool = false, startPlaying: Bool = false) -> Bool {
         
-        let playerItem = AVPlayerItem(url: url)
+        let playerItem = AwesomeMediaPlayerItem(url: url)
         
         //in case it's playing the same URL, only replace if is either paused or we are forcing replacing
         if self.playHistory.last == url {
