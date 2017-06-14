@@ -316,9 +316,9 @@ extension AwesomeMedia {
     // MARK: - Buffer observer
     
     fileprivate func addBufferObserver(){
-        avPlayer.currentItem?.addObserver(AwesomeMedia.shared, forKeyPath: "playbackLikelyToKeepUp", options: .new, context: &playbackLikelyToKeepUpContext)
-        avPlayer.currentItem?.addObserver(AwesomeMedia.shared, forKeyPath: "playbackBufferFull", options: .new, context: &playbackBufferFullContext)
-        avPlayer.currentItem?.addObserver(AwesomeMedia.shared, forKeyPath: "status", options: [.old, .new], context: nil)
+        avPlayer.currentItem?.addObserver(AwesomeMedia.shared, forKeyPath: AwesomeMediaPlayerItemKeyPaths.playbackLikelyToKeepUp.rawValue, options: .new, context: &playbackLikelyToKeepUpContext)
+        avPlayer.currentItem?.addObserver(AwesomeMedia.shared, forKeyPath: AwesomeMediaPlayerItemKeyPaths.playbackBufferFull.rawValue, options: .new, context: &playbackBufferFullContext)
+        avPlayer.currentItem?.addObserver(AwesomeMedia.shared, forKeyPath: AwesomeMediaPlayerItemKeyPaths.status.rawValue, options: [.old, .new], context: nil)
         haveBufferObservers = true
     }
     
@@ -338,7 +338,7 @@ extension AwesomeMedia {
         }
         
         
-        if keyPath == "status" {
+        if keyPath == AwesomeMediaPlayerItemKeyPaths.status.rawValue {
             let status: AVPlayerItemStatus
             
             // Get the status change from the change dictionary
@@ -424,7 +424,7 @@ extension AwesomeMedia {
     
     private func commonPrepareMedia(withUrl url: URL, replaceCurrent: Bool = false, startPlaying: Bool = false) -> Bool {
         
-        let playerItem = AwesomeMediaPlayerItem(url: url)
+        let playerItem = AwesomeMediaPlayerItem(url: url, keysPathArray: [AwesomeMediaPlayerItemKeyPaths.playbackLikelyToKeepUp.rawValue, AwesomeMediaPlayerItemKeyPaths.playbackBufferFull.rawValue, AwesomeMediaPlayerItemKeyPaths.status.rawValue])
         
         //in case it's playing the same URL, only replace if is either paused or we are forcing replacing
         if self.playHistory.last == url {
