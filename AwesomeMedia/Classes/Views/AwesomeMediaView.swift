@@ -420,7 +420,10 @@ extension AwesomeMediaView {
             }
             
         }else{
-            timeSlider?.value = Float(currentTime / CMTimeGetSeconds(currentItem.duration))
+            let time = Float(currentTime / CMTimeGetSeconds(currentItem.duration))
+            if time > Float(1 / CMTimeGetSeconds(currentItem.duration)) {
+                timeSlider?.value = time
+            }
         }
         
         let duration = CMTimeGetSeconds(currentItem.duration)
