@@ -746,7 +746,9 @@ extension AwesomeMedia {
     // MARK: - Player controls
     
     public func addPlayerControls(){
-        UIApplication.shared.beginReceivingRemoteControlEvents()
+        DispatchQueue.main.async {
+            UIApplication.shared.beginReceivingRemoteControlEvents()
+        }
         
         let commandCenter = MPRemoteCommandCenter.shared()
         
@@ -871,3 +873,4 @@ extension AwesomeMedia : CXCallObserverDelegate {
     }
     
 }
+
