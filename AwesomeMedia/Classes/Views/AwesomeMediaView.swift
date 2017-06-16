@@ -357,11 +357,15 @@ extension AwesomeMediaView {
     }
     
     open func mediaStartedBuffering(_ notification: Notification) {
-        enableControls(false)
+        if AwesomeMedia.shouldLockControlsWhenBuffering {
+            enableControls(false)
+        }
     }
     
     open func mediaStopedBuffering(_ notification: Notification) {
-        enableControls(true)
+        if AwesomeMedia.shouldLockControlsWhenBuffering {
+            enableControls(true)
+        }
     }
     
     open func mediaStartedPlaying(_ notification: Notification) {
@@ -434,3 +438,4 @@ extension AwesomeMediaView {
         
     }
 }
+

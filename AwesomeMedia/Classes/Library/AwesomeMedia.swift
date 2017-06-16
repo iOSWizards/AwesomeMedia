@@ -327,13 +327,9 @@ extension AwesomeMedia {
         if context == &playbackLikelyToKeepUpContext || context == &playbackBufferFullContext {
             if let currentItem = AwesomeMedia.shared.avPlayer.currentItem, currentItem.isPlaybackLikelyToKeepUp || currentItem.isPlaybackBufferFull {
                 updateMediaInfo()
-                if AwesomeMedia.shouldLockControlsWhenBuffering {
-                    notify(.stopedBuffering)
-                }
+                notify(.stopedBuffering)
             } else {
-                if AwesomeMedia.shouldLockControlsWhenBuffering {
-                    notify(.startedBuffering)
-                }
+                notify(.startedBuffering)
             }
         }
         
@@ -873,4 +869,5 @@ extension AwesomeMedia : CXCallObserverDelegate {
     }
     
 }
+
 
