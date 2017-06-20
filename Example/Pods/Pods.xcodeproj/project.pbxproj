@@ -22,6 +22,7 @@
 		68FC385B8EAFFB1D9E31F3F477DBE0D6 /* AwesomeMediaViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A171B60B4E46E4D733BFA6D5E0C9741E /* AwesomeMediaViewDelegate.swift */; };
 		7433CBD71EEFEB0D00F1F1EE /* AwesomeMediaPlayerItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7433CBD61EEFEB0D00F1F1EE /* AwesomeMediaPlayerItem.swift */; };
 		7443E7231EC98B750067F6A5 /* AwesomeMediaState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7443E7221EC98B750067F6A5 /* AwesomeMediaState.swift */; };
+		74FA42741EF9447400CF5CA1 /* AwesomeMediaAVPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74FA42731EF9447400CF5CA1 /* AwesomeMediaAVPlayer.swift */; };
 		7FDB60125E5FFBA2732E411AD95CBFAA /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3783DD5AC9232821BFFEC74D48E5BA /* Extensions.swift */; };
 		8F8B35EF3EF43E1F04E57761F3F1CAB8 /* AwesomeMediaPlayerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5031A0A79CD0E0CD7E10F52513CD6B0 /* AwesomeMediaPlayerDelegate.swift */; };
 		C90513AED0A542BAD1C4A0FA69290F47 /* AwesomeMediaMarkersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF4C85AA588B1702CA11F8A9A9DE7174 /* AwesomeMediaMarkersViewModel.swift */; };
@@ -53,6 +54,7 @@
 		6777739451FE39D7C831CC4A3F6A19BF /* AwesomeMediaMarkersViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AwesomeMediaMarkersViewController.swift; sourceTree = "<group>"; };
 		7433CBD61EEFEB0D00F1F1EE /* AwesomeMediaPlayerItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AwesomeMediaPlayerItem.swift; sourceTree = "<group>"; };
 		7443E7221EC98B750067F6A5 /* AwesomeMediaState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AwesomeMediaState.swift; sourceTree = "<group>"; };
+		74FA42731EF9447400CF5CA1 /* AwesomeMediaAVPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AwesomeMediaAVPlayer.swift; sourceTree = "<group>"; };
 		83CB0787B8A2F14237C3214D3AF66E0E /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D524C7FB78BF098EDE3E440AD9911C0 /* Pods-AwesomeMedia_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-AwesomeMedia_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
@@ -240,6 +242,7 @@
 				5EA7DE44D6F81C696548E53DC01830BB /* AwesomeMedia.swift */,
 				BF3783DD5AC9232821BFFEC74D48E5BA /* Extensions.swift */,
 				7443E7221EC98B750067F6A5 /* AwesomeMediaState.swift */,
+				74FA42731EF9447400CF5CA1 /* AwesomeMediaAVPlayer.swift */,
 				7433CBD61EEFEB0D00F1F1EE /* AwesomeMediaPlayerItem.swift */,
 			);
 			path = Library;
@@ -414,6 +417,7 @@
 				629E2B49855371A5B028921A2F41463F /* AwesomeMedia.swift in Sources */,
 				42F9A0C21CE968CD67BF2976C747C8B5 /* AwesomeMediaMarkersViewController.swift in Sources */,
 				C90513AED0A542BAD1C4A0FA69290F47 /* AwesomeMediaMarkersViewModel.swift in Sources */,
+				74FA42741EF9447400CF5CA1 /* AwesomeMediaAVPlayer.swift in Sources */,
 				7433CBD71EEFEB0D00F1F1EE /* AwesomeMediaPlayerItem.swift in Sources */,
 				7443E7231EC98B750067F6A5 /* AwesomeMediaState.swift in Sources */,
 				EA58478D7019931ACD3E4FE24F061512 /* AwesomeMediaMarkerTableViewCell.swift in Sources */,

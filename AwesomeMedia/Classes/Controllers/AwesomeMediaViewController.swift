@@ -143,8 +143,7 @@ extension AwesomeMediaViewController {
         mediaAvailableOfflineLabelLocalized: String? = nil,
         mediaMarkers: [AwesomeMediaMarker]? = nil,
         showHours: Bool = false,
-        replaceCurrent: Bool = false,
-        startPlaying: Bool = false) {
+        replaceCurrent: Bool = false) {
         
         if let localizedLabel = mediaAvailableOfflineLabelLocalized, !localizedLabel.isEmpty {
             self.mediaAvailableOfflineLabel = localizedLabel
@@ -162,8 +161,7 @@ extension AwesomeMediaViewController {
             mediaFileSizeDescription: mediaFileSizeDescription,
             mediaMarkers: mediaMarkers,
             showHours: showHours,
-            replaceCurrent: replaceCurrent,
-            startPlaying: startPlaying
+            replaceCurrent: replaceCurrent
         )
         
         // we're updating the Download View state.

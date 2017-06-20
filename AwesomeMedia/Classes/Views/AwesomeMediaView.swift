@@ -126,8 +126,7 @@ extension AwesomeMediaView {
         mediaFileSizeDescription: String? = nil,
         mediaMarkers: [AwesomeMediaMarker]? = nil,
         showHours: Bool = false,
-        replaceCurrent: Bool = false,
-        startPlaying: Bool = false) {
+        replaceCurrent: Bool = false) {
         
         viewModel.set(
             mediaPath: mediaPath,
@@ -139,7 +138,7 @@ extension AwesomeMediaView {
             mediaMarkers: mediaMarkers,
             showHours: showHours)
         
-        _ = AwesomeMedia.shared.prepareMedia(withUrl: viewModel.mediaUrl, replaceCurrent: replaceCurrent, startPlaying: startPlaying)
+        AwesomeMedia.shared.prepareMedia(withUrl: viewModel.mediaUrl, replaceCurrent: replaceCurrent)
         
         playButton?.isSelected = AwesomeMedia.shared.playerIsPlaying
         
