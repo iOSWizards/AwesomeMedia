@@ -146,7 +146,7 @@ public class AwesomeMedia: NSObject {
     
     fileprivate func log(_ message: String){
         if AwesomeMedia.showLogs {
-            print("my message: AwesomeMedia \(message)")
+            print("AwesomeMedia \(message)")
         }
     }
     
@@ -566,6 +566,7 @@ extension AwesomeMedia {
     public func didFailPlaying(_ sender: AnyObject){
         notify(.failedPlaying)
         playerDelegate?.didFailPlaying(mediaType: mediaType)
+        activateTimeOut()
     }
     
     public func togglePlay(){
