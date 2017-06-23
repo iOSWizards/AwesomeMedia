@@ -134,6 +134,7 @@ extension AwesomeMediaViewController {
     
     open func setup(
         mediaPath: String,
+        seekingTo: Double = -1.0,
         coverImagePath: String? = nil,
         authorName: String? = nil,
         title: String? = nil,
@@ -154,6 +155,7 @@ extension AwesomeMediaViewController {
         
         mediaView.setup(
             mediaPath: mediaPath,
+            seekingTo: seekingTo,
             coverImagePath: coverImagePath,
             authorName: authorName,
             title: title,

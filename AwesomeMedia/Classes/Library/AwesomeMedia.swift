@@ -46,7 +46,6 @@ public class AwesomeMedia: NSObject {
     fileprivate var timeObserver: AnyObject?
     fileprivate var playHistory = [URL]()
     fileprivate var isPlayingMPRemoteCommandCenter: Bool = true
-    fileprivate var haveBufferObservers: Bool = false
     fileprivate var timeOutTimer: Timer?
     public var currentRate: Float = 1
     
@@ -304,7 +303,7 @@ extension AwesomeMedia {
     }
     
     @objc fileprivate func notifyTimeOut() {
-        log("media player timed out after \(playerTimeOutCount) seconds")
+        log("timed out after \(playerTimeOutCount) seconds")
         notify(.timedOut)
     }
     
@@ -326,7 +325,6 @@ extension AwesomeMedia {
         avPlayer.currentItem?.addObserver(AwesomeMedia.shared, forKeyPath: AwesomeMediaPlayerItemKeyPaths.playbackBufferFull.rawValue, options: .new, context: &playbackBufferFullContext)
         avPlayer.currentItem?.addObserver(AwesomeMedia.shared, forKeyPath: AwesomeMediaPlayerItemKeyPaths.status.rawValue, options: [.old, .new], context: nil)
         avPlayer.addObserver(AwesomeMedia.shared, forKeyPath: AwesomeMediaAVPlayerKeyPaths.timeControlStatus.rawValue, options: [.new], context: nil)
-        haveBufferObservers = true
     }
     
     override open func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
@@ -336,8 +334,12 @@ extension AwesomeMedia {
             case .waitingToPlayAtSpecifiedRate:
                 log("avPlayer.timeControlStatus: waiting \(avPlayer.reasonForWaitingToPlay ?? "")")
                 if avPlayer.reasonForWaitingToPlay == AVPlayerWaitingWithNoItemToPlayReason {
-                    avPlayer = AwesomeMediaAVPlayer()
-                    reset()
+                    if resetOnce {
+                        avPlayer.pause()
+                        avPlayer = AwesomeMediaAVPlayer()
+                        reset()
+                        resetOnce = false
+                    }
                 }
                 activateTimeOut()
             case .playing:
@@ -377,9 +379,10 @@ extension AwesomeMedia {
                 // Player item is ready to play.
                 log("readyToPlay - playerItem is ready to play.")
                 if let delayed = delayedPlay {
-                    delayed()
                     // after playing once we can desable it. (the readyTopPlay status is fired many times)
                     delayedPlay = nil
+                    delayed()
+                    resetOnce = true
                 }
                 
                 invalidateTimeOut()
@@ -418,6 +421,7 @@ extension AwesomeMedia {
 
 var delayedPlay: (() -> Void)?
 var mediaPlayerState: (url: URL, replaceCurrent: Bool, seekToTime: Double)?
+var resetOnce = false
 
 // MARK: - Events
 
@@ -429,21 +433,24 @@ extension AwesomeMedia {
             return
         }
         
-        mediaPlayerState = (url, replaceCurrent, seekingTo)
-        
         if url.absoluteString == lastPlayedUrlString {
             play()
             return
         }
         
+        // we're changing the current streaming media, we shall stop the current one.
+        stop()
+        
+        mediaPlayerState = (url, replaceCurrent, seekingTo)
+        
         commonPrepareMedia(withUrl: url, replaceCurrent: replaceCurrent)
         
-        if seekingTo > -1 {
-            notify(.startedBuffering)
-            delayedPlay = {
+        notify(.startedBuffering)
+        delayedPlay = {
+            if seekingTo > -1 {
                 self.seek(toTime: seekingTo)
-                self.play()
             }
+            self.play()
         }
         
     }
@@ -457,19 +464,11 @@ extension AwesomeMedia {
         ]
         let playerItem = AwesomeMediaPlayerItem(url: url, keysPathArray: keyPaths)
         
-        //in case it's playing the same URL, only replace if is either paused or we are forcing replacing
-        if self.playHistory.last == url {
-            if self.avPlayer.rate != 0 && replaceCurrent {
-                self.avPlayer.replaceCurrentItem(with: playerItem)
-                self.log("replaced current item with url \(url)")
-            }
-        }else{
-            self.log("replaced [\(self.playHistory.last?.absoluteString ?? "")] with url [\(url)]")
-            
-            self.playHistory.append(url)
-            
-            self.avPlayer.replaceCurrentItem(with: playerItem)
-        }
+        log("replaced [\(lastPlayedUrlString ?? "")] with url [\(url)]")
+        
+        playHistory.append(url)
+        
+        avPlayer.replaceCurrentItem(with: playerItem)
         
         //Adds observers
         self.addObservers()
@@ -643,7 +642,7 @@ extension AwesomeMedia {
     
     /// Resets the Media Player using the same data it was initialized while keeping the media elapsed time.
     public func reset() {
-        log("media player has reset the current media")
+        log("is about to reset the current media")
         if let retryCache = mediaPlayerState {
             clearHistory()
             prepareMedia(
@@ -651,6 +650,7 @@ extension AwesomeMedia {
                 replaceCurrent: retryCache.replaceCurrent,
                 seekingTo:retryCache.seekToTime
             )
+            log("reseted the current media")
         }
     }
     
@@ -745,7 +745,7 @@ extension AwesomeMedia {
             return 0
         }
         let currentTime = currentItem.currentTime().seconds
-        if let mediaState = mediaPlayerState {
+        if let mediaState = mediaPlayerState, playerIsPlaying {
             mediaPlayerState = (mediaState.url, mediaState.replaceCurrent, currentTime)
         }
         return currentTime
@@ -753,10 +753,10 @@ extension AwesomeMedia {
     
     public func seekRemotely(_ seekEvent: MPSeekCommandEvent){
         if (seekEvent.type == .beginSeeking) {
-            print("Begin Seeking")
+            log("Begin Seeking")
             //beginSeeking()
         }else if (seekEvent.type == .endSeeking) {
-            print("End Seeking")
+            log("End Seeking")
             //endSeeking(Float(seekEvent.timestamp))
         }
         

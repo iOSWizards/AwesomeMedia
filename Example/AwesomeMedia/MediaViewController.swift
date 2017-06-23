@@ -18,7 +18,7 @@ class MediaViewController: UIViewController {
         
         AwesomeMedia.shared.playerDelegate = self
         AwesomeMedia.showLogs = true
-        mediaView.setup(mediaPath: "http://overmind2.mindvalleyacademy.com/api/v1/assets/267bb3c6-d042-40ea-b1bd-9c9325c413eb.m3u8")
+        mediaView.setup(mediaPath: "http://overmind2.mindvalleyacademy.com/api/v1/assets/267bb3c6-d042-40ea-b1bd-9c9325c413eb.m3u8", seekingTo: 0)
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -119,6 +119,7 @@ extension AwesomeMediaView {
     
     open func setup(
         mediaPath: String,
+        seekingTo: Double,
         coverImagePath: String? = nil,
         authorName: String? = nil,
         title: String? = nil,
@@ -138,7 +139,7 @@ extension AwesomeMediaView {
             mediaMarkers: mediaMarkers,
             showHours: showHours)
         
-        AwesomeMedia.shared.prepareMedia(withUrl: viewModel.mediaUrl, replaceCurrent: replaceCurrent)
+        AwesomeMedia.shared.prepareMedia(withUrl: viewModel.mediaUrl, replaceCurrent: replaceCurrent, seekingTo: seekingTo)
         
         playButton?.isSelected = AwesomeMedia.shared.playerIsPlaying
         
