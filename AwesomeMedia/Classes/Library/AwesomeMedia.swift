@@ -695,16 +695,19 @@ extension AwesomeMedia {
             return
         }
         
-        avPlayer.seek(to: CMTimeMakeWithSeconds(currentItem.elapsedTime(timeSliderValue), 100), completionHandler: { (completed: Bool) -> Void in
-            if self.currentRate > 0 {
-                self.play()
-            }
-        })
+        if avPlayer.currentItem?.status == .readyToPlay {
+            avPlayer.seek(to: CMTimeMakeWithSeconds(currentItem.elapsedTime(timeSliderValue), 100), completionHandler: { (completed: Bool) -> Void in
+                if self.currentRate > 0 {
+                    self.play()
+                }
+            })
+            
+            playerDelegate?.didChangeSlider(to: Float(CMTimeMakeWithSeconds(currentItem.elapsedTime(timeSliderValue), 100).seconds), mediaType: mediaType)
+            notify(.timeFinishedUpdating, object: currentItem)
+            
+            log("time slider ended seeking with value \(timeSliderValue)")
+        }
         
-        playerDelegate?.didChangeSlider(to: Float(CMTimeMakeWithSeconds(currentItem.elapsedTime(timeSliderValue), 100).seconds), mediaType: mediaType)
-        notify(.timeFinishedUpdating, object: currentItem)
-        
-        log("time slider ended seeking with value \(timeSliderValue)")
     }
     
     public func skipForward(){
