@@ -420,14 +420,14 @@ extension AwesomeMedia {
 }
 
 var delayedPlay: (() -> Void)?
-var mediaPlayerState: (url: URL, replaceCurrent: Bool, seekToTime: Double)?
+var mediaPlayerState: (url: URL, seekToTime: Double)?
 var resetOnce = false
 
 // MARK: - Events
 
 extension AwesomeMedia {
     
-    public func prepareMedia(withUrl url: URL?, replaceCurrent: Bool = false, seekingTo: Double = -1) {
+    public func prepareMedia(withUrl url: URL?, seekingTo: Double = -1) {
         
         guard let url = url else {
             return
@@ -441,9 +441,9 @@ extension AwesomeMedia {
         // we're changing the current streaming media, we shall stop the current one.
         stop()
         
-        mediaPlayerState = (url, replaceCurrent, seekingTo)
+        mediaPlayerState = (url, seekingTo)
         
-        commonPrepareMedia(withUrl: url, replaceCurrent: replaceCurrent)
+        commonPrepareMedia(withUrl: url)
         
         notify(.startedBuffering)
         delayedPlay = {
@@ -455,7 +455,7 @@ extension AwesomeMedia {
         
     }
     
-    private func commonPrepareMedia(withUrl url: URL, replaceCurrent: Bool = false) {
+    private func commonPrepareMedia(withUrl url: URL) {
         
         let keyPaths = [
             AwesomeMediaPlayerItemKeyPaths.playbackLikelyToKeepUp.rawValue,
@@ -647,7 +647,6 @@ extension AwesomeMedia {
             clearHistory()
             prepareMedia(
                 withUrl: retryCache.url,
-                replaceCurrent: retryCache.replaceCurrent,
                 seekingTo:retryCache.seekToTime
             )
             log("reseted the current media")
@@ -749,7 +748,7 @@ extension AwesomeMedia {
         }
         let currentTime = currentItem.currentTime().seconds
         if let mediaState = mediaPlayerState, playerIsPlaying {
-            mediaPlayerState = (mediaState.url, mediaState.replaceCurrent, currentTime)
+            mediaPlayerState = (mediaState.url, currentTime)
         }
         return currentTime
     }
