@@ -139,7 +139,7 @@ extension AwesomeMediaView {
             mediaMarkers: mediaMarkers,
             showHours: showHours)
         
-        AwesomeMedia.shared.prepareMedia(withUrl: viewModel.mediaUrl, replaceCurrent: replaceCurrent, seekingTo: seekingTo)
+        AwesomeMedia.shared.prepareMedia(withUrl: viewModel.mediaUrl, seekingTo: seekingTo)
         
         playButton?.isSelected = AwesomeMedia.shared.playerIsPlaying
         
