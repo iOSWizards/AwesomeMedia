@@ -427,13 +427,13 @@ var resetOnce = false
 
 extension AwesomeMedia {
     
-    public func prepareMedia(withUrl url: URL?, seekingTo: Double = -1) {
+    public func prepareMedia(withUrl url: URL?, seekingTo: Double = -1, startPlaying: Bool = true) {
         
         guard let url = url else {
             return
         }
         
-        if url.absoluteString == lastPlayedUrlString {
+        if url.absoluteString == lastPlayedUrlString && startPlaying {
             play()
             return
         }
@@ -450,7 +450,9 @@ extension AwesomeMedia {
             if seekingTo > -1 {
                 self.seek(toTime: seekingTo)
             }
-            self.play()
+            if startPlaying {
+                self.play()
+            }
         }
         
     }
@@ -929,4 +931,5 @@ extension AwesomeMedia : CXCallObserverDelegate {
     }
     
 }
+
 
