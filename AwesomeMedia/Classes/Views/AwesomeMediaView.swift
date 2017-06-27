@@ -34,6 +34,7 @@ open class AwesomeMediaView: UIView {
     
     fileprivate var isSeeking = false
     fileprivate var isControlHidden = false
+    fileprivate var timerHideControls: Timer?
     
     @IBInspectable open var seekTime: Int = 15
     @IBInspectable open var autoHideControlsTime: Int = 3
@@ -267,18 +268,24 @@ extension AwesomeMediaView {
             return
         }
         
+        timerHideControls?.invalidate()
+        timerHideControls = nil
+        
         //hides control after start playing
-        let timer = DispatchTime.now() + .seconds(autoHideControlsTime)
-        DispatchQueue.main.asyncAfter(deadline: timer, execute: {
-            // we're checking it again cause it may be scheduled to execute.
-            if self.canToggleControls && AwesomeMedia.isPlaying(self.viewModel.mediaPath?.url) {
-                self.showControls(false)
-            }
-        })
+        timerHideControls = Timer.scheduledTimer(
+            timeInterval: TimeInterval(autoHideControlsTime),
+            target: self,
+            selector: #selector(hideControls),
+            userInfo: nil,
+            repeats: false
+        )
+        
     }
     
-    open func hideControls(){
-        showControls(false)
+    @objc fileprivate func hideControls() {
+        if self.canToggleControls && AwesomeMedia.isPlaying(self.viewModel.mediaPath?.url) {
+            showControls(false)
+        }
     }
     
     open func showControls(_ show: Bool, automaticHide: Bool = true, forceAutoHide: Bool = false) {
