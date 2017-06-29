@@ -9,12 +9,12 @@ import UIKit
 
 fileprivate let miniPlayerHeight: CGFloat = 100
 
-enum MiniPlayerNotification: String {
+public enum MiniPlayerNotification: String {
     case miniPlayerFinished = "miniPlayerFinished"
     case miniPlayerShouldDismiss = "miniPlayerShouldDismiss"
 }
 
-class MiniPlayerView: UIView {
+public class MiniPlayerView: UIView {
     
     @IBOutlet weak var coverPlaceholderImageView: UIImageView!
     @IBOutlet weak var coverImageView: UIImageView!
@@ -33,7 +33,7 @@ class MiniPlayerView: UIView {
         return Bundle(for: self).loadNibNamed("MiniPlayerView", owner: self, options: nil)![0] as! MiniPlayerView
     }
     
-    override func awakeFromNib() {
+    override public func awakeFromNib() {
         self.isHidden = true
         self.titleLabel.text = ""
         
@@ -208,7 +208,7 @@ extension MiniPlayerView {
     
     // MARK:- Get most actual view controller
     
-    static func getVisibleViewController(_ rootViewController: UIViewController? = nil) -> UIViewController? {
+    public static func getVisibleViewController(_ rootViewController: UIViewController? = nil) -> UIViewController? {
         
         var rootVC = rootViewController
         if rootVC == nil {
@@ -239,7 +239,7 @@ extension MiniPlayerView {
 
 extension UIView {
     
-    func showMiniPlayerViewIfNeeded(offsetFromBottom: CGFloat = 0, openCallBack: (()->Void)?, saveMediaStateCallBack: (()->Void)?, updateMediaCallback: (mediaUrl: String, title: String, coverImage: UIImage)?) {
+    public func showMiniPlayerViewIfNeeded(offsetFromBottom: CGFloat = 0, openCallBack: (()->Void)?, saveMediaStateCallBack: (()->Void)?, updateMediaCallback: (mediaUrl: String, title: String, coverImage: UIImage)?) {
         if AwesomeMedia.shared.playerIsPlaying {
             //mini player is only available for audio
             if AwesomeMedia.shared.isPlayingVideo {
@@ -280,7 +280,7 @@ extension UIView {
         miniPlayer.show(animated: true)
     }
     
-    func hideMiniPlayerView(animated: Bool = false, andPause pause: Bool = false){
+    public func hideMiniPlayerView(animated: Bool = false, andPause pause: Bool = false){
         for subview in subviews{
             if let subview = subview as? MiniPlayerView {
                 subview.hide(animated: animated, andPause: pause)
@@ -288,7 +288,7 @@ extension UIView {
         }
     }
     
-    var visibleMiniPlayer: MiniPlayerView?{
+    public var visibleMiniPlayer: MiniPlayerView?{
         for subview in subviews{
             if let subview = subview as? MiniPlayerView {
                 return subview
@@ -304,7 +304,7 @@ extension UIView {
     
     // MARK:- Get most actual view controller
     
-    func getVisibleViewController(_ rootViewController: UIViewController? = nil) -> UIViewController? {
+    public func getVisibleViewController(_ rootViewController: UIViewController? = nil) -> UIViewController? {
         
         var rootVC = rootViewController
         if rootVC == nil {
@@ -332,5 +332,6 @@ extension UIView {
     }
     
 }
+
 
 
