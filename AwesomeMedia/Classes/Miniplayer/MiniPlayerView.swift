@@ -118,7 +118,8 @@ public class MiniPlayerView: UIView {
     }
     
     func updateMediaView(){
-        self.playButton.setImage(AwesomeMedia.shared.playerIsPlaying ? #imageLiteral(resourceName: "awesomeMediaBtnPause") : #imageLiteral(resourceName: "awesomeMediaBtnPlay"), for: .normal)
+        let podBundle = Bundle(for: AwesomeMedia.self)
+        self.playButton.setImage(AwesomeMedia.shared.playerIsPlaying ? UIImage(named: "awesomeMediaBtnPause", in: podBundle, compatibleWith: nil) : UIImage(named: "awesomeMediaBtnPlay", in: podBundle, compatibleWith: nil), for: .normal)
         
         //updates miniplayer info
         DispatchQueue.main.async {
@@ -334,7 +335,3 @@ extension UIView {
     }
     
 }
-
-
-
-

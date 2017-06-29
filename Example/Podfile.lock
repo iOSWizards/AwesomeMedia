@@ -1,5 +1,5 @@
 PODS:
-  - AwesomeMedia (0.6.7)
+  - AwesomeMedia (0.6.10)
 
 DEPENDENCIES:
   - AwesomeMedia (from `../`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  AwesomeMedia: 5b455b7f9085ff8561f0bbff52f06ffc47eff1e4
+  AwesomeMedia: 9ee5ab9e3ae2836dc2c18c7fa499da7a4186cd9c
 
 PODFILE CHECKSUM: 90fb36de56720965d409286376842220e7ba9340
 
