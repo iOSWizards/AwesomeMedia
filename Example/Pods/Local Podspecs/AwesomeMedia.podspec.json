@@ -18,5 +18,10 @@
   "platforms": {
     "ios": "8.0"
   },
-  "source_files": "AwesomeMedia/Classes/**/*.{swift}"
+  "source_files": "AwesomeMedia/Classes/**/*.{swift}",
+  "resource_bundles": {
+    "AwesomeMedia": [
+      "AwesomeMedia/Classes/**/*.{storyboard,xib,xcassets,json,imageset,png}"
+    ]
+  }
 }

@@ -7,30 +7,33 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		03BD083DC3A72132B5AF83D0391C0584 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FB5265FC063B0DB507E87FA101146F /* Extensions.swift */; };
 		06AC2E6FDEFC33BBCEB95429E2674D91 /* Pods-AwesomeMedia_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B07B6F1D77DABA663156DDD928B1E63 /* Pods-AwesomeMedia_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2E776EDBD9B3C232B8DBF12EAF59A769 /* AwesomeMediaState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E4B6B2422D49CE4E1DEBCB6805EB500 /* AwesomeMediaState.swift */; };
-		395CEB14AD69F9FF8069446AA52E644A /* AwesomeMediaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9390F2D36C5494C229EB32B839E995 /* AwesomeMediaViewModel.swift */; };
-		4677084A8A01D339C6C2824AF66F8EAF /* AwesomeMediaMarkerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7D33488B228839AB0BF78D4ED71549 /* AwesomeMediaMarkerTableViewCell.swift */; };
-		50236AA2158BE22ED245AAE27531A1E1 /* AwesomeMediaMarkersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2A3DA879FFC09626584560825859C3 /* AwesomeMediaMarkersViewModel.swift */; };
+		0EF83FE1641BB0FA0931DA4FCC0E1B3D /* AwesomeMediaAVPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400122D1547A567BD08B2F27AF7827B2 /* AwesomeMediaAVPlayer.swift */; };
+		13537FCEDB2C1291E7B0DBD5AF8276EB /* MiniPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C15E52356845E89792185F5B99042FB /* MiniPlayerView.swift */; };
+		2799CE098C767C5CFE40C60991CE6E95 /* AwesomeMediaPlayerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CBD44A7740FAD0EDDFE4226A9E941D /* AwesomeMediaPlayerDelegate.swift */; };
+		3C70CA17AB176068BCAE6FE3080F6A34 /* AwesomeMediaMarkerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09142E58F7F260116DEA78338153802F /* AwesomeMediaMarkerTableViewCell.swift */; };
+		420779FB7F9B42E4B689F5BA2FA5AE11 /* AwesomeMediaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82DAFF80A5BC48FC15008CB74D51672 /* AwesomeMediaViewModel.swift */; };
+		48E1F0EEAFE774FFC46A2366FAD72B9F /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7441045C00CD2D78AF44303C2B4B6F8A /* Extensions.swift */; };
+		4EE36816AF57BA3FD6C772D93462A972 /* AwesomeMediaAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86C0F9A16C09E9F1A16606F7CCB53446 /* AwesomeMediaAssets.xcassets */; };
 		51C2FEEEF7F2446ABC0336098C44E3EB /* Pods-AwesomeMedia_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB5C93EE2E2E1EB3219B21FC03EDEAC /* Pods-AwesomeMedia_Tests-dummy.m */; };
-		57CD81DDA5E29A99040B8F1CC85C5495 /* AwesomeMediaMarkersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D7078FACD39F1EE506D96EC580EDEC /* AwesomeMediaMarkersViewController.swift */; };
-		5E8B95E3AAEC26C9A3C01B53EE767F1E /* AwesomeMediaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F24F36637AE5798BC93083B676E9A87 /* AwesomeMediaView.swift */; };
+		538C28E18A90E72185A7E13493A91614 /* AwesomeMediaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3FE64994B2E43011DC258F0A147D36 /* AwesomeMediaView.swift */; };
 		6135F412064B8E4320E202217E2DED5A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
 		65C3781434AB04E9F6F82E3D47515042 /* Pods-AwesomeMedia_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E9E79FAB727AB094255A04A0E6E71162 /* Pods-AwesomeMedia_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		66496EA33B42DA0073273D52D1218865 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
-		8660FB864B3A58B4CD78BACAFE8A5EC3 /* AwesomeMediaAnimations+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F978EC53C7FCE58C8980933D2B902B6 /* AwesomeMediaAnimations+UIView.swift */; };
-		A9C3BC205C993769C9459D364F9BB15A /* AwesomeMediaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9246DEE8A6C195CF1C335CB2DD360787 /* AwesomeMediaViewController.swift */; };
-		AB6EBC6DD77A9042BEBE6CC73989DCC6 /* AwesomeMediaPlayerItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E959F3C6DA163FCCF8CDFD629258E34 /* AwesomeMediaPlayerItem.swift */; };
-		B20EE7B23CF212487226C524A29644A3 /* AwesomeMedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC2A010C3414C3D9B2C6F4F2CD68F1F /* AwesomeMedia.swift */; };
-		B6CBC8F68B4963558DAB3CD5ABC0FCB4 /* AwesomeMediaViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CE9D842ED1791940049D39B7A8B20D /* AwesomeMediaViewDelegate.swift */; };
-		C569A06C3435FA76A3473CFC346BA2E6 /* AwesomeMediaAVPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095BCFE56E63C3307E0701D7B9900BE0 /* AwesomeMediaAVPlayer.swift */; };
-		CCB4B2D31A3FCCEB36C66390E3ACF38D /* AwesomeMedia-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B282BEC3FB9BD18ED1BD7FD80E13AC1 /* AwesomeMedia-dummy.m */; };
-		D6DED3A8A56974DBD63BF75F223C3B17 /* AwesomeMedia-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D4B69033E9CD4957F1BB7C9AA60575AD /* AwesomeMedia-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		DB2A31B4641E1375D4321BC8FCED0FAE /* MiniPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465E292FC8B9E9B1CDA0DC927034A40E /* MiniPlayerView.swift */; };
-		E0131C6DE17281EF44225EEF532E7C11 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
-		EF5D66810EFAF4933A99C724D2E41A56 /* AwesomeMediaPlayerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D929543A40FCADFDD727BDB4813D3803 /* AwesomeMediaPlayerDelegate.swift */; };
+		6F9D18C218EDB12375E811E64433FC1F /* AwesomeMediaMarkersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEAD5457DA11C58D9D5B513BABC3C64 /* AwesomeMediaMarkersViewModel.swift */; };
+		7F9ACD636E54FA63E80F04AD0D0649C2 /* MiniPlayerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 028EC7BA13C5983A96E1007DEA6183E6 /* MiniPlayerView.xib */; };
+		80E4B00127AE766503EA03D25DFDB848 /* AwesomeMedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6DE5FAD22890DD477DF81614992C08 /* AwesomeMedia.swift */; };
+		82599A11780334863F1DF685A1CF97F3 /* AwesomeMediaPlayerItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F539A25DEDB23B48085262EA6959B07 /* AwesomeMediaPlayerItem.swift */; };
+		AC6EEB6F23571F485A9774D2A04EA466 /* AwesomeMediaMarkersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A239C0E18FAB2A7049319AE6B3DA85B /* AwesomeMediaMarkersViewController.swift */; };
+		ADBE456E0B89ECA6324DE3F0D63DEE12 /* AwesomeMedia-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C658F3B7FCD1005057E6FE5B5CDDBF6 /* AwesomeMedia-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ADFCDF98625A9D9EB2FBC18DC06D8414 /* AwesomeMediaViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A547A54956BE91DE382D3F62840D3896 /* AwesomeMediaViewDelegate.swift */; };
+		AFB07D76316A9617C01ABBDABA311F08 /* AwesomeMediaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B54D751709218B4246B7B5561E375F0 /* AwesomeMediaViewController.swift */; };
+		DB36457CECAC3634EEB5DA3A1FE8E142 /* AwesomeMediaAnimations+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC000FFCBA93B79E9D4B430E6E16A134 /* AwesomeMediaAnimations+UIView.swift */; };
+		E7C3AE2BEE0C44CEC75D174574082819 /* AwesomeMedia-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E93779EC86D851BB80D3ACB12DA07424 /* AwesomeMedia-dummy.m */; };
 		F1B190BEA3716F69FDDCB88EA3655609 /* Pods-AwesomeMedia_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E485B39E4C7719B39206C2C9D5D6A51D /* Pods-AwesomeMedia_Example-dummy.m */; };
+		F56BDF50CB31DFAD2563D394A4E542E5 /* AwesomeMedia.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 77E010F39E75D9CFCAE1FFEAE3EB93D7 /* AwesomeMedia.bundle */; };
+		F6AB575E31A2BA3E5185CEAAF7C6BB18 /* AwesomeMediaState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C3A630E8E755940A5175012AF33429 /* AwesomeMediaState.swift */; };
+		F9C0B618B4542CA15E10CD89392513C2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,63 +41,79 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 51A5B9DE92DEC38A48864B56EAC2338B;
+			remoteGlobalIDString = 078D5F71699D9353B70F846ACD9C2067;
 			remoteInfo = AwesomeMedia;
+		};
+		90F29D6C330F1BDDE5041B2C4F8780D8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B204FB542D956C86D24897B314298CD3;
+			remoteInfo = "AwesomeMedia-AwesomeMedia";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		02D7078FACD39F1EE506D96EC580EDEC /* AwesomeMediaMarkersViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AwesomeMediaMarkersViewController.swift; sourceTree = "<group>"; };
-		095BCFE56E63C3307E0701D7B9900BE0 /* AwesomeMediaAVPlayer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AwesomeMediaAVPlayer.swift; sourceTree = "<group>"; };
-		0E959F3C6DA163FCCF8CDFD629258E34 /* AwesomeMediaPlayerItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AwesomeMediaPlayerItem.swift; sourceTree = "<group>"; };
-		0F978EC53C7FCE58C8980933D2B902B6 /* AwesomeMediaAnimations+UIView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "AwesomeMediaAnimations+UIView.swift"; sourceTree = "<group>"; };
-		155597C4AC8668C4898DA341DE4CEEC9 /* AwesomeMedia-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AwesomeMedia-prefix.pch"; sourceTree = "<group>"; };
-		1A9390F2D36C5494C229EB32B839E995 /* AwesomeMediaViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AwesomeMediaViewModel.swift; sourceTree = "<group>"; };
+		028EC7BA13C5983A96E1007DEA6183E6 /* MiniPlayerView.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = MiniPlayerView.xib; sourceTree = "<group>"; };
+		047F32615D3B305A5E6B4A704B516787 /* AwesomeMedia.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = AwesomeMedia.modulemap; sourceTree = "<group>"; };
+		09142E58F7F260116DEA78338153802F /* AwesomeMediaMarkerTableViewCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AwesomeMediaMarkerTableViewCell.swift; sourceTree = "<group>"; };
 		1B07B6F1D77DABA663156DDD928B1E63 /* Pods-AwesomeMedia_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-AwesomeMedia_Tests-umbrella.h"; sourceTree = "<group>"; };
 		1B3171463E824BE827794C980FB280BC /* Pods-AwesomeMedia_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-AwesomeMedia_Tests-resources.sh"; sourceTree = "<group>"; };
-		1DB8749C328C8A152C7F63FF897CB54B /* Pods_AwesomeMedia_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AwesomeMedia_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		20FB5265FC063B0DB507E87FA101146F /* Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		2F24F36637AE5798BC93083B676E9A87 /* AwesomeMediaView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AwesomeMediaView.swift; sourceTree = "<group>"; };
+		1B54D751709218B4246B7B5561E375F0 /* AwesomeMediaViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AwesomeMediaViewController.swift; sourceTree = "<group>"; };
+		1C15E52356845E89792185F5B99042FB /* MiniPlayerView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MiniPlayerView.swift; sourceTree = "<group>"; };
+		20234444D5EACD0B004A617B408BA5E4 /* AwesomeMedia-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AwesomeMedia-prefix.pch"; sourceTree = "<group>"; };
 		2FD00602DA1EE1ECE8521AE64A225D2F /* Pods-AwesomeMedia_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-AwesomeMedia_Tests-frameworks.sh"; sourceTree = "<group>"; };
-		465E292FC8B9E9B1CDA0DC927034A40E /* MiniPlayerView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MiniPlayerView.swift; sourceTree = "<group>"; };
+		3F539A25DEDB23B48085262EA6959B07 /* AwesomeMediaPlayerItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AwesomeMediaPlayerItem.swift; sourceTree = "<group>"; };
+		400122D1547A567BD08B2F27AF7827B2 /* AwesomeMediaAVPlayer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AwesomeMediaAVPlayer.swift; sourceTree = "<group>"; };
 		46BB3D1E68900D9EC4565005D627BEF0 /* Pods-AwesomeMedia_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AwesomeMedia_Example.release.xcconfig"; sourceTree = "<group>"; };
-		4E1B8E276EC0E8A2C102A86F68D886B0 /* Pods-AwesomeMedia_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-AwesomeMedia_Example.modulemap"; sourceTree = "<group>"; };
-		4E4B6B2422D49CE4E1DEBCB6805EB500 /* AwesomeMediaState.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AwesomeMediaState.swift; sourceTree = "<group>"; };
-		5B282BEC3FB9BD18ED1BD7FD80E13AC1 /* AwesomeMedia-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "AwesomeMedia-dummy.m"; sourceTree = "<group>"; };
+		4C8990390D7ED000AB3491FB5A549499 /* ResourceBundle-AwesomeMedia-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-AwesomeMedia-Info.plist"; sourceTree = "<group>"; };
+		4E1B8E276EC0E8A2C102A86F68D886B0 /* Pods-AwesomeMedia_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-AwesomeMedia_Example.modulemap"; sourceTree = "<group>"; };
+		51A96CEE940D01A138B7EC8DFB795902 /* AwesomeMedia.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = AwesomeMedia.xcconfig; sourceTree = "<group>"; };
+		55C3A630E8E755940A5175012AF33429 /* AwesomeMediaState.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AwesomeMediaState.swift; sourceTree = "<group>"; };
+		5835E2CFD9E2B138E27437F73798DCB8 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		647AC7E74B57DE5CF55531C600994C7E /* Pods_AwesomeMedia_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_AwesomeMedia_Tests.framework; path = "Pods-AwesomeMedia_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6A239C0E18FAB2A7049319AE6B3DA85B /* AwesomeMediaMarkersViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AwesomeMediaMarkersViewController.swift; sourceTree = "<group>"; };
+		7441045C00CD2D78AF44303C2B4B6F8A /* Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		77E010F39E75D9CFCAE1FFEAE3EB93D7 /* AwesomeMedia.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = AwesomeMedia.bundle; path = AwesomeMedia.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		7C658F3B7FCD1005057E6FE5B5CDDBF6 /* AwesomeMedia-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AwesomeMedia-umbrella.h"; sourceTree = "<group>"; };
 		83CB0787B8A2F14237C3214D3AF66E0E /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		84CE9D842ED1791940049D39B7A8B20D /* AwesomeMediaViewDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AwesomeMediaViewDelegate.swift; sourceTree = "<group>"; };
+		86C0F9A16C09E9F1A16606F7CCB53446 /* AwesomeMediaAssets.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; path = AwesomeMediaAssets.xcassets; sourceTree = "<group>"; };
+		8A5E0439E177722D557F47680733CE06 /* Pods_AwesomeMedia_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_AwesomeMedia_Example.framework; path = "Pods-AwesomeMedia_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D524C7FB78BF098EDE3E440AD9911C0 /* Pods-AwesomeMedia_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-AwesomeMedia_Example-acknowledgements.plist"; sourceTree = "<group>"; };
-		8F2A3DA879FFC09626584560825859C3 /* AwesomeMediaMarkersViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AwesomeMediaMarkersViewModel.swift; sourceTree = "<group>"; };
-		9246DEE8A6C195CF1C335CB2DD360787 /* AwesomeMediaViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AwesomeMediaViewController.swift; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		94276C3DA60250BD65415BB2D7B3B84B /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		98E9A3FB9EE92D40C85CEF1DA1E4C1D7 /* Pods-AwesomeMedia_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-AwesomeMedia_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		99B0B5275537077EEA540A7496F8A4F1 /* AwesomeMedia.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = AwesomeMedia.modulemap; sourceTree = "<group>"; };
-		9C7D33488B228839AB0BF78D4ED71549 /* AwesomeMediaMarkerTableViewCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AwesomeMediaMarkerTableViewCell.swift; sourceTree = "<group>"; };
-		A7A1611F1F04E18200C3FB8A /* AwesomeMediaAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = AwesomeMediaAssets.xcassets; sourceTree = "<group>"; };
-		A7A161201F04E68E00C3FB8A /* MiniPlayerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MiniPlayerView.xib; path = "../../../../Mobile_iOS_MVA-Home/MVA Home/View/CustomViews/MiniPlayer/MiniPlayerView.xib"; sourceTree = "<group>"; };
+		9939E81E46FE503F8B6A8A7D6B97616F /* AwesomeMedia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = AwesomeMedia.framework; path = AwesomeMedia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D3FE64994B2E43011DC258F0A147D36 /* AwesomeMediaView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AwesomeMediaView.swift; sourceTree = "<group>"; };
+		A547A54956BE91DE382D3F62840D3896 /* AwesomeMediaViewDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AwesomeMediaViewDelegate.swift; sourceTree = "<group>"; };
 		A7CFD13E849A6315C2209509DA13FD8B /* Pods-AwesomeMedia_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-AwesomeMedia_Example-resources.sh"; sourceTree = "<group>"; };
+		AF6DE5FAD22890DD477DF81614992C08 /* AwesomeMedia.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AwesomeMedia.swift; sourceTree = "<group>"; };
 		BBC750A2A6D2F255BB4F556183078D23 /* Pods-AwesomeMedia_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-AwesomeMedia_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
-		BC7A37B0FF669F6190A083B9398083C4 /* AwesomeMedia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AwesomeMedia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BC000FFCBA93B79E9D4B430E6E16A134 /* AwesomeMediaAnimations+UIView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "AwesomeMediaAnimations+UIView.swift"; sourceTree = "<group>"; };
 		C18A1F6A6B8021A1CCB20B855A2C24FD /* Pods-AwesomeMedia_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AwesomeMedia_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		C444F090F2D6FFEFBFAE425455C14622 /* Pods-AwesomeMedia_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-AwesomeMedia_Example-frameworks.sh"; sourceTree = "<group>"; };
+		C6CBD44A7740FAD0EDDFE4226A9E941D /* AwesomeMediaPlayerDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AwesomeMediaPlayerDelegate.swift; sourceTree = "<group>"; };
+		C82DAFF80A5BC48FC15008CB74D51672 /* AwesomeMediaViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AwesomeMediaViewModel.swift; sourceTree = "<group>"; };
 		CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		CEB5C93EE2E2E1EB3219B21FC03EDEAC /* Pods-AwesomeMedia_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-AwesomeMedia_Tests-dummy.m"; sourceTree = "<group>"; };
 		CFDE650A08581BBBE5E558E3B97F44C8 /* Pods-AwesomeMedia_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AwesomeMedia_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		D177A4219448EFB000778BC2FD35FCF4 /* Pods_AwesomeMedia_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AwesomeMedia_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D4B69033E9CD4957F1BB7C9AA60575AD /* AwesomeMedia-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AwesomeMedia-umbrella.h"; sourceTree = "<group>"; };
-		D929543A40FCADFDD727BDB4813D3803 /* AwesomeMediaPlayerDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AwesomeMediaPlayerDelegate.swift; sourceTree = "<group>"; };
 		DA51927B4D4235DD41A1AF8A90560B8C /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DBC2A010C3414C3D9B2C6F4F2CD68F1F /* AwesomeMedia.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AwesomeMedia.swift; sourceTree = "<group>"; };
-		E35AB2FD567696480A56A0F76439D867 /* AwesomeMedia.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = AwesomeMedia.xcconfig; sourceTree = "<group>"; };
+		DAEAD5457DA11C58D9D5B513BABC3C64 /* AwesomeMediaMarkersViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AwesomeMediaMarkersViewModel.swift; sourceTree = "<group>"; };
 		E3B3B4BA25B9A24F74114163ED1C0AEE /* Pods-AwesomeMedia_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AwesomeMedia_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		E485B39E4C7719B39206C2C9D5D6A51D /* Pods-AwesomeMedia_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-AwesomeMedia_Example-dummy.m"; sourceTree = "<group>"; };
 		E54AA867D99243BF7E9D6195AA25A912 /* Pods-AwesomeMedia_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-AwesomeMedia_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
+		E93779EC86D851BB80D3ACB12DA07424 /* AwesomeMedia-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "AwesomeMedia-dummy.m"; sourceTree = "<group>"; };
 		E9E79FAB727AB094255A04A0E6E71162 /* Pods-AwesomeMedia_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-AwesomeMedia_Example-umbrella.h"; sourceTree = "<group>"; };
-		EB1C2DC27F3BEE02C7A12CAC83D2355B /* Pods-AwesomeMedia_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-AwesomeMedia_Tests.modulemap"; sourceTree = "<group>"; };
+		EB1C2DC27F3BEE02C7A12CAC83D2355B /* Pods-AwesomeMedia_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-AwesomeMedia_Tests.modulemap"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		4BF371AD49E8E7A4630A11690F699CB1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6D0F27B5D5E18FA28F37D0D8441C9B41 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -103,11 +122,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B05C5FAEDBA8F636C16556178951FF21 /* Frameworks */ = {
+		E2B64CB50003AF79A813969F9D01ED4E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E0131C6DE17281EF44225EEF532E7C11 /* Foundation.framework in Frameworks */,
+				F9C0B618B4542CA15E10CD89392513C2 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -122,42 +141,76 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		00CA3F05B55FFCDC4B1C53C8D4A3FDA8 /* Protocols */ = {
+		0AC890414A9F6D7030E38C407DD68164 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				D929543A40FCADFDD727BDB4813D3803 /* AwesomeMediaPlayerDelegate.swift */,
-				84CE9D842ED1791940049D39B7A8B20D /* AwesomeMediaViewDelegate.swift */,
+				6A239C0E18FAB2A7049319AE6B3DA85B /* AwesomeMediaMarkersViewController.swift */,
+				DAEAD5457DA11C58D9D5B513BABC3C64 /* AwesomeMediaMarkersViewModel.swift */,
+				1B54D751709218B4246B7B5561E375F0 /* AwesomeMediaViewController.swift */,
 			);
-			path = Protocols;
+			name = Controllers;
+			path = Controllers;
 			sourceTree = "<group>";
 		};
-		012F3A6EB245C30646C532DC5B564DDC /* Library */ = {
+		1AAF680A4EB836B22E3349ADB2FA5F3C /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				DBC2A010C3414C3D9B2C6F4F2CD68F1F /* AwesomeMedia.swift */,
-				095BCFE56E63C3307E0701D7B9900BE0 /* AwesomeMediaAVPlayer.swift */,
-				0E959F3C6DA163FCCF8CDFD629258E34 /* AwesomeMediaPlayerItem.swift */,
-				4E4B6B2422D49CE4E1DEBCB6805EB500 /* AwesomeMediaState.swift */,
-				20FB5265FC063B0DB507E87FA101146F /* Extensions.swift */,
+				9D3FE64994B2E43011DC258F0A147D36 /* AwesomeMediaView.swift */,
+				C82DAFF80A5BC48FC15008CB74D51672 /* AwesomeMediaViewModel.swift */,
 			);
+			name = Views;
+			path = Views;
+			sourceTree = "<group>";
+		};
+		2C3E2D5B05C1591BB81858190F6C1A01 /* AwesomeMedia */ = {
+			isa = PBXGroup;
+			children = (
+				D09A5E4C4E90FCB2A679DBD3DFE80A5E /* Classes */,
+			);
+			name = AwesomeMedia;
+			path = AwesomeMedia;
+			sourceTree = "<group>";
+		};
+		34817895E9E4220903486CC0D13D2FA8 /* Miniplayer */ = {
+			isa = PBXGroup;
+			children = (
+				1C15E52356845E89792185F5B99042FB /* MiniPlayerView.swift */,
+			);
+			name = Miniplayer;
+			path = Miniplayer;
+			sourceTree = "<group>";
+		};
+		420BC20705D362AB16D9EFD672683891 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				AF6DE5FAD22890DD477DF81614992C08 /* AwesomeMedia.swift */,
+				400122D1547A567BD08B2F27AF7827B2 /* AwesomeMediaAVPlayer.swift */,
+				3F539A25DEDB23B48085262EA6959B07 /* AwesomeMediaPlayerItem.swift */,
+				55C3A630E8E755940A5175012AF33429 /* AwesomeMediaState.swift */,
+				7441045C00CD2D78AF44303C2B4B6F8A /* Extensions.swift */,
+			);
+			name = Library;
 			path = Library;
 			sourceTree = "<group>";
 		};
-		182CD18953D8E41C65488927C32AFA6C /* Extensions */ = {
+		422506B1F97BACCDC9EFB92681715D30 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				0F978EC53C7FCE58C8980933D2B902B6 /* AwesomeMediaAnimations+UIView.swift */,
+				77E010F39E75D9CFCAE1FFEAE3EB93D7 /* AwesomeMedia.bundle */,
+				9939E81E46FE503F8B6A8A7D6B97616F /* AwesomeMedia.framework */,
+				8A5E0439E177722D557F47680733CE06 /* Pods_AwesomeMedia_Example.framework */,
+				647AC7E74B57DE5CF55531C600994C7E /* Pods_AwesomeMedia_Tests.framework */,
 			);
-			path = Extensions;
+			name = Products;
 			sourceTree = "<group>";
 		};
-		464FC97FDE8DFB3F5E75D6AC9FD665F7 /* Views */ = {
+		43A52C7DFA38EB73C2F750328A403D88 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				2F24F36637AE5798BC93083B676E9A87 /* AwesomeMediaView.swift */,
-				1A9390F2D36C5494C229EB32B839E995 /* AwesomeMediaViewModel.swift */,
+				BC000FFCBA93B79E9D4B430E6E16A134 /* AwesomeMediaAnimations+UIView.swift */,
 			);
-			path = Views;
+			name = Extensions;
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		4DCAB0E88D8B4587A32C1356CCBD5540 /* Pods-AwesomeMedia_Example */ = {
@@ -196,12 +249,19 @@
 			path = "Target Support Files/Pods-AwesomeMedia_Tests";
 			sourceTree = "<group>";
 		};
-		62D147C66A0DC7F0625EC1B95F28D125 /* Cells */ = {
+		6B1A2465ACD393EB9CB32BDFE49E1F83 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				9C7D33488B228839AB0BF78D4ED71549 /* AwesomeMediaMarkerTableViewCell.swift */,
+				047F32615D3B305A5E6B4A704B516787 /* AwesomeMedia.modulemap */,
+				51A96CEE940D01A138B7EC8DFB795902 /* AwesomeMedia.xcconfig */,
+				E93779EC86D851BB80D3ACB12DA07424 /* AwesomeMedia-dummy.m */,
+				20234444D5EACD0B004A617B408BA5E4 /* AwesomeMedia-prefix.pch */,
+				7C658F3B7FCD1005057E6FE5B5CDDBF6 /* AwesomeMedia-umbrella.h */,
+				5835E2CFD9E2B138E27437F73798DCB8 /* Info.plist */,
+				4C8990390D7ED000AB3491FB5A549499 /* ResourceBundle-AwesomeMedia-Info.plist */,
 			);
-			path = Cells;
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/AwesomeMedia";
 			sourceTree = "<group>";
 		};
 		7252C14100D3B07CB6E4F8C815645CA1 /* Targets Support Files */ = {
@@ -221,91 +281,30 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		76A8C5FCC9308F8FBE020C835478A805 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				02D7078FACD39F1EE506D96EC580EDEC /* AwesomeMediaMarkersViewController.swift */,
-				8F2A3DA879FFC09626584560825859C3 /* AwesomeMediaMarkersViewModel.swift */,
-				9246DEE8A6C195CF1C335CB2DD360787 /* AwesomeMediaViewController.swift */,
-			);
-			path = Controllers;
-			sourceTree = "<group>";
-		};
-		7C8FCAB2E68FF0403D4FE2343B26069D /* Miniplayer */ = {
-			isa = PBXGroup;
-			children = (
-				A7A161201F04E68E00C3FB8A /* MiniPlayerView.xib */,
-				465E292FC8B9E9B1CDA0DC927034A40E /* MiniPlayerView.swift */,
-			);
-			path = Miniplayer;
-			sourceTree = "<group>";
-		};
 		7DB346D0F39D3F0E887471402A8071AB = {
 			isa = PBXGroup;
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
-				D94FA90506270FB1AD8FDBBDC7F7987D /* Development Pods */,
+				C40DAC7C5563681DD5C32A7882063AE9 /* Development Pods */,
 				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
-				A7F02392EA6105EFD4E5FA3016A57E4C /* Products */,
+				422506B1F97BACCDC9EFB92681715D30 /* Products */,
 				7252C14100D3B07CB6E4F8C815645CA1 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		9171E0B45BE07CE49E814BD520B3A310 /* AwesomeMedia */ = {
+		B14489965A2070AD29676727C39F063A /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				9F9EE2A9625A9D00AB0D18106ADAF777 /* Classes */,
+				D49E36DF7BA8CF7E42A51C5E71BFFB66 /* Cells */,
+				0AC890414A9F6D7030E38C407DD68164 /* Controllers */,
+				43A52C7DFA38EB73C2F750328A403D88 /* Extensions */,
+				420BC20705D362AB16D9EFD672683891 /* Library */,
+				34817895E9E4220903486CC0D13D2FA8 /* Miniplayer */,
+				CDD379377AD8FB9A27287DFE4E96EF11 /* Protocols */,
+				1AAF680A4EB836B22E3349ADB2FA5F3C /* Views */,
 			);
-			path = AwesomeMedia;
-			sourceTree = "<group>";
-		};
-		9D9E23564F1FC91D2EA755A7CE575A82 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				99B0B5275537077EEA540A7496F8A4F1 /* AwesomeMedia.modulemap */,
-				E35AB2FD567696480A56A0F76439D867 /* AwesomeMedia.xcconfig */,
-				5B282BEC3FB9BD18ED1BD7FD80E13AC1 /* AwesomeMedia-dummy.m */,
-				155597C4AC8668C4898DA341DE4CEEC9 /* AwesomeMedia-prefix.pch */,
-				D4B69033E9CD4957F1BB7C9AA60575AD /* AwesomeMedia-umbrella.h */,
-				94276C3DA60250BD65415BB2D7B3B84B /* Info.plist */,
-			);
-			name = "Support Files";
-			path = "Example/Pods/Target Support Files/AwesomeMedia";
-			sourceTree = "<group>";
-		};
-		9F9EE2A9625A9D00AB0D18106ADAF777 /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				62D147C66A0DC7F0625EC1B95F28D125 /* Cells */,
-				76A8C5FCC9308F8FBE020C835478A805 /* Controllers */,
-				182CD18953D8E41C65488927C32AFA6C /* Extensions */,
-				012F3A6EB245C30646C532DC5B564DDC /* Library */,
-				7C8FCAB2E68FF0403D4FE2343B26069D /* Miniplayer */,
-				00CA3F05B55FFCDC4B1C53C8D4A3FDA8 /* Protocols */,
-				464FC97FDE8DFB3F5E75D6AC9FD665F7 /* Views */,
-				A7A1611F1F04E18200C3FB8A /* AwesomeMediaAssets.xcassets */,
-			);
+			name = Classes;
 			path = Classes;
-			sourceTree = "<group>";
-		};
-		A7F02392EA6105EFD4E5FA3016A57E4C /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				BC7A37B0FF669F6190A083B9398083C4 /* AwesomeMedia.framework */,
-				1DB8749C328C8A152C7F63FF897CB54B /* Pods_AwesomeMedia_Example.framework */,
-				D177A4219448EFB000778BC2FD35FCF4 /* Pods_AwesomeMedia_Tests.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		B03730D215A77CE88ED49691C1CC7454 /* AwesomeMedia */ = {
-			isa = PBXGroup;
-			children = (
-				9171E0B45BE07CE49E814BD520B3A310 /* AwesomeMedia */,
-				9D9E23564F1FC91D2EA755A7CE575A82 /* Support Files */,
-			);
-			name = AwesomeMedia;
-			path = ../..;
 			sourceTree = "<group>";
 		};
 		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
@@ -316,12 +315,78 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		D94FA90506270FB1AD8FDBBDC7F7987D /* Development Pods */ = {
+		C40DAC7C5563681DD5C32A7882063AE9 /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
-				B03730D215A77CE88ED49691C1CC7454 /* AwesomeMedia */,
+				DE36B19A5F918020EEA4626D85E67DA0 /* AwesomeMedia */,
 			);
 			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		CDD379377AD8FB9A27287DFE4E96EF11 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				C6CBD44A7740FAD0EDDFE4226A9E941D /* AwesomeMediaPlayerDelegate.swift */,
+				A547A54956BE91DE382D3F62840D3896 /* AwesomeMediaViewDelegate.swift */,
+			);
+			name = Protocols;
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		CFB8FCD956369D570B775D0847229BC8 /* Miniplayer */ = {
+			isa = PBXGroup;
+			children = (
+				028EC7BA13C5983A96E1007DEA6183E6 /* MiniPlayerView.xib */,
+			);
+			name = Miniplayer;
+			path = Miniplayer;
+			sourceTree = "<group>";
+		};
+		D09A5E4C4E90FCB2A679DBD3DFE80A5E /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				86C0F9A16C09E9F1A16606F7CCB53446 /* AwesomeMediaAssets.xcassets */,
+				CFB8FCD956369D570B775D0847229BC8 /* Miniplayer */,
+			);
+			name = Classes;
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		D49E36DF7BA8CF7E42A51C5E71BFFB66 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				09142E58F7F260116DEA78338153802F /* AwesomeMediaMarkerTableViewCell.swift */,
+			);
+			name = Cells;
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		DE36B19A5F918020EEA4626D85E67DA0 /* AwesomeMedia */ = {
+			isa = PBXGroup;
+			children = (
+				E05B4D7E7EB58F2D3DA21C19F14EBE1A /* AwesomeMedia */,
+				FBCADC9D27FF370EBC9713AD12C185A2 /* Resources */,
+				6B1A2465ACD393EB9CB32BDFE49E1F83 /* Support Files */,
+			);
+			name = AwesomeMedia;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+		E05B4D7E7EB58F2D3DA21C19F14EBE1A /* AwesomeMedia */ = {
+			isa = PBXGroup;
+			children = (
+				B14489965A2070AD29676727C39F063A /* Classes */,
+			);
+			name = AwesomeMedia;
+			path = AwesomeMedia;
+			sourceTree = "<group>";
+		};
+		FBCADC9D27FF370EBC9713AD12C185A2 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				2C3E2D5B05C1591BB81858190F6C1A01 /* AwesomeMedia */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -335,11 +400,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C97523844116A6B79A497D7DCE7B0D0A /* Headers */ = {
+		6688CE538F8340C3FFA7D37E3C42A247 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D6DED3A8A56974DBD63BF75F223C3B17 /* AwesomeMedia-umbrella.h in Headers */,
+				ADBE456E0B89ECA6324DE3F0D63DEE12 /* AwesomeMedia-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -354,22 +419,41 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		51A5B9DE92DEC38A48864B56EAC2338B /* AwesomeMedia */ = {
+		078D5F71699D9353B70F846ACD9C2067 /* AwesomeMedia */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F7FB4300D6D7B5612197484B1F808475 /* Build configuration list for PBXNativeTarget "AwesomeMedia" */;
+			buildConfigurationList = C4AB129E5CB046360343D06321EEA79B /* Build configuration list for PBXNativeTarget "AwesomeMedia" */;
 			buildPhases = (
-				706FB70FEBA49A41BE1F7C85A94E8968 /* Sources */,
-				B05C5FAEDBA8F636C16556178951FF21 /* Frameworks */,
-				C97523844116A6B79A497D7DCE7B0D0A /* Headers */,
+				8AAB9290343A21018082FA4FA847175E /* Sources */,
+				E2B64CB50003AF79A813969F9D01ED4E /* Frameworks */,
+				9903AD4890B9395DCCA3D7915877C861 /* Resources */,
+				6688CE538F8340C3FFA7D37E3C42A247 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				ECD937106758A19486287C0BE9DA3036 /* PBXTargetDependency */,
+			);
+			name = AwesomeMedia;
+			productName = AwesomeMedia;
+			productReference = 9939E81E46FE503F8B6A8A7D6B97616F /* AwesomeMedia.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		B204FB542D956C86D24897B314298CD3 /* AwesomeMedia-AwesomeMedia */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A6B7BD8100A80194438561574377FDAB /* Build configuration list for PBXNativeTarget "AwesomeMedia-AwesomeMedia" */;
+			buildPhases = (
+				EBE9215BE78220BED738149AA09E3F41 /* Sources */,
+				4BF371AD49E8E7A4630A11690F699CB1 /* Frameworks */,
+				F93E24D13C6FA6AFC011F68920DA390A /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = AwesomeMedia;
-			productName = AwesomeMedia;
-			productReference = BC7A37B0FF669F6190A083B9398083C4 /* AwesomeMedia.framework */;
-			productType = "com.apple.product-type.framework";
+			name = "AwesomeMedia-AwesomeMedia";
+			productName = "AwesomeMedia-AwesomeMedia";
+			productReference = 77E010F39E75D9CFCAE1FFEAE3EB93D7 /* AwesomeMedia.bundle */;
+			productType = "com.apple.product-type.bundle";
 		};
 		ED38D985247A7E47CBE930DEB2674F2C /* Pods-AwesomeMedia_Tests */ = {
 			isa = PBXNativeTarget;
@@ -385,7 +469,7 @@
 			);
 			name = "Pods-AwesomeMedia_Tests";
 			productName = "Pods-AwesomeMedia_Tests";
-			productReference = D177A4219448EFB000778BC2FD35FCF4 /* Pods_AwesomeMedia_Tests.framework */;
+			productReference = 647AC7E74B57DE5CF55531C600994C7E /* Pods_AwesomeMedia_Tests.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		FC9073D44980D00730F7054EC0E3C71F /* Pods-AwesomeMedia_Example */ = {
@@ -403,7 +487,7 @@
 			);
 			name = "Pods-AwesomeMedia_Example";
 			productName = "Pods-AwesomeMedia_Example";
-			productReference = 1DB8749C328C8A152C7F63FF897CB54B /* Pods_AwesomeMedia_Example.framework */;
+			productReference = 8A5E0439E177722D557F47680733CE06 /* Pods_AwesomeMedia_Example.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -423,38 +507,59 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = A7F02392EA6105EFD4E5FA3016A57E4C /* Products */;
+			productRefGroup = 422506B1F97BACCDC9EFB92681715D30 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				51A5B9DE92DEC38A48864B56EAC2338B /* AwesomeMedia */,
+				078D5F71699D9353B70F846ACD9C2067 /* AwesomeMedia */,
+				B204FB542D956C86D24897B314298CD3 /* AwesomeMedia-AwesomeMedia */,
 				FC9073D44980D00730F7054EC0E3C71F /* Pods-AwesomeMedia_Example */,
 				ED38D985247A7E47CBE930DEB2674F2C /* Pods-AwesomeMedia_Tests */,
 			);
 		};
 /* End PBXProject section */
 
+/* Begin PBXResourcesBuildPhase section */
+		9903AD4890B9395DCCA3D7915877C861 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F56BDF50CB31DFAD2563D394A4E542E5 /* AwesomeMedia.bundle in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F93E24D13C6FA6AFC011F68920DA390A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4EE36816AF57BA3FD6C772D93462A972 /* AwesomeMediaAssets.xcassets in Resources */,
+				7F9ACD636E54FA63E80F04AD0D0649C2 /* MiniPlayerView.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
-		706FB70FEBA49A41BE1F7C85A94E8968 /* Sources */ = {
+		8AAB9290343A21018082FA4FA847175E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CCB4B2D31A3FCCEB36C66390E3ACF38D /* AwesomeMedia-dummy.m in Sources */,
-				B20EE7B23CF212487226C524A29644A3 /* AwesomeMedia.swift in Sources */,
-				8660FB864B3A58B4CD78BACAFE8A5EC3 /* AwesomeMediaAnimations+UIView.swift in Sources */,
-				C569A06C3435FA76A3473CFC346BA2E6 /* AwesomeMediaAVPlayer.swift in Sources */,
-				57CD81DDA5E29A99040B8F1CC85C5495 /* AwesomeMediaMarkersViewController.swift in Sources */,
-				50236AA2158BE22ED245AAE27531A1E1 /* AwesomeMediaMarkersViewModel.swift in Sources */,
-				4677084A8A01D339C6C2824AF66F8EAF /* AwesomeMediaMarkerTableViewCell.swift in Sources */,
-				EF5D66810EFAF4933A99C724D2E41A56 /* AwesomeMediaPlayerDelegate.swift in Sources */,
-				AB6EBC6DD77A9042BEBE6CC73989DCC6 /* AwesomeMediaPlayerItem.swift in Sources */,
-				2E776EDBD9B3C232B8DBF12EAF59A769 /* AwesomeMediaState.swift in Sources */,
-				5E8B95E3AAEC26C9A3C01B53EE767F1E /* AwesomeMediaView.swift in Sources */,
-				A9C3BC205C993769C9459D364F9BB15A /* AwesomeMediaViewController.swift in Sources */,
-				B6CBC8F68B4963558DAB3CD5ABC0FCB4 /* AwesomeMediaViewDelegate.swift in Sources */,
-				395CEB14AD69F9FF8069446AA52E644A /* AwesomeMediaViewModel.swift in Sources */,
-				03BD083DC3A72132B5AF83D0391C0584 /* Extensions.swift in Sources */,
-				DB2A31B4641E1375D4321BC8FCED0FAE /* MiniPlayerView.swift in Sources */,
+				E7C3AE2BEE0C44CEC75D174574082819 /* AwesomeMedia-dummy.m in Sources */,
+				80E4B00127AE766503EA03D25DFDB848 /* AwesomeMedia.swift in Sources */,
+				DB36457CECAC3634EEB5DA3A1FE8E142 /* AwesomeMediaAnimations+UIView.swift in Sources */,
+				0EF83FE1641BB0FA0931DA4FCC0E1B3D /* AwesomeMediaAVPlayer.swift in Sources */,
+				AC6EEB6F23571F485A9774D2A04EA466 /* AwesomeMediaMarkersViewController.swift in Sources */,
+				6F9D18C218EDB12375E811E64433FC1F /* AwesomeMediaMarkersViewModel.swift in Sources */,
+				3C70CA17AB176068BCAE6FE3080F6A34 /* AwesomeMediaMarkerTableViewCell.swift in Sources */,
+				2799CE098C767C5CFE40C60991CE6E95 /* AwesomeMediaPlayerDelegate.swift in Sources */,
+				82599A11780334863F1DF685A1CF97F3 /* AwesomeMediaPlayerItem.swift in Sources */,
+				F6AB575E31A2BA3E5185CEAAF7C6BB18 /* AwesomeMediaState.swift in Sources */,
+				538C28E18A90E72185A7E13493A91614 /* AwesomeMediaView.swift in Sources */,
+				AFB07D76316A9617C01ABBDABA311F08 /* AwesomeMediaViewController.swift in Sources */,
+				ADFCDF98625A9D9EB2FBC18DC06D8414 /* AwesomeMediaViewDelegate.swift in Sources */,
+				420779FB7F9B42E4B689F5BA2FA5AE11 /* AwesomeMediaViewModel.swift in Sources */,
+				48E1F0EEAFE774FFC46A2366FAD72B9F /* Extensions.swift in Sources */,
+				13537FCEDB2C1291E7B0DBD5AF8276EB /* MiniPlayerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -463,6 +568,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				51C2FEEEF7F2446ABC0336098C44E3EB /* Pods-AwesomeMedia_Tests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EBE9215BE78220BED738149AA09E3F41 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -480,21 +592,44 @@
 		8BA5D550A254D97960A21F73E39E249B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = AwesomeMedia;
-			target = 51A5B9DE92DEC38A48864B56EAC2338B /* AwesomeMedia */;
+			target = 078D5F71699D9353B70F846ACD9C2067 /* AwesomeMedia */;
 			targetProxy = 7FA225E68D1EE31565159D66379C5215 /* PBXContainerItemProxy */;
+		};
+		ECD937106758A19486287C0BE9DA3036 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "AwesomeMedia-AwesomeMedia";
+			target = B204FB542D956C86D24897B314298CD3 /* AwesomeMedia-AwesomeMedia */;
+			targetProxy = 90F29D6C330F1BDDE5041B2C4F8780D8 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		26CDB1DE23111F57261F0CC4B0716DAD /* Release */ = {
+		05F65A458FDB19D831BD74DA817D8057 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E35AB2FD567696480A56A0F76439D867 /* AwesomeMedia.xcconfig */;
+			baseConfigurationReference = 51A96CEE940D01A138B7EC8DFB795902 /* AwesomeMedia.xcconfig */;
+			buildSettings = {
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/AwesomeMedia";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/AwesomeMedia/ResourceBundle-AwesomeMedia-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PRODUCT_NAME = AwesomeMedia;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+		53143D557D8A1270BAFB67A11771F62C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 51A96CEE940D01A138B7EC8DFB795902 /* AwesomeMedia.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -507,16 +642,17 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/AwesomeMedia/AwesomeMedia.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_NAME = AwesomeMedia;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Release;
+			name = Debug;
 		};
 		57AB4203EA5915995303CE66314C1142 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -672,6 +808,38 @@
 			};
 			name = Debug;
 		};
+		A44338074E49A973A265B469644B524F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 51A96CEE940D01A138B7EC8DFB795902 /* AwesomeMedia.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/AwesomeMedia/AwesomeMedia-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/AwesomeMedia/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/AwesomeMedia/AwesomeMedia.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = AwesomeMedia;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		ABA180B14476550FCED04BCA0091BF84 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C18A1F6A6B8021A1CCB20B855A2C24FD /* Pods-AwesomeMedia_Tests.release.xcconfig */;
@@ -707,36 +875,20 @@
 			};
 			name = Release;
 		};
-		ABF3672503BA8DACFEE102B3A65163B4 /* Debug */ = {
+		F8D55012BD27571CFAF0A046449D2EAD /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E35AB2FD567696480A56A0F76439D867 /* AwesomeMedia.xcconfig */;
+			baseConfigurationReference = 51A96CEE940D01A138B7EC8DFB795902 /* AwesomeMedia.xcconfig */;
 			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/AwesomeMedia";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/AwesomeMedia/AwesomeMedia-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/AwesomeMedia/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				INFOPLIST_FILE = "Target Support Files/AwesomeMedia/ResourceBundle-AwesomeMedia-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/AwesomeMedia/AwesomeMedia.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_NAME = AwesomeMedia;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
+				WRAPPER_EXTENSION = bundle;
 			};
 			name = Debug;
 		};
@@ -797,11 +949,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F7FB4300D6D7B5612197484B1F808475 /* Build configuration list for PBXNativeTarget "AwesomeMedia" */ = {
+		A6B7BD8100A80194438561574377FDAB /* Build configuration list for PBXNativeTarget "AwesomeMedia-AwesomeMedia" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				ABF3672503BA8DACFEE102B3A65163B4 /* Debug */,
-				26CDB1DE23111F57261F0CC4B0716DAD /* Release */,
+				F8D55012BD27571CFAF0A046449D2EAD /* Debug */,
+				05F65A458FDB19D831BD74DA817D8057 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C4AB129E5CB046360343D06321EEA79B /* Build configuration list for PBXNativeTarget "AwesomeMedia" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				53143D557D8A1270BAFB67A11771F62C /* Debug */,
+				A44338074E49A973A265B469644B524F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
