@@ -30,7 +30,9 @@ public class MiniPlayerView: UIView {
     var updateMediaCallback: (mediaUrl: String, title: String, coverImage: UIImage)?
     
     static func newInstance() -> MiniPlayerView{
-        return Bundle(for: self).loadNibNamed("MiniPlayerView", owner: self, options: nil)![0] as! MiniPlayerView
+        let podBundle = Bundle(for: AwesomeMedia.self)
+        let bundleURL = podBundle.url(forResource: "AwesomeMedia", withExtension: "bundle")
+        return Bundle(url: bundleURL!)!.loadNibNamed("MiniPlayerView", owner: self, options: nil)![0] as! MiniPlayerView
     }
     
     override public func awakeFromNib() {
@@ -116,7 +118,7 @@ public class MiniPlayerView: UIView {
     }
     
     func updateMediaView(){
-        self.playButton.setImage(AwesomeMedia.shared.playerIsPlaying ? #imageLiteral(resourceName: "btnPause") : #imageLiteral(resourceName: "btnPlay"), for: .normal)
+        self.playButton.setImage(AwesomeMedia.shared.playerIsPlaying ? #imageLiteral(resourceName: "awesomeMediaBtnPause") : #imageLiteral(resourceName: "awesomeMediaBtnPlay"), for: .normal)
         
         //updates miniplayer info
         DispatchQueue.main.async {
@@ -332,6 +334,7 @@ extension UIView {
     }
     
 }
+
 
 
 
