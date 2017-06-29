@@ -72,6 +72,7 @@
 		99B0B5275537077EEA540A7496F8A4F1 /* AwesomeMedia.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = AwesomeMedia.modulemap; sourceTree = "<group>"; };
 		9C7D33488B228839AB0BF78D4ED71549 /* AwesomeMediaMarkerTableViewCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AwesomeMediaMarkerTableViewCell.swift; sourceTree = "<group>"; };
 		A7A1611F1F04E18200C3FB8A /* AwesomeMediaAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = AwesomeMediaAssets.xcassets; sourceTree = "<group>"; };
+		A7A161201F04E68E00C3FB8A /* MiniPlayerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MiniPlayerView.xib; path = "../../../../Mobile_iOS_MVA-Home/MVA Home/View/CustomViews/MiniPlayer/MiniPlayerView.xib"; sourceTree = "<group>"; };
 		A7CFD13E849A6315C2209509DA13FD8B /* Pods-AwesomeMedia_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-AwesomeMedia_Example-resources.sh"; sourceTree = "<group>"; };
 		BBC750A2A6D2F255BB4F556183078D23 /* Pods-AwesomeMedia_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-AwesomeMedia_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		BC7A37B0FF669F6190A083B9398083C4 /* AwesomeMedia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AwesomeMedia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -233,6 +234,7 @@
 		7C8FCAB2E68FF0403D4FE2343B26069D /* Miniplayer */ = {
 			isa = PBXGroup;
 			children = (
+				A7A161201F04E68E00C3FB8A /* MiniPlayerView.xib */,
 				465E292FC8B9E9B1CDA0DC927034A40E /* MiniPlayerView.swift */,
 			);
 			path = Miniplayer;
