@@ -14,6 +14,10 @@ public enum MiniPlayerNotification: String {
     case miniPlayerShouldDismiss = "miniPlayerShouldDismiss"
 }
 
+enum MiniPlayerNotificationImage: String {
+    case miniPlayerNotificationImageArrived = "miniPlayerNotificationImageArrived"
+}
+
 public class MiniPlayerView: UIView {
     
     @IBOutlet weak var coverPlaceholderImageView: UIImageView!
@@ -198,6 +202,7 @@ extension MiniPlayerView {
         AwesomeMedia.addObserver(self, selector: #selector(MiniPlayerView.mediaStateChanged), event: .finishedPlaying)
         AwesomeMedia.addObserver(self, selector: #selector(MiniPlayerView.mediaStateChanged), event: .failedPlaying)
         NotificationCenter.default.addObserver(self, selector: #selector(MiniPlayerView.shouldDismiss), name: NSNotification.Name(rawValue: MiniPlayerNotification.miniPlayerShouldDismiss.rawValue), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(MiniPlayerView.imageArrived(notification:)), name: NSNotification.Name(rawValue: MiniPlayerNotificationImage.miniPlayerNotificationImageArrived.rawValue), object: nil)
     }
     
     func removeMediaStateObservers(){
@@ -207,6 +212,17 @@ extension MiniPlayerView {
     
     func mediaStateChanged(){
         updateMediaView()
+    }
+    
+    public static func notifyWithImage(image: UIImage) {
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: MiniPlayerNotificationImage.miniPlayerNotificationImageArrived.rawValue), object: nil, userInfo: ["image": image])
+    }
+    
+    func imageArrived(notification: NSNotification) {
+        if let image = notification.userInfo?["image"] as? UIImage {
+            self.updateMediaCallback = (updateMediaCallback?.mediaUrl ?? "", updateMediaCallback?.title ?? "", image)
+            mediaStateChanged()
+        }
     }
     
     // MARK:- Get most actual view controller
