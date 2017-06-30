@@ -81,8 +81,8 @@ open class AwesomeMediaViewController: UIViewController, AwesomeMediaMarkersView
     override open func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let viewController = segue.destination as? AwesomeMediaMarkersViewController {
             if let currentItem = AwesomeMedia.shared.avPlayer.currentItem {
-                var currentTime = CMTimeGetSeconds(currentItem.currentTime())
-                viewController.viewModel.currentTime = currentTime ?? 0
+                let currentTime = CMTimeGetSeconds(currentItem.currentTime())
+                viewController.viewModel.currentTime = currentTime.isNaN ? 0 : currentTime
             }
             
             viewController.viewModel.markers = self.mediaView.viewModel.mediaMarkers
