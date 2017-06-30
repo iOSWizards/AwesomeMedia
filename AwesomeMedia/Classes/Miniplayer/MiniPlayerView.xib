@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13122.19" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.16"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Gilroy-Bold.otf">
+            <string>Gilroy-Bold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="MiniPlayerView" customModule="AwesomeMedia" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6F1-zX-aNG" customClass="DesignableView" customModule="AwesomeMedia" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="20" width="375" height="80"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="awesomeMediaIcoAudioPlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="lbi-yT-MVg">
+                            <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                            <color key="backgroundColor" red="0.15294117647058825" green="0.19215686274509802" blue="0.23137254901960785" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lSv-NM-Sdv" customClass="DesignableImageView" customModule="AwesomeMedia" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="lSv-NM-Sdv" secondAttribute="height" multiplier="1:1" id="33E-U5-mlK"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="0.0"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Creating a Vision for your Future" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gq8-CJ-U6C">
+                            <rect key="frame" x="100" y="8" width="197" height="64"/>
+                            <fontDescription key="fontDescription" name="Gilroy-Bold" family="Gilroy" pointSize="16"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xX7-D6-b5O">
+                            <rect key="frame" x="0.0" y="0.0" width="305" height="80"/>
+                            <connections>
+                                <action selector="openMediaButtonPressed:" destination="iN0-l3-epB" eventType="touchUpInside" id="jog-ae-Hf4"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pgP-By-HQP">
+                            <rect key="frame" x="305" y="0.0" width="70" height="80"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="70" id="VWK-94-DP7"/>
+                            </constraints>
+                            <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <state key="normal" image="awesomeMediaBtnPlay"/>
+                            <state key="selected" image="awesomeMediaBtnPlay"/>
+                            <state key="highlighted" image="awesomeMediaBtnPlay"/>
+                            <connections>
+                                <action selector="playButtonPressed:" destination="iN0-l3-epB" eventType="touchUpInside" id="IW8-es-PTH"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="0.17254901959999999" green="0.19215686269999999" blue="0.23137254900000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstItem="lbi-yT-MVg" firstAttribute="trailing" secondItem="lSv-NM-Sdv" secondAttribute="trailing" id="BF2-bI-bgb"/>
+                        <constraint firstItem="xX7-D6-b5O" firstAttribute="top" secondItem="6F1-zX-aNG" secondAttribute="top" id="ECu-wy-ehl"/>
+                        <constraint firstAttribute="bottom" secondItem="lSv-NM-Sdv" secondAttribute="bottom" id="EZ8-kD-6r3"/>
+                        <constraint firstItem="lSv-NM-Sdv" firstAttribute="leading" secondItem="6F1-zX-aNG" secondAttribute="leading" id="GfG-Us-Kzy"/>
+                        <constraint firstItem="lbi-yT-MVg" firstAttribute="leading" secondItem="lSv-NM-Sdv" secondAttribute="leading" id="KIx-rL-RVT"/>
+                        <constraint firstItem="Gq8-CJ-U6C" firstAttribute="leading" secondItem="lSv-NM-Sdv" secondAttribute="trailing" constant="20" id="Nik-E5-MbL"/>
+                        <constraint firstItem="pgP-By-HQP" firstAttribute="leading" secondItem="Gq8-CJ-U6C" secondAttribute="trailing" constant="8" id="Tgj-HX-IqS"/>
+                        <constraint firstItem="pgP-By-HQP" firstAttribute="leading" secondItem="xX7-D6-b5O" secondAttribute="trailing" id="bSz-ZT-bFr"/>
+                        <constraint firstAttribute="bottom" secondItem="pgP-By-HQP" secondAttribute="bottom" id="d31-vj-ec8"/>
+                        <constraint firstItem="pgP-By-HQP" firstAttribute="top" secondItem="6F1-zX-aNG" secondAttribute="top" id="gpu-HF-fJy"/>
+                        <constraint firstItem="xX7-D6-b5O" firstAttribute="leading" secondItem="6F1-zX-aNG" secondAttribute="leading" id="hmV-vf-cAS"/>
+                        <constraint firstItem="Gq8-CJ-U6C" firstAttribute="top" secondItem="6F1-zX-aNG" secondAttribute="top" constant="8" id="kgt-Wq-0fZ"/>
+                        <constraint firstItem="lbi-yT-MVg" firstAttribute="bottom" secondItem="lSv-NM-Sdv" secondAttribute="bottom" id="nb4-Hj-FvY"/>
+                        <constraint firstItem="lbi-yT-MVg" firstAttribute="top" secondItem="lSv-NM-Sdv" secondAttribute="top" id="o07-ZS-qlL"/>
+                        <constraint firstAttribute="bottom" secondItem="Gq8-CJ-U6C" secondAttribute="bottom" constant="8" id="q8U-tu-Nfx"/>
+                        <constraint firstItem="lSv-NM-Sdv" firstAttribute="top" secondItem="6F1-zX-aNG" secondAttribute="top" id="rrk-aL-hH1"/>
+                        <constraint firstAttribute="bottom" secondItem="xX7-D6-b5O" secondAttribute="bottom" id="t7H-uc-gDh"/>
+                        <constraint firstAttribute="trailing" secondItem="pgP-By-HQP" secondAttribute="trailing" id="tPf-iF-XM1"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                            <color key="value" red="0.17254901959999999" green="0.19215686269999999" blue="0.23137254900000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                            <size key="value" width="0.0" height="2"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                            <real key="value" value="1"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                            <real key="value" value="4"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <gestureRecognizers/>
+            <constraints>
+                <constraint firstItem="6F1-zX-aNG" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="1T3-bv-yQD"/>
+                <constraint firstAttribute="trailing" secondItem="6F1-zX-aNG" secondAttribute="trailing" id="ET8-XY-rkU"/>
+                <constraint firstAttribute="bottom" secondItem="6F1-zX-aNG" secondAttribute="bottom" id="Q0i-R5-tik"/>
+                <constraint firstItem="6F1-zX-aNG" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="y3a-5N-2yH"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="coverImageView" destination="lSv-NM-Sdv" id="0Uc-k0-iN5"/>
+                <outlet property="coverPlaceholderImageView" destination="lbi-yT-MVg" id="FTc-sT-pWP"/>
+                <outlet property="openMediaButton" destination="xX7-D6-b5O" id="9hA-HV-6z8"/>
+                <outlet property="panGesture" destination="aRX-8C-OMw" id="7hG-aX-MwG"/>
+                <outlet property="playButton" destination="pgP-By-HQP" id="4pq-rT-fNP"/>
+                <outlet property="titleLabel" destination="Gq8-CJ-U6C" id="BUL-iq-fhw"/>
+                <outletCollection property="gestureRecognizers" destination="aRX-8C-OMw" appends="YES" id="zJv-9H-z75"/>
+            </connections>
+            <point key="canvasLocation" x="33.5" y="-240"/>
+        </view>
+        <panGestureRecognizer minimumNumberOfTouches="1" id="aRX-8C-OMw">
+            <connections>
+                <action selector="panAction:" destination="iN0-l3-epB" id="wGK-EL-WbR"/>
+            </connections>
+        </panGestureRecognizer>
+    </objects>
+    <resources>
+        <image name="awesomeMediaBtnPlay" width="38" height="38"/>
+        <image name="awesomeMediaIcoAudioPlaceholder" width="40" height="32"/>
+    </resources>
+</document>
