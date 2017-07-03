@@ -344,7 +344,7 @@ extension AwesomeMedia {
                 activateTimeOut()
             case .playing:
                 log("avPlayer.timeControlStatus: playing")
-                invalidateTimeOut()
+                deactivateTimeOut()
             case .paused:
                 log("avPlayer.timeControlStatus: paused")
             }
@@ -385,7 +385,7 @@ extension AwesomeMedia {
                     resetOnce = true
                 }
                 
-                invalidateTimeOut()
+                deactivateTimeOut()
                 
             case .failed, .unknown:
                 // Player item failed. See error.
@@ -398,14 +398,14 @@ extension AwesomeMedia {
         
     }
     
-    fileprivate func invalidateTimeOut() {
+    fileprivate func deactivateTimeOut() {
         self.timeOutTimer?.invalidate()
         self.timeOutTimer = nil
     }
     
     fileprivate func activateTimeOut() {
         
-        invalidateTimeOut()
+        deactivateTimeOut()
         
         // timeout item
         timeOutTimer = Timer.scheduledTimer(
@@ -656,7 +656,7 @@ extension AwesomeMedia {
     }
     
     public func cancelRetry() {
-        invalidateTimeOut()
+        deactivateTimeOut()
         notify(.stopedBuffering)
         stop()
     }
@@ -694,6 +694,10 @@ extension AwesomeMedia {
     public func endSeeking(_ timeSliderValue: Float) {
         guard let currentItem = avPlayer.currentItem else {
             return
+        }
+        
+        if !playerIsPlaying {
+            deactivateTimeOut()
         }
         
         if avPlayer.currentItem?.status == .readyToPlay {
@@ -931,5 +935,6 @@ extension AwesomeMedia : CXCallObserverDelegate {
     }
     
 }
+
 
 
