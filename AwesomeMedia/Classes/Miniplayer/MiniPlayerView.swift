@@ -42,6 +42,7 @@ public class MiniPlayerView: UIView {
     override public func awakeFromNib() {
         self.isHidden = true
         self.titleLabel.text = ""
+        self.coverImageView.layer.masksToBounds = true
         
         addMediaStateObservers()
     }

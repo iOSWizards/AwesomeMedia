@@ -58,6 +58,7 @@ public class AwesomeMedia: NSObject {
     public var skipTime: Int = 15
     public var preferredPeakBitRate: Double = 0
     public var preferredForwardBufferDuration: TimeInterval = 0
+    public var assetIdentifier: String = ""
     
     // Configuration flags
     public static var showLogs = false
