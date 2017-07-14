@@ -135,7 +135,6 @@ public class MiniPlayerView: UIView {
         
         hideTimer?.invalidate()
         if !AwesomeMedia.shared.playerIsPlaying {
-            hideAnimated()
             //            hideTimer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(hideAnimated), userInfo: nil, repeats: false)
         }
     }
