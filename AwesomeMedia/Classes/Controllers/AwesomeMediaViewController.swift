@@ -120,6 +120,12 @@ open class AwesomeMediaViewController: UIViewController, AwesomeMediaMarkersView
         
         present(alertController, animated: true, completion: nil)
     }
+    
+    // MARK: - Media downloaded
+    
+    open func mediaDownloaded() {
+        
+    }
 }
 
 extension UIAlertController {
@@ -221,6 +227,7 @@ extension AwesomeMediaViewController {
             downloadLabel?.text = mediaAvailableOfflineLabel
             downloadView?.backgroundColor = UIColor.init(white: 0, alpha: 0.43)
             downloadButton?.isSelected = true
+            mediaDownloaded()
             break
         }
     }
