@@ -90,6 +90,10 @@ public class AwesomeMedia: NSObject {
         return avPlayer.rate != 0 && avPlayer.error == nil && mediaType == .video
     }
     
+    public var wasPlayingVideo: Bool {
+        return avPlayer.error == nil && mediaType == .video
+    }
+    
     public var isPlayingAudio: Bool {
         return playerIsPlaying && !isPlayingVideo
     }
@@ -441,6 +445,7 @@ extension AwesomeMedia {
         
         // we're changing the current streaming media, we shall stop the current one.
         stop()
+        seek(toTime: 0)
         
         mediaPlayerState = (url, seekingTo)
         

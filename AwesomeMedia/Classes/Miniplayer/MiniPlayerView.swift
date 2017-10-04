@@ -85,6 +85,8 @@ public class MiniPlayerView: UIView {
     }
     
     func playerDidEnd(_ shouldPause: Bool = true) {
+        self.saveMediaStateCallback?()
+        AwesomeMedia.shared.seek(toTime: 0)
         if shouldPause {
             if AwesomeMedia.shared.playerIsPlaying {
                 AwesomeMedia.shared.pause()
