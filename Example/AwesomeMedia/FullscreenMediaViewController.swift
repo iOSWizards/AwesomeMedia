@@ -30,7 +30,7 @@ class FullscreenMediaViewController: AwesomeMediaViewController {
         AwesomeMedia.shared.removeOrientationObservers(self)
     }
     
-    func returnToPortraitController() {
+    @objc func returnToPortraitController() {
         self.dismiss(animated: true, completion: nil)
     }
     
