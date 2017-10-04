@@ -43,7 +43,7 @@ open class AwesomeMediaView: UIView {
     
     public let avPlayerLayer: AVPlayerLayer = {
         var avPlayerLayer = AVPlayerLayer()
-        avPlayerLayer.videoGravity = AVLayerVideoGravityResizeAspectFill
+        avPlayerLayer.videoGravity = AVLayerVideoGravity.resizeAspectFill
         return avPlayerLayer
     }()
     
@@ -94,7 +94,7 @@ open class AwesomeMediaView: UIView {
         avPlayerLayer.player = AwesomeMedia.shared.avPlayer
     }
     
-    func sliderTapped(gestureRecognizer: UIGestureRecognizer) {
+    @objc func sliderTapped(gestureRecognizer: UIGestureRecognizer) {
         
         guard let timeSlider = timeSlider else {
             return
@@ -364,19 +364,19 @@ extension AwesomeMediaView {
         AwesomeMedia.addObserver(self, selector: #selector(AwesomeMediaView.mediaTimeHasUpdated(_:)), event: .timeUpdated)
     }
     
-    open func mediaStartedBuffering(_ notification: Notification) {
+    @objc open func mediaStartedBuffering(_ notification: Notification) {
         if AwesomeMedia.shouldLockControlsWhenBuffering {
             enableControls(false)
         }
     }
     
-    open func mediaStopedBuffering(_ notification: Notification) {
+    @objc open func mediaStopedBuffering(_ notification: Notification) {
         if AwesomeMedia.shouldLockControlsWhenBuffering {
             enableControls(true)
         }
     }
     
-    open func mediaStartedPlaying(_ notification: Notification) {
+    @objc open func mediaStartedPlaying(_ notification: Notification) {
         playButton?.isSelected = true
         canToggleControls = true
         
@@ -388,28 +388,28 @@ extension AwesomeMediaView {
         autoHideControls()
     }
     
-    open func mediaPausedPlaying(_ notification: Notification) {
+    @objc open func mediaPausedPlaying(_ notification: Notification) {
         playButton?.isSelected = false
         canToggleControls = false
         
         showControls(true)
     }
     
-    open func mediaStopedPlaying(_ notification: Notification) {
+    @objc open func mediaStopedPlaying(_ notification: Notification) {
         playButton?.isSelected = false
         
         showControls(true)
     }
     
-    open func mediaFailedPlaying(_ notification: Notification) {
+    @objc open func mediaFailedPlaying(_ notification: Notification) {
         
     }
     
-    open func mediaFinishedPlaying(_ notification: Notification) {
+    @objc open func mediaFinishedPlaying(_ notification: Notification) {
         
     }
     
-    open func mediaTimeHasUpdated(_ notification: Notification? = nil) {
+    @objc open func mediaTimeHasUpdated(_ notification: Notification? = nil) {
         
         // this way we're preventing of another media other than the one being played of being updated.
         guard AwesomeMedia.isPlaying(viewModel.mediaUrl) || AwesomeMedia.wasPlaying(viewModel.mediaUrl) else {

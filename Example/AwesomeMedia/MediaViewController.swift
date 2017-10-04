@@ -34,7 +34,7 @@ class MediaViewController: UIViewController {
         AwesomeMedia.shared.removeOrientationObservers(self)
     }
     
-    func goToLandscapeController() {
+    @objc func goToLandscapeController() {
         performSegue(withIdentifier: "presentFullScreenSegue", sender: self)
     }
 

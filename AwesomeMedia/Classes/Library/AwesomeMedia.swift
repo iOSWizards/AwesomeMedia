@@ -110,9 +110,9 @@ public class AwesomeMedia: NSObject {
     
     public var mediaType: AMMediaType {
         if let currentItem = avPlayer.currentItem {
-            if currentItem.asset.tracks(withMediaType: AVMediaTypeVideo).count > 0 {
+            if currentItem.asset.tracks(withMediaType: AVMediaType.video).count > 0 {
                 return .video
-            } else if currentItem.asset.tracks(withMediaType: AVMediaTypeAudio).count > 0 {
+            } else if currentItem.asset.tracks(withMediaType: AVMediaType.audio).count > 0 {
                 return .audio
             }
         }
@@ -181,7 +181,7 @@ public class AwesomeMedia: NSObject {
 
 extension AwesomeMedia {
     
-    func applicationWillResignActive() {
+    @objc func applicationWillResignActive() {
         AwesomeMedia.shared.mediaPlayerWasPlayingMedia =
             AwesomeMedia.shared.isPlayingAudio || AwesomeMedia.shared.isPlayingVideo
         
@@ -191,7 +191,7 @@ extension AwesomeMedia {
         }
     }
     
-    func applicationDidEnterBackground() {
+    @objc func applicationDidEnterBackground() {
         if AwesomeMedia.shared.isPlayingVideo {
             if AwesomeMedia.shared.shouldStopVideoOnApplicationDidEnterBackground {
                 AwesomeMedia.shared.stop()
@@ -206,13 +206,13 @@ extension AwesomeMedia {
         }
     }
     
-    func applicationDidBecomeActive() {
+    @objc func applicationDidBecomeActive() {
         if AwesomeMedia.shared.mediaPlayerWasPlayingMedia && isPlayingMPRemoteCommandCenter {
             AwesomeMedia.shared.play()
         }
     }
     
-    func applicationWillTerminate() {
+    @objc func applicationWillTerminate() {
         
     }
     
@@ -337,8 +337,8 @@ extension AwesomeMedia {
         if #available(iOS 10.0, *) {
             switch avPlayer.timeControlStatus {
             case .waitingToPlayAtSpecifiedRate:
-                log("avPlayer.timeControlStatus: waiting \(avPlayer.reasonForWaitingToPlay ?? "")")
-                if avPlayer.reasonForWaitingToPlay == AVPlayerWaitingWithNoItemToPlayReason {
+                log("avPlayer.timeControlStatus: waiting \(avPlayer.reasonForWaitingToPlay ?? AVPlayer.WaitingReason(rawValue: ""))")
+                if avPlayer.reasonForWaitingToPlay == AVPlayer.WaitingReason.noItemToPlay {
                     if resetOnce {
                         avPlayer.pause()
                         avPlayer = AwesomeMediaAVPlayer()
@@ -496,7 +496,7 @@ extension AwesomeMedia {
         
     }
     
-    public func play(){
+    @objc public func play(){
         if avPlayer.currentItem == nil {
             return
         }
@@ -521,7 +521,7 @@ extension AwesomeMedia {
         log("started playing")
     }
     
-    public func rotated() {
+    @objc public func rotated() {
         if UIDeviceOrientationIsLandscape(UIDevice.current.orientation) {
             AwesomeMedia.shared.isPlayingLandscapeMedia = isPlayingVideo
             notify(.isGoingLandscape)
@@ -548,7 +548,7 @@ extension AwesomeMedia {
         log("paused")
     }
     
-    public func stop(){
+    @objc public func stop(){
         if avPlayer.currentItem == nil {
             return
         }
@@ -565,18 +565,18 @@ extension AwesomeMedia {
         log("stopped playing")
     }
     
-    public func didFinishPlaying(_ sender: AnyObject){
+    @objc public func didFinishPlaying(_ sender: AnyObject){
         notify(.finishedPlaying)
         playerDelegate?.didFinishPlaying(mediaType: mediaType)
     }
     
-    public func didFailPlaying(_ sender: AnyObject){
+    @objc public func didFailPlaying(_ sender: AnyObject){
         notify(.failedPlaying)
         playerDelegate?.didFailPlaying(mediaType: mediaType)
         activateTimeOut()
     }
     
-    public func togglePlay(){
+    @objc public func togglePlay(){
         if avPlayer.currentItem == nil {
             return
         }
@@ -721,11 +721,11 @@ extension AwesomeMedia {
         
     }
     
-    public func skipForward(){
+    @objc public func skipForward(){
         seek(addingSeconds: Double(skipTime))
     }
     
-    public func skipBackward(){
+    @objc public func skipBackward(){
         seek(addingSeconds: -Double(skipTime))
     }
     
@@ -765,7 +765,7 @@ extension AwesomeMedia {
         return currentTime
     }
     
-    public func seekRemotely(_ seekEvent: MPSeekCommandEvent){
+    @objc public func seekRemotely(_ seekEvent: MPSeekCommandEvent){
         if (seekEvent.type == .beginSeeking) {
             log("Begin Seeking")
             //beginSeeking()
@@ -850,7 +850,7 @@ extension AwesomeMedia {
         log("added command center controls")
     }
     
-    func pauseMPRemoteCommandCenter() {
+    @objc func pauseMPRemoteCommandCenter() {
         isPlayingMPRemoteCommandCenter = false
         pause()
     }

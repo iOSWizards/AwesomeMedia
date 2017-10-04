@@ -96,7 +96,7 @@ public class MiniPlayerView: UIView {
         self.removeFromSuperview()
     }
     
-    func shouldDismiss() {
+    @objc func shouldDismiss() {
         playerDidEnd(false)
     }
     
@@ -213,7 +213,7 @@ extension MiniPlayerView {
         NotificationCenter.default.removeObserver(self)
     }
     
-    func mediaStateChanged(){
+    @objc func mediaStateChanged(){
         updateMediaView()
     }
     
@@ -221,7 +221,7 @@ extension MiniPlayerView {
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: MiniPlayerNotificationImage.miniPlayerNotificationImageArrived.rawValue), object: nil, userInfo: ["image": image])
     }
     
-    func imageArrived(notification: NSNotification) {
+    @objc func imageArrived(notification: NSNotification) {
         if let image = notification.userInfo?["image"] as? UIImage {
             self.updateMediaCallback = (updateMediaCallback?.mediaUrl ?? "", updateMediaCallback?.title ?? "", image)
             mediaStateChanged()
@@ -302,7 +302,7 @@ extension UIView {
         miniPlayer.show(animated: true)
     }
     
-    public func hideMiniPlayerView(animated: Bool = false, andPause pause: Bool = false){
+    @objc public func hideMiniPlayerView(animated: Bool = false, andPause pause: Bool = false){
         for subview in subviews{
             if let subview = subview as? MiniPlayerView {
                 subview.hide(animated: animated, andPause: pause)
