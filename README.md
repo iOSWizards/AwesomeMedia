@@ -23,10 +23,6 @@ it, simply add the following line to your Podfile:
 pod "AwesomeMedia", git: 'https://github.com/iOSWizards/AwesomeMedia.git', tag: '0.7.5'
 ```
 
-## Author
-
-Evandro Harrison Hoffmann, evandro@itsdayoff.com
-
 ## Usage
 
 1. Create a `var` extending `AwesomeMediaView`. Or extend a `UIView` component from the storyboard.
