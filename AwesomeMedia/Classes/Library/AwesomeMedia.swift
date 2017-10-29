@@ -22,6 +22,7 @@ public enum AwesomeMediaEvent: String {
     case startedBuffering = "startedBuffering"
     case stopedBuffering = "stopedBuffering"
     case timeUpdated = "timeUpdated"
+    case timedOut = "timedOut"
     case timeStartedUpdating = "timeStartedUpdating"
     case timeFinishedUpdating = "timeFinishedUpdating"
     case isGoingPortrait = "isPortrait"
@@ -45,18 +46,19 @@ public class AwesomeMedia: NSObject {
     fileprivate var timeObserver: AnyObject?
     fileprivate var playHistory = [URL]()
     fileprivate var isPlayingMPRemoteCommandCenter: Bool = true
-    fileprivate var haveBufferObservers: Bool = false
+    fileprivate var timeOutTimer: Timer?
     public var currentRate: Float = 1
     
     public weak var playerDelegate: AwesomeMediaPlayerDelegate?
     
-    public let avPlayer = AVPlayer()
-    //public var avPlayerLayer = AVPlayerLayer()
+    public var avPlayer = AwesomeMediaAVPlayer()
     public let notificationCenter = NotificationCenter()
     public var playerSpeedOptions: [Float] = [0.75, 1, 1.25, 1.5, 2]
+    public var playerTimeOutCount = 10.0
     public var skipTime: Int = 15
     public var preferredPeakBitRate: Double = 0
     public var preferredForwardBufferDuration: TimeInterval = 0
+    public var assetIdentifier: String = ""
     
     // Configuration flags
     public static var showLogs = false
@@ -88,6 +90,10 @@ public class AwesomeMedia: NSObject {
         return avPlayer.rate != 0 && avPlayer.error == nil && mediaType == .video
     }
     
+    public var wasPlayingVideo: Bool {
+        return avPlayer.error == nil && mediaType == .video
+    }
+    
     public var isPlayingAudio: Bool {
         return playerIsPlaying && !isPlayingVideo
     }
@@ -104,9 +110,9 @@ public class AwesomeMedia: NSObject {
     
     public var mediaType: AMMediaType {
         if let currentItem = avPlayer.currentItem {
-            if currentItem.asset.tracks(withMediaType: AVMediaTypeVideo).count > 0 {
+            if currentItem.asset.tracks(withMediaType: AVMediaType.video).count > 0 {
                 return .video
-            } else if currentItem.asset.tracks(withMediaType: AVMediaTypeAudio).count > 0 {
+            } else if currentItem.asset.tracks(withMediaType: AVMediaType.audio).count > 0 {
                 return .audio
             }
         }
@@ -175,7 +181,7 @@ public class AwesomeMedia: NSObject {
 
 extension AwesomeMedia {
     
-    func applicationWillResignActive() {
+    @objc func applicationWillResignActive() {
         AwesomeMedia.shared.mediaPlayerWasPlayingMedia =
             AwesomeMedia.shared.isPlayingAudio || AwesomeMedia.shared.isPlayingVideo
         
@@ -185,7 +191,7 @@ extension AwesomeMedia {
         }
     }
     
-    func applicationDidEnterBackground() {
+    @objc func applicationDidEnterBackground() {
         if AwesomeMedia.shared.isPlayingVideo {
             if AwesomeMedia.shared.shouldStopVideoOnApplicationDidEnterBackground {
                 AwesomeMedia.shared.stop()
@@ -200,13 +206,13 @@ extension AwesomeMedia {
         }
     }
     
-    func applicationDidBecomeActive() {
+    @objc func applicationDidBecomeActive() {
         if AwesomeMedia.shared.mediaPlayerWasPlayingMedia && isPlayingMPRemoteCommandCenter {
             AwesomeMedia.shared.play()
         }
     }
     
-    func applicationWillTerminate() {
+    @objc func applicationWillTerminate() {
         
     }
     
@@ -257,7 +263,6 @@ extension AwesomeMedia {
                                                name: NSNotification.Name.UIDeviceOrientationDidChange,
                                                object: nil)
         
-        
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(AwesomeMedia.didFinishPlaying(_:)),
                                                name: .AVPlayerItemDidPlayToEndTime,
@@ -302,6 +307,11 @@ extension AwesomeMedia {
             } as AnyObject?
     }
     
+    @objc fileprivate func notifyTimeOut() {
+        log("timed out after \(playerTimeOutCount) seconds")
+        notify(.timedOut)
+    }
+    
     fileprivate func observeTime(_ elapsedTime: CMTime) {
         guard let currentItem = AwesomeMedia.shared.avPlayer.currentItem else {
             return
@@ -319,10 +329,31 @@ extension AwesomeMedia {
         avPlayer.currentItem?.addObserver(AwesomeMedia.shared, forKeyPath: AwesomeMediaPlayerItemKeyPaths.playbackLikelyToKeepUp.rawValue, options: .new, context: &playbackLikelyToKeepUpContext)
         avPlayer.currentItem?.addObserver(AwesomeMedia.shared, forKeyPath: AwesomeMediaPlayerItemKeyPaths.playbackBufferFull.rawValue, options: .new, context: &playbackBufferFullContext)
         avPlayer.currentItem?.addObserver(AwesomeMedia.shared, forKeyPath: AwesomeMediaPlayerItemKeyPaths.status.rawValue, options: [.old, .new], context: nil)
-        haveBufferObservers = true
+        avPlayer.addObserver(AwesomeMedia.shared, forKeyPath: AwesomeMediaAVPlayerKeyPaths.timeControlStatus.rawValue, options: [.new], context: nil)
     }
     
     override open func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        
+        if #available(iOS 10.0, *) {
+            switch avPlayer.timeControlStatus {
+            case .waitingToPlayAtSpecifiedRate:
+                log("avPlayer.timeControlStatus: waiting \(avPlayer.reasonForWaitingToPlay ?? AVPlayer.WaitingReason(rawValue: ""))")
+                if avPlayer.reasonForWaitingToPlay == AVPlayer.WaitingReason.noItemToPlay {
+                    if resetOnce {
+                        avPlayer.pause()
+                        avPlayer = AwesomeMediaAVPlayer()
+                        reset()
+                        resetOnce = false
+                    }
+                }
+                activateTimeOut()
+            case .playing:
+                log("avPlayer.timeControlStatus: playing")
+                deactivateTimeOut()
+            case .paused:
+                log("avPlayer.timeControlStatus: paused")
+            }
+        }
         
         if context == &playbackLikelyToKeepUpContext || context == &playbackBufferFullContext {
             if let currentItem = AwesomeMedia.shared.avPlayer.currentItem, currentItem.isPlaybackLikelyToKeepUp || currentItem.isPlaybackBufferFull {
@@ -336,7 +367,6 @@ extension AwesomeMedia {
                 }
             }
         }
-        
         
         if keyPath == AwesomeMediaPlayerItemKeyPaths.status.rawValue {
             let status: AVPlayerItemStatus
@@ -352,93 +382,101 @@ extension AwesomeMedia {
             switch status {
             case .readyToPlay:
                 // Player item is ready to play.
-                log("readyToPlay - Player item is ready to play.")
+                log("readyToPlay - playerItem is ready to play.")
                 if let delayed = delayedPlay {
-                    delayed()
                     // after playing once we can desable it. (the readyTopPlay status is fired many times)
                     delayedPlay = nil
+                    delayed()
+                    resetOnce = true
                 }
-            case .failed:
+                
+                deactivateTimeOut()
+                
+            case .failed, .unknown:
                 // Player item failed. See error.
-                log("failed - Player item failed. See error.")
-            case .unknown:
-                // Player item is not yet ready.
-                log("unknown - Player item is not yet ready")
+                log(".failed, .unknown - playerItem failed. See error.")
+                activateTimeOut()
+                avPlayer = AwesomeMediaAVPlayer()
+                reset()
             }
         }
         
+    }
+    
+    fileprivate func deactivateTimeOut() {
+        self.timeOutTimer?.invalidate()
+        self.timeOutTimer = nil
+    }
+    
+    fileprivate func activateTimeOut() {
+        
+        deactivateTimeOut()
+        
+        // timeout item
+        timeOutTimer = Timer.scheduledTimer(
+            timeInterval: playerTimeOutCount,
+            target: self,
+            selector: #selector(notifyTimeOut),
+            userInfo: nil,
+            repeats: false
+        )
     }
     
 }
 
 var delayedPlay: (() -> Void)?
+var mediaPlayerState: (url: URL, seekToTime: Double)?
+var resetOnce = false
 
 // MARK: - Events
 
 extension AwesomeMedia {
     
-    public func prepareMedia(withUrl url: URL?, replaceCurrent: Bool = false, startPlaying: Bool = false, seekingTo: Double = -1, completion:(()->Void)? = nil) -> Bool {
+    public func prepareMedia(withUrl url: URL?, seekingTo: Double = -1, startPlaying: Bool = true) {
         
         guard let url = url else {
-            return false
+            return
         }
         
-        if let completion = completion {
-            
-            DispatchQueue.global().async {
-                
-                _ = self.commonPrepareMedia(withUrl: url, replaceCurrent: replaceCurrent, startPlaying: startPlaying)
-                
-                DispatchQueue.main.async {
-                    
-                    if startPlaying && self.avPlayer.rate == 0 {
-                        self.play()
-                    }
-                    
-                    completion()
-                }
-            }
-            
-        } else {
-            
-            if url.absoluteString == lastPlayedUrlString {
-                play()
-                return false
-            }
-            
-            _ = commonPrepareMedia(withUrl: url, replaceCurrent: replaceCurrent, startPlaying: startPlaying)
+        if url.absoluteString == lastPlayedUrlString && startPlaying {
+            play()
+            return
+        }
+        
+        // we're changing the current streaming media, we shall stop the current one.
+        stop()
+        seek(toTime: 0)
+        
+        mediaPlayerState = (url, seekingTo)
+        
+        commonPrepareMedia(withUrl: url)
+        
+        notify(.startedBuffering)
+        delayedPlay = {
             if seekingTo > -1 {
-                delayedPlay = {
-                    self.seek(toTime: seekingTo)
-                    self.play()
-                }
-            } else {
-                if startPlaying && avPlayer.rate == 0 {
-                    play()
-                }
+                self.seek(toTime: seekingTo)
+            }
+            if startPlaying {
+                self.play()
             }
         }
         
-        return true
     }
     
-    private func commonPrepareMedia(withUrl url: URL, replaceCurrent: Bool = false, startPlaying: Bool = false) -> Bool {
+    private func commonPrepareMedia(withUrl url: URL) {
         
-        let playerItem = AwesomeMediaPlayerItem(url: url, keysPathArray: [AwesomeMediaPlayerItemKeyPaths.playbackLikelyToKeepUp.rawValue, AwesomeMediaPlayerItemKeyPaths.playbackBufferFull.rawValue, AwesomeMediaPlayerItemKeyPaths.status.rawValue])
+        let keyPaths = [
+            AwesomeMediaPlayerItemKeyPaths.playbackLikelyToKeepUp.rawValue,
+            AwesomeMediaPlayerItemKeyPaths.playbackBufferFull.rawValue,
+            AwesomeMediaPlayerItemKeyPaths.status.rawValue
+        ]
+        let playerItem = AwesomeMediaPlayerItem(url: url, keysPathArray: keyPaths)
         
-        //in case it's playing the same URL, only replace if is either paused or we are forcing replacing
-        if self.playHistory.last == url {
-            if self.avPlayer.rate != 0 && replaceCurrent {
-                self.avPlayer.replaceCurrentItem(with: playerItem)
-                self.log("replaced current item with url \(url)")
-            }
-        }else{
-            self.log("replaced [\(self.playHistory.last?.absoluteString ?? "")] with url [\(url)]")
-            
-            self.playHistory.append(url)
-            
-            self.avPlayer.replaceCurrentItem(with: playerItem)
-        }
+        log("replaced [\(lastPlayedUrlString ?? "")] with url [\(url)]")
+        
+        playHistory.append(url)
+        
+        avPlayer.replaceCurrentItem(with: playerItem)
         
         //Adds observers
         self.addObservers()
@@ -450,17 +488,15 @@ extension AwesomeMedia {
         if let currentItem = self.avPlayer.currentItem {
             currentItem.preferredPeakBitRate = self.preferredPeakBitRate
             if #available(iOS 10.0, *) {
+                avPlayer.automaticallyWaitsToMinimizeStalling = true
                 currentItem.preferredForwardBufferDuration = self.preferredForwardBufferDuration
                 currentItem.canUseNetworkResourcesForLiveStreamingWhilePaused = self.canUseNetworkResourcesForLiveStreamingWhilePaused
-            } else {
-                // Fallback on earlier versions
             }
         }
         
-        return true
     }
     
-    public func play(){
+    @objc public func play(){
         if avPlayer.currentItem == nil {
             return
         }
@@ -485,7 +521,7 @@ extension AwesomeMedia {
         log("started playing")
     }
     
-    public func rotated() {
+    @objc public func rotated() {
         if UIDeviceOrientationIsLandscape(UIDevice.current.orientation) {
             AwesomeMedia.shared.isPlayingLandscapeMedia = isPlayingVideo
             notify(.isGoingLandscape)
@@ -512,7 +548,7 @@ extension AwesomeMedia {
         log("paused")
     }
     
-    public func stop(){
+    @objc public func stop(){
         if avPlayer.currentItem == nil {
             return
         }
@@ -529,17 +565,18 @@ extension AwesomeMedia {
         log("stopped playing")
     }
     
-    public func didFinishPlaying(_ sender: AnyObject){
+    @objc public func didFinishPlaying(_ sender: AnyObject){
         notify(.finishedPlaying)
         playerDelegate?.didFinishPlaying(mediaType: mediaType)
     }
     
-    public func didFailPlaying(_ sender: AnyObject){
+    @objc public func didFailPlaying(_ sender: AnyObject){
         notify(.failedPlaying)
         playerDelegate?.didFailPlaying(mediaType: mediaType)
+        activateTimeOut()
     }
     
-    public func togglePlay(){
+    @objc public func togglePlay(){
         if avPlayer.currentItem == nil {
             return
         }
@@ -610,6 +647,25 @@ extension AwesomeMedia {
         avPlayer.rate = currentRate
         return currentRate
     }
+    
+    /// Resets the Media Player using the same data it was initialized while keeping the media elapsed time.
+    public func reset() {
+        log("is about to reset the current media")
+        if let retryCache = mediaPlayerState {
+            clearHistory()
+            prepareMedia(
+                withUrl: retryCache.url,
+                seekingTo:retryCache.seekToTime
+            )
+            log("reseted the current media")
+        }
+    }
+    
+    public func cancelRetry() {
+        deactivateTimeOut()
+        notify(.stopedBuffering)
+        stop()
+    }
 }
 
 // MARK: - Seek Slider Events
@@ -636,6 +692,8 @@ extension AwesomeMedia {
         
         notify(.timeStartedUpdating, object: currentItem)
         
+        activateTimeOut()
+        
         log("time slider began seeking")
     }
     
@@ -644,23 +702,30 @@ extension AwesomeMedia {
             return
         }
         
-        avPlayer.seek(to: CMTimeMakeWithSeconds(currentItem.elapsedTime(timeSliderValue), 100), completionHandler: { (completed: Bool) -> Void in
-            if self.currentRate > 0 {
-                self.play()
-            }
-        })
+        if !playerIsPlaying {
+            deactivateTimeOut()
+        }
         
-        playerDelegate?.didChangeSlider(to: Float(CMTimeMakeWithSeconds(currentItem.elapsedTime(timeSliderValue), 100).seconds), mediaType: mediaType)
-        notify(.timeFinishedUpdating, object: currentItem)
+        if avPlayer.currentItem?.status == .readyToPlay {
+            avPlayer.seek(to: CMTimeMakeWithSeconds(currentItem.elapsedTime(timeSliderValue), 100), completionHandler: { (completed: Bool) -> Void in
+                if self.currentRate > 0 {
+                    self.play()
+                }
+            })
+            
+            playerDelegate?.didChangeSlider(to: Float(CMTimeMakeWithSeconds(currentItem.elapsedTime(timeSliderValue), 100).seconds), mediaType: mediaType)
+            notify(.timeFinishedUpdating, object: currentItem)
+            
+            log("time slider ended seeking with value \(timeSliderValue)")
+        }
         
-        log("time slider ended seeking with value \(timeSliderValue)")
     }
     
-    public func skipForward(){
+    @objc public func skipForward(){
         seek(addingSeconds: Double(skipTime))
     }
     
-    public func skipBackward(){
+    @objc public func skipBackward(){
         seek(addingSeconds: -Double(skipTime))
     }
     
@@ -690,19 +755,22 @@ extension AwesomeMedia {
     }
     
     public func currentTime() -> Double {
-        if avPlayer.currentItem == nil {
+        guard let currentItem = avPlayer.currentItem else {
             return 0
         }
-        
-        return avPlayer.currentItem!.currentTime().seconds
+        let currentTime = currentItem.currentTime().seconds
+        if let mediaState = mediaPlayerState, playerIsPlaying {
+            mediaPlayerState = (mediaState.url, currentTime)
+        }
+        return currentTime
     }
     
-    public func seekRemotely(_ seekEvent: MPSeekCommandEvent){
+    @objc public func seekRemotely(_ seekEvent: MPSeekCommandEvent){
         if (seekEvent.type == .beginSeeking) {
-            print("Begin Seeking")
+            log("Begin Seeking")
             //beginSeeking()
         }else if (seekEvent.type == .endSeeking) {
-            print("End Seeking")
+            log("End Seeking")
             //endSeeking(Float(seekEvent.timestamp))
         }
         
@@ -782,7 +850,7 @@ extension AwesomeMedia {
         log("added command center controls")
     }
     
-    func pauseMPRemoteCommandCenter() {
+    @objc func pauseMPRemoteCommandCenter() {
         isPlayingMPRemoteCommandCenter = false
         pause()
     }
@@ -873,4 +941,6 @@ extension AwesomeMedia : CXCallObserverDelegate {
     }
     
 }
+
+
 

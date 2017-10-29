@@ -96,7 +96,7 @@ open class AwesomeMediaMarkersViewController: UIViewController {
         self.view.addGestureRecognizer(pan)
     }
     
-    open func pan(_ rec:UIPanGestureRecognizer) {
+    @objc open func pan(_ rec:UIPanGestureRecognizer) {
         
         let point: CGPoint = rec.location(in: self.view)
         let distance: CGPoint = CGPoint(x: point.x - initialTouchPoint.x, y: point.y - initialTouchPoint.y)

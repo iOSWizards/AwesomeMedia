@@ -34,6 +34,7 @@ open class AwesomeMediaView: UIView {
     
     fileprivate var isSeeking = false
     fileprivate var isControlHidden = false
+    fileprivate var timerHideControls: Timer?
     
     @IBInspectable open var seekTime: Int = 15
     @IBInspectable open var autoHideControlsTime: Int = 3
@@ -42,7 +43,7 @@ open class AwesomeMediaView: UIView {
     
     public let avPlayerLayer: AVPlayerLayer = {
         var avPlayerLayer = AVPlayerLayer()
-        avPlayerLayer.videoGravity = AVLayerVideoGravityResizeAspectFill
+        avPlayerLayer.videoGravity = AVLayerVideoGravity.resizeAspectFill
         return avPlayerLayer
     }()
     
@@ -93,7 +94,7 @@ open class AwesomeMediaView: UIView {
         avPlayerLayer.player = AwesomeMedia.shared.avPlayer
     }
     
-    func sliderTapped(gestureRecognizer: UIGestureRecognizer) {
+    @objc func sliderTapped(gestureRecognizer: UIGestureRecognizer) {
         
         guard let timeSlider = timeSlider else {
             return
@@ -119,6 +120,7 @@ extension AwesomeMediaView {
     
     open func setup(
         mediaPath: String,
+        seekingTo: Double,
         coverImagePath: String? = nil,
         authorName: String? = nil,
         title: String? = nil,
@@ -127,7 +129,7 @@ extension AwesomeMediaView {
         mediaMarkers: [AwesomeMediaMarker]? = nil,
         showHours: Bool = false,
         replaceCurrent: Bool = false,
-        startPlaying: Bool = false) {
+        startPlaying: Bool = true) {
         
         viewModel.set(
             mediaPath: mediaPath,
@@ -139,7 +141,7 @@ extension AwesomeMediaView {
             mediaMarkers: mediaMarkers,
             showHours: showHours)
         
-        _ = AwesomeMedia.shared.prepareMedia(withUrl: viewModel.mediaUrl, replaceCurrent: replaceCurrent, startPlaying: startPlaying)
+        AwesomeMedia.shared.prepareMedia(withUrl: viewModel.mediaUrl, seekingTo: seekingTo, startPlaying: startPlaying)
         
         playButton?.isSelected = AwesomeMedia.shared.playerIsPlaying
         
@@ -266,18 +268,24 @@ extension AwesomeMediaView {
             return
         }
         
+        timerHideControls?.invalidate()
+        timerHideControls = nil
+        
         //hides control after start playing
-        let timer = DispatchTime.now() + .seconds(autoHideControlsTime)
-        DispatchQueue.main.asyncAfter(deadline: timer, execute: {
-            // we're checking it again cause it may be scheduled to execute.
-            if self.canToggleControls && AwesomeMedia.isPlaying(self.viewModel.mediaPath?.url) {
-                self.showControls(false)
-            }
-        })
+        timerHideControls = Timer.scheduledTimer(
+            timeInterval: TimeInterval(autoHideControlsTime),
+            target: self,
+            selector: #selector(hideControls),
+            userInfo: nil,
+            repeats: false
+        )
+        
     }
     
-    open func hideControls(){
-        showControls(false)
+    @objc fileprivate func hideControls() {
+        if self.canToggleControls && AwesomeMedia.isPlaying(self.viewModel.mediaPath?.url) {
+            showControls(false)
+        }
     }
     
     open func showControls(_ show: Bool, automaticHide: Bool = true, forceAutoHide: Bool = false) {
@@ -356,15 +364,19 @@ extension AwesomeMediaView {
         AwesomeMedia.addObserver(self, selector: #selector(AwesomeMediaView.mediaTimeHasUpdated(_:)), event: .timeUpdated)
     }
     
-    open func mediaStartedBuffering(_ notification: Notification) {
-        enableControls(false)
+    @objc open func mediaStartedBuffering(_ notification: Notification) {
+        if AwesomeMedia.shouldLockControlsWhenBuffering {
+            enableControls(false)
+        }
     }
     
-    open func mediaStopedBuffering(_ notification: Notification) {
-        enableControls(true)
+    @objc open func mediaStopedBuffering(_ notification: Notification) {
+        if AwesomeMedia.shouldLockControlsWhenBuffering {
+            enableControls(true)
+        }
     }
     
-    open func mediaStartedPlaying(_ notification: Notification) {
+    @objc open func mediaStartedPlaying(_ notification: Notification) {
         playButton?.isSelected = true
         canToggleControls = true
         
@@ -376,28 +388,28 @@ extension AwesomeMediaView {
         autoHideControls()
     }
     
-    open func mediaPausedPlaying(_ notification: Notification) {
+    @objc open func mediaPausedPlaying(_ notification: Notification) {
         playButton?.isSelected = false
         canToggleControls = false
         
         showControls(true)
     }
     
-    open func mediaStopedPlaying(_ notification: Notification) {
+    @objc open func mediaStopedPlaying(_ notification: Notification) {
         playButton?.isSelected = false
         
         showControls(true)
     }
     
-    open func mediaFailedPlaying(_ notification: Notification) {
+    @objc open func mediaFailedPlaying(_ notification: Notification) {
         
     }
     
-    open func mediaFinishedPlaying(_ notification: Notification) {
+    @objc open func mediaFinishedPlaying(_ notification: Notification) {
         
     }
     
-    open func mediaTimeHasUpdated(_ notification: Notification? = nil) {
+    @objc open func mediaTimeHasUpdated(_ notification: Notification? = nil) {
         
         // this way we're preventing of another media other than the one being played of being updated.
         guard AwesomeMedia.isPlaying(viewModel.mediaUrl) || AwesomeMedia.wasPlaying(viewModel.mediaUrl) else {
@@ -434,3 +446,5 @@ extension AwesomeMediaView {
         
     }
 }
+
+

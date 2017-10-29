@@ -81,8 +81,8 @@ open class AwesomeMediaViewController: UIViewController, AwesomeMediaMarkersView
     override open func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let viewController = segue.destination as? AwesomeMediaMarkersViewController {
             if let currentItem = AwesomeMedia.shared.avPlayer.currentItem {
-                var currentTime = CMTimeGetSeconds(currentItem.currentTime())
-                viewController.viewModel.currentTime = currentTime ?? 0
+                let currentTime = CMTimeGetSeconds(currentItem.currentTime())
+                viewController.viewModel.currentTime = currentTime.isNaN ? 0 : currentTime
             }
             
             viewController.viewModel.markers = self.mediaView.viewModel.mediaMarkers
@@ -120,6 +120,12 @@ open class AwesomeMediaViewController: UIViewController, AwesomeMediaMarkersView
         
         present(alertController, animated: true, completion: nil)
     }
+    
+    // MARK: - Media downloaded
+    
+    open func mediaDownloaded() {
+        
+    }
 }
 
 extension UIAlertController {
@@ -134,6 +140,7 @@ extension AwesomeMediaViewController {
     
     open func setup(
         mediaPath: String,
+        seekingTo: Double = -1.0,
         coverImagePath: String? = nil,
         authorName: String? = nil,
         title: String? = nil,
@@ -144,7 +151,7 @@ extension AwesomeMediaViewController {
         mediaMarkers: [AwesomeMediaMarker]? = nil,
         showHours: Bool = false,
         replaceCurrent: Bool = false,
-        startPlaying: Bool = false) {
+        startPlaying: Bool = true) {
         
         if let localizedLabel = mediaAvailableOfflineLabelLocalized, !localizedLabel.isEmpty {
             self.mediaAvailableOfflineLabel = localizedLabel
@@ -155,6 +162,7 @@ extension AwesomeMediaViewController {
         
         mediaView.setup(
             mediaPath: mediaPath,
+            seekingTo: seekingTo,
             coverImagePath: coverImagePath,
             authorName: authorName,
             title: title,
@@ -219,6 +227,7 @@ extension AwesomeMediaViewController {
             downloadLabel?.text = mediaAvailableOfflineLabel
             downloadView?.backgroundColor = UIColor.init(white: 0, alpha: 0.43)
             downloadButton?.isSelected = true
+            mediaDownloaded()
             break
         }
     }
@@ -271,3 +280,4 @@ extension AwesomeMediaViewController: UIGestureRecognizerDelegate {
         return true
     }
 }
+
