@@ -42,7 +42,6 @@ mediaView.setup(mediaPath: "http://overmind2.mindvalleyacademy.com/api/v1/assets
 3. Assign player layer to self (in case playing video).
 ```swift
 mediaView.addPlayerLayer()
-}
 ```
 
 4. Setup delegate.
@@ -50,7 +49,6 @@ mediaView.addPlayerLayer()
 AwesomeMedia.shared.playerDelegate = self
 
 extension MediaViewController: AwesomeMediaPlayerDelegate {
-
     public func didChangeSpeed(to: Float, mediaType: AMMediaType) {
         print("MediaViewController didChangeSpeed(\(to))")
     }
@@ -78,7 +76,6 @@ extension MediaViewController: AwesomeMediaPlayerDelegate {
     public func didFailPlaying(mediaType: AMMediaType) {
         print("FullscreenMediaViewController didFailPlaying")
     }
-
 }
 ```
 
@@ -94,7 +91,6 @@ func goToLandscapeController() {
 6. Print Logs.
 ```swift
 AwesomeMedia.showLogs = true
-}
 ```
 
 ## License
