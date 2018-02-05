@@ -438,9 +438,13 @@ extension AwesomeMedia {
             return
         }
         
-        if url.absoluteString == lastPlayedUrlString && startPlaying {
-            play()
-            return
+        // compare lastPathComponent of the URLs
+        // because of the differences between web url and downloaded url path
+        if let lastPlayedUrlString = lastPlayedUrlString, let lastPlayedUrl = URL(string: lastPlayedUrlString) {
+            if url.lastPathComponent == lastPlayedUrl.lastPathComponent {
+                play()
+                return
+            }
         }
         
         // we're changing the current streaming media, we shall stop the current one.
