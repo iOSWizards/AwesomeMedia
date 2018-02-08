@@ -216,6 +216,30 @@ extension AwesomeMedia {
         
     }
     
+    // handle interruptions from alarms and phone calls
+    @objc func handleInterruption(_ notification: Notification) {
+        guard let info = notification.userInfo,
+            let typeValue = info[AVAudioSessionInterruptionTypeKey] as? UInt,
+            let type = AVAudioSessionInterruptionType(rawValue: typeValue) else {
+                return
+        }
+        if type == .began {
+            // Interruption began, take appropriate actions (save state, update user interface)
+            AwesomeMedia.shared.pause()
+        }
+        else if type == .ended {
+            guard let optionsValue =
+                info[AVAudioSessionInterruptionOptionKey] as? UInt else {
+                    return
+            }
+            let options = AVAudioSessionInterruptionOptions(rawValue: optionsValue)
+            if options.contains(.shouldResume) {
+                // Interruption Ended - playback should resume
+                AwesomeMedia.shared.play()
+            }
+        }
+    }
+    
     func addAppStateNotification() {
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(applicationWillResignActive),
@@ -233,6 +257,11 @@ extension AwesomeMedia {
                                                selector: #selector(applicationWillTerminate),
                                                name: .UIApplicationWillTerminate,
                                                object: nil)
+        // subscribe to interruptions
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(handleInterruption(_:)),
+                                               name: .AVAudioSessionInterruption,
+                                               object: AVAudioSession.sharedInstance())
     }
     
 }
