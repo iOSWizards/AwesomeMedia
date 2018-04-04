@@ -8,6 +8,25 @@
 
 /* Begin PBXBuildFile section */
 		06AC2E6FDEFC33BBCEB95429E2674D91 /* Pods-AwesomeMedia_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B07B6F1D77DABA663156DDD928B1E63 /* Pods-AwesomeMedia_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0A31642C20749E9E00029D50 /* AwesomeMediaVideoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A31642B20749E9E00029D50 /* AwesomeMediaVideoTableViewCell.xib */; };
+		0A31642E2074A1AE00029D50 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A31642D2074A1AE00029D50 /* Assets.xcassets */; };
+		0A3164412074A3DD00029D50 /* Gilroy-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0A3164312074A3DD00029D50 /* Gilroy-Regular.otf */; };
+		0A3164422074A3DD00029D50 /* Gilroy-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0A3164322074A3DD00029D50 /* Gilroy-Black.otf */; };
+		0A3164432074A3DD00029D50 /* Gilroy-BlackItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0A3164332074A3DD00029D50 /* Gilroy-BlackItalic.otf */; };
+		0A3164442074A3DD00029D50 /* Gilroy-RegularItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0A3164342074A3DD00029D50 /* Gilroy-RegularItalic.otf */; };
+		0A3164452074A3DD00029D50 /* Gilroy-LightItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0A3164352074A3DD00029D50 /* Gilroy-LightItalic.otf */; };
+		0A3164462074A3DD00029D50 /* Gilroy-HeavyItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0A3164362074A3DD00029D50 /* Gilroy-HeavyItalic.otf */; };
+		0A3164472074A3DD00029D50 /* Gilroy-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0A3164372074A3DD00029D50 /* Gilroy-BoldItalic.otf */; };
+		0A3164482074A3DD00029D50 /* Gilroy-SemiBoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0A3164382074A3DD00029D50 /* Gilroy-SemiBoldItalic.otf */; };
+		0A3164492074A3DD00029D50 /* Gilroy-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0A3164392074A3DD00029D50 /* Gilroy-Medium.otf */; };
+		0A31644A2074A3DD00029D50 /* Gilroy-Heavy.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0A31643A2074A3DD00029D50 /* Gilroy-Heavy.otf */; };
+		0A31644B2074A3DD00029D50 /* Gilroy-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0A31643B2074A3DD00029D50 /* Gilroy-Bold.otf */; };
+		0A31644C2074A3DD00029D50 /* Gilroy-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0A31643C2074A3DD00029D50 /* Gilroy-SemiBold.otf */; };
+		0A31644D2074A3DD00029D50 /* Gilroy-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0A31643D2074A3DD00029D50 /* Gilroy-Light.otf */; };
+		0A31644E2074A3DD00029D50 /* Gilroy-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0A31643E2074A3DD00029D50 /* Gilroy-ExtraBold.otf */; };
+		0A31644F2074A3DD00029D50 /* Gilroy-MediumItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0A31643F2074A3DD00029D50 /* Gilroy-MediumItalic.otf */; };
+		0A3164502074A3DD00029D50 /* Gilroy-ExtraBoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0A3164402074A3DD00029D50 /* Gilroy-ExtraBoldItalic.otf */; };
+		0A3164522074A72D00029D50 /* AwesomeMediaVideoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3164512074A72D00029D50 /* AwesomeMediaVideoTableViewCell.swift */; };
 		51C2FEEEF7F2446ABC0336098C44E3EB /* Pods-AwesomeMedia_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB5C93EE2E2E1EB3219B21FC03EDEAC /* Pods-AwesomeMedia_Tests-dummy.m */; };
 		6135F412064B8E4320E202217E2DED5A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
 		65C3781434AB04E9F6F82E3D47515042 /* Pods-AwesomeMedia_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E9E79FAB727AB094255A04A0E6E71162 /* Pods-AwesomeMedia_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -38,6 +57,25 @@
 
 /* Begin PBXFileReference section */
 		047F32615D3B305A5E6B4A704B516787 /* AwesomeMedia.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = AwesomeMedia.modulemap; sourceTree = "<group>"; };
+		0A31642B20749E9E00029D50 /* AwesomeMediaVideoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AwesomeMediaVideoTableViewCell.xib; sourceTree = "<group>"; };
+		0A31642D2074A1AE00029D50 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0A3164312074A3DD00029D50 /* Gilroy-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gilroy-Regular.otf"; sourceTree = "<group>"; };
+		0A3164322074A3DD00029D50 /* Gilroy-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gilroy-Black.otf"; sourceTree = "<group>"; };
+		0A3164332074A3DD00029D50 /* Gilroy-BlackItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gilroy-BlackItalic.otf"; sourceTree = "<group>"; };
+		0A3164342074A3DD00029D50 /* Gilroy-RegularItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gilroy-RegularItalic.otf"; sourceTree = "<group>"; };
+		0A3164352074A3DD00029D50 /* Gilroy-LightItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gilroy-LightItalic.otf"; sourceTree = "<group>"; };
+		0A3164362074A3DD00029D50 /* Gilroy-HeavyItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gilroy-HeavyItalic.otf"; sourceTree = "<group>"; };
+		0A3164372074A3DD00029D50 /* Gilroy-BoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gilroy-BoldItalic.otf"; sourceTree = "<group>"; };
+		0A3164382074A3DD00029D50 /* Gilroy-SemiBoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gilroy-SemiBoldItalic.otf"; sourceTree = "<group>"; };
+		0A3164392074A3DD00029D50 /* Gilroy-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gilroy-Medium.otf"; sourceTree = "<group>"; };
+		0A31643A2074A3DD00029D50 /* Gilroy-Heavy.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gilroy-Heavy.otf"; sourceTree = "<group>"; };
+		0A31643B2074A3DD00029D50 /* Gilroy-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gilroy-Bold.otf"; sourceTree = "<group>"; };
+		0A31643C2074A3DD00029D50 /* Gilroy-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gilroy-SemiBold.otf"; sourceTree = "<group>"; };
+		0A31643D2074A3DD00029D50 /* Gilroy-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gilroy-Light.otf"; sourceTree = "<group>"; };
+		0A31643E2074A3DD00029D50 /* Gilroy-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gilroy-ExtraBold.otf"; sourceTree = "<group>"; };
+		0A31643F2074A3DD00029D50 /* Gilroy-MediumItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gilroy-MediumItalic.otf"; sourceTree = "<group>"; };
+		0A3164402074A3DD00029D50 /* Gilroy-ExtraBoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gilroy-ExtraBoldItalic.otf"; sourceTree = "<group>"; };
+		0A3164512074A72D00029D50 /* AwesomeMediaVideoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwesomeMediaVideoTableViewCell.swift; sourceTree = "<group>"; };
 		1B07B6F1D77DABA663156DDD928B1E63 /* Pods-AwesomeMedia_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-AwesomeMedia_Tests-umbrella.h"; sourceTree = "<group>"; };
 		1B3171463E824BE827794C980FB280BC /* Pods-AwesomeMedia_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-AwesomeMedia_Tests-resources.sh"; sourceTree = "<group>"; };
 		20234444D5EACD0B004A617B408BA5E4 /* AwesomeMedia-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AwesomeMedia-prefix.pch"; sourceTree = "<group>"; };
@@ -107,6 +145,55 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A31642820749E6E00029D50 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				0A31642D2074A1AE00029D50 /* Assets.xcassets */,
+				0A31642F2074A3DD00029D50 /* Fonts */,
+				0A3164532074A99A00029D50 /* Xibs */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		0A31642F2074A3DD00029D50 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				0A3164302074A3DD00029D50 /* Gilroy */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		0A3164302074A3DD00029D50 /* Gilroy */ = {
+			isa = PBXGroup;
+			children = (
+				0A3164312074A3DD00029D50 /* Gilroy-Regular.otf */,
+				0A3164322074A3DD00029D50 /* Gilroy-Black.otf */,
+				0A3164332074A3DD00029D50 /* Gilroy-BlackItalic.otf */,
+				0A3164342074A3DD00029D50 /* Gilroy-RegularItalic.otf */,
+				0A3164352074A3DD00029D50 /* Gilroy-LightItalic.otf */,
+				0A3164362074A3DD00029D50 /* Gilroy-HeavyItalic.otf */,
+				0A3164372074A3DD00029D50 /* Gilroy-BoldItalic.otf */,
+				0A3164382074A3DD00029D50 /* Gilroy-SemiBoldItalic.otf */,
+				0A3164392074A3DD00029D50 /* Gilroy-Medium.otf */,
+				0A31643A2074A3DD00029D50 /* Gilroy-Heavy.otf */,
+				0A31643B2074A3DD00029D50 /* Gilroy-Bold.otf */,
+				0A31643C2074A3DD00029D50 /* Gilroy-SemiBold.otf */,
+				0A31643D2074A3DD00029D50 /* Gilroy-Light.otf */,
+				0A31643E2074A3DD00029D50 /* Gilroy-ExtraBold.otf */,
+				0A31643F2074A3DD00029D50 /* Gilroy-MediumItalic.otf */,
+				0A3164402074A3DD00029D50 /* Gilroy-ExtraBoldItalic.otf */,
+			);
+			path = Gilroy;
+			sourceTree = "<group>";
+		};
+		0A3164532074A99A00029D50 /* Xibs */ = {
+			isa = PBXGroup;
+			children = (
+				0A31642B20749E9E00029D50 /* AwesomeMediaVideoTableViewCell.xib */,
+			);
+			path = Xibs;
+			sourceTree = "<group>";
+		};
 		422506B1F97BACCDC9EFB92681715D30 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -200,6 +287,7 @@
 		B14489965A2070AD29676727C39F063A /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				0A3164512074A72D00029D50 /* AwesomeMediaVideoTableViewCell.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -234,6 +322,7 @@
 			isa = PBXGroup;
 			children = (
 				B14489965A2070AD29676727C39F063A /* Classes */,
+				0A31642820749E6E00029D50 /* Assets */,
 			);
 			path = AwesomeMedia;
 			sourceTree = "<group>";
@@ -349,7 +438,7 @@
 				LastUpgradeCheck = 0920;
 				TargetAttributes = {
 					078D5F71699D9353B70F846ACD9C2067 = {
-						LastSwiftMigration = 0900;
+						LastSwiftMigration = 0920;
 					};
 				};
 			};
@@ -378,6 +467,24 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A31642C20749E9E00029D50 /* AwesomeMediaVideoTableViewCell.xib in Resources */,
+				0A3164442074A3DD00029D50 /* Gilroy-RegularItalic.otf in Resources */,
+				0A31644D2074A3DD00029D50 /* Gilroy-Light.otf in Resources */,
+				0A3164462074A3DD00029D50 /* Gilroy-HeavyItalic.otf in Resources */,
+				0A31642E2074A1AE00029D50 /* Assets.xcassets in Resources */,
+				0A3164492074A3DD00029D50 /* Gilroy-Medium.otf in Resources */,
+				0A3164412074A3DD00029D50 /* Gilroy-Regular.otf in Resources */,
+				0A3164482074A3DD00029D50 /* Gilroy-SemiBoldItalic.otf in Resources */,
+				0A31644F2074A3DD00029D50 /* Gilroy-MediumItalic.otf in Resources */,
+				0A3164432074A3DD00029D50 /* Gilroy-BlackItalic.otf in Resources */,
+				0A3164422074A3DD00029D50 /* Gilroy-Black.otf in Resources */,
+				0A3164452074A3DD00029D50 /* Gilroy-LightItalic.otf in Resources */,
+				0A31644A2074A3DD00029D50 /* Gilroy-Heavy.otf in Resources */,
+				0A3164472074A3DD00029D50 /* Gilroy-BoldItalic.otf in Resources */,
+				0A31644E2074A3DD00029D50 /* Gilroy-ExtraBold.otf in Resources */,
+				0A31644B2074A3DD00029D50 /* Gilroy-Bold.otf in Resources */,
+				0A31644C2074A3DD00029D50 /* Gilroy-SemiBold.otf in Resources */,
+				0A3164502074A3DD00029D50 /* Gilroy-ExtraBoldItalic.otf in Resources */,
 				F56BDF50CB31DFAD2563D394A4E542E5 /* AwesomeMedia.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -396,6 +503,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A3164522074A72D00029D50 /* AwesomeMediaVideoTableViewCell.swift in Sources */,
 				E7C3AE2BEE0C44CEC75D174574082819 /* AwesomeMedia-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -462,6 +570,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 51A96CEE940D01A138B7EC8DFB795902 /* AwesomeMedia.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -670,6 +779,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 51A96CEE940D01A138B7EC8DFB795902 /* AwesomeMedia.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
