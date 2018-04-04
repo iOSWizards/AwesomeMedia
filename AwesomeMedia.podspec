@@ -31,7 +31,7 @@ Play Media from any app using this library.
   s.ios.deployment_target = '10.0'
 
   s.source_files = 'AwesomeMedia/Classes/**/*.{swift}'
-s.ios.resources = ['AwesomeMedia/Assets/Xibs/*.{xib}', 'AwesomeMedia/Assets/Gilroy/*.{otf}', 'AwesomeMedia/Assets/Assets.xcassets']
+s.ios.resources = ['AwesomeMedia/Assets/Views/*.{xib,storyboard}', 'AwesomeMedia/Assets/Gilroy/*.{otf}', 'AwesomeMedia/Assets/Assets.xcassets']
   s.ios.preserve_paths = 'AwesomeMedia/Assets/*'
   s.resource_bundles = {
     'AwesomeMedia' => ['AwesomeMedia/Assets/**/*.{storyboard,xib,xcassets,json,imageset,png}']

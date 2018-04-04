@@ -12,4 +12,8 @@ public class AwesomeMedia {
     public static var autoHideControlViewTime: Double = 3
     public static var autoHideControlViewAnimationTime: Double = 0.3
     
+    public static var bundle: Bundle {
+        return Bundle(for: AwesomeMedia.self)
+    }
+    
 }

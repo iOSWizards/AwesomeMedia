@@ -28,6 +28,8 @@ public class AwesomeMediaVideoTableViewCell: UITableViewCell {
     public override func awakeFromNib() {
         super.awakeFromNib()
         
+        timeSlider.setThumbImage()
+        
         togglePlay()
     }
 
@@ -51,6 +53,9 @@ public class AwesomeMediaVideoTableViewCell: UITableViewCell {
     
     @IBAction func fullscreenButtonPressed(_ sender: Any) {
         fullscreenCallback?()
+    }
+    
+    @IBAction func timeSliderValueChanged(_ sender: Any) {
     }
     
     // MARK: - Play/Pause

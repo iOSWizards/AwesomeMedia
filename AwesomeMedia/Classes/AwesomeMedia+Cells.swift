@@ -10,7 +10,7 @@ import Foundation
 extension AwesomeMedia {
     
     public static func registerVideoCell(to tableView: UITableView, withIdentifier identifier: String) {
-        tableView.register(UINib(nibName: "AwesomeMediaVideoTableViewCell", bundle: Bundle(for: AwesomeMedia.self)), forCellReuseIdentifier: identifier)
+        tableView.register(UINib(nibName: "AwesomeMediaVideoTableViewCell", bundle: AwesomeMedia.bundle), forCellReuseIdentifier: identifier)
     }
     
 }

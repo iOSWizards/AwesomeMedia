@@ -9,8 +9,8 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Gilroy-Medium.otf">
-            <string>Gilroy-Medium</string>
+        <array key="Gilroy-Bold.otf">
+            <string>Gilroy-Bold</string>
         </array>
     </customFonts>
     <objects>
@@ -54,8 +54,8 @@
                                 <rect key="frame" x="72" y="16" width="303" height="75"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="18 mins" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HhL-9c-Am8">
-                                        <rect key="frame" x="0.0" y="30" width="303" height="16.5"/>
-                                        <fontDescription key="fontDescription" name="Gilroy-Medium" family="Gilroy" pointSize="14"/>
+                                        <rect key="frame" x="0.0" y="29" width="303" height="17"/>
+                                        <fontDescription key="fontDescription" name="Gilroy-Bold" family="Gilroy" pointSize="14"/>
                                         <color key="textColor" white="1" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -71,11 +71,11 @@
                                 <rect key="frame" x="72" y="16" width="303" height="75"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="xVk-vF-3bB">
-                                        <rect key="frame" x="0.0" y="28.5" width="40" height="16.5"/>
+                                        <rect key="frame" x="0.0" y="28.5" width="40" height="17"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="40" id="mew-Ln-tjv"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="Gilroy-Medium" family="Gilroy" pointSize="14"/>
+                                        <fontDescription key="fontDescription" name="Gilroy-Bold" family="Gilroy" pointSize="14"/>
                                         <color key="textColor" white="1" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -89,13 +89,16 @@
                                                 <real key="value" value="2"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="timeSliderValueChanged:" destination="TVU-Nc-e8m" eventType="valueChanged" id="89e-TL-V8p"/>
+                                        </connections>
                                     </slider>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="D0y-k9-vkS">
-                                        <rect key="frame" x="203" y="29" width="40" height="16.5"/>
+                                        <rect key="frame" x="203" y="29" width="40" height="17"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="40" id="HpW-yR-8Uh"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="Gilroy-Medium" family="Gilroy" pointSize="14"/>
+                                        <fontDescription key="fontDescription" name="Gilroy-Bold" family="Gilroy" pointSize="14"/>
                                         <color key="textColor" white="1" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
