@@ -16,7 +16,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="video" id="TVU-Nc-e8m" customClass="AwesomeMediaVideoTableViewCell" customModule="AwesomeMedia" customModuleProvider="target">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="TVU-Nc-e8m" customClass="AwesomeMediaVideoTableViewCell" customModule="AwesomeMedia" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="375" height="209"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TVU-Nc-e8m" id="TdN-qS-ZS7">
@@ -131,6 +131,7 @@
                         </constraints>
                     </view>
                 </subviews>
+                <color key="backgroundColor" red="0.13725490200000001" green="0.1529411765" blue="0.1843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 <constraints>
                     <constraint firstItem="Csd-P4-pW7" firstAttribute="top" secondItem="TdN-qS-ZS7" secondAttribute="top" id="1dS-RH-4j6"/>
                     <constraint firstItem="rdg-Ki-Dtx" firstAttribute="top" secondItem="TdN-qS-ZS7" secondAttribute="top" id="7EV-Su-qUr"/>

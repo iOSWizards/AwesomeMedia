@@ -26,7 +26,8 @@ public class AwesomeMediaVideoTableViewCell: UITableViewCell {
     
     public override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        togglePlay()
     }
 
     public override func setSelected(_ selected: Bool, animated: Bool) {
@@ -35,6 +36,16 @@ public class AwesomeMediaVideoTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    // MARK: - Dimensions
+    
+    public static var defaultSize: CGSize {
+        var defaultSize = UIScreen.main.bounds.size
+        
+        defaultSize.height = (defaultSize.width*9)/16
+        
+        return defaultSize
+    }
+    
     // MARK: - Events
     
     @IBAction func playButtonPressed(_ sender: Any) {
@@ -48,8 +59,8 @@ public class AwesomeMediaVideoTableViewCell: UITableViewCell {
     }
     
     func togglePlay() {
-        pausedView.isHidden = !playButton.isSelected
-        playingView.isHidden = playButton.isSelected
+        pausedView.isHidden = playButton.isSelected
+        playingView.isHidden = !playButton.isSelected
     }
     
 }

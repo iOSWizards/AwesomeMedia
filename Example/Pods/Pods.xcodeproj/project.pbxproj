@@ -27,6 +27,8 @@
 		0A31644F2074A3DD00029D50 /* Gilroy-MediumItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0A31643F2074A3DD00029D50 /* Gilroy-MediumItalic.otf */; };
 		0A3164502074A3DD00029D50 /* Gilroy-ExtraBoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0A3164402074A3DD00029D50 /* Gilroy-ExtraBoldItalic.otf */; };
 		0A3164522074A72D00029D50 /* AwesomeMediaVideoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3164512074A72D00029D50 /* AwesomeMediaVideoTableViewCell.swift */; };
+		0A3164582074B06B00029D50 /* AwesomeMedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3164572074B06B00029D50 /* AwesomeMedia.swift */; };
+		0A31645A2074B09300029D50 /* AwesomeMedia+Cells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3164592074B09300029D50 /* AwesomeMedia+Cells.swift */; };
 		51C2FEEEF7F2446ABC0336098C44E3EB /* Pods-AwesomeMedia_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB5C93EE2E2E1EB3219B21FC03EDEAC /* Pods-AwesomeMedia_Tests-dummy.m */; };
 		6135F412064B8E4320E202217E2DED5A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
 		65C3781434AB04E9F6F82E3D47515042 /* Pods-AwesomeMedia_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E9E79FAB727AB094255A04A0E6E71162 /* Pods-AwesomeMedia_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -76,6 +78,8 @@
 		0A31643F2074A3DD00029D50 /* Gilroy-MediumItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gilroy-MediumItalic.otf"; sourceTree = "<group>"; };
 		0A3164402074A3DD00029D50 /* Gilroy-ExtraBoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gilroy-ExtraBoldItalic.otf"; sourceTree = "<group>"; };
 		0A3164512074A72D00029D50 /* AwesomeMediaVideoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwesomeMediaVideoTableViewCell.swift; sourceTree = "<group>"; };
+		0A3164572074B06B00029D50 /* AwesomeMedia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwesomeMedia.swift; sourceTree = "<group>"; };
+		0A3164592074B09300029D50 /* AwesomeMedia+Cells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AwesomeMedia+Cells.swift"; sourceTree = "<group>"; };
 		1B07B6F1D77DABA663156DDD928B1E63 /* Pods-AwesomeMedia_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-AwesomeMedia_Tests-umbrella.h"; sourceTree = "<group>"; };
 		1B3171463E824BE827794C980FB280BC /* Pods-AwesomeMedia_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-AwesomeMedia_Tests-resources.sh"; sourceTree = "<group>"; };
 		20234444D5EACD0B004A617B408BA5E4 /* AwesomeMedia-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AwesomeMedia-prefix.pch"; sourceTree = "<group>"; };
@@ -194,6 +198,14 @@
 			path = Xibs;
 			sourceTree = "<group>";
 		};
+		0A3164542074ABA300029D50 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				0A3164512074A72D00029D50 /* AwesomeMediaVideoTableViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		422506B1F97BACCDC9EFB92681715D30 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -287,7 +299,9 @@
 		B14489965A2070AD29676727C39F063A /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				0A3164512074A72D00029D50 /* AwesomeMediaVideoTableViewCell.swift */,
+				0A3164572074B06B00029D50 /* AwesomeMedia.swift */,
+				0A3164592074B09300029D50 /* AwesomeMedia+Cells.swift */,
+				0A3164542074ABA300029D50 /* Cells */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -504,6 +518,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A3164522074A72D00029D50 /* AwesomeMediaVideoTableViewCell.swift in Sources */,
+				0A3164582074B06B00029D50 /* AwesomeMedia.swift in Sources */,
+				0A31645A2074B09300029D50 /* AwesomeMedia+Cells.swift in Sources */,
 				E7C3AE2BEE0C44CEC75D174574082819 /* AwesomeMedia-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
