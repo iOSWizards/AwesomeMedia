@@ -28,15 +28,16 @@ Play Media from any app using this library.
   s.source           = { :git => 'https://github.com/iOSWizards/AwesomeMedia.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.ios.deployment_target = '8.0'
+  s.ios.deployment_target = '9.0'
 
   s.source_files = 'AwesomeMedia/Classes/**/*.{swift}'
-
+s.ios.resources = ['AwesomeMedia/Assets/*.{xib}', 'AwesomeMedia/Assets/Gilroy/*.{otf}', 'AwesomeMedia/Assets/Assets.xcassets']
+  s.ios.preserve_paths = 'AwesomeMedia/Assets/Assets.xcassets'
   s.resource_bundles = {
-    'AwesomeMedia' => ['AwesomeMedia/Classes/**/*.{storyboard,xib,xcassets,json,imageset,png}']
+    'AwesomeMedia' => ['AwesomeMedia/Assets/**/*.{storyboard,xib,xcassets,json,imageset,png}']
   }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+  s.dependency 'AwesomeUIMagic'
 end

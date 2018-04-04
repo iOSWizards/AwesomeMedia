@@ -34,6 +34,10 @@ class TableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: MediaType.video.rawValue, for: indexPath)
 
+        if let cell = cell as? AwesomeMediaVideoTableViewCell {
+            cell.coverImageView.image = #imageLiteral(resourceName: "awesome")
+        }
+        
         return cell
     }
 

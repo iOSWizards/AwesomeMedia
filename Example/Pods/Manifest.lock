@@ -1,16 +1,28 @@
 PODS:
-  - AwesomeMedia (0.6.10)
+  - AwesomeMedia (0.8.0):
+    - AwesomeUIMagic
+  - AwesomeUIMagic (0.4.3)
 
 DEPENDENCIES:
   - AwesomeMedia (from `../`)
+  - AwesomeUIMagic (from `https://github.com/iOSWizards/AwesomeUIMagic`, tag `0.4.3`)
 
 EXTERNAL SOURCES:
   AwesomeMedia:
-    :path: "../"
+    :path: ../
+  AwesomeUIMagic:
+    :git: https://github.com/iOSWizards/AwesomeUIMagic
+    :tag: 0.4.3
+
+CHECKOUT OPTIONS:
+  AwesomeUIMagic:
+    :git: https://github.com/iOSWizards/AwesomeUIMagic
+    :tag: 0.4.3
 
 SPEC CHECKSUMS:
-  AwesomeMedia: 9ee5ab9e3ae2836dc2c18c7fa499da7a4186cd9c
+  AwesomeMedia: ddc52f82ec16867b45a27ff44b0ea1304470d5f4
+  AwesomeUIMagic: ebce4bd0455530b8ad47bcb37bb48914472c5f40
 
-PODFILE CHECKSUM: 90fb36de56720965d409286376842220e7ba9340
+PODFILE CHECKSUM: eb9d3bfb1fcf5747acd772db35ce8826e2c0b5e1
 
-COCOAPODS: 1.2.0
+COCOAPODS: 1.4.0

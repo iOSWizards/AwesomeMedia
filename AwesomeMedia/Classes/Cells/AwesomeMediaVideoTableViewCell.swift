@@ -9,17 +9,17 @@ import UIKit
 
 public class AwesomeMediaVideoTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var coverImageView: UIImageView!
-    @IBOutlet weak var playerView: UIView!
-    @IBOutlet weak var controlView: UIView!
-    @IBOutlet weak var playButton: UIButton!
-    @IBOutlet weak var pausedView: UIView!
-    @IBOutlet weak var mediaInfoLabel: UILabel!
-    @IBOutlet weak var playingView: UIView!
-    @IBOutlet weak var minTimeLabel: UILabel!
-    @IBOutlet weak var maxTimeLabel: UILabel!
-    @IBOutlet weak var timeSlider: UISlider!
-    @IBOutlet weak var fullscreenButton: UIButton!
+    @IBOutlet public weak var coverImageView: UIImageView!
+    @IBOutlet public weak var playerView: UIView!
+    @IBOutlet public weak var controlView: UIView!
+    @IBOutlet public weak var playButton: UIButton!
+    @IBOutlet public weak var pausedView: UIView!
+    @IBOutlet public weak var mediaInfoLabel: UILabel!
+    @IBOutlet public weak var playingView: UIView!
+    @IBOutlet public weak var minTimeLabel: UILabel!
+    @IBOutlet public weak var maxTimeLabel: UILabel!
+    @IBOutlet public weak var timeSlider: UISlider!
+    @IBOutlet public weak var fullscreenButton: UIButton!
     
     public var playCallback: ((_ playing: Bool) -> Void)?
     public var fullscreenCallback: (() -> Void)?

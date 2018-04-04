@@ -7,134 +7,203 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		06AC2E6FDEFC33BBCEB95429E2674D91 /* Pods-AwesomeMedia_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B07B6F1D77DABA663156DDD928B1E63 /* Pods-AwesomeMedia_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0A31642C20749E9E00029D50 /* AwesomeMediaVideoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A31642B20749E9E00029D50 /* AwesomeMediaVideoTableViewCell.xib */; };
-		0A31642E2074A1AE00029D50 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A31642D2074A1AE00029D50 /* Assets.xcassets */; };
-		0A3164412074A3DD00029D50 /* Gilroy-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0A3164312074A3DD00029D50 /* Gilroy-Regular.otf */; };
-		0A3164422074A3DD00029D50 /* Gilroy-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0A3164322074A3DD00029D50 /* Gilroy-Black.otf */; };
-		0A3164432074A3DD00029D50 /* Gilroy-BlackItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0A3164332074A3DD00029D50 /* Gilroy-BlackItalic.otf */; };
-		0A3164442074A3DD00029D50 /* Gilroy-RegularItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0A3164342074A3DD00029D50 /* Gilroy-RegularItalic.otf */; };
-		0A3164452074A3DD00029D50 /* Gilroy-LightItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0A3164352074A3DD00029D50 /* Gilroy-LightItalic.otf */; };
-		0A3164462074A3DD00029D50 /* Gilroy-HeavyItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0A3164362074A3DD00029D50 /* Gilroy-HeavyItalic.otf */; };
-		0A3164472074A3DD00029D50 /* Gilroy-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0A3164372074A3DD00029D50 /* Gilroy-BoldItalic.otf */; };
-		0A3164482074A3DD00029D50 /* Gilroy-SemiBoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0A3164382074A3DD00029D50 /* Gilroy-SemiBoldItalic.otf */; };
-		0A3164492074A3DD00029D50 /* Gilroy-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0A3164392074A3DD00029D50 /* Gilroy-Medium.otf */; };
-		0A31644A2074A3DD00029D50 /* Gilroy-Heavy.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0A31643A2074A3DD00029D50 /* Gilroy-Heavy.otf */; };
-		0A31644B2074A3DD00029D50 /* Gilroy-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0A31643B2074A3DD00029D50 /* Gilroy-Bold.otf */; };
-		0A31644C2074A3DD00029D50 /* Gilroy-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0A31643C2074A3DD00029D50 /* Gilroy-SemiBold.otf */; };
-		0A31644D2074A3DD00029D50 /* Gilroy-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0A31643D2074A3DD00029D50 /* Gilroy-Light.otf */; };
-		0A31644E2074A3DD00029D50 /* Gilroy-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0A31643E2074A3DD00029D50 /* Gilroy-ExtraBold.otf */; };
-		0A31644F2074A3DD00029D50 /* Gilroy-MediumItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0A31643F2074A3DD00029D50 /* Gilroy-MediumItalic.otf */; };
-		0A3164502074A3DD00029D50 /* Gilroy-ExtraBoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0A3164402074A3DD00029D50 /* Gilroy-ExtraBoldItalic.otf */; };
-		0A3164522074A72D00029D50 /* AwesomeMediaVideoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3164512074A72D00029D50 /* AwesomeMediaVideoTableViewCell.swift */; };
-		0A3164582074B06B00029D50 /* AwesomeMedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3164572074B06B00029D50 /* AwesomeMedia.swift */; };
-		0A31645A2074B09300029D50 /* AwesomeMedia+Cells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3164592074B09300029D50 /* AwesomeMedia+Cells.swift */; };
-		51C2FEEEF7F2446ABC0336098C44E3EB /* Pods-AwesomeMedia_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB5C93EE2E2E1EB3219B21FC03EDEAC /* Pods-AwesomeMedia_Tests-dummy.m */; };
-		6135F412064B8E4320E202217E2DED5A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
-		65C3781434AB04E9F6F82E3D47515042 /* Pods-AwesomeMedia_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E9E79FAB727AB094255A04A0E6E71162 /* Pods-AwesomeMedia_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		66496EA33B42DA0073273D52D1218865 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
-		ADBE456E0B89ECA6324DE3F0D63DEE12 /* AwesomeMedia-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C658F3B7FCD1005057E6FE5B5CDDBF6 /* AwesomeMedia-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E7C3AE2BEE0C44CEC75D174574082819 /* AwesomeMedia-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E93779EC86D851BB80D3ACB12DA07424 /* AwesomeMedia-dummy.m */; };
-		F1B190BEA3716F69FDDCB88EA3655609 /* Pods-AwesomeMedia_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E485B39E4C7719B39206C2C9D5D6A51D /* Pods-AwesomeMedia_Example-dummy.m */; };
-		F56BDF50CB31DFAD2563D394A4E542E5 /* AwesomeMedia.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 77E010F39E75D9CFCAE1FFEAE3EB93D7 /* AwesomeMedia.bundle */; };
-		F9C0B618B4542CA15E10CD89392513C2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
+		02EB087A728DF018666386E8EFB7424A /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B838F6138966ACE5C33BDD57912AA63A /* UIViewExtensions.swift */; };
+		06AC2E6FDEFC33BBCEB95429E2674D91 /* Pods-AwesomeMedia_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 03BF3B023FE8E0DE99F4C7746F5000A2 /* Pods-AwesomeMedia_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		09F3907BE904190F03ADF1F839EFAD33 /* AwesomeMedia-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 34F53AE7EF27DD5CB34983675F889EF0 /* AwesomeMedia-dummy.m */; };
+		0E93C046D3A20BF5999647AEBAF36041 /* UILabel+Formatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8289186F7AE5A8C472A4B06FE9CC929F /* UILabel+Formatting.swift */; };
+		102384867634F6DFA31A7A07B445E34C /* Gilroy-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0E6783D40BAD26D249B13A7A8AF24504 /* Gilroy-Light.otf */; };
+		11182529FD8C2417A7B4DE951C6F0377 /* ShimmerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A18FC96EE4440FBA55E1FECAC694A5 /* ShimmerView.swift */; };
+		16155E9B32FF46EFBB366B5E7E227471 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7120045256AE344E2D548A185BF1021E /* Foundation.framework */; };
+		16D2697430D5774CC4570FBC807DB8AB /* Gilroy-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = FFC314A7677E49C214A41487BA8BA210 /* Gilroy-BoldItalic.otf */; };
+		1A450BE2DC028ADF38DD6943CCE8CE58 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7120045256AE344E2D548A185BF1021E /* Foundation.framework */; };
+		1BCE1A1F6126EE441B495DFF275517A2 /* ObjectAssociation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EEB60FB9FB56C83B61AFBCAF43540D4 /* ObjectAssociation.swift */; };
+		1C5D65784F794986EF24CD07799C4906 /* Gilroy-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6C7147250F08CB413A534052BD9746DF /* Gilroy-SemiBold.otf */; };
+		273BD1A12B3BBD34311BAE4C927B5EF2 /* NSNumberExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AC1EFA42193BE8E41D5DE329E509A5 /* NSNumberExtensions.swift */; };
+		2A1BB02B293058813BF591CEBB6DA0DE /* AwesomeMediaVideoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AA94F9A4E037675B24B7BB0B53DDDE3 /* AwesomeMediaVideoTableViewCell.xib */; };
+		2DD13505CC946D418E5521B39E35F5F3 /* Gilroy-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8344B305D4F705889685ED2218CED6B7 /* Gilroy-Black.otf */; };
+		3169AAB871C40372834703DF554A12C8 /* AwesomeMedia.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B9D95FC7B9B8E479CCE7E57D804B7E7C /* AwesomeMedia.bundle */; };
+		32F3865723DB7C3E066E4229CC9C24DA /* AwesomeUIMagic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86B63F9382F73D0E7DBE047B083BF1E7 /* AwesomeUIMagic.framework */; };
+		35553224234990D6489DD87C3294E636 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7120045256AE344E2D548A185BF1021E /* Foundation.framework */; };
+		359413AEB4768C18F9A1139077EDBCF6 /* Gilroy-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = AB10EBA2B9E02554FDA8A31C9D79AEEA /* Gilroy-Medium.otf */; };
+		3FAE55D6EA45D6C6ADDBB18C9810612F /* UIView+Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD95A47CF40A1B96BAD8E0E846D88F14 /* UIView+Shadow.swift */; };
+		4366F2AAA66C62C259A59AF024CC0D80 /* Gilroy-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2824DDEC9454E040ECE69614839636C6 /* Gilroy-ExtraBold.otf */; };
+		49EA707D76AA4D93F89883B70D871D03 /* AwesomeMediaVideoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AA94F9A4E037675B24B7BB0B53DDDE3 /* AwesomeMediaVideoTableViewCell.xib */; };
+		5183135BCD15235252533C8BFEA7E4B1 /* AwesomeUIMagic-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D98CF93142C649372370B46BD993F84 /* AwesomeUIMagic-dummy.m */; };
+		51C2FEEEF7F2446ABC0336098C44E3EB /* Pods-AwesomeMedia_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C9267E191891D0FF9F84CDEAD47620D5 /* Pods-AwesomeMedia_Tests-dummy.m */; };
+		5758010F369493772AF24AA1C41739A4 /* Gilroy-ExtraBoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5144661A1C6E37A924C1741330FDA81D /* Gilroy-ExtraBoldItalic.otf */; };
+		5A656A058E66F7A9379E70B5A96C6CA2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42658694B32AF6EE8777D2FAFDF1323A /* Assets.xcassets */; };
+		5DBFCFEE4CF672D3B6DE8BD9C5491C1E /* DesignableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759D1FCD71B8B900BC194F9D026DB998 /* DesignableTextField.swift */; };
+		5E41FA5D4E3B337269BE4B2BD9C3C208 /* AwesomeMedia+Cells.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D0AE031F9921A2E30694A0EC1AE6C5 /* AwesomeMedia+Cells.swift */; };
+		5F5D74A846977BA93D07B6A1BF2270E0 /* Gilroy-LightItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7C39524F2A9E954CAA696FF1F0F04BD6 /* Gilroy-LightItalic.otf */; };
+		60C41411A5AB0E2A28CC8ADC1FBD72FB /* UIView+Shimmer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3642A9A0EF250596F57A6AB1476CF53 /* UIView+Shimmer.swift */; };
+		6260C536F65BFD246637962725381A65 /* UIViewAnimations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46D969714D023493E683F8AC3B5FE21B /* UIViewAnimations.swift */; };
+		66B97FB04F08F94AC42C96AEEB8927FC /* Pods-AwesomeMedia_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 638426F375D3548CEE6C500BE94F806F /* Pods-AwesomeMedia_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FF021EFDBC880A356E798B01C423B21 /* Gilroy-RegularItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 02EBDB8D5E5280A21470A55061451DE8 /* Gilroy-RegularItalic.otf */; };
+		7619A9E6BCC5EE90525650A50489FE07 /* Pods-AwesomeMedia_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C53F3962C088C4D5D642435AC3B37A98 /* Pods-AwesomeMedia_Example-dummy.m */; };
+		7A0E17165BBF8DADDD3925E2F63D13E5 /* ShadowLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A0FC317A6396F480F00BDFF0319FF3 /* ShadowLayer.swift */; };
+		84C0272DD6C5C7BD00F3CA8E51BDBD59 /* ShimmerEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7FA5151D418CE7185672A87F57E8D8C /* ShimmerEffect.swift */; };
+		85E31E0F25C4BEB2F613E2C445216B3E /* Gilroy-HeavyItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4516B4AA8C7248A94678A1B6D6C45024 /* Gilroy-HeavyItalic.otf */; };
+		8B9553538E4D1DDA3C499240A8BDE94A /* Gilroy-MediumItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 36B3003D31E23D8F2561543D54EDFD6E /* Gilroy-MediumItalic.otf */; };
+		962246ACC4D47006C7947C7EA9D53136 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42658694B32AF6EE8777D2FAFDF1323A /* Assets.xcassets */; };
+		9BE001547B9EB9DB45F3027C6AAD47BD /* UIView+Layer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF09CD33EE72FAC5CDED6ED7EAD4E791 /* UIView+Layer.swift */; };
+		9FB9A5D0F3AB5CB8F746E6552E277CD7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7120045256AE344E2D548A185BF1021E /* Foundation.framework */; };
+		A15BAA2A19D1D8B91F94D5E87D1185CF /* AwesomeMediaVideoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDD9551EBD5FA6A10A75C62782FC567 /* AwesomeMediaVideoTableViewCell.swift */; };
+		A3D04C2C24D223773DC93C4BF1ACDED0 /* AwesomeUIMagic-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 99F47DD9EFF3D1832192570E5A84AD7C /* AwesomeUIMagic-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ABA8B2C8D9E0BB8E8523AA78AE6F4915 /* DesignableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F086989D0845B0114FBA5DA88758821 /* DesignableButton.swift */; };
+		AD7D229C89979431F8309EE88BD83677 /* AwesomeMedia-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = DAA035DA21EFD921B4D9517AFAAA4535 /* AwesomeMedia-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B060C0267295790D1DB44E074B7F853C /* Gilroy-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = E7485E065ED55E3A382978EBDCB09FA8 /* Gilroy-Regular.otf */; };
+		B4FB960283305A6FB63152E058237413 /* Gilroy-BlackItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1DF724B62BEE2E1E1AB2A3517205C893 /* Gilroy-BlackItalic.otf */; };
+		BA93FFC76466D4D8BA221D6442FF1653 /* DesignableNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84128B19733540462F9C70320991DBAB /* DesignableNavigationBar.swift */; };
+		BF8BDDBBE0E81F5984C833553860677C /* Gilroy-Heavy.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8A5D0EA7FEF5896D7B705B0666B252D7 /* Gilroy-Heavy.otf */; };
+		C1FAD2FFCB2320CEFEEC2D758FFA0866 /* DesignableTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8C3E57E86BDF9125ADC1DCC87BE7C7 /* DesignableTextView.swift */; };
+		CCECC4A5A871D55F7E1A6DE18ACDB871 /* Gilroy-SemiBoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 46D6B1A3645F2C4B476AD9F6294B9F3A /* Gilroy-SemiBoldItalic.otf */; };
+		DD867C8F26BDECCABB558139BD8CA32F /* AwesomeMedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8A787A2430E4729E364D200EBD34B9 /* AwesomeMedia.swift */; };
+		EA84EBA8EA6ACA02A90B9FDBF863FBB1 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D92C0C807548A4B96EB34B897C3CA9 /* GradientView.swift */; };
+		EE1CB1C09F806DBF32CCEB5303EFE463 /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3F808AE48189CFD699DC6447AD3E1E /* ShadowView.swift */; };
+		EF49CD1D401AB78B74663893F8B58B28 /* Gilroy-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 75C50CF875F12046D13A9EFCD8C2CEBA /* Gilroy-Bold.otf */; };
+		FD4D920A917FB58EE702C24FB6D1E315 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6B7A6563E8AA935C85703AD2541CB6 /* UIViewControllerExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		7FA225E68D1EE31565159D66379C5215 /* PBXContainerItemProxy */ = {
+		3B54C708F0311DF53AE0D3103442D6AB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 078D5F71699D9353B70F846ACD9C2067;
-			remoteInfo = AwesomeMedia;
+			remoteGlobalIDString = C523399E5ADB5D7B5BF68F801AEDF896;
+			remoteInfo = AwesomeUIMagic;
 		};
-		90F29D6C330F1BDDE5041B2C4F8780D8 /* PBXContainerItemProxy */ = {
+		71F0F426E04BD237B3C3D639E5A4F18E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = B204FB542D956C86D24897B314298CD3;
+			remoteGlobalIDString = C523399E5ADB5D7B5BF68F801AEDF896;
+			remoteInfo = AwesomeUIMagic;
+		};
+		9A7C898C2B7533987CC05E43A23BE65B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8D72E11389DF22CCE3D9533A21D74F26;
 			remoteInfo = "AwesomeMedia-AwesomeMedia";
+		};
+		B6954C83FFD75E84BB564FCEDCA11D89 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 49E46E1B7DF1D4379577DFD8FBEEA3D0;
+			remoteInfo = AwesomeMedia;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		047F32615D3B305A5E6B4A704B516787 /* AwesomeMedia.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = AwesomeMedia.modulemap; sourceTree = "<group>"; };
-		0A31642B20749E9E00029D50 /* AwesomeMediaVideoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AwesomeMediaVideoTableViewCell.xib; sourceTree = "<group>"; };
-		0A31642D2074A1AE00029D50 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		0A3164312074A3DD00029D50 /* Gilroy-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gilroy-Regular.otf"; sourceTree = "<group>"; };
-		0A3164322074A3DD00029D50 /* Gilroy-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gilroy-Black.otf"; sourceTree = "<group>"; };
-		0A3164332074A3DD00029D50 /* Gilroy-BlackItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gilroy-BlackItalic.otf"; sourceTree = "<group>"; };
-		0A3164342074A3DD00029D50 /* Gilroy-RegularItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gilroy-RegularItalic.otf"; sourceTree = "<group>"; };
-		0A3164352074A3DD00029D50 /* Gilroy-LightItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gilroy-LightItalic.otf"; sourceTree = "<group>"; };
-		0A3164362074A3DD00029D50 /* Gilroy-HeavyItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gilroy-HeavyItalic.otf"; sourceTree = "<group>"; };
-		0A3164372074A3DD00029D50 /* Gilroy-BoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gilroy-BoldItalic.otf"; sourceTree = "<group>"; };
-		0A3164382074A3DD00029D50 /* Gilroy-SemiBoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gilroy-SemiBoldItalic.otf"; sourceTree = "<group>"; };
-		0A3164392074A3DD00029D50 /* Gilroy-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gilroy-Medium.otf"; sourceTree = "<group>"; };
-		0A31643A2074A3DD00029D50 /* Gilroy-Heavy.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gilroy-Heavy.otf"; sourceTree = "<group>"; };
-		0A31643B2074A3DD00029D50 /* Gilroy-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gilroy-Bold.otf"; sourceTree = "<group>"; };
-		0A31643C2074A3DD00029D50 /* Gilroy-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gilroy-SemiBold.otf"; sourceTree = "<group>"; };
-		0A31643D2074A3DD00029D50 /* Gilroy-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gilroy-Light.otf"; sourceTree = "<group>"; };
-		0A31643E2074A3DD00029D50 /* Gilroy-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gilroy-ExtraBold.otf"; sourceTree = "<group>"; };
-		0A31643F2074A3DD00029D50 /* Gilroy-MediumItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gilroy-MediumItalic.otf"; sourceTree = "<group>"; };
-		0A3164402074A3DD00029D50 /* Gilroy-ExtraBoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gilroy-ExtraBoldItalic.otf"; sourceTree = "<group>"; };
-		0A3164512074A72D00029D50 /* AwesomeMediaVideoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwesomeMediaVideoTableViewCell.swift; sourceTree = "<group>"; };
-		0A3164572074B06B00029D50 /* AwesomeMedia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwesomeMedia.swift; sourceTree = "<group>"; };
-		0A3164592074B09300029D50 /* AwesomeMedia+Cells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AwesomeMedia+Cells.swift"; sourceTree = "<group>"; };
-		1B07B6F1D77DABA663156DDD928B1E63 /* Pods-AwesomeMedia_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-AwesomeMedia_Tests-umbrella.h"; sourceTree = "<group>"; };
-		1B3171463E824BE827794C980FB280BC /* Pods-AwesomeMedia_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-AwesomeMedia_Tests-resources.sh"; sourceTree = "<group>"; };
-		20234444D5EACD0B004A617B408BA5E4 /* AwesomeMedia-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AwesomeMedia-prefix.pch"; sourceTree = "<group>"; };
-		2FD00602DA1EE1ECE8521AE64A225D2F /* Pods-AwesomeMedia_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-AwesomeMedia_Tests-frameworks.sh"; sourceTree = "<group>"; };
-		46BB3D1E68900D9EC4565005D627BEF0 /* Pods-AwesomeMedia_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AwesomeMedia_Example.release.xcconfig"; sourceTree = "<group>"; };
-		4C8990390D7ED000AB3491FB5A549499 /* ResourceBundle-AwesomeMedia-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-AwesomeMedia-Info.plist"; sourceTree = "<group>"; };
-		4E1B8E276EC0E8A2C102A86F68D886B0 /* Pods-AwesomeMedia_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-AwesomeMedia_Example.modulemap"; sourceTree = "<group>"; };
-		51A96CEE940D01A138B7EC8DFB795902 /* AwesomeMedia.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = AwesomeMedia.xcconfig; sourceTree = "<group>"; };
-		5835E2CFD9E2B138E27437F73798DCB8 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		647AC7E74B57DE5CF55531C600994C7E /* Pods_AwesomeMedia_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AwesomeMedia_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		77E010F39E75D9CFCAE1FFEAE3EB93D7 /* AwesomeMedia.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AwesomeMedia.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
-		7C658F3B7FCD1005057E6FE5B5CDDBF6 /* AwesomeMedia-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AwesomeMedia-umbrella.h"; sourceTree = "<group>"; };
-		83CB0787B8A2F14237C3214D3AF66E0E /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8A5E0439E177722D557F47680733CE06 /* Pods_AwesomeMedia_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AwesomeMedia_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8D524C7FB78BF098EDE3E440AD9911C0 /* Pods-AwesomeMedia_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-AwesomeMedia_Example-acknowledgements.plist"; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		98E9A3FB9EE92D40C85CEF1DA1E4C1D7 /* Pods-AwesomeMedia_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-AwesomeMedia_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		9939E81E46FE503F8B6A8A7D6B97616F /* AwesomeMedia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AwesomeMedia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A7CFD13E849A6315C2209509DA13FD8B /* Pods-AwesomeMedia_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-AwesomeMedia_Example-resources.sh"; sourceTree = "<group>"; };
-		BBC750A2A6D2F255BB4F556183078D23 /* Pods-AwesomeMedia_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-AwesomeMedia_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
-		C18A1F6A6B8021A1CCB20B855A2C24FD /* Pods-AwesomeMedia_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AwesomeMedia_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		C444F090F2D6FFEFBFAE425455C14622 /* Pods-AwesomeMedia_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-AwesomeMedia_Example-frameworks.sh"; sourceTree = "<group>"; };
-		CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		CEB5C93EE2E2E1EB3219B21FC03EDEAC /* Pods-AwesomeMedia_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-AwesomeMedia_Tests-dummy.m"; sourceTree = "<group>"; };
-		CFDE650A08581BBBE5E558E3B97F44C8 /* Pods-AwesomeMedia_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AwesomeMedia_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		DA51927B4D4235DD41A1AF8A90560B8C /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E3B3B4BA25B9A24F74114163ED1C0AEE /* Pods-AwesomeMedia_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AwesomeMedia_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		E485B39E4C7719B39206C2C9D5D6A51D /* Pods-AwesomeMedia_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-AwesomeMedia_Example-dummy.m"; sourceTree = "<group>"; };
-		E54AA867D99243BF7E9D6195AA25A912 /* Pods-AwesomeMedia_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-AwesomeMedia_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
-		E93779EC86D851BB80D3ACB12DA07424 /* AwesomeMedia-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "AwesomeMedia-dummy.m"; sourceTree = "<group>"; };
-		E9E79FAB727AB094255A04A0E6E71162 /* Pods-AwesomeMedia_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-AwesomeMedia_Example-umbrella.h"; sourceTree = "<group>"; };
-		EB1C2DC27F3BEE02C7A12CAC83D2355B /* Pods-AwesomeMedia_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-AwesomeMedia_Tests.modulemap"; sourceTree = "<group>"; };
+		02EBDB8D5E5280A21470A55061451DE8 /* Gilroy-RegularItalic.otf */ = {isa = PBXFileReference; includeInIndex = 1; path = "Gilroy-RegularItalic.otf"; sourceTree = "<group>"; };
+		03BF3B023FE8E0DE99F4C7746F5000A2 /* Pods-AwesomeMedia_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-AwesomeMedia_Tests-umbrella.h"; sourceTree = "<group>"; };
+		0E6783D40BAD26D249B13A7A8AF24504 /* Gilroy-Light.otf */ = {isa = PBXFileReference; includeInIndex = 1; path = "Gilroy-Light.otf"; sourceTree = "<group>"; };
+		0F3F808AE48189CFD699DC6447AD3E1E /* ShadowView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ShadowView.swift; path = AwesomeUIMagic/Classes/Shadow/ShadowView.swift; sourceTree = "<group>"; };
+		0F6432ED53F0E753087F9C9E0C97DB57 /* Pods-AwesomeMedia_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-AwesomeMedia_Tests.modulemap"; sourceTree = "<group>"; };
+		15BB1B4542F849849D768E524D7E51C3 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		18721B416D45F24CBA3CCF24C3DE1918 /* AwesomeMedia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = AwesomeMedia.framework; path = AwesomeMedia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1DF724B62BEE2E1E1AB2A3517205C893 /* Gilroy-BlackItalic.otf */ = {isa = PBXFileReference; includeInIndex = 1; path = "Gilroy-BlackItalic.otf"; sourceTree = "<group>"; };
+		24D92C0C807548A4B96EB34B897C3CA9 /* GradientView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GradientView.swift; path = AwesomeUIMagic/Classes/Gradient/GradientView.swift; sourceTree = "<group>"; };
+		24E4312BD91061B74103C731049AC379 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		2824DDEC9454E040ECE69614839636C6 /* Gilroy-ExtraBold.otf */ = {isa = PBXFileReference; includeInIndex = 1; path = "Gilroy-ExtraBold.otf"; sourceTree = "<group>"; };
+		292A56D529C41DFCDFC95CE380D6240C /* ResourceBundle-AwesomeMedia-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-AwesomeMedia-Info.plist"; sourceTree = "<group>"; };
+		2A580EDD3A3BC4FD8C9E85512031EBC3 /* Pods_AwesomeMedia_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_AwesomeMedia_Example.framework; path = "Pods-AwesomeMedia_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		34F53AE7EF27DD5CB34983675F889EF0 /* AwesomeMedia-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "AwesomeMedia-dummy.m"; sourceTree = "<group>"; };
+		36B3003D31E23D8F2561543D54EDFD6E /* Gilroy-MediumItalic.otf */ = {isa = PBXFileReference; includeInIndex = 1; path = "Gilroy-MediumItalic.otf"; sourceTree = "<group>"; };
+		386653DB4F09B5454F883DCFADAF4D56 /* AwesomeMedia-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AwesomeMedia-prefix.pch"; sourceTree = "<group>"; };
+		3CE0E112327E9012991CB67547C2E32F /* Pods_AwesomeMedia_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_AwesomeMedia_Tests.framework; path = "Pods-AwesomeMedia_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3D98CF93142C649372370B46BD993F84 /* AwesomeUIMagic-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "AwesomeUIMagic-dummy.m"; sourceTree = "<group>"; };
+		42658694B32AF6EE8777D2FAFDF1323A /* Assets.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = AwesomeMedia/Assets/Assets.xcassets; sourceTree = "<group>"; };
+		4476417AE515C30A6BD2F2D4D7918245 /* Pods-AwesomeMedia_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-AwesomeMedia_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
+		4516B4AA8C7248A94678A1B6D6C45024 /* Gilroy-HeavyItalic.otf */ = {isa = PBXFileReference; includeInIndex = 1; path = "Gilroy-HeavyItalic.otf"; sourceTree = "<group>"; };
+		46B9998DBA9BB6E69999961516F3CDA5 /* AwesomeMedia.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = AwesomeMedia.xcconfig; sourceTree = "<group>"; };
+		46D6B1A3645F2C4B476AD9F6294B9F3A /* Gilroy-SemiBoldItalic.otf */ = {isa = PBXFileReference; includeInIndex = 1; path = "Gilroy-SemiBoldItalic.otf"; sourceTree = "<group>"; };
+		46D969714D023493E683F8AC3B5FE21B /* UIViewAnimations.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UIViewAnimations.swift; path = AwesomeUIMagic/Classes/Old/UIViewAnimations.swift; sourceTree = "<group>"; };
+		4EEB60FB9FB56C83B61AFBCAF43540D4 /* ObjectAssociation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ObjectAssociation.swift; path = AwesomeUIMagic/Classes/ObjectAssociation.swift; sourceTree = "<group>"; };
+		5144661A1C6E37A924C1741330FDA81D /* Gilroy-ExtraBoldItalic.otf */ = {isa = PBXFileReference; includeInIndex = 1; path = "Gilroy-ExtraBoldItalic.otf"; sourceTree = "<group>"; };
+		5546FBF25FF250F33CE9E899D9E84AC7 /* Pods-AwesomeMedia_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AwesomeMedia_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		5586AE8A432C3B25A323E7AA513B16DF /* Pods-AwesomeMedia_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AwesomeMedia_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		5663092576C8D5AEF3079DC50ADAF933 /* AwesomeUIMagic-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AwesomeUIMagic-prefix.pch"; sourceTree = "<group>"; };
+		583098153AFC5CD56E6125FCDB74EA67 /* Pods-AwesomeMedia_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-AwesomeMedia_Example-resources.sh"; sourceTree = "<group>"; };
+		638426F375D3548CEE6C500BE94F806F /* Pods-AwesomeMedia_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-AwesomeMedia_Example-umbrella.h"; sourceTree = "<group>"; };
+		6757404DDD7DC4C28F392ABC8504F580 /* Pods-AwesomeMedia_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-AwesomeMedia_Tests-frameworks.sh"; sourceTree = "<group>"; };
+		6A899D92361D07F676A67E5274EB1D27 /* Pods-AwesomeMedia_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-AwesomeMedia_Example-acknowledgements.plist"; sourceTree = "<group>"; };
+		6C7147250F08CB413A534052BD9746DF /* Gilroy-SemiBold.otf */ = {isa = PBXFileReference; includeInIndex = 1; path = "Gilroy-SemiBold.otf"; sourceTree = "<group>"; };
+		7120045256AE344E2D548A185BF1021E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		759D1FCD71B8B900BC194F9D026DB998 /* DesignableTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DesignableTextField.swift; path = AwesomeUIMagic/Classes/Old/DesignableTextField.swift; sourceTree = "<group>"; };
+		75C50CF875F12046D13A9EFCD8C2CEBA /* Gilroy-Bold.otf */ = {isa = PBXFileReference; includeInIndex = 1; path = "Gilroy-Bold.otf"; sourceTree = "<group>"; };
+		7C39524F2A9E954CAA696FF1F0F04BD6 /* Gilroy-LightItalic.otf */ = {isa = PBXFileReference; includeInIndex = 1; path = "Gilroy-LightItalic.otf"; sourceTree = "<group>"; };
+		8289186F7AE5A8C472A4B06FE9CC929F /* UILabel+Formatting.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UILabel+Formatting.swift"; path = "AwesomeUIMagic/Classes/Formatting/UILabel+Formatting.swift"; sourceTree = "<group>"; };
+		8344B305D4F705889685ED2218CED6B7 /* Gilroy-Black.otf */ = {isa = PBXFileReference; includeInIndex = 1; path = "Gilroy-Black.otf"; sourceTree = "<group>"; };
+		84128B19733540462F9C70320991DBAB /* DesignableNavigationBar.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DesignableNavigationBar.swift; path = AwesomeUIMagic/Classes/Old/DesignableNavigationBar.swift; sourceTree = "<group>"; };
+		85EB0E33DA1F6135163742E16DAD6897 /* Pods-AwesomeMedia_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-AwesomeMedia_Example-frameworks.sh"; sourceTree = "<group>"; };
+		86B63F9382F73D0E7DBE047B083BF1E7 /* AwesomeUIMagic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AwesomeUIMagic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		86BA0872DB843795238971CB5545894A /* AwesomeMedia.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; path = AwesomeMedia.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		89AC1EFA42193BE8E41D5DE329E509A5 /* NSNumberExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NSNumberExtensions.swift; path = AwesomeUIMagic/Classes/Old/NSNumberExtensions.swift; sourceTree = "<group>"; };
+		8A5D0EA7FEF5896D7B705B0666B252D7 /* Gilroy-Heavy.otf */ = {isa = PBXFileReference; includeInIndex = 1; path = "Gilroy-Heavy.otf"; sourceTree = "<group>"; };
+		8A6B7A6563E8AA935C85703AD2541CB6 /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UIViewControllerExtensions.swift; path = AwesomeUIMagic/Classes/Old/UIViewControllerExtensions.swift; sourceTree = "<group>"; };
+		8B04292159C2AB674B307EB175E0434F /* AwesomeMedia.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = AwesomeMedia.modulemap; sourceTree = "<group>"; };
+		8D8C3E57E86BDF9125ADC1DCC87BE7C7 /* DesignableTextView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DesignableTextView.swift; path = AwesomeUIMagic/Classes/Old/DesignableTextView.swift; sourceTree = "<group>"; };
+		8F086989D0845B0114FBA5DA88758821 /* DesignableButton.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DesignableButton.swift; path = AwesomeUIMagic/Classes/Old/DesignableButton.swift; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		99F47DD9EFF3D1832192570E5A84AD7C /* AwesomeUIMagic-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AwesomeUIMagic-umbrella.h"; sourceTree = "<group>"; };
+		9AA94F9A4E037675B24B7BB0B53DDDE3 /* AwesomeMediaVideoTableViewCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = AwesomeMediaVideoTableViewCell.xib; path = AwesomeMedia/Assets/AwesomeMediaVideoTableViewCell.xib; sourceTree = "<group>"; };
+		9BE10D005B21C01D61FDA2DCE57C1417 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		A3A0FC317A6396F480F00BDFF0319FF3 /* ShadowLayer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ShadowLayer.swift; path = AwesomeUIMagic/Classes/Shadow/ShadowLayer.swift; sourceTree = "<group>"; };
+		A4A18FC96EE4440FBA55E1FECAC694A5 /* ShimmerView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ShimmerView.swift; path = AwesomeUIMagic/Classes/Shimmer/ShimmerView.swift; sourceTree = "<group>"; };
+		A89B6AC70E86E890564DB46D8B4FA818 /* Pods-AwesomeMedia_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-AwesomeMedia_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		A8CDE4548233243C795A851605345258 /* AwesomeUIMagic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = AwesomeUIMagic.framework; path = AwesomeUIMagic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB10EBA2B9E02554FDA8A31C9D79AEEA /* Gilroy-Medium.otf */ = {isa = PBXFileReference; includeInIndex = 1; path = "Gilroy-Medium.otf"; sourceTree = "<group>"; };
+		AD95A47CF40A1B96BAD8E0E846D88F14 /* UIView+Shadow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIView+Shadow.swift"; path = "AwesomeUIMagic/Classes/Shadow/UIView+Shadow.swift"; sourceTree = "<group>"; };
+		B2D1FDBD7EB2CFD4F6316C1A681554D9 /* Pods-AwesomeMedia_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-AwesomeMedia_Example.modulemap"; sourceTree = "<group>"; };
+		B6CB6D9D83A8395457E60FF47FEE6CBB /* AwesomeUIMagic.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = AwesomeUIMagic.xcconfig; sourceTree = "<group>"; };
+		B7FA5151D418CE7185672A87F57E8D8C /* ShimmerEffect.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ShimmerEffect.swift; path = AwesomeUIMagic/Classes/Shimmer/ShimmerEffect.swift; sourceTree = "<group>"; };
+		B838F6138966ACE5C33BDD57912AA63A /* UIViewExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UIViewExtensions.swift; path = AwesomeUIMagic/Classes/Old/UIViewExtensions.swift; sourceTree = "<group>"; };
+		B9D95FC7B9B8E479CCE7E57D804B7E7C /* AwesomeMedia.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = AwesomeMedia.bundle; path = "AwesomeMedia-AwesomeMedia.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BDDD9551EBD5FA6A10A75C62782FC567 /* AwesomeMediaVideoTableViewCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AwesomeMediaVideoTableViewCell.swift; sourceTree = "<group>"; };
+		C53F3962C088C4D5D642435AC3B37A98 /* Pods-AwesomeMedia_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-AwesomeMedia_Example-dummy.m"; sourceTree = "<group>"; };
+		C866D35C4548EFEC1E65291E873A50D1 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C9267E191891D0FF9F84CDEAD47620D5 /* Pods-AwesomeMedia_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-AwesomeMedia_Tests-dummy.m"; sourceTree = "<group>"; };
+		CB7E9CBCBDEE45046B552FE740B40BB1 /* Pods-AwesomeMedia_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AwesomeMedia_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		CCD82146A2DB96415406BF0FE7B69EAA /* Pods-AwesomeMedia_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AwesomeMedia_Example.release.xcconfig"; sourceTree = "<group>"; };
+		D3642A9A0EF250596F57A6AB1476CF53 /* UIView+Shimmer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIView+Shimmer.swift"; path = "AwesomeUIMagic/Classes/Shimmer/UIView+Shimmer.swift"; sourceTree = "<group>"; };
+		D897F4EED330BDC13B5571BBC1461F1B /* AwesomeUIMagic.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = AwesomeUIMagic.modulemap; sourceTree = "<group>"; };
+		DA8A787A2430E4729E364D200EBD34B9 /* AwesomeMedia.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AwesomeMedia.swift; path = AwesomeMedia/Classes/AwesomeMedia.swift; sourceTree = "<group>"; };
+		DAA035DA21EFD921B4D9517AFAAA4535 /* AwesomeMedia-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AwesomeMedia-umbrella.h"; sourceTree = "<group>"; };
+		E7485E065ED55E3A382978EBDCB09FA8 /* Gilroy-Regular.otf */ = {isa = PBXFileReference; includeInIndex = 1; path = "Gilroy-Regular.otf"; sourceTree = "<group>"; };
+		EF09CD33EE72FAC5CDED6ED7EAD4E791 /* UIView+Layer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIView+Layer.swift"; path = "AwesomeUIMagic/Classes/Layer/UIView+Layer.swift"; sourceTree = "<group>"; };
+		EF72865975D6367163203340377EAC6F /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F0D0AE031F9921A2E30694A0EC1AE6C5 /* AwesomeMedia+Cells.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "AwesomeMedia+Cells.swift"; path = "AwesomeMedia/Classes/AwesomeMedia+Cells.swift"; sourceTree = "<group>"; };
+		F37E63A5C186DB178FFEA8D2CFBF4F54 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F7DAA066FDF8EE7EC4C8ACE65E98CA8D /* Pods-AwesomeMedia_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-AwesomeMedia_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
+		F9647D9350F8A64A92D08A696AB324AB /* Pods-AwesomeMedia_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-AwesomeMedia_Tests-resources.sh"; sourceTree = "<group>"; };
+		FFC314A7677E49C214A41487BA8BA210 /* Gilroy-BoldItalic.otf */ = {isa = PBXFileReference; includeInIndex = 1; path = "Gilroy-BoldItalic.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		4BF371AD49E8E7A4630A11690F699CB1 /* Frameworks */ = {
+		0895C6F354EC4FCB8694F72E0263DC40 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				16155E9B32FF46EFBB366B5E7E227471 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6D0F27B5D5E18FA28F37D0D8441C9B41 /* Frameworks */ = {
+		22CD46B1B2E2F8D5A4FEEEDCE8AA9D14 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6135F412064B8E4320E202217E2DED5A /* Foundation.framework in Frameworks */,
+				9FB9A5D0F3AB5CB8F746E6552E277CD7 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E2B64CB50003AF79A813969F9D01ED4E /* Frameworks */ = {
+		B5A3C76B502232599E93E4DB94E42140 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F9C0B618B4542CA15E10CD89392513C2 /* Foundation.framework in Frameworks */,
+				32F3865723DB7C3E066E4229CC9C24DA /* AwesomeUIMagic.framework in Frameworks */,
+				35553224234990D6489DD87C3294E636 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,221 +211,269 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				66496EA33B42DA0073273D52D1218865 /* Foundation.framework in Frameworks */,
+				1A450BE2DC028ADF38DD6943CCE8CE58 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F77A7BD6A1C6C6BB0CC285B1A01D3D10 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0A31642820749E6E00029D50 /* Assets */ = {
+		1BAD792F04341035A3B753A7213E7FA4 /* Gilroy */ = {
 			isa = PBXGroup;
 			children = (
-				0A31642D2074A1AE00029D50 /* Assets.xcassets */,
-				0A31642F2074A3DD00029D50 /* Fonts */,
-				0A3164532074A99A00029D50 /* Xibs */,
+				8344B305D4F705889685ED2218CED6B7 /* Gilroy-Black.otf */,
+				1DF724B62BEE2E1E1AB2A3517205C893 /* Gilroy-BlackItalic.otf */,
+				75C50CF875F12046D13A9EFCD8C2CEBA /* Gilroy-Bold.otf */,
+				FFC314A7677E49C214A41487BA8BA210 /* Gilroy-BoldItalic.otf */,
+				2824DDEC9454E040ECE69614839636C6 /* Gilroy-ExtraBold.otf */,
+				5144661A1C6E37A924C1741330FDA81D /* Gilroy-ExtraBoldItalic.otf */,
+				8A5D0EA7FEF5896D7B705B0666B252D7 /* Gilroy-Heavy.otf */,
+				4516B4AA8C7248A94678A1B6D6C45024 /* Gilroy-HeavyItalic.otf */,
+				0E6783D40BAD26D249B13A7A8AF24504 /* Gilroy-Light.otf */,
+				7C39524F2A9E954CAA696FF1F0F04BD6 /* Gilroy-LightItalic.otf */,
+				AB10EBA2B9E02554FDA8A31C9D79AEEA /* Gilroy-Medium.otf */,
+				36B3003D31E23D8F2561543D54EDFD6E /* Gilroy-MediumItalic.otf */,
+				E7485E065ED55E3A382978EBDCB09FA8 /* Gilroy-Regular.otf */,
+				02EBDB8D5E5280A21470A55061451DE8 /* Gilroy-RegularItalic.otf */,
+				6C7147250F08CB413A534052BD9746DF /* Gilroy-SemiBold.otf */,
+				46D6B1A3645F2C4B476AD9F6294B9F3A /* Gilroy-SemiBoldItalic.otf */,
 			);
-			path = Assets;
+			name = Gilroy;
+			path = AwesomeMedia/Assets/Gilroy;
 			sourceTree = "<group>";
 		};
-		0A31642F2074A3DD00029D50 /* Fonts */ = {
+		26F4AE101DC4220D7D192F60876FAD7B /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
-				0A3164302074A3DD00029D50 /* Gilroy */,
+				4798FDCF99CFA1A3C7ABF2B4AAF8EF83 /* AwesomeMedia */,
 			);
-			path = Fonts;
+			name = "Development Pods";
 			sourceTree = "<group>";
 		};
-		0A3164302074A3DD00029D50 /* Gilroy */ = {
+		378012F7CE5C7CDCF36E965116B0E6D4 /* Pod */ = {
 			isa = PBXGroup;
 			children = (
-				0A3164312074A3DD00029D50 /* Gilroy-Regular.otf */,
-				0A3164322074A3DD00029D50 /* Gilroy-Black.otf */,
-				0A3164332074A3DD00029D50 /* Gilroy-BlackItalic.otf */,
-				0A3164342074A3DD00029D50 /* Gilroy-RegularItalic.otf */,
-				0A3164352074A3DD00029D50 /* Gilroy-LightItalic.otf */,
-				0A3164362074A3DD00029D50 /* Gilroy-HeavyItalic.otf */,
-				0A3164372074A3DD00029D50 /* Gilroy-BoldItalic.otf */,
-				0A3164382074A3DD00029D50 /* Gilroy-SemiBoldItalic.otf */,
-				0A3164392074A3DD00029D50 /* Gilroy-Medium.otf */,
-				0A31643A2074A3DD00029D50 /* Gilroy-Heavy.otf */,
-				0A31643B2074A3DD00029D50 /* Gilroy-Bold.otf */,
-				0A31643C2074A3DD00029D50 /* Gilroy-SemiBold.otf */,
-				0A31643D2074A3DD00029D50 /* Gilroy-Light.otf */,
-				0A31643E2074A3DD00029D50 /* Gilroy-ExtraBold.otf */,
-				0A31643F2074A3DD00029D50 /* Gilroy-MediumItalic.otf */,
-				0A3164402074A3DD00029D50 /* Gilroy-ExtraBoldItalic.otf */,
+				86BA0872DB843795238971CB5545894A /* AwesomeMedia.podspec */,
+				24E4312BD91061B74103C731049AC379 /* LICENSE */,
+				9BE10D005B21C01D61FDA2DCE57C1417 /* README.md */,
 			);
-			path = Gilroy;
+			name = Pod;
 			sourceTree = "<group>";
 		};
-		0A3164532074A99A00029D50 /* Xibs */ = {
+		4683C4F2134AD2F5B05AD4A64C73A75F /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				0A31642B20749E9E00029D50 /* AwesomeMediaVideoTableViewCell.xib */,
+				BDDD9551EBD5FA6A10A75C62782FC567 /* AwesomeMediaVideoTableViewCell.swift */,
 			);
-			path = Xibs;
+			name = Cells;
+			path = AwesomeMedia/Classes/Cells;
 			sourceTree = "<group>";
 		};
-		0A3164542074ABA300029D50 /* Cells */ = {
+		4798FDCF99CFA1A3C7ABF2B4AAF8EF83 /* AwesomeMedia */ = {
 			isa = PBXGroup;
 			children = (
-				0A3164512074A72D00029D50 /* AwesomeMediaVideoTableViewCell.swift */,
+				DA8A787A2430E4729E364D200EBD34B9 /* AwesomeMedia.swift */,
+				F0D0AE031F9921A2E30694A0EC1AE6C5 /* AwesomeMedia+Cells.swift */,
+				4683C4F2134AD2F5B05AD4A64C73A75F /* Cells */,
+				378012F7CE5C7CDCF36E965116B0E6D4 /* Pod */,
+				9B67597E42F347D478C48BFDC926A980 /* Resources */,
+				AF71B23A5163F907961BCD4CC1EBD1B0 /* Support Files */,
 			);
-			path = Cells;
+			name = AwesomeMedia;
+			path = ../..;
 			sourceTree = "<group>";
 		};
-		422506B1F97BACCDC9EFB92681715D30 /* Products */ = {
+		5F0DAA5136BCEA4DD18B4BEB08456511 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				77E010F39E75D9CFCAE1FFEAE3EB93D7 /* AwesomeMedia.bundle */,
-				9939E81E46FE503F8B6A8A7D6B97616F /* AwesomeMedia.framework */,
-				8A5E0439E177722D557F47680733CE06 /* Pods_AwesomeMedia_Example.framework */,
-				647AC7E74B57DE5CF55531C600994C7E /* Pods_AwesomeMedia_Tests.framework */,
+				7120045256AE344E2D548A185BF1021E /* Foundation.framework */,
 			);
-			name = Products;
+			name = iOS;
 			sourceTree = "<group>";
 		};
-		4DCAB0E88D8B4587A32C1356CCBD5540 /* Pods-AwesomeMedia_Example */ = {
+		63DE42C4FD04D6A7D10E2F4C7FC818E3 /* Pods-AwesomeMedia_Example */ = {
 			isa = PBXGroup;
 			children = (
-				DA51927B4D4235DD41A1AF8A90560B8C /* Info.plist */,
-				4E1B8E276EC0E8A2C102A86F68D886B0 /* Pods-AwesomeMedia_Example.modulemap */,
-				BBC750A2A6D2F255BB4F556183078D23 /* Pods-AwesomeMedia_Example-acknowledgements.markdown */,
-				8D524C7FB78BF098EDE3E440AD9911C0 /* Pods-AwesomeMedia_Example-acknowledgements.plist */,
-				E485B39E4C7719B39206C2C9D5D6A51D /* Pods-AwesomeMedia_Example-dummy.m */,
-				C444F090F2D6FFEFBFAE425455C14622 /* Pods-AwesomeMedia_Example-frameworks.sh */,
-				A7CFD13E849A6315C2209509DA13FD8B /* Pods-AwesomeMedia_Example-resources.sh */,
-				E9E79FAB727AB094255A04A0E6E71162 /* Pods-AwesomeMedia_Example-umbrella.h */,
-				CFDE650A08581BBBE5E558E3B97F44C8 /* Pods-AwesomeMedia_Example.debug.xcconfig */,
-				46BB3D1E68900D9EC4565005D627BEF0 /* Pods-AwesomeMedia_Example.release.xcconfig */,
+				15BB1B4542F849849D768E524D7E51C3 /* Info.plist */,
+				B2D1FDBD7EB2CFD4F6316C1A681554D9 /* Pods-AwesomeMedia_Example.modulemap */,
+				F7DAA066FDF8EE7EC4C8ACE65E98CA8D /* Pods-AwesomeMedia_Example-acknowledgements.markdown */,
+				6A899D92361D07F676A67E5274EB1D27 /* Pods-AwesomeMedia_Example-acknowledgements.plist */,
+				C53F3962C088C4D5D642435AC3B37A98 /* Pods-AwesomeMedia_Example-dummy.m */,
+				85EB0E33DA1F6135163742E16DAD6897 /* Pods-AwesomeMedia_Example-frameworks.sh */,
+				583098153AFC5CD56E6125FCDB74EA67 /* Pods-AwesomeMedia_Example-resources.sh */,
+				638426F375D3548CEE6C500BE94F806F /* Pods-AwesomeMedia_Example-umbrella.h */,
+				CB7E9CBCBDEE45046B552FE740B40BB1 /* Pods-AwesomeMedia_Example.debug.xcconfig */,
+				CCD82146A2DB96415406BF0FE7B69EAA /* Pods-AwesomeMedia_Example.release.xcconfig */,
 			);
 			name = "Pods-AwesomeMedia_Example";
 			path = "Target Support Files/Pods-AwesomeMedia_Example";
 			sourceTree = "<group>";
 		};
-		5929A77268284760B055CEAE69C78A7B /* Pods-AwesomeMedia_Tests */ = {
-			isa = PBXGroup;
-			children = (
-				83CB0787B8A2F14237C3214D3AF66E0E /* Info.plist */,
-				EB1C2DC27F3BEE02C7A12CAC83D2355B /* Pods-AwesomeMedia_Tests.modulemap */,
-				98E9A3FB9EE92D40C85CEF1DA1E4C1D7 /* Pods-AwesomeMedia_Tests-acknowledgements.markdown */,
-				E54AA867D99243BF7E9D6195AA25A912 /* Pods-AwesomeMedia_Tests-acknowledgements.plist */,
-				CEB5C93EE2E2E1EB3219B21FC03EDEAC /* Pods-AwesomeMedia_Tests-dummy.m */,
-				2FD00602DA1EE1ECE8521AE64A225D2F /* Pods-AwesomeMedia_Tests-frameworks.sh */,
-				1B3171463E824BE827794C980FB280BC /* Pods-AwesomeMedia_Tests-resources.sh */,
-				1B07B6F1D77DABA663156DDD928B1E63 /* Pods-AwesomeMedia_Tests-umbrella.h */,
-				E3B3B4BA25B9A24F74114163ED1C0AEE /* Pods-AwesomeMedia_Tests.debug.xcconfig */,
-				C18A1F6A6B8021A1CCB20B855A2C24FD /* Pods-AwesomeMedia_Tests.release.xcconfig */,
-			);
-			name = "Pods-AwesomeMedia_Tests";
-			path = "Target Support Files/Pods-AwesomeMedia_Tests";
-			sourceTree = "<group>";
-		};
-		6B1A2465ACD393EB9CB32BDFE49E1F83 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				047F32615D3B305A5E6B4A704B516787 /* AwesomeMedia.modulemap */,
-				51A96CEE940D01A138B7EC8DFB795902 /* AwesomeMedia.xcconfig */,
-				E93779EC86D851BB80D3ACB12DA07424 /* AwesomeMedia-dummy.m */,
-				20234444D5EACD0B004A617B408BA5E4 /* AwesomeMedia-prefix.pch */,
-				7C658F3B7FCD1005057E6FE5B5CDDBF6 /* AwesomeMedia-umbrella.h */,
-				5835E2CFD9E2B138E27437F73798DCB8 /* Info.plist */,
-				4C8990390D7ED000AB3491FB5A549499 /* ResourceBundle-AwesomeMedia-Info.plist */,
-			);
-			name = "Support Files";
-			path = "Example/Pods/Target Support Files/AwesomeMedia";
-			sourceTree = "<group>";
-		};
 		7252C14100D3B07CB6E4F8C815645CA1 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				4DCAB0E88D8B4587A32C1356CCBD5540 /* Pods-AwesomeMedia_Example */,
-				5929A77268284760B055CEAE69C78A7B /* Pods-AwesomeMedia_Tests */,
+				63DE42C4FD04D6A7D10E2F4C7FC818E3 /* Pods-AwesomeMedia_Example */,
+				9C4B7BE984011B6C4A0A970D70715876 /* Pods-AwesomeMedia_Tests */,
 			);
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		7531C8F8DE19F1AA3C8A7AC97A91DC29 /* iOS */ = {
+		742B3AD7CE934729F4AD649215FE878F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */,
+				86B63F9382F73D0E7DBE047B083BF1E7 /* AwesomeUIMagic.framework */,
+				5F0DAA5136BCEA4DD18B4BEB08456511 /* iOS */,
 			);
-			name = iOS;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		7DB346D0F39D3F0E887471402A8071AB = {
 			isa = PBXGroup;
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
-				C40DAC7C5563681DD5C32A7882063AE9 /* Development Pods */,
-				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
-				422506B1F97BACCDC9EFB92681715D30 /* Products */,
+				26F4AE101DC4220D7D192F60876FAD7B /* Development Pods */,
+				742B3AD7CE934729F4AD649215FE878F /* Frameworks */,
+				8569D3F3C5A1AE8DF9A5B8A565A4AB1E /* Pods */,
+				9B6A703812239C58493AA43EDEB77166 /* Products */,
 				7252C14100D3B07CB6E4F8C815645CA1 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		B14489965A2070AD29676727C39F063A /* Classes */ = {
+		8569D3F3C5A1AE8DF9A5B8A565A4AB1E /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				0A3164572074B06B00029D50 /* AwesomeMedia.swift */,
-				0A3164592074B09300029D50 /* AwesomeMedia+Cells.swift */,
-				0A3164542074ABA300029D50 /* Cells */,
+				98A5449EAC6A2393B96938D098DC443E /* AwesomeUIMagic */,
 			);
-			path = Classes;
+			name = Pods;
 			sourceTree = "<group>";
 		};
-		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
+		98A5449EAC6A2393B96938D098DC443E /* AwesomeUIMagic */ = {
 			isa = PBXGroup;
 			children = (
-				7531C8F8DE19F1AA3C8A7AC97A91DC29 /* iOS */,
+				8F086989D0845B0114FBA5DA88758821 /* DesignableButton.swift */,
+				84128B19733540462F9C70320991DBAB /* DesignableNavigationBar.swift */,
+				759D1FCD71B8B900BC194F9D026DB998 /* DesignableTextField.swift */,
+				8D8C3E57E86BDF9125ADC1DCC87BE7C7 /* DesignableTextView.swift */,
+				24D92C0C807548A4B96EB34B897C3CA9 /* GradientView.swift */,
+				89AC1EFA42193BE8E41D5DE329E509A5 /* NSNumberExtensions.swift */,
+				4EEB60FB9FB56C83B61AFBCAF43540D4 /* ObjectAssociation.swift */,
+				A3A0FC317A6396F480F00BDFF0319FF3 /* ShadowLayer.swift */,
+				0F3F808AE48189CFD699DC6447AD3E1E /* ShadowView.swift */,
+				B7FA5151D418CE7185672A87F57E8D8C /* ShimmerEffect.swift */,
+				A4A18FC96EE4440FBA55E1FECAC694A5 /* ShimmerView.swift */,
+				8289186F7AE5A8C472A4B06FE9CC929F /* UILabel+Formatting.swift */,
+				EF09CD33EE72FAC5CDED6ED7EAD4E791 /* UIView+Layer.swift */,
+				AD95A47CF40A1B96BAD8E0E846D88F14 /* UIView+Shadow.swift */,
+				D3642A9A0EF250596F57A6AB1476CF53 /* UIView+Shimmer.swift */,
+				46D969714D023493E683F8AC3B5FE21B /* UIViewAnimations.swift */,
+				8A6B7A6563E8AA935C85703AD2541CB6 /* UIViewControllerExtensions.swift */,
+				B838F6138966ACE5C33BDD57912AA63A /* UIViewExtensions.swift */,
+				CA8DF6A9F1F107D8CF7609C7B20B0167 /* Support Files */,
 			);
-			name = Frameworks;
+			name = AwesomeUIMagic;
+			path = AwesomeUIMagic;
 			sourceTree = "<group>";
 		};
-		C40DAC7C5563681DD5C32A7882063AE9 /* Development Pods */ = {
+		9B67597E42F347D478C48BFDC926A980 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				DE36B19A5F918020EEA4626D85E67DA0 /* AwesomeMedia */,
+				42658694B32AF6EE8777D2FAFDF1323A /* Assets.xcassets */,
+				9AA94F9A4E037675B24B7BB0B53DDDE3 /* AwesomeMediaVideoTableViewCell.xib */,
+				1BAD792F04341035A3B753A7213E7FA4 /* Gilroy */,
 			);
-			name = "Development Pods";
+			name = Resources;
 			sourceTree = "<group>";
 		};
-		DE36B19A5F918020EEA4626D85E67DA0 /* AwesomeMedia */ = {
+		9B6A703812239C58493AA43EDEB77166 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E05B4D7E7EB58F2D3DA21C19F14EBE1A /* AwesomeMedia */,
-				6B1A2465ACD393EB9CB32BDFE49E1F83 /* Support Files */,
+				B9D95FC7B9B8E479CCE7E57D804B7E7C /* AwesomeMedia.bundle */,
+				18721B416D45F24CBA3CCF24C3DE1918 /* AwesomeMedia.framework */,
+				A8CDE4548233243C795A851605345258 /* AwesomeUIMagic.framework */,
+				2A580EDD3A3BC4FD8C9E85512031EBC3 /* Pods_AwesomeMedia_Example.framework */,
+				3CE0E112327E9012991CB67547C2E32F /* Pods_AwesomeMedia_Tests.framework */,
 			);
-			name = AwesomeMedia;
-			path = ../..;
+			name = Products;
 			sourceTree = "<group>";
 		};
-		E05B4D7E7EB58F2D3DA21C19F14EBE1A /* AwesomeMedia */ = {
+		9C4B7BE984011B6C4A0A970D70715876 /* Pods-AwesomeMedia_Tests */ = {
 			isa = PBXGroup;
 			children = (
-				B14489965A2070AD29676727C39F063A /* Classes */,
-				0A31642820749E6E00029D50 /* Assets */,
+				EF72865975D6367163203340377EAC6F /* Info.plist */,
+				0F6432ED53F0E753087F9C9E0C97DB57 /* Pods-AwesomeMedia_Tests.modulemap */,
+				A89B6AC70E86E890564DB46D8B4FA818 /* Pods-AwesomeMedia_Tests-acknowledgements.markdown */,
+				4476417AE515C30A6BD2F2D4D7918245 /* Pods-AwesomeMedia_Tests-acknowledgements.plist */,
+				C9267E191891D0FF9F84CDEAD47620D5 /* Pods-AwesomeMedia_Tests-dummy.m */,
+				6757404DDD7DC4C28F392ABC8504F580 /* Pods-AwesomeMedia_Tests-frameworks.sh */,
+				F9647D9350F8A64A92D08A696AB324AB /* Pods-AwesomeMedia_Tests-resources.sh */,
+				03BF3B023FE8E0DE99F4C7746F5000A2 /* Pods-AwesomeMedia_Tests-umbrella.h */,
+				5546FBF25FF250F33CE9E899D9E84AC7 /* Pods-AwesomeMedia_Tests.debug.xcconfig */,
+				5586AE8A432C3B25A323E7AA513B16DF /* Pods-AwesomeMedia_Tests.release.xcconfig */,
 			);
-			path = AwesomeMedia;
+			name = "Pods-AwesomeMedia_Tests";
+			path = "Target Support Files/Pods-AwesomeMedia_Tests";
+			sourceTree = "<group>";
+		};
+		AF71B23A5163F907961BCD4CC1EBD1B0 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				8B04292159C2AB674B307EB175E0434F /* AwesomeMedia.modulemap */,
+				46B9998DBA9BB6E69999961516F3CDA5 /* AwesomeMedia.xcconfig */,
+				34F53AE7EF27DD5CB34983675F889EF0 /* AwesomeMedia-dummy.m */,
+				386653DB4F09B5454F883DCFADAF4D56 /* AwesomeMedia-prefix.pch */,
+				DAA035DA21EFD921B4D9517AFAAA4535 /* AwesomeMedia-umbrella.h */,
+				C866D35C4548EFEC1E65291E873A50D1 /* Info.plist */,
+				292A56D529C41DFCDFC95CE380D6240C /* ResourceBundle-AwesomeMedia-Info.plist */,
+			);
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/AwesomeMedia";
+			sourceTree = "<group>";
+		};
+		CA8DF6A9F1F107D8CF7609C7B20B0167 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				D897F4EED330BDC13B5571BBC1461F1B /* AwesomeUIMagic.modulemap */,
+				B6CB6D9D83A8395457E60FF47FEE6CBB /* AwesomeUIMagic.xcconfig */,
+				3D98CF93142C649372370B46BD993F84 /* AwesomeUIMagic-dummy.m */,
+				5663092576C8D5AEF3079DC50ADAF933 /* AwesomeUIMagic-prefix.pch */,
+				99F47DD9EFF3D1832192570E5A84AD7C /* AwesomeUIMagic-umbrella.h */,
+				F37E63A5C186DB178FFEA8D2CFBF4F54 /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/AwesomeUIMagic";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		22737743C78BEE661416B862AE8FC792 /* Headers */ = {
+		3B12CAB5F9C25B85D08FB94B8A69D9A0 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				65C3781434AB04E9F6F82E3D47515042 /* Pods-AwesomeMedia_Example-umbrella.h in Headers */,
+				66B97FB04F08F94AC42C96AEEB8927FC /* Pods-AwesomeMedia_Example-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6688CE538F8340C3FFA7D37E3C42A247 /* Headers */ = {
+		5053D717D6AD9CF3E53311C9250C07A8 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ADBE456E0B89ECA6324DE3F0D63DEE12 /* AwesomeMedia-umbrella.h in Headers */,
+				A3D04C2C24D223773DC93C4BF1ACDED0 /* AwesomeUIMagic-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B03E6158A7D4E959B144491B22391B17 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AD7D229C89979431F8309EE88BD83677 /* AwesomeMedia-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -371,32 +488,33 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		078D5F71699D9353B70F846ACD9C2067 /* AwesomeMedia */ = {
+		49E46E1B7DF1D4379577DFD8FBEEA3D0 /* AwesomeMedia */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C4AB129E5CB046360343D06321EEA79B /* Build configuration list for PBXNativeTarget "AwesomeMedia" */;
+			buildConfigurationList = 38843A69A390ACABD3E8463102166961 /* Build configuration list for PBXNativeTarget "AwesomeMedia" */;
 			buildPhases = (
-				8AAB9290343A21018082FA4FA847175E /* Sources */,
-				E2B64CB50003AF79A813969F9D01ED4E /* Frameworks */,
-				9903AD4890B9395DCCA3D7915877C861 /* Resources */,
-				6688CE538F8340C3FFA7D37E3C42A247 /* Headers */,
+				82BA67B43404D0F6BDBCCB2C1A348FB2 /* Sources */,
+				B5A3C76B502232599E93E4DB94E42140 /* Frameworks */,
+				D8381C5F20C49465B6212073847163FA /* Resources */,
+				B03E6158A7D4E959B144491B22391B17 /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				ECD937106758A19486287C0BE9DA3036 /* PBXTargetDependency */,
+				3375D09CB29039EB2F63ACC2D00DF239 /* PBXTargetDependency */,
+				30C2EC9CDBE2A137F8F373E80D4CE753 /* PBXTargetDependency */,
 			);
 			name = AwesomeMedia;
 			productName = AwesomeMedia;
-			productReference = 9939E81E46FE503F8B6A8A7D6B97616F /* AwesomeMedia.framework */;
+			productReference = 18721B416D45F24CBA3CCF24C3DE1918 /* AwesomeMedia.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		B204FB542D956C86D24897B314298CD3 /* AwesomeMedia-AwesomeMedia */ = {
+		8D72E11389DF22CCE3D9533A21D74F26 /* AwesomeMedia-AwesomeMedia */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A6B7BD8100A80194438561574377FDAB /* Build configuration list for PBXNativeTarget "AwesomeMedia-AwesomeMedia" */;
+			buildConfigurationList = 1C4596172A96D5A55C528CE4F260A5A9 /* Build configuration list for PBXNativeTarget "AwesomeMedia-AwesomeMedia" */;
 			buildPhases = (
-				EBE9215BE78220BED738149AA09E3F41 /* Sources */,
-				4BF371AD49E8E7A4630A11690F699CB1 /* Frameworks */,
-				F93E24D13C6FA6AFC011F68920DA390A /* Resources */,
+				BA33721637AFD37A362E53E3CE476159 /* Sources */,
+				F77A7BD6A1C6C6BB0CC285B1A01D3D10 /* Frameworks */,
+				4DA1557D3D60DA9344298799CDB83A30 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -404,8 +522,44 @@
 			);
 			name = "AwesomeMedia-AwesomeMedia";
 			productName = "AwesomeMedia-AwesomeMedia";
-			productReference = 77E010F39E75D9CFCAE1FFEAE3EB93D7 /* AwesomeMedia.bundle */;
+			productReference = B9D95FC7B9B8E479CCE7E57D804B7E7C /* AwesomeMedia.bundle */;
 			productType = "com.apple.product-type.bundle";
+		};
+		A1EEC99EB2DEE240A7A59EC32BE603F5 /* Pods-AwesomeMedia_Example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 767E2F8A80E1F4170D87A044D269A705 /* Build configuration list for PBXNativeTarget "Pods-AwesomeMedia_Example" */;
+			buildPhases = (
+				FEB163B9172631E29082F0174A43E95A /* Sources */,
+				0895C6F354EC4FCB8694F72E0263DC40 /* Frameworks */,
+				3B12CAB5F9C25B85D08FB94B8A69D9A0 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				10BED39FB3EC73D54D2F2B5D45374FA9 /* PBXTargetDependency */,
+				E7A4BC8CCF8E1DC63125E16E10C173B5 /* PBXTargetDependency */,
+			);
+			name = "Pods-AwesomeMedia_Example";
+			productName = "Pods-AwesomeMedia_Example";
+			productReference = 2A580EDD3A3BC4FD8C9E85512031EBC3 /* Pods_AwesomeMedia_Example.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		C523399E5ADB5D7B5BF68F801AEDF896 /* AwesomeUIMagic */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FD0442CDA78318B74F288532C31E5023 /* Build configuration list for PBXNativeTarget "AwesomeUIMagic" */;
+			buildPhases = (
+				81E58842F796C62EDBBE85E012996AD0 /* Sources */,
+				22CD46B1B2E2F8D5A4FEEEDCE8AA9D14 /* Frameworks */,
+				5053D717D6AD9CF3E53311C9250C07A8 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AwesomeUIMagic;
+			productName = AwesomeUIMagic;
+			productReference = A8CDE4548233243C795A851605345258 /* AwesomeUIMagic.framework */;
+			productType = "com.apple.product-type.framework";
 		};
 		ED38D985247A7E47CBE930DEB2674F2C /* Pods-AwesomeMedia_Tests */ = {
 			isa = PBXNativeTarget;
@@ -421,25 +575,7 @@
 			);
 			name = "Pods-AwesomeMedia_Tests";
 			productName = "Pods-AwesomeMedia_Tests";
-			productReference = 647AC7E74B57DE5CF55531C600994C7E /* Pods_AwesomeMedia_Tests.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		FC9073D44980D00730F7054EC0E3C71F /* Pods-AwesomeMedia_Example */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = FAEDD96A961EC9AB70E8C8B956BC3F47 /* Build configuration list for PBXNativeTarget "Pods-AwesomeMedia_Example" */;
-			buildPhases = (
-				FEC25A6ADBC059E2D20969B8F5D1DC5D /* Sources */,
-				6D0F27B5D5E18FA28F37D0D8441C9B41 /* Frameworks */,
-				22737743C78BEE661416B862AE8FC792 /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				8BA5D550A254D97960A21F73E39E249B /* PBXTargetDependency */,
-			);
-			name = "Pods-AwesomeMedia_Example";
-			productName = "Pods-AwesomeMedia_Example";
-			productReference = 8A5E0439E177722D557F47680733CE06 /* Pods_AwesomeMedia_Example.framework */;
+			productReference = 3CE0E112327E9012991CB67547C2E32F /* Pods_AwesomeMedia_Tests.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -448,13 +584,8 @@
 		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0920;
-				TargetAttributes = {
-					078D5F71699D9353B70F846ACD9C2067 = {
-						LastSwiftMigration = 0920;
-					};
-				};
+				LastSwiftUpdateCheck = 0930;
+				LastUpgradeCheck = 0930;
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -464,63 +595,92 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = 422506B1F97BACCDC9EFB92681715D30 /* Products */;
+			productRefGroup = 9B6A703812239C58493AA43EDEB77166 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				078D5F71699D9353B70F846ACD9C2067 /* AwesomeMedia */,
-				B204FB542D956C86D24897B314298CD3 /* AwesomeMedia-AwesomeMedia */,
-				FC9073D44980D00730F7054EC0E3C71F /* Pods-AwesomeMedia_Example */,
+				49E46E1B7DF1D4379577DFD8FBEEA3D0 /* AwesomeMedia */,
+				8D72E11389DF22CCE3D9533A21D74F26 /* AwesomeMedia-AwesomeMedia */,
+				C523399E5ADB5D7B5BF68F801AEDF896 /* AwesomeUIMagic */,
+				A1EEC99EB2DEE240A7A59EC32BE603F5 /* Pods-AwesomeMedia_Example */,
 				ED38D985247A7E47CBE930DEB2674F2C /* Pods-AwesomeMedia_Tests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		9903AD4890B9395DCCA3D7915877C861 /* Resources */ = {
+		4DA1557D3D60DA9344298799CDB83A30 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A31642C20749E9E00029D50 /* AwesomeMediaVideoTableViewCell.xib in Resources */,
-				0A3164442074A3DD00029D50 /* Gilroy-RegularItalic.otf in Resources */,
-				0A31644D2074A3DD00029D50 /* Gilroy-Light.otf in Resources */,
-				0A3164462074A3DD00029D50 /* Gilroy-HeavyItalic.otf in Resources */,
-				0A31642E2074A1AE00029D50 /* Assets.xcassets in Resources */,
-				0A3164492074A3DD00029D50 /* Gilroy-Medium.otf in Resources */,
-				0A3164412074A3DD00029D50 /* Gilroy-Regular.otf in Resources */,
-				0A3164482074A3DD00029D50 /* Gilroy-SemiBoldItalic.otf in Resources */,
-				0A31644F2074A3DD00029D50 /* Gilroy-MediumItalic.otf in Resources */,
-				0A3164432074A3DD00029D50 /* Gilroy-BlackItalic.otf in Resources */,
-				0A3164422074A3DD00029D50 /* Gilroy-Black.otf in Resources */,
-				0A3164452074A3DD00029D50 /* Gilroy-LightItalic.otf in Resources */,
-				0A31644A2074A3DD00029D50 /* Gilroy-Heavy.otf in Resources */,
-				0A3164472074A3DD00029D50 /* Gilroy-BoldItalic.otf in Resources */,
-				0A31644E2074A3DD00029D50 /* Gilroy-ExtraBold.otf in Resources */,
-				0A31644B2074A3DD00029D50 /* Gilroy-Bold.otf in Resources */,
-				0A31644C2074A3DD00029D50 /* Gilroy-SemiBold.otf in Resources */,
-				0A3164502074A3DD00029D50 /* Gilroy-ExtraBoldItalic.otf in Resources */,
-				F56BDF50CB31DFAD2563D394A4E542E5 /* AwesomeMedia.bundle in Resources */,
+				962246ACC4D47006C7947C7EA9D53136 /* Assets.xcassets in Resources */,
+				49EA707D76AA4D93F89883B70D871D03 /* AwesomeMediaVideoTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F93E24D13C6FA6AFC011F68920DA390A /* Resources */ = {
+		D8381C5F20C49465B6212073847163FA /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A656A058E66F7A9379E70B5A96C6CA2 /* Assets.xcassets in Resources */,
+				3169AAB871C40372834703DF554A12C8 /* AwesomeMedia.bundle in Resources */,
+				2A1BB02B293058813BF591CEBB6DA0DE /* AwesomeMediaVideoTableViewCell.xib in Resources */,
+				2DD13505CC946D418E5521B39E35F5F3 /* Gilroy-Black.otf in Resources */,
+				B4FB960283305A6FB63152E058237413 /* Gilroy-BlackItalic.otf in Resources */,
+				EF49CD1D401AB78B74663893F8B58B28 /* Gilroy-Bold.otf in Resources */,
+				16D2697430D5774CC4570FBC807DB8AB /* Gilroy-BoldItalic.otf in Resources */,
+				4366F2AAA66C62C259A59AF024CC0D80 /* Gilroy-ExtraBold.otf in Resources */,
+				5758010F369493772AF24AA1C41739A4 /* Gilroy-ExtraBoldItalic.otf in Resources */,
+				BF8BDDBBE0E81F5984C833553860677C /* Gilroy-Heavy.otf in Resources */,
+				85E31E0F25C4BEB2F613E2C445216B3E /* Gilroy-HeavyItalic.otf in Resources */,
+				102384867634F6DFA31A7A07B445E34C /* Gilroy-Light.otf in Resources */,
+				5F5D74A846977BA93D07B6A1BF2270E0 /* Gilroy-LightItalic.otf in Resources */,
+				359413AEB4768C18F9A1139077EDBCF6 /* Gilroy-Medium.otf in Resources */,
+				8B9553538E4D1DDA3C499240A8BDE94A /* Gilroy-MediumItalic.otf in Resources */,
+				B060C0267295790D1DB44E074B7F853C /* Gilroy-Regular.otf in Resources */,
+				6FF021EFDBC880A356E798B01C423B21 /* Gilroy-RegularItalic.otf in Resources */,
+				1C5D65784F794986EF24CD07799C4906 /* Gilroy-SemiBold.otf in Resources */,
+				CCECC4A5A871D55F7E1A6DE18ACDB871 /* Gilroy-SemiBoldItalic.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		8AAB9290343A21018082FA4FA847175E /* Sources */ = {
+		81E58842F796C62EDBBE85E012996AD0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A3164522074A72D00029D50 /* AwesomeMediaVideoTableViewCell.swift in Sources */,
-				0A3164582074B06B00029D50 /* AwesomeMedia.swift in Sources */,
-				0A31645A2074B09300029D50 /* AwesomeMedia+Cells.swift in Sources */,
-				E7C3AE2BEE0C44CEC75D174574082819 /* AwesomeMedia-dummy.m in Sources */,
+				5183135BCD15235252533C8BFEA7E4B1 /* AwesomeUIMagic-dummy.m in Sources */,
+				ABA8B2C8D9E0BB8E8523AA78AE6F4915 /* DesignableButton.swift in Sources */,
+				BA93FFC76466D4D8BA221D6442FF1653 /* DesignableNavigationBar.swift in Sources */,
+				5DBFCFEE4CF672D3B6DE8BD9C5491C1E /* DesignableTextField.swift in Sources */,
+				C1FAD2FFCB2320CEFEEC2D758FFA0866 /* DesignableTextView.swift in Sources */,
+				EA84EBA8EA6ACA02A90B9FDBF863FBB1 /* GradientView.swift in Sources */,
+				273BD1A12B3BBD34311BAE4C927B5EF2 /* NSNumberExtensions.swift in Sources */,
+				1BCE1A1F6126EE441B495DFF275517A2 /* ObjectAssociation.swift in Sources */,
+				7A0E17165BBF8DADDD3925E2F63D13E5 /* ShadowLayer.swift in Sources */,
+				EE1CB1C09F806DBF32CCEB5303EFE463 /* ShadowView.swift in Sources */,
+				84C0272DD6C5C7BD00F3CA8E51BDBD59 /* ShimmerEffect.swift in Sources */,
+				11182529FD8C2417A7B4DE951C6F0377 /* ShimmerView.swift in Sources */,
+				0E93C046D3A20BF5999647AEBAF36041 /* UILabel+Formatting.swift in Sources */,
+				9BE001547B9EB9DB45F3027C6AAD47BD /* UIView+Layer.swift in Sources */,
+				3FAE55D6EA45D6C6ADDBB18C9810612F /* UIView+Shadow.swift in Sources */,
+				60C41411A5AB0E2A28CC8ADC1FBD72FB /* UIView+Shimmer.swift in Sources */,
+				6260C536F65BFD246637962725381A65 /* UIViewAnimations.swift in Sources */,
+				FD4D920A917FB58EE702C24FB6D1E315 /* UIViewControllerExtensions.swift in Sources */,
+				02EB087A728DF018666386E8EFB7424A /* UIViewExtensions.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		82BA67B43404D0F6BDBCCB2C1A348FB2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5E41FA5D4E3B337269BE4B2BD9C3C208 /* AwesomeMedia+Cells.swift in Sources */,
+				09F3907BE904190F03ADF1F839EFAD33 /* AwesomeMedia-dummy.m in Sources */,
+				DD867C8F26BDECCABB558139BD8CA32F /* AwesomeMedia.swift in Sources */,
+				A15BAA2A19D1D8B91F94D5E87D1185CF /* AwesomeMediaVideoTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -532,113 +692,70 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		EBE9215BE78220BED738149AA09E3F41 /* Sources */ = {
+		BA33721637AFD37A362E53E3CE476159 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FEC25A6ADBC059E2D20969B8F5D1DC5D /* Sources */ = {
+		FEB163B9172631E29082F0174A43E95A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F1B190BEA3716F69FDDCB88EA3655609 /* Pods-AwesomeMedia_Example-dummy.m in Sources */,
+				7619A9E6BCC5EE90525650A50489FE07 /* Pods-AwesomeMedia_Example-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		8BA5D550A254D97960A21F73E39E249B /* PBXTargetDependency */ = {
+		10BED39FB3EC73D54D2F2B5D45374FA9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = AwesomeMedia;
-			target = 078D5F71699D9353B70F846ACD9C2067 /* AwesomeMedia */;
-			targetProxy = 7FA225E68D1EE31565159D66379C5215 /* PBXContainerItemProxy */;
+			target = 49E46E1B7DF1D4379577DFD8FBEEA3D0 /* AwesomeMedia */;
+			targetProxy = B6954C83FFD75E84BB564FCEDCA11D89 /* PBXContainerItemProxy */;
 		};
-		ECD937106758A19486287C0BE9DA3036 /* PBXTargetDependency */ = {
+		30C2EC9CDBE2A137F8F373E80D4CE753 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = AwesomeUIMagic;
+			target = C523399E5ADB5D7B5BF68F801AEDF896 /* AwesomeUIMagic */;
+			targetProxy = 71F0F426E04BD237B3C3D639E5A4F18E /* PBXContainerItemProxy */;
+		};
+		3375D09CB29039EB2F63ACC2D00DF239 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "AwesomeMedia-AwesomeMedia";
-			target = B204FB542D956C86D24897B314298CD3 /* AwesomeMedia-AwesomeMedia */;
-			targetProxy = 90F29D6C330F1BDDE5041B2C4F8780D8 /* PBXContainerItemProxy */;
+			target = 8D72E11389DF22CCE3D9533A21D74F26 /* AwesomeMedia-AwesomeMedia */;
+			targetProxy = 9A7C898C2B7533987CC05E43A23BE65B /* PBXContainerItemProxy */;
+		};
+		E7A4BC8CCF8E1DC63125E16E10C173B5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = AwesomeUIMagic;
+			target = C523399E5ADB5D7B5BF68F801AEDF896 /* AwesomeUIMagic */;
+			targetProxy = 3B54C708F0311DF53AE0D3103442D6AB /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		05F65A458FDB19D831BD74DA817D8057 /* Release */ = {
+		024E513C735979B647C45D88399E7B24 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 51A96CEE940D01A138B7EC8DFB795902 /* AwesomeMedia.xcconfig */;
+			baseConfigurationReference = CCD82146A2DB96415406BF0FE7B69EAA /* Pods-AwesomeMedia_Example.release.xcconfig */;
 			buildSettings = {
-				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/AwesomeMedia";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/AwesomeMedia/ResourceBundle-AwesomeMedia-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				PRODUCT_NAME = AwesomeMedia;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				WRAPPER_EXTENSION = bundle;
-			};
-			name = Release;
-		};
-		53143D557D8A1270BAFB67A11771F62C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 51A96CEE940D01A138B7EC8DFB795902 /* AwesomeMedia.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/AwesomeMedia/AwesomeMedia-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/AwesomeMedia/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/AwesomeMedia/AwesomeMedia.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = AwesomeMedia;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		57AB4203EA5915995303CE66314C1142 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 46BB3D1E68900D9EC4565005D627BEF0 /* Pods-AwesomeMedia_Example.release.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "Target Support Files/Pods-AwesomeMedia_Example/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-AwesomeMedia_Example/Pods-AwesomeMedia_Example.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
@@ -646,84 +763,64 @@
 				PRODUCT_NAME = Pods_AwesomeMedia_Example;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
-		8DED8AD26D381A6ACFF202E5217EC498 /* Release */ = {
+		53A613DD4E27D051A7117196D40BBE85 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B6CB6D9D83A8395457E60FF47FEE6CBB /* AwesomeUIMagic.xcconfig */;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGNING_REQUIRED = NO;
-				COPY_PHASE_STRIP = YES;
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"POD_CONFIGURATION_RELEASE=1",
-					"$(inherited)",
-				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
-				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
-				STRIP_INSTALLED_PRODUCT = NO;
-				SYMROOT = "${SRCROOT}/../build";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		91EE467CF640B11DCFB88FD92F05655B /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = E3B3B4BA25B9A24F74114163ED1C0AEE /* Pods-AwesomeMedia_Tests.debug.xcconfig */;
-			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/AwesomeUIMagic/AwesomeUIMagic-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/AwesomeUIMagic/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/AwesomeUIMagic/AwesomeUIMagic.modulemap";
+				PRODUCT_NAME = AwesomeUIMagic;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		6E79BECB191749CF416F91FC27B1E72C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5586AE8A432C3B25A323E7AA513B16DF /* Pods-AwesomeMedia_Tests.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = "Target Support Files/Pods-AwesomeMedia_Tests/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-AwesomeMedia_Tests/Pods-AwesomeMedia_Tests.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
@@ -732,42 +829,129 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		7615B6BD371E05E443D3DFF04413C23A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 46B9998DBA9BB6E69999961516F3CDA5 /* AwesomeMedia.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/AwesomeMedia";
+				INFOPLIST_FILE = "Target Support Files/AwesomeMedia/ResourceBundle-AwesomeMedia-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				PRODUCT_NAME = AwesomeMedia;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+		8B2A4652E303561B42BE71E5AD918F30 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 46B9998DBA9BB6E69999961516F3CDA5 /* AwesomeMedia.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/AwesomeMedia/AwesomeMedia-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/AwesomeMedia/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/AwesomeMedia/AwesomeMedia.modulemap";
+				PRODUCT_NAME = AwesomeMedia;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
 		};
-		9E1E4E48AF2EAB23169E611BF694090A /* Debug */ = {
+		ABBBFFB39DC9CB076ABD77B49DEC3F50 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B6CB6D9D83A8395457E60FF47FEE6CBB /* AwesomeUIMagic.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/AwesomeUIMagic/AwesomeUIMagic-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/AwesomeUIMagic/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/AwesomeUIMagic/AwesomeUIMagic.modulemap";
+				PRODUCT_NAME = AwesomeUIMagic;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		BAEAB14C631A30069AA4B7857718CA92 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGNING_REQUIRED = NO;
 				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -776,99 +960,155 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9;
+				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
 				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SYMROOT = "${SRCROOT}/../build";
 			};
 			name = Debug;
 		};
-		A44338074E49A973A265B469644B524F /* Release */ = {
+		C28CE27F5A73D54C0140040BEB0B061E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 51A96CEE940D01A138B7EC8DFB795902 /* AwesomeMedia.xcconfig */;
+			baseConfigurationReference = CB7E9CBCBDEE45046B552FE740B40BB1 /* Pods-AwesomeMedia_Example.debug.xcconfig */;
 			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/AwesomeMedia/AwesomeMedia-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/AwesomeMedia/Info.plist";
+				INFOPLIST_FILE = "Target Support Files/Pods-AwesomeMedia_Example/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/AwesomeMedia/AwesomeMedia.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = AwesomeMedia;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		ABA180B14476550FCED04BCA0091BF84 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = C18A1F6A6B8021A1CCB20B855A2C24FD /* Pods-AwesomeMedia_Tests.release.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-AwesomeMedia_Tests/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-AwesomeMedia_Tests/Pods-AwesomeMedia_Tests.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
+				MODULEMAP_FILE = "Target Support Files/Pods-AwesomeMedia_Example/Pods-AwesomeMedia_Example.modulemap";
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_AwesomeMedia_Tests;
+				PRODUCT_NAME = Pods_AwesomeMedia_Example;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		CBF476319C29AE2C652F2528985CD3A7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 46B9998DBA9BB6E69999961516F3CDA5 /* AwesomeMedia.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/AwesomeMedia/AwesomeMedia-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/AwesomeMedia/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/AwesomeMedia/AwesomeMedia.modulemap";
+				PRODUCT_NAME = AwesomeMedia;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
-		F8D55012BD27571CFAF0A046449D2EAD /* Debug */ = {
+		DFBF3A6C1621DB4236DE4F259A171674 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 51A96CEE940D01A138B7EC8DFB795902 /* AwesomeMedia.xcconfig */;
 			buildSettings = {
-				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/AwesomeMedia";
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		E988853A5F0E343297E5FCE2C2B160C8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 46B9998DBA9BB6E69999961516F3CDA5 /* AwesomeMedia.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/AwesomeMedia";
 				INFOPLIST_FILE = "Target Support Files/AwesomeMedia/ResourceBundle-AwesomeMedia-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				PRODUCT_NAME = AwesomeMedia;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -877,36 +1117,32 @@
 			};
 			name = Debug;
 		};
-		F9BB2E4C4A4A7360579AF62EC9C6ED8A /* Debug */ = {
+		F5E6B8A046C0224ACB4328C0D772C014 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CFDE650A08581BBBE5E558E3B97F44C8 /* Pods-AwesomeMedia_Example.debug.xcconfig */;
+			baseConfigurationReference = 5546FBF25FF250F33CE9E899D9E84AC7 /* Pods-AwesomeMedia_Tests.debug.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-AwesomeMedia_Example/Info.plist";
+				INFOPLIST_FILE = "Target Support Files/Pods-AwesomeMedia_Tests/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-AwesomeMedia_Example/Pods-AwesomeMedia_Example.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
+				MODULEMAP_FILE = "Target Support Files/Pods-AwesomeMedia_Tests/Pods-AwesomeMedia_Tests.modulemap";
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_AwesomeMedia_Example;
+				PRODUCT_NAME = Pods_AwesomeMedia_Tests;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -919,8 +1155,17 @@
 		13409698BEE6D85CF6D2264068BAE43B /* Build configuration list for PBXNativeTarget "Pods-AwesomeMedia_Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				91EE467CF640B11DCFB88FD92F05655B /* Debug */,
-				ABA180B14476550FCED04BCA0091BF84 /* Release */,
+				F5E6B8A046C0224ACB4328C0D772C014 /* Debug */,
+				6E79BECB191749CF416F91FC27B1E72C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1C4596172A96D5A55C528CE4F260A5A9 /* Build configuration list for PBXNativeTarget "AwesomeMedia-AwesomeMedia" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E988853A5F0E343297E5FCE2C2B160C8 /* Debug */,
+				7615B6BD371E05E443D3DFF04413C23A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -928,35 +1173,35 @@
 		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				9E1E4E48AF2EAB23169E611BF694090A /* Debug */,
-				8DED8AD26D381A6ACFF202E5217EC498 /* Release */,
+				BAEAB14C631A30069AA4B7857718CA92 /* Debug */,
+				DFBF3A6C1621DB4236DE4F259A171674 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A6B7BD8100A80194438561574377FDAB /* Build configuration list for PBXNativeTarget "AwesomeMedia-AwesomeMedia" */ = {
+		38843A69A390ACABD3E8463102166961 /* Build configuration list for PBXNativeTarget "AwesomeMedia" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F8D55012BD27571CFAF0A046449D2EAD /* Debug */,
-				05F65A458FDB19D831BD74DA817D8057 /* Release */,
+				8B2A4652E303561B42BE71E5AD918F30 /* Debug */,
+				CBF476319C29AE2C652F2528985CD3A7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C4AB129E5CB046360343D06321EEA79B /* Build configuration list for PBXNativeTarget "AwesomeMedia" */ = {
+		767E2F8A80E1F4170D87A044D269A705 /* Build configuration list for PBXNativeTarget "Pods-AwesomeMedia_Example" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				53143D557D8A1270BAFB67A11771F62C /* Debug */,
-				A44338074E49A973A265B469644B524F /* Release */,
+				C28CE27F5A73D54C0140040BEB0B061E /* Debug */,
+				024E513C735979B647C45D88399E7B24 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FAEDD96A961EC9AB70E8C8B956BC3F47 /* Build configuration list for PBXNativeTarget "Pods-AwesomeMedia_Example" */ = {
+		FD0442CDA78318B74F288532C31E5023 /* Build configuration list for PBXNativeTarget "AwesomeUIMagic" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F9BB2E4C4A4A7360579AF62EC9C6ED8A /* Debug */,
-				57AB4203EA5915995303CE66314C1142 /* Release */,
+				53A613DD4E27D051A7117196D40BBE85 /* Debug */,
+				ABBBFFB39DC9CB076ABD77B49DEC3F50 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -7,6 +7,6 @@
 
 import Foundation
 
-public struct AwesomeMedia {
+public class AwesomeMedia {
     
 }
