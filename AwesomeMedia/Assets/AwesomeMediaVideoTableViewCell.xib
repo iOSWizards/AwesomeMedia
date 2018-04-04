@@ -30,6 +30,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="209"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LPV-6r-X61">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="208.5"/>
+                        <connections>
+                            <action selector="controlToggleButtonPressed:" destination="TVU-Nc-e8m" eventType="touchUpInside" id="Qng-iM-yfE"/>
+                        </connections>
+                    </button>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RVq-B5-DWZ" customClass="GradientView" customModule="AwesomeUIMagic">
                         <rect key="frame" x="0.0" y="117.5" width="375" height="91"/>
                         <subviews>
@@ -152,17 +158,22 @@
                     <constraint firstItem="Csd-P4-pW7" firstAttribute="top" secondItem="TdN-qS-ZS7" secondAttribute="top" id="1dS-RH-4j6"/>
                     <constraint firstItem="rdg-Ki-Dtx" firstAttribute="top" secondItem="TdN-qS-ZS7" secondAttribute="top" id="7EV-Su-qUr"/>
                     <constraint firstItem="Csd-P4-pW7" firstAttribute="leading" secondItem="TdN-qS-ZS7" secondAttribute="leading" id="9xV-4M-7Re"/>
+                    <constraint firstAttribute="bottom" secondItem="LPV-6r-X61" secondAttribute="bottom" id="Btn-X9-8As"/>
+                    <constraint firstAttribute="trailing" secondItem="LPV-6r-X61" secondAttribute="trailing" id="F71-q4-bd4"/>
                     <constraint firstAttribute="trailing" secondItem="rdg-Ki-Dtx" secondAttribute="trailing" id="F7U-BC-eaj"/>
+                    <constraint firstItem="LPV-6r-X61" firstAttribute="top" secondItem="TdN-qS-ZS7" secondAttribute="top" id="KwJ-1A-1fL"/>
                     <constraint firstItem="rdg-Ki-Dtx" firstAttribute="leading" secondItem="TdN-qS-ZS7" secondAttribute="leading" id="LQA-gi-pHc"/>
                     <constraint firstItem="RVq-B5-DWZ" firstAttribute="leading" secondItem="TdN-qS-ZS7" secondAttribute="leading" id="UKy-AZ-dUI"/>
                     <constraint firstAttribute="bottom" secondItem="RVq-B5-DWZ" secondAttribute="bottom" id="YiS-yd-Fyd"/>
                     <constraint firstAttribute="bottom" secondItem="rdg-Ki-Dtx" secondAttribute="bottom" id="hLl-td-WFV"/>
+                    <constraint firstItem="LPV-6r-X61" firstAttribute="leading" secondItem="TdN-qS-ZS7" secondAttribute="leading" id="iJz-DB-r63"/>
                     <constraint firstAttribute="trailing" secondItem="RVq-B5-DWZ" secondAttribute="trailing" id="kUd-HC-ODw"/>
                     <constraint firstAttribute="bottom" secondItem="Csd-P4-pW7" secondAttribute="bottom" id="mQj-DA-FSo"/>
                     <constraint firstAttribute="trailing" secondItem="Csd-P4-pW7" secondAttribute="trailing" id="rP1-rw-tzu"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="controlToggleButton" destination="LPV-6r-X61" id="CWP-Vw-5L1"/>
                 <outlet property="controlView" destination="RVq-B5-DWZ" id="rHh-CW-9hZ"/>
                 <outlet property="coverImageView" destination="Csd-P4-pW7" id="6Av-vX-fqO"/>
                 <outlet property="fullscreenButton" destination="5Cw-zC-45i" id="Yr4-T0-veM"/>

@@ -28,7 +28,7 @@ Play Media from any app using this library.
   s.source           = { :git => 'https://github.com/iOSWizards/AwesomeMedia.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.ios.deployment_target = '9.0'
+  s.ios.deployment_target = '10.0'
 
   s.source_files = 'AwesomeMedia/Classes/**/*.{swift}'
 s.ios.resources = ['AwesomeMedia/Assets/*.{xib}', 'AwesomeMedia/Assets/Gilroy/*.{otf}', 'AwesomeMedia/Assets/Assets.xcassets']
