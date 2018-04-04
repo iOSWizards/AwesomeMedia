@@ -40,7 +40,7 @@
                         <rect key="frame" x="0.0" y="117.5" width="375" height="91"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aoe-fK-Dnl">
-                                <rect key="frame" x="0.0" y="0.0" width="72" height="91"/>
+                                <rect key="frame" x="0.0" y="16" width="72" height="75"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="72" id="JGV-RJ-95k"/>
                                 </constraints>
@@ -51,10 +51,10 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DkE-bh-90a">
-                                <rect key="frame" x="72" y="0.0" width="303" height="91"/>
+                                <rect key="frame" x="72" y="16" width="303" height="75"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="18 mins" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HhL-9c-Am8">
-                                        <rect key="frame" x="0.0" y="38" width="303" height="16.5"/>
+                                        <rect key="frame" x="0.0" y="30" width="303" height="16.5"/>
                                         <fontDescription key="fontDescription" name="Gilroy-Medium" family="Gilroy" pointSize="14"/>
                                         <color key="textColor" white="1" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -68,10 +68,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WKs-qS-sde">
-                                <rect key="frame" x="72" y="0.0" width="303" height="91"/>
+                                <rect key="frame" x="72" y="16" width="303" height="75"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="xVk-vF-3bB">
-                                        <rect key="frame" x="0.0" y="36.5" width="40" height="16.5"/>
+                                        <rect key="frame" x="0.0" y="28.5" width="40" height="16.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="40" id="mew-Ln-tjv"/>
                                         </constraints>
@@ -80,7 +80,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Yh3-PW-yUu">
-                                        <rect key="frame" x="44" y="30.5" width="155" height="31"/>
+                                        <rect key="frame" x="44" y="22.5" width="155" height="31"/>
                                         <color key="minimumTrackTintColor" red="0.16470588235294117" green="0.5490196078431373" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="maximumTrackTintColor" white="1" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="thumbTintColor" red="0.1647058824" green="0.54901960780000003" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
@@ -91,7 +91,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </slider>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="D0y-k9-vkS">
-                                        <rect key="frame" x="203" y="37" width="40" height="16.5"/>
+                                        <rect key="frame" x="203" y="29" width="40" height="16.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="40" id="HpW-yR-8Uh"/>
                                         </constraints>
@@ -100,7 +100,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Cw-zC-45i">
-                                        <rect key="frame" x="243" y="0.0" width="60" height="91"/>
+                                        <rect key="frame" x="243" y="0.0" width="60" height="75"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="60" id="LjS-1R-4Eh"/>
                                         </constraints>
@@ -129,26 +129,26 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="WKs-qS-sde" secondAttribute="trailing" id="5Ac-mi-KbF"/>
                             <constraint firstAttribute="trailing" secondItem="DkE-bh-90a" secondAttribute="trailing" id="5fB-sT-0V2"/>
-                            <constraint firstItem="aoe-fK-Dnl" firstAttribute="top" secondItem="RVq-B5-DWZ" secondAttribute="top" id="DJf-JB-NMf"/>
+                            <constraint firstItem="aoe-fK-Dnl" firstAttribute="top" secondItem="RVq-B5-DWZ" secondAttribute="top" constant="16" id="8SG-DX-8iz"/>
                             <constraint firstItem="DkE-bh-90a" firstAttribute="leading" secondItem="aoe-fK-Dnl" secondAttribute="trailing" id="LPX-r5-yko"/>
                             <constraint firstItem="WKs-qS-sde" firstAttribute="leading" secondItem="aoe-fK-Dnl" secondAttribute="trailing" id="M4U-sp-kQp"/>
+                            <constraint firstItem="WKs-qS-sde" firstAttribute="top" secondItem="aoe-fK-Dnl" secondAttribute="top" id="Mwg-5x-QTM"/>
                             <constraint firstAttribute="bottom" secondItem="DkE-bh-90a" secondAttribute="bottom" id="PFc-gt-8L2"/>
-                            <constraint firstItem="WKs-qS-sde" firstAttribute="top" secondItem="RVq-B5-DWZ" secondAttribute="top" id="VBA-wO-RjH"/>
                             <constraint firstAttribute="height" constant="91" id="bo0-Wd-ZAo"/>
                             <constraint firstAttribute="bottom" secondItem="aoe-fK-Dnl" secondAttribute="bottom" id="e8w-HD-MnV"/>
                             <constraint firstAttribute="bottom" secondItem="WKs-qS-sde" secondAttribute="bottom" id="mQb-Df-aJl"/>
-                            <constraint firstItem="DkE-bh-90a" firstAttribute="top" secondItem="RVq-B5-DWZ" secondAttribute="top" id="p7S-f0-rsa"/>
+                            <constraint firstItem="DkE-bh-90a" firstAttribute="top" secondItem="aoe-fK-Dnl" secondAttribute="top" id="wqb-h6-5BD"/>
                             <constraint firstItem="aoe-fK-Dnl" firstAttribute="leading" secondItem="RVq-B5-DWZ" secondAttribute="leading" id="zsY-h8-fQK"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="gradientTopColor">
-                                <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="value" red="0.098039215686274508" green="0.098039215686274508" blue="0.11764705882352941" alpha="0.0" colorSpace="calibratedRGB"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="color" keyPath="gradientMiddleColor">
-                                <color key="value" white="0.0" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="value" red="0.098039215686274508" green="0.098039215686274508" blue="0.11764705882352941" alpha="0.5" colorSpace="calibratedRGB"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="color" keyPath="gradientBottomColor">
-                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="value" red="0.098039215686274508" green="0.098039215686274508" blue="0.11764705882352941" alpha="1" colorSpace="calibratedRGB"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
