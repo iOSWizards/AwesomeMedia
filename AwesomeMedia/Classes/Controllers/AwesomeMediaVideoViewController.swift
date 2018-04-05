@@ -24,10 +24,15 @@ public class AwesomeMediaVideoViewController: UIViewController {
         controlView?.toggleViewCallback = { (_) in
             self.titleView?.toggleView()
         }
+        controlView?.fullscreenCallback = {
+            self.dismiss(animated: true, completion: nil)
+        }
         
         // add title view
         titleView = view.addVideoTitle()
-        
+        titleView?.closeCallback = {
+            self.dismiss(animated: true, completion: nil)
+        }
     }
     
     // MARK: - Events

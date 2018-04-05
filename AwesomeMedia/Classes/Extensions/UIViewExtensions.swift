@@ -43,7 +43,6 @@ extension UIView {
                 case .down:
                     self.frame.origin.y = (self.superview?.frame.size.height ?? UIScreen.main.bounds.size.height) - self.frame.size.height
                 }
-                
             }
         }()
         showAnimation.addCompletion { (_) in
