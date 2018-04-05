@@ -249,7 +249,7 @@
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="TzJ-PO-R9z" firstAttribute="trailing" secondItem="uB9-Zh-h7G" secondAttribute="trailing" id="0Ro-Hh-b5k"/>
+                <constraint firstAttribute="trailing" secondItem="uB9-Zh-h7G" secondAttribute="trailing" id="0Ro-Hh-b5k"/>
                 <constraint firstItem="uB9-Zh-h7G" firstAttribute="top" secondItem="TzJ-PO-R9z" secondAttribute="top" id="0jK-UZ-7hF"/>
                 <constraint firstAttribute="bottom" secondItem="uB9-Zh-h7G" secondAttribute="bottom" id="YLN-B3-wMy"/>
                 <constraint firstItem="TzJ-PO-R9z" firstAttribute="trailing" secondItem="tAB-bD-4e4" secondAttribute="trailing" id="kU5-cj-XYu"/>
@@ -261,7 +261,7 @@
             <connections>
                 <outlet property="jumptoButton" destination="A0n-0R-IIe" id="0fv-ue-NzQ"/>
                 <outlet property="jumptoLabel" destination="dsL-My-i2c" id="vWr-C7-QBl"/>
-                <outlet property="jumptoView" destination="A0n-0R-IIe" id="XpG-s6-N57"/>
+                <outlet property="jumptoView" destination="Qfl-zI-sbD" id="h8n-Qq-Vao"/>
                 <outlet property="maxTimeLabel" destination="b2L-Es-qY8" id="khD-fS-CFv"/>
                 <outlet property="minTimeLabel" destination="2fL-zG-lnh" id="AO9-rX-SMy"/>
                 <outlet property="pausedView" destination="cH9-OF-qzo" id="bkH-XA-muv"/>
@@ -271,9 +271,10 @@
                 <outlet property="rewindButton" destination="ZMH-jd-vFf" id="aeu-jN-QSY"/>
                 <outlet property="speedButton" destination="7ZG-2M-XY6" id="wbD-D4-QDg"/>
                 <outlet property="speedLabel" destination="OQX-Vk-lBy" id="493-8B-qc0"/>
-                <outlet property="speedView" destination="7ZG-2M-XY6" id="UaO-yW-dUZ"/>
+                <outlet property="speedView" destination="qhp-FB-Rah" id="XYC-eo-AB3"/>
                 <outlet property="timeLabel" destination="6gi-tb-SsD" id="wDY-Zn-ado"/>
                 <outlet property="timeSlider" destination="399-Jq-6Be" id="LP4-uy-O08"/>
+                <outlet property="timeStackView" destination="BzJ-ei-xEY" id="eMz-e0-3RW"/>
                 <outlet property="toggleFullscreenButton" destination="00n-01-c4B" id="OY8-Ym-0eN"/>
             </connections>
             <point key="canvasLocation" x="64" y="-511.5"/>

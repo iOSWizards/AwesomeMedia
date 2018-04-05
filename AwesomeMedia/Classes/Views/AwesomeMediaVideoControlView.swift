@@ -7,9 +7,24 @@
 
 import UIKit
 
+public enum AwesomeMediaVideoControls {
+    case time
+    case jumpto
+    case speed
+    case playlist
+    case fullscreen
+    case minimize
+    case rewind
+}
+
+public enum AwesomeMediaVideoStates {
+    case info
+}
+
 public class AwesomeMediaVideoControlView: UIView {
 
     @IBOutlet public weak var playButton: UIButton!
+    @IBOutlet public weak var timeStackView: UIStackView!
     @IBOutlet public weak var minTimeLabel: UILabel!
     @IBOutlet public weak var maxTimeLabel: UILabel!
     @IBOutlet public weak var timeSlider: UISlider!
@@ -32,19 +47,33 @@ public class AwesomeMediaVideoControlView: UIView {
     
     // Private Variables
     fileprivate var autoHideControlTimer: Timer?
+    fileprivate var states: [AwesomeMediaVideoStates] = []
     
     // Configuration
     public override func awakeFromNib() {
         super.awakeFromNib()
+        
+        // execution configuration
+        backgroundColor = .clear
+    }
+    
+    public func configure(withControls controls: [AwesomeMediaVideoControls], states: [AwesomeMediaVideoStates]) {
+        self.states = states
+        
+        // show or hide buttons depending on request
+        timeStackView.isHidden = !controls.contains(.time)
+        jumptoView.isHidden = !controls.contains(.jumpto)
+        speedView.isHidden = !controls.contains(.speed)
+        playlistButton.isHidden = !controls.contains(.playlist)
+        rewindButton.isHidden = !controls.contains(.rewind)
+        toggleFullscreenButton.isHidden = !controls.contains(.fullscreen) && !controls.contains(.minimize)
+        toggleFullscreenButton.setImage(controls.contains(.fullscreen) ? UIImage.image("btnFullscreen") : UIImage.image("btnMinimize"), for: .normal)
         
         // set thumb slider image
         timeSlider.setThumbImage()
         
         // make sure that pausedView is visible
         togglePlay()
-        
-        // execution configuration
-        backgroundColor = .clear
     }
     
     // MARK: - Events
@@ -82,6 +111,11 @@ extension AwesomeMediaVideoControlView {
     fileprivate func togglePlay() {
         pausedView.isHidden = playButton.isSelected
         playingView.isHidden = !playButton.isSelected
+        
+        if !states.contains(.info) {
+            pausedView.isHidden = true
+            playingView.isHidden = false
+        }
     }
 }
 
@@ -151,8 +185,11 @@ extension AwesomeMediaVideoControlView {
 }
 
 extension UIView {
-    public func addVideoControls() -> AwesomeMediaVideoControlView {
+    public func addVideoControls(withControls controls: [AwesomeMediaVideoControls] = [.time, .fullscreen], states: [AwesomeMediaVideoStates] = []) -> AwesomeMediaVideoControlView {
+        
         let controlView = AwesomeMediaVideoControlView.newInstance
+        
+        controlView.configure(withControls: controls, states: states)
         
         addSubview(controlView)
         

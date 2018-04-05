@@ -10,6 +10,6 @@ import UIKit
 extension UISlider {
     
     public func setThumbImage(withImageName imageName: String = "btnSliderThumb") {
-        setThumbImage(UIImage(named: imageName, in: AwesomeMedia.bundle, compatibleWith: nil) , for: .normal)
+        setThumbImage(UIImage.image(imageName), for: .normal)
     }
 }

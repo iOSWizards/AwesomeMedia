@@ -17,7 +17,7 @@ public class AwesomeMediaVideoTableViewCell: UITableViewCell {
     public override func awakeFromNib() {
         super.awakeFromNib()
         
-        controlView = addVideoControls()
+        controlView = addVideoControls(states: [.info])
     }
     
     public override func setSelected(_ selected: Bool, animated: Bool) {
