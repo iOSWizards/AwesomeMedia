@@ -10,7 +10,7 @@ import UIKit
 public class AwesomeMediaVideoViewController: UIViewController {
 
     @IBOutlet public weak var coverImageView: UIImageView!
-    @IBOutlet public weak var playerView: UIView!
+    @IBOutlet public weak var playerView: AwesomeMediaView!
     @IBOutlet public weak var controlToggleButton: UIButton!
 
     public var controlView: AwesomeMediaVideoControlView?
@@ -28,11 +28,19 @@ public class AwesomeMediaVideoViewController: UIViewController {
             self.dismiss(animated: true, completion: nil)
         }
         
+        // play media
+        controlView?.playCallback = { (isPlaying) in
+            
+            AwesomeMediaManager.shared.playMedia(withParams: [.url: "https://overmind2.mvstg.com/api/v1/assets/0af656fc-dcde-45ad-9b59-7632ca247001.m3u8"])
+            self.playerView.avPlayerLayer.player = AwesomeMediaManager.shared.avPlayer
+        }
+        
         // add title view
         titleView = view.addVideoTitle()
         titleView?.closeCallback = {
             self.dismiss(animated: true, completion: nil)
         }
+        
     }
     
     // MARK: - Events

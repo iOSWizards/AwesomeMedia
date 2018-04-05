@@ -56,6 +56,7 @@ public class AwesomeMediaVideoControlView: UIView {
         super.awakeFromNib()
         
         backgroundColor = .clear
+        
     }
     
     public override func layoutSubviews() {
@@ -95,7 +96,6 @@ public class AwesomeMediaVideoControlView: UIView {
         speedView.isHidden = isPortrait
         playlistButton.isHidden = isPortrait
         rewindButton.isHidden = isPortrait
-        
     }
     
     // MARK: - Events

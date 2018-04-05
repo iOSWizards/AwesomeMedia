@@ -7,6 +7,16 @@
 
 import Foundation
 
+public enum AwesomeMediaParamTypes {
+    case url
+    case coverUrl
+    case author
+    case name
+    case duration
+}
+
+public typealias AwesomeMediaParams = [AwesomeMediaParamTypes: Any]
+
 public class AwesomeMedia {
     
     public static var autoHideControlViewTime: Double = 3
@@ -16,4 +26,7 @@ public class AwesomeMedia {
         return Bundle(for: AwesomeMedia.self)
     }
     
+    public static func play(mediaWithParams params: AwesomeMediaParams) {
+    
+    }
 }
