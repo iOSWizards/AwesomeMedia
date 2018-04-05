@@ -37,8 +37,8 @@ class TableViewController: UITableViewController {
         if let cell = cell as? AwesomeMediaVideoTableViewCell {
             cell.coverImageView.image = #imageLiteral(resourceName: "awesome")
             
-            cell.fullscreenCallback = {
-                let viewController = AwesomeMediaVideoViewController.viewController
+            cell.controlView?.fullscreenCallback = {
+                let viewController = AwesomeMediaVideoViewController.newInstance
                 
                 self.present(viewController, animated: true, completion: {
                     viewController.coverImageView.image = #imageLiteral(resourceName: "awesome")

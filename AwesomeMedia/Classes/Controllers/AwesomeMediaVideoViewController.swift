@@ -39,8 +39,6 @@ public class AwesomeMediaVideoViewController: UIViewController {
         jumptoView.isHidden = true
     }
     
-    
-    
     // MARK: - Events
     
     @IBAction func closeButtonPressed(_ sender: Any) {
@@ -75,9 +73,10 @@ public class AwesomeMediaVideoViewController: UIViewController {
 // MARK: - ViewController Initialization
 
 extension AwesomeMediaVideoViewController {
-    public static var viewController: AwesomeMediaVideoViewController {
+    public static var newInstance: AwesomeMediaVideoViewController {
         let storyboard = UIStoryboard(name: "AwesomeMedia", bundle: AwesomeMedia.bundle)
         
         return storyboard.instantiateViewController(withIdentifier: "AwesomeMediaVideoViewController") as! AwesomeMediaVideoViewController
     }
 }
+
