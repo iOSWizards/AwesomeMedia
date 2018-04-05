@@ -49,19 +49,36 @@ public class AwesomeMediaVideoControlView: UIView {
     // Private Variables
     fileprivate var autoHideControlTimer: Timer?
     fileprivate var states: [AwesomeMediaVideoStates] = []
+    fileprivate var controls: [AwesomeMediaVideoControls] = []
     
     // Configuration
     public override func awakeFromNib() {
         super.awakeFromNib()
         
-        // execution configuration
         backgroundColor = .clear
+    }
+    
+    public override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        updateControls(isPortrait: UIApplication.shared.statusBarOrientation.isPortrait)
     }
     
     public func configure(withControls controls: [AwesomeMediaVideoControls], states: [AwesomeMediaVideoStates]) {
         self.states = states
+        self.controls = controls
         
         // show or hide buttons depending on request
+        setupControls()
+        
+        // set thumb slider image
+        timeSlider.setThumbImage()
+        
+        // make sure that pausedView is visible
+        togglePlay()
+    }
+    
+    public func setupControls() {
         timeStackView.isHidden = !controls.contains(.time)
         jumptoView.isHidden = !controls.contains(.jumpto)
         speedView.isHidden = !controls.contains(.speed)
@@ -69,12 +86,15 @@ public class AwesomeMediaVideoControlView: UIView {
         rewindButton.isHidden = !controls.contains(.rewind)
         toggleFullscreenButton.isHidden = !controls.contains(.fullscreen) && !controls.contains(.minimize)
         toggleFullscreenButton.setImage(controls.contains(.fullscreen) ? UIImage.image("btnFullscreen") : UIImage.image("btnMinimize"), for: .normal)
+    }
+    
+    public func updateControls(isPortrait: Bool) {
+        setupControls()
         
-        // set thumb slider image
-        timeSlider.setThumbImage()
-        
-        // make sure that pausedView is visible
-        togglePlay()
+        jumptoView.isHidden = isPortrait
+        speedView.isHidden = isPortrait
+        playlistButton.isHidden = isPortrait
+        rewindButton.isHidden = isPortrait
     }
     
     // MARK: - Events

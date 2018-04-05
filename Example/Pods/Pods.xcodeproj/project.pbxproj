@@ -503,8 +503,8 @@
 		F130F5A412F5FDF4BD375219979DFB19 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				01A4F600968A0BD025B93612AAFB7857 /* AwesomeMediaVideoTableViewCell.xib */,
 				0A8DB7E72074E5B500C83281 /* AwesomeMedia.storyboard */,
+				01A4F600968A0BD025B93612AAFB7857 /* AwesomeMediaVideoTableViewCell.xib */,
 				0A6ED05C2075B720009DE6E3 /* AwesomeMediaVideoControlView.xib */,
 				0A6ED0662075EAC0009DE6E3 /* AwesomeMediaVideoTitleView.xib */,
 			);

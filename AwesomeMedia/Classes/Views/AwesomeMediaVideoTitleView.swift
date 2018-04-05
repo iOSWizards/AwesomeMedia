@@ -21,7 +21,6 @@ public class AwesomeMediaVideoTitleView: UIView {
     public override func awakeFromNib() {
         super.awakeFromNib()
         
-        // execution configuration
         backgroundColor = .clear
     }
     
