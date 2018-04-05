@@ -95,6 +95,7 @@ public class AwesomeMediaVideoControlView: UIView {
         speedView.isHidden = isPortrait
         playlistButton.isHidden = isPortrait
         rewindButton.isHidden = isPortrait
+        
     }
     
     // MARK: - Events
