@@ -11,26 +11,26 @@ public class AwesomeMediaVideoViewController: UIViewController {
 
     @IBOutlet public weak var coverImageView: UIImageView!
     @IBOutlet public weak var playerView: UIView!
-    @IBOutlet public weak var titleLabel: UILabel!
-    @IBOutlet public weak var titleView: UIView!
     @IBOutlet public weak var controlToggleButton: UIButton!
-    @IBOutlet public weak var closeButton: UIButton!
-    @IBOutlet public weak var airplayButton: UIButton!
+
     public var controlView: AwesomeMediaVideoControlView?
+    public var titleView: AwesomeMediaVideoTitleView?
     
     public override func viewDidLoad() {
         super.viewDidLoad()
 
+        // add control view
         controlView = view.addVideoControls(withControls: [.rewind, .time, .playlist, .speed, .jumpto, .minimize])
+        controlView?.toggleViewCallback = { (_) in
+            self.titleView?.toggleView()
+        }
+        
+        // add title view
+        titleView = view.addVideoTitle()
+        
     }
     
     // MARK: - Events
-    
-    @IBAction func closeButtonPressed(_ sender: Any) {
-    }
-    
-    @IBAction func airplayButtonPressed(_ sender: Any) {
-    }
     
     @IBAction func controlToggleButtonPressed(_ sender: Any) {
         controlView?.toggleViewIfPossible()

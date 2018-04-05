@@ -14,6 +14,9 @@
 		0A6ED05D2075B720009DE6E3 /* AwesomeMediaVideoControlView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A6ED05C2075B720009DE6E3 /* AwesomeMediaVideoControlView.xib */; };
 		0A6ED0632075B92F009DE6E3 /* AwesomeMediaVideoControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6ED0622075B92F009DE6E3 /* AwesomeMediaVideoControlView.swift */; };
 		0A6ED0652075DE32009DE6E3 /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6ED0642075DE32009DE6E3 /* UIImageExtensions.swift */; };
+		0A6ED0672075EAC0009DE6E3 /* AwesomeMediaVideoTitleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A6ED0662075EAC0009DE6E3 /* AwesomeMediaVideoTitleView.xib */; };
+		0A6ED0692075EC84009DE6E3 /* AwesomeMediaVideoTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6ED0682075EC84009DE6E3 /* AwesomeMediaVideoTitleView.swift */; };
+		0A6ED06B2075EEC0009DE6E3 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6ED06A2075EEC0009DE6E3 /* UIViewExtensions.swift */; };
 		0A8DB7E82074E5B500C83281 /* AwesomeMedia.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A8DB7E72074E5B500C83281 /* AwesomeMedia.storyboard */; };
 		0AD69EFAA709FCBCC43A058473F89EBA /* Gilroy-ExtraBoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = A797656844241087D0D57A6F1C6DCD2D /* Gilroy-ExtraBoldItalic.otf */; };
 		0BEDC183633A439E767EB5A2546BD41F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7120045256AE344E2D548A185BF1021E /* Foundation.framework */; };
@@ -108,6 +111,9 @@
 		0A6ED05C2075B720009DE6E3 /* AwesomeMediaVideoControlView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AwesomeMediaVideoControlView.xib; sourceTree = "<group>"; };
 		0A6ED0622075B92F009DE6E3 /* AwesomeMediaVideoControlView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AwesomeMediaVideoControlView.swift; sourceTree = "<group>"; };
 		0A6ED0642075DE32009DE6E3 /* UIImageExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtensions.swift; sourceTree = "<group>"; };
+		0A6ED0662075EAC0009DE6E3 /* AwesomeMediaVideoTitleView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AwesomeMediaVideoTitleView.xib; sourceTree = "<group>"; };
+		0A6ED0682075EC84009DE6E3 /* AwesomeMediaVideoTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwesomeMediaVideoTitleView.swift; sourceTree = "<group>"; };
+		0A6ED06A2075EEC0009DE6E3 /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 		0A8DB7E72074E5B500C83281 /* AwesomeMedia.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AwesomeMedia.storyboard; sourceTree = "<group>"; };
 		0D7F621B11A5ED6097E415536B809906 /* AwesomeMedia.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AwesomeMedia.swift; path = AwesomeMedia/Classes/AwesomeMedia.swift; sourceTree = "<group>"; };
 		0F3F808AE48189CFD699DC6447AD3E1E /* ShadowView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ShadowView.swift; path = AwesomeUIMagic/Classes/Shadow/ShadowView.swift; sourceTree = "<group>"; };
@@ -241,6 +247,7 @@
 			isa = PBXGroup;
 			children = (
 				0A6ED0622075B92F009DE6E3 /* AwesomeMediaVideoControlView.swift */,
+				0A6ED0682075EC84009DE6E3 /* AwesomeMediaVideoTitleView.swift */,
 			);
 			name = Views;
 			path = AwesomeMedia/Classes/Views;
@@ -330,6 +337,7 @@
 			children = (
 				5D67DD20BBEBA71C9F39A722F2040D9F /* UISliderExtensions.swift */,
 				0A6ED0642075DE32009DE6E3 /* UIImageExtensions.swift */,
+				0A6ED06A2075EEC0009DE6E3 /* UIViewExtensions.swift */,
 			);
 			name = Extensions;
 			path = AwesomeMedia/Classes/Extensions;
@@ -498,6 +506,7 @@
 				01A4F600968A0BD025B93612AAFB7857 /* AwesomeMediaVideoTableViewCell.xib */,
 				0A8DB7E72074E5B500C83281 /* AwesomeMedia.storyboard */,
 				0A6ED05C2075B720009DE6E3 /* AwesomeMediaVideoControlView.xib */,
+				0A6ED0662075EAC0009DE6E3 /* AwesomeMediaVideoTitleView.xib */,
 			);
 			name = Views;
 			path = AwesomeMedia/Assets/Views;
@@ -687,6 +696,7 @@
 				7C7BD91E998047D97E22584D45D009BB /* Gilroy-ExtraBold.otf in Resources */,
 				0AD69EFAA709FCBCC43A058473F89EBA /* Gilroy-ExtraBoldItalic.otf in Resources */,
 				B7FF0D1355F8C2907824477A4AC95020 /* Gilroy-Heavy.otf in Resources */,
+				0A6ED0672075EAC0009DE6E3 /* AwesomeMediaVideoTitleView.xib in Resources */,
 				11553D8E58CA67323E79AEC4FD7966EA /* Gilroy-HeavyItalic.otf in Resources */,
 				5C257ACD9837A9940FD69301BEA04476 /* Gilroy-Light.otf in Resources */,
 				7F326326DB0D58A534F2C8E2039C7368 /* Gilroy-LightItalic.otf in Resources */,
@@ -742,8 +752,10 @@
 				621DDB49ACB46DEE0432F7129C36A06C /* AwesomeMedia+Cells.swift in Sources */,
 				57870E7EE5E1B0D6531A12DF86354EB9 /* AwesomeMedia-dummy.m in Sources */,
 				0A6ED0632075B92F009DE6E3 /* AwesomeMediaVideoControlView.swift in Sources */,
+				0A6ED0692075EC84009DE6E3 /* AwesomeMediaVideoTitleView.swift in Sources */,
 				0A6ED0652075DE32009DE6E3 /* UIImageExtensions.swift in Sources */,
 				98585F1ADC069B4850090FD5BBF35DE0 /* AwesomeMedia.swift in Sources */,
+				0A6ED06B2075EEC0009DE6E3 /* UIViewExtensions.swift in Sources */,
 				5E77BE481000E97D64E0161B81E0BE7A /* AwesomeMediaVideoTableViewCell.swift in Sources */,
 				F2740356ED47B0A83CE2BC684ED4F353 /* AwesomeMediaVideoViewController.swift in Sources */,
 				656A2D0B43432872B4AC9637B03CD2E1 /* UISliderExtensions.swift in Sources */,

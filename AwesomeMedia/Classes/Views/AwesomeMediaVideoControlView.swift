@@ -44,6 +44,7 @@ public class AwesomeMediaVideoControlView: UIView {
     // Callbacks
     public var playCallback: ((_ playing: Bool) -> Void)?
     public var fullscreenCallback: (() -> Void)?
+    public var toggleViewCallback: ((Bool) -> Void)?
     
     // Private Variables
     fileprivate var autoHideControlTimer: Timer?
@@ -135,32 +136,12 @@ extension AwesomeMediaVideoControlView {
     }
     
     public func toggleView() {
-        let hideAnimation = {
-            UIViewPropertyAnimator(duration: AwesomeMedia.autoHideControlViewAnimationTime, curve: .easeOut) {
-                self.frame.origin.y = self.superview?.frame.size.height ?? UIScreen.main.bounds.size.height
-                self.alpha = 0
+        animateToggle(direction: .down) { (hidden) in
+            if !hidden {
+                self.autoHideControl()
             }
-        }()
-        hideAnimation.addCompletion { (_) in
-            self.isHidden = true
         }
-        
-        let showAnimation = {
-            UIViewPropertyAnimator(duration: AwesomeMedia.autoHideControlViewAnimationTime, curve: .linear) {
-                self.isHidden = false
-                self.alpha = 1
-                self.frame.origin.y = (self.superview?.frame.size.height ?? UIScreen.main.bounds.size.height) - self.frame.size.height
-            }
-        }()
-        showAnimation.addCompletion { (_) in
-            self.autoHideControl()
-        }
-        
-        if isHidden {
-            showAnimation.startAnimation()
-        } else {
-            hideAnimation.startAnimation()
-        }
+        toggleViewCallback?(isHidden)
     }
     
     public func autoHideControl() {
