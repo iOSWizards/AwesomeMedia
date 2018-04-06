@@ -20,7 +20,8 @@ public class AwesomeMediaVideoTableViewCell: UITableViewCell {
         controlView = addVideoControls(states: [.info])
         controlView?.playCallback = { (isPlaying) in
             if isPlaying {
-                AwesomeMediaManager.shared.playMedia(withParams: [.url: AwesomeMediaManager.testVideoURL], inPlayerLayer: self.playerView.avPlayerLayer)
+                AwesomeMediaManager.shared.playMedia(withParams: self.playerView.mediaParams, inPlayerLayer: self.playerView.avPlayerLayer)
+                self.controlView?.shouldShowInfo = false
             } else {
                 AwesomeMediaManager.shared.avPlayer.pause()
             }

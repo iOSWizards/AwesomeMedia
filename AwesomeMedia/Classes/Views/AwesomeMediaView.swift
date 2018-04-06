@@ -11,6 +11,7 @@ import AVFoundation
 public class AwesomeMediaView: UIView {
 
     public var avPlayerLayer = AVPlayerLayer()
+    public var mediaParams: AwesomeMediaParams = [:]
 
     public override func awakeFromNib() {
         super.awakeFromNib()

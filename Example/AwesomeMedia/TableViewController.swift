@@ -36,7 +36,7 @@ class TableViewController: UITableViewController {
 
         if let cell = cell as? AwesomeMediaVideoTableViewCell {
             cell.coverImageView.image = #imageLiteral(resourceName: "awesome")
-            
+            cell.playerView.mediaParams = [.url: AwesomeMediaManager.testVideoURL]
             cell.controlView?.fullscreenCallback = {
                 let viewController = AwesomeMediaVideoViewController.newInstance
                 

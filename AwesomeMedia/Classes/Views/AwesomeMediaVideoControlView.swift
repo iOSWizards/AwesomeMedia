@@ -51,6 +51,9 @@ public class AwesomeMediaVideoControlView: UIView {
     fileprivate var states: [AwesomeMediaVideoStates] = []
     fileprivate var controls: [AwesomeMediaVideoControls] = []
     
+    // Public Variables
+    public var shouldShowInfo = true
+    
     // Configuration
     public override func awakeFromNib() {
         super.awakeFromNib()
@@ -134,7 +137,7 @@ extension AwesomeMediaVideoControlView {
         pausedView.isHidden = playButton.isSelected
         playingView.isHidden = !playButton.isSelected
         
-        if !states.contains(.info) {
+        if !states.contains(.info) || !shouldShowInfo {
             pausedView.isHidden = true
             playingView.isHidden = false
         }
