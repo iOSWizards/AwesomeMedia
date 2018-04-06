@@ -19,6 +19,7 @@
 		0A6ED06B2075EEC0009DE6E3 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6ED06A2075EEC0009DE6E3 /* UIViewExtensions.swift */; };
 		0A6ED06F20762230009DE6E3 /* AwesomeMediaManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6ED06E20762230009DE6E3 /* AwesomeMediaManager.swift */; };
 		0A6ED07120762796009DE6E3 /* AwesomeMediaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6ED07020762796009DE6E3 /* AwesomeMediaView.swift */; };
+		0A6ED07320773B50009DE6E3 /* AwesomeMediaNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6ED07220773B50009DE6E3 /* AwesomeMediaNotificationCenter.swift */; };
 		0A8DB7E82074E5B500C83281 /* AwesomeMedia.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A8DB7E72074E5B500C83281 /* AwesomeMedia.storyboard */; };
 		0AD69EFAA709FCBCC43A058473F89EBA /* Gilroy-ExtraBoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = A797656844241087D0D57A6F1C6DCD2D /* Gilroy-ExtraBoldItalic.otf */; };
 		0BEDC183633A439E767EB5A2546BD41F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7120045256AE344E2D548A185BF1021E /* Foundation.framework */; };
@@ -118,6 +119,7 @@
 		0A6ED06A2075EEC0009DE6E3 /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 		0A6ED06E20762230009DE6E3 /* AwesomeMediaManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwesomeMediaManager.swift; sourceTree = "<group>"; };
 		0A6ED07020762796009DE6E3 /* AwesomeMediaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwesomeMediaView.swift; sourceTree = "<group>"; };
+		0A6ED07220773B50009DE6E3 /* AwesomeMediaNotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwesomeMediaNotificationCenter.swift; sourceTree = "<group>"; };
 		0A8DB7E72074E5B500C83281 /* AwesomeMedia.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AwesomeMedia.storyboard; sourceTree = "<group>"; };
 		0D7F621B11A5ED6097E415536B809906 /* AwesomeMedia.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AwesomeMedia.swift; path = AwesomeMedia/Classes/AwesomeMedia.swift; sourceTree = "<group>"; };
 		0F3F808AE48189CFD699DC6447AD3E1E /* ShadowView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ShadowView.swift; path = AwesomeUIMagic/Classes/Shadow/ShadowView.swift; sourceTree = "<group>"; };
@@ -262,6 +264,7 @@
 			isa = PBXGroup;
 			children = (
 				0A6ED06E20762230009DE6E3 /* AwesomeMediaManager.swift */,
+				0A6ED07220773B50009DE6E3 /* AwesomeMediaNotificationCenter.swift */,
 			);
 			name = Media;
 			path = AwesomeMedia/Classes/Media;
@@ -770,6 +773,7 @@
 				57870E7EE5E1B0D6531A12DF86354EB9 /* AwesomeMedia-dummy.m in Sources */,
 				0A6ED0632075B92F009DE6E3 /* AwesomeMediaVideoControlView.swift in Sources */,
 				0A6ED0692075EC84009DE6E3 /* AwesomeMediaVideoTitleView.swift in Sources */,
+				0A6ED07320773B50009DE6E3 /* AwesomeMediaNotificationCenter.swift in Sources */,
 				0A6ED0652075DE32009DE6E3 /* UIImageExtensions.swift in Sources */,
 				98585F1ADC069B4850090FD5BBF35DE0 /* AwesomeMedia.swift in Sources */,
 				0A6ED06B2075EEC0009DE6E3 /* UIViewExtensions.swift in Sources */,

@@ -11,27 +11,17 @@ public class AwesomeMediaVideoTableViewCell: UITableViewCell {
 
     @IBOutlet public weak var coverImageView: UIImageView!
     @IBOutlet public weak var playerView: AwesomeMediaView!
-    @IBOutlet public weak var controlToggleButton: UIButton!
-    public var controlView: AwesomeMediaVideoControlView?
 
-    public override func awakeFromNib() {
-        super.awakeFromNib()
-        
-        controlView = addVideoControls(states: [.info])
-        controlView?.playCallback = { (isPlaying) in
-            if isPlaying {
-                AwesomeMediaManager.shared.playMedia(withParams: self.playerView.mediaParams, inPlayerLayer: self.playerView.avPlayerLayer)
-                self.controlView?.shouldShowInfo = false
-            } else {
-                AwesomeMediaManager.shared.avPlayer.pause()
-            }
-        }
-    }
-    
     public override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    }
+    
+    public func configure(withMediaParams mediaParams: AwesomeMediaParams,
+                          toggleFullscreen: FullScreenCallback? = nil) {
+        playerView.configure(withMediaParams: mediaParams,
+                             controls: [.time, .fullscreen],
+                             states: [.info])
+        playerView.controlView?.fullscreenCallback = toggleFullscreen
     }
 
     // MARK: - Dimensions
@@ -43,11 +33,4 @@ public class AwesomeMediaVideoTableViewCell: UITableViewCell {
         
         return defaultSize
     }
-    
-    // MARK: - Control
-    
-    @IBAction func controlToggleButtonPressed(_ sender: Any) {
-        controlView?.toggleViewIfPossible()
-    }
-    
 }

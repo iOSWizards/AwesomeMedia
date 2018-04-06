@@ -21,6 +21,10 @@ public enum AwesomeMediaVideoStates {
     case info
 }
 
+public typealias PlaybackCallback = (_ playing: Bool) -> Void
+public typealias FullScreenCallback = () -> Void
+public typealias ToggleViewCallback = (Bool) -> Void
+
 public class AwesomeMediaVideoControlView: UIView {
 
     @IBOutlet public weak var playButton: UIButton!
@@ -42,9 +46,9 @@ public class AwesomeMediaVideoControlView: UIView {
     @IBOutlet public weak var timeLabel: UILabel!
     
     // Callbacks
-    public var playCallback: ((_ playing: Bool) -> Void)?
-    public var fullscreenCallback: (() -> Void)?
-    public var toggleViewCallback: ((Bool) -> Void)?
+    public var playCallback: PlaybackCallback?
+    public var fullscreenCallback: FullScreenCallback?
+    public var toggleViewCallback: ToggleViewCallback?
     
     // Private Variables
     fileprivate var autoHideControlTimer: Timer?
