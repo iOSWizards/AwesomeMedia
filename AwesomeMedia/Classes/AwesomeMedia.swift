@@ -19,6 +19,7 @@ public typealias AwesomeMediaParams = [AwesomeMediaParamTypes: Any]
 
 public class AwesomeMedia {
     
+    // Configuration
     public static var autoHideControlViewTime: Double = 3
     public static var autoHideControlViewAnimationTime: Double = 0.3
     

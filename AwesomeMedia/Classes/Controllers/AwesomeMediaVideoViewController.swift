@@ -29,11 +29,11 @@ public class AwesomeMediaVideoViewController: UIViewController {
         }
         
         // play media
-        controlView?.playCallback = { (isPlaying) in
-            
-            AwesomeMediaManager.shared.playMedia(withParams: [.url: "https://overmind2.mvstg.com/api/v1/assets/0af656fc-dcde-45ad-9b59-7632ca247001.m3u8"])
-            self.playerView.avPlayerLayer.player = AwesomeMediaManager.shared.avPlayer
-        }
+//        controlView?.playCallback = { (isPlaying) in
+//            
+//            AwesomeMediaManager.shared.playMedia(withParams: [.url: "https://overmind2.mvstg.com/api/v1/assets/0af656fc-dcde-45ad-9b59-7632ca247001.m3u8"])
+//            self.playerView.avPlayerLayer.player = AwesomeMediaManager.shared.avPlayer
+//        }
         
         // add title view
         titleView = view.addVideoTitle()

@@ -15,6 +15,8 @@ public class AwesomeMediaView: UIView {
     public override func awakeFromNib() {
         super.awakeFromNib()
         
+        avPlayerLayer.videoGravity = .resizeAspectFill
+        
         addPlayerLayer()
     }
     
