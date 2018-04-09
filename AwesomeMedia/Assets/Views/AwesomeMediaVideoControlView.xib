@@ -63,11 +63,8 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="BzJ-ei-xEY" userLabel="Timer Stack View">
                                                     <rect key="frame" x="60" y="0.0" width="421" height="64"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="2fL-zG-lnh">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2fL-zG-lnh">
                                                             <rect key="frame" x="0.0" y="0.0" width="40" height="64"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" constant="40" id="n97-Mx-mab"/>
-                                                            </constraints>
                                                             <fontDescription key="fontDescription" name="Gilroy-Bold" family="Gilroy" pointSize="14"/>
                                                             <color key="textColor" red="0.75686274509999996" green="0.75686274509999996" blue="0.75686274509999996" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -86,16 +83,19 @@
                                                                 <action selector="timeSliderValueChanged:" destination="KpV-7W-VZN" eventType="valueChanged" id="Q5s-3y-8Qr"/>
                                                             </connections>
                                                         </slider>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="b2L-Es-qY8">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b2L-Es-qY8">
                                                             <rect key="frame" x="381" y="0.0" width="40" height="64"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="40" id="lRG-fz-pr2"/>
+                                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="40" id="lRG-fz-pr2"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" name="Gilroy-Bold" family="Gilroy" pointSize="14"/>
                                                             <color key="textColor" red="0.75686274509999996" green="0.75686274509999996" blue="0.75686274509999996" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="2fL-zG-lnh" firstAttribute="width" secondItem="b2L-Es-qY8" secondAttribute="width" id="lqi-lh-Ox0"/>
+                                                    </constraints>
                                                 </stackView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PmL-mF-obz">
                                                     <rect key="frame" x="497" y="0.0" width="44" height="64"/>

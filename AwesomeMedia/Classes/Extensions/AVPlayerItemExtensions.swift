@@ -18,10 +18,18 @@ extension AVPlayerItem {
     }
     
     public var minTimeString: String {
-        return Float64(currentTime().seconds).formatedTime
+        let time = Float64(currentTime().seconds)
+        if durationInSeconds.isHours {
+            return time.formatedTimeInHours
+        }
+        return time.formatedTimeInMinutes
     }
     
     public var maxTimeString: String {
-        return Float64(durationInSeconds - currentTimeInSeconds).formatedTime
+        let time = Float64(durationInSeconds - currentTimeInSeconds)
+        if durationInSeconds.isHours {
+            return time.formatedTimeInHours
+        }
+        return time.formatedTimeInMinutes
     }
 }
