@@ -20,7 +20,7 @@ public class AwesomeMediaVideoViewController: UIViewController {
         super.viewDidLoad()
 
         // add control view
-        controlView = view.addVideoControls(withControls: [.rewind, .time, .playlist, .speed, .jumpto, .minimize])
+        controlView = view.addVideoControls(withControls: .all)
         controlView?.toggleViewCallback = { (_) in
             self.titleView?.toggleView()
         }

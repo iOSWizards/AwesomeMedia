@@ -6,19 +6,38 @@
 //
 
 import UIKit
+import AVFoundation
 
-public enum AwesomeMediaVideoControls {
-    case time
-    case jumpto
-    case speed
-    case playlist
-    case fullscreen
-    case minimize
-    case rewind
+public struct AwesomeMediaVideoControls: OptionSet {
+    public let rawValue: Int
+    
+    public init(rawValue: Int) {
+        self.rawValue = rawValue
+    }
+    
+    public static let time = AwesomeMediaVideoControls(rawValue: 0)
+    public static let jumpto = AwesomeMediaVideoControls(rawValue: 1)
+    public static let speed = AwesomeMediaVideoControls(rawValue: 2)
+    public static let playlist = AwesomeMediaVideoControls(rawValue: 3)
+    public static let fullscreen = AwesomeMediaVideoControls(rawValue: 4)
+    public static let minimize = AwesomeMediaVideoControls(rawValue: 5)
+    public static let rewind = AwesomeMediaVideoControls(rawValue: 6)
+    
+    public static let standard: AwesomeMediaVideoControls = [.time, .fullscreen]
+    public static let all: AwesomeMediaVideoControls = [.standard, .jumpto, .speed, .playlist, .minimize, .rewind]
 }
 
-public enum AwesomeMediaVideoStates {
-    case info
+
+public struct AwesomeMediaVideoStates: OptionSet {
+    public let rawValue: Int
+    
+    public init(rawValue: Int) {
+        self.rawValue = rawValue
+    }
+    
+    public static let info = AwesomeMediaVideoStates(rawValue: 0)
+    
+    public static let standard: AwesomeMediaVideoStates = []
 }
 
 public typealias PlaybackCallback = (_ playing: Bool) -> Void
@@ -52,8 +71,8 @@ public class AwesomeMediaVideoControlView: UIView {
     
     // Private Variables
     fileprivate var autoHideControlTimer: Timer?
-    fileprivate var states: [AwesomeMediaVideoStates] = []
-    fileprivate var controls: [AwesomeMediaVideoControls] = []
+    fileprivate var states: AwesomeMediaVideoStates = .standard
+    fileprivate var controls: AwesomeMediaVideoControls = .standard
     
     // Public Variables
     public var shouldShowInfo = true
@@ -72,7 +91,7 @@ public class AwesomeMediaVideoControlView: UIView {
         updateControls(isPortrait: UIApplication.shared.statusBarOrientation.isPortrait)
     }
     
-    public func configure(withControls controls: [AwesomeMediaVideoControls], states: [AwesomeMediaVideoStates]) {
+    public func configure(withControls controls: AwesomeMediaVideoControls, states: AwesomeMediaVideoStates) {
         self.states = states
         self.controls = controls
         
@@ -103,6 +122,14 @@ public class AwesomeMediaVideoControlView: UIView {
         speedView.isHidden = isPortrait
         playlistButton.isHidden = isPortrait
         rewindButton.isHidden = isPortrait
+    }
+    
+    // update playback time
+    public func update(withItem item: AVPlayerItem) {
+        timeSlider.maximumValue = item.durationInSeconds
+        timeSlider.value = item.currentTimeInSeconds
+        minTimeLabel.text = item.minTimeString
+        maxTimeLabel.text = item.maxTimeString
     }
     
     // MARK: - Events
@@ -164,6 +191,8 @@ extension AwesomeMediaVideoControlView {
     }
     
     public func toggleView() {
+        autoHideControlTimer?.invalidate()
+        
         animateToggle(direction: .down) { (hidden) in
             if !hidden {
                 self.autoHideControl()
@@ -194,7 +223,7 @@ extension AwesomeMediaVideoControlView {
 }
 
 extension UIView {
-    public func addVideoControls(withControls controls: [AwesomeMediaVideoControls] = [.time, .fullscreen], states: [AwesomeMediaVideoStates] = []) -> AwesomeMediaVideoControlView {
+    public func addVideoControls(withControls controls: AwesomeMediaVideoControls = .standard, states: AwesomeMediaVideoStates = .standard) -> AwesomeMediaVideoControlView {
         
         let controlView = AwesomeMediaVideoControlView.newInstance
         

@@ -36,8 +36,8 @@ public class AwesomeMediaView: UIView {
     
     public func configure(
         withMediaParams mediaParams: AwesomeMediaParams,
-        controls: [AwesomeMediaVideoControls],
-        states: [AwesomeMediaVideoStates]) {
+        controls: AwesomeMediaVideoControls,
+        states: AwesomeMediaVideoStates) {
         
         self.mediaParams = mediaParams
         
@@ -60,6 +60,7 @@ public class AwesomeMediaView: UIView {
 fileprivate extension Selector {
     static let startedPlaying = #selector(AwesomeMediaView.startedPlaying)
     static let stopedPlaying = #selector(AwesomeMediaView.stopedPlaying)
+    static let timeUpdated = #selector(AwesomeMediaView.timeUpdated)
 }
 
 extension AwesomeMediaView {
@@ -67,6 +68,8 @@ extension AwesomeMediaView {
     fileprivate func addObservers() {
         AwesomeMediaNotificationCenter.shared.addObserver(self, selector: .startedPlaying, event: .startedPlaying)
         AwesomeMediaNotificationCenter.shared.addObserver(self, selector: .stopedPlaying, event: .stopedPlaying)
+        AwesomeMediaNotificationCenter.shared.addObserver(self, selector: .timeUpdated, event: .timeUpdated)
+
     }
     
     @objc fileprivate func startedPlaying() {
@@ -75,6 +78,17 @@ extension AwesomeMediaView {
     
     @objc fileprivate func stopedPlaying() {
         
+    }
+    
+    @objc fileprivate func timeUpdated() {
+        guard let item = AwesomeMediaManager.shared.currentItem(ifSameUrlAs: AwesomeMediaManager.url(forParams: mediaParams)) else {
+            return
+        }
+        
+        //AwesomeMedia.log("Current time updated: \(item.currentTime().seconds) of \(CMTimeGetSeconds(item.duration))")
+        
+        // update time controls
+        controlView?.update(withItem: item)
     }
 }
 
