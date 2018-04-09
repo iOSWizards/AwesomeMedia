@@ -52,6 +52,16 @@ public class AwesomeMediaView: UIView {
                 AwesomeMediaManager.shared.avPlayer.pause()
             }
         }
+        // seek slider
+        controlView?.timeSliderChangedCallback = { (time) in
+            AwesomeMediaManager.shared.avPlayer.pause()
+            AwesomeMediaManager.shared.seek(toTime: time)
+        }
+        controlView?.timeSliderFinishedDraggingCallback = { (play) in
+            if play {
+                AwesomeMediaManager.shared.avPlayer.play()
+            }
+        }
     }
 }
 

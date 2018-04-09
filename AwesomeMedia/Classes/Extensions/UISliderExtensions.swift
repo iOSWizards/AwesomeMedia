@@ -11,5 +11,6 @@ extension UISlider {
     
     public func setThumbImage(withImageName imageName: String = "btnSliderThumb") {
         setThumbImage(UIImage.image(imageName), for: .normal)
+        setThumbImage(UIImage.image(imageName), for: .highlighted)
     }
 }

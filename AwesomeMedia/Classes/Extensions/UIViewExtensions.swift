@@ -24,6 +24,7 @@ extension UIView {
         }()
         hideAnimation.addCompletion { (_) in
             self.isHidden = true
+            self.translatesAutoresizingMaskIntoConstraints = false
             completion?(true)
         }
         
@@ -35,6 +36,7 @@ extension UIView {
             }
         }()
         showAnimation.addCompletion { (_) in
+            self.translatesAutoresizingMaskIntoConstraints = false
             completion?(false)
         }
         

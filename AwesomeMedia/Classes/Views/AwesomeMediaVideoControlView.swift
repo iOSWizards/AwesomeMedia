@@ -43,6 +43,8 @@ public struct AwesomeMediaVideoStates: OptionSet {
 public typealias PlaybackCallback = (_ playing: Bool) -> Void
 public typealias FullScreenCallback = () -> Void
 public typealias ToggleViewCallback = (Bool) -> Void
+public typealias TimeSliderChangedCallback = (Double) -> Void
+public typealias TimeSliderFinishedDraggingCallback = (Bool) -> Void
 
 public class AwesomeMediaVideoControlView: UIView {
 
@@ -68,12 +70,16 @@ public class AwesomeMediaVideoControlView: UIView {
     public var playCallback: PlaybackCallback?
     public var fullscreenCallback: FullScreenCallback?
     public var toggleViewCallback: ToggleViewCallback?
+    public var timeSliderChangedCallback: TimeSliderChangedCallback?
+    public var timeSliderFinishedDraggingCallback: TimeSliderFinishedDraggingCallback?
     
     // Private Variables
     fileprivate var autoHideControlTimer: Timer?
     fileprivate var states: AwesomeMediaVideoStates = .standard
     fileprivate var controls: AwesomeMediaVideoControls = .standard
     fileprivate var bottomConstraint: NSLayoutConstraint?
+    fileprivate var timerSliderIsSliding = false
+    fileprivate var playButtonStateBeforeSliding = false
     
     // Public Variables
     public var shouldShowInfo = true
@@ -83,7 +89,6 @@ public class AwesomeMediaVideoControlView: UIView {
         super.awakeFromNib()
         
         backgroundColor = .clear
-        
     }
     
     public override func layoutSubviews() {
@@ -127,8 +132,10 @@ public class AwesomeMediaVideoControlView: UIView {
     
     // update playback time
     public func update(withItem item: AVPlayerItem) {
-        timeSlider.maximumValue = item.durationInSeconds
-        timeSlider.value = item.currentTimeInSeconds
+        if !timerSliderIsSliding {
+            timeSlider.maximumValue = item.durationInSeconds
+            timeSlider.value = item.currentTimeInSeconds
+        }
         minTimeLabel.text = item.minTimeString
         maxTimeLabel.text = item.maxTimeString
     }
@@ -159,6 +166,21 @@ public class AwesomeMediaVideoControlView: UIView {
     }
     
     @IBAction func timeSliderValueChanged(_ sender: Any) {
+        timeSliderChangedCallback?(Double(timeSlider.value))
+        
+        AwesomeMedia.log("Slider Changed to: \(timeSlider.value)")
+    }
+    
+    @IBAction func timeSliderStartedDragging(_ sender: Any) {
+        autoHideControlTimer?.invalidate()
+        timerSliderIsSliding = true
+        playButtonStateBeforeSliding = playButton.isSelected
+    }
+    
+    @IBAction func timeSliderFinishedDragging(_ sender: Any) {
+        timerSliderIsSliding = false
+        autoHideControl()
+        timeSliderFinishedDraggingCallback?(playButtonStateBeforeSliding)
     }
     
 }

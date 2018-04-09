@@ -49,6 +49,15 @@ public class AwesomeMediaManager: NSObject {
         }
     }
     
+    // MARK: - Controls
+    public func seek(toTime time: Double) {
+        avPlayer.currentItem?.seek(to: CMTime(seconds: time, preferredTimescale: avPlayer.currentTime().timescale))
+        
+        AwesomeMediaNotificationCenter.shared.notify(.timeUpdated, object: avPlayer.currentItem)
+    }
+    
+    // MARK: - Current Item
+    
     public func isCurrentItem(withUrl url: URL?) -> Bool {
         guard let url = url else {
             return false

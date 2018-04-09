@@ -10,7 +10,8 @@ import AVFoundation
 extension AVPlayerItem {
     
     public var durationInSeconds: Float {
-        return Float(CMTimeGetSeconds(duration))
+        let durationInSeconds = Float(CMTimeGetSeconds(duration))
+        return !durationInSeconds.isNaN ? durationInSeconds : 1
     }
     
     public var currentTimeInSeconds: Float {

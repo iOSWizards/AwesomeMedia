@@ -69,7 +69,7 @@
                                                             <color key="textColor" red="0.75686274509999996" green="0.75686274509999996" blue="0.75686274509999996" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="399-Jq-6Be">
+                                                        <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="399-Jq-6Be">
                                                             <rect key="frame" x="48" y="0.0" width="325" height="65"/>
                                                             <color key="minimumTrackTintColor" red="0.1647058824" green="0.54901960780000003" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
                                                             <color key="maximumTrackTintColor" white="1" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -80,6 +80,9 @@
                                                                 </userDefinedRuntimeAttribute>
                                                             </userDefinedRuntimeAttributes>
                                                             <connections>
+                                                                <action selector="timeSliderFinishedDragging:" destination="KpV-7W-VZN" eventType="touchUpOutside" id="1nw-Pc-PCf"/>
+                                                                <action selector="timeSliderFinishedDragging:" destination="KpV-7W-VZN" eventType="touchUpInside" id="E3p-SB-H4Y"/>
+                                                                <action selector="timeSliderStartedDragging:" destination="KpV-7W-VZN" eventType="touchDown" id="i3K-9q-eTv"/>
                                                                 <action selector="timeSliderValueChanged:" destination="KpV-7W-VZN" eventType="valueChanged" id="Q5s-3y-8Qr"/>
                                                             </connections>
                                                         </slider>
