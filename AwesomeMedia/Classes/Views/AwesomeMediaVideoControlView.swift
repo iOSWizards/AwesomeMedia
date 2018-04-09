@@ -73,6 +73,7 @@ public class AwesomeMediaVideoControlView: UIView {
     fileprivate var autoHideControlTimer: Timer?
     fileprivate var states: AwesomeMediaVideoStates = .standard
     fileprivate var controls: AwesomeMediaVideoControls = .standard
+    fileprivate var bottomConstraint: NSLayoutConstraint?
     
     // Public Variables
     public var shouldShowInfo = true
@@ -190,7 +191,7 @@ extension AwesomeMediaVideoControlView {
         toggleView()
     }
     
-    public func toggleView() {
+    fileprivate func toggleView() {
         autoHideControlTimer?.invalidate()
         
         animateToggle(direction: .down) { (hidden) in
@@ -235,7 +236,10 @@ extension UIView {
         
         addConstraint(NSLayoutConstraint(item: controlView, attribute: .leading, relatedBy: .equal, toItem: self, attribute: .leading, multiplier: 1, constant: 0))
         addConstraint(NSLayoutConstraint(item: controlView, attribute: .trailing, relatedBy: .equal, toItem: self, attribute: .trailing, multiplier: 1, constant: 0))
-        addConstraint(NSLayoutConstraint(item: controlView, attribute: .bottom, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 1, constant: 0))
+        
+        controlView.bottomConstraint = NSLayoutConstraint(item: controlView, attribute: .bottom, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 1, constant: 0)
+        addConstraint(controlView.bottomConstraint!)
+        
         addConstraint(NSLayoutConstraint(item: controlView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 91))
         
         return controlView

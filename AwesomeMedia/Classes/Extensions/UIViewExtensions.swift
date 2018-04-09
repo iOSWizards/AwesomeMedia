@@ -14,16 +14,11 @@ public enum AwesomeMediaViewDirection {
 
 extension UIView {
     public func animateToggle(direction: AwesomeMediaViewDirection, completion: ((Bool)->Void)? = nil) {
+        self.translatesAutoresizingMaskIntoConstraints = true
+        
         let hideAnimation = {
             UIViewPropertyAnimator(duration: AwesomeMedia.autoHideControlViewAnimationTime, curve: .easeOut) {
-                
-                switch direction {
-                case .up:
-                    self.frame.origin.y = -self.frame.size.height
-                case .down:
-                    self.frame.origin.y = self.superview?.frame.size.height ?? UIScreen.main.bounds.size.height
-                }
-            
+                self.hiddenPosition(withDirection: direction)
                 self.alpha = 0
             }
         }()
@@ -36,13 +31,7 @@ extension UIView {
             UIViewPropertyAnimator(duration: AwesomeMedia.autoHideControlViewAnimationTime, curve: .linear) {
                 self.isHidden = false
                 self.alpha = 1
-                
-                switch direction {
-                case .up:
-                    self.frame.origin.y = 0
-                case .down:
-                    self.frame.origin.y = (self.superview?.frame.size.height ?? UIScreen.main.bounds.size.height) - self.frame.size.height
-                }
+                self.visiblePosition(withDirection: direction)
             }
         }()
         showAnimation.addCompletion { (_) in
@@ -53,6 +42,26 @@ extension UIView {
             showAnimation.startAnimation()
         } else {
             hideAnimation.startAnimation()
+        }
+    }
+    
+    fileprivate func hiddenPosition(withDirection direction: AwesomeMediaViewDirection) {
+        
+        switch direction {
+        case .up:
+            self.frame.origin.y = -self.frame.size.height
+        case .down:
+            self.frame.origin.y = self.superview?.frame.size.height ?? UIScreen.main.bounds.size.height
+        }
+    }
+    
+    fileprivate func visiblePosition(withDirection direction: AwesomeMediaViewDirection) {
+        
+        switch direction {
+        case .up:
+            self.frame.origin.y = 0
+        case .down:
+            self.frame.origin.y = (self.superview?.frame.size.height ?? UIScreen.main.bounds.size.height) - self.frame.size.height
         }
     }
 }
