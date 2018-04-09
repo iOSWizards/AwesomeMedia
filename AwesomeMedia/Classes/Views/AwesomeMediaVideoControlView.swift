@@ -15,16 +15,16 @@ public struct AwesomeMediaVideoControls: OptionSet {
         self.rawValue = rawValue
     }
     
-    public static let time = AwesomeMediaVideoControls(rawValue: 0)
-    public static let jumpto = AwesomeMediaVideoControls(rawValue: 1)
-    public static let speed = AwesomeMediaVideoControls(rawValue: 2)
-    public static let playlist = AwesomeMediaVideoControls(rawValue: 3)
-    public static let fullscreen = AwesomeMediaVideoControls(rawValue: 4)
-    public static let minimize = AwesomeMediaVideoControls(rawValue: 5)
-    public static let rewind = AwesomeMediaVideoControls(rawValue: 6)
+    public static let time = AwesomeMediaVideoControls(rawValue: 1)
+    public static let jumpto = AwesomeMediaVideoControls(rawValue: 2)
+    public static let speed = AwesomeMediaVideoControls(rawValue: 3)
+    public static let playlist = AwesomeMediaVideoControls(rawValue: 4)
+    public static let fullscreen = AwesomeMediaVideoControls(rawValue: 5)
+    public static let minimize = AwesomeMediaVideoControls(rawValue: 6)
+    public static let rewind = AwesomeMediaVideoControls(rawValue: 7)
     
     public static let standard: AwesomeMediaVideoControls = [.time, .fullscreen]
-    public static let all: AwesomeMediaVideoControls = [.standard, .jumpto, .speed, .playlist, .minimize, .rewind]
+    public static let all: AwesomeMediaVideoControls = [.time, .fullscreen, .jumpto, .speed, .playlist, .minimize, .rewind]
 }
 
 
@@ -35,7 +35,7 @@ public struct AwesomeMediaVideoStates: OptionSet {
         self.rawValue = rawValue
     }
     
-    public static let info = AwesomeMediaVideoStates(rawValue: 0)
+    public static let info = AwesomeMediaVideoStates(rawValue: 1)
     
     public static let standard: AwesomeMediaVideoStates = []
 }
@@ -124,10 +124,12 @@ public class AwesomeMediaVideoControlView: UIView {
     public func updateControls(isPortrait: Bool) {
         setupControls()
         
-        jumptoView.isHidden = isPortrait
-        speedView.isHidden = isPortrait
-        playlistButton.isHidden = isPortrait
-        rewindButton.isHidden = isPortrait
+        if controls.contains([.jumpto, .speed, .playlist, .rewind]) {
+            jumptoView.isHidden = isPortrait
+            speedView.isHidden = isPortrait
+            playlistButton.isHidden = isPortrait
+            rewindButton.isHidden = isPortrait
+        }
     }
     
     // update playback time

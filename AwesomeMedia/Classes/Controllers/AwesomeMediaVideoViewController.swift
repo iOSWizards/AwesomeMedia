@@ -11,42 +11,22 @@ public class AwesomeMediaVideoViewController: UIViewController {
 
     @IBOutlet public weak var coverImageView: UIImageView!
     @IBOutlet public weak var playerView: AwesomeMediaView!
-    @IBOutlet public weak var controlToggleButton: UIButton!
-
-    public var controlView: AwesomeMediaVideoControlView?
-    public var titleView: AwesomeMediaVideoTitleView?
+    
+    public var mediaParams: AwesomeMediaParams = [:]
     
     public override func viewDidLoad() {
         super.viewDidLoad()
 
-        // add control view
-        controlView = view.addVideoControls(withControls: .all)
-        controlView?.toggleViewCallback = { (_) in
-            self.titleView?.toggleView()
-        }
-        controlView?.fullscreenCallback = {
+        playerView.configure(withMediaParams: mediaParams,
+                             controls: .all,
+                             states: .standard,
+                             titleViewVisible: true)
+        playerView.controlView?.fullscreenCallback = {
             self.dismiss(animated: true, completion: nil)
         }
-        
-        // play media
-//        controlView?.playCallback = { (isPlaying) in
-//            
-//            AwesomeMediaManager.shared.playMedia(withParams: [.url: "https://overmind2.mvstg.com/api/v1/assets/0af656fc-dcde-45ad-9b59-7632ca247001.m3u8"])
-//            self.playerView.avPlayerLayer.player = AwesomeMediaManager.shared.avPlayer
-//        }
-        
-        // add title view
-        titleView = view.addVideoTitle()
-        titleView?.closeCallback = {
+        playerView.titleView?.closeCallback = {
             self.dismiss(animated: true, completion: nil)
         }
-        
-    }
-    
-    // MARK: - Events
-    
-    @IBAction func controlToggleButtonPressed(_ sender: Any) {
-        controlView?.toggleViewIfPossible()
     }
     
 }

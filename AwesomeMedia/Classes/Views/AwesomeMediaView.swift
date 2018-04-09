@@ -13,6 +13,7 @@ public class AwesomeMediaView: UIView {
     public var avPlayerLayer = AVPlayerLayer()
     public var mediaParams: AwesomeMediaParams = [:]
     public var controlView: AwesomeMediaVideoControlView?
+    public var titleView: AwesomeMediaVideoTitleView?
 
     public override func awakeFromNib() {
         super.awakeFromNib()
@@ -37,11 +38,23 @@ public class AwesomeMediaView: UIView {
     public func configure(
         withMediaParams mediaParams: AwesomeMediaParams,
         controls: AwesomeMediaVideoControls,
-        states: AwesomeMediaVideoStates) {
+        states: AwesomeMediaVideoStates,
+        titleViewVisible: Bool = false) {
         
         self.mediaParams = mediaParams
         
+        // Control View
+        configureControls(controls: controls, states: states)
+        
+        // Title view
+        if titleViewVisible {
+            configureTitle()
+        }
+    }
+    
+    fileprivate func configureControls(controls: AwesomeMediaVideoControls, states: AwesomeMediaVideoStates = .standard) {
         controlView = superview?.addVideoControls(withControls: controls, states: states)
+        
         controlView?.playCallback = { (isPlaying) in
             if isPlaying {
                 AwesomeMediaManager.shared.playMedia(
@@ -52,6 +65,10 @@ public class AwesomeMediaView: UIView {
                 AwesomeMediaManager.shared.avPlayer.pause()
             }
         }
+        controlView?.toggleViewCallback = { (_) in
+            self.titleView?.toggleView()
+        }
+        
         // seek slider
         controlView?.timeSliderChangedCallback = { (time) in
             AwesomeMediaManager.shared.avPlayer.pause()
@@ -62,6 +79,10 @@ public class AwesomeMediaView: UIView {
                 AwesomeMediaManager.shared.avPlayer.play()
             }
         }
+    }
+    
+    fileprivate func configureTitle() {
+        titleView = superview?.addVideoTitle()
     }
 }
 

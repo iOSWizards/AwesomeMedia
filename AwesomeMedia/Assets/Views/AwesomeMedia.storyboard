@@ -19,7 +19,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3dC-d2-uOM">
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3dC-d2-uOM">
                                 <rect key="frame" x="0.0" y="0.33333333333334281" width="812" height="374.33333333333326"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="3dC-d2-uOM" secondAttribute="height" multiplier="16:9" priority="750" id="Izc-iQ-Asf"/>
@@ -29,33 +29,22 @@
                                 <rect key="frame" x="0.0" y="0.33333333333334281" width="812" height="374.33333333333326"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4HD-5j-egl">
-                                <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
-                                <connections>
-                                    <action selector="controlToggleButtonPressed:" destination="D5r-St-fKa" eventType="touchUpInside" id="cIS-P4-AAN"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="4HD-5j-egl" firstAttribute="leading" secondItem="qc5-ty-b2D" secondAttribute="leading" id="36W-L2-tSB"/>
                             <constraint firstItem="UKc-qD-L8m" firstAttribute="bottom" secondItem="3dC-d2-uOM" secondAttribute="bottom" id="49g-1u-Hjl"/>
                             <constraint firstItem="3dC-d2-uOM" firstAttribute="centerY" secondItem="qc5-ty-b2D" secondAttribute="centerY" id="6FD-cV-vuu"/>
-                            <constraint firstAttribute="bottom" secondItem="4HD-5j-egl" secondAttribute="bottom" id="9fU-hm-U66"/>
-                            <constraint firstAttribute="trailing" secondItem="4HD-5j-egl" secondAttribute="trailing" id="G37-co-Ufi"/>
                             <constraint firstItem="3dC-d2-uOM" firstAttribute="top" relation="greaterThanOrEqual" secondItem="qc5-ty-b2D" secondAttribute="top" id="LKg-Xz-eVu"/>
                             <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="3dC-d2-uOM" secondAttribute="bottom" id="OfN-c2-Fhd"/>
                             <constraint firstItem="UKc-qD-L8m" firstAttribute="leading" secondItem="3dC-d2-uOM" secondAttribute="leading" id="QnW-SC-UP1"/>
                             <constraint firstItem="UKc-qD-L8m" firstAttribute="top" secondItem="3dC-d2-uOM" secondAttribute="top" id="W6o-qX-Gms"/>
                             <constraint firstItem="3dC-d2-uOM" firstAttribute="leading" secondItem="qc5-ty-b2D" secondAttribute="leading" id="Zx2-DZ-KnQ"/>
                             <constraint firstAttribute="trailing" secondItem="3dC-d2-uOM" secondAttribute="trailing" id="eVl-CX-o9R"/>
-                            <constraint firstItem="4HD-5j-egl" firstAttribute="top" secondItem="PWQ-yJ-Grg" secondAttribute="top" id="s9y-WO-vhR"/>
                             <constraint firstItem="UKc-qD-L8m" firstAttribute="trailing" secondItem="3dC-d2-uOM" secondAttribute="trailing" id="xAD-BV-17c"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PWQ-yJ-Grg"/>
                     </view>
                     <connections>
-                        <outlet property="controlToggleButton" destination="4HD-5j-egl" id="hmS-Km-BiB"/>
                         <outlet property="coverImageView" destination="3dC-d2-uOM" id="dzJ-EU-iyS"/>
                         <outlet property="playerView" destination="UKc-qD-L8m" id="DGD-f2-0Fj"/>
                     </connections>
