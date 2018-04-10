@@ -58,11 +58,12 @@ extension AwesomeMediaVideoTitleView {
 
 extension UIView {
     public func addVideoTitle() -> AwesomeMediaVideoTitleView {
+
+        // remove title view before adding new one
+        removeVideoTitleView()
         
         let controlView = AwesomeMediaVideoTitleView.newInstance
-        
         addSubview(controlView)
-        
         controlView.translatesAutoresizingMaskIntoConstraints = false
         
         addConstraint(NSLayoutConstraint(item: controlView, attribute: .leading, relatedBy: .equal, toItem: self, attribute: .leading, multiplier: 1, constant: 0))
@@ -71,6 +72,12 @@ extension UIView {
         addConstraint(NSLayoutConstraint(item: controlView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 91))
         
         return controlView
+    }
+    
+    public func removeVideoTitleView() {
+        for subview in subviews where subview is AwesomeMediaVideoTitleView {
+            subview.removeFromSuperview()
+        }
     }
 }
 

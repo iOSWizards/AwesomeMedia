@@ -21,6 +21,12 @@ class TableViewController: UITableViewController {
         AwesomeMedia.registerVideoCell(to: tableView, withIdentifier: MediaType.video.rawValue)
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        tableView.reloadData()
+    }
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -34,6 +40,10 @@ class TableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: MediaType.video.rawValue, for: indexPath)
 
+        return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if let cell = cell as? AwesomeMediaVideoTableViewCell {
             cell.coverImageView.image = #imageLiteral(resourceName: "awesome")
             
@@ -47,8 +57,6 @@ class TableViewController: UITableViewController {
                 })
             })
         }
-        
-        return cell
     }
 
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

@@ -78,7 +78,7 @@ public class AwesomeMediaVideoControlView: UIView {
         timeSlider.setThumbImage()
         
         // make sure that pausedView is visible
-        togglePlay()
+        updatePlayState()
     }
     
     public func setupControls() {
@@ -110,13 +110,36 @@ public class AwesomeMediaVideoControlView: UIView {
         }
         minTimeLabel.text = item.minTimeString
         maxTimeLabel.text = item.maxTimeString
+        
+        // update play/pause state based on player rate
+        playButton.isSelected = AwesomeMediaManager.shared.avPlayer.rate > 0
+        
+        updatePlayState()
     }
     
+    // update play/pause state
+    fileprivate func updatePlayState() {
+        
+        // Show/Hide paused and playing states based on play button
+        pausedView.isHidden = playButton.isSelected
+        playingView.isHidden = !playButton.isSelected
+        
+        // in case play button has been selected once, show info will be set as false
+        if playButton.isSelected {
+            shouldShowInfo = false
+        }
+        
+        // make sure that it won't show the paused view if we started playing at least once
+        if !states.contains(.info) || !shouldShowInfo {
+            pausedView.isHidden = true
+            playingView.isHidden = false
+        }
+    }
     // MARK: - Events
     
     @IBAction func playButtonPressed(_ sender: Any) {
         playButton.isSelected = !playButton.isSelected
-        togglePlay()
+        updatePlayState()
         playCallback?(playButton.isSelected)
         autoHideControl()
     }
@@ -159,19 +182,6 @@ public class AwesomeMediaVideoControlView: UIView {
         timeSliderFinishedDraggingCallback?(playButtonStateBeforeSliding)
     }
     
-}
-
-// MARK: - Play/Pause
-extension AwesomeMediaVideoControlView {
-    fileprivate func togglePlay() {
-        pausedView.isHidden = playButton.isSelected
-        playingView.isHidden = !playButton.isSelected
-        
-        if !states.contains(.info) || !shouldShowInfo {
-            pausedView.isHidden = true
-            playingView.isHidden = false
-        }
-    }
 }
 
 // MARK: - Control Toggle
@@ -224,12 +234,12 @@ extension AwesomeMediaVideoControlView {
 extension UIView {
     public func addVideoControls(withControls controls: AwesomeMediaVideoControls = .standard, states: AwesomeMediaVideoStates = .standard) -> AwesomeMediaVideoControlView {
         
+        // remove video control view before adding new
+        removeVideoControlView()
+        
         let controlView = AwesomeMediaVideoControlView.newInstance
-        
         controlView.configure(withControls: controls, states: states)
-        
         addSubview(controlView)
-        
         controlView.translatesAutoresizingMaskIntoConstraints = false
         
         addConstraint(NSLayoutConstraint(item: controlView, attribute: .leading, relatedBy: .equal, toItem: self, attribute: .leading, multiplier: 1, constant: 0))
@@ -241,5 +251,11 @@ extension UIView {
         addConstraint(NSLayoutConstraint(item: controlView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 91))
         
         return controlView
+    }
+
+    public func removeVideoControlView() {
+        for subview in subviews where subview is AwesomeMediaVideoControlView {
+            subview.removeFromSuperview()
+        }
     }
 }

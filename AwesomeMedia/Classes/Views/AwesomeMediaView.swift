@@ -10,7 +10,6 @@ import AVFoundation
 
 public class AwesomeMediaView: UIView {
 
-    public var avPlayerLayer = AVPlayerLayer()
     public var mediaParams: AwesomeMediaParams = [:]
     public var controlView: AwesomeMediaVideoControlView?
     public var titleView: AwesomeMediaVideoTitleView?
@@ -18,21 +17,12 @@ public class AwesomeMediaView: UIView {
     public override func awakeFromNib() {
         super.awakeFromNib()
         
-        avPlayerLayer.videoGravity = .resizeAspectFill
-        
-        addPlayerLayer()
-        
         addObservers()
     }
     
     public override func layoutSublayers(of layer: CALayer) {
         super.layoutSublayers(of: layer)
-        avPlayerLayer.frame = CGRect(x: 0, y: 0, width: self.bounds.size.width, height: self.bounds.size.height)
-    }
-    
-    public func addPlayerLayer(){
-        self.layer.insertSublayer(avPlayerLayer, at: 0)
-        self.layer.masksToBounds = true
+        AwesomeMediaPlayerLayer.shared.frame = CGRect(x: 0, y: 0, width: self.bounds.size.width, height: self.bounds.size.height)
     }
     
     public func configure(
@@ -50,6 +40,14 @@ public class AwesomeMediaView: UIView {
         if titleViewVisible {
             configureTitle()
         }
+        
+        // check for media playing
+        if let item = AwesomeMediaManager.shared.avPlayer.currentItem(ifSameUrlAs: AwesomeMediaManager.url(forParams: mediaParams)) {
+            controlView?.update(withItem: item)
+        }
+        
+        addPlayerLayer()
+        
     }
     
     fileprivate func configureControls(controls: AwesomeMediaVideoControls, states: AwesomeMediaVideoStates = .standard) {
@@ -59,7 +57,7 @@ public class AwesomeMediaView: UIView {
             if isPlaying {
                 AwesomeMediaManager.shared.playMedia(
                     withParams: self.mediaParams,
-                    inPlayerLayer: self.avPlayerLayer)
+                    inPlayerLayer: AwesomeMediaPlayerLayer.shared)
                 self.controlView?.shouldShowInfo = false
             } else {
                 AwesomeMediaManager.shared.avPlayer.pause()
