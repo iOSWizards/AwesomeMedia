@@ -13,6 +13,7 @@ public class AwesomeMedia {
     public static var autoHideControlViewTime: Double = 3
     public static var autoHideControlViewAnimationTime: Double = 0.3
     public static var showLogs = true
+    public static var backwardForwardStep: Double = 10
     
     public static var bundle: Bundle {
         return Bundle(for: AwesomeMedia.self)

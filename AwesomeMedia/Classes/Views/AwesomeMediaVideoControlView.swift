@@ -13,6 +13,7 @@ public typealias FullScreenCallback = () -> Void
 public typealias ToggleViewCallback = (Bool) -> Void
 public typealias TimeSliderChangedCallback = (Double) -> Void
 public typealias TimeSliderFinishedDraggingCallback = (Bool) -> Void
+public typealias RewindCallback = () -> Void
 
 public class AwesomeMediaVideoControlView: UIView {
 
@@ -40,6 +41,7 @@ public class AwesomeMediaVideoControlView: UIView {
     public var toggleViewCallback: ToggleViewCallback?
     public var timeSliderChangedCallback: TimeSliderChangedCallback?
     public var timeSliderFinishedDraggingCallback: TimeSliderFinishedDraggingCallback?
+    public var rewindCallback: RewindCallback?
     
     // Private Variables
     fileprivate var autoHideControlTimer: Timer?
@@ -120,25 +122,29 @@ public class AwesomeMediaVideoControlView: UIView {
     }
     
     @IBAction func rewindButtonPressed(_ sender: Any) {
+        rewindCallback?()
+        autoHideControl()
     }
     
     @IBAction func playlistButtonPressed(_ sender: Any) {
+        autoHideControl()
     }
     
     @IBAction func speedButtonPressed(_ sender: Any) {
+        autoHideControl()
     }
     
     @IBAction func jumptoButtonPressed(_ sender: Any) {
+        autoHideControl()
     }
     
     @IBAction func toggleFullscreenButtonPressed(_ sender: Any) {
         fullscreenCallback?()
+        autoHideControl()
     }
     
     @IBAction func timeSliderValueChanged(_ sender: Any) {
         timeSliderChangedCallback?(Double(timeSlider.value))
-        
-        AwesomeMedia.log("Slider Changed to: \(timeSlider.value)")
     }
     
     @IBAction func timeSliderStartedDragging(_ sender: Any) {

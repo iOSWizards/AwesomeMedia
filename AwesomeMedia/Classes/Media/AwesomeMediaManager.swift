@@ -26,7 +26,7 @@ public class AwesomeMediaManager: NSObject {
         }
         
         // prepare media
-        if !isCurrentItem(withUrl: url) {
+        if !avPlayer.isCurrentItem(withUrl: url) {
             prepareMedia(withUrl: url)
         } else {
             avPlayer.play()
@@ -47,37 +47,7 @@ public class AwesomeMediaManager: NSObject {
         if play {
             avPlayer.play()
         }
-    }
-    
-    // MARK: - Controls
-    public func seek(toTime time: Double) {
-        avPlayer.currentItem?.seek(to: CMTime(seconds: time, preferredTimescale: avPlayer.currentTime().timescale))
-        
-        AwesomeMediaNotificationCenter.shared.notify(.timeUpdated, object: avPlayer.currentItem)
-    }
-    
-    // MARK: - Current Item
-    
-    public func isCurrentItem(withUrl url: URL?) -> Bool {
-        guard let url = url else {
-            return false
-        }
-        
-        return ((avPlayer.currentItem?.asset) as? AVURLAsset)?.url == url
-    }
-    
-    public func currentItem(ifSameUrlAs url: URL?) -> AVPlayerItem? {
-        guard let url = url else {
-            return nil
-        }
-        
-        guard isCurrentItem(withUrl: url) else {
-            return nil
-        }
-        
-        return avPlayer.currentItem
-    }
-    
+    }    
 }
 
 // MARK: - Notifications

@@ -71,14 +71,19 @@ public class AwesomeMediaView: UIView {
         
         // seek slider
         controlView?.timeSliderChangedCallback = { (time) in
-            AwesomeMediaManager.shared.avPlayer.pause()
-            AwesomeMediaManager.shared.seek(toTime: time)
+            AwesomeMediaManager.shared.avPlayer.seek(toTime: time)
         }
         controlView?.timeSliderFinishedDraggingCallback = { (play) in
             if play {
                 AwesomeMediaManager.shared.avPlayer.play()
             }
         }
+        
+        // Rewind
+        controlView?.rewindCallback = {
+            AwesomeMediaManager.shared.avPlayer.seekBackward()
+        }
+        
     }
     
     fileprivate func configureTitle() {
@@ -112,7 +117,7 @@ extension AwesomeMediaView {
     }
     
     @objc fileprivate func timeUpdated() {
-        guard let item = AwesomeMediaManager.shared.currentItem(ifSameUrlAs: AwesomeMediaManager.url(forParams: mediaParams)) else {
+        guard let item = AwesomeMediaManager.shared.avPlayer.currentItem(ifSameUrlAs: AwesomeMediaManager.url(forParams: mediaParams)) else {
             return
         }
         

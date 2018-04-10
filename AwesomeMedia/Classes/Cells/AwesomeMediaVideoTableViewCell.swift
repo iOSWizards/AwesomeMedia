@@ -19,7 +19,7 @@ public class AwesomeMediaVideoTableViewCell: UITableViewCell {
     public func configure(withMediaParams mediaParams: AwesomeMediaParams,
                           toggleFullscreen: FullScreenCallback? = nil) {
         playerView.configure(withMediaParams: mediaParams,
-                             controls: .standard,
+                             controls: .all,
                              states: [.info])
         playerView.controlView?.fullscreenCallback = toggleFullscreen
     }
