@@ -8,38 +8,6 @@
 import UIKit
 import AVFoundation
 
-public struct AwesomeMediaVideoControls: OptionSet {
-    public let rawValue: Int
-    
-    public init(rawValue: Int) {
-        self.rawValue = rawValue
-    }
-    
-    public static let time = AwesomeMediaVideoControls(rawValue: 1)
-    public static let jumpto = AwesomeMediaVideoControls(rawValue: 2)
-    public static let speed = AwesomeMediaVideoControls(rawValue: 3)
-    public static let playlist = AwesomeMediaVideoControls(rawValue: 4)
-    public static let fullscreen = AwesomeMediaVideoControls(rawValue: 5)
-    public static let minimize = AwesomeMediaVideoControls(rawValue: 6)
-    public static let rewind = AwesomeMediaVideoControls(rawValue: 7)
-    
-    public static let standard: AwesomeMediaVideoControls = [.time, .fullscreen]
-    public static let all: AwesomeMediaVideoControls = [.time, .fullscreen, .jumpto, .speed, .playlist, .minimize, .rewind]
-}
-
-
-public struct AwesomeMediaVideoStates: OptionSet {
-    public let rawValue: Int
-    
-    public init(rawValue: Int) {
-        self.rawValue = rawValue
-    }
-    
-    public static let info = AwesomeMediaVideoStates(rawValue: 1)
-    
-    public static let standard: AwesomeMediaVideoStates = []
-}
-
 public typealias PlaybackCallback = (_ playing: Bool) -> Void
 public typealias FullScreenCallback = () -> Void
 public typealias ToggleViewCallback = (Bool) -> Void
