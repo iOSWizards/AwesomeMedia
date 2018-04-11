@@ -170,6 +170,10 @@ public class AwesomeMediaVideoControlView: UIView {
     }
     
     @IBAction func timeSliderValueChanged(_ sender: Any) {
+        guard timerSliderIsSliding else {
+            return
+        }
+        
         timeSliderChangedCallback?(Double(timeSlider.value))
     }
     
@@ -223,6 +227,21 @@ extension AwesomeMediaVideoControlView {
         autoHideControlTimer = Timer.scheduledTimer(withTimeInterval: AwesomeMedia.autoHideControlViewTime, repeats: false) { (_) in
             self.toggleView()
         }
+    }
+    
+    public func lock(_ lock: Bool, animated: Bool) {
+        if animated {
+            UIView.animate(withDuration: 0.3) {
+                self.setLockedState(locked: lock)
+            }
+        } else {
+            setLockedState(locked: lock)
+        }
+    }
+    
+    fileprivate func setLockedState(locked: Bool) {
+        playButton.isUserInteractionEnabled = !locked
+        playButton.alpha = locked ? 0.5 : 1
     }
 }
 

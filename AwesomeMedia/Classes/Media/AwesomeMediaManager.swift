@@ -15,6 +15,8 @@ public class AwesomeMediaManager: NSObject {
     
     // Private Variables
     fileprivate var timeObserver: AnyObject?
+    fileprivate var playbackLikelyToKeepUpContext = 0
+    fileprivate var playbackBufferFullContext = 1
     
     // Testing Variables
     public static let testVideoURL = "https://overmind2.mvstg.com/api/v1/assets/0af656fc-dcde-45ad-9b59-7632ca247001.m3u8"
@@ -43,6 +45,10 @@ public class AwesomeMediaManager: NSObject {
         // add observers for player and current item
         addObservers(withItem: playerItem)
         
+        // at this point media will start buffering
+        AwesomeMedia.log("avPlayer.timeControlStatus: started buffering")
+        AwesomeMediaNotificationCenter.shared.notify(.startedBuffering)
+        
         // start playing if the case
         if play {
             avPlayer.play()
@@ -56,7 +62,7 @@ extension AwesomeMediaManager {
     
     fileprivate func addObservers(withItem item: AVPlayerItem? = nil) {
         addTimeObserver()
-        //addBufferObserver(forItem: item)
+        addBufferObserver(forItem: item)
         
         avPlayer.addObserver(self, forKeyPath: "rate", options: .new, context: nil)
     }
@@ -68,8 +74,8 @@ extension AwesomeMediaManager {
             return
         }
         
-        item.addObserver(self, forKeyPath: "playbackLikelyToKeepUp", options: .new, context: nil)
-        item.addObserver(self, forKeyPath: "playbackBufferFull", options: .new, context: nil)
+        item.addObserver(self, forKeyPath: "playbackLikelyToKeepUp", options: .new, context: &playbackLikelyToKeepUpContext)
+        item.addObserver(self, forKeyPath: "playbackBufferFull", options: .new, context: &playbackBufferFullContext)
         item.addObserver(self, forKeyPath: "playbackBufferEmpty", options: .new, context: nil)
         item.addObserver(self, forKeyPath: "status", options: .new, context: nil)
         item.addObserver(self, forKeyPath: "timeControlStatus", options: .new, context: nil)
@@ -96,7 +102,7 @@ extension AwesomeMediaManager {
     
     public override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         
-        switch avPlayer.timeControlStatus {
+        /*switch avPlayer.timeControlStatus {
         case .waitingToPlayAtSpecifiedRate:
             AwesomeMedia.log("avPlayer.timeControlStatus: waiting \(avPlayer.reasonForWaitingToPlay ?? AVPlayer.WaitingReason(rawValue: ""))")
             if avPlayer.reasonForWaitingToPlay == .noItemToPlay {
@@ -110,15 +116,43 @@ extension AwesomeMediaManager {
 //        case .paused:
 //            AwesomeMediaNotificationCenter.shared.notify(.pausedPlaying)
 //            AwesomeMedia.log("avPlayer.timeControlStatus: paused")
+        }*/
+        
+        // Check for media buffering
+        if context == &playbackLikelyToKeepUpContext || context == &playbackBufferFullContext {
+            if let currentItem = sharedAVPlayer.currentItem, currentItem.isPlaybackLikelyToKeepUp || currentItem.isPlaybackBufferFull {
+                AwesomeMedia.log("avPlayer.timeControlStatus: stopped buffering")
+                AwesomeMediaNotificationCenter.shared.notify(.stopedBuffering)
+            } else {
+                AwesomeMedia.log("avPlayer.timeControlStatus: started buffering")
+                AwesomeMediaNotificationCenter.shared.notify(.startedBuffering)
+            }
         }
         
+        // Check for Rate Changes
         if keyPath == "rate" {
-            if avPlayer.rate != 0 {
+            if avPlayer.isPlaying {
                 AwesomeMediaNotificationCenter.shared.notify(.startedPlaying)
                 AwesomeMedia.log("avPlayer.timeControlStatus: playing")
             } else {
                 AwesomeMediaNotificationCenter.shared.notify(.pausedPlaying)
                 AwesomeMedia.log("avPlayer.timeControlStatus: paused")
+            }
+        }
+        // Check for Status Changes
+        else if keyPath == "status" {
+            var status: AVPlayerItemStatus = .unknown
+            
+            // Get the status change from the change dictionary
+            if let statusNumber = change?[.newKey] as? NSNumber {
+                status = AVPlayerItemStatus(rawValue: statusNumber.intValue)!
+            }
+            
+            switch status {
+            case .readyToPlay:
+                AwesomeMedia.log("avPlayer.timeControlStatus: readyToPlay")
+            case .failed, .unknown:
+                AwesomeMedia.log("avPlayer.timeControlStatus: .failed, .unknown")
             }
         }
     }

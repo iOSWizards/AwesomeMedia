@@ -12,6 +12,7 @@ public class AwesomeMedia {
     // Configuration
     public static var autoHideControlViewTime: Double = 3
     public static var autoHideControlViewAnimationTime: Double = 0.3
+    public static var shouldLockControlsWhenBuffering = true
     public static var showLogs = true
     public static var backwardForwardStep: Double = 10
     

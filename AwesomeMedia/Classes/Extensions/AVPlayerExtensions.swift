@@ -37,6 +37,10 @@ extension AVPlayer {
         return currentItem(ifSameUrlAs: AwesomeMediaManager.url(forParams: params))
     }
     
+    public func isCurrentItem(withParams params: AwesomeMediaParams) -> Bool {
+        return isCurrentItem(withUrl: AwesomeMediaManager.url(forParams: params))
+    }
+    
     public var isPlaying: Bool {
         return rate != 0
     }

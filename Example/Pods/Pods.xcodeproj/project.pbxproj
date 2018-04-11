@@ -25,8 +25,6 @@
 		0ADABA74207B2F1E00C359C7 /* AwesomeMediaParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADABA73207B2F1E00C359C7 /* AwesomeMediaParams.swift */; };
 		0ADABA76207B406E00C359C7 /* NumberExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADABA75207B406E00C359C7 /* NumberExtensions.swift */; };
 		0ADABA78207B411700C359C7 /* AVPlayerItemExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADABA77207B411700C359C7 /* AVPlayerItemExtensions.swift */; };
-		0ADABA7A207B588100C359C7 /* AwesomeMediaPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADABA79207B588100C359C7 /* AwesomeMediaPlayer.swift */; };
-		0ADABA7C207B589400C359C7 /* AwesomeMediaPlayerItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADABA7B207B589400C359C7 /* AwesomeMediaPlayerItem.swift */; };
 		0ADABA7E207C4D0100C359C7 /* AwesomeMediaControlOptionSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADABA7D207C4D0100C359C7 /* AwesomeMediaControlOptionSet.swift */; };
 		0ADABA80207C4DD700C359C7 /* AVPlayerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADABA7F207C4DD700C359C7 /* AVPlayerExtensions.swift */; };
 		0ADABA82207C621800C359C7 /* AwesomeMediaPlayerLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADABA81207C621800C359C7 /* AwesomeMediaPlayerLayer.swift */; };
@@ -132,8 +130,6 @@
 		0ADABA73207B2F1E00C359C7 /* AwesomeMediaParams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwesomeMediaParams.swift; sourceTree = "<group>"; };
 		0ADABA75207B406E00C359C7 /* NumberExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberExtensions.swift; sourceTree = "<group>"; };
 		0ADABA77207B411700C359C7 /* AVPlayerItemExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVPlayerItemExtensions.swift; sourceTree = "<group>"; };
-		0ADABA79207B588100C359C7 /* AwesomeMediaPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwesomeMediaPlayer.swift; sourceTree = "<group>"; };
-		0ADABA7B207B589400C359C7 /* AwesomeMediaPlayerItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwesomeMediaPlayerItem.swift; sourceTree = "<group>"; };
 		0ADABA7D207C4D0100C359C7 /* AwesomeMediaControlOptionSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwesomeMediaControlOptionSet.swift; sourceTree = "<group>"; };
 		0ADABA7F207C4DD700C359C7 /* AVPlayerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVPlayerExtensions.swift; sourceTree = "<group>"; };
 		0ADABA81207C621800C359C7 /* AwesomeMediaPlayerLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwesomeMediaPlayerLayer.swift; sourceTree = "<group>"; };
@@ -281,8 +277,6 @@
 			children = (
 				0A6ED06E20762230009DE6E3 /* AwesomeMediaManager.swift */,
 				0A6ED07220773B50009DE6E3 /* AwesomeMediaNotificationCenter.swift */,
-				0ADABA79207B588100C359C7 /* AwesomeMediaPlayer.swift */,
-				0ADABA7B207B589400C359C7 /* AwesomeMediaPlayerItem.swift */,
 				0ADABA73207B2F1E00C359C7 /* AwesomeMediaParams.swift */,
 				0ADABA7D207C4D0100C359C7 /* AwesomeMediaControlOptionSet.swift */,
 				0ADABA81207C621800C359C7 /* AwesomeMediaPlayerLayer.swift */,
@@ -793,7 +787,6 @@
 			files = (
 				0ADABA74207B2F1E00C359C7 /* AwesomeMediaParams.swift in Sources */,
 				621DDB49ACB46DEE0432F7129C36A06C /* AwesomeMedia+Cells.swift in Sources */,
-				0ADABA7C207B589400C359C7 /* AwesomeMediaPlayerItem.swift in Sources */,
 				0A6ED07120762796009DE6E3 /* AwesomeMediaView.swift in Sources */,
 				0A6ED06F20762230009DE6E3 /* AwesomeMediaManager.swift in Sources */,
 				0ADABA76207B406E00C359C7 /* NumberExtensions.swift in Sources */,
@@ -802,7 +795,6 @@
 				0ADABA78207B411700C359C7 /* AVPlayerItemExtensions.swift in Sources */,
 				0A6ED0632075B92F009DE6E3 /* AwesomeMediaVideoControlView.swift in Sources */,
 				0A6ED0692075EC84009DE6E3 /* AwesomeMediaVideoTitleView.swift in Sources */,
-				0ADABA7A207B588100C359C7 /* AwesomeMediaPlayer.swift in Sources */,
 				0ADABA82207C621800C359C7 /* AwesomeMediaPlayerLayer.swift in Sources */,
 				0ADABA7E207C4D0100C359C7 /* AwesomeMediaControlOptionSet.swift in Sources */,
 				0A6ED07320773B50009DE6E3 /* AwesomeMediaNotificationCenter.swift in Sources */,

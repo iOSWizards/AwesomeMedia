@@ -97,6 +97,8 @@ fileprivate extension Selector {
     static let startedPlaying = #selector(AwesomeMediaView.startedPlaying)
     static let stopedPlaying = #selector(AwesomeMediaView.stopedPlaying)
     static let timeUpdated = #selector(AwesomeMediaView.timeUpdated)
+    static let startedBuffering = #selector(AwesomeMediaView.startedBuffering)
+    static let stopedBuffering = #selector(AwesomeMediaView.stopedBuffering)
 }
 
 extension AwesomeMediaView {
@@ -105,6 +107,8 @@ extension AwesomeMediaView {
         AwesomeMediaNotificationCenter.shared.addObserver(self, selector: .startedPlaying, event: .startedPlaying)
         AwesomeMediaNotificationCenter.shared.addObserver(self, selector: .stopedPlaying, event: .stopedPlaying)
         AwesomeMediaNotificationCenter.shared.addObserver(self, selector: .timeUpdated, event: .timeUpdated)
+        AwesomeMediaNotificationCenter.shared.addObserver(self, selector: .startedBuffering, event: .startedBuffering)
+        AwesomeMediaNotificationCenter.shared.addObserver(self, selector: .stopedBuffering, event: .stopedBuffering)
 
     }
     
@@ -125,6 +129,22 @@ extension AwesomeMediaView {
         
         // update time controls
         controlView?.update(withItem: item)
+    }
+    
+    @objc fileprivate func startedBuffering() {
+        guard AwesomeMedia.shouldLockControlsWhenBuffering, sharedAVPlayer.isCurrentItem(withParams: mediaParams) else {
+            return
+        }
+        
+        controlView?.lock(true, animated: true)
+    }
+    
+    @objc fileprivate func stopedBuffering() {
+        guard AwesomeMedia.shouldLockControlsWhenBuffering, sharedAVPlayer.isCurrentItem(withParams: mediaParams) else {
+            return
+        }
+        
+        controlView?.lock(false, animated: true)
     }
 }
 
