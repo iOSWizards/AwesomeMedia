@@ -7,6 +7,7 @@
 
 import UIKit
 import AVFoundation
+import AwesomeLoading
 
 public class AwesomeMediaView: UIView {
 
@@ -132,11 +133,22 @@ extension AwesomeMediaView {
     }
     
     @objc fileprivate func startedBuffering() {
-        guard AwesomeMedia.shouldLockControlsWhenBuffering, sharedAVPlayer.isCurrentItem(withParams: mediaParams) else {
+        guard !(controlView?.timerSliderIsSliding ?? false), AwesomeMedia.shouldLockControlsWhenBuffering, sharedAVPlayer.isCurrentItem(withParams: mediaParams) else {
             return
         }
         
-        controlView?.lock(true, animated: true)
+        startLoadingAnimation()
+
+        if let controlView = controlView {
+            // bring controlview to front as loading animation will be on top
+            bringSubview(toFront: controlView)
+            
+            // lock state for controlView
+            controlView.lock(true, animated: true)
+            
+            // cancels auto hide
+            controlView.cancelAutoHide()
+        }
     }
     
     @objc fileprivate func stopedBuffering() {
@@ -144,7 +156,13 @@ extension AwesomeMediaView {
             return
         }
         
+        stopLoadingAnimation()
+        
+        // unlock controls
         controlView?.lock(false, animated: true)
+        
+        // setup auto hide
+        controlView?.setupAutoHide()
     }
 }
 

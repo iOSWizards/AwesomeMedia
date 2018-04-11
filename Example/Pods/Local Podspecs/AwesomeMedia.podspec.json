@@ -21,7 +21,7 @@
   "source_files": "AwesomeMedia/Classes/**/*.{swift}",
   "ios": {
     "resources": [
-      "AwesomeMedia/Assets/Xibs/*.{xib}",
+      "AwesomeMedia/Assets/Views/*.{xib,storyboard}",
       "AwesomeMedia/Assets/Gilroy/*.{otf}",
       "AwesomeMedia/Assets/Assets.xcassets"
     ],
@@ -34,6 +34,9 @@
   },
   "dependencies": {
     "AwesomeUIMagic": [
+
+    ],
+    "AwesomeLoading": [
 
     ]
   }

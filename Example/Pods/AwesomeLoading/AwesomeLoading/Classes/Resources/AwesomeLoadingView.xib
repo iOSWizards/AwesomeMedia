@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="0zp-AQ-w7e" customClass="AwesomeLoadingView" customModule="AwesomeLoading" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="266" height="281"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P2d-JY-MMM">
+                    <rect key="frame" x="0.0" y="0.0" width="266" height="281"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.29999999999999999" colorSpace="calibratedWhite"/>
+                </view>
+                <imageView hidden="YES" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="lzX-aG-opc">
+                    <rect key="frame" x="88" y="121" width="90" height="39"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="lzX-aG-opc" secondAttribute="height" multiplier="30:13" id="W4a-3Z-rZl"/>
+                        <constraint firstAttribute="width" priority="750" constant="90" id="oxx-rL-UOI"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="P2d-JY-MMM" firstAttribute="leading" secondItem="0zp-AQ-w7e" secondAttribute="leading" id="3cd-71-g20"/>
+                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="lzX-aG-opc" secondAttribute="trailing" constant="10" id="EaM-zU-biz"/>
+                <constraint firstItem="lzX-aG-opc" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="0zp-AQ-w7e" secondAttribute="leading" constant="10" id="K1Y-Ys-CDH"/>
+                <constraint firstAttribute="trailing" secondItem="P2d-JY-MMM" secondAttribute="trailing" id="NkH-Fy-8uW"/>
+                <constraint firstAttribute="bottom" secondItem="P2d-JY-MMM" secondAttribute="bottom" id="SGJ-o8-Ag4"/>
+                <constraint firstItem="lzX-aG-opc" firstAttribute="centerY" secondItem="0zp-AQ-w7e" secondAttribute="centerY" id="XBh-pM-I9Q"/>
+                <constraint firstItem="lzX-aG-opc" firstAttribute="centerX" secondItem="0zp-AQ-w7e" secondAttribute="centerX" id="ewz-a1-sOC"/>
+                <constraint firstItem="P2d-JY-MMM" firstAttribute="top" secondItem="0zp-AQ-w7e" secondAttribute="top" id="tfz-f7-fiF"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="iconImageView" destination="lzX-aG-opc" id="0SD-2r-jSw"/>
+            </connections>
+            <point key="canvasLocation" x="-21" y="-139.5"/>
+        </view>
+    </objects>
+</document>

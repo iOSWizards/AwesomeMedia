@@ -48,11 +48,11 @@ public class AwesomeMediaVideoControlView: UIView {
     fileprivate var states: AwesomeMediaVideoStates = .standard
     fileprivate var controls: AwesomeMediaVideoControls = .standard
     fileprivate var bottomConstraint: NSLayoutConstraint?
-    fileprivate var timerSliderIsSliding = false
     fileprivate var playButtonStateBeforeSliding = false
     
     // Public Variables
     public var shouldShowInfo = true
+    public var timerSliderIsSliding = false
     
     // Configuration
     public override func awakeFromNib() {
@@ -144,29 +144,29 @@ public class AwesomeMediaVideoControlView: UIView {
         playButton.isSelected = !playButton.isSelected
         updatePlayState()
         playCallback?(playButton.isSelected)
-        autoHideControl()
+        setupAutoHide()
     }
     
     @IBAction func rewindButtonPressed(_ sender: Any) {
         rewindCallback?()
-        autoHideControl()
+        setupAutoHide()
     }
     
     @IBAction func playlistButtonPressed(_ sender: Any) {
-        autoHideControl()
+        setupAutoHide()
     }
     
     @IBAction func speedButtonPressed(_ sender: Any) {
-        autoHideControl()
+        setupAutoHide()
     }
     
     @IBAction func jumptoButtonPressed(_ sender: Any) {
-        autoHideControl()
+        setupAutoHide()
     }
     
     @IBAction func toggleFullscreenButtonPressed(_ sender: Any) {
         fullscreenCallback?()
-        autoHideControl()
+        setupAutoHide()
     }
     
     @IBAction func timeSliderValueChanged(_ sender: Any) {
@@ -178,14 +178,14 @@ public class AwesomeMediaVideoControlView: UIView {
     }
     
     @IBAction func timeSliderStartedDragging(_ sender: Any) {
-        autoHideControlTimer?.invalidate()
+        cancelAutoHide()
         timerSliderIsSliding = true
         playButtonStateBeforeSliding = playButton.isSelected
     }
     
     @IBAction func timeSliderFinishedDragging(_ sender: Any) {
         timerSliderIsSliding = false
-        autoHideControl()
+        setupAutoHide()
         timeSliderFinishedDraggingCallback?(playButtonStateBeforeSliding)
     }
     
@@ -207,18 +207,18 @@ extension AwesomeMediaVideoControlView {
     }
     
     fileprivate func toggleView() {
-        autoHideControlTimer?.invalidate()
+        cancelAutoHide()
         
         animateToggle(direction: .down) { (hidden) in
             if !hidden {
-                self.autoHideControl()
+                self.setupAutoHide()
             }
         }
         toggleViewCallback?(isHidden)
     }
     
-    public func autoHideControl() {
-        autoHideControlTimer?.invalidate()
+    public func setupAutoHide() {
+        cancelAutoHide()
         
         guard !isHidden, playButton.isSelected else {
             return
@@ -227,6 +227,10 @@ extension AwesomeMediaVideoControlView {
         autoHideControlTimer = Timer.scheduledTimer(withTimeInterval: AwesomeMedia.autoHideControlViewTime, repeats: false) { (_) in
             self.toggleView()
         }
+    }
+    
+    public func cancelAutoHide() {
+        autoHideControlTimer?.invalidate()
     }
     
     public func lock(_ lock: Bool, animated: Bool) {
@@ -240,8 +244,13 @@ extension AwesomeMediaVideoControlView {
     }
     
     fileprivate func setLockedState(locked: Bool) {
+        let lockedAlpha: CGFloat = 0.5
+        
         playButton.isUserInteractionEnabled = !locked
-        playButton.alpha = locked ? 0.5 : 1
+        playButton.alpha = locked ? lockedAlpha : 1.0
+        
+        timeSlider.isUserInteractionEnabled = !locked
+        timeSlider.alpha = locked ? lockedAlpha : 1.0
     }
 }
 

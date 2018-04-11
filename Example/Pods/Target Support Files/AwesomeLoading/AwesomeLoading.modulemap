@@ -1,0 +1,6 @@
+framework module AwesomeLoading {
+  umbrella header "AwesomeLoading-umbrella.h"
+
+  export *
+  module * { export * }
+}

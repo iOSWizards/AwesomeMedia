@@ -1,0 +1,36 @@
+{
+  "name": "AwesomeLoading",
+  "version": "0.1.2",
+  "summary": "Loading animation for MV apps",
+  "description": "Loading animation for MV apps",
+  "homepage": "https://github.com/Mindvalley/Mobile_iOS_Library_AwesomeLoading",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "evandro@mindvalley.com": "evandro@mindvalley.com"
+  },
+  "source": {
+    "git": "https://github.com/Mindvalley/Mobile_iOS_Library_AwesomeLoading.git",
+    "tag": "0.1.2"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source_files": "AwesomeLoading/Classes/**/*.swift",
+  "resources": [
+    "AwesomeLoading/Classes/Resources/AwesomeLoadingView.xib"
+  ],
+  "preserve_paths": "AwesomeLoading/Classes/Resources/AwesomeLoadingView.xib",
+  "resource_bundles": {
+    "AwesomeLoading": [
+      "AwesomeLoading/Classes/**/*.{storyboard,xib,xcassets,json,imageset,png}"
+    ]
+  },
+  "dependencies": {
+    "lottie-ios": [
+
+    ]
+  }
+}

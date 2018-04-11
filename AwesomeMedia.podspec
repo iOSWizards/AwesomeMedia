@@ -40,4 +40,5 @@ s.ios.resources = ['AwesomeMedia/Assets/Views/*.{xib,storyboard}', 'AwesomeMedia
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
   s.dependency 'AwesomeUIMagic'
+  s.dependency 'AwesomeLoading'
 end
