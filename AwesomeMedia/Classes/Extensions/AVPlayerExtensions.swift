@@ -21,6 +21,10 @@ extension AVPlayer {
         return ((currentItem?.asset) as? AVURLAsset)?.url == url
     }
     
+    public func isCurrentItem(withParams params: AwesomeMediaParams) -> Bool {
+        return isCurrentItem(withUrl: AwesomeMediaManager.url(forParams: params))
+    }
+    
     public func currentItem(ifSameUrlAs url: URL?) -> AVPlayerItem? {
         guard let url = url else {
             return nil
@@ -37,16 +41,16 @@ extension AVPlayer {
         return currentItem(ifSameUrlAs: AwesomeMediaManager.url(forParams: params))
     }
     
-    public func isCurrentItem(withParams params: AwesomeMediaParams) -> Bool {
-        return isCurrentItem(withUrl: AwesomeMediaManager.url(forParams: params))
-    }
-    
     public var isPlaying: Bool {
         return rate != 0
     }
     
     public func isPlaying(withUrl url: URL) -> Bool {
         return isCurrentItem(withUrl: url) && isPlaying
+    }
+    
+    public func isPlaying(withParams params: AwesomeMediaParams) -> Bool {
+        return isCurrentItem(withParams: params) && isPlaying
     }
     
     // MARK: - Controls

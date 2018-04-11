@@ -110,15 +110,14 @@ extension AwesomeMediaView {
         AwesomeMediaNotificationCenter.shared.addObserver(self, selector: .timeUpdated, event: .timeUpdated)
         AwesomeMediaNotificationCenter.shared.addObserver(self, selector: .startedBuffering, event: .startedBuffering)
         AwesomeMediaNotificationCenter.shared.addObserver(self, selector: .stopedBuffering, event: .stopedBuffering)
-
     }
     
     @objc fileprivate func startedPlaying() {
-        
+        controlView?.playButton.isSelected = sharedAVPlayer.isPlaying(withParams: mediaParams)
     }
     
     @objc fileprivate func stopedPlaying() {
-        
+        controlView?.playButton.isSelected = sharedAVPlayer.isPlaying(withParams: mediaParams)
     }
     
     @objc fileprivate func timeUpdated() {
