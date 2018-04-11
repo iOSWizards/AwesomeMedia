@@ -25,6 +25,7 @@ public class AwesomeMediaVideoViewController: UIViewController {
             self.dismiss(animated: true, completion: nil)
         }
         playerView.titleView?.closeCallback = {
+            sharedAVPlayer.stop()
             self.dismiss(animated: true, completion: nil)
         }
     }

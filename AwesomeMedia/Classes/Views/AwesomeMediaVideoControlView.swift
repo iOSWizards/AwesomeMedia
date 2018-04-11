@@ -112,7 +112,10 @@ public class AwesomeMediaVideoControlView: UIView {
         maxTimeLabel.text = item.maxTimeString
         
         // update play/pause state based on player rate
-        playButton.isSelected = AwesomeMediaManager.shared.avPlayer.rate > 0
+        playButton.isSelected = sharedAVPlayer.isPlaying
+        
+        // set to false as the item being playing is the current item
+        shouldShowInfo = false
         
         updatePlayState()
     }

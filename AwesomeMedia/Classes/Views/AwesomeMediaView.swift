@@ -42,11 +42,11 @@ public class AwesomeMediaView: UIView {
         }
         
         // check for media playing
-        if let item = AwesomeMediaManager.shared.avPlayer.currentItem(ifSameUrlAs: AwesomeMediaManager.url(forParams: mediaParams)) {
+        if let item = sharedAVPlayer.currentItem(withParams: mediaParams) {
             controlView?.update(withItem: item)
+            
+            addPlayerLayer()
         }
-        
-        addPlayerLayer()
         
     }
     
@@ -54,13 +54,15 @@ public class AwesomeMediaView: UIView {
         controlView = superview?.addVideoControls(withControls: controls, states: states)
         
         controlView?.playCallback = { (isPlaying) in
+            
+            self.addPlayerLayer()
+            
             if isPlaying {
                 AwesomeMediaManager.shared.playMedia(
                     withParams: self.mediaParams,
                     inPlayerLayer: AwesomeMediaPlayerLayer.shared)
-                self.controlView?.shouldShowInfo = false
             } else {
-                AwesomeMediaManager.shared.avPlayer.pause()
+                sharedAVPlayer.pause()
             }
         }
         controlView?.toggleViewCallback = { (_) in
@@ -69,17 +71,17 @@ public class AwesomeMediaView: UIView {
         
         // seek slider
         controlView?.timeSliderChangedCallback = { (time) in
-            AwesomeMediaManager.shared.avPlayer.seek(toTime: time)
+            sharedAVPlayer.seek(toTime: time)
         }
         controlView?.timeSliderFinishedDraggingCallback = { (play) in
             if play {
-                AwesomeMediaManager.shared.avPlayer.play()
+                sharedAVPlayer.play()
             }
         }
         
         // Rewind
         controlView?.rewindCallback = {
-            AwesomeMediaManager.shared.avPlayer.seekBackward()
+            sharedAVPlayer.seekBackward()
         }
         
     }
@@ -115,7 +117,7 @@ extension AwesomeMediaView {
     }
     
     @objc fileprivate func timeUpdated() {
-        guard let item = AwesomeMediaManager.shared.avPlayer.currentItem(ifSameUrlAs: AwesomeMediaManager.url(forParams: mediaParams)) else {
+        guard let item = sharedAVPlayer.currentItem(withParams: mediaParams) else {
             return
         }
         

@@ -7,6 +7,10 @@
 
 import AVFoundation
 
+public var sharedAVPlayer: AVPlayer {
+    return AwesomeMediaManager.shared.avPlayer
+}
+
 extension AVPlayer {
     
     public func isCurrentItem(withUrl url: URL?) -> Bool {
@@ -29,10 +33,22 @@ extension AVPlayer {
         return currentItem
     }
     
+    public func currentItem(withParams params: AwesomeMediaParams) -> AVPlayerItem? {
+        return currentItem(ifSameUrlAs: AwesomeMediaManager.url(forParams: params))
+    }
+    
+    public var isPlaying: Bool {
+        return rate != 0
+    }
+    
+    public func isPlaying(withUrl url: URL) -> Bool {
+        return isCurrentItem(withUrl: url) && isPlaying
+    }
+    
     // MARK: - Controls
     public func seek(toTime time: Double, pausing: Bool = true) {
         if pausing {
-            AwesomeMediaManager.shared.avPlayer.pause()
+            sharedAVPlayer.pause()
         }
         
         currentItem?.seek(to: CMTime(seconds: time, preferredTimescale: currentTime().timescale))
@@ -59,4 +75,11 @@ extension AVPlayer {
     public func seekForward(step: Double = AwesomeMedia.backwardForwardStep) {
         seek(withStep: step)
     }
+    
+    public func stop() {
+        pause()
+        replaceCurrentItem(with: nil)
+        AwesomeMediaNotificationCenter.shared.notify(.stopedPlaying)
+    }
+        
 }
