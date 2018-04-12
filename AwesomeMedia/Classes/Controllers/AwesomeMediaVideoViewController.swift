@@ -22,14 +22,25 @@ public class AwesomeMediaVideoViewController: UIViewController {
                              states: .standard,
                              titleViewVisible: true)
         playerView.controlView?.fullscreenCallback = {
-            self.dismiss(animated: true, completion: nil)
+            self.close()
         }
         playerView.titleView?.closeCallback = {
             sharedAVPlayer.stop()
-            self.dismiss(animated: true, completion: nil)
+            self.close()
+        }
+        playerView.finishedPlayingCallback = {
+            self.close()
         }
     }
     
+}
+
+extension AwesomeMediaVideoViewController {
+    fileprivate func close() {
+        dismiss(animated: true) {
+            // dismiss callback
+        }
+    }
 }
 
 // MARK: - ViewController Initialization

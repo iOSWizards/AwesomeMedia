@@ -65,6 +65,12 @@ extension AwesomeMediaManager {
         addBufferObserver(forItem: item)
         
         avPlayer.addObserver(self, forKeyPath: "rate", options: .new, context: nil)
+        
+        // notification for didFinishPlaying
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(AwesomeMediaManager.didFinishPlaying),
+                                               name: .AVPlayerItemDidPlayToEndTime,
+                                               object: avPlayer.currentItem)
     }
     
     // MARK: - Buffer observer
@@ -155,6 +161,13 @@ extension AwesomeMediaManager {
                 AwesomeMedia.log("avPlayer.timeControlStatus: .failed, .unknown")
             }
         }
+    }
+    
+    // Finished Playing Observer
+    
+    @objc public func didFinishPlaying(){
+        AwesomeMedia.log("avPlayer.timeControlStatus: finished playing")
+        AwesomeMediaNotificationCenter.shared.notify(.finishedPlaying)
     }
 }
 

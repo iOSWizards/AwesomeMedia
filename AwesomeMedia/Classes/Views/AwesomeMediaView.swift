@@ -9,11 +9,17 @@ import UIKit
 import AVFoundation
 import AwesomeLoading
 
+// Typealiases
+public typealias FinishedPlayingCallback = () -> Void
+
 public class AwesomeMediaView: UIView {
 
     public var mediaParams: AwesomeMediaParams = [:]
     public var controlView: AwesomeMediaVideoControlView?
     public var titleView: AwesomeMediaVideoTitleView?
+    
+    // Callbacks
+    public var finishedPlayingCallback: FinishedPlayingCallback?
 
     public override func awakeFromNib() {
         super.awakeFromNib()
@@ -100,6 +106,7 @@ fileprivate extension Selector {
     static let timeUpdated = #selector(AwesomeMediaView.timeUpdated)
     static let startedBuffering = #selector(AwesomeMediaView.startedBuffering)
     static let stopedBuffering = #selector(AwesomeMediaView.stopedBuffering)
+    static let finishedPlaying = #selector(AwesomeMediaView.finishedPlaying)
 }
 
 extension AwesomeMediaView {
@@ -110,6 +117,7 @@ extension AwesomeMediaView {
         AwesomeMediaNotificationCenter.shared.addObserver(self, selector: .timeUpdated, event: .timeUpdated)
         AwesomeMediaNotificationCenter.shared.addObserver(self, selector: .startedBuffering, event: .startedBuffering)
         AwesomeMediaNotificationCenter.shared.addObserver(self, selector: .stopedBuffering, event: .stopedBuffering)
+        AwesomeMediaNotificationCenter.shared.addObserver(self, selector: .finishedPlaying, event: .finishedPlaying)
     }
     
     @objc fileprivate func startedPlaying() {
@@ -137,7 +145,7 @@ extension AwesomeMediaView {
         }
         
         startLoadingAnimation()
-
+	
         if let controlView = controlView {
             // bring controlview to front as loading animation will be on top
             bringSubview(toFront: controlView)
@@ -146,7 +154,7 @@ extension AwesomeMediaView {
             controlView.lock(true, animated: true)
             
             // cancels auto hide
-            controlView.cancelAutoHide()
+            controlView.show()
         }
     }
     
@@ -162,6 +170,21 @@ extension AwesomeMediaView {
         
         // setup auto hide
         controlView?.setupAutoHide()
+    }
+    
+    @objc fileprivate func finishedPlaying() {
+        /*guard sharedAVPlayer.isCurrentItem(withParams: mediaParams) else {
+            return
+        }*/
+        
+        // stop playing
+        sharedAVPlayer.stop()
+        
+        // reset controls
+        controlView?.reset()
+        
+        // do something after finished playing
+        finishedPlayingCallback?()
     }
 }
 

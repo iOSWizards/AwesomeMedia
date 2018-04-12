@@ -49,6 +49,7 @@ public class AwesomeMediaVideoControlView: UIView {
     fileprivate var controls: AwesomeMediaVideoControls = .standard
     fileprivate var bottomConstraint: NSLayoutConstraint?
     fileprivate var playButtonStateBeforeSliding = false
+    fileprivate var isLocked = false
     
     // Public Variables
     public var shouldShowInfo = true
@@ -220,7 +221,7 @@ extension AwesomeMediaVideoControlView {
     public func setupAutoHide() {
         cancelAutoHide()
         
-        guard !isHidden, playButton.isSelected else {
+        guard !isHidden, playButton.isSelected, !isLocked else {
             return
         }
         
@@ -233,6 +234,16 @@ extension AwesomeMediaVideoControlView {
         autoHideControlTimer?.invalidate()
     }
     
+    public func show() {
+        cancelAutoHide()
+        
+        guard isHidden else {
+            return
+        }
+        
+        toggleView()
+    }
+    
     public func lock(_ lock: Bool, animated: Bool) {
         if animated {
             UIView.animate(withDuration: 0.3) {
@@ -243,7 +254,20 @@ extension AwesomeMediaVideoControlView {
         }
     }
     
+    public func reset() {
+        playButton.isSelected = false
+        timeSlider.value = 0
+        minTimeLabel.text = "00:00"
+        maxTimeLabel.text = "00:00"
+        shouldShowInfo = true
+        
+        updatePlayState()
+        show()
+    }
+    
     fileprivate func setLockedState(locked: Bool) {
+        self.isLocked = locked
+        
         let lockedAlpha: CGFloat = 0.5
         
         playButton.isUserInteractionEnabled = !locked
