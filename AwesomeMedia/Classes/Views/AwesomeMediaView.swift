@@ -101,8 +101,8 @@ public class AwesomeMediaView: UIView {
 // MARK: - Observers
 
 fileprivate extension Selector {
-    static let startedPlaying = #selector(AwesomeMediaView.startedPlaying)
-    static let stopedPlaying = #selector(AwesomeMediaView.stopedPlaying)
+    static let playing = #selector(AwesomeMediaView.startedPlaying)
+    static let paused = #selector(AwesomeMediaView.pausedPlaying)
     static let timeUpdated = #selector(AwesomeMediaView.timeUpdated)
     static let startedBuffering = #selector(AwesomeMediaView.startedBuffering)
     static let stopedBuffering = #selector(AwesomeMediaView.stopedBuffering)
@@ -112,8 +112,8 @@ fileprivate extension Selector {
 extension AwesomeMediaView {
     
     fileprivate func addObservers() {
-        AwesomeMediaNotificationCenter.shared.addObserver(self, selector: .startedPlaying, event: .playing)
-        AwesomeMediaNotificationCenter.shared.addObserver(self, selector: .stopedPlaying, event: .stopped)
+        AwesomeMediaNotificationCenter.shared.addObserver(self, selector: .playing, event: .playing)
+        AwesomeMediaNotificationCenter.shared.addObserver(self, selector: .paused, event: .paused)
         AwesomeMediaNotificationCenter.shared.addObserver(self, selector: .timeUpdated, event: .timeUpdated)
         AwesomeMediaNotificationCenter.shared.addObserver(self, selector: .startedBuffering, event: .buffering)
         AwesomeMediaNotificationCenter.shared.addObserver(self, selector: .stopedBuffering, event: .stoppedBuffering)
@@ -124,7 +124,7 @@ extension AwesomeMediaView {
         controlView?.playButton.isSelected = sharedAVPlayer.isPlaying(withParams: mediaParams)
     }
     
-    @objc fileprivate func stopedPlaying() {
+    @objc fileprivate func pausedPlaying() {
         controlView?.playButton.isSelected = sharedAVPlayer.isPlaying(withParams: mediaParams)
     }
     
@@ -176,9 +176,6 @@ extension AwesomeMediaView {
         /*guard sharedAVPlayer.isCurrentItem(withParams: mediaParams) else {
             return
         }*/
-        
-        // stop playing
-        sharedAVPlayer.stop()
         
         // reset controls
         controlView?.reset()

@@ -33,4 +33,30 @@ extension AVPlayerItem {
         }
         return time.formatedTimeInMinutes
     }
+    
+    public func saveTime() {
+        guard var url = (asset as? AVURLAsset)?.url else {
+            return
+        }
+        
+        url.time = currentTimeInSeconds
+    }
+    
+    public func loadSavedTime() {
+        guard var url = (asset as? AVURLAsset)?.url else {
+            return
+        }
+        
+        if let time = url.time {
+            seek(to: CMTime(seconds: Double(time), preferredTimescale: currentTime().timescale))
+        }
+    }
+    
+    public func resetTime() {
+        guard var url = (asset as? AVURLAsset)?.url else {
+            return
+        }
+        
+        url.time = 0
+    }
 }

@@ -84,9 +84,18 @@ extension AVPlayer {
         seek(withStep: step)
     }
     
-    public func stop() {
+    public func stop(resetTime: Bool = false) {
+        // pause player
         pause()
+        
+        // reset the saved time
+        if resetTime {
+            currentItem?.resetTime()
+        }
+        
+        // wipe out the existance of the media
         replaceCurrentItem(with: nil)
+        
         AwesomeMediaNotificationCenter.shared.notify(.stopped)
     }
         

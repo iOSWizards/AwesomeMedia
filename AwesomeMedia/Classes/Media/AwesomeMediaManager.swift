@@ -51,6 +51,9 @@ public class AwesomeMediaManager: NSObject {
         // at this point media will start buffering
         notifyMediaEvent(.buffering)
         
+        // load saved media time
+        playerItem.loadSavedTime()
+        
         // start playing if the case
         if play {
             avPlayer.play()
@@ -157,7 +160,12 @@ extension AwesomeMediaManager {
         
         // Check for Rate Changes
         if keyPath == "rate" {
-            notifyMediaEvent(.speedRateChanged)
+            if avPlayer.isPlaying {
+                notifyMediaEvent(.speedRateChanged)
+            } else {
+                notifyMediaEvent(.paused)
+                sharedAVPlayer.currentItem?.saveTime()
+            }
         }
         // Check for Status Changes
         else if keyPath == "status" {
@@ -180,6 +188,9 @@ extension AwesomeMediaManager {
     // Finished Playing Observer
     
     @objc public func didFinishPlaying(){
+        // stop playing
+        sharedAVPlayer.stop(resetTime: true)
+        
         notifyMediaEvent(.finished)
     }
 }
