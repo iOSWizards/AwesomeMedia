@@ -103,6 +103,8 @@ extension AVPlayerItem {
                 }
             })
         }
+        
+        mediaInfo = nowPlayingInfo
     }
     
     public func resetControlCenter() {
