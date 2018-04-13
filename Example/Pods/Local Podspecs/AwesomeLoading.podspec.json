@@ -1,6 +1,6 @@
 {
   "name": "AwesomeLoading",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "summary": "Loading animation for MV apps",
   "description": "Loading animation for MV apps",
   "homepage": "https://github.com/Mindvalley/Mobile_iOS_Library_AwesomeLoading",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/Mindvalley/Mobile_iOS_Library_AwesomeLoading.git",
-    "tag": "0.1.2"
+    "tag": "0.1.3"
   },
   "platforms": {
     "ios": "9.0"

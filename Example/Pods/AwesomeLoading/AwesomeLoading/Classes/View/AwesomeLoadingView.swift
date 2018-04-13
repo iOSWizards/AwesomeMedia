@@ -61,9 +61,15 @@ extension AwesomeLoadingView {
             animationView.animationSpeed = 1
             //animationView.frame = CGRect(x: (self.frame.size.width/2)-240, y: (self.frame.size.height/2)-135, width: 480, height: 270)
             let scale: CGFloat = 1.5
-            animationView.frame = CGRect(x: (self.frame.size.width/2)-(240*scale), y: (self.frame.size.height/2)-(135*scale), width: 480*scale, height: 270*scale)
             self.addSubview(animationView)
             //animationView.addShadowLayer(size: CGSize(width: 90, height: 90))
+            
+            animationView.translatesAutoresizingMaskIntoConstraints = false
+            
+            addConstraint(NSLayoutConstraint(item: animationView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 480*scale))
+            addConstraint(NSLayoutConstraint(item: animationView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 270*scale))
+            addConstraint(NSLayoutConstraint(item: animationView, attribute: .centerY, relatedBy: .equal, toItem: self, attribute: .centerY, multiplier: 1, constant: 0))
+            addConstraint(NSLayoutConstraint(item: animationView, attribute: .centerX, relatedBy: .equal, toItem: self, attribute: .centerX, multiplier: 1, constant: 0))
             
             animationView.play(completion: { (finished) in
                 print("did complete \(finished)")
@@ -119,6 +125,9 @@ extension UIView {
             let loadingView = AwesomeLoadingView.newInstance()
             loadingView.frame = self.bounds
             self.addSubview(loadingView)
+            
+            loadingView.constraintToSuperview()
+
             loadingView.show()
         }
     }
@@ -132,4 +141,17 @@ extension UIView {
             }
         }
     }
+    
+    public func constraintToSuperview() {
+        guard let superview = superview else {
+            return
+        }
+        translatesAutoresizingMaskIntoConstraints = false
+        
+        superview.addConstraint(NSLayoutConstraint(item: self, attribute: .leading, relatedBy: .equal, toItem: superview, attribute: .leading, multiplier: 1, constant: 0))
+        superview.addConstraint(NSLayoutConstraint(item: self, attribute: .trailing, relatedBy: .equal, toItem: superview, attribute: .trailing, multiplier: 1, constant: 0))
+        superview.addConstraint(NSLayoutConstraint(item: self, attribute: .top, relatedBy: .equal, toItem: superview, attribute: .top, multiplier: 1, constant: 0))
+        superview.addConstraint(NSLayoutConstraint(item: self, attribute: .bottom, relatedBy: .equal, toItem: superview, attribute: .bottom, multiplier: 1, constant: 0))
+    }
 }
+

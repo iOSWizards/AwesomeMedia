@@ -1,5 +1,5 @@
 PODS:
-  - AwesomeLoading (0.1.2):
+  - AwesomeLoading (0.1.3):
     - lottie-ios
   - AwesomeMedia (0.8.0):
     - AwesomeLoading
@@ -8,14 +8,14 @@ PODS:
   - lottie-ios (2.5.0)
 
 DEPENDENCIES:
-  - AwesomeLoading (from `https://github.com/Mindvalley/Mobile_iOS_Library_AwesomeLoading.git`, tag `0.1.2`)
+  - AwesomeLoading (from `https://github.com/Mindvalley/Mobile_iOS_Library_AwesomeLoading.git`, tag `0.1.3`)
   - AwesomeMedia (from `../`)
   - AwesomeUIMagic (from `https://github.com/iOSWizards/AwesomeUIMagic`, tag `0.4.3`)
 
 EXTERNAL SOURCES:
   AwesomeLoading:
     :git: https://github.com/Mindvalley/Mobile_iOS_Library_AwesomeLoading.git
-    :tag: 0.1.2
+    :tag: 0.1.3
   AwesomeMedia:
     :path: ../
   AwesomeUIMagic:
@@ -25,17 +25,17 @@ EXTERNAL SOURCES:
 CHECKOUT OPTIONS:
   AwesomeLoading:
     :git: https://github.com/Mindvalley/Mobile_iOS_Library_AwesomeLoading.git
-    :tag: 0.1.2
+    :tag: 0.1.3
   AwesomeUIMagic:
     :git: https://github.com/iOSWizards/AwesomeUIMagic
     :tag: 0.4.3
 
 SPEC CHECKSUMS:
-  AwesomeLoading: 53060cc965d63b2d9ee0c17e65509908f759ef03
+  AwesomeLoading: a035744e09a5334bd918f394bfd07e60a196eb1d
   AwesomeMedia: 830279f531e7feab09e73d156498c5ac6447be64
   AwesomeUIMagic: ebce4bd0455530b8ad47bcb37bb48914472c5f40
   lottie-ios: d699fdee68d7b63e721d949388b015fef1aaa4ac
 
-PODFILE CHECKSUM: 0c56aa9d3e4be42021559b1333c49395a5887f55
+PODFILE CHECKSUM: 9db89805721374b101e0a216279816bca61cd48e
 
 COCOAPODS: 1.4.0

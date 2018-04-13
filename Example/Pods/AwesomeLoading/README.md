@@ -20,7 +20,7 @@ AwesomeLoading is available through [CocoaPods](http://cocoapods.org). To instal
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod "AwesomeLoading", git: 'https://github.com/Mindvalley/Mobile_iOS_Library_AwesomeLoading', tag: '0.1.2'
+pod "AwesomeLoading", git: 'https://github.com/Mindvalley/Mobile_iOS_Library_AwesomeLoading', tag: '0.1.3'
 ```
 ## Usage
 
