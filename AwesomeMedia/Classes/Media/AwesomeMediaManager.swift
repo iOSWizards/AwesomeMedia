@@ -42,6 +42,9 @@ public class AwesomeMediaManager: NSObject {
         
         // update control center
         sharedAVPlayer.currentItem?.updateControlCenter(withParams: params)
+        
+        // add remote controls
+        AwesomeMediaControlCenter.shared.configBackgroundPlay()
     }
     
     fileprivate func prepareMedia(withUrl url: URL, andPlay play: Bool = true) {
