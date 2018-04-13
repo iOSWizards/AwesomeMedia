@@ -9,7 +9,6 @@ import UIKit
 
 public class AwesomeMediaVideoViewController: UIViewController {
 
-    @IBOutlet public weak var coverImageView: UIImageView!
     @IBOutlet public weak var playerView: AwesomeMediaView!
     
     public var mediaParams: AwesomeMediaParams = [:]

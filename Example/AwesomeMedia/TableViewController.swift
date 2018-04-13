@@ -45,15 +45,13 @@ class TableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if let cell = cell as? AwesomeMediaVideoTableViewCell {
-            cell.coverImageView.image = #imageLiteral(resourceName: "awesome")
-            
             let mediaParams: AwesomeMediaParams = [.url: AwesomeMediaManager.testVideoURL]
             cell.configure(withMediaParams: mediaParams, toggleFullscreen: {
                 let viewController = AwesomeMediaVideoViewController.newInstance
                 viewController.mediaParams = mediaParams
                 
                 self.present(viewController, animated: true, completion: {
-                    viewController.coverImageView.image = #imageLiteral(resourceName: "awesome")
+                    
                 })
             })
         }

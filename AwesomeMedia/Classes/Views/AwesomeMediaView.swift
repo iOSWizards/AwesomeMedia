@@ -17,6 +17,7 @@ public class AwesomeMediaView: UIView {
     public var mediaParams: AwesomeMediaParams = [:]
     public var controlView: AwesomeMediaVideoControlView?
     public var titleView: AwesomeMediaVideoTitleView?
+    public var coverImageView: UIImageView?
     
     // Callbacks
     public var finishedPlayingCallback: FinishedPlayingCallback?
@@ -54,6 +55,9 @@ public class AwesomeMediaView: UIView {
             
             addPlayerLayer()
         }
+        
+        // set coverImage
+        addCoverImage()
         
     }
     
@@ -121,7 +125,14 @@ extension AwesomeMediaView {
     }
     
     @objc fileprivate func startedPlaying() {
-        controlView?.playButton.isSelected = sharedAVPlayer.isPlaying(withParams: mediaParams)
+        guard sharedAVPlayer.isPlaying(withParams: mediaParams) else {
+            return
+        }
+        
+        controlView?.playButton.isSelected = true
+        
+        // hide coverImage
+        showCoverImage(false)
     }
     
     @objc fileprivate func pausedPlaying() {
@@ -180,6 +191,9 @@ extension AwesomeMediaView {
         // reset controls
         controlView?.reset()
         
+        // show cover image
+        showCoverImage(true)
+        
         // do something after finished playing
         finishedPlayingCallback?()
     }
@@ -189,5 +203,38 @@ extension AwesomeMediaView {
 extension AwesomeMediaView {
     public override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         controlView?.toggleViewIfPossible()
+    }
+}
+
+// MARK: - Media Cover
+extension AwesomeMediaView {
+    public func addCoverImage() {
+        // remove pre-existing cover images
+        coverImageView?.removeFromSuperview()
+        
+        // set the cover image
+        coverImageView = UIImageView(image: nil)
+        coverImageView?.backgroundColor = .red
+        
+        guard let coverImageView = coverImageView else {
+            return
+        }
+        coverImageView.contentMode = .scaleAspectFill
+        superview?.addSubview(coverImageView)
+        superview?.sendSubview(toBack: coverImageView)
+        
+        coverImageView.translatesAutoresizingMaskIntoConstraints = false
+        
+        superview?.addConstraint(NSLayoutConstraint(item: coverImageView, attribute: .leading, relatedBy: .equal, toItem: self, attribute: .leading, multiplier: 1, constant: 0))
+        superview?.addConstraint(NSLayoutConstraint(item: coverImageView, attribute: .trailing, relatedBy: .equal, toItem: self, attribute: .trailing, multiplier: 1, constant: 0))
+        superview?.addConstraint(NSLayoutConstraint(item: coverImageView, attribute: .top, relatedBy: .equal, toItem: self, attribute: .top, multiplier: 1, constant: 0))
+        superview?.addConstraint(NSLayoutConstraint(item: coverImageView, attribute: .bottom, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 1, constant: 0))
+        
+        // hide cover image in case is not playing current item
+        showCoverImage(!sharedAVPlayer.isPlaying(withParams: mediaParams))
+    }
+    
+    public func showCoverImage(_ show: Bool) {
+        coverImageView?.isHidden = !show
     }
 }

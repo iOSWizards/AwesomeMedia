@@ -9,7 +9,6 @@ import UIKit
 
 public class AwesomeMediaVideoTableViewCell: UITableViewCell {
 
-    @IBOutlet public weak var coverImageView: UIImageView!
     @IBOutlet public weak var playerView: AwesomeMediaView!
 
     public override func setSelected(_ selected: Bool, animated: Bool) {

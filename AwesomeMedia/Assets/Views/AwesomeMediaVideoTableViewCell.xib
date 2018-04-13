@@ -18,9 +18,6 @@
                 <rect key="frame" x="0.0" y="0.0" width="375" height="208.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Csd-P4-pW7">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="209"/>
-                    </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rdg-Ki-Dtx" customClass="AwesomeMediaView" customModule="AwesomeMedia">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="209"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -28,18 +25,13 @@
                 </subviews>
                 <color key="backgroundColor" red="0.13725490200000001" green="0.1529411765" blue="0.1843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 <constraints>
-                    <constraint firstItem="Csd-P4-pW7" firstAttribute="top" secondItem="TdN-qS-ZS7" secondAttribute="top" id="1dS-RH-4j6"/>
                     <constraint firstItem="rdg-Ki-Dtx" firstAttribute="top" secondItem="TdN-qS-ZS7" secondAttribute="top" id="7EV-Su-qUr"/>
-                    <constraint firstItem="Csd-P4-pW7" firstAttribute="leading" secondItem="TdN-qS-ZS7" secondAttribute="leading" id="9xV-4M-7Re"/>
                     <constraint firstAttribute="trailing" secondItem="rdg-Ki-Dtx" secondAttribute="trailing" id="F7U-BC-eaj"/>
                     <constraint firstItem="rdg-Ki-Dtx" firstAttribute="leading" secondItem="TdN-qS-ZS7" secondAttribute="leading" id="LQA-gi-pHc"/>
                     <constraint firstAttribute="bottom" secondItem="rdg-Ki-Dtx" secondAttribute="bottom" id="hLl-td-WFV"/>
-                    <constraint firstAttribute="bottom" secondItem="Csd-P4-pW7" secondAttribute="bottom" id="mQj-DA-FSo"/>
-                    <constraint firstAttribute="trailing" secondItem="Csd-P4-pW7" secondAttribute="trailing" id="rP1-rw-tzu"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="coverImageView" destination="Csd-P4-pW7" id="6Av-vX-fqO"/>
                 <outlet property="playerView" destination="rdg-Ki-Dtx" id="syp-7i-QY4"/>
             </connections>
             <point key="canvasLocation" x="-135.5" y="-26.5"/>
