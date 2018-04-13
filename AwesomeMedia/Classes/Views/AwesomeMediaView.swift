@@ -112,12 +112,12 @@ fileprivate extension Selector {
 extension AwesomeMediaView {
     
     fileprivate func addObservers() {
-        AwesomeMediaNotificationCenter.shared.addObserver(self, selector: .startedPlaying, event: .startedPlaying)
-        AwesomeMediaNotificationCenter.shared.addObserver(self, selector: .stopedPlaying, event: .stopedPlaying)
+        AwesomeMediaNotificationCenter.shared.addObserver(self, selector: .startedPlaying, event: .playing)
+        AwesomeMediaNotificationCenter.shared.addObserver(self, selector: .stopedPlaying, event: .stopped)
         AwesomeMediaNotificationCenter.shared.addObserver(self, selector: .timeUpdated, event: .timeUpdated)
-        AwesomeMediaNotificationCenter.shared.addObserver(self, selector: .startedBuffering, event: .startedBuffering)
-        AwesomeMediaNotificationCenter.shared.addObserver(self, selector: .stopedBuffering, event: .stopedBuffering)
-        AwesomeMediaNotificationCenter.shared.addObserver(self, selector: .finishedPlaying, event: .finishedPlaying)
+        AwesomeMediaNotificationCenter.shared.addObserver(self, selector: .startedBuffering, event: .buffering)
+        AwesomeMediaNotificationCenter.shared.addObserver(self, selector: .stopedBuffering, event: .stoppedBuffering)
+        AwesomeMediaNotificationCenter.shared.addObserver(self, selector: .finishedPlaying, event: .finished)
     }
     
     @objc fileprivate func startedPlaying() {

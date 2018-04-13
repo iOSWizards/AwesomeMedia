@@ -87,7 +87,7 @@ extension AVPlayer {
     public func stop() {
         pause()
         replaceCurrentItem(with: nil)
-        AwesomeMediaNotificationCenter.shared.notify(.stopedPlaying)
+        AwesomeMediaNotificationCenter.shared.notify(.stopped)
     }
         
 }

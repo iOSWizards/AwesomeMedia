@@ -18,6 +18,9 @@ public class AwesomeMediaManager: NSObject {
     fileprivate var playbackLikelyToKeepUpContext = 0
     fileprivate var playbackBufferFullContext = 1
     
+    // Public Variables
+    public var mediaState = [String: AwesomeMediaEvent]()
+    
     // Testing Variables
     public static let testVideoURL = "https://overmind2.mvstg.com/api/v1/assets/0af656fc-dcde-45ad-9b59-7632ca247001.m3u8"
     
@@ -46,14 +49,33 @@ public class AwesomeMediaManager: NSObject {
         addObservers(withItem: playerItem)
         
         // at this point media will start buffering
-        AwesomeMedia.log("avPlayer.timeControlStatus: started buffering")
-        AwesomeMediaNotificationCenter.shared.notify(.startedBuffering)
+        notifyMediaEvent(.buffering)
         
         // start playing if the case
         if play {
             avPlayer.play()
         }
-    }    
+    }
+    
+    // Media State
+    
+    public func mediaState(forParams params: AwesomeMediaParams) -> AwesomeMediaEvent {
+        guard let url = AwesomeMediaManager.url(forParams: params) else {
+            return .unknown
+        }
+        
+        return AwesomeMediaManager.shared.mediaState[url.path] ?? .unknown
+    }
+    
+    public func mediaIsLoading(withParams params: AwesomeMediaParams) -> Bool {
+        
+        switch mediaState(forParams: params) {
+        case .stoppedBuffering, .playing :
+            return false
+        default:
+            return true
+        }
+    }
 }
 
 // MARK: - Notifications
@@ -102,7 +124,7 @@ extension AwesomeMediaManager {
         }
         
         if CMTimeGetSeconds(currentItem.duration).isFinite {
-            AwesomeMediaNotificationCenter.shared.notify(.timeUpdated)
+            notifyMediaEvent(.timeUpdated)
         }
     }
     
@@ -117,33 +139,25 @@ extension AwesomeMediaManager {
         default:
             break
 //        case .playing:
-//            AwesomeMediaNotificationCenter.shared.notify(.startedPlaying)
+//            notifyMediaEvent(.startedPlaying)
 //            AwesomeMedia.log("avPlayer.timeControlStatus: playing")
 //        case .paused:
-//            AwesomeMediaNotificationCenter.shared.notify(.pausedPlaying)
+//            notifyMediaEvent(.pausedPlaying)
 //            AwesomeMedia.log("avPlayer.timeControlStatus: paused")
         }*/
         
         // Check for media buffering
         if context == &playbackLikelyToKeepUpContext || context == &playbackBufferFullContext {
             if let currentItem = sharedAVPlayer.currentItem, currentItem.isPlaybackLikelyToKeepUp || currentItem.isPlaybackBufferFull {
-                AwesomeMedia.log("avPlayer.timeControlStatus: stopped buffering")
-                AwesomeMediaNotificationCenter.shared.notify(.stopedBuffering)
+                notifyMediaEvent(.stoppedBuffering)
             } else {
-                AwesomeMedia.log("avPlayer.timeControlStatus: started buffering")
-                AwesomeMediaNotificationCenter.shared.notify(.startedBuffering)
+                notifyMediaEvent(.buffering)
             }
         }
         
         // Check for Rate Changes
         if keyPath == "rate" {
-            if avPlayer.isPlaying {
-                AwesomeMediaNotificationCenter.shared.notify(.startedPlaying)
-                AwesomeMedia.log("avPlayer.timeControlStatus: playing")
-            } else {
-                AwesomeMediaNotificationCenter.shared.notify(.pausedPlaying)
-                AwesomeMedia.log("avPlayer.timeControlStatus: paused")
-            }
+            notifyMediaEvent(.speedRateChanged)
         }
         // Check for Status Changes
         else if keyPath == "status" {
@@ -156,9 +170,9 @@ extension AwesomeMediaManager {
             
             switch status {
             case .readyToPlay:
-                AwesomeMedia.log("avPlayer.timeControlStatus: readyToPlay")
+                notifyMediaEvent(.playing)
             case .failed, .unknown:
-                AwesomeMedia.log("avPlayer.timeControlStatus: .failed, .unknown")
+                notifyMediaEvent(.failed)
             }
         }
     }
@@ -166,8 +180,7 @@ extension AwesomeMediaManager {
     // Finished Playing Observer
     
     @objc public func didFinishPlaying(){
-        AwesomeMedia.log("avPlayer.timeControlStatus: finished playing")
-        AwesomeMediaNotificationCenter.shared.notify(.finishedPlaying)
+        notifyMediaEvent(.finished)
     }
 }
 

@@ -6,21 +6,39 @@
 //
 
 import Foundation
+import AVFoundation
 
 public enum AwesomeMediaEvent: String {
-    case startedPlaying
-    case pausedPlaying
-    case stopedPlaying
-    case finishedPlaying
-    case failedPlaying
-    case startedBuffering
-    case stopedBuffering
+    case playing
+    case paused
+    case stopped
+    case finished
+    case failed
+    case buffering
+    case stoppedBuffering
     case timeUpdated
     case timedOut
     case timeStartedUpdating
     case timeFinishedUpdating
     case isGoingPortrait
     case isGoingLandscape
+    case speedRateChanged
+    case unknown
+}
+
+func notifyMediaEvent(_ event: AwesomeMediaEvent, object: AnyObject? = nil) {
+    AwesomeMedia.log("notification event: \(event.rawValue)")
+    
+    AwesomeMediaNotificationCenter.shared.notify(event, object: object)
+    
+    if let url = (sharedAVPlayer.currentItem?.asset as? AVURLAsset)?.url {
+        switch event {
+        case .buffering, .playing, .stoppedBuffering:
+            AwesomeMediaManager.shared.mediaState[url.path] = event
+        default:
+            break
+        }
+    }
 }
 
 public class AwesomeMediaNotificationCenter: NotificationCenter {
