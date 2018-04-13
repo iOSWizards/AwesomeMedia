@@ -47,7 +47,9 @@ class TableViewController: UITableViewController {
         if let cell = cell as? AwesomeMediaVideoTableViewCell {
             let mediaParams: AwesomeMediaParams = [
                 .url: AwesomeMediaManager.testVideoURL,
-                .coverUrl: "https://thumbs.dreamstime.com/z/awesome-word-cloud-explosion-background-51481417.jpg"]
+                .coverUrl: "https://thumbs.dreamstime.com/z/awesome-word-cloud-explosion-background-51481417.jpg",
+                .author: "Eric Mendez",
+                .title: "WildFit"]
             cell.configure(withMediaParams: mediaParams, toggleFullscreen: {
                 let viewController = AwesomeMediaVideoViewController.newInstance
                 viewController.mediaParams = mediaParams
