@@ -40,11 +40,8 @@ public class AwesomeMediaManager: NSObject {
         // add player to layer
         playerLayer?.player = avPlayer
         
-        // update control center
-        sharedAVPlayer.currentItem?.updateControlCenter(withParams: params)
-        
         // add remote controls
-        AwesomeMediaControlCenter.shared.configBackgroundPlay()
+        AwesomeMediaControlCenter.configBackgroundPlay(withParams: params)
     }
     
     fileprivate func prepareMedia(withUrl url: URL, andPlay play: Bool = true) {
@@ -73,7 +70,7 @@ public class AwesomeMediaManager: NSObject {
             return .unknown
         }
         
-        return AwesomeMediaManager.shared.mediaState[url.path] ?? .unknown
+        return AwesomeMediaManager.shared.mediaState[url.absoluteString] ?? .unknown
     }
     
     public func mediaIsLoading(withParams params: AwesomeMediaParams) -> Bool {

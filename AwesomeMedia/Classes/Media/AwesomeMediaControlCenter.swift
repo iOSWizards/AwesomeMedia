@@ -10,9 +10,7 @@ import MediaPlayer
 
 public class AwesomeMediaControlCenter {
     
-    public static var shared = AwesomeMediaControlCenter()
-    
-    public func configBackgroundPlay() {
+    public static func configBackgroundPlay(withParams params: AwesomeMediaParams) {
         do {
             try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
         }catch{
@@ -22,11 +20,14 @@ public class AwesomeMediaControlCenter {
         
         //controls
         addPlayerControls()
+        
+        // update control center
+        updateControlCenter(withParams: params)
     }
     
     // MARK: - Player controls
     
-    public func addPlayerControls() {
+    public static func addPlayerControls() {
         DispatchQueue.main.async {
             UIApplication.shared.beginReceivingRemoteControlEvents()
         }
@@ -36,23 +37,27 @@ public class AwesomeMediaControlCenter {
         //play/pause
         commandCenter.pauseCommand.isEnabled = true
         commandCenter.pauseCommand.addTarget { (event) -> MPRemoteCommandHandlerStatus in
+            sharedAVPlayer.pause()
+            
             return .success
         }
         
         commandCenter.playCommand.isEnabled = true
         commandCenter.playCommand.addTarget { (event) -> MPRemoteCommandHandlerStatus in
+            sharedAVPlayer.play()
+            
             return .success
         }
         
-        //commandCenter.stopCommand.isEnabled = true
-        //commandCenter.stopCommand.addTarget(self, action: .ccStop)
+        /*commandCenter.stopCommand.isEnabled = true
+        commandCenter.stopCommand.addTarget(self, action: .ccStop)*/
         
-        commandCenter.togglePlayPauseCommand.isEnabled = true
+        /*commandCenter.togglePlayPauseCommand.isEnabled = true
         commandCenter.togglePlayPauseCommand.addTarget { (event) -> MPRemoteCommandHandlerStatus in
             return .success
-        }
+        }*/
         
-        //seek
+        /*//seek
         commandCenter.seekForwardCommand.isEnabled = true
         commandCenter.seekForwardCommand.addTarget { (event) -> MPRemoteCommandHandlerStatus in
             return .success
@@ -61,22 +66,75 @@ public class AwesomeMediaControlCenter {
         commandCenter.seekBackwardCommand.isEnabled = true
         commandCenter.seekBackwardCommand.addTarget { (event) -> MPRemoteCommandHandlerStatus in
             return .success
-        }
+        }*/
         
         //skip
         commandCenter.skipForwardCommand.isEnabled = true
         commandCenter.skipForwardCommand.addTarget { (event) -> MPRemoteCommandHandlerStatus in
+            sharedAVPlayer.seekForward(step: 15)
+            
             return .success
         }
         
         commandCenter.skipBackwardCommand.isEnabled = true
         commandCenter.skipBackwardCommand.addTarget { (event) -> MPRemoteCommandHandlerStatus in
+            sharedAVPlayer.seekBackward(step: 15)
+            
             return .success
         }
     }
     
-    public func removePlayerControls(){
+    public static func removePlayerControls(){
         UIApplication.shared.endReceivingRemoteControlEvents()
     }
 
+    // MARK: - Media Info
+    
+    public static var mediaInfo: [String: AnyObject]{
+        get {
+            let infoCenter = MPNowPlayingInfoCenter.default()
+            
+            if infoCenter.nowPlayingInfo == nil {
+                infoCenter.nowPlayingInfo = [String: AnyObject]()
+            }
+            
+            return infoCenter.nowPlayingInfo! as [String : AnyObject]
+        }
+        set{
+            let infoCenter = MPNowPlayingInfoCenter.default()
+            infoCenter.nowPlayingInfo = newValue
+        }
+    }
+    
+    public static func updateControlCenter(withParams params: AwesomeMediaParams) {
+        var nowPlayingInfo = mediaInfo
+        
+        nowPlayingInfo[MPNowPlayingInfoPropertyElapsedPlaybackTime] = NSNumber(value: Double(sharedAVPlayer.currentItem?.currentTimeInSeconds ?? 0))
+        nowPlayingInfo[MPMediaItemPropertyPlaybackDuration] = NSNumber(value: Double(sharedAVPlayer.currentItem?.durationInSeconds ?? 0))
+        nowPlayingInfo[MPNowPlayingInfoPropertyPlaybackRate] = NSNumber(value: sharedAVPlayer.rate)
+        
+        if let author = AwesomeMediaManager.author(forParams: params) {
+            nowPlayingInfo[MPMediaItemPropertyArtist] = author as AnyObject?
+        }
+        
+        if let title = AwesomeMediaManager.title(forParams: params) {
+            nowPlayingInfo[MPMediaItemPropertyTitle] = title as AnyObject?
+        }
+        
+        if let coverImageUrl = AwesomeMediaManager.coverUrl(forParams: params) {
+            UIImage.loadImage(coverImageUrl.absoluteString, completion: { (image) in
+                if let image = image {
+                    nowPlayingInfo[MPMediaItemPropertyArtwork] = MPMediaItemArtwork.init(boundsSize: image.size, requestHandler: { (size) -> UIImage in
+                        return image
+                    })
+                }
+            })
+        }
+        
+        mediaInfo = nowPlayingInfo
+    }
+    
+    public static func resetControlCenter() {
+        mediaInfo = [:]
+    }
 }

@@ -94,7 +94,7 @@ extension AVPlayer {
         }
         
         // reset control center
-        currentItem?.resetControlCenter()
+        AwesomeMediaControlCenter.resetControlCenter()
         
         // wipe out the existance of the media
         replaceCurrentItem(with: nil)

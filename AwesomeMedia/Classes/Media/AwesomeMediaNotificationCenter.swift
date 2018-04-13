@@ -34,7 +34,7 @@ func notifyMediaEvent(_ event: AwesomeMediaEvent, object: AnyObject? = nil) {
     if let url = (sharedAVPlayer.currentItem?.asset as? AVURLAsset)?.url {
         switch event {
         case .buffering, .playing, .stoppedBuffering:
-            AwesomeMediaManager.shared.mediaState[url.path] = event
+            AwesomeMediaManager.shared.mediaState[url.absoluteString] = event
         default:
             break
         }

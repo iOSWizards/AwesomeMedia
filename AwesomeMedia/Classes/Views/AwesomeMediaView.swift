@@ -133,6 +133,9 @@ extension AwesomeMediaView {
         
         // hide coverImage
         showCoverImage(false)
+        
+        // update Control Center
+        AwesomeMediaControlCenter.updateControlCenter(withParams: mediaParams)
     }
     
     @objc fileprivate func pausedPlaying() {
