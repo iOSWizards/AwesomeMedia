@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina5_9" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -19,6 +19,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fUb-vC-Mq0">
+                                <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
+                                <connections>
+                                    <action selector="toggleControlsButtonPressed:" destination="D5r-St-fKa" eventType="touchUpInside" id="zm5-MZ-YFC"/>
+                                </connections>
+                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UKc-qD-L8m" customClass="AwesomeMediaView" customModule="AwesomeMedia">
                                 <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -33,7 +39,11 @@
                             <constraint firstAttribute="trailing" secondItem="UKc-qD-L8m" secondAttribute="trailing" id="6fI-QB-onh"/>
                             <constraint firstItem="UKc-qD-L8m" firstAttribute="centerY" secondItem="qc5-ty-b2D" secondAttribute="centerY" id="DOH-hS-Zdt"/>
                             <constraint firstItem="UKc-qD-L8m" firstAttribute="leading" secondItem="qc5-ty-b2D" secondAttribute="leading" id="Ehj-w8-kvQ"/>
+                            <constraint firstAttribute="trailing" secondItem="fUb-vC-Mq0" secondAttribute="trailing" id="Mnl-2s-SJI"/>
                             <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="UKc-qD-L8m" secondAttribute="bottom" id="PmX-fa-xLN"/>
+                            <constraint firstItem="fUb-vC-Mq0" firstAttribute="top" secondItem="PWQ-yJ-Grg" secondAttribute="top" id="VRK-rH-7cE"/>
+                            <constraint firstAttribute="bottom" secondItem="fUb-vC-Mq0" secondAttribute="bottom" id="hwZ-Wc-FXv"/>
+                            <constraint firstItem="fUb-vC-Mq0" firstAttribute="leading" secondItem="qc5-ty-b2D" secondAttribute="leading" id="lQw-Yc-mTJ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PWQ-yJ-Grg"/>
                     </view>

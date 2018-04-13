@@ -19,7 +19,7 @@ public class AwesomeMediaManager: NSObject {
     fileprivate var playbackBufferFullContext = 1
     
     // Public Variables
-    public var mediaState = [String: AwesomeMediaEvent]()
+    public var bufferingState = [String: Bool]()
     
     // Testing Variables
     public static let testVideoURL = "https://overmind2.mvstg.com/api/v1/assets/0af656fc-dcde-45ad-9b59-7632ca247001.m3u8"
@@ -65,22 +65,12 @@ public class AwesomeMediaManager: NSObject {
     
     // Media State
     
-    public func mediaState(forParams params: AwesomeMediaParams) -> AwesomeMediaEvent {
-        guard let url = AwesomeMediaManager.url(forParams: params) else {
-            return .unknown
-        }
-        
-        return AwesomeMediaManager.shared.mediaState[url.absoluteString] ?? .unknown
-    }
-    
     public func mediaIsLoading(withParams params: AwesomeMediaParams) -> Bool {
-        
-        switch mediaState(forParams: params) {
-        case .stoppedBuffering, .playing :
+        guard let url = AwesomeMediaManager.url(forParams: params) else {
             return false
-        default:
-            return true
         }
+        
+        return AwesomeMediaManager.shared.bufferingState[url.absoluteString] ?? false
     }
 }
 

@@ -61,7 +61,7 @@ extension AVPlayer {
         
         currentItem?.seek(to: CMTime(seconds: time, preferredTimescale: currentTime().timescale))
         
-        AwesomeMediaNotificationCenter.shared.notify(.timeUpdated, object: currentItem)
+        notifyMediaEvent (.timeUpdated, object: currentItem)
     }
     
     public func seek(withStep step: Double) {
@@ -99,7 +99,7 @@ extension AVPlayer {
         // wipe out the existance of the media
         replaceCurrentItem(with: nil)
         
-        AwesomeMediaNotificationCenter.shared.notify(.stopped)
+        notifyMediaEvent(.stopped)
     }
         
 }

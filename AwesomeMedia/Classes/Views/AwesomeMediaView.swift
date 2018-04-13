@@ -59,6 +59,12 @@ public class AwesomeMediaView: UIView {
         // set coverImage
         addCoverImage()
         
+        // check for loading state
+        stopLoadingAnimation()
+        if AwesomeMediaManager.shared.mediaIsLoading(withParams: mediaParams) {
+            startLoadingAnimation()
+        }
+        
     }
     
     fileprivate func configureControls(controls: AwesomeMediaVideoControls, states: AwesomeMediaVideoStates = .standard) {

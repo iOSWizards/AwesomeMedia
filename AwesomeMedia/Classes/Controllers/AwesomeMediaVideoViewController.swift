@@ -34,12 +34,11 @@ public class AwesomeMediaVideoViewController: UIViewController {
     
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        if AwesomeMediaManager.shared.mediaIsLoading(withParams: mediaParams) {
-            playerView.startLoadingAnimation()
-        }
     }
     
+    @IBAction func toggleControlsButtonPressed(_ sender: Any) {
+        playerView.controlView?.toggleViewIfPossible()
+    }
 }
 
 extension AwesomeMediaVideoViewController {
