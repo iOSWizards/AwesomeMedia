@@ -39,6 +39,9 @@ public class AwesomeMediaManager: NSObject {
 
         // add player to layer
         playerLayer?.player = avPlayer
+        
+        // update control center
+        sharedAVPlayer.currentItem?.updateControlCenter(withParams: params)
     }
     
     fileprivate func prepareMedia(withUrl url: URL, andPlay play: Bool = true) {

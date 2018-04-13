@@ -212,9 +212,13 @@ extension AwesomeMediaView {
         // remove pre-existing cover images
         coverImageView?.removeFromSuperview()
         
+        guard let coverImageUrl = AwesomeMediaManager.coverUrl(forParams: mediaParams) else {
+            return
+        }
+        
         // set the cover image
         coverImageView = UIImageView(image: nil)
-        coverImageView?.backgroundColor = .red
+        coverImageView?.setImage(coverImageUrl.absoluteString)
         
         guard let coverImageView = coverImageView else {
             return

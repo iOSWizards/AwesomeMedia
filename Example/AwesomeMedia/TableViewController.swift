@@ -45,7 +45,9 @@ class TableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if let cell = cell as? AwesomeMediaVideoTableViewCell {
-            let mediaParams: AwesomeMediaParams = [.url: AwesomeMediaManager.testVideoURL]
+            let mediaParams: AwesomeMediaParams = [
+                .url: AwesomeMediaManager.testVideoURL,
+                .coverUrl: "https://thumbs.dreamstime.com/z/awesome-word-cloud-explosion-background-51481417.jpg"]
             cell.configure(withMediaParams: mediaParams, toggleFullscreen: {
                 let viewController = AwesomeMediaVideoViewController.newInstance
                 viewController.mediaParams = mediaParams

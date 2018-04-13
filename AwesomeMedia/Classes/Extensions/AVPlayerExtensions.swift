@@ -93,6 +93,9 @@ extension AVPlayer {
             currentItem?.resetTime()
         }
         
+        // reset control center
+        currentItem?.resetControlCenter()
+        
         // wipe out the existance of the media
         replaceCurrentItem(with: nil)
         

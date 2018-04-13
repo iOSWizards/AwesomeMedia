@@ -11,7 +11,7 @@ public enum AwesomeMediaParamTypes {
     case url
     case coverUrl
     case author
-    case name
+    case title
     case duration
 }
 
@@ -46,8 +46,8 @@ extension AwesomeMediaManager {
         return value
     }
     
-    static func name(forParams params: AwesomeMediaParams) -> String? {
-        guard let value = value(forParams: params, withType: .name) as? String else {
+    static func title(forParams params: AwesomeMediaParams) -> String? {
+        guard let value = value(forParams: params, withType: .title) as? String else {
             return nil
         }
         return value
