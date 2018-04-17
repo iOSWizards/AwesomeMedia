@@ -8,6 +8,7 @@
 import UIKit
 import AVFoundation
 import AwesomeLoading
+import MediaPlayer
 
 // Typealiases
 public typealias FinishedPlayingCallback = () -> Void
@@ -105,6 +106,11 @@ public class AwesomeMediaView: UIView {
     
     fileprivate func configureTitle() {
         titleView = superview?.addVideoTitle()
+        
+        // show airplay menu
+        titleView?.airplayCallback = {
+            self.showAirplayMenu()
+        }
     }
 }
 
@@ -249,5 +255,19 @@ extension AwesomeMediaView {
     
     public func showCoverImage(_ show: Bool) {
         coverImageView?.isHidden = !show
+    }
+    
+    public func showAirplayMenu() {
+        let volumeView = MPVolumeView()
+        self.addSubview(volumeView)
+        // loop through different items in MPVolumeView
+        for view in volumeView.subviews {
+            if let button = view as? UIButton {
+                // add action to airPlayButton
+                button.sendActions(for: .touchUpInside)
+                // remove VolumeView - just disables it from airplay menu
+//                volumeView.removeFromSuperview()
+            }
+        }
     }
 }
