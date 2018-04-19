@@ -19,6 +19,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icoPlaceholderVideo" translatesAutoresizingMaskIntoConstraints="NO" id="jQF-t1-LAR">
+                                <rect key="frame" x="362" y="155" width="88" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="DIi-IO-cBm"/>
+                                    <constraint firstAttribute="width" constant="88" id="cEt-4P-Ccc"/>
+                                </constraints>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fUb-vC-Mq0">
                                 <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
                                 <connections>
@@ -33,10 +40,11 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.23529411759999999" green="0.26274509800000001" blue="0.30588235289999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="UKc-qD-L8m" firstAttribute="top" relation="greaterThanOrEqual" secondItem="qc5-ty-b2D" secondAttribute="top" id="3cF-UI-unY"/>
                             <constraint firstAttribute="trailing" secondItem="UKc-qD-L8m" secondAttribute="trailing" id="6fI-QB-onh"/>
+                            <constraint firstItem="jQF-t1-LAR" firstAttribute="centerY" secondItem="qc5-ty-b2D" secondAttribute="centerY" id="Adi-W7-AVZ"/>
                             <constraint firstItem="UKc-qD-L8m" firstAttribute="centerY" secondItem="qc5-ty-b2D" secondAttribute="centerY" id="DOH-hS-Zdt"/>
                             <constraint firstItem="UKc-qD-L8m" firstAttribute="leading" secondItem="qc5-ty-b2D" secondAttribute="leading" id="Ehj-w8-kvQ"/>
                             <constraint firstAttribute="trailing" secondItem="fUb-vC-Mq0" secondAttribute="trailing" id="Mnl-2s-SJI"/>
@@ -44,6 +52,7 @@
                             <constraint firstItem="fUb-vC-Mq0" firstAttribute="top" secondItem="PWQ-yJ-Grg" secondAttribute="top" id="VRK-rH-7cE"/>
                             <constraint firstAttribute="bottom" secondItem="fUb-vC-Mq0" secondAttribute="bottom" id="hwZ-Wc-FXv"/>
                             <constraint firstItem="fUb-vC-Mq0" firstAttribute="leading" secondItem="qc5-ty-b2D" secondAttribute="leading" id="lQw-Yc-mTJ"/>
+                            <constraint firstItem="jQF-t1-LAR" firstAttribute="centerX" secondItem="qc5-ty-b2D" secondAttribute="centerX" id="lYb-Oi-UdA"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PWQ-yJ-Grg"/>
                     </view>
@@ -56,4 +65,7 @@
             <point key="canvasLocation" x="67" y="167"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="icoPlaceholderVideo" width="44" height="32"/>
+    </resources>
 </document>
