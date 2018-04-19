@@ -20,7 +20,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="140" id="Z2f-sc-UHl">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="140" id="Z2f-sc-UHl" customClass="AwesomeMediaAudioTableViewCell" customModule="AwesomeLoading" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="375" height="140"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Z2f-sc-UHl" id="pZZ-EY-phx">
@@ -40,12 +40,24 @@
                                             <constraint firstAttribute="height" constant="40" id="fGK-cK-Jm1"/>
                                         </constraints>
                                     </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zfj-6P-feZ">
+                                        <rect key="frame" x="0.0" y="0.0" width="119.5" height="119.5"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.23529411759999999" green="0.26274509800000001" blue="0.30588235289999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="Xhv-k8-ziG" firstAttribute="centerX" secondItem="1pu-jO-VRd" secondAttribute="centerX" id="72Q-64-B7r"/>
+                                    <constraint firstAttribute="bottom" secondItem="zfj-6P-feZ" secondAttribute="bottom" id="BZr-vT-af0"/>
                                     <constraint firstItem="Xhv-k8-ziG" firstAttribute="centerY" secondItem="1pu-jO-VRd" secondAttribute="centerY" id="IrG-qi-Hwa"/>
+                                    <constraint firstAttribute="trailing" secondItem="zfj-6P-feZ" secondAttribute="trailing" id="Ue6-lz-qsd"/>
                                     <constraint firstAttribute="width" secondItem="1pu-jO-VRd" secondAttribute="height" multiplier="1:1" id="WdV-nq-gHF"/>
+                                    <constraint firstItem="zfj-6P-feZ" firstAttribute="top" secondItem="1pu-jO-VRd" secondAttribute="top" id="bck-eD-24E"/>
+                                    <constraint firstItem="zfj-6P-feZ" firstAttribute="leading" secondItem="1pu-jO-VRd" secondAttribute="leading" id="kNd-xI-aGd"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z10-nQ-7MZ">
@@ -57,7 +69,7 @@
                                 <state key="normal" image="btnPlayLarge"/>
                                 <state key="selected" image="btnPauseLarge"/>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Creating a Vision for your Future" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9cs-qI-N9v">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Creating a Vision for your Future Creating" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9cs-qI-N9v">
                                 <rect key="frame" x="139.5" y="20" width="175.5" height="39"/>
                                 <fontDescription key="fontDescription" name="Gilroy-Bold" family="Gilroy" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -88,6 +100,9 @@
                             <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="ox5-cz-aKP" secondAttribute="bottom" constant="20" id="vSF-Hh-M4V"/>
                             <constraint firstItem="ox5-cz-aKP" firstAttribute="leading" secondItem="9cs-qI-N9v" secondAttribute="leading" id="y10-3u-iYN"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="addShadow" value="YES"/>
+                        </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
                 <constraints>
@@ -97,6 +112,12 @@
                     <constraint firstItem="idz-xq-we7" firstAttribute="top" secondItem="pZZ-EY-phx" secondAttribute="top" constant="10" id="wmo-7y-TvV"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="coverImageView" destination="zfj-6P-feZ" id="aQB-g1-Ki9"/>
+                <outlet property="playButton" destination="Z10-nQ-7MZ" id="0pT-BI-Z7X"/>
+                <outlet property="timeLabel" destination="ox5-cz-aKP" id="B6n-69-4yy"/>
+                <outlet property="titleLabel" destination="9cs-qI-N9v" id="RXQ-p5-VaU"/>
+            </connections>
             <point key="canvasLocation" x="242.5" y="238"/>
         </tableViewCell>
     </objects>

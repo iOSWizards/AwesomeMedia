@@ -23,6 +23,7 @@ public class AwesomeMediaManager: NSObject {
     
     // Testing Variables
     public static let testVideoURL = "https://overmind2.mvstg.com/api/v1/assets/0af656fc-dcde-45ad-9b59-7632ca247001.m3u8"
+    public static let testAudioURL = "https://overmind2.mvstg.com/api/v1/assets/0af656fc-dcde-45ad-9b59-7632ca247001.m3u8"
     
     func playMedia(withParams params: AwesomeMediaParams, inPlayerLayer playerLayer: AVPlayerLayer? = nil) {
         guard let url = AwesomeMediaManager.url(forParams: params) else {

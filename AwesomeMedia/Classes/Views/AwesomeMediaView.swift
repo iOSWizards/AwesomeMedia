@@ -222,6 +222,7 @@ extension AwesomeMediaView {
 }
 
 // MARK: - Media Cover
+
 extension AwesomeMediaView {
     public func addCoverImage() {
         // remove pre-existing cover images
