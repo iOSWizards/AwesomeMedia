@@ -116,27 +116,13 @@ public class AwesomeMediaView: UIView {
 
 // MARK: - Observers
 
-fileprivate extension Selector {
-    static let playing = #selector(AwesomeMediaView.startedPlaying)
-    static let paused = #selector(AwesomeMediaView.pausedPlaying)
-    static let timeUpdated = #selector(AwesomeMediaView.timeUpdated)
-    static let startedBuffering = #selector(AwesomeMediaView.startedBuffering)
-    static let stopedBuffering = #selector(AwesomeMediaView.stopedBuffering)
-    static let finishedPlaying = #selector(AwesomeMediaView.finishedPlaying)
-}
-
-extension AwesomeMediaView {
+extension AwesomeMediaView: AwesomeMediaEventObserver {
     
-    fileprivate func addObservers() {
-        AwesomeMediaNotificationCenter.shared.addObserver(self, selector: .playing, event: .playing)
-        AwesomeMediaNotificationCenter.shared.addObserver(self, selector: .paused, event: .paused)
-        AwesomeMediaNotificationCenter.shared.addObserver(self, selector: .timeUpdated, event: .timeUpdated)
-        AwesomeMediaNotificationCenter.shared.addObserver(self, selector: .startedBuffering, event: .buffering)
-        AwesomeMediaNotificationCenter.shared.addObserver(self, selector: .stopedBuffering, event: .stoppedBuffering)
-        AwesomeMediaNotificationCenter.shared.addObserver(self, selector: .finishedPlaying, event: .finished)
+    public func addObservers() {
+        AwesomeMediaNotificationCenter.addObservers([.basic, .timeUpdated], to: self)
     }
     
-    @objc fileprivate func startedPlaying() {
+    public func startedPlaying() {
         guard sharedAVPlayer.isPlaying(withParams: mediaParams) else {
             return
         }
@@ -150,11 +136,11 @@ extension AwesomeMediaView {
         AwesomeMediaControlCenter.updateControlCenter(withParams: mediaParams)
     }
     
-    @objc fileprivate func pausedPlaying() {
+    public func pausedPlaying() {
         controlView?.playButton.isSelected = sharedAVPlayer.isPlaying(withParams: mediaParams)
     }
     
-    @objc fileprivate func timeUpdated() {
+    public func timeUpdated() {
         guard let item = sharedAVPlayer.currentItem(withParams: mediaParams) else {
             return
         }
@@ -165,7 +151,7 @@ extension AwesomeMediaView {
         controlView?.update(withItem: item)
     }
     
-    @objc fileprivate func startedBuffering() {
+    public func startedBuffering() {
         guard !(controlView?.timerSliderIsSliding ?? false), AwesomeMedia.shouldLockControlsWhenBuffering, sharedAVPlayer.isCurrentItem(withParams: mediaParams) else {
             return
         }
@@ -184,7 +170,7 @@ extension AwesomeMediaView {
         }
     }
     
-    @objc fileprivate func stopedBuffering() {
+    public func stopedBuffering() {
         guard AwesomeMedia.shouldLockControlsWhenBuffering, sharedAVPlayer.isCurrentItem(withParams: mediaParams) else {
             return
         }
@@ -198,7 +184,7 @@ extension AwesomeMediaView {
         controlView?.setupAutoHide()
     }
     
-    @objc fileprivate func finishedPlaying() {
+    public func finishedPlaying() {
         /*guard sharedAVPlayer.isCurrentItem(withParams: mediaParams) else {
             return
         }*/
