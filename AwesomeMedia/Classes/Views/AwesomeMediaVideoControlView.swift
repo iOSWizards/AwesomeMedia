@@ -49,11 +49,11 @@ public class AwesomeMediaVideoControlView: UIView {
     fileprivate var controls: AwesomeMediaVideoControls = .standard
     fileprivate var bottomConstraint: NSLayoutConstraint?
     fileprivate var playButtonStateBeforeSliding = false
-    fileprivate var isLocked = false
     
     // Public Variables
     public var shouldShowInfo = true
     public var timerSliderIsSliding = false
+    public var isLocked = false
     
     // Configuration
     public override func awakeFromNib() {
@@ -244,16 +244,6 @@ extension AwesomeMediaVideoControlView {
         toggleView()
     }
     
-    public func lock(_ lock: Bool, animated: Bool) {
-        if animated {
-            UIView.animate(withDuration: 0.3) {
-                self.setLockedState(locked: lock)
-            }
-        } else {
-            setLockedState(locked: lock)
-        }
-    }
-    
     public func reset() {
         playButton.isSelected = false
         timeSlider.value = 0
@@ -264,8 +254,23 @@ extension AwesomeMediaVideoControlView {
         updatePlayState()
         show()
     }
+}
+
+// MARK: - Control State
+
+extension AwesomeMediaVideoControlView: AwesomeMediaControlState {
     
-    fileprivate func setLockedState(locked: Bool) {
+    public func lock(_ lock: Bool, animated: Bool) {
+        if animated {
+            UIView.animate(withDuration: 0.3) {
+                self.setLockedState(locked: lock)
+            }
+        } else {
+            setLockedState(locked: lock)
+        }
+    }
+    
+    public func setLockedState(locked: Bool) {
         self.isLocked = locked
         
         let lockedAlpha: CGFloat = 0.5

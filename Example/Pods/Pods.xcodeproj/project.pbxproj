@@ -20,7 +20,8 @@
 		0A24EA7420808C3900443367 /* AwesomeMediaRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A24EA7020808AAD00443367 /* AwesomeMediaRequester.swift */; };
 		0A24EA762080967600443367 /* UIImageViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A24EA752080967600443367 /* UIImageViewExtensions.swift */; };
 		0A24EA7820809F9D00443367 /* AwesomeMediaControlCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A24EA7720809F9D00443367 /* AwesomeMediaControlCenter.swift */; };
-		0A55AD962089A25D008CE269 /* AwesomeMediaEventObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A55AD952089A25D008CE269 /* AwesomeMediaEventObserver.swift */; };
+		0A55AD962089A25D008CE269 /* AwesomeMediaEventObserverProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A55AD952089A25D008CE269 /* AwesomeMediaEventObserverProtocol.swift */; };
+		0A55AD982089AF51008CE269 /* AwesomeMediaControlStateProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A55AD972089AF51008CE269 /* AwesomeMediaControlStateProtocol.swift */; };
 		0A6C15E2F1A16DE4AF1250CE72145783 /* AwesomeMediaParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2928E4C0BDADA23176C28FD6B1D8CFA1 /* AwesomeMediaParams.swift */; };
 		0AD2D41120887ACE005BB2C8 /* AwesomeMediaAudioTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD2D40F20887ACA005BB2C8 /* AwesomeMediaAudioTableViewCell.swift */; };
 		0AD2D41220888194005BB2C8 /* AwesomeMediaAudioTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AD2D40D20882DFD005BB2C8 /* AwesomeMediaAudioTableViewCell.xib */; };
@@ -328,7 +329,8 @@
 		0A24EA7220808C3400443367 /* AwesomeMediaCacheManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AwesomeMediaCacheManager.swift; sourceTree = "<group>"; };
 		0A24EA752080967600443367 /* UIImageViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtensions.swift; sourceTree = "<group>"; };
 		0A24EA7720809F9D00443367 /* AwesomeMediaControlCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwesomeMediaControlCenter.swift; sourceTree = "<group>"; };
-		0A55AD952089A25D008CE269 /* AwesomeMediaEventObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwesomeMediaEventObserver.swift; sourceTree = "<group>"; };
+		0A55AD952089A25D008CE269 /* AwesomeMediaEventObserverProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwesomeMediaEventObserverProtocol.swift; sourceTree = "<group>"; };
+		0A55AD972089AF51008CE269 /* AwesomeMediaControlStateProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwesomeMediaControlStateProtocol.swift; sourceTree = "<group>"; };
 		0AD2D40D20882DFD005BB2C8 /* AwesomeMediaAudioTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AwesomeMediaAudioTableViewCell.xib; sourceTree = "<group>"; };
 		0AD2D40F20887ACA005BB2C8 /* AwesomeMediaAudioTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwesomeMediaAudioTableViewCell.swift; sourceTree = "<group>"; };
 		0C534E412B26BB88A6487F022F0F1C17 /* LOTAsset.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LOTAsset.m; path = "lottie-ios/Classes/Models/LOTAsset.m"; sourceTree = "<group>"; };
@@ -679,7 +681,8 @@
 		0A55AD942089A224008CE269 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				0A55AD952089A25D008CE269 /* AwesomeMediaEventObserver.swift */,
+				0A55AD952089A25D008CE269 /* AwesomeMediaEventObserverProtocol.swift */,
+				0A55AD972089AF51008CE269 /* AwesomeMediaControlStateProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -1632,6 +1635,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A55AD982089AF51008CE269 /* AwesomeMediaControlStateProtocol.swift in Sources */,
 				39158DE940B8B4F85587DC5866B235BD /* AVPlayerExtensions.swift in Sources */,
 				FE7012765A083D241FA5F288D40BA2EA /* AVPlayerItemExtensions.swift in Sources */,
 				4689D3BEC90511E458F924146D20C4C1 /* AwesomeMedia+Cells.swift in Sources */,
@@ -1657,7 +1661,7 @@
 				0A24EA7320808C3400443367 /* AwesomeMediaCacheManager.swift in Sources */,
 				73747529FB8F89837939B07D183991D5 /* UISliderExtensions.swift in Sources */,
 				A320F527EB275FE94CD3062BD10C4013 /* UIViewExtensions.swift in Sources */,
-				0A55AD962089A25D008CE269 /* AwesomeMediaEventObserver.swift in Sources */,
+				0A55AD962089A25D008CE269 /* AwesomeMediaEventObserverProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

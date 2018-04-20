@@ -16,6 +16,7 @@ public class AwesomeMediaAudioTableViewCell: UITableViewCell {
     @IBOutlet weak var mainView: UIView!
     
     public var mediaParams: AwesomeMediaParams = [:]
+    public var isLocked = false
     
     override public func awakeFromNib() {
         super.awakeFromNib()
@@ -42,8 +43,12 @@ public class AwesomeMediaAudioTableViewCell: UITableViewCell {
     @IBAction func playButtonPressed(_ sender: Any) {
         playButton.isSelected = !playButton.isSelected
         
-        // start playing
-        AwesomeMediaManager.shared.playMedia(withParams: self.mediaParams)
+        // Play/Stop media
+        if playButton.isSelected {
+            AwesomeMediaManager.shared.playMedia(withParams: self.mediaParams)
+        } else {
+            sharedAVPlayer.pause()
+        }
     }
     
     // MARK: - Dimensions
@@ -105,21 +110,48 @@ extension AwesomeMediaAudioTableViewCell: AwesomeMediaEventObserver {
     
     public func startedBuffering() {
         guard sharedAVPlayer.isCurrentItem(withParams: mediaParams) else {
+            stoppedBuffering()
             return
         }
         
         mainView.startLoadingAnimation()
+        
+        lock(true, animated: true)
     }
     
-    public func stopedBuffering() {
-        guard sharedAVPlayer.isCurrentItem(withParams: mediaParams) else {
-            return
-        }
-        
+    public func stoppedBuffering() {
         mainView.stopLoadingAnimation()
+        
+        lock(false, animated: true)
     }
     
     public func finishedPlaying() {
         playButton.isSelected = false
+        
+        lock(false, animated: true)
+    }
+}
+
+// MARK: - States
+
+extension AwesomeMediaAudioTableViewCell: AwesomeMediaControlState {
+    
+    public func lock(_ lock: Bool, animated: Bool) {
+        if animated {
+            UIView.animate(withDuration: 0.3) {
+                self.setLockedState(locked: lock)
+            }
+        } else {
+            setLockedState(locked: lock)
+        }
+    }
+    
+    public func setLockedState(locked: Bool) {
+        self.isLocked = locked
+        
+        let lockedAlpha: CGFloat = 0.5
+        
+        playButton.isUserInteractionEnabled = !locked
+        playButton.alpha = locked ? lockedAlpha : 1.0
     }
 }

@@ -12,7 +12,7 @@ extension Selector {
     static let paused = #selector(AwesomeMediaEventObserver.pausedPlaying)
     static let timeUpdated = #selector(AwesomeMediaEventObserver.timeUpdated)
     static let startedBuffering = #selector(AwesomeMediaEventObserver.startedBuffering)
-    static let stopedBuffering = #selector(AwesomeMediaEventObserver.stopedBuffering)
+    static let stopedBuffering = #selector(AwesomeMediaEventObserver.stoppedBuffering)
     static let finishedPlaying = #selector(AwesomeMediaEventObserver.finishedPlaying)
 }
 
@@ -22,6 +22,6 @@ extension Selector {
     @objc func pausedPlaying()
     @objc func timeUpdated()
     @objc func startedBuffering()
-    @objc func stopedBuffering()
+    @objc func stoppedBuffering()
     @objc func finishedPlaying()
 }

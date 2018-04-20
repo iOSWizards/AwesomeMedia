@@ -124,6 +124,8 @@ extension AwesomeMediaView: AwesomeMediaEventObserver {
     
     public func startedPlaying() {
         guard sharedAVPlayer.isPlaying(withParams: mediaParams) else {
+            // not this media, reset player
+            finishedPlaying()
             return
         }
         
@@ -153,6 +155,7 @@ extension AwesomeMediaView: AwesomeMediaEventObserver {
     
     public func startedBuffering() {
         guard !(controlView?.timerSliderIsSliding ?? false), AwesomeMedia.shouldLockControlsWhenBuffering, sharedAVPlayer.isCurrentItem(withParams: mediaParams) else {
+            stoppedBuffering()
             return
         }
         
@@ -170,11 +173,7 @@ extension AwesomeMediaView: AwesomeMediaEventObserver {
         }
     }
     
-    public func stopedBuffering() {
-        guard AwesomeMedia.shouldLockControlsWhenBuffering, sharedAVPlayer.isCurrentItem(withParams: mediaParams) else {
-            return
-        }
-        
+    public func stoppedBuffering() {
         stopLoadingAnimation()
         
         // unlock controls
@@ -185,10 +184,6 @@ extension AwesomeMediaView: AwesomeMediaEventObserver {
     }
     
     public func finishedPlaying() {
-        /*guard sharedAVPlayer.isCurrentItem(withParams: mediaParams) else {
-            return
-        }*/
-        
         // reset controls
         controlView?.reset()
         
