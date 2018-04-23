@@ -14,6 +14,7 @@ public typealias ToggleViewCallback = (Bool) -> Void
 public typealias TimeSliderChangedCallback = (Double) -> Void
 public typealias TimeSliderFinishedDraggingCallback = (Bool) -> Void
 public typealias RewindCallback = () -> Void
+public typealias JumpToCallback = () -> Void
 
 public class AwesomeMediaVideoControlView: UIView {
 
@@ -39,6 +40,7 @@ public class AwesomeMediaVideoControlView: UIView {
     public var playCallback: PlaybackCallback?
     public var fullscreenCallback: FullScreenCallback?
     public var toggleViewCallback: ToggleViewCallback?
+    public var jumpToCallback: JumpToCallback?
     public var timeSliderChangedCallback: TimeSliderChangedCallback?
     public var timeSliderFinishedDraggingCallback: TimeSliderFinishedDraggingCallback?
     public var rewindCallback: RewindCallback?
@@ -163,6 +165,7 @@ public class AwesomeMediaVideoControlView: UIView {
     
     @IBAction func jumptoButtonPressed(_ sender: Any) {
         setupAutoHide()
+        jumpToCallback?()
     }
     
     @IBAction func toggleFullscreenButtonPressed(_ sender: Any) {

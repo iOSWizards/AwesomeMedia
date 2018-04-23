@@ -67,7 +67,7 @@
         <!--Awesome Media Markers View Controller-->
         <scene sceneID="YuE-OS-frN">
             <objects>
-                <viewController storyboardIdentifier="MarkersVC" id="qvC-JP-ffR" customClass="AwesomeMediaMarkersViewController" customModule="AwesomeMedia" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AwesomeMediaMarkersViewController" id="qvC-JP-ffR" customClass="AwesomeMediaMarkersViewController" customModule="AwesomeMedia" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Nsu-JQ-HX6">
                         <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -95,14 +95,14 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Myr-AS-UiL">
-                                                            <rect key="frame" x="9" y="41" width="266" height="1"/>
+                                                            <rect key="frame" x="9" y="41" width="410" height="1"/>
                                                             <color key="backgroundColor" red="0.84705882349999995" green="0.84705882349999995" blue="0.84705882349999995" alpha="0.10000000000000001" colorSpace="calibratedRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="1" id="guV-bT-Kfh"/>
                                                             </constraints>
                                                         </view>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="JUMP TO" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xeu-N7-enO">
-                                                            <rect key="frame" x="60" y="16" width="207" height="15"/>
+                                                            <rect key="frame" x="60" y="16" width="351" height="15"/>
                                                             <fontDescription key="fontDescription" name="Gilroy-Medium" family="Gilroy" pointSize="14"/>
                                                             <color key="textColor" red="0.53725490200000003" green="0.53725490200000003" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -192,7 +192,7 @@
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.40000000000000002" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="jTz-sT-qk9" firstAttribute="top" secondItem="Ooq-pt-USv" secondAttribute="top" id="CkF-wU-Oap"/>
                                     <constraint firstAttribute="bottom" secondItem="cW1-dd-bNN" secondAttribute="bottom" id="FwV-Kk-VCN"/>
@@ -225,6 +225,7 @@
                         <outlet property="contentView" destination="jTz-sT-qk9" id="HB2-br-hys"/>
                         <outlet property="headerTitle" destination="xeu-N7-enO" id="ejR-HN-EwF"/>
                         <outlet property="headerView" destination="PEY-jc-0EB" id="5wl-GW-qEw"/>
+                        <outlet property="tableView" destination="amB-qo-4ci" id="Js8-7N-RXt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8J5-8A-533" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -16,36 +16,47 @@ open class AwesomeMediaMarkersViewModel: NSObject {
     
 }
 
-// MARK: - TableView Configuration
+// MARK: - Markers TableView Datasource and Delegate
 
-extension AwesomeMediaMarkersViewModel{
+extension AwesomeMediaMarkersViewController: UITableViewDataSource, UITableViewDelegate {
     
-    open func estimatedSizeForCellAtIndexPath(_ indexPath: IndexPath) -> CGFloat{
-        return 74
-    }
+    // MARK: - Quantity
     
-    open func sizeForCellAtIndexPath(_ indexPath: IndexPath) -> CGFloat{
-        return UITableViewAutomaticDimension
-    }
-    
-    open func sectionCount() -> Int{
+    public func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    open func rowCount(_ section: Int) -> Int{
-        return markers.count
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel.markers.count
     }
     
-    open func cell(_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
+    // MARK: - Cell Configuration
+    
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "marker", for: indexPath) as! AwesomeMediaMarkerTableViewCell
         
-        cell.titleLabel.text = markers[indexPath.row].title
-        cell.timeLabel.text = markers[indexPath.row].time.formatedTime
+        cell.titleLabel.text = viewModel.markers[indexPath.row].title
+        cell.timeLabel.text = viewModel.markers[indexPath.row].time.formatedTime
         
         return cell
     }
     
-    open func marker(forIndexPath indexPath: IndexPath) -> AwesomeMediaMarker{
-        return markers[indexPath.row]
+    public func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
     }
+    
+    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.markerCallback?(viewModel.markers[indexPath.row])
+    }
+    
+    // MARK: - Dimensions
+    
+    public func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 74
+    }
+    
+    public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
+    }
+    
 }

@@ -7,7 +7,7 @@
 
 import UIKit
 
-public class AwesomeMediaVideoViewController: UIViewController, AwesomeMediaMarkersViewControllerDelegate {
+public class AwesomeMediaVideoViewController: UIViewController {
 
     @IBOutlet public weak var playerView: AwesomeMediaView!
     
@@ -30,6 +30,13 @@ public class AwesomeMediaVideoViewController: UIViewController, AwesomeMediaMark
         playerView.controlView?.fullscreenCallback = {
             self.close()
         }
+        playerView.controlView?.jumpToCallback = {
+            self.showMarkers({ (mediaMarker) in
+                if let mediaMarker = mediaMarker {
+                    sharedAVPlayer.seek(toTime: mediaMarker.time)
+                }
+            })
+        }
         playerView.titleView?.closeCallback = {
             sharedAVPlayer.stop()
             self.close()
@@ -37,8 +44,6 @@ public class AwesomeMediaVideoViewController: UIViewController, AwesomeMediaMark
         playerView.finishedPlayingCallback = {
             self.close()
         }
-        
-        addEdgePanToOpenMarkers(storyboardName: "AwesomeMedia", viewControllerName: "MarkersVC")
     }
     
     public override func viewWillAppear(_ animated: Bool) {
@@ -72,53 +77,3 @@ extension AwesomeMediaVideoViewController {
         return storyboard.instantiateViewController(withIdentifier: "AwesomeMediaVideoViewController") as! AwesomeMediaVideoViewController
     }
 }
-
-
-// MARK - Selectors
-
-fileprivate extension Selector {
-    static let screenEdgePan = #selector(AwesomeMediaVideoViewController.screenEdgePan(_:))
-}
-
-// MARK: - Screen Edge Pan
-extension AwesomeMediaVideoViewController {
-    public func addEdgePanToOpenMarkers(storyboardName: String, viewControllerName: String) {
-        self.mediaMarkersStoryboardName = storyboardName
-        self.mediaMarkersViewControllerName = viewControllerName
-        
-        screenEdgePanGesture = UIScreenEdgePanGestureRecognizer(target: self, action: .screenEdgePan)
-        screenEdgePanGesture.edges = [.right]
-        screenEdgePanGesture.delegate = self
-        self.view.addGestureRecognizer(screenEdgePanGesture)
-        
-    }
-    
-    @objc func screenEdgePan(_ rec: UIPanGestureRecognizer) {
-        let point: CGPoint = rec.location(in: self.view)
-        let distance: CGPoint = CGPoint(x: point.x - initialTouchPoint.x, y: point.y - initialTouchPoint.y)
-        
-        switch rec.state {
-        case .began:
-            let storyboard = UIStoryboard(name: mediaMarkersStoryboardName, bundle: AwesomeMedia.bundle)
-            awesomeMediaMarkersViewController = storyboard.instantiateViewController(withIdentifier: mediaMarkersViewControllerName) as? AwesomeMediaMarkersViewController
-            awesomeMediaMarkersViewController?.isOpeningFromPanning = true
-            awesomeMediaMarkersViewController?.delegate = self
-            awesomeMediaMarkersViewController?.modalPresentationStyle = .overCurrentContext
-            self.present(awesomeMediaMarkersViewController!, animated: false, completion: nil)
-            
-            initialTouchPoint = point
-        default:
-            break
-        }
-        
-        awesomeMediaMarkersViewController?.updateContentPosition(withDistance: distance, state: rec.state)
-    }
-}
-
-// MARK: Gesture Swipe to Pop
-extension AwesomeMediaVideoViewController: UIGestureRecognizerDelegate {
-    public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldBeRequiredToFailBy otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-        return true
-    }
-}
-
