@@ -14,9 +14,13 @@ public class AwesomeMediaAudioTableViewCell: UITableViewCell {
     @IBOutlet public weak var titleLabel: UILabel!
     @IBOutlet public weak var timeLabel: UILabel!
     @IBOutlet weak var mainView: UIView!
+    @IBOutlet weak var fullscreenButton: UIButton!
     
     public var mediaParams: AwesomeMediaParams = [:]
     public var isLocked = false
+    
+    // Callbacks
+    public var fullScreenCallback: FullScreenCallback?
     
     override public func awakeFromNib() {
         super.awakeFromNib()
@@ -50,6 +54,11 @@ public class AwesomeMediaAudioTableViewCell: UITableViewCell {
             sharedAVPlayer.pause()
         }
     }
+    
+    @IBAction func fullscreenButtonPressed(_ sender: Any) {
+        fullScreenCallback?()
+    }
+    
     
     // MARK: - Dimensions
     

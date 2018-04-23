@@ -73,10 +73,10 @@
             </objects>
             <point key="canvasLocation" x="67" y="167"/>
         </scene>
-        <!--View Controller-->
+        <!--Awesome Media Audio View Controller-->
         <scene sceneID="6fC-ZJ-ZSh">
             <objects>
-                <viewController id="sq5-sN-Db0" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AwesomeMediaAudioViewController" id="sq5-sN-Db0" customClass="AwesomeMediaAudioViewController" customModule="AwesomeMedia" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="quR-s8-1t7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -113,7 +113,7 @@
                                             <constraint firstItem="BZi-z2-KCr" firstAttribute="centerY" secondItem="aY5-bp-wlD" secondAttribute="centerY" id="zqD-JM-IZL"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IZt-ZZ-DsI">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IZt-ZZ-DsI" customClass="AwesomeMediaAudioControlView" customModule="AwesomeMedia">
                                         <rect key="frame" x="0.0" y="419" width="375" height="359"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2kg-Ce-lvi">
@@ -141,6 +141,12 @@
                                                         <real key="value" value="2"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="timeSliderFinishedDragging:" destination="IZt-ZZ-DsI" eventType="touchUpInside" id="abL-5K-Ei7"/>
+                                                    <action selector="timeSliderFinishedDragging:" destination="IZt-ZZ-DsI" eventType="touchUpOutside" id="cTb-xe-Ev6"/>
+                                                    <action selector="timeSliderStartedDragging:" destination="IZt-ZZ-DsI" eventType="touchDown" id="ipQ-LN-PMa"/>
+                                                    <action selector="timeSliderValueChanged:" destination="IZt-ZZ-DsI" eventType="valueChanged" id="XEy-ru-DOK"/>
+                                                </connections>
                                             </slider>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XB8-Te-t6k">
                                                 <rect key="frame" x="148" y="209" width="80" height="80"/>
@@ -149,7 +155,10 @@
                                                     <constraint firstAttribute="width" constant="80" id="EKj-kO-IX2"/>
                                                 </constraints>
                                                 <state key="normal" image="btnPlayAudioLarge"/>
-                                                <state key="selected" image="btnPauseLarge"/>
+                                                <state key="selected" image="btnPauseAudioLarge"/>
+                                                <connections>
+                                                    <action selector="playButtonPressed:" destination="IZt-ZZ-DsI" eventType="touchUpInside" id="9wf-Ej-ZI7"/>
+                                                </connections>
                                             </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Ia-mt-rUQ">
                                                 <rect key="frame" x="263" y="209" width="38" height="80"/>
@@ -179,6 +188,9 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="44" height="64"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" name="Gilroy-Bold" family="Gilroy" pointSize="17"/>
+                                                        <connections>
+                                                            <action selector="speedButtonPressed:" destination="IZt-ZZ-DsI" eventType="touchUpInside" id="etI-3D-hg4"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -194,6 +206,9 @@
                                                     <constraint firstAttribute="width" constant="35" id="w4p-tH-42z"/>
                                                 </constraints>
                                                 <state key="normal" image="btnRewindAudioLarge"/>
+                                                <connections>
+                                                    <action selector="rewindButtonPressed:" destination="IZt-ZZ-DsI" eventType="touchUpInside" id="6sd-j6-z2J"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Discover Your Purpose" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AjM-T4-rvf">
                                                 <rect key="frame" x="20" y="95" width="335" height="19"/>
@@ -226,6 +241,17 @@
                                             <constraint firstItem="0Ia-mt-rUQ" firstAttribute="leading" secondItem="XB8-Te-t6k" secondAttribute="trailing" constant="35" id="vjA-3V-ype"/>
                                             <constraint firstItem="fLV-iS-hF1" firstAttribute="centerY" secondItem="2kg-Ce-lvi" secondAttribute="centerY" id="zw5-xB-XkN"/>
                                         </constraints>
+                                        <connections>
+                                            <outlet property="maxTimeLabel" destination="fLV-iS-hF1" id="MJ1-l0-qUO"/>
+                                            <outlet property="minTimeLabel" destination="2kg-Ce-lvi" id="yKk-ck-Dsa"/>
+                                            <outlet property="playButton" destination="XB8-Te-t6k" id="eaJ-2i-Lgg"/>
+                                            <outlet property="rewindButton" destination="K8p-XK-cjH" id="Etd-2u-BdC"/>
+                                            <outlet property="speedButton" destination="7Hj-DU-QD4" id="xiS-3o-pV3"/>
+                                            <outlet property="speedLabel" destination="QXE-5a-BwJ" id="FmC-BV-bjd"/>
+                                            <outlet property="speedView" destination="0Ia-mt-rUQ" id="y5L-d9-erq"/>
+                                            <outlet property="timeSlider" destination="3br-5B-igr" id="prz-rP-pgz"/>
+                                            <outlet property="titleLabel" destination="AjM-T4-rvf" id="qfY-zy-0Kf"/>
+                                        </connections>
                                     </view>
                                 </subviews>
                             </stackView>
@@ -240,6 +266,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="D6m-Cg-iw7"/>
                     </view>
+                    <connections>
+                        <outlet property="contentStackView" destination="cWY-cu-Tnl" id="jvt-Rd-LSG"/>
+                        <outlet property="controlView" destination="IZt-ZZ-DsI" id="iTn-NZ-37y"/>
+                        <outlet property="coverImageView" destination="v9u-v2-SHu" id="KUV-vm-ZwE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uQj-FC-dfC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -423,7 +454,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="btnPauseLarge" width="40" height="40"/>
+        <image name="btnPauseAudioLarge" width="80" height="80"/>
         <image name="btnPlayAudioLarge" width="80" height="80"/>
         <image name="btnRewindAudioLarge" width="35" height="39"/>
         <image name="icoPlaceholderAudio" width="38" height="40"/>
