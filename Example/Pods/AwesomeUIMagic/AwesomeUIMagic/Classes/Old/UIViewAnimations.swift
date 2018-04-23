@@ -65,6 +65,20 @@ extension UIView{
         })
     }
     
+    public func animateFadeInUpGrowing(duration: Double = 0.2, alphaIn: CGFloat = 0, startScale: CGFloat = 0.8, _ completion:(() -> Void)? = nil) {
+        self.alpha = alphaIn
+        
+        self.transform = CGAffineTransform(scaleX: startScale, y: startScale)
+            .concatenating(CGAffineTransform(translationX: 0, y: 100))
+        
+        UIView.animate(withDuration: duration, animations: {
+            self.alpha = 1
+            self.transform = CGAffineTransform.identity
+        }, completion: { (_) in
+            completion?()
+        })
+    }
+    
     public func animateFadeIn(duration: Double = 0.3, alphaIn: CGFloat = 0, _ completion:(() -> Void)? = nil){
         //        if !self.isHidden {
         //            return

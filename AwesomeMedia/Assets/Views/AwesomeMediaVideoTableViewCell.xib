@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -18,17 +18,38 @@
                 <rect key="frame" x="0.0" y="0.0" width="375" height="208.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rdg-Ki-Dtx" customClass="AwesomeMediaView" customModule="AwesomeMedia">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icoPlaceholderVideo" translatesAutoresizingMaskIntoConstraints="NO" id="QdD-0W-Gn9">
+                        <rect key="frame" x="165.5" y="88.5" width="44" height="32"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="44" id="K26-EO-QJw"/>
+                            <constraint firstAttribute="height" constant="32" id="yqI-LW-Cju"/>
+                        </constraints>
+                    </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5C9-uG-s95">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="209"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rdg-Ki-Dtx" customClass="AwesomeMediaView" customModule="AwesomeMedia">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="209"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="rdg-Ki-Dtx" firstAttribute="top" secondItem="5C9-uG-s95" secondAttribute="top" id="25B-DK-v1f"/>
+                            <constraint firstItem="rdg-Ki-Dtx" firstAttribute="leading" secondItem="5C9-uG-s95" secondAttribute="leading" id="OMt-X4-tQV"/>
+                            <constraint firstAttribute="trailing" secondItem="rdg-Ki-Dtx" secondAttribute="trailing" id="Qqd-oJ-Kwo"/>
+                            <constraint firstAttribute="bottom" secondItem="rdg-Ki-Dtx" secondAttribute="bottom" id="h8m-Oy-iy9"/>
+                        </constraints>
                     </view>
                 </subviews>
-                <color key="backgroundColor" red="0.13725490200000001" green="0.1529411765" blue="0.1843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                <color key="backgroundColor" red="0.23529411764705882" green="0.2627450980392157" blue="0.30588235294117649" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 <constraints>
-                    <constraint firstItem="rdg-Ki-Dtx" firstAttribute="top" secondItem="TdN-qS-ZS7" secondAttribute="top" id="7EV-Su-qUr"/>
-                    <constraint firstAttribute="trailing" secondItem="rdg-Ki-Dtx" secondAttribute="trailing" id="F7U-BC-eaj"/>
-                    <constraint firstItem="rdg-Ki-Dtx" firstAttribute="leading" secondItem="TdN-qS-ZS7" secondAttribute="leading" id="LQA-gi-pHc"/>
-                    <constraint firstAttribute="bottom" secondItem="rdg-Ki-Dtx" secondAttribute="bottom" id="hLl-td-WFV"/>
+                    <constraint firstItem="QdD-0W-Gn9" firstAttribute="centerY" secondItem="TdN-qS-ZS7" secondAttribute="centerY" id="FTZ-N6-ui8"/>
+                    <constraint firstAttribute="bottom" secondItem="5C9-uG-s95" secondAttribute="bottom" id="R91-3g-6WA"/>
+                    <constraint firstItem="5C9-uG-s95" firstAttribute="leading" secondItem="TdN-qS-ZS7" secondAttribute="leading" id="jiy-Ej-ivH"/>
+                    <constraint firstItem="QdD-0W-Gn9" firstAttribute="centerX" secondItem="TdN-qS-ZS7" secondAttribute="centerX" id="rVo-AZ-bRb"/>
+                    <constraint firstItem="5C9-uG-s95" firstAttribute="top" secondItem="TdN-qS-ZS7" secondAttribute="top" id="uM6-k8-mFk"/>
+                    <constraint firstAttribute="trailing" secondItem="5C9-uG-s95" secondAttribute="trailing" id="z88-AR-kEC"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
@@ -37,4 +58,7 @@
             <point key="canvasLocation" x="-135.5" y="-26.5"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="icoPlaceholderVideo" width="44" height="32"/>
+    </resources>
 </document>

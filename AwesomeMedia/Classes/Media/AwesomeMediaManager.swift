@@ -26,6 +26,7 @@ public class AwesomeMediaManager: NSObject {
     public static let testMediaMarkers = [AwesomeMediaMarker(title: "Intro", time: 120),
                                           AwesomeMediaMarker(title: "About WildFit", time: 360),
                                           AwesomeMediaMarker(title: "Day 1", time: 420)]
+    public static let testAudioURL = "https://www.sample-videos.com/audio/mp3/wave.mp3"
     
     func playMedia(withParams params: AwesomeMediaParams, inPlayerLayer playerLayer: AVPlayerLayer? = nil) {
         guard let url = AwesomeMediaManager.url(forParams: params) else {

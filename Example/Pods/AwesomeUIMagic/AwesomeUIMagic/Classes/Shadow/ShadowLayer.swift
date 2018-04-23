@@ -77,6 +77,12 @@ extension UIView {
         superview?.addSubview(shadowLayer)
         superview?.bringSubview(toFront: self)
         
+        // add constraints
+        superview?.addConstraint(NSLayoutConstraint(item: shadowLayer, attribute: .leading, relatedBy: .equal, toItem: self, attribute: .leading, multiplier: 1, constant: 0))
+        superview?.addConstraint(NSLayoutConstraint(item: shadowLayer, attribute: .trailing, relatedBy: .equal, toItem: self, attribute: .trailing, multiplier: 1, constant: 0))
+        superview?.addConstraint(NSLayoutConstraint(item: shadowLayer, attribute: .top, relatedBy: .equal, toItem: self, attribute: .top, multiplier: 1, constant: 0))
+        superview?.addConstraint(NSLayoutConstraint(item: shadowLayer, attribute: .bottom, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 1, constant: 0))
+        
         shadowLayer.updateLayout()
     }
     

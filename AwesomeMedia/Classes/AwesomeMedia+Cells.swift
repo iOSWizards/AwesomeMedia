@@ -13,4 +13,8 @@ extension AwesomeMedia {
         tableView.register(UINib(nibName: "AwesomeMediaVideoTableViewCell", bundle: AwesomeMedia.bundle), forCellReuseIdentifier: identifier)
     }
     
+    public static func registerAudioCell(to tableView: UITableView, withIdentifier identifier: String) {
+        tableView.register(UINib(nibName: "AwesomeMediaAudioTableViewCell", bundle: AwesomeMedia.bundle), forCellReuseIdentifier: identifier)
+    }
+    
 }

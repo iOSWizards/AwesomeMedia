@@ -2,7 +2,7 @@ use_frameworks!
 
 target 'AwesomeMedia_Example' do
   pod 'AwesomeMedia', :path => '../'
-  pod 'AwesomeUIMagic', git: 'https://github.com/iOSWizards/AwesomeUIMagic', tag: '0.4.3'
+  pod 'AwesomeUIMagic', git: 'https://github.com/iOSWizards/AwesomeUIMagic', tag: '0.4.5'
   pod 'AwesomeLoading', git: 'https://github.com/Mindvalley/Mobile_iOS_Library_AwesomeLoading.git', tag: '0.1.3'
 
   target 'AwesomeMedia_Tests' do
