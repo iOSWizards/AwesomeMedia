@@ -125,7 +125,7 @@ extension AwesomeMediaView: AwesomeMediaEventObserver {
     public func startedPlaying() {
         guard sharedAVPlayer.isPlaying(withParams: mediaParams) else {
             // not this media, reset player
-            finishedPlaying()
+            resetPlayer()
             return
         }
         
@@ -184,14 +184,18 @@ extension AwesomeMediaView: AwesomeMediaEventObserver {
     }
     
     public func finishedPlaying() {
+        resetPlayer()
+        
+        // do something after finished playing
+        finishedPlayingCallback?()
+    }
+    
+    public func resetPlayer() {
         // reset controls
         controlView?.reset()
         
         // show cover image
         showCoverImage(true)
-        
-        // do something after finished playing
-        finishedPlayingCallback?()
     }
 }
 

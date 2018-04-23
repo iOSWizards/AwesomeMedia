@@ -18,10 +18,10 @@ extension Selector {
 
 @objc public protocol AwesomeMediaEventObserver {
     func addObservers()
-    @objc func startedPlaying()
-    @objc func pausedPlaying()
-    @objc func timeUpdated()
-    @objc func startedBuffering()
-    @objc func stoppedBuffering()
-    @objc func finishedPlaying()
+    @objc optional func startedPlaying()
+    @objc optional func pausedPlaying()
+    @objc optional func timeUpdated()
+    @objc optional func startedBuffering()
+    @objc optional func stoppedBuffering()
+    @objc optional func finishedPlaying()
 }

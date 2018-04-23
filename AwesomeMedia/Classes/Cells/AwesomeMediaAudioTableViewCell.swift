@@ -104,10 +104,6 @@ extension AwesomeMediaAudioTableViewCell: AwesomeMediaEventObserver {
         playButton.isSelected = sharedAVPlayer.isPlaying(withParams: mediaParams)
     }
     
-    public func timeUpdated() {
-        // not used
-    }
-    
     public func startedBuffering() {
         guard sharedAVPlayer.isCurrentItem(withParams: mediaParams) else {
             stoppedBuffering()
