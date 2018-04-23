@@ -25,7 +25,14 @@ public class AwesomeMediaManager: NSObject {
     public static let testVideoURL = "https://overmind2.mvstg.com/api/v1/assets/0af656fc-dcde-45ad-9b59-7632ca247001.m3u8"
     public static let testMediaMarkers = [AwesomeMediaMarker(title: "Intro", time: 120),
                                           AwesomeMediaMarker(title: "About WildFit", time: 360),
-                                          AwesomeMediaMarker(title: "Day 1", time: 420)]
+                                          AwesomeMediaMarker(title: "Day 1", time: 420),
+                                          AwesomeMediaMarker(title: "Test Marker 1", time: 422),
+                                          AwesomeMediaMarker(title: "Test Marker 2", time: 424),
+                                          AwesomeMediaMarker(title: "Test Marker 3", time: 426),
+                                          AwesomeMediaMarker(title: "Test Marker 4", time: 428),
+                                          AwesomeMediaMarker(title: "Test Marker 5", time: 430),
+                                          AwesomeMediaMarker(title: "Test Marker 6", time: 440),
+                                          AwesomeMediaMarker(title: "Test Marker 7", time: 441)]
     public static let testAudioURL = "https://www.sample-videos.com/audio/mp3/wave.mp3"
     
     func playMedia(withParams params: AwesomeMediaParams, inPlayerLayer playerLayer: AVPlayerLayer? = nil) {

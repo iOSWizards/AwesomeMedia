@@ -149,14 +149,14 @@
                                                                     <color key="backgroundColor" red="0.16470588235294117" green="0.5490196078431373" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </view>
                                                                 <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icoPlayMarkers" translatesAutoresizingMaskIntoConstraints="NO" id="c6e-kn-Uay">
-                                                                    <rect key="frame" x="25" y="44.333333333333336" width="10" height="12"/>
+                                                                    <rect key="frame" x="25" y="42" width="10" height="12"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="10" id="EIJ-4W-Bea"/>
                                                                         <constraint firstAttribute="height" constant="12" id="Zx6-9t-Exz"/>
                                                                     </constraints>
                                                                 </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="00:00:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DS7-5F-U0g">
-                                                                    <rect key="frame" x="304" y="41.666666666666664" width="71" height="17"/>
+                                                                    <rect key="frame" x="304" y="39.666666666666664" width="71" height="17"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="71" id="tIC-wT-fAj"/>
                                                                     </constraints>
@@ -172,7 +172,7 @@
                                                                 </label>
                                                             </subviews>
                                                             <constraints>
-                                                                <constraint firstItem="c6e-kn-Uay" firstAttribute="centerY" secondItem="jct-Er-BQ7" secondAttribute="centerY" id="0sP-03-AYQ"/>
+                                                                <constraint firstItem="c6e-kn-Uay" firstAttribute="centerY" secondItem="jct-Er-BQ7" secondAttribute="centerY" constant="-2" id="0sP-03-AYQ"/>
                                                                 <constraint firstItem="ee6-mW-Wac" firstAttribute="leading" secondItem="c6e-kn-Uay" secondAttribute="trailing" constant="15" id="25A-Pi-VYC"/>
                                                                 <constraint firstAttribute="trailing" secondItem="DS7-5F-U0g" secondAttribute="trailing" id="3No-d6-Z1M"/>
                                                                 <constraint firstItem="S4o-54-gjT" firstAttribute="leading" secondItem="jct-Er-BQ7" secondAttribute="leading" id="CN8-Px-gOA"/>
