@@ -84,9 +84,10 @@ extension AwesomeMediaMarkersViewController {
 }
 
 extension UIViewController {
-    public func showMarkers(_ markerCallback: MarkerCallback? = nil) {
+    public func showMarkers(_ markers: [AwesomeMediaMarker], markerCallback: MarkerCallback? = nil) {
         let viewController = AwesomeMediaMarkersViewController.newInstance
         viewController.modalPresentationStyle = .overCurrentContext
+        viewController.viewModel.markers = markers
         self.present(viewController, animated: false, completion: nil)
         
         viewController.markerCallback = markerCallback

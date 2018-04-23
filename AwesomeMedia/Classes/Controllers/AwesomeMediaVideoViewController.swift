@@ -31,11 +31,12 @@ public class AwesomeMediaVideoViewController: UIViewController {
             self.close()
         }
         playerView.controlView?.jumpToCallback = {
-            self.showMarkers({ (mediaMarker) in
+            self.showMarkers(AwesomeMediaManager.markers(forParams: self.mediaParams)) { (mediaMarker) in
                 if let mediaMarker = mediaMarker {
                     sharedAVPlayer.seek(toTime: mediaMarker.time)
+                    sharedAVPlayer.play()
                 }
-            })
+            }
         }
         playerView.titleView?.closeCallback = {
             sharedAVPlayer.stop()

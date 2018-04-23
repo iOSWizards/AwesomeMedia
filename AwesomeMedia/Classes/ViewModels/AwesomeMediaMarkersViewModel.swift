@@ -47,6 +47,7 @@ extension AwesomeMediaMarkersViewController: UITableViewDataSource, UITableViewD
     
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.markerCallback?(viewModel.markers[indexPath.row])
+        self.closeButtonPressed(self)
     }
     
     // MARK: - Dimensions
