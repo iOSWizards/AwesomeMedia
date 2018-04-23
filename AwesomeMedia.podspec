@@ -34,7 +34,7 @@ Play Media from any app using this library.
 s.ios.resources = ['AwesomeMedia/Assets/Views/*.{xib,storyboard}', 'AwesomeMedia/Assets/Gilroy/*.{otf}', 'AwesomeMedia/Assets/Assets.xcassets']
   s.ios.preserve_paths = 'AwesomeMedia/Assets/*'
   s.resource_bundles = {
-    'AwesomeMedia' => ['AwesomeMedia/Assets/**/*.{storyboard,xib,xcassets,json,imageset,png}']
+    'AwesomeMedia' => ['AwesomeMedia/Assets/**/*.{storyboard,xib,xcassets,json,imageset,png,otf}']
   }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
