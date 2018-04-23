@@ -144,11 +144,15 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="375" height="99.666666666666671"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
-                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="c6e-kn-Uay">
-                                                                    <rect key="frame" x="30" y="42.666666666666664" width="15" height="15"/>
+                                                                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S4o-54-gjT">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="419" height="100"/>
+                                                                    <color key="backgroundColor" red="0.16470588235294117" green="0.5490196078431373" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
+                                                                </view>
+                                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icoPlayMarkers" translatesAutoresizingMaskIntoConstraints="NO" id="c6e-kn-Uay">
+                                                                    <rect key="frame" x="25" y="44.333333333333336" width="10" height="12"/>
                                                                     <constraints>
-                                                                        <constraint firstAttribute="width" constant="15" id="EIJ-4W-Bea"/>
-                                                                        <constraint firstAttribute="height" constant="15" id="Zx6-9t-Exz"/>
+                                                                        <constraint firstAttribute="width" constant="10" id="EIJ-4W-Bea"/>
+                                                                        <constraint firstAttribute="height" constant="12" id="Zx6-9t-Exz"/>
                                                                     </constraints>
                                                                 </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="00:00:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DS7-5F-U0g">
@@ -161,7 +165,7 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How do I reduce my negative thoughts? How do I reduce my negative thoughts? How do I reduce my negative thoughts?" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ee6-mW-Wac">
-                                                                    <rect key="frame" x="60" y="17.999999999999996" width="229" height="59.666666666666657"/>
+                                                                    <rect key="frame" x="50" y="17.999999999999996" width="239" height="59.666666666666657"/>
                                                                     <fontDescription key="fontDescription" name="Gilroy-Medium" family="Gilroy" pointSize="16"/>
                                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                     <nil key="highlightedColor"/>
@@ -171,16 +175,21 @@
                                                                 <constraint firstItem="c6e-kn-Uay" firstAttribute="centerY" secondItem="jct-Er-BQ7" secondAttribute="centerY" id="0sP-03-AYQ"/>
                                                                 <constraint firstItem="ee6-mW-Wac" firstAttribute="leading" secondItem="c6e-kn-Uay" secondAttribute="trailing" constant="15" id="25A-Pi-VYC"/>
                                                                 <constraint firstAttribute="trailing" secondItem="DS7-5F-U0g" secondAttribute="trailing" id="3No-d6-Z1M"/>
-                                                                <constraint firstItem="c6e-kn-Uay" firstAttribute="leading" secondItem="jct-Er-BQ7" secondAttribute="leading" constant="30" id="F2T-tM-TUk"/>
+                                                                <constraint firstItem="S4o-54-gjT" firstAttribute="leading" secondItem="jct-Er-BQ7" secondAttribute="leading" id="CN8-Px-gOA"/>
+                                                                <constraint firstItem="c6e-kn-Uay" firstAttribute="leading" secondItem="jct-Er-BQ7" secondAttribute="leading" constant="25" id="F2T-tM-TUk"/>
+                                                                <constraint firstItem="S4o-54-gjT" firstAttribute="top" secondItem="jct-Er-BQ7" secondAttribute="top" id="Kcd-2f-2v7"/>
                                                                 <constraint firstItem="ee6-mW-Wac" firstAttribute="top" secondItem="jct-Er-BQ7" secondAttribute="top" constant="18" id="Mbp-QD-ZPe"/>
+                                                                <constraint firstAttribute="trailing" secondItem="S4o-54-gjT" secondAttribute="trailing" constant="-44" id="OwD-Fc-mTX"/>
                                                                 <constraint firstItem="DS7-5F-U0g" firstAttribute="centerY" secondItem="c6e-kn-Uay" secondAttribute="centerY" id="PrA-Q5-sXX"/>
                                                                 <constraint firstAttribute="bottom" secondItem="ee6-mW-Wac" secondAttribute="bottom" constant="22" id="eYo-DT-tBL"/>
                                                                 <constraint firstItem="DS7-5F-U0g" firstAttribute="leading" secondItem="ee6-mW-Wac" secondAttribute="trailing" constant="15" id="iEX-0L-AvO"/>
+                                                                <constraint firstAttribute="bottom" secondItem="S4o-54-gjT" secondAttribute="bottom" id="mCH-RI-vsH"/>
                                                             </constraints>
                                                         </tableViewCellContentView>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <connections>
                                                             <outlet property="playStatusImage" destination="c6e-kn-Uay" id="CFW-f2-bic"/>
+                                                            <outlet property="selectedView" destination="S4o-54-gjT" id="3LH-cp-dEf"/>
                                                             <outlet property="timeLabel" destination="DS7-5F-U0g" id="OhD-Ep-trB"/>
                                                             <outlet property="titleLabel" destination="ee6-mW-Wac" id="Tyi-Lc-hcA"/>
                                                         </connections>
@@ -239,10 +248,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8J5-8A-533" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="67" y="1286"/>
+            <point key="canvasLocation" x="66.502463054187189" y="1285.5999999999999"/>
         </scene>
     </scenes>
     <resources>
         <image name="icoPlaceholderVideo" width="44" height="32"/>
+        <image name="icoPlayMarkers" width="10" height="12"/>
     </resources>
 </document>

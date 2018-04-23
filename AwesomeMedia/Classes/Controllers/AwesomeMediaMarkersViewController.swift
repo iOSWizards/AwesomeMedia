@@ -25,6 +25,8 @@ public class AwesomeMediaMarkersViewController: UIViewController {
     
     override public func viewDidLoad() {
         super.viewDidLoad()
+        
+        addObservers()
     }
     
     override public func viewWillAppear(_ animated: Bool) {
@@ -91,5 +93,44 @@ extension UIViewController {
         self.present(viewController, animated: false, completion: nil)
         
         viewController.markerCallback = markerCallback
+    }
+}
+
+// MARK: - Observers
+
+extension AwesomeMediaMarkersViewController: AwesomeMediaEventObserver {
+    
+    public func addObservers() {
+        AwesomeMediaNotificationCenter.addObservers(.timeUpdated, to: self)
+    }
+    
+    public func startedPlaying() {
+        // not used
+    }
+    
+    public func pausedPlaying() {
+        // not used
+    }
+    
+    public func timeUpdated() {
+        guard let currentTimeInSeconds = sharedAVPlayer.currentItem?.currentTimeInSeconds else {
+            return
+        }
+        
+        for (index, marker) in viewModel.markers.enumerated() where marker.time >= Double(currentTimeInSeconds) {
+            tableView?.selectRow(at: IndexPath(row: index, section: 0), animated: true, scrollPosition: .middle)
+        }
+    }
+    
+    public func startedBuffering() {
+        // not used
+    }
+    
+    public func stoppedBuffering() {
+        // not used
+    }
+    
+    public func finishedPlaying() {
+        // not used
     }
 }
