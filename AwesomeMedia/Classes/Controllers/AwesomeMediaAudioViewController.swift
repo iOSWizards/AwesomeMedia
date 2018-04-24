@@ -12,9 +12,20 @@ public class AwesomeMediaAudioViewController: UIViewController {
     @IBOutlet weak var contentStackView: UIStackView!
     @IBOutlet weak var coverImageView: UIImageView!
     @IBOutlet weak var controlView: AwesomeMediaAudioControlView!
-    
+    @IBOutlet weak var minimizeButton: UIButton!
+    @IBOutlet weak var topControlsStackView: UIStackView!
+    @IBOutlet weak var airplayButton: UIButton!
+    @IBOutlet weak var downloadButton: UIButton!
+    @IBOutlet weak var downloadStateStackView: UIStackView!
+    @IBOutlet weak var downloadStateLabel: UILabel!
+    @IBOutlet weak var downloadStateImageView: UIImageView!
+
+    // Public Variaables
     public var mediaParams: AwesomeMediaParams = [:]
     
+    // Private Variables
+    fileprivate var downloadState: AwesomeMediaDownloadState = .none
+
     public override func viewDidLoad() {
         super.viewDidLoad()
         configure()
@@ -23,6 +34,7 @@ public class AwesomeMediaAudioViewController: UIViewController {
     // Configure
     fileprivate func configure() {
         configureControls()
+        updateDownloadControlState()
         loadCoverImage()
         addObservers()
         play()
@@ -37,7 +49,7 @@ public class AwesomeMediaAudioViewController: UIViewController {
                 self.play()
             } else {
                 sharedAVPlayer.pause()
-            }    
+            }
         }
         
         // seek slider
@@ -55,6 +67,21 @@ public class AwesomeMediaAudioViewController: UIViewController {
             sharedAVPlayer.seekBackward()
         }
         
+    }
+    
+    // MARK: - Events
+
+    @IBAction func minimizeButtonPressed(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func airplayButtonPressed(_ sender: Any) {
+        view.showAirplayMenu()
+    }
+    
+    @IBAction func downloadButtonPressed(_ sender: Any) {
+        downloadState = .downloading
+        updateDownloadControlState()
     }
     
     fileprivate func play() {
@@ -75,6 +102,21 @@ extension AwesomeMediaAudioViewController {
         
         // set the cover image
         coverImageView.setImage(coverImageUrl.absoluteString)
+    }
+    
+    // update download state
+    public func updateDownloadControlState() {
+        switch downloadState {
+        case .downloading:
+            downloadButton.isHidden = true
+            downloadStateStackView.isHidden = false
+        case .downloaded:
+            downloadButton.isHidden = true
+            downloadStateStackView.isHidden = false
+        default:
+            downloadButton.isHidden = false
+            downloadStateStackView.isHidden = true
+        }
     }
 }
 

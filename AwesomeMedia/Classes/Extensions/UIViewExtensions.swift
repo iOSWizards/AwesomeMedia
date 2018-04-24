@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import MediaPlayer
 
 public enum AwesomeMediaViewDirection {
     case up
@@ -64,6 +65,26 @@ extension UIView {
             self.frame.origin.y = 0
         case .down:
             self.frame.origin.y = (self.superview?.frame.size.height ?? UIScreen.main.bounds.size.height) - self.frame.size.height
+        }
+    }
+}
+
+
+// MARK: - Airplay
+
+extension UIView {
+    // show airplay
+    public func showAirplayMenu() {
+        let volumeView = MPVolumeView()
+        self.addSubview(volumeView)
+        // loop through different items in MPVolumeView
+        for view in volumeView.subviews {
+            if let button = view as? UIButton {
+                // add action to airPlayButton
+                button.sendActions(for: .touchUpInside)
+                // remove VolumeView - just disables it from airplay menu
+                //                volumeView.removeFromSuperview()
+            }
         }
     }
 }

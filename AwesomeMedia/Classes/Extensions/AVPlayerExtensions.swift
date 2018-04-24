@@ -101,5 +101,4 @@ extension AVPlayer {
         
         notifyMediaEvent(.stopped)
     }
-        
 }
