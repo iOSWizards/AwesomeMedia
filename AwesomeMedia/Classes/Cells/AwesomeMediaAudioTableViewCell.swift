@@ -40,6 +40,9 @@ public class AwesomeMediaAudioTableViewCell: UITableViewCell {
         
         // Set Media Information
         updateMediaInformation()
+        
+        // Update play button status
+        updatePlayStatus()
     }
     
     // MARK: - Events
@@ -87,6 +90,10 @@ extension AwesomeMediaAudioTableViewCell {
         
         // set the cover image
         coverImageView.setImage(coverImageUrl.absoluteString)
+    }
+    
+    fileprivate func updatePlayStatus() {
+        playButton.isSelected = sharedAVPlayer.isPlaying(withParams: mediaParams)
     }
 }
 

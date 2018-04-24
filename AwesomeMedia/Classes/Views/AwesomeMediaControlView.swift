@@ -134,6 +134,12 @@ extension AwesomeMediaControlView: AwesomeMediaControlState {
         
         timeSlider.isUserInteractionEnabled = !locked
         timeSlider.alpha = locked ? lockedAlpha : 1.0
+        
+        rewindButton.isUserInteractionEnabled = !locked
+        rewindButton.alpha = locked ? lockedAlpha : 1.0
+        
+        speedView.isUserInteractionEnabled = !locked
+        speedView.alpha = locked ? lockedAlpha : 1.0
     }
 }
 
