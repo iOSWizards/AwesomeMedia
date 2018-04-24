@@ -83,8 +83,6 @@ extension UIView {
                 // add action to airPlayButton
                 button.sendActions(for: .touchUpInside)
                 button.isHidden = true
-                // remove VolumeView - just disables it from airplay menu
-                //                volumeView.removeFromSuperview()
             }
         }
     }

@@ -101,4 +101,13 @@ extension AVPlayer {
         
         notifyMediaEvent(.stopped)
     }
+    
+    public func adjustSpeed() {
+        rate = playbackSpeed.rawValue
+    }
+    
+    public func toggleSpeed() {
+        AwesomeMediaSpeed.toggleSpeed()
+        adjustSpeed()
+    }
 }

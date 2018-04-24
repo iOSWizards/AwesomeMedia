@@ -12,6 +12,7 @@ public typealias PlaybackCallback = (_ playing: Bool) -> Void
 public typealias TimeSliderChangedCallback = (Double) -> Void
 public typealias TimeSliderFinishedDraggingCallback = (Bool) -> Void
 public typealias RewindCallback = () -> Void
+public typealias SpeedToggleCallback = () -> Void
 
 public class AwesomeMediaControlView: UIView {
     
@@ -29,6 +30,7 @@ public class AwesomeMediaControlView: UIView {
     public var timeSliderChangedCallback: TimeSliderChangedCallback?
     public var timeSliderFinishedDraggingCallback: TimeSliderFinishedDraggingCallback?
     public var rewindCallback: RewindCallback?
+    public var speedToggleCallback: SpeedToggleCallback?
     
     // Private Variables
     fileprivate var playButtonStateBeforeSliding = false
@@ -76,7 +78,7 @@ public class AwesomeMediaControlView: UIView {
     }
     
     @IBAction func speedButtonPressed(_ sender: Any) {
-        
+        speedToggleCallback?()
     }
     
     @IBAction func timeSliderValueChanged(_ sender: Any) {

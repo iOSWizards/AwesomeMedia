@@ -66,6 +66,8 @@ public class AwesomeMediaView: UIView {
             startLoadingAnimation()
         }
         
+        // update Speed
+        speedRateChanged()
     }
     
     fileprivate func configureControls(controls: AwesomeMediaVideoControls, states: AwesomeMediaVideoStates = .standard) {
@@ -102,6 +104,11 @@ public class AwesomeMediaView: UIView {
             sharedAVPlayer.seekBackward()
         }
         
+        // Speed
+        controlView?.speedToggleCallback = {
+            sharedAVPlayer.toggleSpeed()
+        }
+        
     }
     
     fileprivate func configureTitle() {
@@ -119,7 +126,7 @@ public class AwesomeMediaView: UIView {
 extension AwesomeMediaView: AwesomeMediaEventObserver {
     
     public func addObservers() {
-        AwesomeMediaNotificationCenter.addObservers([.basic, .timeUpdated], to: self)
+        AwesomeMediaNotificationCenter.addObservers([.basic, .timeUpdated, .speedRateChanged], to: self)
     }
     
     public func startedPlaying() {
@@ -188,6 +195,10 @@ extension AwesomeMediaView: AwesomeMediaEventObserver {
         
         // do something after finished playing
         finishedPlayingCallback?()
+    }
+    
+    public func speedRateChanged() {
+        controlView?.speedLabel.text = AwesomeMediaSpeed.speedLabelForCurrentSpeed
     }
     
     public func resetPlayer() {

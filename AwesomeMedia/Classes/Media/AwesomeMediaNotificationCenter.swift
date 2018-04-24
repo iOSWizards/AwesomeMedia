@@ -80,6 +80,10 @@ public class AwesomeMediaNotificationCenter: NotificationCenter {
         if options.contains(.finished) {
             AwesomeMediaNotificationCenter.shared.addObserver(to, selector: .finishedPlaying, event: .finished)
         }
+        
+        if options.contains(.speedRateChanged) {
+            AwesomeMediaNotificationCenter.shared.addObserver(to, selector: .speedRateChanged, event: .speedRateChanged)
+        }
     }
     
 }

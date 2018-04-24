@@ -14,6 +14,7 @@ extension Selector {
     static let startedBuffering = #selector(AwesomeMediaEventObserver.startedBuffering)
     static let stopedBuffering = #selector(AwesomeMediaEventObserver.stoppedBuffering)
     static let finishedPlaying = #selector(AwesomeMediaEventObserver.finishedPlaying)
+    static let speedRateChanged = #selector(AwesomeMediaEventObserver.speedRateChanged)
 }
 
 @objc public protocol AwesomeMediaEventObserver {
@@ -24,4 +25,5 @@ extension Selector {
     @objc optional func startedBuffering()
     @objc optional func stoppedBuffering()
     @objc optional func finishedPlaying()
+    @objc optional func speedRateChanged()
 }

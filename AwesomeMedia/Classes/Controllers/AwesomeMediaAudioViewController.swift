@@ -67,6 +67,11 @@ public class AwesomeMediaAudioViewController: UIViewController {
             sharedAVPlayer.seekBackward()
         }
         
+        // Speed
+        controlView.speedToggleCallback = {
+            sharedAVPlayer.toggleSpeed()
+        }
+        
     }
     
     // MARK: - Events
@@ -125,7 +130,7 @@ extension AwesomeMediaAudioViewController {
 extension AwesomeMediaAudioViewController: AwesomeMediaEventObserver {
     
     public func addObservers() {
-        AwesomeMediaNotificationCenter.addObservers([.basic, .timeUpdated], to: self)
+        AwesomeMediaNotificationCenter.addObservers([.basic, .timeUpdated, .speedRateChanged], to: self)
     }
     
     public func startedPlaying() {
@@ -164,6 +169,10 @@ extension AwesomeMediaAudioViewController: AwesomeMediaEventObserver {
         controlView.playButton.isSelected = false
         
         controlView.lock(false, animated: true)
+    }
+    
+    public func speedRateChanged() {
+        controlView.speedLabel.text = AwesomeMediaSpeed.speedLabelForCurrentSpeed
     }
     
     public func timeUpdated() {

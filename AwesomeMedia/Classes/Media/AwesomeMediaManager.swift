@@ -33,7 +33,7 @@ public class AwesomeMediaManager: NSObject {
                                           AwesomeMediaMarker(title: "Test Marker 5", time: 430),
                                           AwesomeMediaMarker(title: "Test Marker 6", time: 440),
                                           AwesomeMediaMarker(title: "Test Marker 7", time: 441)]
-    public static let testAudioURL = "https://www.sample-videos.com/audio/mp3/wave.mp3"
+    public static let testAudioURL = "https://archive.org/download/VirtualHaircut/virtualbarbershop.mp3"
     
     func playMedia(withParams params: AwesomeMediaParams, inPlayerLayer playerLayer: AVPlayerLayer? = nil) {
         guard let url = AwesomeMediaManager.url(forParams: params) else {
@@ -50,6 +50,9 @@ public class AwesomeMediaManager: NSObject {
 
         // add player to layer
         playerLayer?.player = avPlayer
+        
+        //adjust speed
+        avPlayer.adjustSpeed()
         
         // add remote controls
         AwesomeMediaControlCenter.configBackgroundPlay(withParams: params)
