@@ -63,4 +63,23 @@ extension AVPlayerItem {
         url.time = 0
     }
     
+    // Video in background
+    
+    public func playInBackground(_ background: Bool) {
+        for playerItemTrack in tracks {
+            if playerItemTrack.assetTrack.hasMediaCharacteristic(
+                AVMediaCharacteristic.visual) {
+                
+                // Disable the track.
+                playerItemTrack.isEnabled = !background
+            }
+        }
+
+        if background {
+            AwesomeMediaPlayerLayer.shared.player = nil
+        } else {
+            AwesomeMediaPlayerLayer.shared.player = sharedAVPlayer
+        }
+    }
+    
 }
