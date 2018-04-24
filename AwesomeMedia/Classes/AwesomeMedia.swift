@@ -25,4 +25,12 @@ public class AwesomeMedia {
             print("AwesomeMedia \(message)")
         }
     }
+    
+    public static func didEnterBackground() {
+        sharedAVPlayer.currentItem?.playInBackground(true)
+    }
+    
+    public static func didBecomeActive() {
+        sharedAVPlayer.currentItem?.playInBackground(false)
+    }
 }
