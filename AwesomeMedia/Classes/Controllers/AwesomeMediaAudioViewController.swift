@@ -38,6 +38,9 @@ public class AwesomeMediaAudioViewController: UIViewController {
         loadCoverImage()
         addObservers()
         play()
+        
+        // Refresh controls
+        refreshControls()
     }
     
     fileprivate func configureControls() {
@@ -93,6 +96,14 @@ public class AwesomeMediaAudioViewController: UIViewController {
         AwesomeMediaManager.shared.playMedia(
             withParams: self.mediaParams,
             inPlayerLayer: AwesomeMediaPlayerLayer.shared)
+    }
+    
+    fileprivate func refreshControls() {
+        // update slider
+        timeUpdated()
+        
+        // update play button state
+        controlView.playButton.isSelected = sharedAVPlayer.isPlaying(withParams: mediaParams)
     }
 }
 
