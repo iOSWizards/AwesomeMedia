@@ -198,7 +198,6 @@ extension AwesomeMediaAudioViewController: AwesomeMediaEventObserver {
     }
 }
 
-
 // MARK: - ViewController Initialization
 
 extension AwesomeMediaAudioViewController {
@@ -206,5 +205,14 @@ extension AwesomeMediaAudioViewController {
         let storyboard = UIStoryboard(name: "AwesomeMedia", bundle: AwesomeMedia.bundle)
         
         return storyboard.instantiateViewController(withIdentifier: "AwesomeMediaAudioViewController") as! AwesomeMediaAudioViewController
+    }
+}
+
+extension UIViewController {
+    public func presentAudioFullscreen(withMediaParams mediaParams: AwesomeMediaParams) {
+        let viewController = AwesomeMediaAudioViewController.newInstance
+        viewController.mediaParams = mediaParams
+        
+        self.present(viewController, animated: true, completion: nil)
     }
 }

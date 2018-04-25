@@ -55,14 +55,7 @@ class TableViewController: UITableViewController {
                 .author: "Eric Mendez",
                 .title: "WildFit",
                 .markers: AwesomeMediaManager.testMediaMarkers]
-            cell.configure(withMediaParams: mediaParams, toggleFullscreen: {
-                let viewController = AwesomeMediaVideoViewController.newInstance
-                viewController.mediaParams = mediaParams
-                
-                self.present(viewController, animated: true, completion: {
-                    
-                })
-            })
+            cell.configure(withMediaParams: mediaParams)
         } else if let cell = cell as? AwesomeMediaAudioTableViewCell {
             let mediaParams: AwesomeMediaParams = [
                 .url: AwesomeMediaManager.testAudioURL,
@@ -71,15 +64,6 @@ class TableViewController: UITableViewController {
                 .title: "WildFit",
                 .duration: 3600]
             cell.configure(withMediaParams: mediaParams)
-            cell.audioPlayerView.fullScreenCallback = {
-                let viewController = AwesomeMediaAudioViewController.newInstance
-                viewController.mediaParams = mediaParams
-                
-                self.present(viewController, animated: true, completion: {
-                    
-                })
-            }
-            
         }
     }
 

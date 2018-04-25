@@ -78,3 +78,12 @@ extension AwesomeMediaVideoViewController {
         return storyboard.instantiateViewController(withIdentifier: "AwesomeMediaVideoViewController") as! AwesomeMediaVideoViewController
     }
 }
+
+extension UIViewController {
+    public func presentVideoFullscreen(withMediaParams mediaParams: AwesomeMediaParams) {
+        let viewController = AwesomeMediaVideoViewController.newInstance
+        viewController.mediaParams = mediaParams
+        
+        self.present(viewController, animated: true, completion: nil)
+    }
+}

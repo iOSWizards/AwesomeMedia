@@ -15,12 +15,13 @@ public class AwesomeMediaVideoTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    public func configure(withMediaParams mediaParams: AwesomeMediaParams,
-                          toggleFullscreen: FullScreenCallback? = nil) {
+    public func configure(withMediaParams mediaParams: AwesomeMediaParams) {
         playerView.configure(withMediaParams: mediaParams,
                              controls: .standard,
                              states: [.info])
-        playerView.controlView?.fullscreenCallback = toggleFullscreen
+        playerView.controlView?.fullscreenCallback = {
+            self.parentViewController?.presentVideoFullscreen(withMediaParams: mediaParams)
+        }
     }
 
     // MARK: - Dimensions
