@@ -71,7 +71,7 @@ class TableViewController: UITableViewController {
                 .title: "WildFit",
                 .duration: 3600]
             cell.configure(withMediaParams: mediaParams)
-            cell.fullScreenCallback = {
+            cell.audioPlayerView.fullScreenCallback = {
                 let viewController = AwesomeMediaAudioViewController.newInstance
                 viewController.mediaParams = mediaParams
                 
