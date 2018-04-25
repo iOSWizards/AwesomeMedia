@@ -20,6 +20,9 @@ public class AwesomeMediaAudioPlayerView: UIView {
     public var mediaParams: AwesomeMediaParams = [:]
     public var isLocked = false
     
+    // Private variables
+    fileprivate var bottomConstraint: NSLayoutConstraint?
+    
     // Callbacks
     public var fullScreenCallback: FullScreenCallback?
     
@@ -152,5 +155,42 @@ extension AwesomeMediaAudioPlayerView: AwesomeMediaControlState {
         
         playButton.isUserInteractionEnabled = !locked
         playButton.alpha = locked ? lockedAlpha : 1.0
+    }
+}
+
+// MARK: - View Initialization
+
+extension AwesomeMediaAudioPlayerView {
+    public static var newInstance: AwesomeMediaAudioPlayerView {
+        return AwesomeMedia.bundle.loadNibNamed("AwesomeMediaAudioPlayerView", owner: self, options: nil)![0] as! AwesomeMediaAudioPlayerView
+    }
+}
+
+extension UIView {
+    public func addAudioPlayer(withParams params: AwesomeMediaParams) -> AwesomeMediaAudioPlayerView {
+        
+        // remove video control view before adding new
+        removeAudioControlView()
+        
+        let playerView = AwesomeMediaAudioPlayerView.newInstance
+        playerView.configure(withMediaParams: params)
+        addSubview(playerView)
+        playerView.translatesAutoresizingMaskIntoConstraints = false
+        
+        addConstraint(NSLayoutConstraint(item: playerView, attribute: .leading, relatedBy: .equal, toItem: self, attribute: .leading, multiplier: 1, constant: 0))
+        addConstraint(NSLayoutConstraint(item: playerView, attribute: .trailing, relatedBy: .equal, toItem: self, attribute: .trailing, multiplier: 1, constant: 0))
+        
+        playerView.bottomConstraint = NSLayoutConstraint(item: playerView, attribute: .bottom, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 1, constant: 0)
+        addConstraint(playerView.bottomConstraint!)
+        
+        addConstraint(NSLayoutConstraint(item: playerView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 88))
+        
+        return playerView
+    }
+    
+    public func removeAudioControlView() {
+        for subview in subviews where subview is AwesomeMediaVideoControlView {
+            subview.removeFromSuperview()
+        }
     }
 }
