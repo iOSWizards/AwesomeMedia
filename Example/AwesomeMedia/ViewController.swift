@@ -27,7 +27,7 @@ class ViewController: UIViewController {
         AwesomeMedia.registerAudioCell(to: tableView, withIdentifier: MediaType.audio.rawValue)
         
         // set default orientation
-        awesomeOrientation = .portrait
+        awesomeMediaOrientation = .portrait
         
         // add observers
         addObservers()
@@ -44,7 +44,7 @@ class ViewController: UIViewController {
     }
     
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        return awesomeOrientation
+        return awesomeMediaOrientation
     }
 }
 
@@ -80,8 +80,8 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
             let mediaParams: AwesomeMediaParams = [
                 .url: AwesomeMediaManager.testAudioURL,
                 .coverUrl: "https://thumbs.dreamstime.com/z/awesome-word-cloud-explosion-background-51481417.jpg",
-                .author: "Eric Mendez",
-                .title: "WildFit",
+                .author: "Unknown",
+                .title: "Virtual Barbershop",
                 .duration: 232]
             cell.configure(withMediaParams: mediaParams)
         }
@@ -100,7 +100,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
 
 extension UIViewController: AwesomeMediaEventObserver {
     public func addObservers() {
-        AwesomeMediaNotificationCenter.addObservers([.playingAudio, .playingVideo, .paused], to: self)
+        AwesomeMediaNotificationCenter.addObservers([.playingAudio, .playingVideo], to: self)
     }
     
     public func startedPlayingAudio(_ notification: NSNotification) {
@@ -112,10 +112,6 @@ extension UIViewController: AwesomeMediaEventObserver {
     }
     
     public func startedPlayingVideo(_ notification: NSNotification) {
-        view.removeAudioControlView(withTimeout: 0, animated: true)
-    }
-    
-    public func pausedPlaying() {
         view.removeAudioControlView(animated: true)
     }
 }

@@ -20,6 +20,7 @@ public class AwesomeMediaAudioPlayerView: UIView {
     // Public variables
     public var mediaParams: AwesomeMediaParams = [:]
     public var isLocked = false
+    public var canRemove = false
     
     // Private variables
     fileprivate var bottomConstraint: NSLayoutConstraint?
@@ -103,8 +104,8 @@ extension AwesomeMediaAudioPlayerView: AwesomeMediaEventObserver {
             return
         }
         
-        // invalidate remove timer
-        removeTimer?.invalidate()
+        // cancel remove timer
+        cancelRemoveTimer()
         
         // change play button selection
         playButton.isSelected = true
@@ -116,7 +117,11 @@ extension AwesomeMediaAudioPlayerView: AwesomeMediaEventObserver {
     public func pausedPlaying() {
         playButton.isSelected = sharedAVPlayer.isPlaying(withParams: mediaParams)
         
+        // unlock buttons
         stoppedBuffering()
+        
+        // configure auto remove
+        setupAutoRemove()
     }
     
     public func startedBuffering() {
@@ -139,7 +144,11 @@ extension AwesomeMediaAudioPlayerView: AwesomeMediaEventObserver {
     public func finishedPlaying() {
         playButton.isSelected = false
         
+        // unlock buttons
         lock(false, animated: true)
+        
+        // configure auto remove
+        setupAutoRemove()
     }
 }
 
@@ -196,15 +205,21 @@ extension AwesomeMediaAudioPlayerView {
         })
     }
     
-    public func remove(withTimeout timeout: Double, animated: Bool) {
-        guard timeout > 0 else {
-            remove(animated: animated)
+    public func setupAutoRemove() {
+        cancelRemoveTimer()
+        
+        guard canRemove else {
             return
         }
         
-        removeTimer = Timer.scheduledTimer(withTimeInterval: timeout, repeats: false) { (_) in
-            self.remove(animated: animated)
+        removeTimer = Timer.scheduledTimer(withTimeInterval: AwesomeMedia.removeAudioControlViewTime, repeats: false) { (_) in
+            self.remove(animated: true)
         }
+    }
+    
+    public func cancelRemoveTimer() {
+        removeTimer?.invalidate()
+        removeTimer = nil
     }
     
 }
@@ -227,7 +242,9 @@ extension UIView {
         
         let playerView = AwesomeMediaAudioPlayerView.newInstance
         playerView.configure(withMediaParams: params)
+        playerView.canRemove = true
         addSubview(playerView)
+        
         playerView.translatesAutoresizingMaskIntoConstraints = false
         
         addConstraint(NSLayoutConstraint(item: playerView, attribute: .leading, relatedBy: .equal, toItem: self, attribute: .leading, multiplier: 1, constant: 0))
@@ -251,9 +268,9 @@ extension UIView {
         return playerView
     }
     
-    public func removeAudioControlView(withTimeout timeout: Double = AwesomeMedia.removeAudioControlViewTime, animated: Bool = false) {
+    public func removeAudioControlView(animated: Bool = false) {
         for subview in subviews where subview is AwesomeMediaAudioPlayerView {
-            (subview as? AwesomeMediaAudioPlayerView)?.remove(withTimeout: timeout, animated: animated)
+            (subview as? AwesomeMediaAudioPlayerView)?.remove(animated: animated)
         }
     }
     

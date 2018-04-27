@@ -8,6 +8,8 @@
 import UIKit
 
 public class AwesomeMediaVideoViewController: UIViewController {
+    
+    public static var presentingVideoInFullscreen = false
 
     @IBOutlet public weak var playerView: AwesomeMediaView!
     
@@ -48,6 +50,12 @@ public class AwesomeMediaVideoViewController: UIViewController {
         playerView.addPlayerLayer()
     }
     
+    public override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        AwesomeMediaVideoViewController.presentingVideoInFullscreen = false
+    }
+    
     @IBAction func toggleControlsButtonPressed(_ sender: Any) {
         playerView.controlView?.toggleViewIfPossible()
     }
@@ -61,7 +69,7 @@ public class AwesomeMediaVideoViewController: UIViewController {
 extension AwesomeMediaVideoViewController {
     fileprivate func close() {
         dismiss(animated: true) {
-            // dismiss callback
+            AwesomeMediaVideoViewController.presentingVideoInFullscreen = false
         }
     }
 }
@@ -78,6 +86,11 @@ extension AwesomeMediaVideoViewController {
 
 extension UIViewController {
     public func presentVideoFullscreen(withMediaParams mediaParams: AwesomeMediaParams) {
+        guard !AwesomeMediaVideoViewController.presentingVideoInFullscreen else {
+            return
+        }
+        AwesomeMediaVideoViewController.presentingVideoInFullscreen = true
+        
         let viewController = AwesomeMediaVideoViewController.newInstance
         viewController.mediaParams = mediaParams
         

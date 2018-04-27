@@ -35,4 +35,8 @@ public class AwesomeMedia {
         sharedAVPlayer.currentItem?.playInBackground(false)
     }
     
+    public static var shouldOverrideOrientation: Bool {
+        return sharedAVPlayer.isPlayingVideo && !AwesomeMediaVideoViewController.presentingVideoInFullscreen
+    }
+    
 }

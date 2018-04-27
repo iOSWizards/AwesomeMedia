@@ -140,6 +140,7 @@ extension AwesomeMediaView: AwesomeMediaEventObserver {
             return
         }
         
+        // set play button selected
         controlView?.playButton.isSelected = true
         
         // hide coverImage

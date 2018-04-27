@@ -38,22 +38,28 @@ extension UIViewController: UIViewControllerTransitioningDelegate {
 
 extension UIViewController {
     
-    public static let awesomeOrientationAssociation = ObjectAssociation<NSObject>()
+    public static let awesomeMediaOrientationAssociation = ObjectAssociation<NSObject>()
     
     // MARK: - Inspectables
     
-    public var awesomeOrientation: UIInterfaceOrientationMask {
+    public var awesomeMediaOrientation: UIInterfaceOrientationMask {
         get {
-            guard let orientation = UIViewController.awesomeOrientationAssociation[self] as? UInt else {
+            guard let orientation = UIViewController.awesomeMediaOrientationAssociation[self] as? UInt else {
+                return .all
+            }
+            
+            // if playing video, allows rotating
+            guard !AwesomeMedia.shouldOverrideOrientation else {
                 return .all
             }
             
             return UIInterfaceOrientationMask(rawValue: orientation)
         }
-        set (awesomeOrientation) {
-            UIViewController.awesomeOrientationAssociation[self] = awesomeOrientation.rawValue as NSObject?
+        set (awesomeMediaOrientation) {
+            UIViewController.awesomeMediaOrientationAssociation[self] = awesomeMediaOrientation.rawValue as NSObject?
         }
     }
+    
 }
 
 // MARK: - Gestures
@@ -92,4 +98,20 @@ extension UIViewController {
         }
     }
     
+}
+
+// MARK: - Gets top controller
+
+extension UIViewController {
+    public static var topController: UIViewController? {
+        if var topController = UIApplication.shared.keyWindow?.rootViewController {
+            while let presentedViewController = topController.presentedViewController {
+                topController = presentedViewController
+            }
+            
+            return topController
+        }
+        
+        return nil
+    }
 }
