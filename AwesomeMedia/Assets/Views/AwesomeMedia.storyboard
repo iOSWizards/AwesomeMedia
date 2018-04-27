@@ -67,12 +67,20 @@
                             <constraint firstItem="jQF-t1-LAR" firstAttribute="centerX" secondItem="qc5-ty-b2D" secondAttribute="centerX" id="lYb-Oi-UdA"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PWQ-yJ-Grg"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="LP9-Cl-4If" appends="YES" id="D6r-ll-ebx"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="playerView" destination="UKc-qD-L8m" id="DGD-f2-0Fj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cmS-Tf-Gov" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="LP9-Cl-4If">
+                    <connections>
+                        <action selector="handleGestureToDismissDown:" destination="D5r-St-fKa" id="Xwn-Qv-UyT"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="67" y="167"/>
         </scene>
@@ -394,7 +402,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uQj-FC-dfC" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <panGestureRecognizer minimumNumberOfTouches="1" id="VgN-6L-JQO">
                     <connections>
-                        <action selector="handleGesture:" destination="sq5-sN-Db0" id="Ul6-J0-tFj"/>
+                        <action selector="handleGestureToDismissDown:" destination="sq5-sN-Db0" id="WcS-uH-wq6"/>
                     </connections>
                 </panGestureRecognizer>
             </objects>

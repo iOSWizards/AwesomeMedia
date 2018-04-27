@@ -49,6 +49,9 @@ public class AwesomeMediaVideoViewController: UIViewController {
     
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        // adds player layer in case it's not visible
+        playerView.addPlayerLayer()
     }
     
     @IBAction func toggleControlsButtonPressed(_ sender: Any) {
@@ -83,6 +86,10 @@ extension UIViewController {
     public func presentVideoFullscreen(withMediaParams mediaParams: AwesomeMediaParams) {
         let viewController = AwesomeMediaVideoViewController.newInstance
         viewController.mediaParams = mediaParams
+        
+        interactor = AwesomeMediaInteractor()
+        viewController.transitioningDelegate = self
+        viewController.interactor = interactor
         
         self.present(viewController, animated: true, completion: nil)
     }

@@ -30,6 +30,9 @@
 		0A877EBD2092BD2C00B028B4 /* AwesomeMediaInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A877EBB2092BD2C00B028B4 /* AwesomeMediaInteractor.swift */; };
 		0A877EBE2092BD2C00B028B4 /* AwesomeMediaDismissAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A877EBC2092BD2C00B028B4 /* AwesomeMediaDismissAnimator.swift */; };
 		0A877EC22092C21300B028B4 /* ObjectAssociation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A877EC02092C20100B028B4 /* ObjectAssociation.swift */; };
+		0A877EC42092D42200B028B4 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A877EC32092D42200B028B4 /* UIViewControllerExtensions.swift */; };
+		0A877EC62092DF1A00B028B4 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A877EC52092DF1A00B028B4 /* StringExtensions.swift */; };
+		0A877ECA2092DF8200B028B4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0A877EC82092DF8200B028B4 /* Localizable.strings */; };
 		0BF463DF35A096EF301D8B859F0F6828 /* LOTShapeStroke.m in Sources */ = {isa = PBXBuildFile; fileRef = A5FAB74738AB9990896A43A1110FBEEF /* LOTShapeStroke.m */; };
 		0FA098A642F33216D6F397FF40F9936F /* LOTValueDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = C493DC41ACC9E4E6AC943FCFC175B8AA /* LOTValueDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		10C5D118A7ED9CDD7CDF48541603F8C9 /* AwesomeMediaControlOptionSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DE841026F6FF6BA4C14BAD17568543 /* AwesomeMediaControlOptionSet.swift */; };
@@ -360,6 +363,9 @@
 		0A877EBB2092BD2C00B028B4 /* AwesomeMediaInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AwesomeMediaInteractor.swift; sourceTree = "<group>"; };
 		0A877EBC2092BD2C00B028B4 /* AwesomeMediaDismissAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AwesomeMediaDismissAnimator.swift; sourceTree = "<group>"; };
 		0A877EC02092C20100B028B4 /* ObjectAssociation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectAssociation.swift; sourceTree = "<group>"; };
+		0A877EC32092D42200B028B4 /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
+		0A877EC52092DF1A00B028B4 /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
+		0A877EC92092DF8200B028B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		0C534E412B26BB88A6487F022F0F1C17 /* LOTAsset.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LOTAsset.m; path = "lottie-ios/Classes/Models/LOTAsset.m"; sourceTree = "<group>"; };
 		0CD3437A526FE6C9B02DF2711BE7D71A /* AwesomeMedia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AwesomeMedia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EAA681EFBDBABB788ED6BEB4024BA17 /* AwesomeMediaVideoTitleView.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = AwesomeMediaVideoTitleView.xib; sourceTree = "<group>"; };
@@ -716,6 +722,15 @@
 			);
 			name = Animator;
 			path = AwesomeMedia/Classes/Animator;
+			sourceTree = "<group>";
+		};
+		0A877EC72092DF8200B028B4 /* Localizations */ = {
+			isa = PBXGroup;
+			children = (
+				0A877EC82092DF8200B028B4 /* Localizable.strings */,
+			);
+			name = Localizations;
+			path = AwesomeMedia/Assets/Localizations;
 			sourceTree = "<group>";
 		};
 		12C7876BE83FA1ED2520A0BDFF944168 /* Support Files */ = {
@@ -1132,11 +1147,13 @@
 				04B96CCF7B1B028C3A4C2A36A7EA1016 /* AVPlayerExtensions.swift */,
 				30B4F5B9AED5E5ED1D957732383B6E2E /* AVPlayerItemExtensions.swift */,
 				D7A9F3386EC7638648A80850E90C17FB /* NumberExtensions.swift */,
+				0A877EC52092DF1A00B028B4 /* StringExtensions.swift */,
 				A685321DECA9A78E25C427F8B2372DC4 /* UIImageExtensions.swift */,
 				C49BB3C92B20F1413113CBA69157BCF3 /* UIImageViewExtensions.swift */,
 				24A36796730D3FCE42AC3E8C0272F4BE /* UISliderExtensions.swift */,
 				1C11CAF35605A12475B60D1E98805A62 /* UIViewExtensions.swift */,
 				0A877EA9208DB2E600B028B4 /* UIColorExtensions.swift */,
+				0A877EC32092D42200B028B4 /* UIViewControllerExtensions.swift */,
 			);
 			name = Extensions;
 			path = AwesomeMedia/Classes/Extensions;
@@ -1170,6 +1187,7 @@
 			children = (
 				A58D1FDD87EAE91C535037E300BAB92D /* Assets.xcassets */,
 				BA582D4734961ECCC31FF3FBC023C56E /* Gilroy */,
+				0A877EC72092DF8200B028B4 /* Localizations */,
 				B633798B7D6C8EA63D63433A5778E5AF /* Views */,
 			);
 			name = Resources;
@@ -1511,6 +1529,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
 			productRefGroup = EB01D0EA3D2B73FD6740B042F227DD4D /* Products */;
@@ -1557,6 +1576,7 @@
 				9E569CADEBC6FD540F1998D43AE2EFE4 /* Gilroy-Black.otf in Resources */,
 				1EA1C11A719DFDEDEEB12202A262F2DC /* Gilroy-BlackItalic.otf in Resources */,
 				BD9B3E26746C8E8E9B37BA089CC1183D /* Gilroy-Bold.otf in Resources */,
+				0A877ECA2092DF8200B028B4 /* Localizable.strings in Resources */,
 				F8E640AD2D4AE45DEA9C27EB7B689A62 /* Gilroy-BoldItalic.otf in Resources */,
 				5E7E0636662BA94426284AAAE7DFD999 /* Gilroy-ExtraBold.otf in Resources */,
 				BB41B58D916BE7BBFEA974C19A476BDD /* Gilroy-ExtraBoldItalic.otf in Resources */,
@@ -1758,11 +1778,13 @@
 				0A877EBD2092BD2C00B028B4 /* AwesomeMediaInteractor.swift in Sources */,
 				E8D8CED0BA649060C809F1889CE0C920 /* AwesomeMediaTime.swift in Sources */,
 				0A877EBE2092BD2C00B028B4 /* AwesomeMediaDismissAnimator.swift in Sources */,
+				0A877EC62092DF1A00B028B4 /* StringExtensions.swift in Sources */,
 				7693B85C32EBDDB0FE289EC05E52843E /* AwesomeMediaVideoControlView.swift in Sources */,
 				BA813C44791B26151DAC3794BB34EA55 /* AwesomeMediaVideoTableViewCell.swift in Sources */,
 				2D52ECA183A15CB070A9093B51E3E942 /* AwesomeMediaVideoTitleView.swift in Sources */,
 				0A877EB2208EE30400B028B4 /* AwesomeMediaDownloadManager.swift in Sources */,
 				0A877EB0208E0BEE00B028B4 /* AwesomeMediaAudioControlView.swift in Sources */,
+				0A877EC42092D42200B028B4 /* UIViewControllerExtensions.swift in Sources */,
 				B89C25654F85179F1103B7A601B25C86 /* AwesomeMediaVideoViewController.swift in Sources */,
 				0A877EB4208EE9E300B028B4 /* AwesomeMediaSpeed.swift in Sources */,
 				4863EF99724FB14A10D9629B0DFB4C85 /* AwesomeMediaView.swift in Sources */,
@@ -1841,6 +1863,17 @@
 			targetProxy = 64D00546EFB7FABD8E0CA4BE19C39FC5 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		0A877EC82092DF8200B028B4 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0A877EC92092DF8200B028B4 /* Base */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		13C13A848290BBF78DED85B8ED31C294 /* Debug */ = {

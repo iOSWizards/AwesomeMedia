@@ -73,6 +73,9 @@ public class AwesomeMediaView: UIView {
     fileprivate func configureControls(controls: AwesomeMediaVideoControls, states: AwesomeMediaVideoStates = .standard) {
         controlView = superview?.addVideoControls(withControls: controls, states: states)
         
+        // set time label
+        controlView?.timeLabel?.text = AwesomeMediaManager.duration(forParams: mediaParams).timeString
+        
         controlView?.playCallback = { (isPlaying) in
             
             self.addPlayerLayer()
@@ -113,6 +116,7 @@ public class AwesomeMediaView: UIView {
     
     fileprivate func configureTitle() {
         titleView = superview?.addVideoTitle()
+        titleView?.configure(withMediaParams: mediaParams)
         
         // show airplay menu
         titleView?.airplayCallback = {

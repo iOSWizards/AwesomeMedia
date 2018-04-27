@@ -54,8 +54,8 @@ extension AwesomeMediaManager {
         return value
     }
     
-    static func duration(forParams params: AwesomeMediaParams) -> Double {
-        guard let value = value(forParams: params, withType: .duration) as? Double else {
+    static func duration(forParams params: AwesomeMediaParams) -> Int {
+        guard let value = value(forParams: params, withType: .duration) as? Int else {
             return 0
         }
         return value

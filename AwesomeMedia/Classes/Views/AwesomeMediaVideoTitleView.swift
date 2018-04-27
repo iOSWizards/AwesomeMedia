@@ -24,8 +24,8 @@ public class AwesomeMediaVideoTitleView: UIView {
         backgroundColor = .clear
     }
     
-    public func configure() {
-       
+    public func configure(withMediaParams params: AwesomeMediaParams) {
+        titleLabel.text = AwesomeMediaManager.title(forParams: params)
     }
     
     // MARK: - Events
@@ -39,14 +39,13 @@ public class AwesomeMediaVideoTitleView: UIView {
     }
     
 }
-
+    
 // MARK: - Toggle View
 extension AwesomeMediaVideoTitleView {
     public func toggleView() {
         animateToggle(direction: .up)
     }
 }
-
 
 // MARK: - View Initialization
 

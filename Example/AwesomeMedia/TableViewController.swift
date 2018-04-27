@@ -23,6 +23,9 @@ class TableViewController: UITableViewController {
 
         AwesomeMedia.registerVideoCell(to: tableView, withIdentifier: MediaType.video.rawValue)
         AwesomeMedia.registerAudioCell(to: tableView, withIdentifier: MediaType.audio.rawValue)
+        
+        // set default orientation
+        awesomeOrientation = .portrait
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -33,6 +36,10 @@ class TableViewController: UITableViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+    }
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return awesomeOrientation
     }
     
     // MARK: - Table view data source
@@ -58,6 +65,7 @@ class TableViewController: UITableViewController {
                 .coverUrl: "https://thumbs.dreamstime.com/z/awesome-word-cloud-explosion-background-51481417.jpg",
                 .author: "Eric Mendez",
                 .title: "WildFit",
+                .duration: 7297,
                 .markers: AwesomeMediaManager.testMediaMarkers]
             cell.configure(withMediaParams: mediaParams)
         } else if let cell = cell as? AwesomeMediaAudioTableViewCell {
@@ -66,7 +74,7 @@ class TableViewController: UITableViewController {
                 .coverUrl: "https://thumbs.dreamstime.com/z/awesome-word-cloud-explosion-background-51481417.jpg",
                 .author: "Eric Mendez",
                 .title: "WildFit",
-                .duration: 3600]
+                .duration: 232]
             cell.configure(withMediaParams: mediaParams)
         }
     }

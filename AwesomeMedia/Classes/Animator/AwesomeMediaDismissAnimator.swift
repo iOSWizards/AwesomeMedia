@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import AwesomeUIMagic
 
 class AwesomeMediaDismissAnimator : NSObject {
 }
@@ -43,31 +42,5 @@ extension AwesomeMediaDismissAnimator : UIViewControllerAnimatedTransitioning {
                 transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
             }
         )
-    }
-}
-
-// MARK: - ViewController extension
-
-extension UIViewController: UIViewControllerTransitioningDelegate {
-    
-    public static let interactorAssociation = ObjectAssociation<NSObject>()
-    
-    // MARK: - Inspectables
-    
-    public var interactor: AwesomeMediaInteractor? {
-        get {
-            return UIViewController.interactorAssociation[self] as? AwesomeMediaInteractor
-        }
-        set (interactor) {
-            UIViewController.interactorAssociation[self] = interactor
-        }
-    }
-    
-    public func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return AwesomeMediaDismissAnimator()
-    }
-    
-    public func interactionControllerForDismissal(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
-        return interactor?.hasStarted ?? false ? interactor : nil
     }
 }

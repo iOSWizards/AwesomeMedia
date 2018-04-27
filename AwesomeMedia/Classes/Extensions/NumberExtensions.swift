@@ -41,3 +41,30 @@ extension Float64 {
                       lround(self) % 60)
     }
 }
+
+extension Int {
+    public var timeString: String {
+        
+        let ti = NSInteger(self)
+        
+        //let ms = Int((self.doubleValue % 1) * 1000)
+        let seconds = ti % 60
+        let minutes = (ti / 60) % 60
+        let hours = (ti / 3600)
+        
+        if hours > 0 {
+            var timeString = "\(hours) \(hours == 1 ? "hour".localized : "hours".localized)"
+            if minutes > 0 {
+                timeString.append(" \(minutes) \(minutes == 1 ? "minute".localized : "minutes".localized)")
+            }
+            return timeString
+        } else if minutes > 0 {
+            return "\(minutes) \(minutes == 1 ? "min".localized : "mins".localized)"
+        } else if seconds > 0 {
+            return "\(seconds) \(seconds == 1 ? "seconds".localized : "seconds".localized)"
+        }
+        
+        return ""
+    }
+    
+}
