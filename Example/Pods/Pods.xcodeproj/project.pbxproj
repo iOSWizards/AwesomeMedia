@@ -32,7 +32,7 @@
 		0A877EC22092C21300B028B4 /* ObjectAssociation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A877EC02092C20100B028B4 /* ObjectAssociation.swift */; };
 		0A877EC42092D42200B028B4 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A877EC32092D42200B028B4 /* UIViewControllerExtensions.swift */; };
 		0A877EC62092DF1A00B028B4 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A877EC52092DF1A00B028B4 /* StringExtensions.swift */; };
-		0A877ECA2092DF8200B028B4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0A877EC82092DF8200B028B4 /* Localizable.strings */; };
+		0A877ED02092E5DF00B028B4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0A877ECC2092E5DF00B028B4 /* Localizable.strings */; };
 		0BF463DF35A096EF301D8B859F0F6828 /* LOTShapeStroke.m in Sources */ = {isa = PBXBuildFile; fileRef = A5FAB74738AB9990896A43A1110FBEEF /* LOTShapeStroke.m */; };
 		0FA098A642F33216D6F397FF40F9936F /* LOTValueDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = C493DC41ACC9E4E6AC943FCFC175B8AA /* LOTValueDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		10C5D118A7ED9CDD7CDF48541603F8C9 /* AwesomeMediaControlOptionSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DE841026F6FF6BA4C14BAD17568543 /* AwesomeMediaControlOptionSet.swift */; };
@@ -365,7 +365,9 @@
 		0A877EC02092C20100B028B4 /* ObjectAssociation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectAssociation.swift; sourceTree = "<group>"; };
 		0A877EC32092D42200B028B4 /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
 		0A877EC52092DF1A00B028B4 /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
-		0A877EC92092DF8200B028B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		0A877ECD2092E5DF00B028B4 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
+		0A877ECE2092E5DF00B028B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		0A877ECF2092E5DF00B028B4 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		0C534E412B26BB88A6487F022F0F1C17 /* LOTAsset.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LOTAsset.m; path = "lottie-ios/Classes/Models/LOTAsset.m"; sourceTree = "<group>"; };
 		0CD3437A526FE6C9B02DF2711BE7D71A /* AwesomeMedia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AwesomeMedia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EAA681EFBDBABB788ED6BEB4024BA17 /* AwesomeMediaVideoTitleView.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = AwesomeMediaVideoTitleView.xib; sourceTree = "<group>"; };
@@ -724,10 +726,10 @@
 			path = AwesomeMedia/Classes/Animator;
 			sourceTree = "<group>";
 		};
-		0A877EC72092DF8200B028B4 /* Localizations */ = {
+		0A877ECB2092E5DF00B028B4 /* Localizations */ = {
 			isa = PBXGroup;
 			children = (
-				0A877EC82092DF8200B028B4 /* Localizable.strings */,
+				0A877ECC2092E5DF00B028B4 /* Localizable.strings */,
 			);
 			name = Localizations;
 			path = AwesomeMedia/Assets/Localizations;
@@ -1187,7 +1189,7 @@
 			children = (
 				A58D1FDD87EAE91C535037E300BAB92D /* Assets.xcassets */,
 				BA582D4734961ECCC31FF3FBC023C56E /* Gilroy */,
-				0A877EC72092DF8200B028B4 /* Localizations */,
+				0A877ECB2092E5DF00B028B4 /* Localizations */,
 				B633798B7D6C8EA63D63433A5778E5AF /* Views */,
 			);
 			name = Resources;
@@ -1530,6 +1532,8 @@
 			knownRegions = (
 				en,
 				Base,
+				it,
+				ru,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
 			productRefGroup = EB01D0EA3D2B73FD6740B042F227DD4D /* Products */;
@@ -1576,7 +1580,7 @@
 				9E569CADEBC6FD540F1998D43AE2EFE4 /* Gilroy-Black.otf in Resources */,
 				1EA1C11A719DFDEDEEB12202A262F2DC /* Gilroy-BlackItalic.otf in Resources */,
 				BD9B3E26746C8E8E9B37BA089CC1183D /* Gilroy-Bold.otf in Resources */,
-				0A877ECA2092DF8200B028B4 /* Localizable.strings in Resources */,
+				0A877ED02092E5DF00B028B4 /* Localizable.strings in Resources */,
 				F8E640AD2D4AE45DEA9C27EB7B689A62 /* Gilroy-BoldItalic.otf in Resources */,
 				5E7E0636662BA94426284AAAE7DFD999 /* Gilroy-ExtraBold.otf in Resources */,
 				BB41B58D916BE7BBFEA974C19A476BDD /* Gilroy-ExtraBoldItalic.otf in Resources */,
@@ -1865,10 +1869,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		0A877EC82092DF8200B028B4 /* Localizable.strings */ = {
+		0A877ECC2092E5DF00B028B4 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				0A877EC92092DF8200B028B4 /* Base */,
+				0A877ECD2092E5DF00B028B4 /* it */,
+				0A877ECE2092E5DF00B028B4 /* Base */,
+				0A877ECF2092E5DF00B028B4 /* ru */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
