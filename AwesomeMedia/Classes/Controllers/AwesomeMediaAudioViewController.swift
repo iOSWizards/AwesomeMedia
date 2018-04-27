@@ -42,7 +42,7 @@ public class AwesomeMediaAudioViewController: UIViewController {
     
     fileprivate func configure() {
         configureControls()
-        updateDownloadControlState()
+        refreshDownloadState()
         loadCoverImage()
         addObservers()
         play()
@@ -100,8 +100,42 @@ public class AwesomeMediaAudioViewController: UIViewController {
     }
     
     @IBAction func downloadButtonPressed(_ sender: Any) {
+        switch downloadState {
+        case .downloaded:
+            deleteMedia()
+        case .downloading:
+            break
+        default:
+            downloadMedia()
+        }
+    }
+    
+    fileprivate func downloadMedia() {
         downloadState = .downloading
-        updateDownloadControlState()
+        updateDownloadState()
+        
+        AwesomeMediaDownloadManager.downloadMedia(withParams: mediaParams) { (success) in
+            self.refreshDownloadState()
+            
+            if success, sharedAVPlayer.isPlaying {
+                // play offline media
+                sharedAVPlayer.stop()
+                self.play()
+            }
+        }
+    }
+    
+    fileprivate func deleteMedia() {
+        sharedAVPlayer.stop()
+        self.confirmMediaDeletion(withParams: mediaParams) { (success) in
+            self.refreshDownloadState()
+            
+            if success {
+                // play online media
+                sharedAVPlayer.stop()
+                self.play()
+            }
+        }
     }
     
     fileprivate func play() {
@@ -133,14 +167,27 @@ extension AwesomeMediaAudioViewController {
     }
     
     // update download state
-    public func updateDownloadControlState() {
+    public func refreshDownloadState() {
+        downloadState = AwesomeMediaDownloadManager.mediaDownloadState(withParams: mediaParams)
+        
+        updateDownloadState()
+    }
+    
+    public func updateDownloadState() {
         switch downloadState {
         case .downloading:
             downloadButton.isHidden = true
             downloadStateStackView.isHidden = false
+            
+            if let size = AwesomeMediaManager.size(forParams: mediaParams) {
+                downloadStateLabel.text = "\(size) - \("downloading".localized)"
+            } else {
+                downloadStateLabel.text = "downloading".localized
+            }
         case .downloaded:
             downloadButton.isHidden = true
             downloadStateStackView.isHidden = false
+            downloadStateLabel.text = "availableoffline".localized
         default:
             downloadButton.isHidden = false
             downloadStateStackView.isHidden = true

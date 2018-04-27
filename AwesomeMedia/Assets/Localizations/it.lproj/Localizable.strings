@@ -7,3 +7,10 @@
 "minutes" = "minuti";
 "second" = "secondo";
 "seconds" = "secondi";
+
+"downloading" = "IN SCARICAMENTO...";
+"availableoffline" = "DISPONIBILE OFFLINE";
+"availableoffline_delete_title" = "Rimuovi la traccia offline";
+"availableoffline_delete_message" = "Vuoi rimuovere la traccia dal dispositivo? Sarai in grado di riprodurre la traccia solo quando sei online.";
+"availableoffline_delete_button_confirm" = "Sì! RIMUOVI";
+"availableoffline_delete_button_cancel" = "CANCELLA";

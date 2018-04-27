@@ -7,3 +7,10 @@
 "minutes" = "minutes";
 "second" = "second";
 "seconds" = "seconds";
+
+"downloading" = "DOWNLOADING...";
+"availableoffline" = "AVAILABLE OFFLINE";
+"availableoffline_delete_title" = "Remove Offline Track";
+"availableoffline_delete_message" = "Do you want to remove the track from the device? You will only be able to play the track when you are online.";
+"availableoffline_delete_button_confirm" = "YES! REMOVE";
+"availableoffline_delete_button_cancel" = "CANCEL";

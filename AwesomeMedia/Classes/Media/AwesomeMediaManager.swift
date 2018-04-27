@@ -37,7 +37,7 @@ public class AwesomeMediaManager: NSObject {
     public static let testAudioURL = "https://archive.org/download/VirtualHaircut/virtualbarbershop.mp3"
     
     func playMedia(withParams params: AwesomeMediaParams, inPlayerLayer playerLayer: AVPlayerLayer? = nil) {
-        guard let url = AwesomeMediaManager.url(forParams: params) else {
+        guard let url = AwesomeMediaManager.url(forParams: params)?.offlineURLIfAvailable else {
             AwesomeMedia.log("No URL provided")
             return
         }
@@ -85,7 +85,7 @@ public class AwesomeMediaManager: NSObject {
     // Media State
     
     public func mediaIsLoading(withParams params: AwesomeMediaParams) -> Bool {
-        guard let url = AwesomeMediaManager.url(forParams: params) else {
+        guard let url = AwesomeMediaManager.url(forParams: params)?.offlineURLIfAvailable else {
             return false
         }
         

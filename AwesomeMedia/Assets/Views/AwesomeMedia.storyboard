@@ -324,14 +324,24 @@
                                                                     <constraint firstAttribute="height" constant="16" id="oL0-Ze-R4l"/>
                                                                 </constraints>
                                                             </imageView>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n8H-Ze-MlM">
+                                                                <rect key="frame" x="0.0" y="0.0" width="191" height="30"/>
+                                                                <connections>
+                                                                    <action selector="downloadButtonPressed:" destination="sq5-sN-Db0" eventType="touchUpInside" id="bcf-tx-ROI"/>
+                                                                </connections>
+                                                            </button>
                                                         </subviews>
                                                         <color key="backgroundColor" white="0.0" alpha="0.42999999999999999" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
+                                                            <constraint firstAttribute="bottom" secondItem="n8H-Ze-MlM" secondAttribute="bottom" id="6NY-00-UwF"/>
+                                                            <constraint firstItem="n8H-Ze-MlM" firstAttribute="top" secondItem="7BL-rU-np2" secondAttribute="top" id="W6e-1b-JVa"/>
                                                             <constraint firstItem="GbV-wV-eaz" firstAttribute="top" secondItem="7BL-rU-np2" secondAttribute="top" id="Yb4-mY-ITy"/>
                                                             <constraint firstAttribute="bottom" secondItem="GbV-wV-eaz" secondAttribute="bottom" id="i3w-AY-fov"/>
+                                                            <constraint firstAttribute="trailing" secondItem="n8H-Ze-MlM" secondAttribute="trailing" id="mLn-5y-qRk"/>
                                                             <constraint firstItem="GbV-wV-eaz" firstAttribute="leading" secondItem="7BL-rU-np2" secondAttribute="leading" constant="13" id="mx7-0o-GUi"/>
                                                             <constraint firstItem="6Zu-at-lUK" firstAttribute="centerY" secondItem="7BL-rU-np2" secondAttribute="centerY" id="pAN-eq-a0r"/>
                                                             <constraint firstAttribute="height" constant="30" id="qZs-il-QgJ"/>
+                                                            <constraint firstItem="n8H-Ze-MlM" firstAttribute="leading" secondItem="7BL-rU-np2" secondAttribute="leading" id="sBh-ti-Q95"/>
                                                             <constraint firstItem="6Zu-at-lUK" firstAttribute="leading" secondItem="GbV-wV-eaz" secondAttribute="trailing" constant="9" id="yLF-1g-dFf"/>
                                                             <constraint firstAttribute="trailing" secondItem="6Zu-at-lUK" secondAttribute="trailing" constant="13" id="ylw-vC-fWr"/>
                                                         </constraints>

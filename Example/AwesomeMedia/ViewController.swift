@@ -79,9 +79,10 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         } else if let cell = cell as? AwesomeMediaAudioTableViewCell {
             let mediaParams: AwesomeMediaParams = [
                 .url: AwesomeMediaManager.testAudioURL,
-                .coverUrl: "https://thumbs.dreamstime.com/z/awesome-word-cloud-explosion-background-51481417.jpg",
-                .author: "Unknown",
+                .coverUrl: "https://i.ytimg.com/vi/fwLuHqMMonc/0.jpg",
+                .author: "The barber",
                 .title: "Virtual Barbershop",
+                .size: "2mb",
                 .duration: 232]
             cell.configure(withMediaParams: mediaParams)
         }

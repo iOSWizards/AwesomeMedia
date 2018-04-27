@@ -7,3 +7,10 @@
 "minutes" = "минут";
 "second" = "секунд";
 "seconds" = "секунд";
+
+"downloading" = "СКАЧИВАНИЕ";
+"availableoffline" = "ДОСТУПНО В ОФФЛАЙН";
+"availableoffline_delete_title" = "Удалить оффлайн трек";
+"availableoffline_delete_message" = "Вы действительно хотите удалить трек с устройства? Вы сможете прослушать трек только в режиме онлайн";
+"availableoffline_delete_button_confirm" = "ДА! УДАЛИТЬ";
+"availableoffline_delete_button_cancel" = "ОТМЕНИТЬ";
