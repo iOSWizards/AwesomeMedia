@@ -31,6 +31,9 @@ extension AwesomeMediaDismissAnimator : UIViewControllerAnimatedTransitioning {
         let bottomLeftCorner = CGPoint(x: 0, y: screenBounds.height)
         let finalFrame = CGRect(origin: bottomLeftCorner, size: screenBounds.size)
         
+        // fixes view size for previous VC on spin
+        toVC.view.frame = UIScreen.main.bounds
+        
         UIView.animate(
             withDuration: transitionDuration(using: transitionContext),
             animations: {

@@ -232,9 +232,8 @@
                                             <constraint firstAttribute="trailing" secondItem="AjM-T4-rvf" secondAttribute="trailing" constant="20" id="NuU-kW-vmU"/>
                                             <constraint firstItem="2kg-Ce-lvi" firstAttribute="width" secondItem="fLV-iS-hF1" secondAttribute="width" id="ON8-Lr-4ER"/>
                                             <constraint firstItem="0Ia-mt-rUQ" firstAttribute="height" secondItem="XB8-Te-t6k" secondAttribute="height" id="POo-xn-WBz"/>
-                                            <constraint firstItem="2kg-Ce-lvi" firstAttribute="top" secondItem="IZt-ZZ-DsI" secondAttribute="top" constant="29" id="e7c-gZ-7zK"/>
+                                            <constraint firstItem="2kg-Ce-lvi" firstAttribute="top" secondItem="IZt-ZZ-DsI" secondAttribute="top" priority="750" constant="29" id="e7c-gZ-7zK"/>
                                             <constraint firstItem="XB8-Te-t6k" firstAttribute="centerX" secondItem="IZt-ZZ-DsI" secondAttribute="centerX" id="eYL-EF-2HX"/>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="292" id="jWw-Az-Emh"/>
                                             <constraint firstItem="fLV-iS-hF1" firstAttribute="leading" secondItem="3br-5B-igr" secondAttribute="trailing" constant="15" id="mqP-Zf-lmh"/>
                                             <constraint firstItem="XB8-Te-t6k" firstAttribute="top" relation="greaterThanOrEqual" secondItem="AjM-T4-rvf" secondAttribute="bottom" constant="20" id="oDb-Dj-KqI"/>
                                             <constraint firstAttribute="trailing" secondItem="fLV-iS-hF1" secondAttribute="trailing" constant="20" id="obn-7t-gfQ"/>
@@ -257,6 +256,9 @@
                                         </connections>
                                     </view>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="IZt-ZZ-DsI" firstAttribute="width" secondItem="aY5-bp-wlD" secondAttribute="width" id="rvp-AL-Evt"/>
+                                </constraints>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g8Q-lC-2Ki" customClass="GradientView" customModule="AwesomeUIMagic">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="134"/>
@@ -273,7 +275,7 @@
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="cA6-ck-j94">
-                                        <rect key="frame" x="106.99999999999999" y="44" width="243.66666666666663" height="70"/>
+                                        <rect key="frame" x="106.33333333333333" y="44" width="243.66666666666669" height="70"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0iu-an-qIP">
                                                 <rect key="frame" x="0.0" y="0.0" width="38" height="70"/>
@@ -286,7 +288,7 @@
                                                 </connections>
                                             </button>
                                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5wX-aj-KkR">
-                                                <rect key="frame" x="45.666666666666657" y="0.0" width="38" height="70"/>
+                                                <rect key="frame" x="45.666666666666671" y="0.0" width="38" height="70"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="38" id="Tdf-Nu-9xL"/>
                                                 </constraints>
@@ -296,7 +298,7 @@
                                                 </connections>
                                             </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="34z-nM-qNR">
-                                                <rect key="frame" x="52.999999999999986" y="0.0" width="190.66666666666663" height="70"/>
+                                                <rect key="frame" x="53.000000000000014" y="0.0" width="190.66666666666669" height="70"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7BL-rU-np2">
                                                         <rect key="frame" x="0.0" y="20" width="190.66666666666666" height="30"/>
@@ -308,7 +310,7 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="btnDownload" translatesAutoresizingMaskIntoConstraints="NO" id="6Zu-at-lUK">
-                                                                <rect key="frame" x="159.66666666666669" y="7.3333333333333286" width="18" height="16"/>
+                                                                <rect key="frame" x="159.66666666666666" y="7.3333333333333286" width="18" height="16"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="18" id="WOK-p7-pUj"/>
                                                                     <constraint firstAttribute="height" constant="16" id="oL0-Ze-R4l"/>
@@ -343,7 +345,6 @@
                                     <constraint firstItem="cA6-ck-j94" firstAttribute="height" secondItem="aqp-Y8-HB5" secondAttribute="height" id="U6Z-eC-s3R"/>
                                     <constraint firstItem="cA6-ck-j94" firstAttribute="bottom" secondItem="aqp-Y8-HB5" secondAttribute="bottom" id="a4x-za-Jxt"/>
                                     <constraint firstItem="aqp-Y8-HB5" firstAttribute="leading" secondItem="g8Q-lC-2Ki" secondAttribute="leading" id="dxg-zX-Khd"/>
-                                    <constraint firstAttribute="trailing" secondItem="cA6-ck-j94" secondAttribute="trailing" constant="25" id="iXO-lo-LZK"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="gradientTopColor">
@@ -363,10 +364,12 @@
                             <constraint firstItem="cWY-cu-Tnl" firstAttribute="bottom" secondItem="D6m-Cg-iw7" secondAttribute="bottom" id="63l-iO-urT"/>
                             <constraint firstItem="cWY-cu-Tnl" firstAttribute="trailing" secondItem="D6m-Cg-iw7" secondAttribute="trailing" id="MmR-1k-S10"/>
                             <constraint firstItem="g8Q-lC-2Ki" firstAttribute="top" secondItem="quR-s8-1t7" secondAttribute="top" id="PtF-mX-1Z5"/>
-                            <constraint firstItem="g8Q-lC-2Ki" firstAttribute="trailing" secondItem="D6m-Cg-iw7" secondAttribute="trailing" id="WRM-wQ-4X3"/>
+                            <constraint firstItem="g8Q-lC-2Ki" firstAttribute="trailing" secondItem="quR-s8-1t7" secondAttribute="trailing" id="WRM-wQ-4X3"/>
                             <constraint firstItem="aqp-Y8-HB5" firstAttribute="top" secondItem="D6m-Cg-iw7" secondAttribute="top" id="Y00-iy-5bH"/>
                             <constraint firstItem="g8Q-lC-2Ki" firstAttribute="leading" secondItem="D6m-Cg-iw7" secondAttribute="leading" id="Zj6-Pk-e09"/>
                             <constraint firstItem="cWY-cu-Tnl" firstAttribute="top" secondItem="quR-s8-1t7" secondAttribute="top" id="cS9-BR-8BO"/>
+                            <constraint firstItem="2kg-Ce-lvi" firstAttribute="top" relation="greaterThanOrEqual" secondItem="g8Q-lC-2Ki" secondAttribute="bottom" id="clJ-KL-vKh"/>
+                            <constraint firstItem="D6m-Cg-iw7" firstAttribute="trailing" secondItem="cA6-ck-j94" secondAttribute="trailing" constant="25" id="ggt-ur-kUV"/>
                             <constraint firstItem="cWY-cu-Tnl" firstAttribute="leading" secondItem="D6m-Cg-iw7" secondAttribute="leading" id="kKE-27-7Ur"/>
                             <constraint firstItem="aY5-bp-wlD" firstAttribute="bottom" secondItem="D6m-Cg-iw7" secondAttribute="top" priority="750" constant="375" id="oUC-XJ-rSS"/>
                         </constraints>

@@ -34,6 +34,12 @@ public class AwesomeMediaAudioViewController: UIViewController {
     }
     
     // Configure
+    public override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        updateAppearance(isPortrait: UIApplication.shared.statusBarOrientation.isPortrait)
+    }
+    
     fileprivate func configure() {
         configureControls()
         updateDownloadControlState()
@@ -77,6 +83,10 @@ public class AwesomeMediaAudioViewController: UIViewController {
             sharedAVPlayer.toggleSpeed()
         }
         
+    }
+    
+    public func updateAppearance(isPortrait: Bool) {
+        contentStackView.axis = isPortrait ? .vertical : .horizontal
     }
     
     // MARK: - Events
