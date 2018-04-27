@@ -49,6 +49,10 @@ extension AVPlayer {
         return rate != 0
     }
     
+    public var isPlayingVideo: Bool {
+        return isPlaying && currentItem?.isVideo ?? false
+    }
+    
     public func isPlaying(withUrl url: URL) -> Bool {
         return isCurrentItem(withUrl: url) && isPlaying
     }

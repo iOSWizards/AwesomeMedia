@@ -34,4 +34,5 @@ public class AwesomeMedia {
     public static func didBecomeActive() {
         sharedAVPlayer.currentItem?.playInBackground(false)
     }
+    
 }
