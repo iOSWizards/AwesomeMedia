@@ -720,7 +720,6 @@
 			isa = PBXGroup;
 			children = (
 				0A877EBC2092BD2C00B028B4 /* AwesomeMediaDismissAnimator.swift */,
-				0A877EBB2092BD2C00B028B4 /* AwesomeMediaInteractor.swift */,
 			);
 			name = Animator;
 			path = AwesomeMedia/Classes/Animator;
@@ -752,9 +751,9 @@
 		15034A1882F514094E682BC9CC615D85 /* Media */ = {
 			isa = PBXGroup;
 			children = (
+				5E278C2E345430B3998A477700AD35B0 /* AwesomeMediaManager.swift */,
 				60F3DC9343C27111B3ADEAB4C474DAF5 /* AwesomeMediaControlCenter.swift */,
 				E4DE841026F6FF6BA4C14BAD17568543 /* AwesomeMediaControlOptionSet.swift */,
-				5E278C2E345430B3998A477700AD35B0 /* AwesomeMediaManager.swift */,
 				54C8C60DC8874E95CFE89DD90C28FB99 /* AwesomeMediaNotificationCenter.swift */,
 				4427DFACA4D2C6F6DA3AB570C5CC8694 /* AwesomeMediaPlayerLayer.swift */,
 				0A877EB1208EE30400B028B4 /* AwesomeMediaDownloadManager.swift */,
@@ -865,6 +864,7 @@
 		8778DFB84C25C0C70C9CF69297E7BBA9 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				0A877EBB2092BD2C00B028B4 /* AwesomeMediaInteractor.swift */,
 				F1DA6E2396C875EF11B2ED778DAE5A24 /* AwesomeMediaVideoViewController.swift */,
 				0A877EA2208D972400B028B4 /* AwesomeMediaMarkersViewController.swift */,
 				0A877EAB208DFA0000B028B4 /* AwesomeMediaAudioViewController.swift */,
@@ -1166,15 +1166,15 @@
 			children = (
 				19C28603C175FB518F9A4A98D231AB63 /* AwesomeMedia.swift */,
 				AC5D300599C7D3582DE82DD12BEBF8AD /* AwesomeMedia+Cells.swift */,
-				0A877EBA2092BD1D00B028B4 /* Animator */,
 				8778DFB84C25C0C70C9CF69297E7BBA9 /* Controllers */,
 				91AD7DD9320A3FA530C9CDD9183953EB /* Views */,
 				7A194FE9EA65629E6048D67275770F4C /* Cells */,
 				0A877EA6208D979E00B028B4 /* ViewModels */,
 				0A877E9F208D96FD00B028B4 /* Models */,
-				0A55AD992089B3D2008CE269 /* Protocols */,
+				0A877EBA2092BD1D00B028B4 /* Animator */,
 				CBEF389687487E3B91CE4E2D6193A48E /* Extensions */,
 				C9C4399834F3195F548F07E70155A6B9 /* Fetcher */,
+				0A55AD992089B3D2008CE269 /* Protocols */,
 				15034A1882F514094E682BC9CC615D85 /* Media */,
 				26F60F478689B21634ACFAAF7C3163AA /* Pod */,
 				E56F13304F884B6451F3EFA01D531112 /* Resources */,

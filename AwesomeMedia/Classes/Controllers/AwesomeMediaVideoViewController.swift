@@ -11,13 +11,7 @@ public class AwesomeMediaVideoViewController: UIViewController {
 
     @IBOutlet public weak var playerView: AwesomeMediaView!
     
-    // Private Variables
-    fileprivate var awesomeMediaMarkersViewController: AwesomeMediaMarkersViewController?
-    fileprivate var screenEdgePanGesture: UIScreenEdgePanGestureRecognizer!
-    fileprivate var initialTouchPoint = CGPoint(x: 0, y: 0)
-    fileprivate var mediaMarkersStoryboardName = "AwesomeMedia"
-    fileprivate var mediaMarkersViewControllerName = "MarkersVC"
-    
+    // Public variables
     public var mediaParams: AwesomeMediaParams = [:]
     
     public override func viewDidLoad() {

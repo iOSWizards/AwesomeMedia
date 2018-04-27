@@ -10,6 +10,8 @@ import AVFoundation
 
 public enum AwesomeMediaEvent: String {
     case playing
+    case playingAudio
+    case playingVideo
     case paused
     case stopped
     case finished
@@ -61,6 +63,14 @@ public class AwesomeMediaNotificationCenter: NotificationCenter {
             AwesomeMediaNotificationCenter.shared.addObserver(to, selector: .playing, event: .playing)
         }
         
+        if options.contains(.playingAudio) {
+            AwesomeMediaNotificationCenter.shared.addObserver(to, selector: .playingAudio, event: .playingAudio)
+        }
+        
+        if options.contains(.playingVideo) {
+            AwesomeMediaNotificationCenter.shared.addObserver(to, selector: .playingVideo, event: .playingVideo)
+        }
+        
         if options.contains(.paused) {
             AwesomeMediaNotificationCenter.shared.addObserver(to, selector: .paused, event: .paused)
         }
@@ -109,7 +119,9 @@ public struct AwesomeMediaNotificationCenterOptions: OptionSet {
     public static let isGoingPortrait = AwesomeMediaNotificationCenterOptions(rawValue: 1 << 11)
     public static let isGoingLandscape = AwesomeMediaNotificationCenterOptions(rawValue: 1 << 12)
     public static let speedRateChanged = AwesomeMediaNotificationCenterOptions(rawValue: 1 << 13)
-    public static let unknown = AwesomeMediaNotificationCenterOptions(rawValue: 1 << 14)
+    public static let playingAudio = AwesomeMediaNotificationCenterOptions(rawValue: 1 << 14)
+    public static let playingVideo = AwesomeMediaNotificationCenterOptions(rawValue: 1 << 15)
+    public static let unknown = AwesomeMediaNotificationCenterOptions(rawValue: 1 << 16)
     
     public static let basic: AwesomeMediaNotificationCenterOptions = [.playing, .paused, .finished, .buffering, .stoppedBuffering]
 }

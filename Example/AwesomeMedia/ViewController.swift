@@ -14,7 +14,9 @@ enum MediaType: String {
     case audio
 }
 
-class TableViewController: UITableViewController {
+class ViewController: UIViewController {
+    
+    @IBOutlet weak var tableView: UITableView!
     
     let cells: [MediaType] = [.video, .audio]
 
@@ -26,6 +28,9 @@ class TableViewController: UITableViewController {
         
         // set default orientation
         awesomeOrientation = .portrait
+        
+        // add observers
+        addObservers()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -41,24 +46,27 @@ class TableViewController: UITableViewController {
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return awesomeOrientation
     }
-    
-    // MARK: - Table view data source
+}
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
+// MARK: - Table view data source
+
+extension ViewController: UITableViewDataSource, UITableViewDelegate {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return cells.count
     }
 
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cells[indexPath.row].rawValue, for: indexPath)
 
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if let cell = cell as? AwesomeMediaVideoTableViewCell {
             let mediaParams: AwesomeMediaParams = [
                 .url: AwesomeMediaManager.testVideoURL,
@@ -79,7 +87,7 @@ class TableViewController: UITableViewController {
         }
     }
 
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch cells[indexPath.row] {
         case .audio:
             return AwesomeMediaAudioTableViewCell.defaultSize.height
@@ -88,4 +96,26 @@ class TableViewController: UITableViewController {
         }
     }
 
+}
+
+extension UIViewController: AwesomeMediaEventObserver {
+    public func addObservers() {
+        AwesomeMediaNotificationCenter.addObservers([.playingAudio, .playingVideo, .paused], to: self)
+    }
+    
+    public func startedPlayingAudio(_ notification: NSNotification) {
+        if let params = notification.object as? AwesomeMediaParams {
+            _ = view.addAudioPlayer(withParams: params, animated: true)
+        } else {
+            view.removeAudioControlView(animated: true)
+        }
+    }
+    
+    public func startedPlayingVideo(_ notification: NSNotification) {
+        view.removeAudioControlView(withTimeout: 0, animated: true)
+    }
+    
+    public func pausedPlaying() {
+        view.removeAudioControlView(animated: true)
+    }
 }

@@ -7,19 +7,23 @@
 
 import Foundation
 
-extension Selector {
-    static let playing = #selector(AwesomeMediaEventObserver.startedPlaying)
-    static let paused = #selector(AwesomeMediaEventObserver.pausedPlaying)
-    static let timeUpdated = #selector(AwesomeMediaEventObserver.timeUpdated)
-    static let startedBuffering = #selector(AwesomeMediaEventObserver.startedBuffering)
-    static let stopedBuffering = #selector(AwesomeMediaEventObserver.stoppedBuffering)
-    static let finishedPlaying = #selector(AwesomeMediaEventObserver.finishedPlaying)
-    static let speedRateChanged = #selector(AwesomeMediaEventObserver.speedRateChanged)
+public extension Selector {
+    public static let playing = #selector(AwesomeMediaEventObserver.startedPlaying)
+    public static let playingAudio = #selector(AwesomeMediaEventObserver.startedPlayingAudio(_:))
+    public static let playingVideo = #selector(AwesomeMediaEventObserver.startedPlayingVideo(_:))
+    public static let paused = #selector(AwesomeMediaEventObserver.pausedPlaying)
+    public static let timeUpdated = #selector(AwesomeMediaEventObserver.timeUpdated)
+    public static let startedBuffering = #selector(AwesomeMediaEventObserver.startedBuffering)
+    public static let stopedBuffering = #selector(AwesomeMediaEventObserver.stoppedBuffering)
+    public static let finishedPlaying = #selector(AwesomeMediaEventObserver.finishedPlaying)
+    public static let speedRateChanged = #selector(AwesomeMediaEventObserver.speedRateChanged)
 }
 
 @objc public protocol AwesomeMediaEventObserver {
     func addObservers()
     @objc optional func startedPlaying()
+    @objc optional func startedPlayingAudio(_ notification: NSNotification)
+    @objc optional func startedPlayingVideo(_ notification: NSNotification)
     @objc optional func pausedPlaying()
     @objc optional func timeUpdated()
     @objc optional func startedBuffering()

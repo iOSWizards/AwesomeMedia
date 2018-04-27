@@ -30,7 +30,6 @@ public class AwesomeMediaVideoControlView: AwesomeMediaControlView {
     public var toggleViewCallback: ToggleViewCallback?
     public var jumpToCallback: JumpToCallback?
 
-    
     // Private Variables
     fileprivate var autoHideControlTimer: Timer?
     fileprivate var bottomConstraint: NSLayoutConstraint?

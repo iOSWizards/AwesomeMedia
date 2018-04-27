@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AwesomeUIMagic
 
 public class AwesomeMediaAudioPlayerView: UIView {
 
@@ -22,6 +23,7 @@ public class AwesomeMediaAudioPlayerView: UIView {
     
     // Private variables
     fileprivate var bottomConstraint: NSLayoutConstraint?
+    fileprivate var removeTimer: Timer?
     
     // Callbacks
     public var fullScreenCallback: FullScreenCallback?
@@ -29,6 +31,7 @@ public class AwesomeMediaAudioPlayerView: UIView {
     override public func awakeFromNib() {
         super.awakeFromNib()
         
+        // add observers
         addObservers()
     }
     
@@ -100,6 +103,10 @@ extension AwesomeMediaAudioPlayerView: AwesomeMediaEventObserver {
             return
         }
         
+        // invalidate remove timer
+        removeTimer?.invalidate()
+        
+        // change play button selection
         playButton.isSelected = true
         
         // update Control Center
@@ -108,6 +115,8 @@ extension AwesomeMediaAudioPlayerView: AwesomeMediaEventObserver {
     
     public func pausedPlaying() {
         playButton.isSelected = sharedAVPlayer.isPlaying(withParams: mediaParams)
+        
+        stoppedBuffering()
     }
     
     public func startedBuffering() {
@@ -158,6 +167,48 @@ extension AwesomeMediaAudioPlayerView: AwesomeMediaControlState {
     }
 }
 
+// MARK: - Animations
+
+extension AwesomeMediaAudioPlayerView {
+    
+    public func show() {
+        translatesAutoresizingMaskIntoConstraints = true
+        frame.origin.y = UIScreen.main.bounds.size.height
+        
+        UIView.animate(withDuration: 0.3, animations: {
+            self.frame.origin.y = UIScreen.main.bounds.size.height-self.frame.size.height
+        }, completion: { (_) in
+            self.translatesAutoresizingMaskIntoConstraints = false
+        })
+    }
+    
+    public func remove(animated: Bool) {
+        guard animated else {
+            removeFromSuperview()
+            return
+        }
+        
+        translatesAutoresizingMaskIntoConstraints = true
+        UIView.animate(withDuration: 0.3, animations: {
+            self.frame.origin.y = UIScreen.main.bounds.size.height
+        }, completion: { (_) in
+            self.removeFromSuperview()
+        })
+    }
+    
+    public func remove(withTimeout timeout: Double, animated: Bool) {
+        guard timeout > 0 else {
+            remove(animated: animated)
+            return
+        }
+        
+        removeTimer = Timer.scheduledTimer(withTimeInterval: timeout, repeats: false) { (_) in
+            self.remove(animated: animated)
+        }
+    }
+    
+}
+
 // MARK: - View Initialization
 
 extension AwesomeMediaAudioPlayerView {
@@ -167,10 +218,12 @@ extension AwesomeMediaAudioPlayerView {
 }
 
 extension UIView {
-    public func addAudioPlayer(withParams params: AwesomeMediaParams) -> AwesomeMediaAudioPlayerView {
+    
+    public func addAudioPlayer(withParams params: AwesomeMediaParams, animated: Bool = false) -> AwesomeMediaAudioPlayerView? {
         
-        // remove video control view before adding new
-        removeAudioControlView()
+        guard !isShowingAudioControlView else {
+            return nil
+        }
         
         let playerView = AwesomeMediaAudioPlayerView.newInstance
         playerView.configure(withMediaParams: params)
@@ -185,12 +238,30 @@ extension UIView {
         
         addConstraint(NSLayoutConstraint(item: playerView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 88))
         
+        // show with animation
+        if animated {
+            playerView.show()
+        }
+        
+        // add fullscreen callback
+        playerView.fullScreenCallback = {
+            self.parentViewController?.presentAudioFullscreen(withMediaParams: params)
+        }
+        
         return playerView
     }
     
-    public func removeAudioControlView() {
-        for subview in subviews where subview is AwesomeMediaVideoControlView {
-            subview.removeFromSuperview()
+    public func removeAudioControlView(withTimeout timeout: Double = AwesomeMedia.removeAudioControlViewTime, animated: Bool = false) {
+        for subview in subviews where subview is AwesomeMediaAudioPlayerView {
+            (subview as? AwesomeMediaAudioPlayerView)?.remove(withTimeout: timeout, animated: animated)
         }
+    }
+    
+    public var isShowingAudioControlView: Bool {
+        for subview in subviews where subview is AwesomeMediaAudioPlayerView {
+            return true
+        }
+        
+        return false
     }
 }

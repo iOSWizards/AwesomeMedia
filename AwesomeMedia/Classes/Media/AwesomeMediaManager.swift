@@ -17,6 +17,7 @@ public class AwesomeMediaManager: NSObject {
     fileprivate var timeObserver: AnyObject?
     fileprivate var playbackLikelyToKeepUpContext = 0
     fileprivate var playbackBufferFullContext = 1
+    fileprivate var mediaParams: AwesomeMediaParams = [:]
     
     // Public Variables
     public var bufferingState = [String: Bool]()
@@ -41,11 +42,15 @@ public class AwesomeMediaManager: NSObject {
             return
         }
         
+        // set current media params
+        mediaParams = params
+        
         // prepare media
         if !avPlayer.isCurrentItem(withUrl: url) {
             prepareMedia(withUrl: url)
         } else {
             avPlayer.play()
+            notifyPlaying()
         }
 
         // add player to layer
@@ -185,10 +190,20 @@ extension AwesomeMediaManager {
             
             switch status {
             case .readyToPlay:
-                notifyMediaEvent(.playing)
+                notifyPlaying()
             case .failed, .unknown:
                 notifyMediaEvent(.failed)
             }
+        }
+    }
+    
+    fileprivate func notifyPlaying() {
+        notifyMediaEvent(.playing)
+        
+        if sharedAVPlayer.currentItem?.isVideo ?? false {
+            notifyMediaEvent(.playingVideo, object: mediaParams as AnyObject)
+        } else {
+            notifyMediaEvent(.playingAudio, object: mediaParams as AnyObject)
         }
     }
     

@@ -65,6 +65,17 @@ extension AVPlayerItem {
     
     // Video in background
     
+    public var isVideo: Bool {
+        for playerItemTrack in tracks {
+            if playerItemTrack.assetTrack.hasMediaCharacteristic(
+                AVMediaCharacteristic.visual) {
+                return true
+            }
+        }
+        
+        return false
+    }
+    
     public func playInBackground(_ background: Bool) {
         for playerItemTrack in tracks {
             if playerItemTrack.assetTrack.hasMediaCharacteristic(

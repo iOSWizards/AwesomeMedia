@@ -13,12 +13,16 @@ public var sharedAVPlayer: AVPlayer {
 
 extension AVPlayer {
     
+    public var currentItemUrl: URL? {
+        return ((currentItem?.asset) as? AVURLAsset)?.url
+    }
+    
     public func isCurrentItem(withUrl url: URL?) -> Bool {
         guard let url = url else {
             return false
         }
         
-        return ((currentItem?.asset) as? AVURLAsset)?.url == url
+        return currentItemUrl == url
     }
     
     public func isCurrentItem(withParams params: AwesomeMediaParams) -> Bool {
