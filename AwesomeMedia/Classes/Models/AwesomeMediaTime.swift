@@ -23,10 +23,10 @@ public struct AwesomeMediaTime {
 extension URL {
     public var time: Float? {
         get {
-            return UserDefaults.standard.float(forKey: self.absoluteString)
+            return UserDefaults.standard.float(forKey: self.pathComponents.last ?? self.absoluteString)
         }
         set {
-            UserDefaults.standard.set(newValue, forKey: self.absoluteString)
+            UserDefaults.standard.set(newValue, forKey: self.pathComponents.last ?? self.absoluteString)
         }
     }
 }

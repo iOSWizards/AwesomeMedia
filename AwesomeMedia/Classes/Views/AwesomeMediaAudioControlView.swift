@@ -14,6 +14,8 @@ class AwesomeMediaAudioControlView: AwesomeMediaControlView {
     // Configuration
     public func configure(withParams params: AwesomeMediaParams) {
         titleLabel.text = AwesomeMediaManager.title(forParams: params)
+        
+        reset()
     }
 
 }

@@ -84,7 +84,11 @@ extension UIViewController {
             title: "availableoffline_delete_button_confirm".localized,
             style: .destructive,
             handler: { (action) in
-                downloadUrl.deleteOfflineFile(completion)
+                downloadUrl.deleteOfflineFile { (success) in
+                    DispatchQueue.main.async {
+                        completion(success)
+                    }
+                }
         }))
         
         alertController.addAction(UIAlertAction(title: "availableoffline_delete_button_cancel".localized, style: .cancel, handler: { (action) in
