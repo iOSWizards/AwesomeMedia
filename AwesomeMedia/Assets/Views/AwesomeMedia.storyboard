@@ -371,6 +371,9 @@
                             <constraint firstItem="aY5-bp-wlD" firstAttribute="bottom" secondItem="D6m-Cg-iw7" secondAttribute="top" priority="750" constant="375" id="oUC-XJ-rSS"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="D6m-Cg-iw7"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="VgN-6L-JQO" appends="YES" id="UmZ-TD-uCy"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="airplayButton" destination="0iu-an-qIP" id="ken-Qy-DwW"/>
@@ -386,6 +389,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uQj-FC-dfC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="VgN-6L-JQO">
+                    <connections>
+                        <action selector="handleGesture:" destination="sq5-sN-Db0" id="Ul6-J0-tFj"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="37.600000000000001" y="870.44334975369463"/>
         </scene>
