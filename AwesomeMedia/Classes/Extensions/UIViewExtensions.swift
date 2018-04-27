@@ -102,23 +102,3 @@ extension UIView {
         return nil
     }
 }
-
-// MARK: - layout changes
-
-extension UIView {
-    public func updateLayout(animated: Bool, completion: (() -> Void)? = nil) {
-        if animated {
-            let translatesAutoresizingMaskIntoConstraintsBefore = translatesAutoresizingMaskIntoConstraints
-            translatesAutoresizingMaskIntoConstraints = true
-            UIView.animate(withDuration: 0.3, animations: {
-                self.layoutIfNeeded()
-            }, completion: { (_) in
-                self.translatesAutoresizingMaskIntoConstraints = translatesAutoresizingMaskIntoConstraintsBefore
-                completion?()
-            })
-        } else {
-            self.layoutIfNeeded()
-            completion?()
-        }
-    }
-}
