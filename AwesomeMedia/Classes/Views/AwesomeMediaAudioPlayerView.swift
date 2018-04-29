@@ -23,7 +23,6 @@ public class AwesomeMediaAudioPlayerView: UIView {
     public var canRemove = false
     
     // Private variables
-    fileprivate var bottomConstraint: NSLayoutConstraint?
     fileprivate var removeTimer: Timer?
     
     // Callbacks
@@ -249,11 +248,8 @@ extension UIView {
         
         addConstraint(NSLayoutConstraint(item: playerView, attribute: .leading, relatedBy: .equal, toItem: self, attribute: .leading, multiplier: 1, constant: 0))
         addConstraint(NSLayoutConstraint(item: playerView, attribute: .trailing, relatedBy: .equal, toItem: self, attribute: .trailing, multiplier: 1, constant: 0))
-        
-        playerView.bottomConstraint = NSLayoutConstraint(item: playerView, attribute: .bottom, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 1, constant: 0)
-        addConstraint(playerView.bottomConstraint!)
-        
-        addConstraint(NSLayoutConstraint(item: playerView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 88))
+        addConstraint(NSLayoutConstraint(item: playerView, attribute: .bottom, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 1, constant: 0))
+        addConstraint(NSLayoutConstraint(item: playerView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: isPad ? 100 : 88))
         
         // show with animation
         if animated {

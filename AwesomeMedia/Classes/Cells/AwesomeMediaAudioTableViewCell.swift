@@ -27,7 +27,7 @@ public class AwesomeMediaAudioTableViewCell: UITableViewCell {
     public static var defaultSize: CGSize {
         var defaultSize = UIScreen.main.bounds.size
         
-        defaultSize.height = 140
+        defaultSize.height = isPad ? 200 : 140
         
         return defaultSize
     }

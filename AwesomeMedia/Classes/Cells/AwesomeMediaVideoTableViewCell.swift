@@ -37,6 +37,9 @@ public class AwesomeMediaVideoTableViewCell: UITableViewCell {
     public static var defaultSize: CGSize {
         var defaultSize = UIScreen.main.bounds.size
         
+        if isPad {
+            defaultSize.width = 616
+        }
         defaultSize.height = (defaultSize.width*9)/16
         
         return defaultSize

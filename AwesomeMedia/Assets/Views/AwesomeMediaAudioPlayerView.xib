@@ -60,6 +60,9 @@
                             <fontDescription key="fontDescription" name="Gilroy-Bold" family="Gilroy" pointSize="16"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
+                            <variation key="heightClass=regular-widthClass=regular">
+                                <fontDescription key="fontDescription" name="Gilroy-Bold" family="Gilroy" pointSize="18"/>
+                            </variation>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YtZ-Tv-BJ2">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
@@ -70,7 +73,9 @@
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="69S-ps-pIY">
                             <rect key="frame" x="305" y="0.0" width="70" height="80"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="70" id="Lhx-8G-YYb"/>
+                                <constraint firstAttribute="width" constant="70" id="Lhx-8G-YYb">
+                                    <variation key="heightClass=regular-widthClass=regular" constant="98"/>
+                                </constraint>
                             </constraints>
                             <state key="normal" image="btnPlayLarge"/>
                             <state key="selected" image="btnPauseLarge"/>
