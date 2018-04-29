@@ -18,7 +18,7 @@ public class AwesomeMediaVideoTableViewCell: UITableViewCell {
     public override func layoutSubviews() {
         super.layoutSubviews()
         
-        if !UIApplication.shared.statusBarOrientation.isPortrait {
+        if !UIApplication.shared.statusBarOrientation.isPortrait, sharedAVPlayer.isPlaying(withParams: playerView.mediaParams) {
             self.parentViewController?.presentVideoFullscreen(withMediaParams: playerView.mediaParams)
         }
     }
