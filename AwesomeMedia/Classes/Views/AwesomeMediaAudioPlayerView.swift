@@ -180,13 +180,14 @@ extension AwesomeMediaAudioPlayerView: AwesomeMediaControlState {
 extension AwesomeMediaAudioPlayerView {
     
     public func show() {
-        translatesAutoresizingMaskIntoConstraints = true
+        
+        //translatesAutoresizingMaskIntoConstraints = true
         frame.origin.y = UIScreen.main.bounds.size.height
         
         UIView.animate(withDuration: 0.3, animations: {
             self.frame.origin.y = UIScreen.main.bounds.size.height-self.frame.size.height
         }, completion: { (_) in
-            self.translatesAutoresizingMaskIntoConstraints = false
+            //self.translatesAutoresizingMaskIntoConstraints = false
         })
     }
     
