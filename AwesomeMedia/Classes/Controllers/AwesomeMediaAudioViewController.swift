@@ -87,6 +87,7 @@ public class AwesomeMediaAudioViewController: UIViewController {
     
     public func updateAppearance(isPortrait: Bool) {
         contentStackView.axis = isPortrait ? .vertical : .horizontal
+        contentStackView.alignment = (isPortrait || isPhone) ? .fill : .center
     }
     
     // MARK: - Events
