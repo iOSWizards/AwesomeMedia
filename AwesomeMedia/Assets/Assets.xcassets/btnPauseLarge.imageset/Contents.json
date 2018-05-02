@@ -3,6 +3,10 @@
     {
       "idiom" : "universal",
       "filename" : "btnPauseLarge.pdf"
+    },
+    {
+      "idiom" : "ipad",
+      "filename" : "btnPause-1.pdf"
     }
   ],
   "info" : {

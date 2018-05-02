@@ -53,7 +53,9 @@
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZMH-jd-vFf">
                                                     <rect key="frame" x="0.0" y="0.0" width="44" height="64"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="44" id="Deg-iA-Lc1"/>
+                                                        <constraint firstAttribute="width" constant="44" id="Deg-iA-Lc1">
+                                                            <variation key="heightClass=regular-widthClass=regular" constant="64"/>
+                                                        </constraint>
                                                     </constraints>
                                                     <state key="normal" image="btnRewind10"/>
                                                     <connections>
@@ -99,11 +101,14 @@
                                                     <constraints>
                                                         <constraint firstItem="2fL-zG-lnh" firstAttribute="width" secondItem="b2L-Es-qY8" secondAttribute="width" id="lqi-lh-Ox0"/>
                                                     </constraints>
+                                                    <variation key="heightClass=regular-widthClass=regular" spacing="20"/>
                                                 </stackView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PmL-mF-obz">
                                                     <rect key="frame" x="497" y="0.0" width="44" height="64"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="44" id="Yzw-4V-k79"/>
+                                                        <constraint firstAttribute="width" constant="44" id="Yzw-4V-k79">
+                                                            <variation key="heightClass=regular-widthClass=regular" constant="64"/>
+                                                        </constraint>
                                                     </constraints>
                                                     <state key="normal" image="btnPlaylists"/>
                                                     <connections>
@@ -147,7 +152,9 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="44" id="AfI-5D-MzZ"/>
+                                                <constraint firstAttribute="width" constant="44" id="AfI-5D-MzZ">
+                                                    <variation key="heightClass=regular-widthClass=regular" constant="64"/>
+                                                </constraint>
                                                 <constraint firstItem="OQX-Vk-lBy" firstAttribute="centerY" secondItem="qhp-FB-Rah" secondAttribute="centerY" id="e1p-uY-GXk"/>
                                                 <constraint firstItem="OQX-Vk-lBy" firstAttribute="centerX" secondItem="qhp-FB-Rah" secondAttribute="centerX" id="xjn-Su-2hw"/>
                                             </constraints>
@@ -195,7 +202,9 @@
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="00n-01-c4B">
                                             <rect key="frame" x="680" y="0.0" width="60" height="64"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="60" id="gp4-6N-O0z"/>
+                                                <constraint firstAttribute="width" constant="60" id="gp4-6N-O0z">
+                                                    <variation key="heightClass=regular-widthClass=regular" constant="105"/>
+                                                </constraint>
                                             </constraints>
                                             <state key="normal" image="btnMinimize"/>
                                             <connections>
@@ -215,8 +224,12 @@
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="32i-de-JsX">
                             <rect key="frame" x="0.0" y="3" width="72" height="64"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="72" id="SRV-sU-ut8"/>
-                                <constraint firstAttribute="height" constant="64" id="Yte-xc-xsi"/>
+                                <constraint firstAttribute="width" constant="72" id="SRV-sU-ut8">
+                                    <variation key="heightClass=regular-widthClass=regular" constant="100"/>
+                                </constraint>
+                                <constraint firstAttribute="height" constant="64" id="Yte-xc-xsi">
+                                    <variation key="heightClass=regular-widthClass=regular" constant="100"/>
+                                </constraint>
                             </constraints>
                             <state key="normal" image="btnPlayLarge"/>
                             <state key="selected" image="btnPauseLarge"/>

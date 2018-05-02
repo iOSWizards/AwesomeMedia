@@ -20,6 +20,8 @@ public class AwesomeMediaView: UIView {
     public var titleView: AwesomeMediaVideoTitleView?
     public var coverImageView: UIImageView?
     
+    @IBInspectable public var canLoadCoverImage: Bool = true
+    
     // Callbacks
     public var finishedPlayingCallback: FinishedPlayingCallback?
 
@@ -226,6 +228,10 @@ extension AwesomeMediaView {
 
 extension AwesomeMediaView {
     public func addCoverImage() {
+        guard canLoadCoverImage else {
+            return
+        }
+        
         // remove pre-existing cover images
         coverImageView?.removeFromSuperview()
         

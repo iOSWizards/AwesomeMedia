@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -27,8 +27,12 @@
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vIc-ey-44p">
                             <rect key="frame" x="0.0" y="0.0" width="56" height="50"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="50" id="KAn-Pw-kav"/>
-                                <constraint firstAttribute="width" constant="56" id="hmq-p3-u4t"/>
+                                <constraint firstAttribute="height" constant="50" id="KAn-Pw-kav">
+                                    <variation key="heightClass=regular-widthClass=regular" constant="106"/>
+                                </constraint>
+                                <constraint firstAttribute="width" constant="56" id="hmq-p3-u4t">
+                                    <variation key="heightClass=regular-widthClass=regular" constant="80"/>
+                                </constraint>
                             </constraints>
                             <state key="normal" image="btnClose"/>
                             <connections>
@@ -37,9 +41,6 @@
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C6H-xW-Azq">
                             <rect key="frame" x="756" y="0.0" width="56" height="50"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="56" id="hIW-Ty-isA"/>
-                            </constraints>
                             <state key="normal" image="btnAirPlay"/>
                             <connections>
                                 <action selector="airplayButtonPressed:" destination="4ZI-z2-osl" eventType="touchUpInside" id="8KJ-jw-FPE"/>
@@ -50,6 +51,9 @@
                             <fontDescription key="fontDescription" name="Gilroy-Bold" family="Gilroy" pointSize="16"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
+                            <variation key="heightClass=regular-widthClass=regular">
+                                <fontDescription key="fontDescription" name="Gilroy-Bold" family="Gilroy" pointSize="20"/>
+                            </variation>
                         </label>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -60,6 +64,7 @@
                         <constraint firstItem="nmH-jX-HIW" firstAttribute="top" secondItem="vIc-ey-44p" secondAttribute="top" id="7au-Af-k84"/>
                         <constraint firstItem="nmH-jX-HIW" firstAttribute="bottom" secondItem="vIc-ey-44p" secondAttribute="bottom" id="Loa-Ps-fHG"/>
                         <constraint firstItem="C6H-xW-Azq" firstAttribute="height" secondItem="vIc-ey-44p" secondAttribute="height" id="WDj-v3-DiF"/>
+                        <constraint firstItem="C6H-xW-Azq" firstAttribute="width" secondItem="vIc-ey-44p" secondAttribute="width" id="rWX-ei-GTX"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="color" keyPath="gradientTopColor">

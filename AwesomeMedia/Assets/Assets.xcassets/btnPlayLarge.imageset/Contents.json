@@ -3,6 +3,16 @@
     {
       "idiom" : "universal",
       "filename" : "btnPlaySmallCopy2.pdf"
+    },
+    {
+      "idiom" : "ipad",
+      "filename" : "btn_play_small.png",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "ipad",
+      "filename" : "btn_play_small@2x.png",
+      "scale" : "2x"
     }
   ],
   "info" : {

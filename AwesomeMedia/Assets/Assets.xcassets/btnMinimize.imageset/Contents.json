@@ -1,8 +1,12 @@
 {
   "images" : [
     {
-      "idiom" : "universal",
+      "idiom" : "iphone",
       "filename" : "icoMinimize.pdf"
+    },
+    {
+      "idiom" : "ipad",
+      "filename" : "btnMinimize.pdf"
     }
   ],
   "info" : {
