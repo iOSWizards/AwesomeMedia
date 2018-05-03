@@ -25,10 +25,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        AwesomeMedia.registerVideoCell(to: tableView, withIdentifier: MediaType.video.rawValue)
-        AwesomeMedia.registerAudioCell(to: tableView, withIdentifier: MediaType.audio.rawValue)
-        AwesomeMedia.registerFileCell(to: tableView, withIdentifier: MediaType.file.rawValue)
-        AwesomeMedia.registerImageCell(to: tableView, withIdentifier: MediaType.image.rawValue)
+        // register cells
+        AwesomeMediaHelper.registerCells(forTableView: tableView)
         
         // set default orientation
         awesomeMediaOrientation = .portrait
