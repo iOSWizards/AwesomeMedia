@@ -10,7 +10,7 @@ import UIKit
 private var loadedUrlAssociationKey: String = ""
 private var alreadyLoadedOriginalImageAssociationKey: Bool = false
 
-public extension UIImageView {
+extension UIImageView {
     
     final internal var loadedUrl: String! {
         get {
