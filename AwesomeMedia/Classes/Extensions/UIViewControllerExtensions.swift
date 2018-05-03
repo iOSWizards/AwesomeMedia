@@ -67,8 +67,7 @@ extension UIViewController {
 import SafariServices
 extension UIViewController: SFSafariViewControllerDelegate {
     
-    public func presentWebPageInSafari(withURLString URLString: String) {
-        
+    func presentWebPageInSafari(withURLString URLString: String) {
         guard let url = URL(string: URLString) else{
             return
         }
@@ -76,7 +75,7 @@ extension UIViewController: SFSafariViewControllerDelegate {
         presentWebPageInSafari(withURL: url)
     }
     
-    public func presentWebPageInSafari(withURL url: URL) {
+    func presentWebPageInSafari(withURL url: URL) {
         guard UIApplication.shared.canOpenURL(url) else {
             return
         }
@@ -86,7 +85,7 @@ extension UIViewController: SFSafariViewControllerDelegate {
         self.present(vc, animated: true)
     }
     
-    public func safariViewControllerDidFinish(_ controller: SFSafariViewController) {
+    func safariViewControllerDidFinish(_ controller: SFSafariViewController) {
         controller.dismiss(animated: true, completion: nil)
     }
     
