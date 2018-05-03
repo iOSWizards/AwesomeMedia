@@ -17,6 +17,9 @@ public class AwesomeMediaImageTableViewCell: UITableViewCell {
     // Public variables
     public var mediaParams: AwesomeMediaParams = [:]
     
+    // Private variables
+    fileprivate static var lastRefreshTime: Date?
+    
     public override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
@@ -71,9 +74,13 @@ public class AwesomeMediaImageTableViewCell: UITableViewCell {
     }
     
     public func adjustSize() {
-        self.frame.size = sizeWithImage
-        self.tableView?.beginUpdates()
-        self.tableView?.endUpdates()
+        self.frame.size.height = sizeWithImage.height
+        
+        if let tableView = tableView {
+            tableView.beginUpdates()
+            tableView.endUpdates()
+        }
+        
     }
 }
 
@@ -86,16 +93,17 @@ extension AwesomeMediaImageTableViewCell {
             return
         }
         
-        // reset background status
-        self.mainView.backgroundColor = .placeholderBackground
-        self.coverIconImageView.isHidden = false
-        
         // set the cover image
         coverImageView.setImage(coverImageUrl.absoluteString) { (image) in
+            
+            // reset background status
+            self.mainView.backgroundColor = .placeholderBackground
+            self.coverIconImageView.isHidden = false
+            
             if image != nil {
                 self.mainView.backgroundColor = .clear
                 self.coverIconImageView.isHidden = true
-                self.adjustSize()
+                //self.adjustSize()
             }
         }
     }

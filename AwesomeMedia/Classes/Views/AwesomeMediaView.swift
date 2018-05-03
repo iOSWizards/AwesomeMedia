@@ -79,9 +79,6 @@ public class AwesomeMediaView: UIView {
         controlView?.timeLabel?.text = AwesomeMediaManager.duration(forParams: mediaParams).timeString.uppercased()
         
         controlView?.playCallback = { (isPlaying) in
-            
-            self.addPlayerLayer()
-            
             if isPlaying {
                 AwesomeMediaManager.shared.playMedia(
                     withParams: self.mediaParams,
@@ -141,6 +138,9 @@ extension AwesomeMediaView: AwesomeMediaEventObserver {
             resetPlayer()
             return
         }
+        
+        // adds player layer
+        addPlayerLayer()
         
         // set play button selected
         controlView?.playButton.isSelected = true

@@ -20,7 +20,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    let cells: [MediaType] = [.image, .video, .audio, .file]
+    let cells: [MediaType] = [.image, .video, .image, .audio, .image, .file, .video]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,7 +71,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if let cell = cell as? AwesomeMediaVideoTableViewCell {
             let mediaParams: AwesomeMediaParams = [
-                .url: AwesomeMediaManager.testVideoURL,
+                .url: indexPath.row == 1 ? AwesomeMediaManager.testVideoURL3 : AwesomeMediaManager.testVideoURL2,
                 .coverUrl: "https://thumbs.dreamstime.com/z/awesome-word-cloud-explosion-background-51481417.jpg",
                 .author: "Eric Mendez",
                 .title: "WildFit",
