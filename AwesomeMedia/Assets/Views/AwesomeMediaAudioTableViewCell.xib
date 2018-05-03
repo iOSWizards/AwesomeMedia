@@ -96,9 +96,11 @@
                                         </variation>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="32 MINS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ox5-cz-aKP">
-                                        <rect key="frame" x="149.5" y="72" width="346.5" height="14"/>
+                                        <rect key="frame" x="149.5" y="72" width="346.5" height="16"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="14" id="wdC-1z-FeF"/>
+                                            <constraint firstAttribute="height" constant="14" id="wdC-1z-FeF">
+                                                <variation key="heightClass=regular-widthClass=regular" constant="16"/>
+                                            </constraint>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Gilroy-Regular" family="Gilroy" pointSize="12"/>
                                         <color key="textColor" red="0.67450980392156867" green="0.67450980392156867" blue="0.67450980392156867" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

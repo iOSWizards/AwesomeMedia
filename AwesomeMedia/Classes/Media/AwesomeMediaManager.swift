@@ -35,6 +35,7 @@ public class AwesomeMediaManager: NSObject {
                                           AwesomeMediaMarker(title: "Test Marker 6", time: 440),
                                           AwesomeMediaMarker(title: "Test Marker 7", time: 441)]
     public static let testAudioURL = "https://archive.org/download/VirtualHaircut/virtualbarbershop.mp3"
+    public static let testPDFURL = "https://www.paloaltonetworks.com/content/dam/pan/en_US/assets/pdf/datasheets/wildfire/wildfire-ds.pdf"
     
     func playMedia(withParams params: AwesomeMediaParams, inPlayerLayer playerLayer: AVPlayerLayer? = nil) {
         guard let url = AwesomeMediaManager.url(forParams: params)?.offlineURLIfAvailable else {

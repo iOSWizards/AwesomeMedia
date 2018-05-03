@@ -13,6 +13,8 @@
 		0794164D5043A9EEC91694DC8420E6E3 /* LOTMaskContainer.h in Headers */ = {isa = PBXBuildFile; fileRef = BDBA07D5249FA879CA3963C013079E80 /* LOTMaskContainer.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		07F4A606668CAEF58E40D98CCFB51417 /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A685321DECA9A78E25C427F8B2372DC4 /* UIImageExtensions.swift */; };
 		092C9DCF8406FF0C5B91ABD5DC856243 /* LOTLayerGroup.h in Headers */ = {isa = PBXBuildFile; fileRef = 28DB3ACEF107F78BBE0A67638E973F90 /* LOTLayerGroup.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		0A2B89F2209A8BD600AA5278 /* AwesomeMediaFileTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A2B89F1209A8BD600AA5278 /* AwesomeMediaFileTableViewCell.xib */; };
+		0A2B89F4209A8DFB00AA5278 /* AwesomeMediaFileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2B89F3209A8DFB00AA5278 /* AwesomeMediaFileTableViewCell.swift */; };
 		0A55AD9C2089B3D2008CE269 /* AwesomeMediaControlStateProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A55AD9A2089B3D2008CE269 /* AwesomeMediaControlStateProtocol.swift */; };
 		0A55AD9D2089B3D2008CE269 /* AwesomeMediaEventObserverProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A55AD9B2089B3D2008CE269 /* AwesomeMediaEventObserverProtocol.swift */; };
 		0A7EB8B520932BF500683F4A /* URLExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7EB8B420932BF500683F4A /* URLExtensions.swift */; };
@@ -348,6 +350,8 @@
 		082DA97EE086089C1874FE5CFCD379CC /* AwesomeMedia.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = AwesomeMedia.modulemap; sourceTree = "<group>"; };
 		085340D35B05C7CBC056E89B85238FB4 /* AwesomeMedia.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = AwesomeMedia.xcconfig; sourceTree = "<group>"; };
 		08E877FC21470594ADAEDE3192E0B0D9 /* AwesomeMediaAudioTableViewCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = AwesomeMediaAudioTableViewCell.xib; sourceTree = "<group>"; };
+		0A2B89F1209A8BD600AA5278 /* AwesomeMediaFileTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AwesomeMediaFileTableViewCell.xib; sourceTree = "<group>"; };
+		0A2B89F3209A8DFB00AA5278 /* AwesomeMediaFileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwesomeMediaFileTableViewCell.swift; sourceTree = "<group>"; };
 		0A55AD9A2089B3D2008CE269 /* AwesomeMediaControlStateProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AwesomeMediaControlStateProtocol.swift; sourceTree = "<group>"; };
 		0A55AD9B2089B3D2008CE269 /* AwesomeMediaEventObserverProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AwesomeMediaEventObserverProtocol.swift; sourceTree = "<group>"; };
 		0A7EB8B420932BF500683F4A /* URLExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLExtensions.swift; sourceTree = "<group>"; };
@@ -848,6 +852,7 @@
 				0A877EA4208D975600B028B4 /* AwesomeMediaMarkerTableViewCell.swift */,
 				D25321C221D5BBE39FD18E44178D27FD /* AwesomeMediaAudioTableViewCell.swift */,
 				73A2C5E2F10F3D407E3A25D74560D6ED /* AwesomeMediaVideoTableViewCell.swift */,
+				0A2B89F3209A8DFB00AA5278 /* AwesomeMediaFileTableViewCell.swift */,
 			);
 			name = Cells;
 			path = AwesomeMedia/Classes/Cells;
@@ -967,6 +972,7 @@
 			children = (
 				FC2F54DA8B9EBD7065D23F57898F0EA9 /* AwesomeMedia.storyboard */,
 				08E877FC21470594ADAEDE3192E0B0D9 /* AwesomeMediaAudioTableViewCell.xib */,
+				0A2B89F1209A8BD600AA5278 /* AwesomeMediaFileTableViewCell.xib */,
 				0A877EB5209000B600B028B4 /* AwesomeMediaAudioPlayerView.xib */,
 				532E3080FC0D9EC9EC9741136E7B5A40 /* AwesomeMediaVideoControlView.xib */,
 				E10E4E44B1D9B715B67D0FB171313740 /* AwesomeMediaVideoTableViewCell.xib */,
@@ -1578,6 +1584,7 @@
 			files = (
 				3B952CB1F2C5A883825F25897C0D83CF /* Assets.xcassets in Resources */,
 				2909CB562CF6AB35549788ED87060C13 /* AwesomeMedia.bundle in Resources */,
+				0A2B89F2209A8BD600AA5278 /* AwesomeMediaFileTableViewCell.xib in Resources */,
 				CC7F79E55B0F3415999C0428E190276E /* AwesomeMedia.storyboard in Resources */,
 				9836FBB345F835DF42C284479065EDCA /* AwesomeMediaAudioTableViewCell.xib in Resources */,
 				ECC9759683F876D0C598D510F2E55F4C /* AwesomeMediaVideoControlView.xib in Resources */,
@@ -1787,6 +1794,7 @@
 				3EA85DD861F09DA5B8F1B53AA952B80E /* AwesomeMediaPlayerLayer.swift in Sources */,
 				17E65730AEB955B20DC05FAFD09853C8 /* AwesomeMediaRequester.swift in Sources */,
 				0A877EAE208DFB0300B028B4 /* AwesomeMediaControlView.swift in Sources */,
+				0A2B89F4209A8DFB00AA5278 /* AwesomeMediaFileTableViewCell.swift in Sources */,
 				0A877EBD2092BD2C00B028B4 /* AwesomeMediaInteractor.swift in Sources */,
 				E8D8CED0BA649060C809F1889CE0C920 /* AwesomeMediaTime.swift in Sources */,
 				0A877EBE2092BD2C00B028B4 /* AwesomeMediaDismissAnimator.swift in Sources */,

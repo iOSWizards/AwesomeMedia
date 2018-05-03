@@ -62,6 +62,36 @@ extension UIViewController {
     
 }
 
+// MARK: - Safari Extensions
+
+import SafariServices
+extension UIViewController: SFSafariViewControllerDelegate {
+    
+    public func presentWebPageInSafari(withURLString URLString: String) {
+        
+        guard let url = URL(string: URLString) else{
+            return
+        }
+        
+        presentWebPageInSafari(withURL: url)
+    }
+    
+    public func presentWebPageInSafari(withURL url: URL) {
+        guard UIApplication.shared.canOpenURL(url) else {
+            return
+        }
+        
+        let vc = SFSafariViewController(url: url, entersReaderIfAvailable: true)
+        vc.delegate = self
+        self.present(vc, animated: true)
+    }
+    
+    public func safariViewControllerDidFinish(_ controller: SFSafariViewController) {
+        controller.dismiss(animated: true, completion: nil)
+    }
+    
+}
+
 // MARK: - Gestures
 
 extension UIViewController {

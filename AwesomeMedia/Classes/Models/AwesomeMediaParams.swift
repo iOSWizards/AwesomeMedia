@@ -15,6 +15,7 @@ public enum AwesomeMediaParamTypes {
     case duration
     case markers
     case size
+    case type
 }
 
 public typealias AwesomeMediaParams = [AwesomeMediaParamTypes: Any]
@@ -63,7 +64,14 @@ extension AwesomeMediaManager {
     }
     
     static func size(forParams params: AwesomeMediaParams) -> String? {
-        guard let value = value(forParams: params, withType: .duration) as? String else {
+        guard let value = value(forParams: params, withType: .size) as? String else {
+            return nil
+        }
+        return value
+    }
+    
+    static func type(forParams params: AwesomeMediaParams) -> String? {
+        guard let value = value(forParams: params, withType: .type) as? String else {
             return nil
         }
         return value

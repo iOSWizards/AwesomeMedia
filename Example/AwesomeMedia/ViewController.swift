@@ -12,19 +12,21 @@ import AwesomeMedia
 enum MediaType: String {
     case video
     case audio
+    case file
 }
 
 class ViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    let cells: [MediaType] = [.video, .audio]
+    let cells: [MediaType] = [.video, .audio, .file]
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         AwesomeMedia.registerVideoCell(to: tableView, withIdentifier: MediaType.video.rawValue)
         AwesomeMedia.registerAudioCell(to: tableView, withIdentifier: MediaType.audio.rawValue)
+        AwesomeMedia.registerFileCell(to: tableView, withIdentifier: MediaType.file.rawValue)
         
         // set default orientation
         awesomeMediaOrientation = .portrait
@@ -82,8 +84,17 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
                 .coverUrl: "https://i.ytimg.com/vi/fwLuHqMMonc/0.jpg",
                 .author: "The barber",
                 .title: "Virtual Barbershop",
-                .size: "2mb",
+                .size: "2 mb",
                 .duration: 232]
+            cell.configure(withMediaParams: mediaParams)
+        } else if let cell = cell as? AwesomeMediaFileTableViewCell {
+            let mediaParams: AwesomeMediaParams = [
+                .url: AwesomeMediaManager.testPDFURL,
+                .coverUrl: "https://i0.wp.com/res.cloudinary.com/changethatmind/image/upload/v1501884914/wildfitsales.png?fit=500%2C500&ssl=1",
+                .author: "Eric Mendez",
+                .title: "Wildfit",
+                .type: "PDF",
+                .size: "2 mb"]
             cell.configure(withMediaParams: mediaParams)
         }
     }
@@ -94,6 +105,8 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
             return AwesomeMediaAudioTableViewCell.defaultSize.height
         case .video:
             return AwesomeMediaVideoTableViewCell.defaultSize.height
+        case .file:
+            return AwesomeMediaFileTableViewCell.defaultSize.height
         }
     }
 
