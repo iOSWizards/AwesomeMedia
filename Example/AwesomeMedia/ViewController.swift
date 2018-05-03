@@ -13,13 +13,14 @@ enum MediaType: String {
     case video
     case audio
     case file
+    case image
 }
 
 class ViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    let cells: [MediaType] = [.video, .audio, .file]
+    let cells: [MediaType] = [.video, .audio, .file, .image]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +28,7 @@ class ViewController: UIViewController {
         AwesomeMedia.registerVideoCell(to: tableView, withIdentifier: MediaType.video.rawValue)
         AwesomeMedia.registerAudioCell(to: tableView, withIdentifier: MediaType.audio.rawValue)
         AwesomeMedia.registerFileCell(to: tableView, withIdentifier: MediaType.file.rawValue)
+        AwesomeMedia.registerImageCell(to: tableView, withIdentifier: MediaType.image.rawValue)
         
         // set default orientation
         awesomeMediaOrientation = .portrait
@@ -96,6 +98,10 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
                 .type: "PDF",
                 .size: "2 mb"]
             cell.configure(withMediaParams: mediaParams)
+        } else if let cell = cell as? AwesomeMediaImageTableViewCell {
+            let mediaParams: AwesomeMediaParams = [
+                .coverUrl: "https://www.awesometlv.co.il/wp-content/uploads/2016/01/awesome_logo-01.png"]
+            cell.configure(withMediaParams: mediaParams)
         }
     }
 
@@ -107,6 +113,8 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
             return AwesomeMediaVideoTableViewCell.defaultSize.height
         case .file:
             return AwesomeMediaFileTableViewCell.defaultSize.height
+        case .image:
+            return AwesomeMediaImageTableViewCell.size(withTableView: tableView, indexPath: indexPath).height
         }
     }
 
