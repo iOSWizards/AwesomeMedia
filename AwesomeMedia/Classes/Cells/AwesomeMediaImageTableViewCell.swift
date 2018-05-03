@@ -17,9 +17,6 @@ public class AwesomeMediaImageTableViewCell: UITableViewCell {
     // Public variables
     public var mediaParams: AwesomeMediaParams = [:]
     
-    // Private variables
-    fileprivate static var lastRefreshTime: Date?
-    
     public override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
