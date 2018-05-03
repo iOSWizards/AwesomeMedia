@@ -20,7 +20,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    let cells: [MediaType] = [.video, .audio, .file, .image]
+    let cells: [MediaType] = [.image, .video, .audio, .file]
 
     override func viewDidLoad() {
         super.viewDidLoad()

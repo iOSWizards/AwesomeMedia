@@ -45,6 +45,7 @@ extension UIImageView {
         guard let url = url else {
             return
         }
+        self.startShimmerAnimation()
         
         self.loadedUrl = url
         
@@ -78,6 +79,7 @@ extension UIImageView {
                 }
                 completion?(image)
             }
+            self.stopShimmerAnimation()
         }
     }
     

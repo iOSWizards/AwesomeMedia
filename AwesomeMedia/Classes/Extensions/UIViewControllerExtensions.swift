@@ -85,7 +85,7 @@ extension UIViewController: SFSafariViewControllerDelegate {
         self.present(vc, animated: true)
     }
     
-    func safariViewControllerDidFinish(_ controller: SFSafariViewController) {
+    public func safariViewControllerDidFinish(_ controller: SFSafariViewController) {
         controller.dismiss(animated: true, completion: nil)
     }
     
