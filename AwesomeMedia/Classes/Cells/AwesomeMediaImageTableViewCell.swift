@@ -70,23 +70,10 @@ public class AwesomeMediaImageTableViewCell: UITableViewCell {
         return size
     }
     
-    fileprivate static var isAdjustingSize = false
     public func adjustSize() {
         self.frame.size.height = sizeWithImage.height
         
-        guard !AwesomeMediaImageTableViewCell.isAdjustingSize else {
-            return
-        }
-        AwesomeMediaImageTableViewCell.isAdjustingSize = true
-        
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()+0.2) {
-            if let tableView = self.tableView {
-                tableView.beginUpdates()
-                tableView.endUpdates()
-            }
-            AwesomeMediaImageTableViewCell.isAdjustingSize = false
-        }
-        
+        self.updateTableView()
     }
 }
 

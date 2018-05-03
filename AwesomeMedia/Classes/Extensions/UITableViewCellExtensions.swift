@@ -9,6 +9,8 @@ import UIKit
 
 extension UITableViewCell {
     
+    fileprivate static var isAdjustingSize = false
+    
     public var tableView: UITableView? {
         var view: UIView? = superview
         
@@ -17,6 +19,21 @@ extension UITableViewCell {
         }
         
         return view as? UITableView
+    }
+    
+    public func updateTableView() {
+        guard !UITableViewCell.isAdjustingSize else {
+            return
+        }
+        UITableViewCell.isAdjustingSize = true
+        
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()+0.2) {
+            if let tableView = self.tableView {
+                tableView.beginUpdates()
+                tableView.endUpdates()
+            }
+            UITableViewCell.isAdjustingSize = false
+        }
     }
     
 }
