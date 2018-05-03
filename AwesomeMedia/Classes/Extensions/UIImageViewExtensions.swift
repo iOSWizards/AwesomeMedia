@@ -30,7 +30,7 @@ public extension UIImageView {
         }
     }
     
-    public func setImage(_ url: String?, thumbnailUrl: String? = nil, placeholder: UIImage? = nil, animated: Bool = false, completion:((_ image: UIImage?) -> Void)? = nil) {
+    func setImage(_ url: String?, thumbnailUrl: String? = nil, placeholder: UIImage? = nil, animated: Bool = false, completion:((_ image: UIImage?) -> Void)? = nil) {
         self.layer.masksToBounds = true
         
         self.image = nil
@@ -87,7 +87,7 @@ public extension UIImageView {
 
 extension UIImage {
     
-    public static func loadImage(_ url: String?, completion:@escaping (_ image: UIImage?) -> Void) {
+    static func loadImage(_ url: String?, completion:@escaping (_ image: UIImage?) -> Void) {
         if let url = url {
             let awesomeRequester = AwesomeMediaRequester()
             _ = awesomeRequester.performRequest(url, shouldCache: true, completion: { (data, errorData, responseType) in
