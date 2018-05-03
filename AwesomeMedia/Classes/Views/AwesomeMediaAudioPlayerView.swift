@@ -73,7 +73,7 @@ extension AwesomeMediaAudioPlayerView {
     
     public func updateMediaInformation() {
         titleLabel.text = AwesomeMediaManager.title(forParams: mediaParams)
-        timeLabel?.text = AwesomeMediaManager.duration(forParams: mediaParams).timeString
+        timeLabel?.text = AwesomeMediaManager.duration(forParams: mediaParams).timeString.uppercased()
     }
     
     public func loadCoverImage() {

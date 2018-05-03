@@ -77,8 +77,8 @@
                                     <variation key="heightClass=regular-widthClass=regular" constant="98"/>
                                 </constraint>
                             </constraints>
-                            <state key="normal" image="btnPlayLarge"/>
-                            <state key="selected" image="btnPauseLarge"/>
+                            <state key="normal" image="btnPlaySmall"/>
+                            <state key="selected" image="btnPauseSmall"/>
                             <connections>
                                 <action selector="playButtonPressed:" destination="xMk-zC-rSB" eventType="touchUpInside" id="iTT-ui-72E"/>
                             </connections>
@@ -132,8 +132,8 @@
         </view>
     </objects>
     <resources>
-        <image name="btnPauseLarge" width="40" height="40"/>
-        <image name="btnPlayLarge" width="40" height="40"/>
+        <image name="btnPauseSmall" width="30" height="30"/>
+        <image name="btnPlaySmall" width="30" height="30"/>
         <image name="icoPlaceholderAudio" width="38" height="40"/>
     </resources>
 </document>

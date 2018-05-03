@@ -70,7 +70,7 @@ extension AwesomeMediaFileTableViewCell {
         }
         
         if let size = AwesomeMediaManager.size(forParams: mediaParams) {
-            descLabel.text?.append("(\(size))")
+            descLabel.text?.append("(\(size.uppercased()))")
         }
     }
     

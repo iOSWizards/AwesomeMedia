@@ -182,7 +182,7 @@ extension AwesomeMediaAudioViewController {
             downloadStateStackView.isHidden = false
             
             if let size = AwesomeMediaManager.size(forParams: mediaParams) {
-                downloadStateLabel.text = "\(size) - \("downloading".localized)"
+                downloadStateLabel.text = "\(size.uppercased()) - \("downloading".localized)"
             } else {
                 downloadStateLabel.text = "downloading".localized
             }

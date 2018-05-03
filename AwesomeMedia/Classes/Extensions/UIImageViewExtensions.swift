@@ -93,10 +93,12 @@ extension UIImage {
         if let url = url {
             let awesomeRequester = AwesomeMediaRequester()
             _ = awesomeRequester.performRequest(url, shouldCache: true, completion: { (data, errorData, responseType) in
-                if let data = data {
-                    completion(UIImage(data: data))
-                } else {
-                    completion(nil)
+                DispatchQueue.main.async {
+                    if let data = data {
+                        completion(UIImage(data: data))
+                    } else {
+                        completion(nil)
+                    }
                 }
             })
         }

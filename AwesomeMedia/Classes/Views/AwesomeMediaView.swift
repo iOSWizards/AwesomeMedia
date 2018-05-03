@@ -76,7 +76,7 @@ public class AwesomeMediaView: UIView {
         controlView = superview?.addVideoControls(withControls: controls, states: states)
         
         // set time label
-        controlView?.timeLabel?.text = AwesomeMediaManager.duration(forParams: mediaParams).timeString
+        controlView?.timeLabel?.text = AwesomeMediaManager.duration(forParams: mediaParams).timeString.uppercased()
         
         controlView?.playCallback = { (isPlaying) in
             
