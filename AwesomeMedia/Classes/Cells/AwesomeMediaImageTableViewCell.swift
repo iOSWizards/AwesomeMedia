@@ -96,7 +96,7 @@ extension AwesomeMediaImageTableViewCell {
             if image != nil {
                 self.mainView.backgroundColor = .clear
                 self.coverIconImageView.isHidden = true
-                self.adjustSize()
+                //self.adjustSize()
             }
         }
     }

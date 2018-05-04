@@ -45,4 +45,14 @@ public class AwesomeMedia {
         }
     }
     
+    public static func openFullscreenVideoIfPlaying(mediaParamsArray: [AwesomeMediaParams], fromController viewController: UIViewController) {
+        guard !UIApplication.shared.statusBarOrientation.isPortrait else {
+            return
+        }
+        
+        if let mediaParams  = sharedAVPlayer.playingMediaParams(ifPlayingAnyFrom: mediaParamsArray) {
+            viewController.presentVideoFullscreen(withMediaParams: mediaParams)
+        }
+    }
+    
 }

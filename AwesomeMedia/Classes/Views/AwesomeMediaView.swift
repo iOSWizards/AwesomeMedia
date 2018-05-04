@@ -44,6 +44,9 @@ public class AwesomeMediaView: UIView {
         
         self.mediaParams = mediaParams
         
+        // remove player layer so that we can add it again when needed
+        self.removePlayerLayer()
+        
         // Control View
         configureControls(controls: controls, states: states)
         

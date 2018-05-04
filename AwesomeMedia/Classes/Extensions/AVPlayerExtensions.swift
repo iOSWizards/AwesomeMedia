@@ -62,6 +62,18 @@ extension AVPlayer {
         return isCurrentItem(withParams: params) && isPlaying
     }
     
+    public func playingMediaParams(ifPlayingAnyFrom paramsArray: [AwesomeMediaParams]) -> AwesomeMediaParams? {
+        guard isPlaying else {
+            return nil
+        }
+        
+        for params in paramsArray where isCurrentItem(withParams: params) {
+            return params
+        }
+        
+        return nil
+    }
+    
     // MARK: - Controls
     public func seek(toTime time: Double, pausing: Bool = true) {
         if pausing {
