@@ -36,11 +36,6 @@ public class AwesomeMedia {
     }
     
     public static var shouldOverrideOrientation: Bool {
-        // if is iPhone and is not in portrait, allow rotation
-        if isPhone && UIApplication.shared.statusBarOrientation.isLandscape {
-            return true
-        }
-        
         return sharedAVPlayer.isPlayingVideo && !AwesomeMediaVideoViewController.presentingVideoInFullscreen
     }
     

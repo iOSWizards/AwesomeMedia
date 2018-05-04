@@ -20,6 +20,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="G4O-Ah-x1x" kind="relationship" relationship="viewControllers" id="hdF-pX-04c"/>
+                        <segue destination="cym-vI-0TF" kind="relationship" relationship="viewControllers" id="yvL-uZ-xLd"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5j3-DX-tao" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -42,6 +43,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2gl-95-Xo4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-950" y="71"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="Zqg-0Y-u6w">
+            <objects>
+                <viewController id="cym-vI-0TF" customClass="SecondViewController" customModule="AwesomeMedia_Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="JXe-8p-nYa"/>
+                        <viewControllerLayoutGuide type="bottom" id="VQj-CU-I58"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Eyk-aM-3bb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="a2b-GN-Yvg"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DJN-QD-6Su" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-951" y="845"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="UVP-pl-4uJ">
