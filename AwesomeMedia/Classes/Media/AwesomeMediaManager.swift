@@ -92,6 +92,10 @@ public class AwesomeMediaManager: NSObject {
             return false
         }
         
+        guard sharedAVPlayer.currentItem != nil else {
+            return false
+        }
+        
         return AwesomeMediaManager.shared.bufferingState[url.absoluteString] ?? false
     }
 }

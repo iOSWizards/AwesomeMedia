@@ -39,4 +39,10 @@ public class AwesomeMedia {
         return sharedAVPlayer.isPlayingVideo && !AwesomeMediaVideoViewController.presentingVideoInFullscreen
     }
     
+    public static func stopPlayingIfIsVideoAndNotFullscreen() {
+        if shouldOverrideOrientation {
+            sharedAVPlayer.stop()
+        }
+    }
+    
 }

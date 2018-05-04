@@ -44,12 +44,6 @@ public class AwesomeMediaView: UIView {
         
         self.mediaParams = mediaParams
         
-        // Filter controls if needed
-        var controls = controls
-        if AwesomeMediaManager.markers(forParams: mediaParams).count == 0 {
-            controls.remove(.jumpto)
-        }
-        
         // Control View
         configureControls(controls: controls, states: states)
         
@@ -79,6 +73,14 @@ public class AwesomeMediaView: UIView {
     }
     
     fileprivate func configureControls(controls: AwesomeMediaVideoControls, states: AwesomeMediaVideoStates = .standard) {
+        
+        // Filter controls if needed
+        var controls = controls
+        if AwesomeMediaManager.markers(forParams: mediaParams).count == 0 {
+            controls.remove(.jumpto)
+        }
+        
+        // Add controls
         controlView = superview?.addVideoControls(withControls: controls, states: states)
         
         // set time label
@@ -195,6 +197,11 @@ extension AwesomeMediaView: AwesomeMediaEventObserver {
     
     public func stoppedBuffering() {
         stopLoadingAnimation()
+        
+        // adds player layer
+        if sharedAVPlayer.isCurrentItem(withParams: mediaParams) {
+            addPlayerLayer()
+        }
         
         // unlock controls
         controlView?.lock(false, animated: true)

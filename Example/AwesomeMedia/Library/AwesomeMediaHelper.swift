@@ -14,10 +14,8 @@ class AwesomeMediaHelper {
         sharedAVPlayer.stop()
     }
     
-    static func stopIfVideo() {
-        if sharedAVPlayer.isPlayingVideo {
-            sharedAVPlayer.stop()
-        }
+    static func stopIfNeeded() {
+        AwesomeMedia.stopPlayingIfIsVideoAndNotFullscreen()
     }
     
     static func applicationDidEnterBackground() {

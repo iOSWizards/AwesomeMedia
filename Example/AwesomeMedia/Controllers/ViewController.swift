@@ -45,6 +45,12 @@ class ViewController: UIViewController {
         super.viewDidAppear(animated)
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        AwesomeMediaHelper.stopIfNeeded()
+    }
+    
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return awesomeMediaOrientation
     }
