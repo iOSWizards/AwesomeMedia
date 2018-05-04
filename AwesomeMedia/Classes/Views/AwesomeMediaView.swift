@@ -44,6 +44,12 @@ public class AwesomeMediaView: UIView {
         
         self.mediaParams = mediaParams
         
+        // Filter controls if needed
+        var controls = controls
+        if AwesomeMediaManager.markers(forParams: mediaParams).count == 0 {
+            controls.remove(.jumpto)
+        }
+        
         // Control View
         configureControls(controls: controls, states: states)
         

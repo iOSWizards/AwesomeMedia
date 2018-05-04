@@ -67,10 +67,19 @@ public class AwesomeMediaVideoControlView: AwesomeMediaControlView {
     public func updateControls(isPortrait: Bool) {
         setupControls()
         
-        if controls.contains([.jumpto, .speed, .playlist, .rewind]) {
+        if controls.contains(.jumpto) {
             jumptoView.isHidden = isPortrait
+        }
+        
+        if controls.contains(.speed) {
             speedView.isHidden = isPortrait
+        }
+        
+        if controls.contains(.playlist) {
             playlistButton.isHidden = isPortrait
+        }
+        
+        if controls.contains(.rewind) {
             rewindButton.isHidden = isPortrait
         }
     }

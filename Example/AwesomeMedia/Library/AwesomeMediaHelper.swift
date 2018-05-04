@@ -10,6 +10,16 @@ import AwesomeMedia
 
 class AwesomeMediaHelper {
     
+    static func stop() {
+        sharedAVPlayer.stop()
+    }
+    
+    static func stopIfVideo() {
+        if sharedAVPlayer.isPlayingVideo {
+            sharedAVPlayer.stop()
+        }
+    }
+    
     static func applicationDidEnterBackground() {
         AwesomeMedia.didEnterBackground()
     }

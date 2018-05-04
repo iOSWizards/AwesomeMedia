@@ -23,7 +23,7 @@ public struct AwesomeMediaVideoControls: OptionSet {
     public static let rewind = AwesomeMediaVideoControls(rawValue: 1 << 6)
     
     public static let standard: AwesomeMediaVideoControls = [.time, .fullscreen]
-    public static let all: AwesomeMediaVideoControls = [.time, .jumpto, .speed, .playlist, .minimize, .rewind]
+    public static let all: AwesomeMediaVideoControls = [.time, .jumpto, .speed, /*.playlist,*/ .minimize, .rewind]
 }
 
 
