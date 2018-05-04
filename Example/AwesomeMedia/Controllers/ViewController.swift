@@ -129,6 +129,10 @@ extension UIViewController: AwesomeMediaEventObserver {
         AwesomeMediaNotificationCenter.addObservers([.playingAudio, .playingVideo], to: self)
     }
     
+    public func removeObservers() {
+        AwesomeMediaNotificationCenter.removeObservers(from: self)
+    }
+    
     public func startedPlayingAudio(_ notification: NSNotification) {
         if let params = notification.object as? AwesomeMediaParams {
             _ = view.addAudioPlayer(withParams: params, animated: true)

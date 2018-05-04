@@ -26,9 +26,6 @@ public class AwesomeMediaMarkersViewController: UIViewController {
     override public func viewDidLoad() {
         super.viewDidLoad()
         
-        // Add observers
-        addObservers()
-        
         // Update selection based on time
         timeUpdated()
     }
@@ -36,11 +33,21 @@ public class AwesomeMediaMarkersViewController: UIViewController {
     override public func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         prepareForAnimation()
+        
+        // Add observers
+        addObservers()
     }
     
     public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         animateIn()
+    }
+    
+    public override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        // Remove observers
+        removeObservers()
     }
     
     // MARK - Animations
@@ -106,6 +113,10 @@ extension AwesomeMediaMarkersViewController: AwesomeMediaEventObserver {
     
     public func addObservers() {
         AwesomeMediaNotificationCenter.addObservers(.timeUpdated, to: self)
+    }
+    
+    public func removeObservers() {
+        AwesomeMediaNotificationCenter.removeObservers(from: self)
     }
     
     public func timeUpdated() {

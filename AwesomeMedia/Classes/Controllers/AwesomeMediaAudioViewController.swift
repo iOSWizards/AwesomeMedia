@@ -33,6 +33,20 @@ public class AwesomeMediaAudioViewController: UIViewController {
         configure()
     }
     
+    public override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // Add observers
+        addObservers()
+    }
+    
+    public override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        // Remove observers
+        removeObservers()
+    }
+    
     // Configure
     public override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -44,7 +58,6 @@ public class AwesomeMediaAudioViewController: UIViewController {
         configureControls()
         refreshDownloadState()
         loadCoverImage()
-        addObservers()
         play()
         
         // Refresh controls
@@ -203,6 +216,10 @@ extension AwesomeMediaAudioViewController: AwesomeMediaEventObserver {
     
     public func addObservers() {
         AwesomeMediaNotificationCenter.addObservers([.basic, .timeUpdated, .speedRateChanged], to: self)
+    }
+    
+    public func removeObservers() {
+        AwesomeMediaNotificationCenter.removeObservers(from: self)
     }
     
     public func startedPlaying() {

@@ -91,6 +91,9 @@ public class AwesomeMediaView: UIView {
                 AwesomeMediaManager.shared.playMedia(
                     withParams: self.mediaParams,
                     inPlayerLayer: AwesomeMediaPlayerLayer.shared)
+                
+                // adds player layer
+                self.addPlayerLayer()
             } else {
                 sharedAVPlayer.pause()
             }
@@ -138,6 +141,10 @@ extension AwesomeMediaView: AwesomeMediaEventObserver {
     
     public func addObservers() {
         AwesomeMediaNotificationCenter.addObservers([.basic, .timeUpdated, .speedRateChanged], to: self)
+    }
+    
+    public func removeObservers() {
+        AwesomeMediaNotificationCenter.removeObservers(from: self)
     }
     
     public func startedPlaying() {
@@ -197,11 +204,6 @@ extension AwesomeMediaView: AwesomeMediaEventObserver {
     
     public func stoppedBuffering() {
         stopLoadingAnimation()
-        
-        // adds player layer
-        if sharedAVPlayer.isCurrentItem(withParams: mediaParams) {
-            addPlayerLayer()
-        }
         
         // unlock controls
         controlView?.lock(false, animated: true)

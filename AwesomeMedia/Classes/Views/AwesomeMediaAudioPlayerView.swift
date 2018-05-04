@@ -98,6 +98,10 @@ extension AwesomeMediaAudioPlayerView: AwesomeMediaEventObserver {
         AwesomeMediaNotificationCenter.addObservers(.basic, to: self)
     }
     
+    public func removeObservers() {
+        AwesomeMediaNotificationCenter.removeObservers(from: self)
+    }
+    
     public func startedPlaying() {
         guard sharedAVPlayer.isPlaying(withParams: mediaParams) else {
             return
@@ -192,6 +196,9 @@ extension AwesomeMediaAudioPlayerView {
     }
     
     public func remove(animated: Bool) {
+        // remove observers
+        removeObservers()
+        
         guard animated else {
             removeFromSuperview()
             return

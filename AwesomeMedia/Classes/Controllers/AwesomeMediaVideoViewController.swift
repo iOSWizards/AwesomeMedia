@@ -43,8 +43,8 @@ public class AwesomeMediaVideoViewController: UIViewController {
         }
     }
     
-    public override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    public override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
         // adds player layer in case it's not visible
         playerView.addPlayerLayer()
@@ -54,6 +54,9 @@ public class AwesomeMediaVideoViewController: UIViewController {
         super.viewDidDisappear(animated)
         
         AwesomeMediaVideoViewController.presentingVideoInFullscreen = false
+        
+        // remove observers when leaving
+        playerView.removeObservers()
     }
     
     @IBAction func toggleControlsButtonPressed(_ sender: Any) {

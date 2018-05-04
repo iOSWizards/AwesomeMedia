@@ -96,6 +96,10 @@ public class AwesomeMediaNotificationCenter: NotificationCenter {
         }
     }
     
+    public static func removeObservers(from: AwesomeMediaEventObserver) {
+        AwesomeMediaNotificationCenter.shared.removeObserver(from)
+    }
+    
 }
 
 public struct AwesomeMediaNotificationCenterOptions: OptionSet {

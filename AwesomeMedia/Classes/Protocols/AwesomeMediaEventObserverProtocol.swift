@@ -21,6 +21,7 @@ public extension Selector {
 
 @objc public protocol AwesomeMediaEventObserver {
     func addObservers()
+    func removeObservers()
     @objc optional func startedPlaying()
     @objc optional func startedPlayingAudio(_ notification: NSNotification)
     @objc optional func startedPlayingVideo(_ notification: NSNotification)
