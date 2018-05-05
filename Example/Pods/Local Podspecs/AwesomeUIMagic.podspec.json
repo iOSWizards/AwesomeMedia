@@ -1,6 +1,6 @@
 {
   "name": "AwesomeUIMagic",
-  "version": "0.4.5",
+  "version": "0.4.6",
   "summary": "Unlock Magic on your UI.",
   "description": "Your UI has never been so powerful.",
   "homepage": "https://github.com/iOSWizards/AwesomeUIMagic",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/iOSWizards/AwesomeUIMagic.git",
-    "tag": "0.4.5"
+    "tag": "0.4.6"
   },
   "platforms": {
     "ios": "9.0"

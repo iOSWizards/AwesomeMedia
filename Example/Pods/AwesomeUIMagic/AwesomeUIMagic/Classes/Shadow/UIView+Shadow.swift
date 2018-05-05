@@ -23,12 +23,6 @@ extension UIView {
         }
         set (addShadow) {
             UIView.addShadowAssociation[self] = addShadow as NSObject
-            
-            if addShadow {
-                addShadowLayer()
-            } else {
-                removeShadowLayer()
-            }
         }
     }
 

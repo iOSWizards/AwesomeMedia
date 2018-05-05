@@ -87,7 +87,7 @@ extension UIView {
     }
     
     public func removeShadowLayer() {
-        for subview in subviews {
+        for subview in superview?.subviews ?? [] {
             if let subview = subview as? ShadowLayer {
                 subview.removeFromSuperview()
             }

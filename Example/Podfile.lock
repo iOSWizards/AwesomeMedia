@@ -1,41 +1,59 @@
 PODS:
   - AwesomeLoading (0.1.3):
     - lottie-ios
-  - AwesomeMedia (0.8.0):
+  - AwesomeMedia (0.9.5):
     - AwesomeLoading
+    - AwesomeNetwork
     - AwesomeUIMagic
-  - AwesomeUIMagic (0.4.5)
+  - AwesomeNetwork (0.1.4):
+    - ReachabilitySwift (~> 3)
+  - AwesomeUIMagic (0.4.6)
   - lottie-ios (2.5.0)
+  - ReachabilitySwift (3)
 
 DEPENDENCIES:
   - AwesomeLoading (from `https://github.com/Mindvalley/Mobile_iOS_Library_AwesomeLoading.git`, tag `0.1.3`)
   - AwesomeMedia (from `../`)
-  - AwesomeUIMagic (from `https://github.com/iOSWizards/AwesomeUIMagic`, tag `0.4.5`)
+  - AwesomeNetwork (from `https://github.com/iOSWizards/AwesomeNetwork`, tag `0.1.4`)
+  - AwesomeUIMagic (from `https://github.com/iOSWizards/AwesomeUIMagic`, tag `0.4.6`)
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - lottie-ios
+    - ReachabilitySwift
 
 EXTERNAL SOURCES:
   AwesomeLoading:
     :git: https://github.com/Mindvalley/Mobile_iOS_Library_AwesomeLoading.git
     :tag: 0.1.3
   AwesomeMedia:
-    :path: ../
+    :path: "../"
+  AwesomeNetwork:
+    :git: https://github.com/iOSWizards/AwesomeNetwork
+    :tag: 0.1.4
   AwesomeUIMagic:
     :git: https://github.com/iOSWizards/AwesomeUIMagic
-    :tag: 0.4.5
+    :tag: 0.4.6
 
 CHECKOUT OPTIONS:
   AwesomeLoading:
     :git: https://github.com/Mindvalley/Mobile_iOS_Library_AwesomeLoading.git
     :tag: 0.1.3
+  AwesomeNetwork:
+    :git: https://github.com/iOSWizards/AwesomeNetwork
+    :tag: 0.1.4
   AwesomeUIMagic:
     :git: https://github.com/iOSWizards/AwesomeUIMagic
-    :tag: 0.4.5
+    :tag: 0.4.6
 
 SPEC CHECKSUMS:
   AwesomeLoading: a035744e09a5334bd918f394bfd07e60a196eb1d
-  AwesomeMedia: 830279f531e7feab09e73d156498c5ac6447be64
-  AwesomeUIMagic: c50132a85de0bc16beb4503dcc44191dc84d84f9
+  AwesomeMedia: 52cd1ed4691568c99b70f8879eab23c6ca2b8e00
+  AwesomeNetwork: 295b7f6aa0d3783090cb1e9dc844bcb8fa05e094
+  AwesomeUIMagic: ecd21700f29490ba6ca016ec1a38b72a3dc177d9
   lottie-ios: d699fdee68d7b63e721d949388b015fef1aaa4ac
+  ReachabilitySwift: f5b9bb30a0777fac8f09ce8b067e32faeb29bb64
 
-PODFILE CHECKSUM: 6cb1d74804dde44961a504a464d5d3ed968877eb
+PODFILE CHECKSUM: 6f52394ee93f6c370e66ed45837f5d373439f532
 
-COCOAPODS: 1.4.0
+COCOAPODS: 1.5.0

@@ -1,0 +1,27 @@
+{
+  "name": "AwesomeNetwork",
+  "version": "0.1.4",
+  "summary": "Network state handling.",
+  "description": "Network state handling.",
+  "homepage": "https://github.com/iOSWizards/AwesomeNetwork",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "evandro@itsdayoff.com": "evandro@itsdayoff.com"
+  },
+  "source": {
+    "git": "https://github.com/iOSWizards/AwesomeNetwork.git",
+    "tag": "0.1.4"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source_files": "AwesomeNetwork/Classes/**/*",
+  "dependencies": {
+    "ReachabilitySwift": [
+      "~> 3"
+    ]
+  }
+}
