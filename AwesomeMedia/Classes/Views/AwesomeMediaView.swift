@@ -143,7 +143,7 @@ public class AwesomeMediaView: UIView {
 extension AwesomeMediaView: AwesomeMediaEventObserver {
     
     public func addObservers() {
-        AwesomeMediaNotificationCenter.addObservers([.basic, .timeUpdated, .speedRateChanged], to: self)
+        AwesomeMediaNotificationCenter.addObservers([.basic, .timeUpdated, .speedRateChanged, .timedOut, .stopped], to: self)
     }
     
     public func removeObservers() {
@@ -172,6 +172,12 @@ extension AwesomeMediaView: AwesomeMediaEventObserver {
     
     public func pausedPlaying() {
         controlView?.playButton.isSelected = sharedAVPlayer.isPlaying(withParams: mediaParams)
+    }
+    
+    public func stoppedPlaying() {
+        pausedPlaying()
+        stoppedBuffering()
+        resetPlayer()
     }
     
     public func timeUpdated() {
@@ -224,6 +230,10 @@ extension AwesomeMediaView: AwesomeMediaEventObserver {
     
     public func speedRateChanged() {
         controlView?.speedLabel.text = AwesomeMediaSpeed.speedLabelForCurrentSpeed
+    }
+    
+    public func timedOut() {
+        parentViewController?.showMediaTimedOutAlert()
     }
     
     public func resetPlayer() {

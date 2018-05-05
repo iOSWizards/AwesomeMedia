@@ -152,3 +152,40 @@ extension UIViewController {
         AwesomeMedia.openFullscreenVideoIfPlaying(mediaParamsArray: mediaParams, fromController: self)
     }
 }
+
+// MARK: - Alerts
+
+extension UIViewController {
+    
+    func showAlert(withTitle title: String? = nil, message: String?,  completion: (() -> ())? = nil, buttons: (UIAlertActionStyle, String, (() -> ())?)...) {
+        
+        guard let message = message, message.count > 0 else {
+            return
+        }
+        
+        if #available(iOS 8.0, *){
+            let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+            
+            for button in buttons {
+                alertController.addAction(UIAlertAction(title: button.1, style: button.0) { (_: UIAlertAction!) in
+                    if let completion = completion { completion() }
+                    if let actionBlock = button.2 { actionBlock() }
+                })
+            }
+            self.present(alertController, animated: true, completion: nil)
+        }else {
+            // Handle prior iOS Versions
+            
+        }
+    }
+    
+    func showMediaTimedOutAlert() {
+        showAlert(withTitle: "failed_to_play_title".localized,
+                  message: "failed_to_play".localized,
+                  buttons: (UIAlertActionStyle.default, "wait".localized, {
+                    AwesomeMediaManager.shared.startBufferTimer()
+                  }), (UIAlertActionStyle.destructive, "cancel".localized, {
+                    sharedAVPlayer.stop()
+                  }))
+    }
+}

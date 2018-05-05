@@ -16,6 +16,7 @@ public class AwesomeMedia {
     public static var shouldLockControlsWhenBuffering = true
     public static var showLogs = true
     public static var backwardForwardStep: Double = 10
+    public static var bufferTimeout: Double = 10
     
     public static var bundle: Bundle {
         return Bundle(for: AwesomeMedia.self)

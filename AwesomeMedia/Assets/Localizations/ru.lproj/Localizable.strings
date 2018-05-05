@@ -14,3 +14,8 @@
 "availableoffline_delete_message" = "Вы действительно хотите удалить трек с устройства? Вы сможете прослушать трек только в режиме онлайн";
 "availableoffline_delete_button_confirm" = "ДА! УДАЛИТЬ";
 "availableoffline_delete_button_cancel" = "ОТМЕНИТЬ";
+
+"failed_to_play_title" = "Ой!";
+"failed_to_play" = "Невозможно загрузить носитель.\nПожалуйста, проверьте подключение к Интернету.";
+"wait" = "Подождите";
+"cancel" = "Отмена";

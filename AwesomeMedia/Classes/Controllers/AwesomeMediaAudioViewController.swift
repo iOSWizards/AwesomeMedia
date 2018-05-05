@@ -215,7 +215,7 @@ extension AwesomeMediaAudioViewController {
 extension AwesomeMediaAudioViewController: AwesomeMediaEventObserver {
     
     public func addObservers() {
-        AwesomeMediaNotificationCenter.addObservers([.basic, .timeUpdated, .speedRateChanged], to: self)
+        AwesomeMediaNotificationCenter.addObservers([.basic, .timeUpdated, .speedRateChanged, .timedOut, .stopped], to: self)
     }
     
     public func removeObservers() {
@@ -235,6 +235,12 @@ extension AwesomeMediaAudioViewController: AwesomeMediaEventObserver {
     
     public func pausedPlaying() {
         controlView.playButton.isSelected = sharedAVPlayer.isPlaying(withParams: mediaParams)
+    }
+    
+    public func stoppedPlaying() {
+        pausedPlaying()
+        stoppedBuffering()
+        finishedPlaying()
     }
     
     public func startedBuffering() {
@@ -258,6 +264,10 @@ extension AwesomeMediaAudioViewController: AwesomeMediaEventObserver {
         controlView.playButton.isSelected = false
         
         controlView.lock(false, animated: true)
+    }
+    
+    public func timedOut() {
+        showMediaTimedOutAlert()
     }
     
     public func speedRateChanged() {

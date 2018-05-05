@@ -14,3 +14,8 @@
 "availableoffline_delete_message" = "Do you want to remove the track from the device? You will only be able to play the track when you are online.";
 "availableoffline_delete_button_confirm" = "YES! REMOVE";
 "availableoffline_delete_button_cancel" = "CANCEL";
+
+"failed_to_play_title" = "Oops";
+"failed_to_play" = "Cannot load media.\nPlease check your internet connection.";
+"wait" = "Wait";
+"cancel" = "Cancel";

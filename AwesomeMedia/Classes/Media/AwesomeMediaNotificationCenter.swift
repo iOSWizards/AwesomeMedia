@@ -75,6 +75,10 @@ public class AwesomeMediaNotificationCenter: NotificationCenter {
             AwesomeMediaNotificationCenter.shared.addObserver(to, selector: .paused, event: .paused)
         }
         
+        if options.contains(.stopped) {
+            AwesomeMediaNotificationCenter.shared.addObserver(to, selector: .stopped, event: .stopped)
+        }
+        
         if options.contains(.timeUpdated) {
             AwesomeMediaNotificationCenter.shared.addObserver(to, selector: .timeUpdated, event: .timeUpdated)
         }
@@ -93,6 +97,10 @@ public class AwesomeMediaNotificationCenter: NotificationCenter {
         
         if options.contains(.speedRateChanged) {
             AwesomeMediaNotificationCenter.shared.addObserver(to, selector: .speedRateChanged, event: .speedRateChanged)
+        }
+        
+        if options.contains(.timedOut) {
+            AwesomeMediaNotificationCenter.shared.addObserver(to, selector: .timedOut, event: .timedOut)
         }
     }
     

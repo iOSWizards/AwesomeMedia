@@ -95,7 +95,7 @@ extension AwesomeMediaAudioPlayerView {
 extension AwesomeMediaAudioPlayerView: AwesomeMediaEventObserver {
     
     public func addObservers() {
-        AwesomeMediaNotificationCenter.addObservers(.basic, to: self)
+        AwesomeMediaNotificationCenter.addObservers([.basic, .timedOut, .stopped], to: self)
     }
     
     public func removeObservers() {
@@ -127,6 +127,12 @@ extension AwesomeMediaAudioPlayerView: AwesomeMediaEventObserver {
         setupAutoRemove()
     }
     
+    public func stoppedPlaying() {
+        pausedPlaying()
+        stoppedBuffering()
+        finishedPlaying()
+    }
+    
     public func startedBuffering() {
         guard sharedAVPlayer.isCurrentItem(withParams: mediaParams) else {
             stoppedBuffering()
@@ -152,6 +158,10 @@ extension AwesomeMediaAudioPlayerView: AwesomeMediaEventObserver {
         
         // configure auto remove
         setupAutoRemove()
+    }
+    
+    public func timedOut() {
+        parentViewController?.showMediaTimedOutAlert()
     }
 }
 

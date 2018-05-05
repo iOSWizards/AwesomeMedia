@@ -18,6 +18,7 @@ public class AwesomeMediaManager: NSObject {
     fileprivate var playbackLikelyToKeepUpContext = 0
     fileprivate var playbackBufferFullContext = 1
     fileprivate var mediaParams: AwesomeMediaParams = [:]
+    fileprivate var bufferTimer: Timer?
     
     // Public Variables
     public var bufferingState = [String: Bool]()
@@ -74,7 +75,7 @@ public class AwesomeMediaManager: NSObject {
         addObservers(withItem: playerItem)
         
         // at this point media will start buffering
-        notifyMediaEvent(.buffering)
+        startedBuffering()
         
         // load saved media time
         playerItem.loadSavedTime()
@@ -171,9 +172,9 @@ extension AwesomeMediaManager {
         // Check for media buffering
         if context == &playbackLikelyToKeepUpContext || context == &playbackBufferFullContext {
             if let currentItem = sharedAVPlayer.currentItem, currentItem.isPlaybackLikelyToKeepUp || currentItem.isPlaybackBufferFull {
-                notifyMediaEvent(.stoppedBuffering)
+                stoppedBuffering()
             } else {
-                notifyMediaEvent(.buffering)
+                startedBuffering()
             }
         }
         
@@ -212,6 +213,32 @@ extension AwesomeMediaManager {
         } else {
             notifyMediaEvent(.playingAudio, object: mediaParams as AnyObject)
         }
+    }
+    
+    // Handle buffering
+    
+    fileprivate func startedBuffering() {
+        notifyMediaEvent(.buffering)
+        
+        startBufferTimer()
+    }
+    
+    fileprivate func stoppedBuffering() {
+        notifyMediaEvent(.stoppedBuffering)
+        
+        cancelBufferTimer()
+    }
+    
+    public func startBufferTimer() {
+        cancelBufferTimer()
+        bufferTimer = Timer.scheduledTimer(withTimeInterval: AwesomeMedia.bufferTimeout, repeats: false, block: { (timer) in
+            notifyMediaEvent(.timedOut)
+        })
+    }
+    
+    public func cancelBufferTimer() {
+        bufferTimer?.invalidate()
+        bufferTimer = nil
     }
     
     // Finished Playing Observer
