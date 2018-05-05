@@ -19,3 +19,8 @@
 "failed_to_play" = "Impossibile caricare i media.\nSi prega di verificare la connessione Internet.";
 "wait" = "Aspettare";
 "cancel" = "Annulla";
+
+"no_internet_title" = "La tua connessione sembra assente";
+"no_internet" = "Mantieni la calma, indossa la cintura di sicurezza e aggiorna per riprovare.";
+"retry" = "Riprova ";
+"ok" = "Ok";

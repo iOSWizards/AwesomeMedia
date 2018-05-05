@@ -93,7 +93,8 @@ public class AwesomeMediaView: UIView {
             if isPlaying {
                 AwesomeMediaManager.shared.playMedia(
                     withParams: self.mediaParams,
-                    inPlayerLayer: AwesomeMediaPlayerLayer.shared)
+                    inPlayerLayer: AwesomeMediaPlayerLayer.shared,
+                    viewController: self.parentViewController)
                 
                 // adds player layer
                 self.addPlayerLayer()

@@ -189,6 +189,14 @@ extension UIViewController {
                   }))
     }
     
+    func showNoConnectionAlert() {
+        showAlert(withTitle: "no_internet_title".localized,
+                  message: "no_internet".localized,
+                  buttons: (UIAlertActionStyle.destructive, "ok".localized, {
+                    sharedAVPlayer.stop()
+                  }))
+    }
+    
     func removeAlertIfPresent() {
         if let viewController = presentedViewController as? UIAlertController {
             viewController.dismiss(animated: true, completion: nil)

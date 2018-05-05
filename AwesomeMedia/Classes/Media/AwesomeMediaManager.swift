@@ -6,6 +6,7 @@
 //
 
 import AVFoundation
+import AwesomeNetwork
 
 public class AwesomeMediaManager: NSObject {
     
@@ -40,7 +41,16 @@ public class AwesomeMediaManager: NSObject {
     public static let testAudioURL = "https://archive.org/download/VirtualHaircut/virtualbarbershop.mp3"
     public static let testPDFURL = "https://www.paloaltonetworks.com/content/dam/pan/en_US/assets/pdf/datasheets/wildfire/wildfire-ds.pdf"
     
-    func playMedia(withParams params: AwesomeMediaParams, inPlayerLayer playerLayer: AVPlayerLayer? = nil) {
+    func playMedia(withParams params: AwesomeMediaParams, inPlayerLayer playerLayer: AVPlayerLayer? = nil, viewController: UIViewController? = nil) {
+        
+        // In case there is a view controller and isn't reachable, return callback
+        /*if let viewController = viewController, !(AwesomeNetwork.shared?.isReachable ?? false) {
+            AwesomeMedia.log("No Internet connection")
+            
+            viewController.showNoConnectionAlert()
+            return
+        }*/
+        
         guard let url = AwesomeMediaManager.url(forParams: params)?.offlineURLIfAvailable else {
             AwesomeMedia.log("No URL provided")
             return

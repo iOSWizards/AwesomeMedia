@@ -19,3 +19,8 @@
 "failed_to_play" = "Cannot load media.\nPlease check your internet connection.";
 "wait" = "Wait";
 "cancel" = "Cancel";
+
+"no_internet_title" = "No Internet Connection";
+"no_internet" = "Keep calm, check your connection and try again.";
+"retry" = "Retry";
+"ok" = "Ok";

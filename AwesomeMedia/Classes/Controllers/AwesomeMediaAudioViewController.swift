@@ -156,7 +156,8 @@ public class AwesomeMediaAudioViewController: UIViewController {
     fileprivate func play() {
         AwesomeMediaManager.shared.playMedia(
             withParams: self.mediaParams,
-            inPlayerLayer: AwesomeMediaPlayerLayer.shared)
+            inPlayerLayer: AwesomeMediaPlayerLayer.shared,
+            viewController: self)
     }
     
     fileprivate func refreshControls() {

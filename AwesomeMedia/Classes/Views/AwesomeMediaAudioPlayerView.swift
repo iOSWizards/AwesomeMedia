@@ -55,7 +55,7 @@ public class AwesomeMediaAudioPlayerView: UIView {
         
         // Play/Stop media
         if playButton.isSelected {
-            AwesomeMediaManager.shared.playMedia(withParams: self.mediaParams)
+            AwesomeMediaManager.shared.playMedia(withParams: self.mediaParams, viewController: parentViewController)
         } else {
             sharedAVPlayer.pause()
         }
