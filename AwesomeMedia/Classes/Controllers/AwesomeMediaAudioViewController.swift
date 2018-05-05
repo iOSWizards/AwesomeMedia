@@ -231,6 +231,9 @@ extension AwesomeMediaAudioViewController: AwesomeMediaEventObserver {
         
         // update Control Center
         AwesomeMediaControlCenter.updateControlCenter(withParams: mediaParams)
+        
+        // remove media alert if present
+        removeAlertIfPresent()
     }
     
     public func pausedPlaying() {

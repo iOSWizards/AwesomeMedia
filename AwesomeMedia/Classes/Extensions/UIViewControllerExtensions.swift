@@ -188,4 +188,10 @@ extension UIViewController {
                     sharedAVPlayer.stop()
                   }))
     }
+    
+    func removeAlertIfPresent() {
+        if let viewController = presentedViewController as? UIAlertController {
+            viewController.dismiss(animated: true, completion: nil)
+        }
+    }
 }

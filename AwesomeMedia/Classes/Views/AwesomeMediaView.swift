@@ -168,6 +168,9 @@ extension AwesomeMediaView: AwesomeMediaEventObserver {
         
         // update Control Center
         AwesomeMediaControlCenter.updateControlCenter(withParams: mediaParams)
+        
+        // remove media alert if present
+        parentViewController?.removeAlertIfPresent()
     }
     
     public func pausedPlaying() {
