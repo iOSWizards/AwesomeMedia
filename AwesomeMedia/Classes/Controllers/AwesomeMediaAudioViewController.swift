@@ -271,6 +271,9 @@ extension AwesomeMediaAudioViewController: AwesomeMediaEventObserver {
         coverImageView.stopLoadingAnimation()
         
         controlView.lock(false, animated: true)
+        
+        // remove media alert if present
+        removeAlertIfPresent()
     }
     
     public func finishedPlaying() {
