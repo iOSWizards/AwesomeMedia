@@ -43,18 +43,19 @@ public class AwesomeMediaManager: NSObject {
     
     func playMedia(withParams params: AwesomeMediaParams, inPlayerLayer playerLayer: AVPlayerLayer? = nil, viewController: UIViewController? = nil) {
         
+        guard let url = AwesomeMediaManager.url(forParams: params)?.offlineURLIfAvailable else {
+            AwesomeMedia.log("No URL provided")
+            return
+        }
+        
         // In case there is a view controller and isn't reachable, return callback
-        /*if let viewController = viewController, !(AwesomeNetwork.shared?.isReachable ?? false) {
+        /*if let viewController = viewController, !(AwesomeNetwork.shared?.isReachable ?? false),
+            !url.offlineFileExists {
             AwesomeMedia.log("No Internet connection")
             
             viewController.showNoConnectionAlert()
             return
         }*/
-        
-        guard let url = AwesomeMediaManager.url(forParams: params)?.offlineURLIfAvailable else {
-            AwesomeMedia.log("No URL provided")
-            return
-        }
         
         // set current media params
         mediaParams = params

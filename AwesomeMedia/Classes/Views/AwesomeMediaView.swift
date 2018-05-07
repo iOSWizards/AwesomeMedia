@@ -182,6 +182,9 @@ extension AwesomeMediaView: AwesomeMediaEventObserver {
         pausedPlaying()
         stoppedBuffering()
         resetPlayer()
+        
+        // remove media alert if present
+        parentViewController?.removeAlertIfPresent()
     }
     
     public func timeUpdated() {

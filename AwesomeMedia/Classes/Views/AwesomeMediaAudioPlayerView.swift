@@ -134,6 +134,9 @@ extension AwesomeMediaAudioPlayerView: AwesomeMediaEventObserver {
         pausedPlaying()
         stoppedBuffering()
         finishedPlaying()
+        
+        // remove media alert if present
+        parentViewController?.removeAlertIfPresent()
     }
     
     public func startedBuffering() {
