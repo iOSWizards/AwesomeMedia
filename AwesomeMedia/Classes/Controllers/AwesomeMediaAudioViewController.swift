@@ -142,7 +142,7 @@ public class AwesomeMediaAudioViewController: UIViewController {
     
     fileprivate func deleteMedia() {
         sharedAVPlayer.stop()
-        self.confirmMediaDeletion(withParams: mediaParams) { (success) in
+        self.confirmMediaDeletion(withParams: mediaParams, fromView: downloadStateStackView) { (success) in
             self.refreshDownloadState()
             
             if success {

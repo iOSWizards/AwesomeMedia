@@ -46,6 +46,12 @@ public class AwesomeMediaAudioPlayerView: UIView {
         
         // Update play button status
         updatePlayStatus()
+        
+        // check for loading state
+        mainView.stopLoadingAnimation()
+        if AwesomeMediaManager.shared.mediaIsLoading(withParams: mediaParams) {
+            mainView.startLoadingAnimation()
+        }
     }
     
     // MARK: - Events

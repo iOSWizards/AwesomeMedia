@@ -68,7 +68,7 @@ public class AwesomeMediaDownloadManager {
 
 extension UIViewController {
     
-    public func confirmMediaDeletion(withParams mediaParams: AwesomeMediaParams, completion:@escaping (Bool) -> Void) {
+    public func confirmMediaDeletion(withParams mediaParams: AwesomeMediaParams, fromView: UIView? = nil, completion:@escaping (Bool) -> Void) {
         guard let downloadUrl = AwesomeMediaManager.url(forParams: mediaParams) else {
             completion(false)
             return
@@ -94,6 +94,11 @@ extension UIViewController {
         alertController.addAction(UIAlertAction(title: "availableoffline_delete_button_cancel".localized, style: .cancel, handler: { (action) in
             
         }))
+        
+        if let fromView = fromView {
+            alertController.popoverPresentationController?.sourceView = fromView
+            alertController.popoverPresentationController?.sourceRect = fromView.bounds
+        }
         
         present(alertController, animated: true, completion: nil)
     }
