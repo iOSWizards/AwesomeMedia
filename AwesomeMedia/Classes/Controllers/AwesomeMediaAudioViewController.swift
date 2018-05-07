@@ -62,6 +62,12 @@ public class AwesomeMediaAudioViewController: UIViewController {
         
         // Refresh controls
         refreshControls()
+        
+        // check for loading state
+        coverImageView.stopLoadingAnimation()
+        if AwesomeMediaManager.shared.mediaIsLoading(withParams: mediaParams) {
+            coverImageView.startLoadingAnimation()
+        }
     }
     
     fileprivate func configureControls() {

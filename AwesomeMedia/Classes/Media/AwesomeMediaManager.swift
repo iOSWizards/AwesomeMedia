@@ -104,7 +104,7 @@ public class AwesomeMediaManager: NSObject {
             return false
         }
         
-        guard sharedAVPlayer.currentItem != nil else {
+        guard sharedAVPlayer.isCurrentItem(withUrl: url) else {
             return false
         }
         
