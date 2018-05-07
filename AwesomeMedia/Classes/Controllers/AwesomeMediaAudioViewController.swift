@@ -70,6 +70,10 @@ public class AwesomeMediaAudioViewController: UIViewController {
         }
     }
     
+    public override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     fileprivate func configureControls() {
         controlView.configure(withParams: mediaParams)
         
