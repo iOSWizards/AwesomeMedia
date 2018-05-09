@@ -10,12 +10,11 @@ import AwesomeMedia
 
 class AwesomeMediaHelper {
     
-    static var shared: AwesomeMediaHelper = {
-        let shared = AwesomeMediaHelper()
-        shared.addObservers()
-        
-        return shared
-    }()
+    static var shared = AwesomeMediaHelper()
+    
+    static func start() {
+        AwesomeMediaHelper.shared.addObservers()
+    }
     
     static func stop() {
         sharedAVPlayer.stop()
@@ -55,7 +54,7 @@ extension AwesomeMediaHelper: AwesomeMediaTrackingObserver {
             return
         }
         
-        print("\(sender?.name.rawValue ?? ""): \(trackingObject.source.rawValue)")
+        print("tracking \(sender?.name.rawValue ?? ""): \(trackingObject.source.rawValue)")
     }
     
     func stoppedPlaying(_ sender: Notification?) {
@@ -90,7 +89,7 @@ extension AwesomeMediaHelper: AwesomeMediaTrackingObserver {
         
     }
     
-    func toggleSpeed(_ sender: Notification?) {
+    func toggledSpeed(_ sender: Notification?) {
         
     }
     

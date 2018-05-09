@@ -8,6 +8,7 @@
 import Foundation
 
 public enum AwesomeMediaTrackingSource: String {
+    case unknown
     case videoCell
     case videoFullscreen
     case audioCell
@@ -28,7 +29,7 @@ public enum AwesomeMediaTrackingEvent: String {
     case openedMarkers
     case closedMarkers
     case selectedMarker
-    case toggleSpeed
+    case toggledSpeed
     case tappedRewind
     case tappedAdvance
     case tappedAirplay
@@ -38,7 +39,7 @@ public enum AwesomeMediaTrackingEvent: String {
 }
 
 public struct AwesomeMediaTrackingObject {
-    public var source: AwesomeMediaTrackingSource = .videoCell
+    public var source: AwesomeMediaTrackingSource = .unknown
     public var value: Any?
 }
 
@@ -70,7 +71,7 @@ public class AwesomeMediaTrackingNotificationCenter: NotificationCenter {
         AwesomeMediaTrackingNotificationCenter.shared.addObserver(to, selector: .openedMarkers, event: .openedMarkers)
         AwesomeMediaTrackingNotificationCenter.shared.addObserver(to, selector: .closedMarkers, event: .closedMarkers)
         AwesomeMediaTrackingNotificationCenter.shared.addObserver(to, selector: .selectedMarker, event: .selectedMarker)
-        AwesomeMediaTrackingNotificationCenter.shared.addObserver(to, selector: .toggleSpeed, event: .toggleSpeed)
+        AwesomeMediaTrackingNotificationCenter.shared.addObserver(to, selector: .toggledSpeed, event: .toggledSpeed)
         AwesomeMediaTrackingNotificationCenter.shared.addObserver(to, selector: .tappedRewind, event: .tappedRewind)
         AwesomeMediaTrackingNotificationCenter.shared.addObserver(to, selector: .tappedAdvance, event: .tappedAdvance)
         AwesomeMediaTrackingNotificationCenter.shared.addObserver(to, selector: .tappedAirplay, event: .tappedAirplay)

@@ -39,6 +39,7 @@ public class AwesomeMediaControlView: UIView {
     public var shouldShowInfo = true
     public var timerSliderIsSliding = false
     public var isLocked = false
+    public var trackingSource: AwesomeMediaTrackingSource = .unknown
     
     // Configuration
     public override func awakeFromNib() {
@@ -71,14 +72,27 @@ public class AwesomeMediaControlView: UIView {
     @IBAction func playButtonPressed(_ sender: Any) {
         playButton.isSelected = !playButton.isSelected
         playCallback?(playButton.isSelected)
+        
+        // tracking event
+        if playButton.isSelected {
+            notifyTrackingEvent(.startedPlaying, object: AwesomeMediaTrackingObject(source: trackingSource, value: nil))
+        } else {
+            notifyTrackingEvent(.stoppedPlaying, object: AwesomeMediaTrackingObject(source: trackingSource, value: nil))
+        }
     }
     
     @IBAction func rewindButtonPressed(_ sender: Any) {
         rewindCallback?()
+        
+        // tracking event
+        notifyTrackingEvent(.tappedRewind, object: AwesomeMediaTrackingObject(source: trackingSource, value: AwesomeMedia.backwardForwardStep))
     }
     
     @IBAction func speedButtonPressed(_ sender: Any) {
         speedToggleCallback?()
+        
+        // tracking event
+        notifyTrackingEvent(.toggledSpeed, object: AwesomeMediaTrackingObject(source: trackingSource, value: AwesomeMedia.backwardForwardStep))
     }
     
     @IBAction func timeSliderValueChanged(_ sender: Any) {
@@ -87,6 +101,9 @@ public class AwesomeMediaControlView: UIView {
         }
         
         timeSliderChangedCallback?(Double(timeSlider.value))
+        
+        // tracking event
+        notifyTrackingEvent(.sliderChanged, object: AwesomeMediaTrackingObject(source: trackingSource, value: timeSlider.value))
     }
     
     @IBAction func timeSliderStartedDragging(_ sender: Any) {
