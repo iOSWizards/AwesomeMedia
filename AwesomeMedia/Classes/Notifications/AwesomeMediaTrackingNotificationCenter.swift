@@ -44,9 +44,12 @@ public enum AwesomeMediaTrackingEvent: String {
 public struct AwesomeMediaTrackingObject {
     public var source: AwesomeMediaTrackingSource = .unknown
     public var value: Any?
+    //public var params: AwesomeMediaParams = [:]
 }
 
-func track(event: AwesomeMediaTrackingEvent, source: AwesomeMediaTrackingSource, value: Any? = nil) {
+func track(event: AwesomeMediaTrackingEvent,
+           source: AwesomeMediaTrackingSource,
+           value: Any? = nil) {
     //AwesomeMedia.log("notification tracking event: \(event.rawValue) source: \(object.source.rawValue)")
     
     AwesomeMediaTrackingNotificationCenter.shared.notify(event, object: AwesomeMediaTrackingObject(source: source, value: value))

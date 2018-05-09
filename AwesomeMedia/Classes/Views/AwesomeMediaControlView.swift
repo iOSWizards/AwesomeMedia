@@ -92,7 +92,7 @@ public class AwesomeMediaControlView: UIView {
         speedToggleCallback?()
         
         // tracking event
-        track(event: .toggledSpeed, source: trackingSource, value: AwesomeMedia.backwardForwardStep)
+        track(event: .toggledSpeed, source: trackingSource, value: sharedAVPlayer.rate)
     }
     
     @IBAction func timeSliderValueChanged(_ sender: Any) {

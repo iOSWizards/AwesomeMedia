@@ -41,6 +41,7 @@ class AwesomeMediaHelper {
 }
 
 extension AwesomeMediaHelper: AwesomeMediaTrackingObserver {
+    
     func addObservers() {
         AwesomeMediaTrackingNotificationCenter.addObservers(to: AwesomeMediaHelper.shared)
     }
@@ -50,87 +51,97 @@ extension AwesomeMediaHelper: AwesomeMediaTrackingObserver {
     }
     
     func startedPlaying(_ sender: Notification?) {
-        guard let trackingObject = sender?.object as? AwesomeMediaTrackingObject else {
-            return
-        }
-        
-        print("tracking \(sender?.name.rawValue ?? ""): \(trackingObject.source.rawValue)")
+        log(notification: sender)
     }
     
     func stoppedPlaying(_ sender: Notification?) {
-        guard let trackingObject = sender?.object as? AwesomeMediaTrackingObject else {
-            return
-        }
-        
-        print("tracking \(sender?.name.rawValue ?? ""): \(trackingObject.source.rawValue)")
+        log(notification: sender)
     }
     
     func sliderChanged(_ sender: Notification?) {
-        
+        log(notification: sender)
     }
     
     func toggleFullscreen(_ sender: Notification?) {
-        
+        log(notification: sender)
     }
     
     func closeFullscreen(_ sender: Notification?) {
-        
+        log(notification: sender)
     }
     
     func openedMarkers(_ sender: Notification?) {
-        
+        log(notification: sender)
     }
     
     func closedMarkers(_ sender: Notification?) {
-        
+        log(notification: sender)
     }
     
     func selectedMarker(_ sender: Notification?) {
-        
+        log(notification: sender)
     }
     
     func toggledSpeed(_ sender: Notification?) {
-        
+        log(notification: sender)
     }
     
     func tappedRewind(_ sender: Notification?) {
-        
+        log(notification: sender)
     }
     
     func tappedAdvance(_ sender: Notification?) {
-        
+        log(notification: sender)
     }
     
     func tappedAirplay(_ sender: Notification?) {
-        
+        log(notification: sender)
     }
     
     func rotateToLandscape(_ sender: Notification?) {
-        
+        log(notification: sender)
     }
     
     func rotateToPortrait(_ sender: Notification?) {
-        
+        log(notification: sender)
     }
     
     func downloadedMedia(_ sender: Notification?) {
-        
+        log(notification: sender)
     }
     
     func timedOut(_ sender: Notification?) {
-        
+        log(notification: sender)
     }
     
     func timeoutCancel(_ sender: Notification?) {
-        
+        log(notification: sender)
     }
     
     func timeoutWait(_ sender: Notification?) {
-        
+        log(notification: sender)
     }
     
     func playingInBackground(_ sender: Notification?) {
+        log(notification: sender)
+    }
+    
+    fileprivate func log(notification: Notification?) {
+        guard let notification = notification else {
+            return
+        }
         
+        guard let trackingObject = notification.object as? AwesomeMediaTrackingObject else {
+            return
+        }
+        
+        var string = "tracking \(trackingObject.source.rawValue): \(notification.name.rawValue)"
+        
+        if let value = trackingObject.value {
+            string.append(" with value: \(value)")
+        }
+        
+        print(string)
     }
     
 }
