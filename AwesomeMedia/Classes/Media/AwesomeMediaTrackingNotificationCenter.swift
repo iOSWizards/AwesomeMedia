@@ -38,8 +38,8 @@ public enum AwesomeMediaTrackingEvent: String {
 }
 
 public struct AwesomeMediaTrackingObject {
-    var source: AwesomeMediaTrackingSource = .videoCell
-    var value: Any?
+    public var source: AwesomeMediaTrackingSource = .videoCell
+    public var value: Any?
 }
 
 func notifyTrackingEvent(_ event: AwesomeMediaTrackingEvent, object: AwesomeMediaTrackingObject) {
@@ -60,7 +60,7 @@ public class AwesomeMediaTrackingNotificationCenter: NotificationCenter {
         addObserver(observer, selector: selector, name: NSNotification.Name(rawValue: event.rawValue), object: object)
     }
     
-    public static func addObservers(to: AwesomeMediaEventObserver) {
+    public static func addObservers(to: AwesomeMediaTrackingObserver) {
         AwesomeMediaTrackingNotificationCenter.shared.addObserver(to, selector: .startedPlaying, event: .startedPlaying)
         AwesomeMediaTrackingNotificationCenter.shared.addObserver(to, selector: .stoppedPlaying, event: .stoppedPlaying)
         AwesomeMediaTrackingNotificationCenter.shared.addObserver(to, selector: .sliderChanged, event: .sliderChanged)
@@ -79,7 +79,7 @@ public class AwesomeMediaTrackingNotificationCenter: NotificationCenter {
         AwesomeMediaTrackingNotificationCenter.shared.addObserver(to, selector: .downloadedMedia, event: .downloadedMedia)
     }
     
-    public static func removeObservers(from: AwesomeMediaEventObserver) {
+    public static func removeObservers(from: AwesomeMediaTrackingObserver) {
         AwesomeMediaNotificationCenter.shared.removeObserver(from)
     }
     
