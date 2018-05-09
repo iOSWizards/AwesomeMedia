@@ -77,11 +77,18 @@ public class AwesomeMediaMarkersViewController: UIViewController {
         }
     }
     
-    // MARK: - EVENTS
-    @IBAction public func closeButtonPressed(_ sender: AnyObject) {
+    public func close() {
         animateOut {
             self.dismiss(animated: false, completion: nil)
         }
+    }
+    
+    // MARK: - EVENTS
+    @IBAction public func closeButtonPressed(_ sender: AnyObject) {
+        close()
+        
+        // track event
+        track(event: .closedMarkers, source: .videoFullscreen)
     }
     
 }
