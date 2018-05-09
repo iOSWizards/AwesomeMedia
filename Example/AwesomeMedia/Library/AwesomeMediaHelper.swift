@@ -98,11 +98,11 @@ extension AwesomeMediaHelper: AwesomeMediaTrackingObserver {
         log(notification: sender)
     }
     
-    func rotateToLandscape(_ sender: Notification?) {
+    func changedOrientation(_ sender: Notification?) {
         log(notification: sender)
     }
     
-    func rotateToPortrait(_ sender: Notification?) {
+    func openedFullscreenWithRotation(_ sender: Notification?) {
         log(notification: sender)
     }
     

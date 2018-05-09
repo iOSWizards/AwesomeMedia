@@ -150,6 +150,7 @@ extension UIViewController {
 extension UIViewController {
     public func handleOrientationChange(withMediaParams mediaParams: [AwesomeMediaParams]) {
         AwesomeMedia.openFullscreenVideoIfPlaying(mediaParamsArray: mediaParams, fromController: self)
+        
     }
 }
 

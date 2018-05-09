@@ -47,6 +47,11 @@ public class AwesomeMediaAudioViewController: UIViewController {
         removeObservers()
     }
     
+    public override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        // track event
+        track(event: .changedOrientation, source: .audioFullscreen, value: UIApplication.shared.statusBarOrientation)
+    }
+    
     // Configure
     public override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()

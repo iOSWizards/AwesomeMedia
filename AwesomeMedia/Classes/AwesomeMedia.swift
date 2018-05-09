@@ -58,6 +58,9 @@ public class AwesomeMedia {
         if let mediaParams  = sharedAVPlayer.playingMediaParams(ifPlayingAnyFrom: mediaParamsArray) {
             viewController.presentVideoFullscreen(withMediaParams: mediaParams)
         }
+        
+        // track event
+        track(event: .openedFullscreenWithRotation, source: .unknown, value: UIApplication.shared.statusBarOrientation)
     }
     
 }

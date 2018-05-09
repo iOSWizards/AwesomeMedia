@@ -32,8 +32,8 @@ public enum AwesomeMediaTrackingEvent: String {
     case tappedRewind
     case tappedAdvance
     case tappedAirplay
-    case rotateToLandscape
-    case rotateToPortrait
+    case changedOrientation
+    case openedFullscreenWithRotation
     case tappedDownload
     case deletedDownload
     case timedOut
@@ -81,8 +81,8 @@ public class AwesomeMediaTrackingNotificationCenter: NotificationCenter {
         AwesomeMediaTrackingNotificationCenter.shared.addObserver(to, selector: .tappedRewind, event: .tappedRewind)
         AwesomeMediaTrackingNotificationCenter.shared.addObserver(to, selector: .tappedAdvance, event: .tappedAdvance)
         AwesomeMediaTrackingNotificationCenter.shared.addObserver(to, selector: .tappedAirplay, event: .tappedAirplay)
-        AwesomeMediaTrackingNotificationCenter.shared.addObserver(to, selector: .rotateToLandscape, event: .rotateToLandscape)
-        AwesomeMediaTrackingNotificationCenter.shared.addObserver(to, selector: .rotateToPortrait, event: .rotateToPortrait)
+        AwesomeMediaTrackingNotificationCenter.shared.addObserver(to, selector: .changedOrientation, event: .changedOrientation)
+        AwesomeMediaTrackingNotificationCenter.shared.addObserver(to, selector: .openedFullscreenWithRotation, event: .openedFullscreenWithRotation)
         AwesomeMediaTrackingNotificationCenter.shared.addObserver(to, selector: .tappedDownload, event: .tappedDownload)
         AwesomeMediaTrackingNotificationCenter.shared.addObserver(to, selector: .deletedDownload, event: .deletedDownload)
         AwesomeMediaTrackingNotificationCenter.shared.addObserver(to, selector: .timedOut, event: .timedOut)

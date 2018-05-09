@@ -41,6 +41,9 @@ public class AwesomeMediaFileTableViewCell: UITableViewCell {
         }
         
         self.parentViewController?.presentWebPageInSafari(withURL: url)
+        
+        // track event
+        track(event: .toggleFullscreen, source: .fileCell)
     }
     
     // MARK: - Dimensions
