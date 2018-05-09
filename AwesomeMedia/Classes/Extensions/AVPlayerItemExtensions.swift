@@ -88,6 +88,11 @@ extension AVPlayerItem {
 
         if background {
             AwesomeMediaPlayerLayer.shared.player = nil
+            
+            // track event
+            if sharedAVPlayer.isPlaying {
+                track(event: .playingInBackground, source: .unknown)
+            }
         } else {
             AwesomeMediaPlayerLayer.shared.player = sharedAVPlayer
         }
