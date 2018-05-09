@@ -58,22 +58,22 @@ extension AwesomeMediaHelper: AwesomeMediaTrackingObserver {
     }
     
     func stoppedPlaying(_ sender: Notification?) {
+        guard let trackingObject = sender?.object as? AwesomeMediaTrackingObject else {
+            return
+        }
         
+        print("tracking \(sender?.name.rawValue ?? ""): \(trackingObject.source.rawValue)")
     }
     
     func sliderChanged(_ sender: Notification?) {
         
     }
     
-    func openFullscreen(_ sender: Notification?) {
+    func toggleFullscreen(_ sender: Notification?) {
         
     }
     
     func closeFullscreen(_ sender: Notification?) {
-        
-    }
-    
-    func minimizeFullscreen(_ sender: Notification?) {
         
     }
     
@@ -117,5 +117,20 @@ extension AwesomeMediaHelper: AwesomeMediaTrackingObserver {
         
     }
     
+    func timedOut(_ sender: Notification?) {
+        
+    }
+    
+    func timeoutCancel(_ sender: Notification?) {
+        
+    }
+    
+    func timeoutWait(_ sender: Notification?) {
+        
+    }
+    
+    func playingInBackground(_ sender: Notification?) {
+        
+    }
     
 }

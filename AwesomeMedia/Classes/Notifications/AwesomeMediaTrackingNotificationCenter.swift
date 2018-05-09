@@ -23,9 +23,8 @@ public enum AwesomeMediaTrackingEvent: String {
     case startedPlaying
     case stoppedPlaying
     case sliderChanged
-    case openFullscreen
+    case toggleFullscreen
     case closeFullscreen
-    case minimizeFullscreen
     case openedMarkers
     case closedMarkers
     case selectedMarker
@@ -36,6 +35,10 @@ public enum AwesomeMediaTrackingEvent: String {
     case rotateToLandscape
     case rotateToPortrait
     case downloadedMedia
+    case timedOut
+    case timeoutCancel
+    case timeoutWait
+    case playingInBackground
 }
 
 public struct AwesomeMediaTrackingObject {
@@ -43,10 +46,10 @@ public struct AwesomeMediaTrackingObject {
     public var value: Any?
 }
 
-func notifyTrackingEvent(_ event: AwesomeMediaTrackingEvent, object: AwesomeMediaTrackingObject) {
-    AwesomeMedia.log("notification tracking event: \(event.rawValue) source: \(object.source.rawValue)")
+func track(event: AwesomeMediaTrackingEvent, source: AwesomeMediaTrackingSource, value: Any? = nil) {
+    //AwesomeMedia.log("notification tracking event: \(event.rawValue) source: \(object.source.rawValue)")
     
-    AwesomeMediaTrackingNotificationCenter.shared.notify(event, object: object)
+    AwesomeMediaTrackingNotificationCenter.shared.notify(event, object: AwesomeMediaTrackingObject(source: source, value: value))
 }
 
 public class AwesomeMediaTrackingNotificationCenter: NotificationCenter {
@@ -65,9 +68,8 @@ public class AwesomeMediaTrackingNotificationCenter: NotificationCenter {
         AwesomeMediaTrackingNotificationCenter.shared.addObserver(to, selector: .startedPlaying, event: .startedPlaying)
         AwesomeMediaTrackingNotificationCenter.shared.addObserver(to, selector: .stoppedPlaying, event: .stoppedPlaying)
         AwesomeMediaTrackingNotificationCenter.shared.addObserver(to, selector: .sliderChanged, event: .sliderChanged)
-        AwesomeMediaTrackingNotificationCenter.shared.addObserver(to, selector: .openFullscreen, event: .openFullscreen)
+        AwesomeMediaTrackingNotificationCenter.shared.addObserver(to, selector: .toggleFullscreen, event: .toggleFullscreen)
         AwesomeMediaTrackingNotificationCenter.shared.addObserver(to, selector: .closeFullscreen, event: .closeFullscreen)
-        AwesomeMediaTrackingNotificationCenter.shared.addObserver(to, selector: .minimizeFullscreen, event: .minimizeFullscreen)
         AwesomeMediaTrackingNotificationCenter.shared.addObserver(to, selector: .openedMarkers, event: .openedMarkers)
         AwesomeMediaTrackingNotificationCenter.shared.addObserver(to, selector: .closedMarkers, event: .closedMarkers)
         AwesomeMediaTrackingNotificationCenter.shared.addObserver(to, selector: .selectedMarker, event: .selectedMarker)
@@ -78,6 +80,10 @@ public class AwesomeMediaTrackingNotificationCenter: NotificationCenter {
         AwesomeMediaTrackingNotificationCenter.shared.addObserver(to, selector: .rotateToLandscape, event: .rotateToLandscape)
         AwesomeMediaTrackingNotificationCenter.shared.addObserver(to, selector: .rotateToPortrait, event: .rotateToPortrait)
         AwesomeMediaTrackingNotificationCenter.shared.addObserver(to, selector: .downloadedMedia, event: .downloadedMedia)
+        AwesomeMediaTrackingNotificationCenter.shared.addObserver(to, selector: .timedOut, event: .timedOut)
+        AwesomeMediaTrackingNotificationCenter.shared.addObserver(to, selector: .timeoutCancel, event: .timeoutCancel)
+        AwesomeMediaTrackingNotificationCenter.shared.addObserver(to, selector: .timeoutWait, event: .timeoutWait)
+        AwesomeMediaTrackingNotificationCenter.shared.addObserver(to, selector: .playingInBackground, event: .playingInBackground)
     }
     
     public static func removeObservers(from: AwesomeMediaTrackingObserver) {

@@ -12,7 +12,9 @@ class AwesomeMediaAudioControlView: AwesomeMediaControlView {
     @IBOutlet weak var titleLabel: UILabel!
     
     // Configuration
-    public func configure(withParams params: AwesomeMediaParams) {
+    public func configure(withParams params: AwesomeMediaParams, trackingSource: AwesomeMediaTrackingSource) {
+        self.trackingSource = trackingSource
+        
         titleLabel.text = AwesomeMediaManager.title(forParams: params)
         
         reset()

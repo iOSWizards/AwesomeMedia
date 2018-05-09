@@ -11,9 +11,8 @@ public extension Selector {
     public static let startedPlaying = #selector(AwesomeMediaTrackingObserver.startedPlaying)
     public static let stoppedPlaying = #selector(AwesomeMediaTrackingObserver.stoppedPlaying)
     public static let sliderChanged = #selector(AwesomeMediaTrackingObserver.sliderChanged)
-    public static let openFullscreen = #selector(AwesomeMediaTrackingObserver.openFullscreen)
+    public static let toggleFullscreen = #selector(AwesomeMediaTrackingObserver.toggleFullscreen)
     public static let closeFullscreen = #selector(AwesomeMediaTrackingObserver.closeFullscreen)
-    public static let minimizeFullscreen = #selector(AwesomeMediaTrackingObserver.minimizeFullscreen)
     public static let openedMarkers = #selector(AwesomeMediaTrackingObserver.openedMarkers)
     public static let closedMarkers = #selector(AwesomeMediaTrackingObserver.closedMarkers)
     public static let selectedMarker = #selector(AwesomeMediaTrackingObserver.selectedMarker)
@@ -24,6 +23,9 @@ public extension Selector {
     public static let rotateToLandscape = #selector(AwesomeMediaTrackingObserver.rotateToLandscape)
     public static let rotateToPortrait = #selector(AwesomeMediaTrackingObserver.rotateToPortrait)
     public static let downloadedMedia = #selector(AwesomeMediaTrackingObserver.downloadedMedia)
+    public static let timeoutCancel = #selector(AwesomeMediaTrackingObserver.timeoutCancel)
+    public static let timeoutWait = #selector(AwesomeMediaTrackingObserver.timeoutWait)
+    public static let playingInBackground = #selector(AwesomeMediaTrackingObserver.playingInBackground)
 }
 
 @objc public protocol AwesomeMediaTrackingObserver {
@@ -32,9 +34,8 @@ public extension Selector {
     @objc func startedPlaying(_ sender: Notification?)
     @objc func stoppedPlaying(_ sender: Notification?)
     @objc func sliderChanged(_ sender: Notification?)
-    @objc func openFullscreen(_ sender: Notification?)
+    @objc func toggleFullscreen(_ sender: Notification?)
     @objc func closeFullscreen(_ sender: Notification?)
-    @objc func minimizeFullscreen(_ sender: Notification?)
     @objc func openedMarkers(_ sender: Notification?)
     @objc func closedMarkers(_ sender: Notification?)
     @objc func selectedMarker(_ sender: Notification?)
@@ -45,4 +46,8 @@ public extension Selector {
     @objc func rotateToLandscape(_ sender: Notification?)
     @objc func rotateToPortrait(_ sender: Notification?)
     @objc func downloadedMedia(_ sender: Notification?)
+    @objc func timedOut(_ sender: Notification?)
+    @objc func timeoutCancel(_ sender: Notification?)
+    @objc func timeoutWait(_ sender: Notification?)
+    @objc func playingInBackground(_ sender: Notification?)
 }

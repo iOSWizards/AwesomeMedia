@@ -75,9 +75,9 @@ public class AwesomeMediaControlView: UIView {
         
         // tracking event
         if playButton.isSelected {
-            notifyTrackingEvent(.startedPlaying, object: AwesomeMediaTrackingObject(source: trackingSource, value: nil))
+            track(event: .startedPlaying, source: trackingSource)
         } else {
-            notifyTrackingEvent(.stoppedPlaying, object: AwesomeMediaTrackingObject(source: trackingSource, value: nil))
+            track(event: .stoppedPlaying, source: trackingSource)
         }
     }
     
@@ -85,14 +85,14 @@ public class AwesomeMediaControlView: UIView {
         rewindCallback?()
         
         // tracking event
-        notifyTrackingEvent(.tappedRewind, object: AwesomeMediaTrackingObject(source: trackingSource, value: AwesomeMedia.backwardForwardStep))
+        track(event: .tappedRewind, source: trackingSource, value: AwesomeMedia.backwardForwardStep)
     }
     
     @IBAction func speedButtonPressed(_ sender: Any) {
         speedToggleCallback?()
         
         // tracking event
-        notifyTrackingEvent(.toggledSpeed, object: AwesomeMediaTrackingObject(source: trackingSource, value: AwesomeMedia.backwardForwardStep))
+        track(event: .toggledSpeed, source: trackingSource, value: AwesomeMedia.backwardForwardStep)
     }
     
     @IBAction func timeSliderValueChanged(_ sender: Any) {
@@ -103,7 +103,7 @@ public class AwesomeMediaControlView: UIView {
         timeSliderChangedCallback?(Double(timeSlider.value))
         
         // tracking event
-        notifyTrackingEvent(.sliderChanged, object: AwesomeMediaTrackingObject(source: trackingSource, value: timeSlider.value))
+        track(event: .sliderChanged, source: trackingSource, value: timeSlider.value)
     }
     
     @IBAction func timeSliderStartedDragging(_ sender: Any) {

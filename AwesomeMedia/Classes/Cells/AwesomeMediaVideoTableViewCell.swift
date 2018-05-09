@@ -26,7 +26,8 @@ public class AwesomeMediaVideoTableViewCell: UITableViewCell {
     public func configure(withMediaParams mediaParams: AwesomeMediaParams) {
         playerView.configure(withMediaParams: mediaParams,
                              controls: .standard,
-                             states: [.info])
+                             states: [.info],
+                             trackingSource: .videoCell)
         playerView.controlView?.fullscreenCallback = {
             self.parentViewController?.presentVideoFullscreen(withMediaParams: mediaParams)
         }

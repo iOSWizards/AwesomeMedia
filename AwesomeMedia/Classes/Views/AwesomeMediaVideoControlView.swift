@@ -43,9 +43,10 @@ public class AwesomeMediaVideoControlView: AwesomeMediaControlView {
         updateControls(isPortrait: UIApplication.shared.statusBarOrientation.isPortrait)
     }
     
-    public func configure(withControls controls: AwesomeMediaVideoControls, states: AwesomeMediaVideoStates) {
+    public func configure(withControls controls: AwesomeMediaVideoControls, states: AwesomeMediaVideoStates, trackingSource: AwesomeMediaTrackingSource) {
         self.states = states
         self.controls = controls
+        self.trackingSource = trackingSource
         
         // show or hide buttons depending on request
         setupControls()
@@ -113,15 +114,24 @@ public class AwesomeMediaVideoControlView: AwesomeMediaControlView {
     @IBAction func jumptoButtonPressed(_ sender: Any) {
         jumpToCallback?()
         setupAutoHide()
+        
+        // tracking event
+        track(event: .openedMarkers, source: trackingSource)
     }
     
     @IBAction func toggleFullscreenButtonPressed(_ sender: Any) {
         fullscreenCallback?()
         setupAutoHide()
+        
+        // tracking event
+        track(event: .toggleFullscreen, source: trackingSource)
     }
     
     @IBAction func playlistButtonPressed(_ sender: Any) {
         setupAutoHide()
+        
+        // tracking event
+        //track(event: .togglePlaylist, source: trackingSource)
     }
     
     @IBAction override func playButtonPressed(_ sender: Any) {
@@ -228,13 +238,13 @@ extension AwesomeMediaVideoControlView {
 }
 
 extension UIView {
-    public func addVideoControls(withControls controls: AwesomeMediaVideoControls = .standard, states: AwesomeMediaVideoStates = .standard) -> AwesomeMediaVideoControlView {
+    public func addVideoControls(withControls controls: AwesomeMediaVideoControls = .standard, states: AwesomeMediaVideoStates = .standard, trackingSource: AwesomeMediaTrackingSource) -> AwesomeMediaVideoControlView {
         
         // remove video control view before adding new
         removeVideoControlView()
         
         let controlView = AwesomeMediaVideoControlView.newInstance
-        controlView.configure(withControls: controls, states: states)
+        controlView.configure(withControls: controls, states: states, trackingSource: trackingSource)
         addSubview(controlView)
         controlView.translatesAutoresizingMaskIntoConstraints = false
         

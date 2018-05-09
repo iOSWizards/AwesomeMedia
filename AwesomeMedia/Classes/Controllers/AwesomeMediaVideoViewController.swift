@@ -22,6 +22,7 @@ public class AwesomeMediaVideoViewController: UIViewController {
         playerView.configure(withMediaParams: mediaParams,
                              controls: .all,
                              states: .standard,
+                             trackingSource: .videoFullscreen,
                              titleViewVisible: true)
         playerView.controlView?.fullscreenCallback = {
             self.close()

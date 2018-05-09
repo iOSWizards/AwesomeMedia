@@ -17,8 +17,9 @@
 		0794164D5043A9EEC91694DC8420E6E3 /* LOTMaskContainer.h in Headers */ = {isa = PBXBuildFile; fileRef = 8E00779AE11210BBF65633378495B50D /* LOTMaskContainer.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		07A0B068367EFD40BE96EA80EEBC1010 /* Gilroy-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 85738ECA0AB30FD481ED3EFF5243EE52 /* Gilroy-ExtraBold.otf */; };
 		092C9DCF8406FF0C5B91ABD5DC856243 /* LOTLayerGroup.h in Headers */ = {isa = PBXBuildFile; fileRef = F5B516E9E65FE1DA61594FDB65BE05BE /* LOTLayerGroup.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		0AD85DF420A0963A00930346 /* AwesomeMediaTrackingNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD85DF320A0963A00930346 /* AwesomeMediaTrackingNotificationCenter.swift */; };
 		0AD85DF620A2E83E00930346 /* AwesomeMediaTrackingObserverProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD85DF520A2E83E00930346 /* AwesomeMediaTrackingObserverProtocol.swift */; };
+		0AD85DFB20A32DB900930346 /* AwesomeMediaNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD85DF920A32DB900930346 /* AwesomeMediaNotificationCenter.swift */; };
+		0AD85DFC20A32DB900930346 /* AwesomeMediaTrackingNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD85DFA20A32DB900930346 /* AwesomeMediaTrackingNotificationCenter.swift */; };
 		0BF463DF35A096EF301D8B859F0F6828 /* LOTShapeStroke.m in Sources */ = {isa = PBXBuildFile; fileRef = 7832218C84B19AC05BEBB27984F0C2C2 /* LOTShapeStroke.m */; };
 		0C4C9582BBFE3F95FE5E7F7A403560DD /* AwesomeMedia-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 90F99497F05EA11C778B8CE0C9F80ED6 /* AwesomeMedia-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0CBC142347C21DE8B7155C473432E263 /* Gilroy-MediumItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = A1C9AC9CABF6B7786D7D9E678F375E46 /* Gilroy-MediumItalic.otf */; };
@@ -302,7 +303,6 @@
 		FA782DC55CD135E68E76EA3389C855B2 /* AwesomeNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FBE09A524182F7749922C0E06320167 /* AwesomeNetwork.framework */; };
 		FC492D476E6DAEAD8C73625D68D00EA2 /* CALayer+Compat.m in Sources */ = {isa = PBXBuildFile; fileRef = 985438DD09E23F1964CD6F7EC65A1E33 /* CALayer+Compat.m */; };
 		FE35402137E8A95FFF59B38CAD5902A4 /* LOTTransformInterpolator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1480D023A95D7D3ACDBE3436665E53D3 /* LOTTransformInterpolator.m */; };
-		FF9E9098A8E05C09396B17852B6DD3D9 /* AwesomeMediaNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F5BD728FF4CC7F03B98DE1CC681D90 /* AwesomeMediaNotificationCenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -424,7 +424,6 @@
 		0074FDD9E959FDBADC774FDA23763B7C /* Gilroy-Black.otf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; path = "Gilroy-Black.otf"; sourceTree = "<group>"; };
 		00EACC50EC0E10BDFF49FB2DFF052C3C /* AwesomeMedia.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AwesomeMedia.swift; path = AwesomeMedia/Classes/AwesomeMedia.swift; sourceTree = "<group>"; };
 		0174ADC3EE6FBE8B057505A12E965488 /* AwesomeMediaParams.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AwesomeMediaParams.swift; sourceTree = "<group>"; };
-		01F5BD728FF4CC7F03B98DE1CC681D90 /* AwesomeMediaNotificationCenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AwesomeMediaNotificationCenter.swift; sourceTree = "<group>"; };
 		0258866D7412AC91143A6ACD28EE5EB2 /* LOTFillRenderer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LOTFillRenderer.h; path = "lottie-ios/Classes/RenderSystem/RenderNodes/LOTFillRenderer.h"; sourceTree = "<group>"; };
 		03BF3B023FE8E0DE99F4C7746F5000A2 /* Pods-AwesomeMedia_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-AwesomeMedia_Tests-umbrella.h"; sourceTree = "<group>"; };
 		046F84E3B44B51FD7BCDE306E3D75C2B /* LOTAnimatorNode.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LOTAnimatorNode.m; path = "lottie-ios/Classes/RenderSystem/LOTAnimatorNode.m"; sourceTree = "<group>"; };
@@ -435,8 +434,9 @@
 		09195865484C2AA79CAA7EA2AF1B501A /* lottie-ios.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "lottie-ios.xcconfig"; sourceTree = "<group>"; };
 		0998C9946817DD8B75C081F04A337C4A /* AwesomeMediaVideoTitleView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AwesomeMediaVideoTitleView.swift; sourceTree = "<group>"; };
 		09BECA42CA90A5C533D218D6BDC100B6 /* it.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; path = it.lproj; sourceTree = "<group>"; };
-		0AD85DF320A0963A00930346 /* AwesomeMediaTrackingNotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwesomeMediaTrackingNotificationCenter.swift; sourceTree = "<group>"; };
 		0AD85DF520A2E83E00930346 /* AwesomeMediaTrackingObserverProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwesomeMediaTrackingObserverProtocol.swift; sourceTree = "<group>"; };
+		0AD85DF920A32DB900930346 /* AwesomeMediaNotificationCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AwesomeMediaNotificationCenter.swift; sourceTree = "<group>"; };
+		0AD85DFA20A32DB900930346 /* AwesomeMediaTrackingNotificationCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AwesomeMediaTrackingNotificationCenter.swift; sourceTree = "<group>"; };
 		0AE0D7DB1DDB237A0F9F7842F8B81422 /* UIBezierPath.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = UIBezierPath.m; path = "lottie-ios/Classes/MacCompatability/UIBezierPath.m"; sourceTree = "<group>"; };
 		0BA2D48EEDF6D6B8E0F30F8F3387F2FA /* LOTCacheProvider.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LOTCacheProvider.m; path = "lottie-ios/Classes/Private/LOTCacheProvider.m"; sourceTree = "<group>"; };
 		0F6432ED53F0E753087F9C9E0C97DB57 /* Pods-AwesomeMedia_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-AwesomeMedia_Tests.modulemap"; sourceTree = "<group>"; };
@@ -850,6 +850,16 @@
 			name = Controls;
 			sourceTree = "<group>";
 		};
+		0AD85DF820A32DB900930346 /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				0AD85DF920A32DB900930346 /* AwesomeMediaNotificationCenter.swift */,
+				0AD85DFA20A32DB900930346 /* AwesomeMediaTrackingNotificationCenter.swift */,
+			);
+			name = Notifications;
+			path = AwesomeMedia/Classes/Notifications;
+			sourceTree = "<group>";
+		};
 		0E6A509A1C7C34933BB7B84050CEEA03 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -878,6 +888,7 @@
 				BAD9F1DBC974EE1FB95C19C984BC7AE8 /* Models */,
 				222679CA1737F34CD4639EA113628C7A /* Views */,
 				E2F1823CC7A3E73D6387677D8E24F470 /* ViewModels */,
+				0AD85DF820A32DB900930346 /* Notifications */,
 				B2CA4415DD539282A25823AC3F979C06 /* Protocols */,
 				7B2E8B49BEC51125929A9F060447FEFD /* Pod */,
 				2D883DEB44528527289D6BD8383187E3 /* Resources */,
@@ -1431,8 +1442,6 @@
 				1CE4772402B9E0EC742F312A58194BBA /* AwesomeMediaControlOptionSet.swift */,
 				972722692E4CC1A3E3BCEF36A2ACD736 /* AwesomeMediaDownloadManager.swift */,
 				E7CE47A84806410A9AC22FE8A75A2AA6 /* AwesomeMediaManager.swift */,
-				01F5BD728FF4CC7F03B98DE1CC681D90 /* AwesomeMediaNotificationCenter.swift */,
-				0AD85DF320A0963A00930346 /* AwesomeMediaTrackingNotificationCenter.swift */,
 				B2A28C58166BA28F2180A72E599A922C /* AwesomeMediaPlayerLayer.swift */,
 			);
 			name = Media;
@@ -1954,6 +1963,7 @@
 				C81D86D0F84218F68A6A40CD45E8ABBA /* AwesomeMediaAudioPlayerView.swift in Sources */,
 				C6B09C792984DFF1B931131EEA5C7C82 /* AwesomeMediaAudioTableViewCell.swift in Sources */,
 				2032290C6B99E6E3588B7029DAB0A04A /* AwesomeMediaAudioViewController.swift in Sources */,
+				0AD85DFC20A32DB900930346 /* AwesomeMediaTrackingNotificationCenter.swift in Sources */,
 				01022571A277685D539B7BFD63A73E3E /* AwesomeMediaCacheManager.swift in Sources */,
 				CAD669BEC419CCB7F2D402C6F1A9147F /* AwesomeMediaControlCenter.swift in Sources */,
 				79F4A8A201CA6D4BD87209FA50C89676 /* AwesomeMediaControlOptionSet.swift in Sources */,
@@ -1970,14 +1980,12 @@
 				48E95B0A93E5BC0CC92234A7AFF8B613 /* AwesomeMediaMarkersViewController.swift in Sources */,
 				40CB62349618A686D62559D1B057601D /* AwesomeMediaMarkersViewModel.swift in Sources */,
 				007B4BFFF9D7BFF271C43D9831A555DA /* AwesomeMediaMarkerTableViewCell.swift in Sources */,
-				FF9E9098A8E05C09396B17852B6DD3D9 /* AwesomeMediaNotificationCenter.swift in Sources */,
 				71301CBF5FE20EBBF04A0A23CF49A016 /* AwesomeMediaParams.swift in Sources */,
 				334BB9861F6B74F111E0F066B11D3C26 /* AwesomeMediaPlayerLayer.swift in Sources */,
 				47886C735EF1162665F902D7BB2D5876 /* AwesomeMediaRequester.swift in Sources */,
 				0AD85DF620A2E83E00930346 /* AwesomeMediaTrackingObserverProtocol.swift in Sources */,
 				C4C8D6FE4906915A39F41498F42ACA18 /* AwesomeMediaSpeed.swift in Sources */,
 				E5A713351D9343C2C3771390B0D40A7C /* AwesomeMediaTime.swift in Sources */,
-				0AD85DF420A0963A00930346 /* AwesomeMediaTrackingNotificationCenter.swift in Sources */,
 				337344DE8CC3D8EBC8FC37E2C5235D36 /* AwesomeMediaVideoControlView.swift in Sources */,
 				1BDB25680D945529E9C276DCC5A10B51 /* AwesomeMediaVideoMarkersView.swift in Sources */,
 				AC2114C516EDA1D36D1928954978E314 /* AwesomeMediaVideoTableViewCell.swift in Sources */,
@@ -1989,6 +1997,7 @@
 				10476AE0A02889AB0D70C2D8C0C62A1B /* StringExtensions.swift in Sources */,
 				A24D91A297CA4F9CD3F215944C32CF10 /* UIColorExtensions.swift in Sources */,
 				D687491A39A44DA87328649C38C24608 /* UIImageExtensions.swift in Sources */,
+				0AD85DFB20A32DB900930346 /* AwesomeMediaNotificationCenter.swift in Sources */,
 				7A349E4BA509D8B17C52BC43DBEA503A /* UIImageViewExtensions.swift in Sources */,
 				857BA34DAAD054908FC2A2A41BFC77C0 /* UISliderExtensions.swift in Sources */,
 				D157CECB1E0536F4B6598212E4476A19 /* UITableViewCellExtensions.swift in Sources */,

@@ -75,7 +75,7 @@ public class AwesomeMediaAudioViewController: UIViewController {
     }
     
     fileprivate func configureControls() {
-        controlView.configure(withParams: mediaParams)
+        controlView.configure(withParams: mediaParams, trackingSource: .audioFullscreen)
         
         // play/pause
         controlView.playCallback = { (isPlaying) in

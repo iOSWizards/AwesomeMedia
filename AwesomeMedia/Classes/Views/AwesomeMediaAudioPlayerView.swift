@@ -21,6 +21,7 @@ public class AwesomeMediaAudioPlayerView: UIView {
     public var mediaParams: AwesomeMediaParams = [:]
     public var isLocked = false
     public var canRemove = false
+    public var trackingSource: AwesomeMediaTrackingSource = .audioMiniplayer
     
     // Private variables
     fileprivate var removeTimer: Timer?
@@ -35,8 +36,9 @@ public class AwesomeMediaAudioPlayerView: UIView {
         addObservers()
     }
     
-    public func configure(withMediaParams mediaParams: AwesomeMediaParams) {
+    public func configure(withMediaParams mediaParams: AwesomeMediaParams, trackingSource: AwesomeMediaTrackingSource) {
         self.mediaParams = mediaParams
+        self.trackingSource = trackingSource
         
         // Load cover Image
         loadCoverImage()
@@ -65,10 +67,19 @@ public class AwesomeMediaAudioPlayerView: UIView {
         } else {
             sharedAVPlayer.pause()
         }
+        
+        // tracking event
+        if playButton.isSelected {
+            track(event: .startedPlaying, source: trackingSource)
+        } else {
+            track(event: .stoppedPlaying, source: trackingSource)
+        }
     }
     
     @IBAction func fullscreenButtonPressed(_ sender: Any) {
         fullScreenCallback?()
+        
+        track(event: .toggleFullscreen, source: trackingSource)
     }
     
 }
@@ -270,7 +281,7 @@ extension UIView {
         }
         
         let playerView = AwesomeMediaAudioPlayerView.newInstance
-        playerView.configure(withMediaParams: params)
+        playerView.configure(withMediaParams: params, trackingSource: .audioMiniplayer)
         playerView.canRemove = true
         addSubview(playerView)
         

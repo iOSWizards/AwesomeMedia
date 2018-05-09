@@ -40,6 +40,7 @@ public class AwesomeMediaView: UIView {
         withMediaParams mediaParams: AwesomeMediaParams,
         controls: AwesomeMediaVideoControls,
         states: AwesomeMediaVideoStates,
+        trackingSource: AwesomeMediaTrackingSource,
         titleViewVisible: Bool = false) {
         
         self.mediaParams = mediaParams
@@ -48,7 +49,9 @@ public class AwesomeMediaView: UIView {
         self.removePlayerLayer()
         
         // Control View
-        configureControls(controls: controls, states: states)
+        configureControls(controls: controls,
+                          states: states,
+                          trackingSource: trackingSource)
         
         // Title view
         if titleViewVisible {
@@ -75,7 +78,7 @@ public class AwesomeMediaView: UIView {
         speedRateChanged()
     }
     
-    fileprivate func configureControls(controls: AwesomeMediaVideoControls, states: AwesomeMediaVideoStates = .standard) {
+    fileprivate func configureControls(controls: AwesomeMediaVideoControls, states: AwesomeMediaVideoStates = .standard, trackingSource: AwesomeMediaTrackingSource) {
         
         // Filter controls if needed
         var controls = controls
@@ -84,7 +87,7 @@ public class AwesomeMediaView: UIView {
         }
         
         // Add controls
-        controlView = superview?.addVideoControls(withControls: controls, states: states)
+        controlView = superview?.addVideoControls(withControls: controls, states: states, trackingSource: trackingSource)
         
         // set time label
         controlView?.timeLabel?.text = AwesomeMediaManager.duration(forParams: mediaParams).timeString.uppercased()
