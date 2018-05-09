@@ -17,6 +17,8 @@
 		0794164D5043A9EEC91694DC8420E6E3 /* LOTMaskContainer.h in Headers */ = {isa = PBXBuildFile; fileRef = 8E00779AE11210BBF65633378495B50D /* LOTMaskContainer.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		07A0B068367EFD40BE96EA80EEBC1010 /* Gilroy-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 85738ECA0AB30FD481ED3EFF5243EE52 /* Gilroy-ExtraBold.otf */; };
 		092C9DCF8406FF0C5B91ABD5DC856243 /* LOTLayerGroup.h in Headers */ = {isa = PBXBuildFile; fileRef = F5B516E9E65FE1DA61594FDB65BE05BE /* LOTLayerGroup.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		0AD85DF420A0963A00930346 /* AwesomeMediaTrackingNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD85DF320A0963A00930346 /* AwesomeMediaTrackingNotificationCenter.swift */; };
+		0AD85DF620A2E83E00930346 /* AwesomeMediaTrackingObserverProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD85DF520A2E83E00930346 /* AwesomeMediaTrackingObserverProtocol.swift */; };
 		0BF463DF35A096EF301D8B859F0F6828 /* LOTShapeStroke.m in Sources */ = {isa = PBXBuildFile; fileRef = 7832218C84B19AC05BEBB27984F0C2C2 /* LOTShapeStroke.m */; };
 		0C4C9582BBFE3F95FE5E7F7A403560DD /* AwesomeMedia-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 90F99497F05EA11C778B8CE0C9F80ED6 /* AwesomeMedia-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0CBC142347C21DE8B7155C473432E263 /* Gilroy-MediumItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = A1C9AC9CABF6B7786D7D9E678F375E46 /* Gilroy-MediumItalic.otf */; };
@@ -433,6 +435,8 @@
 		09195865484C2AA79CAA7EA2AF1B501A /* lottie-ios.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "lottie-ios.xcconfig"; sourceTree = "<group>"; };
 		0998C9946817DD8B75C081F04A337C4A /* AwesomeMediaVideoTitleView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AwesomeMediaVideoTitleView.swift; sourceTree = "<group>"; };
 		09BECA42CA90A5C533D218D6BDC100B6 /* it.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; path = it.lproj; sourceTree = "<group>"; };
+		0AD85DF320A0963A00930346 /* AwesomeMediaTrackingNotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwesomeMediaTrackingNotificationCenter.swift; sourceTree = "<group>"; };
+		0AD85DF520A2E83E00930346 /* AwesomeMediaTrackingObserverProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwesomeMediaTrackingObserverProtocol.swift; sourceTree = "<group>"; };
 		0AE0D7DB1DDB237A0F9F7842F8B81422 /* UIBezierPath.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = UIBezierPath.m; path = "lottie-ios/Classes/MacCompatability/UIBezierPath.m"; sourceTree = "<group>"; };
 		0BA2D48EEDF6D6B8E0F30F8F3387F2FA /* LOTCacheProvider.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LOTCacheProvider.m; path = "lottie-ios/Classes/Private/LOTCacheProvider.m"; sourceTree = "<group>"; };
 		0F6432ED53F0E753087F9C9E0C97DB57 /* Pods-AwesomeMedia_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-AwesomeMedia_Tests.modulemap"; sourceTree = "<group>"; };
@@ -1172,6 +1176,7 @@
 			children = (
 				F3A8E442E392685E3877C98EAC09BB01 /* AwesomeMediaControlStateProtocol.swift */,
 				6B914432B4797B8849D2A9099B5E2722 /* AwesomeMediaEventObserverProtocol.swift */,
+				0AD85DF520A2E83E00930346 /* AwesomeMediaTrackingObserverProtocol.swift */,
 			);
 			name = Protocols;
 			path = AwesomeMedia/Classes/Protocols;
@@ -1427,6 +1432,7 @@
 				972722692E4CC1A3E3BCEF36A2ACD736 /* AwesomeMediaDownloadManager.swift */,
 				E7CE47A84806410A9AC22FE8A75A2AA6 /* AwesomeMediaManager.swift */,
 				01F5BD728FF4CC7F03B98DE1CC681D90 /* AwesomeMediaNotificationCenter.swift */,
+				0AD85DF320A0963A00930346 /* AwesomeMediaTrackingNotificationCenter.swift */,
 				B2A28C58166BA28F2180A72E599A922C /* AwesomeMediaPlayerLayer.swift */,
 			);
 			name = Media;
@@ -1968,8 +1974,10 @@
 				71301CBF5FE20EBBF04A0A23CF49A016 /* AwesomeMediaParams.swift in Sources */,
 				334BB9861F6B74F111E0F066B11D3C26 /* AwesomeMediaPlayerLayer.swift in Sources */,
 				47886C735EF1162665F902D7BB2D5876 /* AwesomeMediaRequester.swift in Sources */,
+				0AD85DF620A2E83E00930346 /* AwesomeMediaTrackingObserverProtocol.swift in Sources */,
 				C4C8D6FE4906915A39F41498F42ACA18 /* AwesomeMediaSpeed.swift in Sources */,
 				E5A713351D9343C2C3771390B0D40A7C /* AwesomeMediaTime.swift in Sources */,
+				0AD85DF420A0963A00930346 /* AwesomeMediaTrackingNotificationCenter.swift in Sources */,
 				337344DE8CC3D8EBC8FC37E2C5235D36 /* AwesomeMediaVideoControlView.swift in Sources */,
 				1BDB25680D945529E9C276DCC5A10B51 /* AwesomeMediaVideoMarkersView.swift in Sources */,
 				AC2114C516EDA1D36D1928954978E314 /* AwesomeMediaVideoTableViewCell.swift in Sources */,
