@@ -181,15 +181,20 @@ extension UIViewController {
     }
     
     func showMediaTimedOutAlert() {
+        // track event
         track(event: .timedOut, source: .unknown)
         
         showAlert(withTitle: "failed_to_play_title".localized,
                   message: "failed_to_play".localized,
                   buttons: (UIAlertActionStyle.default, "wait".localized, {
                     AwesomeMediaManager.shared.startBufferTimer()
+                    
+                    // track event
                     track(event: .timeoutWait, source: .unknown)
                   }), (UIAlertActionStyle.destructive, "cancel".localized, {
                     sharedAVPlayer.stop()
+                    
+                    // track event
                     track(event: .timeoutCancel, source: .unknown)
                   }))
     }

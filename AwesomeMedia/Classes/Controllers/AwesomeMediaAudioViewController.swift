@@ -118,10 +118,16 @@ public class AwesomeMediaAudioViewController: UIViewController {
 
     @IBAction func minimizeButtonPressed(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
+        
+        // track event
+        track(event: .toggleFullscreen, source: .audioFullscreen)
     }
     
     @IBAction func airplayButtonPressed(_ sender: Any) {
         view.showAirplayMenu()
+        
+        // track event
+        track(event: .tappedAirplay, source: .audioFullscreen)
     }
     
     @IBAction func downloadButtonPressed(_ sender: Any) {
@@ -133,6 +139,9 @@ public class AwesomeMediaAudioViewController: UIViewController {
         default:
             downloadMedia()
         }
+        
+        // track event
+        track(event: .tappedDownload, source: .audioFullscreen)
     }
     
     fileprivate func downloadMedia() {
@@ -160,6 +169,9 @@ public class AwesomeMediaAudioViewController: UIViewController {
                 sharedAVPlayer.stop()
                 self.play()
             }
+            
+            // track event
+            track(event: .deletedDownload, source: .audioFullscreen)
         }
     }
     

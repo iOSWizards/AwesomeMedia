@@ -106,7 +106,11 @@ extension AwesomeMediaHelper: AwesomeMediaTrackingObserver {
         log(notification: sender)
     }
     
-    func downloadedMedia(_ sender: Notification?) {
+    func tappedDownload(_ sender: Notification?) {
+        log(notification: sender)
+    }
+    
+    func deletedDownload(_ sender: Notification?) {
         log(notification: sender)
     }
     

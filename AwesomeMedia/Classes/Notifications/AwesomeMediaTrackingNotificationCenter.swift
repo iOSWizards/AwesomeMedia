@@ -34,7 +34,8 @@ public enum AwesomeMediaTrackingEvent: String {
     case tappedAirplay
     case rotateToLandscape
     case rotateToPortrait
-    case downloadedMedia
+    case tappedDownload
+    case deletedDownload
     case timedOut
     case timeoutCancel
     case timeoutWait
@@ -82,7 +83,8 @@ public class AwesomeMediaTrackingNotificationCenter: NotificationCenter {
         AwesomeMediaTrackingNotificationCenter.shared.addObserver(to, selector: .tappedAirplay, event: .tappedAirplay)
         AwesomeMediaTrackingNotificationCenter.shared.addObserver(to, selector: .rotateToLandscape, event: .rotateToLandscape)
         AwesomeMediaTrackingNotificationCenter.shared.addObserver(to, selector: .rotateToPortrait, event: .rotateToPortrait)
-        AwesomeMediaTrackingNotificationCenter.shared.addObserver(to, selector: .downloadedMedia, event: .downloadedMedia)
+        AwesomeMediaTrackingNotificationCenter.shared.addObserver(to, selector: .tappedDownload, event: .tappedDownload)
+        AwesomeMediaTrackingNotificationCenter.shared.addObserver(to, selector: .deletedDownload, event: .deletedDownload)
         AwesomeMediaTrackingNotificationCenter.shared.addObserver(to, selector: .timedOut, event: .timedOut)
         AwesomeMediaTrackingNotificationCenter.shared.addObserver(to, selector: .timeoutCancel, event: .timeoutCancel)
         AwesomeMediaTrackingNotificationCenter.shared.addObserver(to, selector: .timeoutWait, event: .timeoutWait)
