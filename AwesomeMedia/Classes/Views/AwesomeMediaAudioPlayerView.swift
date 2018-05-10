@@ -18,7 +18,7 @@ public class AwesomeMediaAudioPlayerView: UIView {
     @IBOutlet public weak var timeLabel: UILabel?
     
     // Public variables
-    public var mediaParams: AwesomeMediaParams = [:]
+    public var mediaParams = AwesomeMediaParams()
     public var isLocked = false
     public var canRemove = false
     public var trackingSource: AwesomeMediaTrackingSource = .audioMiniplayer
@@ -89,12 +89,12 @@ public class AwesomeMediaAudioPlayerView: UIView {
 extension AwesomeMediaAudioPlayerView {
     
     public func updateMediaInformation() {
-        titleLabel.text = AwesomeMediaManager.title(forParams: mediaParams)
-        timeLabel?.text = AwesomeMediaManager.duration(forParams: mediaParams).timeString.uppercased()
+        titleLabel.text = mediaParams.title
+        timeLabel?.text = mediaParams.duration.timeString.uppercased()
     }
     
     public func loadCoverImage() {
-        guard let coverImageUrl = AwesomeMediaManager.coverUrl(forParams: mediaParams) else {
+        guard let coverImageUrl = mediaParams.coverUrl else {
             return
         }
         

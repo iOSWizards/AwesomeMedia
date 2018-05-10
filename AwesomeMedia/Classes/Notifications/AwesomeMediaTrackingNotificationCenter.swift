@@ -45,7 +45,7 @@ public enum AwesomeMediaTrackingEvent: String {
 public struct AwesomeMediaTrackingObject {
     public var source: AwesomeMediaTrackingSource = .unknown
     public var value: Any?
-    public var params: AwesomeMediaParams = [:]
+    public var params = AwesomeMediaParams()
 }
 
 func track(event: AwesomeMediaTrackingEvent,

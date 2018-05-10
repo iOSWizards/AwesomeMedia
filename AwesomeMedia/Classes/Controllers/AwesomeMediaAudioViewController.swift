@@ -21,7 +21,7 @@ public class AwesomeMediaAudioViewController: UIViewController {
     @IBOutlet weak var downloadStateImageView: UIImageView!
 
     // Public Variaables
-    public var mediaParams: AwesomeMediaParams = [:]
+    public var mediaParams = AwesomeMediaParams()
     
     // Private Variables
     fileprivate var downloadState: AwesomeMediaDownloadState = .none
@@ -201,7 +201,7 @@ public class AwesomeMediaAudioViewController: UIViewController {
 extension AwesomeMediaAudioViewController {
     
     public func loadCoverImage() {
-        guard let coverImageUrl = AwesomeMediaManager.coverUrl(forParams: mediaParams) else {
+        guard let coverImageUrl = mediaParams.coverUrl else {
             return
         }
         
@@ -222,7 +222,7 @@ extension AwesomeMediaAudioViewController {
             downloadButton.isHidden = true
             downloadStateStackView.isHidden = false
             
-            if let size = AwesomeMediaManager.size(forParams: mediaParams) {
+            if let size = mediaParams.size {
                 downloadStateLabel.text = "\(size.uppercased()) - \("downloading".localized)"
             } else {
                 downloadStateLabel.text = "downloading".localized

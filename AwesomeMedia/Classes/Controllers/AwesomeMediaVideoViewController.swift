@@ -14,7 +14,7 @@ public class AwesomeMediaVideoViewController: UIViewController {
     @IBOutlet public weak var playerView: AwesomeMediaView!
     
     // Public variables
-    public var mediaParams: AwesomeMediaParams = [:]
+    public var mediaParams = AwesomeMediaParams()
     
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +28,7 @@ public class AwesomeMediaVideoViewController: UIViewController {
             self.close()
         }
         playerView.controlView?.jumpToCallback = {
-            self.showMarkers(AwesomeMediaManager.markers(forParams: self.mediaParams)) { (mediaMarker) in
+            self.showMarkers(self.mediaParams.markers) { (mediaMarker) in
                 if let mediaMarker = mediaMarker {
                     sharedAVPlayer.seek(toTime: mediaMarker.time)
                     sharedAVPlayer.play()

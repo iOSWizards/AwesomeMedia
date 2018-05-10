@@ -15,7 +15,7 @@ public typealias FinishedPlayingCallback = () -> Void
 
 public class AwesomeMediaView: UIView {
 
-    public var mediaParams: AwesomeMediaParams = [:]
+    public var mediaParams = AwesomeMediaParams()
     public var controlView: AwesomeMediaVideoControlView?
     public var titleView: AwesomeMediaVideoTitleView?
     public var coverImageView: UIImageView?
@@ -82,7 +82,7 @@ public class AwesomeMediaView: UIView {
         
         // Filter controls if needed
         var controls = controls
-        if AwesomeMediaManager.markers(forParams: mediaParams).count == 0 {
+        if mediaParams.markers.count == 0 {
             controls.remove(.jumpto)
         }
         
@@ -90,7 +90,7 @@ public class AwesomeMediaView: UIView {
         controlView = superview?.addVideoControls(withControls: controls, states: states, trackingSource: trackingSource)
         
         // set time label
-        controlView?.timeLabel?.text = AwesomeMediaManager.duration(forParams: mediaParams).timeString.uppercased()
+        controlView?.timeLabel?.text = mediaParams.duration.timeString.uppercased()
         
         controlView?.playCallback = { (isPlaying) in
             if isPlaying {
@@ -273,7 +273,7 @@ extension AwesomeMediaView {
         // remove pre-existing cover images
         coverImageView?.removeFromSuperview()
         
-        guard let coverImageUrl = AwesomeMediaManager.coverUrl(forParams: mediaParams) else {
+        guard let coverImageUrl = mediaParams.coverUrl else {
             return
         }
         

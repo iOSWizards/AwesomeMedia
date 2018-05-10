@@ -15,7 +15,7 @@ class AwesomeMediaAudioControlView: AwesomeMediaControlView {
     public func configure(withParams params: AwesomeMediaParams, trackingSource: AwesomeMediaTrackingSource) {
         self.trackingSource = trackingSource
         
-        titleLabel.text = AwesomeMediaManager.title(forParams: params)
+        titleLabel.text = params.title
         
         reset()
     }

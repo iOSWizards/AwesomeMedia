@@ -16,7 +16,7 @@ public enum AwesomeMediaDownloadState {
 public class AwesomeMediaDownloadManager {
     
     public static func mediaDownloadState(withParams mediaParams: AwesomeMediaParams) -> AwesomeMediaDownloadState {
-        guard let downloadUrl = AwesomeMediaManager.url(forParams: mediaParams) else {
+        guard let downloadUrl = mediaParams.url else {
             return .none
         }
         
@@ -29,7 +29,7 @@ public class AwesomeMediaDownloadManager {
     }
     
     public static func downloadMedia(withParams mediaParams: AwesomeMediaParams, completion:@escaping (Bool) -> Void){
-        guard let downloadUrl = AwesomeMediaManager.url(forParams: mediaParams) else {
+        guard let downloadUrl = mediaParams.url else {
             completion(false)
             return
         }
@@ -57,7 +57,7 @@ public class AwesomeMediaDownloadManager {
     }
     
     public static func deleteDownloadedMedia(withParams mediaParams: AwesomeMediaParams, completion:@escaping (Bool) -> Void){
-        guard let downloadUrl = AwesomeMediaManager.url(forParams: mediaParams) else {
+        guard let downloadUrl = mediaParams.url else {
             completion(false)
             return
         }
@@ -69,7 +69,7 @@ public class AwesomeMediaDownloadManager {
 extension UIViewController {
     
     public func confirmMediaDeletion(withParams mediaParams: AwesomeMediaParams, fromView: UIView? = nil, completion:@escaping (Bool) -> Void) {
-        guard let downloadUrl = AwesomeMediaManager.url(forParams: mediaParams) else {
+        guard let downloadUrl = mediaParams.url else {
             completion(false)
             return
         }

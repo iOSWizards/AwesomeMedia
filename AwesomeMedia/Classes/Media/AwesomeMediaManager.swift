@@ -22,7 +22,7 @@ public class AwesomeMediaManager: NSObject {
     
     // Public Variables
     public var bufferingState = [String: Bool]()
-    public var mediaParams: AwesomeMediaParams = [:]
+    public var mediaParams = AwesomeMediaParams()
     
     // Testing Variables
     public static let testVideoURL = "https://overmind2.mvstg.com/api/v1/assets/0af656fc-dcde-45ad-9b59-7632ca247001.m3u8"
@@ -43,7 +43,7 @@ public class AwesomeMediaManager: NSObject {
     
     func playMedia(withParams params: AwesomeMediaParams, inPlayerLayer playerLayer: AVPlayerLayer? = nil, viewController: UIViewController? = nil) {
         
-        guard let url = AwesomeMediaManager.url(forParams: params)?.offlineURLIfAvailable else {
+        guard let url = params.url?.offlineURLIfAvailable else {
             AwesomeMedia.log("No URL provided")
             return
         }
@@ -100,7 +100,7 @@ public class AwesomeMediaManager: NSObject {
     // Media State
     
     public func mediaIsLoading(withParams params: AwesomeMediaParams) -> Bool {
-        guard let url = AwesomeMediaManager.url(forParams: params)?.offlineURLIfAvailable else {
+        guard let url = params.url?.offlineURLIfAvailable else {
             return false
         }
         
