@@ -145,6 +145,8 @@ extension AwesomeMediaHelper: AwesomeMediaTrackingObserver {
             string.append(" with value: \(value)")
         }
         
+        string.append(" params: [\(trackingObject.params)]")
+        
         print(string)
     }
     

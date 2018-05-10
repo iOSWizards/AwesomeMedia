@@ -38,7 +38,7 @@ public class AwesomeMediaImageTableViewCell: UITableViewCell {
         self.parentViewController?.presentWebPageInSafari(withURL: url)
         
         // track event
-        track(event: .toggleFullscreen, source: .imageCell)
+        track(event: .toggleFullscreen, source: .imageCell, params: mediaParams)
     }
     
     // MARK: - Dimensions

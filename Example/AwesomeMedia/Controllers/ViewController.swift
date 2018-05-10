@@ -33,7 +33,8 @@ class ViewController: UIViewController {
                     .author: "Eric Mendez",
                     .title: "WildFit",
                     .duration: 7297,
-                    .markers: AwesomeMediaManager.testMediaMarkers]),
+                    .markers: AwesomeMediaManager.testMediaMarkers,
+                    .id: "45"]),
         MediaCell(type: .audio,
                   mediaParams: [
                     .url: AwesomeMediaManager.testAudioURL,
@@ -41,7 +42,8 @@ class ViewController: UIViewController {
                     .author: "The barber",
                     .title: "Virtual Barbershop",
                     .size: "2 mb",
-                    .duration: 232]),
+                    .duration: 232,
+                    .id: "45"]),
         MediaCell(type: .file,
                   mediaParams: [
                     .url: AwesomeMediaManager.testPDFURL,
@@ -49,7 +51,8 @@ class ViewController: UIViewController {
                     .author: "Eric Mendez",
                     .title: "Wildfit",
                     .type: "PDF",
-                    .size: "2 mb"]),
+                    .size: "2 mb",
+                    .id: "45"]),
         MediaCell(type: .image,
                   mediaParams: [
                     .coverUrl: "https://www.awesometlv.co.il/wp-content/uploads/2016/01/awesome_logo-01.png"]),
@@ -60,7 +63,8 @@ class ViewController: UIViewController {
                     .author: "Eric Mendez",
                     .title: "WildFit 2",
                     .duration: 12312,
-                    .markers: AwesomeMediaManager.testMediaMarkers]),
+                    .markers: AwesomeMediaManager.testMediaMarkers,
+                    .id: "45"]),
         MediaCell(type: .image,
                   mediaParams: [
                     .coverUrl: "https://i0.wp.com/res.cloudinary.com/changethatmind/image/upload/v1501884914/wildfitsales.png?fit=500%2C500&ssl=1"]),
@@ -71,7 +75,8 @@ class ViewController: UIViewController {
                     .author: "Eric Mendez",
                     .title: "WildFit 3",
                     .duration: 33222,
-                    .markers: AwesomeMediaManager.testMediaMarkers]),
+                    .markers: AwesomeMediaManager.testMediaMarkers,
+                    .id: "45"]),
         ]
     var mediaParamsArray: [AwesomeMediaParams] {
         var mediaParamsArray = [AwesomeMediaParams]()

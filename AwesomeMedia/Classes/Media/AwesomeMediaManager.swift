@@ -18,11 +18,11 @@ public class AwesomeMediaManager: NSObject {
     fileprivate var timeObserver: AnyObject?
     fileprivate var playbackLikelyToKeepUpContext = 0
     fileprivate var playbackBufferFullContext = 1
-    fileprivate var mediaParams: AwesomeMediaParams = [:]
     fileprivate var bufferTimer: Timer?
     
     // Public Variables
     public var bufferingState = [String: Bool]()
+    public var mediaParams: AwesomeMediaParams = [:]
     
     // Testing Variables
     public static let testVideoURL = "https://overmind2.mvstg.com/api/v1/assets/0af656fc-dcde-45ad-9b59-7632ca247001.m3u8"
