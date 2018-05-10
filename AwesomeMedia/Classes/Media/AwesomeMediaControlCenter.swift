@@ -122,7 +122,7 @@ public class AwesomeMediaControlCenter {
         }
         
         if let coverImageUrl = params.coverUrl {
-            UIImage.loadImage(coverImageUrl.absoluteString, completion: { (image) in
+            UIImage.loadImage(coverImageUrl, completion: { (image) in
                 if let image = image {
                     nowPlayingInfo[MPMediaItemPropertyArtwork] = MPMediaItemArtwork.init(boundsSize: image.size, requestHandler: { (size) -> UIImage in
                         return image

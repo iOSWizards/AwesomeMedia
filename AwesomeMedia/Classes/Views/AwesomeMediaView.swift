@@ -279,7 +279,7 @@ extension AwesomeMediaView {
         
         // set the cover image
         coverImageView = UIImageView(image: nil)
-        coverImageView?.setImage(coverImageUrl.absoluteString)
+        coverImageView?.setImage(coverImageUrl)
         
         guard let coverImageView = coverImageView else {
             return

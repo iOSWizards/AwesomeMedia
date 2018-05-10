@@ -36,7 +36,7 @@ public class AwesomeMediaFileTableViewCell: UITableViewCell {
     // MARK: - Events
     
     @IBAction public func fullscreenButtonPressed(_ sender: Any) {
-        guard let url = mediaParams.url else {
+        guard let url = mediaParams.url?.url else {
             return
         }
         
@@ -83,6 +83,6 @@ extension AwesomeMediaFileTableViewCell {
         }
         
         // set the cover image
-        coverImageView.setImage(coverImageUrl.absoluteString)
+        coverImageView.setImage(coverImageUrl)
     }
 }

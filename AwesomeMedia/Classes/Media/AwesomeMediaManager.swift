@@ -43,7 +43,7 @@ public class AwesomeMediaManager: NSObject {
     
     func playMedia(withParams params: AwesomeMediaParams, inPlayerLayer playerLayer: AVPlayerLayer? = nil, viewController: UIViewController? = nil) {
         
-        guard let url = params.url?.offlineURLIfAvailable else {
+        guard let url = params.url?.url?.offlineURLIfAvailable else {
             AwesomeMedia.log("No URL provided")
             return
         }
@@ -100,7 +100,7 @@ public class AwesomeMediaManager: NSObject {
     // Media State
     
     public func mediaIsLoading(withParams params: AwesomeMediaParams) -> Bool {
-        guard let url = params.url?.offlineURLIfAvailable else {
+        guard let url = params.url?.url?.offlineURLIfAvailable else {
             return false
         }
         

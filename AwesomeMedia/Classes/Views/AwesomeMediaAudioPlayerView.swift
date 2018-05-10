@@ -99,7 +99,7 @@ extension AwesomeMediaAudioPlayerView {
         }
         
         // set the cover image
-        coverImageView.setImage(coverImageUrl.absoluteString)
+        coverImageView.setImage(coverImageUrl)
     }
     
     fileprivate func updatePlayStatus() {

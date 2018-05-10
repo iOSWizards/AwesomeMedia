@@ -26,7 +26,7 @@ extension AVPlayer {
     }
     
     public func isCurrentItem(withParams params: AwesomeMediaParams) -> Bool {
-        let url = params.url
+        let url = params.url?.url
         return isCurrentItem(withUrl: url) || isCurrentItem(withUrl: url?.offlineFileDestination)
     }
     
@@ -43,7 +43,7 @@ extension AVPlayer {
     }
     
     public func currentItem(withParams params: AwesomeMediaParams) -> AVPlayerItem? {
-        return currentItem(ifSameUrlAs: params.url?.offlineURLIfAvailable)
+        return currentItem(ifSameUrlAs: params.url?.url?.offlineURLIfAvailable)
     }
     
     public var isPlaying: Bool {

@@ -11,4 +11,8 @@ extension String {
     var localized: String {
         return NSLocalizedString(self, tableName: nil, bundle: AwesomeMedia.bundle, value: "", comment: "")
     }
+    
+    public var url: URL? {
+        return URL(string: self)
+    }
 }

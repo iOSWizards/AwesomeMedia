@@ -16,7 +16,7 @@ public enum AwesomeMediaDownloadState {
 public class AwesomeMediaDownloadManager {
     
     public static func mediaDownloadState(withParams mediaParams: AwesomeMediaParams) -> AwesomeMediaDownloadState {
-        guard let downloadUrl = mediaParams.url else {
+        guard let downloadUrl = mediaParams.url?.url else {
             return .none
         }
         
@@ -29,7 +29,7 @@ public class AwesomeMediaDownloadManager {
     }
     
     public static func downloadMedia(withParams mediaParams: AwesomeMediaParams, completion:@escaping (Bool) -> Void){
-        guard let downloadUrl = mediaParams.url else {
+        guard let downloadUrl = mediaParams.url?.url else {
             completion(false)
             return
         }
@@ -57,7 +57,7 @@ public class AwesomeMediaDownloadManager {
     }
     
     public static func deleteDownloadedMedia(withParams mediaParams: AwesomeMediaParams, completion:@escaping (Bool) -> Void){
-        guard let downloadUrl = mediaParams.url else {
+        guard let downloadUrl = mediaParams.url?.url else {
             completion(false)
             return
         }
@@ -84,7 +84,7 @@ extension UIViewController {
             title: "availableoffline_delete_button_confirm".localized,
             style: .destructive,
             handler: { (action) in
-                downloadUrl.deleteOfflineFile { (success) in
+                downloadUrl.url?.deleteOfflineFile { (success) in
                     DispatchQueue.main.async {
                         completion(success)
                     }

@@ -31,7 +31,7 @@ public class AwesomeMediaImageTableViewCell: UITableViewCell {
     // MARK: - Events
     
     @IBAction public func fullscreenButtonPressed(_ sender: Any) {
-        guard let url = mediaParams.coverUrl else {
+        guard let url = mediaParams.coverUrl?.url else {
             return
         }
         
@@ -90,7 +90,7 @@ extension AwesomeMediaImageTableViewCell {
         }
         
         // set the cover image
-        coverImageView.setImage(coverImageUrl.absoluteString) { (image) in
+        coverImageView.setImage(coverImageUrl) { (image) in
             
             // reset background status
             self.mainView.backgroundColor = .placeholderBackground

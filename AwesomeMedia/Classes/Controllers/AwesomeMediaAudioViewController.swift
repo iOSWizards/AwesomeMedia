@@ -206,7 +206,7 @@ extension AwesomeMediaAudioViewController {
         }
         
         // set the cover image
-        coverImageView.setImage(coverImageUrl.absoluteString)
+        coverImageView.setImage(coverImageUrl)
     }
     
     // update download state
