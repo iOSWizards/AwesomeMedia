@@ -1,4 +1,3 @@
-
 //
 //  AwesomeMediaTrackingNotificationCenter.swift
 //  AwesomeMedia
@@ -10,37 +9,37 @@ import Foundation
 
 public enum AwesomeMediaTrackingSource: String {
     case unknown
-    case videoCell
-    case videoFullscreen
-    case audioCell
-    case audioFullscreen
-    case audioMiniplayer
-    case imageCell
-    case fileCell
-    case controlCenter
+    case videoCell = "Video content screen"
+    case videoFullscreen = "Video full screen"
+    case audioCell = "Audio content screen"
+    case audioFullscreen = "Audio full screen"
+    case audioMiniplayer = "Audio mini player"
+    case imageCell = "Image content screen"
+    case fileCell = "File content screen"
+    case controlCenter = "Control center"
 }
 
 public enum AwesomeMediaTrackingEvent: String {
-    case startedPlaying
-    case stoppedPlaying
-    case sliderChanged
-    case toggleFullscreen
-    case closeFullscreen
-    case openedMarkers
-    case closedMarkers
-    case selectedMarker
-    case toggledSpeed
-    case tappedRewind
-    case tappedAdvance
-    case tappedAirplay
-    case changedOrientation
-    case openedFullscreenWithRotation
-    case tappedDownload
-    case deletedDownload
-    case didTimeOut
-    case timeoutCancel
-    case timeoutWait
-    case playingInBackground
+    case startedPlaying = "Media started playing"
+    case stoppedPlaying = "Media stopped playing"
+    case sliderChanged = "Media slider changed"
+    case toggleFullscreen = "Media toggle full screen"
+    case closeFullscreen = "Media close full screen"
+    case openedMarkers = "Media opened markers"
+    case closedMarkers = "Media closed markers"
+    case selectedMarker = "Media selected markers"
+    case toggledSpeed = "Media toggled speed"
+    case tappedRewind = "Media tapped rewind"
+    case tappedAdvance = "Media tapped advance"
+    case tappedAirplay = "Media tapped airplay"
+    case changedOrientation = "Media changed orientation"
+    case openedFullscreenWithRotation = "Media opened full screen rotation"
+    case tappedDownload = "Media tapped download"
+    case deletedDownload = "Media deleted download"
+    case timedOut = "Media timed out"
+    case timeoutCancel = "Media timed out cancel"
+    case timeoutWait = "Media timed out wait"
+    case playingInBackground = "Media playing background"
 }
 
 public struct AwesomeMediaTrackingObject {
@@ -87,7 +86,7 @@ public class AwesomeMediaTrackingNotificationCenter: NotificationCenter {
         AwesomeMediaTrackingNotificationCenter.shared.addObserver(to, selector: .openedFullscreenWithRotation, event: .openedFullscreenWithRotation)
         AwesomeMediaTrackingNotificationCenter.shared.addObserver(to, selector: .tappedDownload, event: .tappedDownload)
         AwesomeMediaTrackingNotificationCenter.shared.addObserver(to, selector: .deletedDownload, event: .deletedDownload)
-        AwesomeMediaTrackingNotificationCenter.shared.addObserver(to, selector: .didTimeOut, event: .didTimeOut)
+        AwesomeMediaTrackingNotificationCenter.shared.addObserver(to, selector: .didTimeOut, event: .timedOut)
         AwesomeMediaTrackingNotificationCenter.shared.addObserver(to, selector: .timeoutCancel, event: .timeoutCancel)
         AwesomeMediaTrackingNotificationCenter.shared.addObserver(to, selector: .timeoutWait, event: .timeoutWait)
         AwesomeMediaTrackingNotificationCenter.shared.addObserver(to, selector: .playingInBackground, event: .playingInBackground)
