@@ -1,3 +1,4 @@
+
 //
 //  AwesomeMediaTrackingNotificationCenter.swift
 //  AwesomeMedia
@@ -36,7 +37,7 @@ public enum AwesomeMediaTrackingEvent: String {
     case openedFullscreenWithRotation
     case tappedDownload
     case deletedDownload
-    case timedOut
+    case didTimeOut
     case timeoutCancel
     case timeoutWait
     case playingInBackground
@@ -86,7 +87,7 @@ public class AwesomeMediaTrackingNotificationCenter: NotificationCenter {
         AwesomeMediaTrackingNotificationCenter.shared.addObserver(to, selector: .openedFullscreenWithRotation, event: .openedFullscreenWithRotation)
         AwesomeMediaTrackingNotificationCenter.shared.addObserver(to, selector: .tappedDownload, event: .tappedDownload)
         AwesomeMediaTrackingNotificationCenter.shared.addObserver(to, selector: .deletedDownload, event: .deletedDownload)
-        AwesomeMediaTrackingNotificationCenter.shared.addObserver(to, selector: .timedOut, event: .timedOut)
+        AwesomeMediaTrackingNotificationCenter.shared.addObserver(to, selector: .didTimeOut, event: .didTimeOut)
         AwesomeMediaTrackingNotificationCenter.shared.addObserver(to, selector: .timeoutCancel, event: .timeoutCancel)
         AwesomeMediaTrackingNotificationCenter.shared.addObserver(to, selector: .timeoutWait, event: .timeoutWait)
         AwesomeMediaTrackingNotificationCenter.shared.addObserver(to, selector: .playingInBackground, event: .playingInBackground)

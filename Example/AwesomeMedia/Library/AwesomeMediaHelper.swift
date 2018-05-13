@@ -114,7 +114,7 @@ extension AwesomeMediaHelper: AwesomeMediaTrackingObserver {
         log(notification: sender)
     }
     
-    func timedOut(_ sender: Notification?) {
+    func didTimeOut(_ sender: Notification?) {
         log(notification: sender)
     }
     

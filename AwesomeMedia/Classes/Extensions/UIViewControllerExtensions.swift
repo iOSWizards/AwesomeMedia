@@ -183,7 +183,7 @@ extension UIViewController {
     
     func showMediaTimedOutAlert() {
         // track event
-        track(event: .timedOut, source: .unknown)
+        track(event: .didTimeOut, source: .unknown)
         
         showAlert(withTitle: "failed_to_play_title".localized,
                   message: "failed_to_play".localized,
