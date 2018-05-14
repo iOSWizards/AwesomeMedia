@@ -98,4 +98,17 @@ extension AVPlayerItem {
         }
     }
     
+    // MARK: - Associations
+    
+    private static let hasCustomObservers = AwesomeMediaObjectAssociation<NSObject>()
+    
+    public var hasCustomObservers: Bool {
+        get {
+            return AVPlayerItem.hasCustomObservers[self] as? Bool ?? false
+        }
+        set (hasCustomObservers) {
+            AVPlayerItem.hasCustomObservers[self] = hasCustomObservers as NSObject
+        }
+    }
+    
 }

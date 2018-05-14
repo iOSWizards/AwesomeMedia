@@ -136,11 +136,21 @@ extension AwesomeMediaManager {
             return
         }
         
+        if item.hasCustomObservers {
+            item.removeObserver(self, forKeyPath: "playbackLikelyToKeepUp", context: &playbackLikelyToKeepUpContext)
+            item.removeObserver(self, forKeyPath: "playbackBufferFull", context: &playbackBufferFullContext)
+            item.removeObserver(self, forKeyPath: "playbackBufferEmpty", context: nil)
+            item.removeObserver(self, forKeyPath: "status", context: nil)
+            item.removeObserver(self, forKeyPath: "timeControlStatus", context: nil)
+            item.hasCustomObservers = false
+        }
+        
         item.addObserver(self, forKeyPath: "playbackLikelyToKeepUp", options: .new, context: &playbackLikelyToKeepUpContext)
         item.addObserver(self, forKeyPath: "playbackBufferFull", options: .new, context: &playbackBufferFullContext)
         item.addObserver(self, forKeyPath: "playbackBufferEmpty", options: .new, context: nil)
         item.addObserver(self, forKeyPath: "status", options: .new, context: nil)
         item.addObserver(self, forKeyPath: "timeControlStatus", options: .new, context: nil)
+        item.hasCustomObservers = true
     }
     
     // MARK: - Time Observer
