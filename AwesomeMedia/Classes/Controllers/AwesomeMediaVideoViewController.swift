@@ -14,7 +14,7 @@ public class AwesomeMediaVideoViewController: UIViewController {
     @IBOutlet public weak var playerView: AwesomeMediaView!
     
     // Public variables
-    public var mediaParams: AwesomeMediaParams = [:]
+    public var mediaParams = AwesomeMediaParams()
     
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,12 +22,13 @@ public class AwesomeMediaVideoViewController: UIViewController {
         playerView.configure(withMediaParams: mediaParams,
                              controls: .all,
                              states: .standard,
+                             trackingSource: .videoFullscreen,
                              titleViewVisible: true)
         playerView.controlView?.fullscreenCallback = {
             self.close()
         }
         playerView.controlView?.jumpToCallback = {
-            self.showMarkers(AwesomeMediaManager.markers(forParams: self.mediaParams)) { (mediaMarker) in
+            self.showMarkers(self.mediaParams.markers) { (mediaMarker) in
                 if let mediaMarker = mediaMarker {
                     sharedAVPlayer.seek(toTime: mediaMarker.time)
                     sharedAVPlayer.play()
@@ -58,6 +59,13 @@ public class AwesomeMediaVideoViewController: UIViewController {
         // remove observers when leaving
         playerView.removeObservers()
     }
+    
+    public override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        // track event
+        track(event: .changedOrientation, source: .audioFullscreen, value: UIApplication.shared.statusBarOrientation)
+    }
+    
+    // MARK: Events
     
     @IBAction func toggleControlsButtonPressed(_ sender: Any) {
         playerView.controlView?.toggleViewIfPossible()

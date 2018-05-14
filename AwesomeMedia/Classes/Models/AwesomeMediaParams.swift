@@ -7,80 +7,35 @@
 
 import Foundation
 
-public enum AwesomeMediaParamTypes {
-    case url
-    case coverUrl
-    case author
-    case title
-    case duration
-    case markers
-    case size
-    case type
-}
-
-public typealias AwesomeMediaParams = [AwesomeMediaParamTypes: Any]
-
-// MARK: - Media Manager Extensions
-
-extension AwesomeMediaManager {
-
-    static func value(forParams params: AwesomeMediaParams, withType type: AwesomeMediaParamTypes) -> Any? {
-        return params.filter({ $0.key == type }).first?.value
-    }
-
-    static func url(forParams params: AwesomeMediaParams) -> URL? {
-        guard let value = value(forParams: params, withType: .url) as? String else {
-            return nil
-        }
-        return URL(string: value)
+public struct AwesomeMediaParams {
+    public var url: String?
+    public var coverUrl: String?
+    public var author: String?
+    public var title: String?
+    public var duration: Int = 0
+    public var markers: [AwesomeMediaMarker] = []
+    public var size: String?
+    public var type: String?
+    public var params: [String: Any] = [:]
+    
+    public init(url: String? = nil,
+                coverUrl: String? = nil,
+                author: String? = nil,
+                title: String? = nil,
+                duration: Int = 0,
+                markers: [AwesomeMediaMarker] = [],
+                size: String? = nil,
+                type: String? = nil,
+                params: [String: Any] = [:]) {
+        self.url = url
+        self.coverUrl = coverUrl
+        self.author = author
+        self.title = title
+        self.duration = duration
+        self.markers = markers
+        self.size = size
+        self.type = type
+        self.params = params
     }
     
-    static func coverUrl(forParams params: AwesomeMediaParams) -> URL? {
-        guard let value = value(forParams: params, withType: .coverUrl) as? String else {
-            return nil
-        }
-        return URL(string: value)
-    }
-    
-    static func author(forParams params: AwesomeMediaParams) -> String? {
-        guard let value = value(forParams: params, withType: .author) as? String else {
-            return nil
-        }
-        return value
-    }
-    
-    static func title(forParams params: AwesomeMediaParams) -> String? {
-        guard let value = value(forParams: params, withType: .title) as? String else {
-            return nil
-        }
-        return value
-    }
-    
-    static func duration(forParams params: AwesomeMediaParams) -> Int {
-        guard let value = value(forParams: params, withType: .duration) as? Int else {
-            return 0
-        }
-        return value
-    }
-    
-    static func size(forParams params: AwesomeMediaParams) -> String? {
-        guard let value = value(forParams: params, withType: .size) as? String else {
-            return nil
-        }
-        return value
-    }
-    
-    static func type(forParams params: AwesomeMediaParams) -> String? {
-        guard let value = value(forParams: params, withType: .type) as? String else {
-            return nil
-        }
-        return value
-    }
-    
-    static func markers(forParams params: AwesomeMediaParams) -> [AwesomeMediaMarker] {
-        guard let value = value(forParams: params, withType: .markers) as? [AwesomeMediaMarker] else {
-            return []
-        }
-        return value
-    }
 }

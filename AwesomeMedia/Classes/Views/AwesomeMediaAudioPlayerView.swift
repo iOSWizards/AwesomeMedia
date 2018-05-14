@@ -18,9 +18,10 @@ public class AwesomeMediaAudioPlayerView: UIView {
     @IBOutlet public weak var timeLabel: UILabel?
     
     // Public variables
-    public var mediaParams: AwesomeMediaParams = [:]
+    public var mediaParams = AwesomeMediaParams()
     public var isLocked = false
     public var canRemove = false
+    public var trackingSource: AwesomeMediaTrackingSource = .audioMiniplayer
     
     // Private variables
     fileprivate var removeTimer: Timer?
@@ -35,8 +36,9 @@ public class AwesomeMediaAudioPlayerView: UIView {
         addObservers()
     }
     
-    public func configure(withMediaParams mediaParams: AwesomeMediaParams) {
+    public func configure(withMediaParams mediaParams: AwesomeMediaParams, trackingSource: AwesomeMediaTrackingSource) {
         self.mediaParams = mediaParams
+        self.trackingSource = trackingSource
         
         // Load cover Image
         loadCoverImage()
@@ -46,6 +48,12 @@ public class AwesomeMediaAudioPlayerView: UIView {
         
         // Update play button status
         updatePlayStatus()
+        
+        // check for loading state
+        mainView.stopLoadingAnimation()
+        if AwesomeMediaManager.shared.mediaIsLoading(withParams: mediaParams) {
+            mainView.startLoadingAnimation()
+        }
     }
     
     // MARK: - Events
@@ -59,10 +67,19 @@ public class AwesomeMediaAudioPlayerView: UIView {
         } else {
             sharedAVPlayer.pause()
         }
+        
+        // tracking event
+        if playButton.isSelected {
+            track(event: .startedPlaying, source: trackingSource)
+        } else {
+            track(event: .stoppedPlaying, source: trackingSource)
+        }
     }
     
     @IBAction func fullscreenButtonPressed(_ sender: Any) {
         fullScreenCallback?()
+        
+        track(event: .toggleFullscreen, source: trackingSource)
     }
     
 }
@@ -72,17 +89,17 @@ public class AwesomeMediaAudioPlayerView: UIView {
 extension AwesomeMediaAudioPlayerView {
     
     public func updateMediaInformation() {
-        titleLabel.text = AwesomeMediaManager.title(forParams: mediaParams)
-        timeLabel?.text = AwesomeMediaManager.duration(forParams: mediaParams).timeString.uppercased()
+        titleLabel.text = mediaParams.title
+        timeLabel?.text = mediaParams.duration.timeString.uppercased()
     }
     
     public func loadCoverImage() {
-        guard let coverImageUrl = AwesomeMediaManager.coverUrl(forParams: mediaParams) else {
+        guard let coverImageUrl = mediaParams.coverUrl else {
             return
         }
         
         // set the cover image
-        coverImageView.setImage(coverImageUrl.absoluteString)
+        coverImageView.setImage(coverImageUrl)
     }
     
     fileprivate func updatePlayStatus() {
@@ -134,6 +151,9 @@ extension AwesomeMediaAudioPlayerView: AwesomeMediaEventObserver {
         pausedPlaying()
         stoppedBuffering()
         finishedPlaying()
+        
+        // remove media alert if present
+        parentViewController?.removeAlertIfPresent()
     }
     
     public func startedBuffering() {
@@ -261,7 +281,7 @@ extension UIView {
         }
         
         let playerView = AwesomeMediaAudioPlayerView.newInstance
-        playerView.configure(withMediaParams: params)
+        playerView.configure(withMediaParams: params, trackingSource: .audioMiniplayer)
         playerView.canRemove = true
         addSubview(playerView)
         

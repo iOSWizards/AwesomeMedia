@@ -88,8 +88,26 @@ extension AVPlayerItem {
 
         if background {
             AwesomeMediaPlayerLayer.shared.player = nil
+            
+            // track event
+            if sharedAVPlayer.isPlaying {
+                track(event: .playingInBackground, source: .unknown)
+            }
         } else {
             AwesomeMediaPlayerLayer.shared.player = sharedAVPlayer
+        }
+    }
+    
+    // MARK: - Associations
+    
+    private static let hasCustomObservers = AwesomeMediaObjectAssociation<NSObject>()
+    
+    public var hasCustomObservers: Bool {
+        get {
+            return AVPlayerItem.hasCustomObservers[self] as? Bool ?? false
+        }
+        set (hasCustomObservers) {
+            AVPlayerItem.hasCustomObservers[self] = hasCustomObservers as NSObject
         }
     }
     

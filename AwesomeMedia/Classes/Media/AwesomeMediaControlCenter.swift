@@ -113,16 +113,16 @@ public class AwesomeMediaControlCenter {
         nowPlayingInfo[MPMediaItemPropertyPlaybackDuration] = NSNumber(value: Double(sharedAVPlayer.currentItem?.durationInSeconds ?? 0))
         nowPlayingInfo[MPNowPlayingInfoPropertyPlaybackRate] = NSNumber(value: sharedAVPlayer.rate)
         
-        if let author = AwesomeMediaManager.author(forParams: params) {
+        if let author = params.author {
             nowPlayingInfo[MPMediaItemPropertyArtist] = author as AnyObject?
         }
         
-        if let title = AwesomeMediaManager.title(forParams: params) {
+        if let title = params.title {
             nowPlayingInfo[MPMediaItemPropertyTitle] = title as AnyObject?
         }
         
-        if let coverImageUrl = AwesomeMediaManager.coverUrl(forParams: params) {
-            UIImage.loadImage(coverImageUrl.absoluteString, completion: { (image) in
+        if let coverImageUrl = params.coverUrl {
+            UIImage.loadImage(coverImageUrl, completion: { (image) in
                 if let image = image {
                     nowPlayingInfo[MPMediaItemPropertyArtwork] = MPMediaItemArtwork.init(boundsSize: image.size, requestHandler: { (size) -> UIImage in
                         return image

@@ -16,7 +16,9 @@ public class AwesomeMediaAudioTableViewCell: UITableViewCell {
     }
 
     public func configure(withMediaParams mediaParams: AwesomeMediaParams) {
-        audioPlayerView.configure(withMediaParams: mediaParams)
+        audioPlayerView.configure(
+            withMediaParams: mediaParams,
+            trackingSource: .audioCell)
         audioPlayerView.fullScreenCallback = {
             self.parentViewController?.presentAudioFullscreen(withMediaParams: mediaParams)
         }

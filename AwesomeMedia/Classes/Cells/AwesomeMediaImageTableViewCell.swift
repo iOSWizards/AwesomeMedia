@@ -15,7 +15,7 @@ public class AwesomeMediaImageTableViewCell: UITableViewCell {
     @IBOutlet public weak var fullscreenButton: UIButton!
     
     // Public variables
-    public var mediaParams: AwesomeMediaParams = [:]
+    public var mediaParams = AwesomeMediaParams()
     
     public override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
@@ -31,11 +31,14 @@ public class AwesomeMediaImageTableViewCell: UITableViewCell {
     // MARK: - Events
     
     @IBAction public func fullscreenButtonPressed(_ sender: Any) {
-        guard let url = AwesomeMediaManager.coverUrl(forParams: mediaParams) else {
+        guard let url = mediaParams.coverUrl?.url else {
             return
         }
         
         self.parentViewController?.presentWebPageInSafari(withURL: url)
+        
+        // track event
+        track(event: .toggleFullscreen, source: .imageCell, params: mediaParams)
     }
     
     // MARK: - Dimensions
@@ -82,12 +85,12 @@ public class AwesomeMediaImageTableViewCell: UITableViewCell {
 extension AwesomeMediaImageTableViewCell {
     
     public func loadCoverImage() {
-        guard let coverImageUrl = AwesomeMediaManager.coverUrl(forParams: mediaParams) else {
+        guard let coverImageUrl = mediaParams.coverUrl else {
             return
         }
         
         // set the cover image
-        coverImageView.setImage(coverImageUrl.absoluteString) { (image) in
+        coverImageView.setImage(coverImageUrl) { (image) in
             
             // reset background status
             self.mainView.backgroundColor = .placeholderBackground

@@ -15,7 +15,7 @@ public typealias FinishedPlayingCallback = () -> Void
 
 public class AwesomeMediaView: UIView {
 
-    public var mediaParams: AwesomeMediaParams = [:]
+    public var mediaParams = AwesomeMediaParams()
     public var controlView: AwesomeMediaVideoControlView?
     public var titleView: AwesomeMediaVideoTitleView?
     public var coverImageView: UIImageView?
@@ -40,6 +40,7 @@ public class AwesomeMediaView: UIView {
         withMediaParams mediaParams: AwesomeMediaParams,
         controls: AwesomeMediaVideoControls,
         states: AwesomeMediaVideoStates,
+        trackingSource: AwesomeMediaTrackingSource,
         titleViewVisible: Bool = false) {
         
         self.mediaParams = mediaParams
@@ -48,7 +49,9 @@ public class AwesomeMediaView: UIView {
         self.removePlayerLayer()
         
         // Control View
-        configureControls(controls: controls, states: states)
+        configureControls(controls: controls,
+                          states: states,
+                          trackingSource: trackingSource)
         
         // Title view
         if titleViewVisible {
@@ -75,19 +78,19 @@ public class AwesomeMediaView: UIView {
         speedRateChanged()
     }
     
-    fileprivate func configureControls(controls: AwesomeMediaVideoControls, states: AwesomeMediaVideoStates = .standard) {
+    fileprivate func configureControls(controls: AwesomeMediaVideoControls, states: AwesomeMediaVideoStates = .standard, trackingSource: AwesomeMediaTrackingSource) {
         
         // Filter controls if needed
         var controls = controls
-        if AwesomeMediaManager.markers(forParams: mediaParams).count == 0 {
+        if mediaParams.markers.count == 0 {
             controls.remove(.jumpto)
         }
         
         // Add controls
-        controlView = superview?.addVideoControls(withControls: controls, states: states)
+        controlView = superview?.addVideoControls(withControls: controls, states: states, trackingSource: trackingSource)
         
         // set time label
-        controlView?.timeLabel?.text = AwesomeMediaManager.duration(forParams: mediaParams).timeString.uppercased()
+        controlView?.timeLabel?.text = mediaParams.duration.timeString.uppercased()
         
         controlView?.playCallback = { (isPlaying) in
             if isPlaying {
@@ -182,6 +185,9 @@ extension AwesomeMediaView: AwesomeMediaEventObserver {
         pausedPlaying()
         stoppedBuffering()
         resetPlayer()
+        
+        // remove media alert if present
+        parentViewController?.removeAlertIfPresent()
     }
     
     public func timeUpdated() {
@@ -267,13 +273,13 @@ extension AwesomeMediaView {
         // remove pre-existing cover images
         coverImageView?.removeFromSuperview()
         
-        guard let coverImageUrl = AwesomeMediaManager.coverUrl(forParams: mediaParams) else {
+        guard let coverImageUrl = mediaParams.coverUrl else {
             return
         }
         
         // set the cover image
         coverImageView = UIImageView(image: nil)
-        coverImageView?.setImage(coverImageUrl.absoluteString)
+        coverImageView?.setImage(coverImageUrl)
         
         guard let coverImageView = coverImageView else {
             return

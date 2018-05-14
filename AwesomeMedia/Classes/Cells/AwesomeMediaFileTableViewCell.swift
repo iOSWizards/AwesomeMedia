@@ -17,7 +17,7 @@ public class AwesomeMediaFileTableViewCell: UITableViewCell {
     @IBOutlet public weak var descLabel: UILabel!
     
     // Public variables
-    public var mediaParams: AwesomeMediaParams = [:]
+    public var mediaParams = AwesomeMediaParams()
 
     public override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
@@ -36,11 +36,14 @@ public class AwesomeMediaFileTableViewCell: UITableViewCell {
     // MARK: - Events
     
     @IBAction public func fullscreenButtonPressed(_ sender: Any) {
-        guard let url = AwesomeMediaManager.url(forParams: mediaParams) else {
+        guard let url = mediaParams.url?.url else {
             return
         }
         
         self.parentViewController?.presentWebPageInSafari(withURL: url)
+        
+        // track event
+        track(event: .toggleFullscreen, source: .fileCell, params: mediaParams)
     }
     
     // MARK: - Dimensions
@@ -59,27 +62,27 @@ public class AwesomeMediaFileTableViewCell: UITableViewCell {
 extension AwesomeMediaFileTableViewCell {
     
     public func updateMediaInformation() {
-        titleLabel.text = AwesomeMediaManager.title(forParams: mediaParams)
+        titleLabel.text = mediaParams.title
         
         descLabel.text = ""
         
-        if let type = AwesomeMediaManager.type(forParams: mediaParams) {
+        if let type = mediaParams.type {
             descLabel.text = type.uppercased().appending(" ")
             
             coverIconImageView.isHidden = type.uppercased() != "PDF"
         }
         
-        if let size = AwesomeMediaManager.size(forParams: mediaParams) {
+        if let size = mediaParams.size {
             descLabel.text?.append("(\(size.uppercased()))")
         }
     }
     
     public func loadCoverImage() {
-        guard let coverImageUrl = AwesomeMediaManager.coverUrl(forParams: mediaParams) else {
+        guard let coverImageUrl = mediaParams.coverUrl else {
             return
         }
         
         // set the cover image
-        coverImageView.setImage(coverImageUrl.absoluteString)
+        coverImageView.setImage(coverImageUrl)
     }
 }

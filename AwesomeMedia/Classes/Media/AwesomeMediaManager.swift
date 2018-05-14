@@ -18,11 +18,11 @@ public class AwesomeMediaManager: NSObject {
     fileprivate var timeObserver: AnyObject?
     fileprivate var playbackLikelyToKeepUpContext = 0
     fileprivate var playbackBufferFullContext = 1
-    fileprivate var mediaParams: AwesomeMediaParams = [:]
     fileprivate var bufferTimer: Timer?
     
     // Public Variables
     public var bufferingState = [String: Bool]()
+    public var mediaParams = AwesomeMediaParams()
     
     // Testing Variables
     public static let testVideoURL = "https://overmind2.mvstg.com/api/v1/assets/0af656fc-dcde-45ad-9b59-7632ca247001.m3u8"
@@ -43,18 +43,19 @@ public class AwesomeMediaManager: NSObject {
     
     func playMedia(withParams params: AwesomeMediaParams, inPlayerLayer playerLayer: AVPlayerLayer? = nil, viewController: UIViewController? = nil) {
         
+        guard let url = params.url?.url?.offlineURLIfAvailable else {
+            AwesomeMedia.log("No URL provided")
+            return
+        }
+        
         // In case there is a view controller and isn't reachable, return callback
-        /*if let viewController = viewController, !(AwesomeNetwork.shared?.isReachable ?? false) {
+        /*if let viewController = viewController, !(AwesomeNetwork.shared?.isReachable ?? false),
+            !url.offlineFileExists {
             AwesomeMedia.log("No Internet connection")
             
             viewController.showNoConnectionAlert()
             return
         }*/
-        
-        guard let url = AwesomeMediaManager.url(forParams: params)?.offlineURLIfAvailable else {
-            AwesomeMedia.log("No URL provided")
-            return
-        }
         
         // set current media params
         mediaParams = params
@@ -99,11 +100,11 @@ public class AwesomeMediaManager: NSObject {
     // Media State
     
     public func mediaIsLoading(withParams params: AwesomeMediaParams) -> Bool {
-        guard let url = AwesomeMediaManager.url(forParams: params)?.offlineURLIfAvailable else {
+        guard let url = params.url?.url?.offlineURLIfAvailable else {
             return false
         }
         
-        guard sharedAVPlayer.currentItem != nil else {
+        guard sharedAVPlayer.isCurrentItem(withUrl: url) else {
             return false
         }
         
@@ -135,11 +136,21 @@ extension AwesomeMediaManager {
             return
         }
         
+        if item.hasCustomObservers {
+            item.removeObserver(self, forKeyPath: "playbackLikelyToKeepUp", context: &playbackLikelyToKeepUpContext)
+            item.removeObserver(self, forKeyPath: "playbackBufferFull", context: &playbackBufferFullContext)
+            item.removeObserver(self, forKeyPath: "playbackBufferEmpty", context: nil)
+            item.removeObserver(self, forKeyPath: "status", context: nil)
+            item.removeObserver(self, forKeyPath: "timeControlStatus", context: nil)
+            item.hasCustomObservers = false
+        }
+        
         item.addObserver(self, forKeyPath: "playbackLikelyToKeepUp", options: .new, context: &playbackLikelyToKeepUpContext)
         item.addObserver(self, forKeyPath: "playbackBufferFull", options: .new, context: &playbackBufferFullContext)
         item.addObserver(self, forKeyPath: "playbackBufferEmpty", options: .new, context: nil)
         item.addObserver(self, forKeyPath: "status", options: .new, context: nil)
         item.addObserver(self, forKeyPath: "timeControlStatus", options: .new, context: nil)
+        item.hasCustomObservers = true
     }
     
     // MARK: - Time Observer

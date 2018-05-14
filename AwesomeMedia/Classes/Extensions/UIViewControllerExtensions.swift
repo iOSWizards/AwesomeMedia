@@ -150,6 +150,7 @@ extension UIViewController {
 extension UIViewController {
     public func handleOrientationChange(withMediaParams mediaParams: [AwesomeMediaParams]) {
         AwesomeMedia.openFullscreenVideoIfPlaying(mediaParamsArray: mediaParams, fromController: self)
+        
     }
 }
 
@@ -165,6 +166,7 @@ extension UIViewController {
         
         if #available(iOS 8.0, *){
             let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+            alertController.modalPresentationStyle = isPad ? .popover : .currentContext
             
             for button in buttons {
                 alertController.addAction(UIAlertAction(title: button.1, style: button.0) { (_: UIAlertAction!) in
@@ -180,12 +182,21 @@ extension UIViewController {
     }
     
     func showMediaTimedOutAlert() {
+        // track event
+        track(event: .timedOut, source: .unknown)
+        
         showAlert(withTitle: "failed_to_play_title".localized,
                   message: "failed_to_play".localized,
                   buttons: (UIAlertActionStyle.default, "wait".localized, {
                     AwesomeMediaManager.shared.startBufferTimer()
+                    
+                    // track event
+                    track(event: .timeoutWait, source: .unknown)
                   }), (UIAlertActionStyle.destructive, "cancel".localized, {
                     sharedAVPlayer.stop()
+                    
+                    // track event
+                    track(event: .timeoutCancel, source: .unknown)
                   }))
     }
     

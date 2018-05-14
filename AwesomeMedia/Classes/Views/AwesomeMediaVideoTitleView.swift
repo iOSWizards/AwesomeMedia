@@ -25,7 +25,7 @@ public class AwesomeMediaVideoTitleView: UIView {
     }
     
     public func configure(withMediaParams params: AwesomeMediaParams) {
-        titleLabel.text = AwesomeMediaManager.title(forParams: params)
+        titleLabel.text = params.title
     }
     
     // MARK: - Events

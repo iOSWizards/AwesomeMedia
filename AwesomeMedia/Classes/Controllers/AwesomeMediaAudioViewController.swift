@@ -21,7 +21,7 @@ public class AwesomeMediaAudioViewController: UIViewController {
     @IBOutlet weak var downloadStateImageView: UIImageView!
 
     // Public Variaables
-    public var mediaParams: AwesomeMediaParams = [:]
+    public var mediaParams = AwesomeMediaParams()
     
     // Private Variables
     fileprivate var downloadState: AwesomeMediaDownloadState = .none
@@ -47,6 +47,11 @@ public class AwesomeMediaAudioViewController: UIViewController {
         removeObservers()
     }
     
+    public override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        // track event
+        track(event: .changedOrientation, source: .audioFullscreen, value: UIApplication.shared.statusBarOrientation)
+    }
+    
     // Configure
     public override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -62,10 +67,20 @@ public class AwesomeMediaAudioViewController: UIViewController {
         
         // Refresh controls
         refreshControls()
+        
+        // check for loading state
+        coverImageView.stopLoadingAnimation()
+        if AwesomeMediaManager.shared.mediaIsLoading(withParams: mediaParams) {
+            coverImageView.startLoadingAnimation()
+        }
+    }
+    
+    public override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
     
     fileprivate func configureControls() {
-        controlView.configure(withParams: mediaParams)
+        controlView.configure(withParams: mediaParams, trackingSource: .audioFullscreen)
         
         // play/pause
         controlView.playCallback = { (isPlaying) in
@@ -108,10 +123,16 @@ public class AwesomeMediaAudioViewController: UIViewController {
 
     @IBAction func minimizeButtonPressed(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
+        
+        // track event
+        track(event: .toggleFullscreen, source: .audioFullscreen)
     }
     
     @IBAction func airplayButtonPressed(_ sender: Any) {
         view.showAirplayMenu()
+        
+        // track event
+        track(event: .tappedAirplay, source: .audioFullscreen)
     }
     
     @IBAction func downloadButtonPressed(_ sender: Any) {
@@ -123,6 +144,9 @@ public class AwesomeMediaAudioViewController: UIViewController {
         default:
             downloadMedia()
         }
+        
+        // track event
+        track(event: .tappedDownload, source: .audioFullscreen)
     }
     
     fileprivate func downloadMedia() {
@@ -142,7 +166,7 @@ public class AwesomeMediaAudioViewController: UIViewController {
     
     fileprivate func deleteMedia() {
         sharedAVPlayer.stop()
-        self.confirmMediaDeletion(withParams: mediaParams) { (success) in
+        self.confirmMediaDeletion(withParams: mediaParams, fromView: downloadStateStackView) { (success) in
             self.refreshDownloadState()
             
             if success {
@@ -150,6 +174,9 @@ public class AwesomeMediaAudioViewController: UIViewController {
                 sharedAVPlayer.stop()
                 self.play()
             }
+            
+            // track event
+            track(event: .deletedDownload, source: .audioFullscreen)
         }
     }
     
@@ -174,12 +201,12 @@ public class AwesomeMediaAudioViewController: UIViewController {
 extension AwesomeMediaAudioViewController {
     
     public func loadCoverImage() {
-        guard let coverImageUrl = AwesomeMediaManager.coverUrl(forParams: mediaParams) else {
+        guard let coverImageUrl = mediaParams.coverUrl else {
             return
         }
         
         // set the cover image
-        coverImageView.setImage(coverImageUrl.absoluteString)
+        coverImageView.setImage(coverImageUrl)
     }
     
     // update download state
@@ -195,7 +222,7 @@ extension AwesomeMediaAudioViewController {
             downloadButton.isHidden = true
             downloadStateStackView.isHidden = false
             
-            if let size = AwesomeMediaManager.size(forParams: mediaParams) {
+            if let size = mediaParams.size {
                 downloadStateLabel.text = "\(size.uppercased()) - \("downloading".localized)"
             } else {
                 downloadStateLabel.text = "downloading".localized
@@ -245,6 +272,9 @@ extension AwesomeMediaAudioViewController: AwesomeMediaEventObserver {
         pausedPlaying()
         stoppedBuffering()
         finishedPlaying()
+        
+        // remove media alert if present
+        removeAlertIfPresent()
     }
     
     public func startedBuffering() {
@@ -262,6 +292,9 @@ extension AwesomeMediaAudioViewController: AwesomeMediaEventObserver {
         coverImageView.stopLoadingAnimation()
         
         controlView.lock(false, animated: true)
+        
+        // remove media alert if present
+        removeAlertIfPresent()
     }
     
     public func finishedPlaying() {
