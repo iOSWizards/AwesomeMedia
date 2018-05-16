@@ -198,7 +198,6 @@
 		A50652A71F164DA95586ED212A963527 /* AwesomeMediaVideoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC1D2608FD5F17C96A8A4D392E39BE69 /* AwesomeMediaVideoTableViewCell.xib */; };
 		A524D46C14A31B0B9FBA906CCB58A180 /* AwesomeMediaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E7BC7C9581C5A916580E44F6276E717 /* AwesomeMediaView.swift */; };
 		A681DA25308CA783AC478434490333A1 /* LOTSizeInterpolator.m in Sources */ = {isa = PBXBuildFile; fileRef = 15EF8CF7E47EB39FBBC634E29E4A6029 /* LOTSizeInterpolator.m */; };
-		A766307120AA133700B61ED8 /* AwesomeMediaObjectAssociation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A766307020AA133700B61ED8 /* AwesomeMediaObjectAssociation.swift */; };
 		A7CD34E60ADDC98BBFA79F7DEE272254 /* LOTAnimatedControl.h in Headers */ = {isa = PBXBuildFile; fileRef = D793A4473276F5201B538356EA81DF64 /* LOTAnimatedControl.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AA8DB623111502B655B5CBA7C18D5EFC /* LOTPolystarAnimator.h in Headers */ = {isa = PBXBuildFile; fileRef = 565E34D7C2912688EDD088AFBFAE7487 /* LOTPolystarAnimator.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		AAE97085C45A5BB98BBFF3CBADC35702 /* LOTAnimatedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C4AAC896EE002611603329DD61685A0 /* LOTAnimatedControl.m */; };
@@ -629,7 +628,6 @@
 		A3E821C9CB108FE4FB8467835C0AB5A9 /* StringExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		A6B49F225F1DED0E0D0C7335464FACDD /* AwesomeMedia.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AwesomeMedia.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		A70C9E5DC972C2745B8817B2757F0A92 /* AwesomeLoading-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AwesomeLoading-umbrella.h"; sourceTree = "<group>"; };
-		A766307020AA133700B61ED8 /* AwesomeMediaObjectAssociation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwesomeMediaObjectAssociation.swift; sourceTree = "<group>"; };
 		A89B6AC70E86E890564DB46D8B4FA818 /* Pods-AwesomeMedia_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-AwesomeMedia_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		A9E7120DC1CC93BDC457C5BA1E29F152 /* LOTAssetGroup.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LOTAssetGroup.m; path = "lottie-ios/Classes/Models/LOTAssetGroup.m"; sourceTree = "<group>"; };
 		AA8714DD4A01EF91BCBD6CDFEA81936E /* AwesomeLoadingAnimation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AwesomeLoadingAnimation.swift; path = AwesomeLoading/Classes/View/AwesomeLoadingAnimation.swift; sourceTree = "<group>"; };
@@ -1190,7 +1188,6 @@
 				F3A8E442E392685E3877C98EAC09BB01 /* AwesomeMediaControlStateProtocol.swift */,
 				6B914432B4797B8849D2A9099B5E2722 /* AwesomeMediaEventObserverProtocol.swift */,
 				0AD85DF520A2E83E00930346 /* AwesomeMediaTrackingObserverProtocol.swift */,
-				A766307020AA133700B61ED8 /* AwesomeMediaObjectAssociation.swift */,
 			);
 			name = Protocols;
 			path = AwesomeMedia/Classes/Protocols;
@@ -2004,7 +2001,6 @@
 				7A349E4BA509D8B17C52BC43DBEA503A /* UIImageViewExtensions.swift in Sources */,
 				857BA34DAAD054908FC2A2A41BFC77C0 /* UISliderExtensions.swift in Sources */,
 				D157CECB1E0536F4B6598212E4476A19 /* UITableViewCellExtensions.swift in Sources */,
-				A766307120AA133700B61ED8 /* AwesomeMediaObjectAssociation.swift in Sources */,
 				397B05BDE64066CA5DB3CF8B4280A283 /* UIViewControllerExtensions.swift in Sources */,
 				988602E87CD9A3D8CDE1254ECD26A0BE /* UIViewExtensions.swift in Sources */,
 				47B80CC9683528042CE73D730703D40D /* URLExtensions.swift in Sources */,
