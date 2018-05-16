@@ -198,7 +198,7 @@
 		A50652A71F164DA95586ED212A963527 /* AwesomeMediaVideoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC1D2608FD5F17C96A8A4D392E39BE69 /* AwesomeMediaVideoTableViewCell.xib */; };
 		A524D46C14A31B0B9FBA906CCB58A180 /* AwesomeMediaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E7BC7C9581C5A916580E44F6276E717 /* AwesomeMediaView.swift */; };
 		A681DA25308CA783AC478434490333A1 /* LOTSizeInterpolator.m in Sources */ = {isa = PBXBuildFile; fileRef = 15EF8CF7E47EB39FBBC634E29E4A6029 /* LOTSizeInterpolator.m */; };
-		A78F992320AC6A74006B4B8C /* AMAVPlayerItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78F992120AC69BC006B4B8C /* AMAVPlayerItem.swift */; };
+		A78F992520AC793D006B4B8C /* AMAVPlayerItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78F992420AC793D006B4B8C /* AMAVPlayerItem.swift */; };
 		A7CD34E60ADDC98BBFA79F7DEE272254 /* LOTAnimatedControl.h in Headers */ = {isa = PBXBuildFile; fileRef = D793A4473276F5201B538356EA81DF64 /* LOTAnimatedControl.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AA8DB623111502B655B5CBA7C18D5EFC /* LOTPolystarAnimator.h in Headers */ = {isa = PBXBuildFile; fileRef = 565E34D7C2912688EDD088AFBFAE7487 /* LOTPolystarAnimator.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		AAE97085C45A5BB98BBFF3CBADC35702 /* LOTAnimatedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C4AAC896EE002611603329DD61685A0 /* LOTAnimatedControl.m */; };
@@ -629,7 +629,7 @@
 		A3E821C9CB108FE4FB8467835C0AB5A9 /* StringExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		A6B49F225F1DED0E0D0C7335464FACDD /* AwesomeMedia.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AwesomeMedia.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		A70C9E5DC972C2745B8817B2757F0A92 /* AwesomeLoading-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AwesomeLoading-umbrella.h"; sourceTree = "<group>"; };
-		A78F992120AC69BC006B4B8C /* AMAVPlayerItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMAVPlayerItem.swift; sourceTree = "<group>"; };
+		A78F992420AC793D006B4B8C /* AMAVPlayerItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AMAVPlayerItem.swift; path = "../../../AwesomeMedia/Classes/Custom Class/AMAVPlayerItem.swift"; sourceTree = "<group>"; };
 		A89B6AC70E86E890564DB46D8B4FA818 /* Pods-AwesomeMedia_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-AwesomeMedia_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		A9E7120DC1CC93BDC457C5BA1E29F152 /* LOTAssetGroup.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LOTAssetGroup.m; path = "lottie-ios/Classes/Models/LOTAssetGroup.m"; sourceTree = "<group>"; };
 		AA8714DD4A01EF91BCBD6CDFEA81936E /* AwesomeLoadingAnimation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AwesomeLoadingAnimation.swift; path = AwesomeLoading/Classes/View/AwesomeLoadingAnimation.swift; sourceTree = "<group>"; };
@@ -1188,7 +1188,7 @@
 		A78F992020AC698D006B4B8C /* Custom Class */ = {
 			isa = PBXGroup;
 			children = (
-				A78F992120AC69BC006B4B8C /* AMAVPlayerItem.swift */,
+				A78F992420AC793D006B4B8C /* AMAVPlayerItem.swift */,
 			);
 			path = "Custom Class";
 			sourceTree = "<group>";
@@ -1993,7 +1993,7 @@
 				007B4BFFF9D7BFF271C43D9831A555DA /* AwesomeMediaMarkerTableViewCell.swift in Sources */,
 				71301CBF5FE20EBBF04A0A23CF49A016 /* AwesomeMediaParams.swift in Sources */,
 				334BB9861F6B74F111E0F066B11D3C26 /* AwesomeMediaPlayerLayer.swift in Sources */,
-				A78F992320AC6A74006B4B8C /* AMAVPlayerItem.swift in Sources */,
+				A78F992520AC793D006B4B8C /* AMAVPlayerItem.swift in Sources */,
 				47886C735EF1162665F902D7BB2D5876 /* AwesomeMediaRequester.swift in Sources */,
 				0AD85DF620A2E83E00930346 /* AwesomeMediaTrackingObserverProtocol.swift in Sources */,
 				C4C8D6FE4906915A39F41498F42ACA18 /* AwesomeMediaSpeed.swift in Sources */,
