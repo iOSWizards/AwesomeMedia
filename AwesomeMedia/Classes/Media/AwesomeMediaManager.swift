@@ -79,7 +79,7 @@ public class AwesomeMediaManager: NSObject {
     }
     
     fileprivate func prepareMedia(withUrl url: URL, andPlay play: Bool = true) {
-        let playerItem = AVPlayerItem(url: url)
+        let playerItem = AMAVPlayerItem(url: url)
         avPlayer.replaceCurrentItem(with: playerItem)
         
         // add observers for player and current item
@@ -116,7 +116,7 @@ public class AwesomeMediaManager: NSObject {
 
 extension AwesomeMediaManager {
     
-    fileprivate func addObservers(withItem item: AVPlayerItem? = nil) {
+    fileprivate func addObservers(withItem item: AMAVPlayerItem? = nil) {
         addTimeObserver()
         addBufferObserver(forItem: item)
         
@@ -131,18 +131,9 @@ extension AwesomeMediaManager {
     
     // MARK: - Buffer observer
     
-    fileprivate func addBufferObserver(forItem item: AVPlayerItem?) {
+    fileprivate func addBufferObserver(forItem item: AMAVPlayerItem?) {
         guard let item = item else {
             return
-        }
-        
-        if item.hasCustomObservers {
-            item.removeObserver(self, forKeyPath: "playbackLikelyToKeepUp", context: &playbackLikelyToKeepUpContext)
-            item.removeObserver(self, forKeyPath: "playbackBufferFull", context: &playbackBufferFullContext)
-            item.removeObserver(self, forKeyPath: "playbackBufferEmpty", context: nil)
-            item.removeObserver(self, forKeyPath: "status", context: nil)
-            item.removeObserver(self, forKeyPath: "timeControlStatus", context: nil)
-            item.hasCustomObservers = false
         }
         
         item.addObserver(self, forKeyPath: "playbackLikelyToKeepUp", options: .new, context: &playbackLikelyToKeepUpContext)
@@ -150,7 +141,6 @@ extension AwesomeMediaManager {
         item.addObserver(self, forKeyPath: "playbackBufferEmpty", options: .new, context: nil)
         item.addObserver(self, forKeyPath: "status", options: .new, context: nil)
         item.addObserver(self, forKeyPath: "timeControlStatus", options: .new, context: nil)
-        item.hasCustomObservers = true
     }
     
     // MARK: - Time Observer
