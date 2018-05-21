@@ -21,7 +21,7 @@ public class BitmovinTracking: NSObject {
     
     public static func start(withParams params: AwesomeMediaParams) {
         guard let key =  BitmovinTracking.shared.key else {
-            assertionFailure("You must set the Bitmovin product key before using it.")
+            debugPrint("You must set the Bitmovin product key before using it.")
             return
         }
         
