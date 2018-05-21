@@ -13,7 +13,7 @@ class AwesomeMediaHelper {
     static var shared = AwesomeMediaHelper()
     
     static func start() {
-        BitmovinTracking.start(with: "testingKey")
+        BitmovinTracking.configure(with: "testingKey")
         AwesomeMediaHelper.shared.addObservers()
     }
     
