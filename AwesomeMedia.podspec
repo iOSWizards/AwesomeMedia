@@ -42,4 +42,6 @@ Play Media from any app using this library.
   s.dependency 'AwesomeUIMagic'
   s.dependency 'AwesomeLoading'
   s.dependency 'AwesomeNetwork'
+  s.dependency 'BitmovinAnalyticsCollector'
+  s.dependency 'BitmovinPlayer'
 end
