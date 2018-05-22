@@ -42,8 +42,10 @@ class AVPlayerAdapter: NSObject, PlayerAdapter {
     }
 
     private func startMonitoringPlayerItem(playerItem: AVPlayerItem) {
-        statusObserver = playerItem.observe(\.status) {[weak self] (item, _) in
-            self?.playerItemStatusObserver(playerItem: item)
+        if #available(iOS 11.0, *) {
+            statusObserver = playerItem.observe(\.status) {[weak self] (item, _) in
+                self?.playerItemStatusObserver(playerItem: item)
+            }
         }
         NotificationCenter.default.addObserver(self, selector: #selector(accessItemAdded(notification:)), name: NSNotification.Name.AVPlayerItemNewAccessLogEntry, object: playerItem)
         NotificationCenter.default.addObserver(self, selector: #selector(timeJumped(notification:)), name: NSNotification.Name.AVPlayerItemTimeJumped, object: playerItem)
@@ -56,7 +58,9 @@ class AVPlayerAdapter: NSObject, PlayerAdapter {
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.AVPlayerItemTimeJumped, object: playerItem)
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.AVPlayerItemPlaybackStalled, object: playerItem)
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.AVPlayerItemNewErrorLogEntry, object: playerItem)
-        statusObserver?.invalidate()
+        if #available(iOS 11.0, *) {
+            statusObserver?.invalidate()
+        }
     }
 
     private func playerItemStatusObserver(playerItem: AVPlayerItem) {

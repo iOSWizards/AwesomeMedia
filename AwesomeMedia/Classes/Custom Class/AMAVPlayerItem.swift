@@ -20,28 +20,18 @@ public enum AwesomeMediaPlayerItemKeyPaths: String {
 public class AMAVPlayerItem: AVPlayerItem {
     
     private var observersKeyPath = [String: NSObject?]()
-    private var addedAddtionalStatus: Bool = false
     private var keysPathArray: [AwesomeMediaPlayerItemKeyPaths] = [.playbackLikelyToKeepUp, .playbackBufferFull, .playbackBufferEmpty, .status, .timeControlStatus]
     
     deinit {
-        var obs: NSObject?
         for (keyPath, observer) in observersKeyPath {
             if let observer = observer {
                 self.removeObserver(observer, forKeyPath: keyPath)
-                obs = observer
             }
-        }
-        if addedAddtionalStatus, let obs = obs {
-            self.removeObserver(obs, forKeyPath: "status")
-            addedAddtionalStatus = false
         }
     }
     
     override public func addObserver(_ observer: NSObject, forKeyPath keyPath: String, options: NSKeyValueObservingOptions = [], context: UnsafeMutableRawPointer?) {
         super.addObserver(observer, forKeyPath: keyPath, options: options, context: context)
-        if !addedAddtionalStatus, keyPath == "status", observersKeyPath["status"] != nil {
-            addedAddtionalStatus = true
-        }
         observersKeyPath[keyPath] = observer
     }
     
