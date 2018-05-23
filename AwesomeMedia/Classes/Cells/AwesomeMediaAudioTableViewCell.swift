@@ -16,6 +16,7 @@ public class AwesomeMediaAudioTableViewCell: UITableViewCell {
     }
 
     public func configure(withMediaParams mediaParams: AwesomeMediaParams) {
+        BitmovinTracking.start(withParams: mediaParams)
         audioPlayerView.configure(
             withMediaParams: mediaParams,
             trackingSource: .audioCell)

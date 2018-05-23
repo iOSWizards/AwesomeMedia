@@ -19,8 +19,8 @@ public enum AwesomeMediaPlayerItemKeyPaths: String {
 
 public class AMAVPlayerItem: AVPlayerItem {
     
-    var observersKeyPath = [String: NSObject?]()
-    var keysPathArray: [AwesomeMediaPlayerItemKeyPaths] = [.playbackLikelyToKeepUp, .playbackBufferFull, .playbackBufferEmpty, .status, .timeControlStatus]
+    private var observersKeyPath = [String: NSObject?]()
+    private var keysPathArray: [AwesomeMediaPlayerItemKeyPaths] = [.playbackLikelyToKeepUp, .playbackBufferFull, .playbackBufferEmpty, .status, .timeControlStatus]
     
     deinit {
         for (keyPath, observer) in observersKeyPath {
@@ -32,24 +32,19 @@ public class AMAVPlayerItem: AVPlayerItem {
     
     override public func addObserver(_ observer: NSObject, forKeyPath keyPath: String, options: NSKeyValueObservingOptions = [], context: UnsafeMutableRawPointer?) {
         super.addObserver(observer, forKeyPath: keyPath, options: options, context: context)
-        if let keyPathRaw = AwesomeMediaPlayerItemKeyPaths(rawValue: keyPath), keysPathArray.contains(keyPathRaw) {
-            if let obj = observersKeyPath[keyPath] as? NSObject {
-                self.removeObserver(obj, forKeyPath: keyPath)
-                observersKeyPath[keyPath] = observer
-            } else {
-                observersKeyPath[keyPath] = observer
-            }
-        }
+        observersKeyPath[keyPath] = observer
     }
     
     override public func removeObserver(_ observer: NSObject, forKeyPath keyPath: String, context: UnsafeMutableRawPointer?) {
         super.removeObserver(observer, forKeyPath: keyPath, context: context)
         observersKeyPath[keyPath] = nil
+        observersKeyPath.removeValue(forKey: keyPath)
     }
     
     public override func removeObserver(_ observer: NSObject, forKeyPath keyPath: String) {
         super.removeObserver(observer, forKeyPath: keyPath)
         observersKeyPath[keyPath] = nil
+        observersKeyPath.removeValue(forKey: keyPath)
     }
     
 }

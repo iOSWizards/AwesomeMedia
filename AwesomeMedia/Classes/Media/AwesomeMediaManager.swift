@@ -79,6 +79,8 @@ public class AwesomeMediaManager: NSObject {
     }
     
     fileprivate func prepareMedia(withUrl url: URL, andPlay play: Bool = true) {
+        avPlayer.attachBitmovinTracker()
+        
         let playerItem = AMAVPlayerItem(url: url)
         avPlayer.replaceCurrentItem(with: playerItem)
         

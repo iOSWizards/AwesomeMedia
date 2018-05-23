@@ -24,6 +24,7 @@ public class AwesomeMediaVideoTableViewCell: UITableViewCell {
     }*/
     
     public func configure(withMediaParams mediaParams: AwesomeMediaParams) {
+        BitmovinTracking.start(withParams: mediaParams)
         playerView.configure(withMediaParams: mediaParams,
                              controls: .standard,
                              states: [.info],
