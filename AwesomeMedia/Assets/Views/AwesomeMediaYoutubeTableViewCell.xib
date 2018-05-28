@@ -28,46 +28,20 @@
                                     <constraint firstAttribute="width" constant="44" id="dVN-Ac-NFs"/>
                                 </constraints>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CYh-W3-QfL">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CYh-W3-QfL" customClass="AwesomeMediaYoutubeView" customModule="AwesomeMedia" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="208.5"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kbk-zk-JXx" customClass="YTPlayerView">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="208.5"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </view>
-                                </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="Kbk-zk-JXx" secondAttribute="trailing" id="97t-Hx-sND"/>
-                                    <constraint firstAttribute="bottom" secondItem="Kbk-zk-JXx" secondAttribute="bottom" id="C1X-py-LFZ"/>
-                                    <constraint firstItem="Kbk-zk-JXx" firstAttribute="top" secondItem="CYh-W3-QfL" secondAttribute="top" id="fLo-mD-S65"/>
-                                    <constraint firstItem="Kbk-zk-JXx" firstAttribute="leading" secondItem="CYh-W3-QfL" secondAttribute="leading" id="vaV-ER-ayn"/>
-                                </constraints>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="d2g-Xd-ybf">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="208.5"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="btnPlayLarge" translatesAutoresizingMaskIntoConstraints="NO" id="5CY-ki-c6E">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="208.5"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.23529411759999999" green="0.26274509800000001" blue="0.30588235289999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="5CY-ki-c6E" firstAttribute="leading" secondItem="pAN-up-N3f" secondAttribute="leading" id="1cj-Se-TvE"/>
-                            <constraint firstAttribute="trailing" secondItem="d2g-Xd-ybf" secondAttribute="trailing" id="3yu-sh-ks0"/>
-                            <constraint firstAttribute="trailing" secondItem="5CY-ki-c6E" secondAttribute="trailing" id="8Ed-wc-bzZ"/>
-                            <constraint firstAttribute="bottom" secondItem="d2g-Xd-ybf" secondAttribute="bottom" id="AEq-eB-tU3"/>
                             <constraint firstItem="llQ-kj-9LY" firstAttribute="centerY" secondItem="pAN-up-N3f" secondAttribute="centerY" id="BXw-4o-Idf"/>
-                            <constraint firstItem="d2g-Xd-ybf" firstAttribute="leading" secondItem="pAN-up-N3f" secondAttribute="leading" id="HcL-m7-b3s"/>
                             <constraint firstItem="llQ-kj-9LY" firstAttribute="centerX" secondItem="pAN-up-N3f" secondAttribute="centerX" id="K97-Jk-RDu"/>
                             <constraint firstAttribute="trailing" secondItem="CYh-W3-QfL" secondAttribute="trailing" id="Oo4-hJ-wMe"/>
                             <constraint firstItem="CYh-W3-QfL" firstAttribute="top" secondItem="pAN-up-N3f" secondAttribute="top" id="Q1A-sr-iBM"/>
                             <constraint firstAttribute="width" constant="600" id="SJ5-TK-YOJ"/>
                             <constraint firstItem="CYh-W3-QfL" firstAttribute="leading" secondItem="pAN-up-N3f" secondAttribute="leading" id="aAM-ic-JVe"/>
-                            <constraint firstItem="5CY-ki-c6E" firstAttribute="top" secondItem="pAN-up-N3f" secondAttribute="top" id="euT-xE-hro"/>
                             <constraint firstAttribute="bottom" secondItem="CYh-W3-QfL" secondAttribute="bottom" id="iCv-Wr-Ibe"/>
-                            <constraint firstItem="d2g-Xd-ybf" firstAttribute="top" secondItem="pAN-up-N3f" secondAttribute="top" id="xpF-Db-eQE"/>
-                            <constraint firstAttribute="bottom" secondItem="5CY-ki-c6E" secondAttribute="bottom" id="yEu-dF-3Cs"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -101,15 +75,12 @@
                 </variation>
             </tableViewCellContentView>
             <connections>
-                <outlet property="coverImageView" destination="d2g-Xd-ybf" id="d4y-yS-tlK"/>
-                <outlet property="playButton" destination="5CY-ki-c6E" id="CU0-y9-lmi"/>
-                <outlet property="youtubePlayerView" destination="Kbk-zk-JXx" id="sOK-G4-s2j"/>
+                <outlet property="youtubeView" destination="CYh-W3-QfL" id="f3d-lK-A7v"/>
             </connections>
             <point key="canvasLocation" x="-1" y="-34"/>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="btnPlayLarge" width="40" height="40"/>
         <image name="icoPlaceholderVideo" width="44" height="32"/>
     </resources>
 </document>

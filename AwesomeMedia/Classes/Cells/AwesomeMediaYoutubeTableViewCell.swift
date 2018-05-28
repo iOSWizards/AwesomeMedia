@@ -10,32 +10,24 @@ import youtube_ios_player_helper
 
 public class AwesomeMediaYoutubeTableViewCell: UITableViewCell {
 
-    @IBOutlet var youtubePlayerView: YTPlayerView!
-    @IBOutlet weak var coverImageView: UIImageView!
-    @IBOutlet weak var playButton: UIImageView!
+    @IBOutlet var youtubeView: AwesomeMediaYoutubeView!
     
     override public func awakeFromNib() {
         super.awakeFromNib()
     }
-
-    public override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-    }
     
     public func configure(withMediaParams mediaParams: AwesomeMediaParams) {
-//        BitmovinTracking.start(withParams: mediaParams)
+        //        BitmovinTracking.start(withParams: mediaParams)
         
         guard let youtubeUrl = mediaParams.youtubeUrl, let youtubeId = AwesomeMedia.extractYoutubeVideoId(videoUrl: youtubeUrl) else {
             return
         }
         
-        loadCoverImage(with: mediaParams)
-        youtubePlayerView.delegate = self
-        youtubePlayerView.load(withVideoId: youtubeId, playerVars: ["playsinline": 1,
-                                                                    "showinfo": 0,
-                                                                    "autohide": 1,
-                                                                    "modestbranding": 1])
-        AwesomeMediaManager.shared.youtubePlayerView = youtubePlayerView
+        youtubeView.loadCoverImage(with: mediaParams)
+        youtubeView.youtubePlayerView.load(withVideoId: youtubeId, playerVars: ["playsinline": 1,
+                                                                                "showinfo": 0,
+                                                                                "autohide": 1,
+                                                                                "modestbranding": 1])
     }
     
     // MARK: - Dimensions
@@ -51,42 +43,4 @@ public class AwesomeMediaYoutubeTableViewCell: UITableViewCell {
         return defaultSize
     }
     
-}
-
-// MARK: - Youtube Player
-
-extension AwesomeMediaYoutubeTableViewCell: YTPlayerViewDelegate {
-    
-    public func playerView(_ playerView: YTPlayerView, didChangeTo state: YTPlayerState) {
-        if state == .buffering || state == .playing {
-            sharedAVPlayer.stop()
-            showCoverAndPlay(false)
-        } else if state == .ended {
-            showCoverAndPlay(true)
-            youtubePlayerView.stopVideo()
-        }
-    }
-}
-
-// MARK: - Media Information
-
-extension AwesomeMediaYoutubeTableViewCell {
-    
-    public func loadCoverImage(with mediaParams: AwesomeMediaParams) {
-        guard let coverImageUrl = mediaParams.coverUrl else {
-            return
-        }
-        
-        // set the cover image
-        coverImageView.setImage(coverImageUrl) { (_) in }
-    }
-}
-
-// MARK: - UI Helper
-
-extension AwesomeMediaYoutubeTableViewCell {
-    func showCoverAndPlay(_ enable: Bool) {
-        coverImageView.isHidden = !enable
-        playButton.isHidden = !enable
-    }
 }

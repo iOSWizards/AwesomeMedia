@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AwesomeMediaYoutubeView" customModule="AwesomeMedia" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="P70-yO-JuI" id="A2c-tV-RqM"/>
+                <outlet property="coverImageView" destination="QXB-je-d54" id="3CX-35-TeK"/>
+                <outlet property="playButton" destination="2T4-Q1-iUG" id="HqK-Yz-HfL"/>
+                <outlet property="youtubePlayerView" destination="bVz-SG-Erl" id="OQG-CR-2sg"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="P70-yO-JuI">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bVz-SG-Erl" customClass="YTPlayerView">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QXB-je-d54">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="btnPlayLarge" translatesAutoresizingMaskIntoConstraints="NO" id="2T4-Q1-iUG">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="2T4-Q1-iUG" secondAttribute="trailing" id="8AU-am-jse"/>
+                <constraint firstAttribute="bottom" secondItem="QXB-je-d54" secondAttribute="bottom" id="Exf-Pa-3YK"/>
+                <constraint firstAttribute="bottom" secondItem="bVz-SG-Erl" secondAttribute="bottom" id="HuN-mO-VBi"/>
+                <constraint firstItem="2T4-Q1-iUG" firstAttribute="top" secondItem="P70-yO-JuI" secondAttribute="top" id="Me9-ah-reE"/>
+                <constraint firstAttribute="trailing" secondItem="bVz-SG-Erl" secondAttribute="trailing" id="WPG-zj-O8n"/>
+                <constraint firstItem="QXB-je-d54" firstAttribute="leading" secondItem="P70-yO-JuI" secondAttribute="leading" id="Z71-DH-sxs"/>
+                <constraint firstItem="2T4-Q1-iUG" firstAttribute="leading" secondItem="P70-yO-JuI" secondAttribute="leading" id="dI2-R0-oZd"/>
+                <constraint firstItem="bVz-SG-Erl" firstAttribute="leading" secondItem="P70-yO-JuI" secondAttribute="leading" id="dao-IV-tDc"/>
+                <constraint firstAttribute="bottom" secondItem="2T4-Q1-iUG" secondAttribute="bottom" id="gON-12-gTt"/>
+                <constraint firstItem="bVz-SG-Erl" firstAttribute="top" secondItem="P70-yO-JuI" secondAttribute="top" id="uJ4-gv-dLy"/>
+                <constraint firstItem="QXB-je-d54" firstAttribute="top" secondItem="P70-yO-JuI" secondAttribute="top" id="xHK-er-XXB"/>
+                <constraint firstAttribute="trailing" secondItem="QXB-je-d54" secondAttribute="trailing" id="z00-o3-d89"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="XWy-fu-hQt"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="btnPlayLarge" width="40" height="40"/>
+    </resources>
+</document>

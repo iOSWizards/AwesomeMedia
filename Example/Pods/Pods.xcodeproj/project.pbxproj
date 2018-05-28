@@ -224,6 +224,8 @@
 		A482B3E9BDB7CD6C55F507958CB78582 /* NSValue+Compat.h in Headers */ = {isa = PBXBuildFile; fileRef = E7A75FEC526EF91135976C152270A5F8 /* NSValue+Compat.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		A5EDF5866C56B57924FEB264593A272D /* youtube-ios-player-helper-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = AE54783138399EC55621F3423644859D /* youtube-ios-player-helper-dummy.m */; };
 		A681DA25308CA783AC478434490333A1 /* LOTSizeInterpolator.m in Sources */ = {isa = PBXBuildFile; fileRef = 0378A44AF4F591982864BB9A3C14FD37 /* LOTSizeInterpolator.m */; };
+		A7175DC720BCA1B30061A7DA /* AwesomeMediaYoutubeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7175DC620BCA1B30061A7DA /* AwesomeMediaYoutubeView.swift */; };
+		A7175DC920BCA4140061A7DA /* AwesomeMediaYoutubeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7175DC820BCA4140061A7DA /* AwesomeMediaYoutubeView.xib */; };
 		A7B652B54F8A97FC43ADD337004BD3B7 /* AwesomeMediaVideoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE12FD350D9FDB9C95BAC46966DE6EF1 /* AwesomeMediaVideoTableViewCell.swift */; };
 		A7CD34E60ADDC98BBFA79F7DEE272254 /* LOTAnimatedControl.h in Headers */ = {isa = PBXBuildFile; fileRef = 886A84C1C7952C276DB70A37010621DA /* LOTAnimatedControl.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A7CDF26B20BC609B0063A938 /* AwesomeMediaYoutubeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CDF26A20BC609B0063A938 /* AwesomeMediaYoutubeTableViewCell.swift */; };
@@ -720,6 +722,8 @@
 		A5ED86C28BBFF3C9F174133A47D6C3B2 /* YTPlayerView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YTPlayerView.m; path = Classes/YTPlayerView.m; sourceTree = "<group>"; };
 		A64F154510F1E2885EDB1C2DBF1CF3B9 /* AwesomeUIMagic.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = AwesomeUIMagic.xcconfig; sourceTree = "<group>"; };
 		A704BC3A35833AEB530CC87A5527FC09 /* LOTValueDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LOTValueDelegate.h; path = "lottie-ios/Classes/PublicHeaders/LOTValueDelegate.h"; sourceTree = "<group>"; };
+		A7175DC620BCA1B30061A7DA /* AwesomeMediaYoutubeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwesomeMediaYoutubeView.swift; sourceTree = "<group>"; };
+		A7175DC820BCA4140061A7DA /* AwesomeMediaYoutubeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AwesomeMediaYoutubeView.xib; sourceTree = "<group>"; };
 		A7CDF26A20BC609B0063A938 /* AwesomeMediaYoutubeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwesomeMediaYoutubeTableViewCell.swift; sourceTree = "<group>"; };
 		A7CDF26C20BC62000063A938 /* AwesomeMediaYoutubeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AwesomeMediaYoutubeTableViewCell.xib; sourceTree = "<group>"; };
 		A7CDF26E20BC86850063A938 /* AwesomeMediaYoutubeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwesomeMediaYoutubeCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -963,6 +967,7 @@
 				F5931B9B473958C816D07F28C4B01BD3 /* AwesomeMediaVideoTableViewCell.xib */,
 				4CEC10FD219F07069D8C0569CC9AF77A /* AwesomeMediaVideoTitleView.xib */,
 				A7CDF26C20BC62000063A938 /* AwesomeMediaYoutubeTableViewCell.xib */,
+				A7175DC820BCA4140061A7DA /* AwesomeMediaYoutubeView.xib */,
 			);
 			name = Views;
 			path = AwesomeMedia/Assets/Views;
@@ -1114,6 +1119,7 @@
 				F41D4DC1A48CF4EAF500E820FA941435 /* AwesomeMediaVideoMarkersView.swift */,
 				548B2B68FFA1B9B17DE4DA5D0CF400DD /* AwesomeMediaVideoTitleView.swift */,
 				22158D2BF9A209ABED0EC1DE72DC45C6 /* AwesomeMediaView.swift */,
+				A7175DC620BCA1B30061A7DA /* AwesomeMediaYoutubeView.swift */,
 			);
 			name = Views;
 			path = AwesomeMedia/Classes/Views;
@@ -2183,6 +2189,7 @@
 				851A86FEB79E035339CB8F3B29C89778 /* Gilroy-BlackItalic.otf in Resources */,
 				0BB3F6545DF4FD27267A7EA1ADE23882 /* Gilroy-Bold.otf in Resources */,
 				5F51A33480E78306D0411E83879E7B8A /* Gilroy-BoldItalic.otf in Resources */,
+				A7175DC920BCA4140061A7DA /* AwesomeMediaYoutubeView.xib in Resources */,
 				0E028F2B018168959095FEF5502757DF /* Gilroy-ExtraBold.otf in Resources */,
 				2CB3C496EA66BF7237CCB8C1C9B01BAC /* Gilroy-ExtraBoldItalic.otf in Resources */,
 				6406060F42678D4EFACDD13F675A6C8B /* Gilroy-Heavy.otf in Resources */,
@@ -2398,6 +2405,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7175DC720BCA1B30061A7DA /* AwesomeMediaYoutubeView.swift in Sources */,
 				90FAAA16628D92E43696D986BF012B4A /* AMAVPlayerItem.swift in Sources */,
 				0C54C0517C2B0AA1EA69C8A02B8AE3EA /* AVPlayerExtensions.swift in Sources */,
 				02A994CA5745538258B7F6FF93ED3887 /* AVPlayerItemExtensions.swift in Sources */,
