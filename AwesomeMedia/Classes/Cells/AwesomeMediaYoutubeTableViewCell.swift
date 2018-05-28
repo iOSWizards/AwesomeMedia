@@ -11,6 +11,8 @@ import youtube_ios_player_helper
 public class AwesomeMediaYoutubeTableViewCell: UITableViewCell {
 
     @IBOutlet var youtubePlayerView: YTPlayerView!
+    @IBOutlet weak var coverImageView: UIImageView!
+    @IBOutlet weak var playButton: UIImageView!
     
     override public func awakeFromNib() {
         super.awakeFromNib()
@@ -27,8 +29,12 @@ public class AwesomeMediaYoutubeTableViewCell: UITableViewCell {
             return
         }
         
+        loadCoverImage(with: mediaParams)
         youtubePlayerView.delegate = self
-        youtubePlayerView.load(withVideoId: youtubeId, playerVars: ["playsinline": 1])
+        youtubePlayerView.load(withVideoId: youtubeId, playerVars: ["playsinline": 1,
+                                                                    "showinfo": 0,
+                                                                    "autohide": 1,
+                                                                    "modestbranding": 1])
         AwesomeMediaManager.shared.youtubePlayerView = youtubePlayerView
     }
     
@@ -54,7 +60,26 @@ extension AwesomeMediaYoutubeTableViewCell: YTPlayerViewDelegate {
     public func playerView(_ playerView: YTPlayerView, didChangeTo state: YTPlayerState) {
         if state == .buffering || state == .playing {
             sharedAVPlayer.stop()
+            self.coverImageView.isHidden = true
+            self.playButton.isHidden = true
+        } else if state == .ended {
+            self.coverImageView.isHidden = false
+            self.playButton.isHidden = false
+            youtubePlayerView.stopVideo()
         }
     }
+}
+
+// MARK: - Media Information
+
+extension AwesomeMediaYoutubeTableViewCell {
     
+    public func loadCoverImage(with mediaParams: AwesomeMediaParams) {
+        guard let coverImageUrl = mediaParams.coverUrl else {
+            return
+        }
+        
+        // set the cover image
+        coverImageView.setImage(coverImageUrl) { (_) in }
+    }
 }
