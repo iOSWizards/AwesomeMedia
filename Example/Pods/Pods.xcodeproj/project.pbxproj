@@ -228,6 +228,7 @@
 		A7CD34E60ADDC98BBFA79F7DEE272254 /* LOTAnimatedControl.h in Headers */ = {isa = PBXBuildFile; fileRef = 886A84C1C7952C276DB70A37010621DA /* LOTAnimatedControl.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A7CDF26B20BC609B0063A938 /* AwesomeMediaYoutubeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CDF26A20BC609B0063A938 /* AwesomeMediaYoutubeTableViewCell.swift */; };
 		A7CDF26D20BC62000063A938 /* AwesomeMediaYoutubeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7CDF26C20BC62000063A938 /* AwesomeMediaYoutubeTableViewCell.xib */; };
+		A7CDF26F20BC86850063A938 /* AwesomeMediaYoutubeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CDF26E20BC86850063A938 /* AwesomeMediaYoutubeCollectionViewCell.swift */; };
 		AA8DB623111502B655B5CBA7C18D5EFC /* LOTPolystarAnimator.h in Headers */ = {isa = PBXBuildFile; fileRef = 75168FE4CABE5DCE03B43108705EF330 /* LOTPolystarAnimator.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		AA9ACC15C6C53777CD3726B7E42E4D1E /* BitmovinPlayerAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C100DB6C7EC4E63BBA84D7D8F87EE91A /* BitmovinPlayerAdapter.swift */; };
 		AAE97085C45A5BB98BBFF3CBADC35702 /* LOTAnimatedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C670D64E5EA36A3264A9FBFBADE1815 /* LOTAnimatedControl.m */; };
@@ -721,6 +722,7 @@
 		A704BC3A35833AEB530CC87A5527FC09 /* LOTValueDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LOTValueDelegate.h; path = "lottie-ios/Classes/PublicHeaders/LOTValueDelegate.h"; sourceTree = "<group>"; };
 		A7CDF26A20BC609B0063A938 /* AwesomeMediaYoutubeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwesomeMediaYoutubeTableViewCell.swift; sourceTree = "<group>"; };
 		A7CDF26C20BC62000063A938 /* AwesomeMediaYoutubeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AwesomeMediaYoutubeTableViewCell.xib; sourceTree = "<group>"; };
+		A7CDF26E20BC86850063A938 /* AwesomeMediaYoutubeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwesomeMediaYoutubeCollectionViewCell.swift; sourceTree = "<group>"; };
 		A80531F3CA22F91C524BB56D73ED5C7A /* Pods_AwesomeMedia_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AwesomeMedia_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A86DD76D21E52D5713045A6E0DBAC1EC /* LOTShapeTrimPath.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LOTShapeTrimPath.m; path = "lottie-ios/Classes/Models/LOTShapeTrimPath.m"; sourceTree = "<group>"; };
 		A89B6AC70E86E890564DB46D8B4FA818 /* Pods-AwesomeMedia_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-AwesomeMedia_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
@@ -1599,6 +1601,7 @@
 				6117043B335AC70AE4BAC54D684DD5FC /* AwesomeMediaMarkerTableViewCell.swift */,
 				EE12FD350D9FDB9C95BAC46966DE6EF1 /* AwesomeMediaVideoTableViewCell.swift */,
 				A7CDF26A20BC609B0063A938 /* AwesomeMediaYoutubeTableViewCell.swift */,
+				A7CDF26E20BC86850063A938 /* AwesomeMediaYoutubeCollectionViewCell.swift */,
 			);
 			name = Cells;
 			path = AwesomeMedia/Classes/Cells;
@@ -2438,6 +2441,7 @@
 				9F1A68217622E2B5CF152D463B123BDB /* AwesomeMediaView.swift in Sources */,
 				508A01BD12E29EDB407F0EE101F02571 /* BitmovinTracking.swift in Sources */,
 				E001321F88CFA7DBF7619143F7BF6561 /* DeviceConstants.swift in Sources */,
+				A7CDF26F20BC86850063A938 /* AwesomeMediaYoutubeCollectionViewCell.swift in Sources */,
 				245F12D21FA8B73C9476B398DAB6BAED /* NumberExtensions.swift in Sources */,
 				862B7D5DCB4438CA3E5AA12B14437B88 /* StringExtensions.swift in Sources */,
 				D8CBD26BBA714E3486974F10E0D3DB26 /* UIColorExtensions.swift in Sources */,
