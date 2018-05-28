@@ -63,4 +63,24 @@ public class AwesomeMedia {
         track(event: .openedFullscreenWithRotation, source: .unknown, value: UIApplication.shared.statusBarOrientation)
     }
     
+    static func extractYoutubeVideoId(videoUrl: String) -> String? {
+        
+        if videoUrl.contains("youtu.be") {
+            
+            if let part = videoUrl.components(separatedBy: "v=").last {
+                return part.components(separatedBy: "?").first?.components(separatedBy: "&").first
+                
+            }
+            
+            return videoUrl.components(separatedBy: "/").last
+            
+        } else if videoUrl.contains("youtube") {
+            if let part = videoUrl.components(separatedBy: "v=").last {
+                return part.components(separatedBy: "&").first
+            }
+        }
+        
+        return nil
+    }
+    
 }

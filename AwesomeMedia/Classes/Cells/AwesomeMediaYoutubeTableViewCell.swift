@@ -25,7 +25,7 @@ public class AwesomeMediaYoutubeTableViewCell: UITableViewCell {
     public func configure(withMediaParams mediaParams: AwesomeMediaParams) {
 //        BitmovinTracking.start(withParams: mediaParams)
         
-        guard let youtubeId = mediaParams.youtubeId else {
+        guard let youtubeUrl = mediaParams.youtubeUrl, let youtubeId = AwesomeMedia.extractYoutubeVideoId(videoUrl: youtubeUrl) else {
             return
         }
         

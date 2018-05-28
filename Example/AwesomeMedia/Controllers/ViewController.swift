@@ -80,7 +80,7 @@ class ViewController: UIViewController {
                     params: ["id":"45"])),
         MediaCell(type: .youtube,
                   mediaParams: AwesomeMediaParams(
-                    youtubeId: "KX7ms2k51rE",
+                    youtubeUrl: "https://www.youtube.com/watch?v=5WOxJ9rvU1s&t=3s",
                     coverUrl: "https://i0.wp.com/res.cloudinary.com/changethatmind/image/upload/v1501884914/wildfitsales.png?fit=500%2C500&ssl=1"))
         ]
     var mediaParamsArray: [AwesomeMediaParams] {
