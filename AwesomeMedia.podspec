@@ -44,4 +44,5 @@ Play Media from any app using this library.
   s.dependency 'AwesomeNetwork'
   s.dependency 'BitmovinAnalyticsCollector'
   s.dependency 'BitmovinPlayer'
+  s.dependency 'youtube-ios-player-helper'
 end

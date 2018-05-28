@@ -1,12 +1,13 @@
 PODS:
   - AwesomeLoading (0.1.3):
     - lottie-ios
-  - AwesomeMedia (1.3):
+  - AwesomeMedia (1.5):
     - AwesomeLoading
     - AwesomeNetwork
     - AwesomeUIMagic
     - BitmovinAnalyticsCollector
     - BitmovinPlayer
+    - youtube-ios-player-helper
   - AwesomeNetwork (0.1.4):
     - ReachabilitySwift (~> 3)
   - AwesomeUIMagic (0.4.6)
@@ -15,6 +16,7 @@ PODS:
   - BitmovinPlayer (2.7.0)
   - lottie-ios (2.5.0)
   - ReachabilitySwift (3)
+  - youtube-ios-player-helper (0.1.6)
 
 DEPENDENCIES:
   - AwesomeLoading (from `https://github.com/Mindvalley/Mobile_iOS_Library_AwesomeLoading.git`, tag `0.1.3`)
@@ -23,11 +25,13 @@ DEPENDENCIES:
   - AwesomeUIMagic (from `https://github.com/iOSWizards/AwesomeUIMagic`, tag `0.4.6`)
   - BitmovinAnalyticsCollector (from `https://github.com/bitmovin/bitmovin-analytics-collector-ios.git`, tag `1.0.0`)
   - BitmovinPlayer (from `https://github.com/bitmovin/bitmovin-player-ios-sdk-cocoapod.git`, tag `2.7.0`)
+  - youtube-ios-player-helper
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - lottie-ios
     - ReachabilitySwift
+    - youtube-ios-player-helper
 
 EXTERNAL SOURCES:
   AwesomeLoading:
@@ -67,14 +71,15 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   AwesomeLoading: a035744e09a5334bd918f394bfd07e60a196eb1d
-  AwesomeMedia: 8167711df1c442a1e9bfe702c10f4de2db3202d7
+  AwesomeMedia: a72eeef27e8774d4a368eb3e32359897f62fb350
   AwesomeNetwork: 295b7f6aa0d3783090cb1e9dc844bcb8fa05e094
   AwesomeUIMagic: ecd21700f29490ba6ca016ec1a38b72a3dc177d9
   BitmovinAnalyticsCollector: 2f0c624fcec73e4b25c65957e3593bfd69e6b57f
   BitmovinPlayer: fdbc98fb1a096c73c21d1efe2e77db6acd32c585
   lottie-ios: d699fdee68d7b63e721d949388b015fef1aaa4ac
   ReachabilitySwift: f5b9bb30a0777fac8f09ce8b067e32faeb29bb64
+  youtube-ios-player-helper: 21ab92db027c7ff86cb17a3843a3f6eafc8158d2
 
-PODFILE CHECKSUM: 58e2128153812db28b364cacc834496cde268dde
+PODFILE CHECKSUM: 1013c30a01f63c14693c16ad6f1caf0efdc7dafe
 
 COCOAPODS: 1.5.0

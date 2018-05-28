@@ -7,6 +7,7 @@ target 'AwesomeMedia_Example' do
   pod 'AwesomeNetwork', git: 'https://github.com/iOSWizards/AwesomeNetwork', tag: '0.1.4'
   pod 'BitmovinAnalyticsCollector', git: 'https://github.com/bitmovin/bitmovin-analytics-collector-ios.git', tag:'1.0.0'
   pod 'BitmovinPlayer', git: 'https://github.com/bitmovin/bitmovin-player-ios-sdk-cocoapod.git', tag: '2.7.0'
+  pod 'youtube-ios-player-helper'
 
   target 'AwesomeMedia_Tests' do
     inherit! :search_paths
