@@ -25,4 +25,8 @@ extension AwesomeMedia {
         tableView.register(UINib(nibName: "AwesomeMediaImageTableViewCell", bundle: AwesomeMedia.bundle), forCellReuseIdentifier: identifier)
     }
     
+    public static func registerYoutubeCell(to tableView: UITableView, withIdentifier identifier: String) {
+        tableView.register(UINib(nibName: "AwesomeMediaYoutubeTableViewCell", bundle: AwesomeMedia.bundle), forCellReuseIdentifier: identifier)
+    }
+    
 }

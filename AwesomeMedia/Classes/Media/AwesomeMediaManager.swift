@@ -7,12 +7,14 @@
 
 import AVFoundation
 import AwesomeNetwork
+import youtube_ios_player_helper
 
 public class AwesomeMediaManager: NSObject {
     
     public static var shared = AwesomeMediaManager()
     
     public var avPlayer = AVPlayer()
+    public var youtubePlayerView: YTPlayerView?
     
     // Private Variables
     fileprivate var timeObserver: AnyObject?
@@ -80,6 +82,7 @@ public class AwesomeMediaManager: NSObject {
     
     fileprivate func prepareMedia(withUrl url: URL, andPlay play: Bool = true) {
         avPlayer.attachBitmovinTracker()
+        AwesomeMediaManager.shared.youtubePlayerView?.pauseVideo()
         
         let playerItem = AMAVPlayerItem(url: url)
         avPlayer.replaceCurrentItem(with: playerItem)

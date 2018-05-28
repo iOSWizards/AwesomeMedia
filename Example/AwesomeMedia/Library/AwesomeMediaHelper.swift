@@ -38,6 +38,7 @@ class AwesomeMediaHelper {
         AwesomeMedia.registerAudioCell(to: tableView, withIdentifier: MediaType.audio.rawValue)
         AwesomeMedia.registerFileCell(to: tableView, withIdentifier: MediaType.file.rawValue)
         AwesomeMedia.registerImageCell(to: tableView, withIdentifier: MediaType.image.rawValue)
+        AwesomeMedia.registerYoutubeCell(to: tableView, withIdentifier: MediaType.youtube.rawValue)
     }
 }
 

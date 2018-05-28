@@ -9,6 +9,7 @@ import Foundation
 
 public struct AwesomeMediaParams {
     public var url: String?
+    public var youtubeId: String?
     public var coverUrl: String?
     public var author: String?
     public var title: String?
@@ -19,6 +20,7 @@ public struct AwesomeMediaParams {
     public var params: [String: Any] = [:]
     
     public init(url: String? = nil,
+                youtubeId: String? = nil,
                 coverUrl: String? = nil,
                 author: String? = nil,
                 title: String? = nil,
@@ -28,6 +30,7 @@ public struct AwesomeMediaParams {
                 type: String? = nil,
                 params: [String: Any] = [:]) {
         self.url = url
+        self.youtubeId = youtubeId
         self.coverUrl = coverUrl
         self.author = author
         self.title = title

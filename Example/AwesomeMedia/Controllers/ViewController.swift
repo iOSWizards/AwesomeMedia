@@ -14,6 +14,7 @@ enum MediaType: String {
     case audio
     case file
     case image
+    case youtube
 }
 
 struct MediaCell {
@@ -77,6 +78,10 @@ class ViewController: UIViewController {
                     duration: 33222,
                     markers: AwesomeMediaManager.testMediaMarkers,
                     params: ["id":"45"])),
+        MediaCell(type: .youtube,
+                  mediaParams: AwesomeMediaParams(
+                    youtubeId: "KX7ms2k51rE",
+                    coverUrl: "https://i0.wp.com/res.cloudinary.com/changethatmind/image/upload/v1501884914/wildfitsales.png?fit=500%2C500&ssl=1"))
         ]
     var mediaParamsArray: [AwesomeMediaParams] {
         var mediaParamsArray = [AwesomeMediaParams]()
@@ -154,6 +159,8 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
             cell.configure(withMediaParams: cells[indexPath.row].mediaParams)
         } else if let cell = cell as? AwesomeMediaImageTableViewCell {
             cell.configure(withMediaParams: cells[indexPath.row].mediaParams)
+        } else if let cell = cell as? AwesomeMediaYoutubeTableViewCell {
+            cell.configure(withMediaParams: cells[indexPath.row].mediaParams)
         }
     }
 
@@ -167,6 +174,8 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
             return AwesomeMediaFileTableViewCell.defaultSize.height
         case .image:
             return AwesomeMediaImageTableViewCell.size(withTableView: tableView, indexPath: indexPath).height
+        case .youtube:
+            return AwesomeMediaYoutubeTableViewCell.defaultSize.height
         }
     }
 

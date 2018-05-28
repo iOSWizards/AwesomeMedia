@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="BUj-sI-XNH" customClass="AwesomeMediaYoutubeTableViewCell" customModule="AwesomeMedia" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="209"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BUj-sI-XNH" id="wS1-87-8Xj">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="208.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pAN-up-N3f">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="208.5"/>
+                        <subviews>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icoPlaceholderVideo" translatesAutoresizingMaskIntoConstraints="NO" id="llQ-kj-9LY">
+                                <rect key="frame" x="165" y="88" width="44" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="NkM-pw-mhZ"/>
+                                    <constraint firstAttribute="width" constant="44" id="dVN-Ac-NFs"/>
+                                </constraints>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CYh-W3-QfL">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="208.5"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kbk-zk-JXx" customClass="YTPlayerView">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="208.5"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="Kbk-zk-JXx" secondAttribute="trailing" id="97t-Hx-sND"/>
+                                    <constraint firstAttribute="bottom" secondItem="Kbk-zk-JXx" secondAttribute="bottom" id="C1X-py-LFZ"/>
+                                    <constraint firstItem="Kbk-zk-JXx" firstAttribute="top" secondItem="CYh-W3-QfL" secondAttribute="top" id="fLo-mD-S65"/>
+                                    <constraint firstItem="Kbk-zk-JXx" firstAttribute="leading" secondItem="CYh-W3-QfL" secondAttribute="leading" id="vaV-ER-ayn"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.23529411759999999" green="0.26274509800000001" blue="0.30588235289999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="llQ-kj-9LY" firstAttribute="centerY" secondItem="pAN-up-N3f" secondAttribute="centerY" id="BXw-4o-Idf"/>
+                            <constraint firstItem="llQ-kj-9LY" firstAttribute="centerX" secondItem="pAN-up-N3f" secondAttribute="centerX" id="K97-Jk-RDu"/>
+                            <constraint firstAttribute="trailing" secondItem="CYh-W3-QfL" secondAttribute="trailing" id="Oo4-hJ-wMe"/>
+                            <constraint firstItem="CYh-W3-QfL" firstAttribute="top" secondItem="pAN-up-N3f" secondAttribute="top" id="Q1A-sr-iBM"/>
+                            <constraint firstAttribute="width" constant="600" id="SJ5-TK-YOJ"/>
+                            <constraint firstItem="CYh-W3-QfL" firstAttribute="leading" secondItem="pAN-up-N3f" secondAttribute="leading" id="aAM-ic-JVe"/>
+                            <constraint firstAttribute="bottom" secondItem="CYh-W3-QfL" secondAttribute="bottom" id="iCv-Wr-Ibe"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="SJ5-TK-YOJ"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=regular">
+                            <mask key="constraints">
+                                <include reference="SJ5-TK-YOJ"/>
+                            </mask>
+                        </variation>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstItem="pAN-up-N3f" firstAttribute="top" secondItem="wS1-87-8Xj" secondAttribute="top" id="a2x-XS-Go4">
+                        <variation key="heightClass=regular-widthClass=regular" constant="8"/>
+                    </constraint>
+                    <constraint firstAttribute="trailing" secondItem="pAN-up-N3f" secondAttribute="trailing" id="hqq-n6-2La"/>
+                    <constraint firstItem="pAN-up-N3f" firstAttribute="leading" secondItem="wS1-87-8Xj" secondAttribute="leading" id="iBZ-cw-dBs"/>
+                    <constraint firstItem="pAN-up-N3f" firstAttribute="centerX" secondItem="wS1-87-8Xj" secondAttribute="centerX" id="r7n-KB-Yx5"/>
+                    <constraint firstAttribute="bottom" secondItem="pAN-up-N3f" secondAttribute="bottom" id="vvT-q8-fWG">
+                        <variation key="heightClass=regular-widthClass=regular" constant="8"/>
+                    </constraint>
+                </constraints>
+                <variation key="heightClass=regular-widthClass=regular">
+                    <mask key="constraints">
+                        <exclude reference="iBZ-cw-dBs"/>
+                        <exclude reference="hqq-n6-2La"/>
+                    </mask>
+                </variation>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="youtubePlayerView" destination="Kbk-zk-JXx" id="sOK-G4-s2j"/>
+            </connections>
+            <point key="canvasLocation" x="-1" y="-34"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="icoPlaceholderVideo" width="44" height="32"/>
+    </resources>
+</document>
