@@ -60,11 +60,9 @@ extension AwesomeMediaYoutubeTableViewCell: YTPlayerViewDelegate {
     public func playerView(_ playerView: YTPlayerView, didChangeTo state: YTPlayerState) {
         if state == .buffering || state == .playing {
             sharedAVPlayer.stop()
-            self.coverImageView.isHidden = true
-            self.playButton.isHidden = true
+            showCoverAndPlay(false)
         } else if state == .ended {
-            self.coverImageView.isHidden = false
-            self.playButton.isHidden = false
+            showCoverAndPlay(true)
             youtubePlayerView.stopVideo()
         }
     }
@@ -81,5 +79,14 @@ extension AwesomeMediaYoutubeTableViewCell {
         
         // set the cover image
         coverImageView.setImage(coverImageUrl) { (_) in }
+    }
+}
+
+// MARK: - UI Helper
+
+extension AwesomeMediaYoutubeTableViewCell {
+    func showCoverAndPlay(_ enable: Bool) {
+        coverImageView.isHidden = !enable
+        playButton.isHidden = !enable
     }
 }

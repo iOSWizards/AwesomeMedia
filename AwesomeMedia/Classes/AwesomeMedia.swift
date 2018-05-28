@@ -83,4 +83,11 @@ public class AwesomeMedia {
         return nil
     }
     
+    public static func isYoutubeVideo(videoUrl: String?) -> Bool {
+        guard let videoUrl = videoUrl else {
+            return false
+        }
+        return videoUrl.contains("youtu.be") || videoUrl.contains("youtube")
+    }
+    
 }
