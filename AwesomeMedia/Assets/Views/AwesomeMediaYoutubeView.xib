@@ -23,14 +23,14 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bVz-SG-Erl" customClass="YTPlayerView">
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bVz-SG-Erl" customClass="YTPlayerView">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QXB-je-d54">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
                 </imageView>
-                <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="btnPlayLarge" translatesAutoresizingMaskIntoConstraints="NO" id="2T4-Q1-iUG">
+                <imageView hidden="YES" userInteractionEnabled="NO" alpha="0.5" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="btnPlayLarge" translatesAutoresizingMaskIntoConstraints="NO" id="2T4-Q1-iUG">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
                 </imageView>
             </subviews>

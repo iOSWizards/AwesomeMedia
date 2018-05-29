@@ -24,6 +24,10 @@ class AwesomeMediaYoutubeView: UIView {
         
         Bundle(for: AwesomeMediaYoutubeView.self).loadNibNamed("AwesomeMediaYoutubeView", owner: self, options: nil)
         
+        let gesture = UITapGestureRecognizer.init(target: self, action: #selector(playVideo))
+        contentView.addGestureRecognizer(gesture)
+        contentView.isUserInteractionEnabled = true
+        
         addSubview(contentView)
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
@@ -64,12 +68,20 @@ extension AwesomeMediaYoutubeView {
 
 extension AwesomeMediaYoutubeView: YTPlayerViewDelegate {
     
+    @objc func playVideo() {
+        contentView.startLoadingAnimation()
+        youtubePlayerView.playVideo()
+    }
+    
     public func playerView(_ playerView: YTPlayerView, didChangeTo state: YTPlayerState) {
-        if state == .buffering || state == .playing {
+        if state == .buffering {
             sharedAVPlayer.stop()
-            showCoverAndPlay(false)
+        } else if state == .playing {
+            contentView.stopLoadingAnimation()
+            sharedAVPlayer.stop()
+//            showCoverAndPlay(false)
         } else if state == .ended {
-            showCoverAndPlay(true)
+//            showCoverAndPlay(true)
             youtubePlayerView.stopVideo()
         }
     }

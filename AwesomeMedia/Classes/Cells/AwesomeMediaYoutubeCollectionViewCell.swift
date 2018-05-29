@@ -23,7 +23,7 @@ public class AwesomeMediaYoutubeCollectionViewCell: UICollectionViewCell {
         }
         
         youtubeView.loadCoverImage(with: mediaParams)
-        youtubeView.youtubePlayerView.load(withVideoId: youtubeId, playerVars: ["playsinline": 1,
+        youtubeView.youtubePlayerView.load(withVideoId: youtubeId, playerVars: ["playsinline": 0,
                                                                     "showinfo": 0,
                                                                     "autohide": 1,
                                                                     "modestbranding": 1])
