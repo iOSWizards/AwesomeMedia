@@ -80,6 +80,10 @@ public class AwesomeMediaVideoViewController: UIViewController {
 extension AwesomeMediaVideoViewController {
     fileprivate func close() {
         dismiss(animated: true) {
+            if AwesomeMedia.shouldStopVideoWhenCloseFullScreen {
+                sharedAVPlayer.stop()
+                AwesomeMedia.shouldStopVideoWhenCloseFullScreen = false
+            }
             AwesomeMediaVideoViewController.presentingVideoInFullscreen = false
         }
     }

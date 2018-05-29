@@ -7,11 +7,11 @@
 
 import UIKit
 
-public class AwesomeMediaYoutubeCollectionViewCell: UICollectionViewCell {
+open class AwesomeMediaYoutubeCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet var youtubeView: AwesomeMediaYoutubeView!
+    @IBOutlet open var youtubeView: AwesomeMediaYoutubeView!
     
-    override public func awakeFromNib() {
+    override open func awakeFromNib() {
         super.awakeFromNib()
     }
     

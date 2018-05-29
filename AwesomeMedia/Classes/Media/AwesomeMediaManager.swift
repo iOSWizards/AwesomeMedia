@@ -43,7 +43,7 @@ public class AwesomeMediaManager: NSObject {
     public static let testAudioURL = "https://archive.org/download/VirtualHaircut/virtualbarbershop.mp3"
     public static let testPDFURL = "https://www.paloaltonetworks.com/content/dam/pan/en_US/assets/pdf/datasheets/wildfire/wildfire-ds.pdf"
     
-    func playMedia(withParams params: AwesomeMediaParams, inPlayerLayer playerLayer: AVPlayerLayer? = nil, viewController: UIViewController? = nil) {
+    public func playMedia(withParams params: AwesomeMediaParams, inPlayerLayer playerLayer: AVPlayerLayer? = nil, viewController: UIViewController? = nil) {
         
         guard let url = params.url?.url?.offlineURLIfAvailable else {
             AwesomeMedia.log("No URL provided")

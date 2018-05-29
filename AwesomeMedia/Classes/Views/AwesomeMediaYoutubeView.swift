@@ -8,18 +8,18 @@
 import Foundation
 import youtube_ios_player_helper
 
-class AwesomeMediaYoutubeView: UIView {
+open class AwesomeMediaYoutubeView: UIView {
     
     @IBOutlet weak var contentView: UIView!
     @IBOutlet var youtubePlayerView: YTPlayerView!
     @IBOutlet weak var coverImageView: UIImageView!
     @IBOutlet weak var playButton: UIImageView!
     
-    override func awakeFromNib() {
+    override open func awakeFromNib() {
         super.awakeFromNib()
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
         Bundle(for: AwesomeMediaYoutubeView.self).loadNibNamed("AwesomeMediaYoutubeView", owner: self, options: nil)
