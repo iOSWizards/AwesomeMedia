@@ -1,0 +1,6 @@
+framework module AwesomeImage {
+  umbrella header "AwesomeImage-umbrella.h"
+
+  export *
+  module * { export * }
+}

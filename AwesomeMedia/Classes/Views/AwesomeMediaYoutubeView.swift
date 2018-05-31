@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import AwesomeImage
 import youtube_ios_player_helper
 
 open class AwesomeMediaYoutubeView: UIView {
@@ -48,10 +49,7 @@ extension AwesomeMediaYoutubeView {
         }
         
         // set the cover image
-        coverImageView.startShimmerAnimation()
-        coverImageView.setImage(coverImageUrl) { (_) in
-            self.coverImageView.stopShimmerAnimation()
-        }
+        coverImageView.setImage(coverImageUrl)
     }
 }
 
