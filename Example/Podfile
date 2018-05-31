@@ -3,6 +3,7 @@ use_frameworks!
 target 'AwesomeMedia_Example' do
   pod 'AwesomeMedia', :path => '../'
   pod 'AwesomeUIMagic', git: 'https://github.com/iOSWizards/AwesomeUIMagic', tag: '0.4.6'
+  pod 'AwesomeImage', git: 'https://github.com/iOSWizards/AwesomeImage', tag: '0.1.3'
   pod 'AwesomeLoading', git: 'https://github.com/Mindvalley/Mobile_iOS_Library_AwesomeLoading.git', tag: '0.1.3'
   pod 'AwesomeNetwork', git: 'https://github.com/iOSWizards/AwesomeNetwork', tag: '0.1.4'
   pod 'BitmovinAnalyticsCollector', git: 'https://github.com/bitmovin/bitmovin-analytics-collector-ios.git', tag:'1.0.0'

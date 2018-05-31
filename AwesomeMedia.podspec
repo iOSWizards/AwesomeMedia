@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'AwesomeMedia'
-  s.version          = '1.8.1'
+  s.version          = '1.8.2'
   s.summary          = 'Play Sounds and Videos with AvPlayer.'
 
 # This description is used to generate tags and improve search results.
@@ -42,6 +42,7 @@ Play Media from any app using this library.
   s.dependency 'AwesomeUIMagic'
   s.dependency 'AwesomeLoading'
   s.dependency 'AwesomeNetwork'
+  s.dependency 'AwesomeImage'
   s.dependency 'BitmovinAnalyticsCollector'
   s.dependency 'BitmovinPlayer'
   s.dependency 'youtube-ios-player-helper'

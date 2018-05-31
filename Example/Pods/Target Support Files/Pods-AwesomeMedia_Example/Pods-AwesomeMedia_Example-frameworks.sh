@@ -143,23 +143,27 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "${BUILT_PRODUCTS_DIR}/AwesomeImage/AwesomeImage.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/AwesomeLoading/AwesomeLoading.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/AwesomeMedia/AwesomeMedia.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/AwesomeNetwork/AwesomeNetwork.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/AwesomeUIMagic/AwesomeUIMagic.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/BitmovinAnalyticsCollector/BitmovinAnalyticsCollector.framework"
   install_framework "${PODS_ROOT}/BitmovinPlayer/iOS/BitmovinPlayer.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/ReachabilitySwift/ReachabilitySwift.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/youtube-ios-player-helper/youtube_ios_player_helper.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "${BUILT_PRODUCTS_DIR}/AwesomeImage/AwesomeImage.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/AwesomeLoading/AwesomeLoading.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/AwesomeMedia/AwesomeMedia.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/AwesomeNetwork/AwesomeNetwork.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/AwesomeUIMagic/AwesomeUIMagic.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/BitmovinAnalyticsCollector/BitmovinAnalyticsCollector.framework"
   install_framework "${PODS_ROOT}/BitmovinPlayer/iOS/BitmovinPlayer.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/ReachabilitySwift/ReachabilitySwift.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/youtube-ios-player-helper/youtube_ios_player_helper.framework"
