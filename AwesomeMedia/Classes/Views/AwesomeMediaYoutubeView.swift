@@ -33,6 +33,7 @@ open class AwesomeMediaYoutubeView: UIView {
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         
+        
         youtubePlayerView.delegate = self
         AwesomeMediaManager.shared.youtubePlayerView = youtubePlayerView
     }
@@ -72,6 +73,10 @@ extension AwesomeMediaYoutubeView: YTPlayerViewDelegate {
     }
     
     public func playerView(_ playerView: YTPlayerView, didChangeTo state: YTPlayerState) {
+        youtubePlayerView.webView?.allowsPictureInPictureMediaPlayback = false
+        youtubePlayerView.webView?.allowsInlineMediaPlayback = false
+        // these two lines above fix the problem of not playing on iPad
+        
         if state == .buffering {
             sharedAVPlayer.stop()
         } else if state == .playing {
