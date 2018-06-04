@@ -15,6 +15,7 @@ open class AwesomeMediaYoutubeView: UIView {
     @IBOutlet var youtubePlayerView: YTPlayerView!
     @IBOutlet weak var coverImageView: UIImageView!
     @IBOutlet weak var playButton: UIImageView!
+    private var playsInLine: Bool = true
     
     override open func awakeFromNib() {
         super.awakeFromNib()
@@ -25,9 +26,12 @@ open class AwesomeMediaYoutubeView: UIView {
         
         Bundle(for: AwesomeMediaYoutubeView.self).loadNibNamed("AwesomeMediaYoutubeView", owner: self, options: nil)
         
-        let gesture = UITapGestureRecognizer.init(target: self, action: #selector(playVideo))
-        contentView.addGestureRecognizer(gesture)
-        contentView.isUserInteractionEnabled = true
+        if !playsInLine {
+            let gesture = UITapGestureRecognizer.init(target: self, action: #selector(playVideo))
+            contentView.addGestureRecognizer(gesture)
+            contentView.isUserInteractionEnabled = true
+            youtubePlayerView.isHidden = true
+        }
         
         addSubview(contentView)
         contentView.frame = self.bounds
@@ -73,18 +77,27 @@ extension AwesomeMediaYoutubeView: YTPlayerViewDelegate {
     }
     
     public func playerView(_ playerView: YTPlayerView, didChangeTo state: YTPlayerState) {
-        youtubePlayerView.webView?.allowsPictureInPictureMediaPlayback = false
-        youtubePlayerView.webView?.allowsInlineMediaPlayback = false
-        // these two lines above fix the problem of not playing on iPad
+        if isPad {
+            youtubePlayerView.webView?.allowsPictureInPictureMediaPlayback = false
+            youtubePlayerView.webView?.allowsInlineMediaPlayback = false
+            // these two lines above fix the problem of not playing on iPad
+        }
         
         if state == .buffering {
+            if playsInLine {
+                contentView.startLoadingAnimation()
+            }
             sharedAVPlayer.stop()
         } else if state == .playing {
+            if playsInLine {
+                showCoverAndPlay(false)
+            }
             contentView.stopLoadingAnimation()
             sharedAVPlayer.stop()
-//            showCoverAndPlay(false)
         } else if state == .ended {
-//            showCoverAndPlay(true)
+            if playsInLine {
+                showCoverAndPlay(true)
+            }
             youtubePlayerView.stopVideo()
         }
     }
