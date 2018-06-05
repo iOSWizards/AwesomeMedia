@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -23,28 +23,30 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bVz-SG-Erl" customClass="YTPlayerView">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bVz-SG-Erl" customClass="YTPlayerView">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QXB-je-d54">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
                 </imageView>
-                <imageView hidden="YES" userInteractionEnabled="NO" alpha="0.5" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="btnPlayLarge" translatesAutoresizingMaskIntoConstraints="NO" id="2T4-Q1-iUG">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="btnPlayLarge" translatesAutoresizingMaskIntoConstraints="NO" id="2T4-Q1-iUG">
+                    <rect key="frame" x="145" y="107.5" width="85" height="85"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="85" id="Da9-g9-vOd"/>
+                        <constraint firstAttribute="width" constant="85" id="p8H-h3-JDZ"/>
+                    </constraints>
                 </imageView>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="2T4-Q1-iUG" secondAttribute="trailing" id="8AU-am-jse"/>
+                <constraint firstItem="2T4-Q1-iUG" firstAttribute="centerX" secondItem="XWy-fu-hQt" secondAttribute="centerX" id="B4b-WN-4Ld"/>
                 <constraint firstAttribute="bottom" secondItem="QXB-je-d54" secondAttribute="bottom" id="Exf-Pa-3YK"/>
+                <constraint firstItem="2T4-Q1-iUG" firstAttribute="centerY" secondItem="XWy-fu-hQt" secondAttribute="centerY" id="Fsf-ub-gtK"/>
                 <constraint firstAttribute="bottom" secondItem="bVz-SG-Erl" secondAttribute="bottom" id="HuN-mO-VBi"/>
-                <constraint firstItem="2T4-Q1-iUG" firstAttribute="top" secondItem="P70-yO-JuI" secondAttribute="top" id="Me9-ah-reE"/>
                 <constraint firstAttribute="trailing" secondItem="bVz-SG-Erl" secondAttribute="trailing" id="WPG-zj-O8n"/>
                 <constraint firstItem="QXB-je-d54" firstAttribute="leading" secondItem="P70-yO-JuI" secondAttribute="leading" id="Z71-DH-sxs"/>
-                <constraint firstItem="2T4-Q1-iUG" firstAttribute="leading" secondItem="P70-yO-JuI" secondAttribute="leading" id="dI2-R0-oZd"/>
                 <constraint firstItem="bVz-SG-Erl" firstAttribute="leading" secondItem="P70-yO-JuI" secondAttribute="leading" id="dao-IV-tDc"/>
-                <constraint firstAttribute="bottom" secondItem="2T4-Q1-iUG" secondAttribute="bottom" id="gON-12-gTt"/>
                 <constraint firstItem="bVz-SG-Erl" firstAttribute="top" secondItem="P70-yO-JuI" secondAttribute="top" id="uJ4-gv-dLy"/>
                 <constraint firstItem="QXB-je-d54" firstAttribute="top" secondItem="P70-yO-JuI" secondAttribute="top" id="xHK-er-XXB"/>
                 <constraint firstAttribute="trailing" secondItem="QXB-je-d54" secondAttribute="trailing" id="z00-o3-d89"/>

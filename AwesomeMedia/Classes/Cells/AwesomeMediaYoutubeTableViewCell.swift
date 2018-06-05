@@ -24,7 +24,7 @@ public class AwesomeMediaYoutubeTableViewCell: UITableViewCell {
         }
         
         youtubeView.loadCoverImage(with: mediaParams)
-        youtubeView.youtubePlayerView.load(withVideoId: youtubeId, playerVars: ["playsinline": 0,
+        youtubeView.youtubePlayerView.load(withVideoId: youtubeId, playerVars: ["playsinline": 1,
                                                                                 "showinfo": 0,
                                                                                 "autohide": 1,
                                                                                 "modestbranding": 1])
