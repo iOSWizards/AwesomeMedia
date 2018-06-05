@@ -26,6 +26,9 @@ public class AwesomeMediaVideoViewController: UIViewController {
                              titleViewVisible: true)
         playerView.controlView?.fullscreenCallback = {
             self.close()
+            
+            // track event
+            track(event: .toggleFullscreen, source: .videoFullscreen)
         }
         playerView.controlView?.jumpToCallback = {
             self.showMarkers(self.mediaParams.markers) { (mediaMarker) in
@@ -38,6 +41,10 @@ public class AwesomeMediaVideoViewController: UIViewController {
         playerView.titleView?.closeCallback = {
             sharedAVPlayer.stop()
             self.close()
+            
+            // track event
+            track(event: .closeFullscreen, source: .videoFullscreen)
+            track(event: .stoppedPlaying, source: .videoFullscreen)
         }
         playerView.finishedPlayingCallback = {
             self.close()
