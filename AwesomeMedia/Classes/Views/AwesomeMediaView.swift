@@ -53,6 +53,9 @@ public class AwesomeMediaView: UIView {
                           states: states,
                           trackingSource: trackingSource)
         
+        // Auto play media if the case
+        applyParamKeys()
+        
         // Title view
         if titleViewVisible {
             configureTitle()
@@ -139,6 +142,15 @@ public class AwesomeMediaView: UIView {
         titleView?.airplayCallback = {
             self.showAirplayMenu()
         }
+    }
+    
+    public func applyParamKeys() {
+        
+        // Auto play media if the case
+        if let autoPlay = mediaParams.params[AwesomeMediaParamsKey.autoplay.rawValue] as? Bool, autoPlay {
+            controlView?.playButtonPressed(controlView?.playButton ?? self)
+        }
+        
     }
 }
 
