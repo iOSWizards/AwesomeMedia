@@ -7,6 +7,10 @@
 
 import Foundation
 
+public enum AwesomeMediaParamsKey: String {
+    case autoplay
+}
+
 public struct AwesomeMediaParams {
     public var url: String?
     public var youtubeUrl: String?
