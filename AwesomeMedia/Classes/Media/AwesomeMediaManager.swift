@@ -84,7 +84,7 @@ public class AwesomeMediaManager: NSObject {
         avPlayer.attachBitmovinTracker()
         AwesomeMediaManager.shared.youtubePlayerView?.pauseVideo()
         
-        let playerItem = AMAVPlayerItem(url: url)
+        let playerItem = item(withUrl: url)
         avPlayer.replaceCurrentItem(with: playerItem)
         
         // add observers for player and current item
@@ -100,6 +100,41 @@ public class AwesomeMediaManager: NSObject {
         if play {
             avPlayer.play()
         }
+    }
+    
+    fileprivate func item(withUrl url: URL, andSubtitleUrl subtitleUrl: URL? = nil) -> AMAVPlayerItem {
+        guard let subtitleUrl = subtitleUrl else {
+            return AMAVPlayerItem(url: url)
+        }
+        
+        // Create a Mix composition
+        let mixComposition = AVMutableComposition()
+        
+        // Configure Video Track
+        let videoAsset = AVAsset(url: url)
+        let videoTrack = mixComposition.addMutableTrack(withMediaType: .video, preferredTrackID: kCMPersistentTrackID_Invalid)
+        
+        if let ofTrack = videoAsset.tracks(withMediaType: .video).first {
+            do {
+                try videoTrack?.insertTimeRange(CMTimeRangeMake(kCMTimeZero, videoAsset.duration), of: ofTrack, at: kCMTimeZero)
+            } catch {
+                print("Failed inserting time range to video.")
+            }
+        }
+        
+        // Configure Subtitle Track
+        let subtitleAsset = AVURLAsset(url: subtitleUrl)
+        let subtitleTrack = mixComposition.addMutableTrack(withMediaType: .text, preferredTrackID: kCMPersistentTrackID_Invalid)
+        
+        if let ofTrack = subtitleAsset.tracks(withMediaType: .text).first {
+            do {
+                try subtitleTrack?.insertTimeRange(CMTimeRangeMake(kCMTimeZero, subtitleAsset.duration), of: ofTrack, at: kCMTimeZero)
+            } catch {
+                print("Failed inserting time range to subtitle.")
+            }
+        }
+        
+        return AMAVPlayerItem(asset: mixComposition)
     }
     
     // Media State
