@@ -19,6 +19,7 @@ public struct AwesomeMediaParams {
     public var title: String?
     public var duration: Int = 0
     public var markers: [AwesomeMediaMarker] = []
+    public var captions: [AwesomeMediaCaption] = []
     public var size: String?
     public var type: String?
     public var params: [String: Any] = [:]
@@ -30,6 +31,7 @@ public struct AwesomeMediaParams {
                 title: String? = nil,
                 duration: Int = 0,
                 markers: [AwesomeMediaMarker] = [],
+                captions: [AwesomeMediaCaption] = [],
                 size: String? = nil,
                 type: String? = nil,
                 params: [String: Any] = [:]) {
@@ -40,6 +42,7 @@ public struct AwesomeMediaParams {
         self.title = title
         self.duration = duration
         self.markers = markers
+        self.captions = captions
         self.size = size
         self.type = type
         self.params = params
