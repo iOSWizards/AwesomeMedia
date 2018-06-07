@@ -44,31 +44,4 @@ public class AMAVPlayerItem: AVPlayerItem {
         super.removeObserver(observer, forKeyPath: keyPath)
         observersKeyPath[keyPath] = nil
     }
-    
-    // Item
-    
-    public static func item(withUrl url: URL, andCaptionUrl subtitleUrl: URL? = nil, completion: @escaping (AMAVPlayerItem) -> Void) {
-        guard let subtitleUrl = subtitleUrl else {
-            completion(AMAVPlayerItem(url: url))
-            return
-        }
-        
-        DispatchQueue.global(qos: .background).async {
-            // Create a Mix composition
-            let mixComposition = AVMutableComposition()
-            
-            // Configure Video Track
-            AVAsset.configureAsset(for: mixComposition, url: url, ofType: .video)
-            
-            // Configure Caption Track
-            AVAsset.configureAsset(for: mixComposition, url: subtitleUrl, ofType: .text)
-            
-            DispatchQueue.main.async {
-                completion(AMAVPlayerItem(asset: mixComposition))
-            }
-        }
-        
-        
-    }
-    
 }
