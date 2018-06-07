@@ -47,21 +47,28 @@ public class AMAVPlayerItem: AVPlayerItem {
     
     // Item
     
-    public static func item(withUrl url: URL, andCaptionUrl subtitleUrl: URL? = nil) -> AMAVPlayerItem {
+    public static func item(withUrl url: URL, andCaptionUrl subtitleUrl: URL? = nil, completion: @escaping (AMAVPlayerItem) -> Void) {
         guard let subtitleUrl = subtitleUrl else {
-            return AMAVPlayerItem(url: url)
+            completion(AMAVPlayerItem(url: url))
+            return
         }
         
-        // Create a Mix composition
-        let mixComposition = AVMutableComposition()
+        DispatchQueue.global(qos: .background).async {
+            // Create a Mix composition
+            let mixComposition = AVMutableComposition()
+            
+            // Configure Video Track
+            AVAsset.configureAsset(for: mixComposition, url: url, ofType: .video)
+            
+            // Configure Caption Track
+            AVAsset.configureAsset(for: mixComposition, url: subtitleUrl, ofType: .text)
+            
+            DispatchQueue.main.async {
+                completion(AMAVPlayerItem(asset: mixComposition))
+            }
+        }
         
-        // Configure Video Track
-        AVAsset.configureAsset(for: mixComposition, url: url, ofType: .video)
         
-        // Configure Caption Track
-        AVAsset.configureAsset(for: mixComposition, url: subtitleUrl, ofType: .text)
-        
-        return AMAVPlayerItem(asset: mixComposition)
     }
     
 }

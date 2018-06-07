@@ -84,21 +84,26 @@ public class AwesomeMediaManager: NSObject {
         avPlayer.attachBitmovinTracker()
         AwesomeMediaManager.shared.youtubePlayerView?.pauseVideo()
         
-        let playerItem = AMAVPlayerItem.item(withUrl: url, andCaptionUrl: AwesomeMediaManager.shared.mediaParams.currentCaption?.url.url)
-        avPlayer.replaceCurrentItem(with: playerItem)
-        
-        // add observers for player and current item
-        addObservers(withItem: playerItem)
-        
-        // at this point media will start buffering
-        startedBuffering()
-        
-        // load saved media time
-        playerItem.loadSavedTime()
-        
-        // start playing if the case
-        if play {
-            avPlayer.play()
+        notifyMediaEvent(.buffering)
+        AMAVPlayerItem.item(withUrl: url, andCaptionUrl: AwesomeMediaManager.shared.mediaParams.currentCaption?.url.url) { (playerItem) in
+            notifyMediaEvent(.stoppedBuffering)
+            
+            // replace current item
+            self.avPlayer.replaceCurrentItem(with: playerItem)
+            
+            // add observers for player and current item
+            self.addObservers(withItem: playerItem)
+            
+            // at this point media will start buffering
+            self.startedBuffering()
+            
+            // load saved media time
+            playerItem.loadSavedTime()
+            
+            // start playing if the case
+            if play {
+                self.avPlayer.play()
+            }
         }
     }
     
