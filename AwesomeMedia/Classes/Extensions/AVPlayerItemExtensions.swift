@@ -135,14 +135,14 @@ extension AVPlayerItem {
     
     public static func item(withUrl url: URL, andCaptionUrl subtitleUrl: URL? = nil, completion: @escaping (AMAVPlayerItem) -> Void) {
         DispatchQueue.global(qos: .background).async {
-            guard let subtitleUrl = subtitleUrl else {
+            /*guard let subtitleUrl = subtitleUrl else {
                 let playerItem = AMAVPlayerItem(url: url)
                 
                 DispatchQueue.main.async {
                     completion(playerItem)
                 }
                 return
-            }
+            }*/
             
             // Create a Mix composition
             let mixComposition = AVMutableComposition()
@@ -154,7 +154,9 @@ extension AVPlayerItem {
             AVAsset.configureAsset(for: mixComposition, url: url, ofType: .audio)
             
             // Configure Caption Track
-            AVAsset.configureAsset(for: mixComposition, url: subtitleUrl, ofType: .text)
+            if let subtitleUrl = subtitleUrl {
+                AVAsset.configureAsset(for: mixComposition, url: subtitleUrl, ofType: .text)
+            }
             
 //            let captionSelectionGroup = AVMediaSelectionGroup()
 //            let option = AVMediaSelectionOption()
