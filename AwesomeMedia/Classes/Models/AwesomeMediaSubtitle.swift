@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct AwesomeMediaCaption {
+public struct AwesomeMediaCaption: Equatable {
     public var url: String = ""
     public var label: String = ""
     public var language: String = ""

@@ -28,6 +28,9 @@ public enum AwesomeMediaTrackingEvent: String {
     case openedMarkers = "Media opened markers"
     case closedMarkers = "Media closed markers"
     case selectedMarker = "Media selected markers"
+    case openedCaptions = "Media opened captions"
+    case closedCaptions = "Media closed captions"
+    case selectedCaption = "Media selected caption"
     case toggledSpeed = "Media toggled speed"
     case tappedRewind = "Media tapped rewind"
     case tappedAdvance = "Media tapped advance"
@@ -78,6 +81,9 @@ public class AwesomeMediaTrackingNotificationCenter: NotificationCenter {
         AwesomeMediaTrackingNotificationCenter.shared.addObserver(to, selector: .openedMarkers, event: .openedMarkers)
         AwesomeMediaTrackingNotificationCenter.shared.addObserver(to, selector: .closedMarkers, event: .closedMarkers)
         AwesomeMediaTrackingNotificationCenter.shared.addObserver(to, selector: .selectedMarker, event: .selectedMarker)
+        AwesomeMediaTrackingNotificationCenter.shared.addObserver(to, selector: .openedCaptions, event: .openedCaptions)
+        AwesomeMediaTrackingNotificationCenter.shared.addObserver(to, selector: .closedCaptions, event: .closedCaptions)
+        AwesomeMediaTrackingNotificationCenter.shared.addObserver(to, selector: .selectedCaption, event: .selectedCaption)
         AwesomeMediaTrackingNotificationCenter.shared.addObserver(to, selector: .toggledSpeed, event: .toggledSpeed)
         AwesomeMediaTrackingNotificationCenter.shared.addObserver(to, selector: .tappedRewind, event: .tappedRewind)
         AwesomeMediaTrackingNotificationCenter.shared.addObserver(to, selector: .tappedAdvance, event: .tappedAdvance)

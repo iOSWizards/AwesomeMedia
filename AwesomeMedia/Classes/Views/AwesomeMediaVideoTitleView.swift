@@ -12,10 +12,12 @@ public class AwesomeMediaVideoTitleView: UIView {
     @IBOutlet public weak var titleLabel: UILabel!
     @IBOutlet public weak var closeButton: UIButton!
     @IBOutlet public weak var airplayButton: UIButton!
-
+    @IBOutlet weak var captionsButton: UIButton!
+    
     // Callbacks
     public var closeCallback: (() -> Void)?
     public var airplayCallback: (() -> Void)?
+    public var captionsCallback: (() -> Void)?
     
     // Configuration
     public override func awakeFromNib() {
@@ -26,6 +28,7 @@ public class AwesomeMediaVideoTitleView: UIView {
     
     public func configure(withMediaParams params: AwesomeMediaParams) {
         titleLabel.text = params.title
+        captionsButton.isHidden = params.captions.count == 0
     }
     
     // MARK: - Events
@@ -38,6 +41,9 @@ public class AwesomeMediaVideoTitleView: UIView {
         airplayCallback?()
     }
     
+    @IBAction func captionsButtonPressed(_ sender: Any) {
+        captionsCallback?()
+    }
 }
     
 // MARK: - Toggle View

@@ -84,6 +84,18 @@ extension AwesomeMediaHelper: AwesomeMediaTrackingObserver {
         log(notification: sender)
     }
     
+    func openedCaptions(_ sender: Notification?) {
+        log(notification: sender)
+    }
+    
+    func closedCaptions(_ sender: Notification?) {
+        log(notification: sender)
+    }
+    
+    func selectedCaption(_ sender: Notification?) {
+        log(notification: sender)
+    }
+    
     func toggledSpeed(_ sender: Notification?) {
         log(notification: sender)
     }
