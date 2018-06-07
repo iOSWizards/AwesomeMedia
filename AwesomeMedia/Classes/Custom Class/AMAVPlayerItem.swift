@@ -56,28 +56,10 @@ public class AMAVPlayerItem: AVPlayerItem {
         let mixComposition = AVMutableComposition()
         
         // Configure Video Track
-        let videoAsset = AVAsset(url: url)
-        let videoTrack = mixComposition.addMutableTrack(withMediaType: .video, preferredTrackID: kCMPersistentTrackID_Invalid)
-        
-        if let ofTrack = videoAsset.tracks(withMediaType: .video).first {
-            do {
-                try videoTrack?.insertTimeRange(CMTimeRangeMake(kCMTimeZero, videoAsset.duration), of: ofTrack, at: kCMTimeZero)
-            } catch {
-                print("Failed inserting time range to video.")
-            }
-        }
+        AVAsset.configureAsset(for: mixComposition, url: url, ofType: .video)
         
         // Configure Caption Track
-        let subtitleAsset = AVURLAsset(url: subtitleUrl)
-        let subtitleTrack = mixComposition.addMutableTrack(withMediaType: .text, preferredTrackID: kCMPersistentTrackID_Invalid)
-        
-        if let ofTrack = subtitleAsset.tracks(withMediaType: .text).first {
-            do {
-                try subtitleTrack?.insertTimeRange(CMTimeRangeMake(kCMTimeZero, subtitleAsset.duration), of: ofTrack, at: kCMTimeZero)
-            } catch {
-                print("Failed inserting time range to subtitle.")
-            }
-        }
+        AVAsset.configureAsset(for: mixComposition, url: subtitleUrl, ofType: .text)
         
         return AMAVPlayerItem(asset: mixComposition)
     }

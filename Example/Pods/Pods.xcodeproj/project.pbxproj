@@ -23,6 +23,7 @@
 		0A7C7AA120C8E53E009B70C4 /* AwesomeMediaCaptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7C7AA020C8E53E009B70C4 /* AwesomeMediaCaptionsViewController.swift */; };
 		0A7C7AA320C8EA56009B70C4 /* AwesomeMediaCaptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7C7AA220C8EA56009B70C4 /* AwesomeMediaCaptionTableViewCell.swift */; };
 		0A7C7AA520C8EE0D009B70C4 /* AwesomeMediaCaptionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7C7AA420C8EE0D009B70C4 /* AwesomeMediaCaptionsViewModel.swift */; };
+		0A7C7AA720C90641009B70C4 /* AVAssetExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7C7AA620C90641009B70C4 /* AVAssetExtensions.swift */; };
 		0ADE73BE20C7F4A400882E8B /* AwesomeMediaSubtitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADE73BD20C7F4A400882E8B /* AwesomeMediaSubtitle.swift */; };
 		0B511F3F998217FAD7BB727D020E27A6 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B820562FCB216FEF0FA9FBABFB847F06 /* StringExtensions.swift */; };
 		0BDD5E6ACADC5FF437D52972DBCA49F7 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F9143A8DB979CFF8E9CABAC30EAECB /* UIViewExtensions.swift */; };
@@ -594,6 +595,7 @@
 		0A7C7AA020C8E53E009B70C4 /* AwesomeMediaCaptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwesomeMediaCaptionsViewController.swift; sourceTree = "<group>"; };
 		0A7C7AA220C8EA56009B70C4 /* AwesomeMediaCaptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwesomeMediaCaptionTableViewCell.swift; sourceTree = "<group>"; };
 		0A7C7AA420C8EE0D009B70C4 /* AwesomeMediaCaptionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwesomeMediaCaptionsViewModel.swift; sourceTree = "<group>"; };
+		0A7C7AA620C90641009B70C4 /* AVAssetExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVAssetExtensions.swift; sourceTree = "<group>"; };
 		0ADE73BD20C7F4A400882E8B /* AwesomeMediaSubtitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwesomeMediaSubtitle.swift; sourceTree = "<group>"; };
 		0B19452D8174FA6FF2CCDDC571E6404A /* AwesomeMediaVideoControlView.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = AwesomeMediaVideoControlView.xib; sourceTree = "<group>"; };
 		0CCDB269FC76C4D530F3C258368DF3A8 /* AwesomeNetwork-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AwesomeNetwork-prefix.pch"; sourceTree = "<group>"; };
@@ -1351,6 +1353,7 @@
 				5068A8D0BFCC95157B1FFA2405C9ABED /* UIViewControllerExtensions.swift */,
 				4200158334201D371147DCB74A526A16 /* UIViewExtensions.swift */,
 				097A710A6CA0F3293CEDD23345051BA9 /* URLExtensions.swift */,
+				0A7C7AA620C90641009B70C4 /* AVAssetExtensions.swift */,
 			);
 			name = Extensions;
 			path = AwesomeMedia/Classes/Extensions;
@@ -2806,6 +2809,7 @@
 				120178D4F02A159EACAF643ACE632A21 /* NumberExtensions.swift in Sources */,
 				0B511F3F998217FAD7BB727D020E27A6 /* StringExtensions.swift in Sources */,
 				09058D72C9EB334AD2DC1563891FEA88 /* UIColorExtensions.swift in Sources */,
+				0A7C7AA720C90641009B70C4 /* AVAssetExtensions.swift in Sources */,
 				B4EC620E0D30BEE07D852B1C4689EEB5 /* UIImageExtensions.swift in Sources */,
 				E679314C27EB5349AC3DCF2B7C31D893 /* UISliderExtensions.swift in Sources */,
 				16D4DF0B0410F39B02010E20F35CDF3C /* UITableViewCellExtensions.swift in Sources */,
