@@ -145,11 +145,8 @@ public class AwesomeMediaView: UIView {
         
         // show captions menu
         titleView?.captionsCallback = {
-            self.parentViewController?.showCaptions(self.mediaParams.captions, current: self.mediaParams.currentCaption) { (mediaCaption) in
-                self.mediaParams.currentCaption = mediaCaption
-                sharedAVPlayer.currentItem?.saveTime()
-                
-                AwesomeMediaManager.shared.playMedia(withParams: self.mediaParams, reset: true)
+            self.parentViewController?.showCaptions(self.mediaParams.captions, current: self.mediaParams.currentCaption) { (caption) in
+                sharedAVPlayer.currentItem?.setCaption(caption, mediaParams: self.mediaParams)
             }
         }
     }

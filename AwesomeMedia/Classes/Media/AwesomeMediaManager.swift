@@ -80,7 +80,7 @@ public class AwesomeMediaManager: NSObject {
         AwesomeMediaControlCenter.configBackgroundPlay(withParams: params)
     }
     
-    fileprivate func prepareMedia(withUrl url: URL, andPlay play: Bool = true) {
+    public func prepareMedia(withUrl url: URL, andPlay play: Bool = true) {
         avPlayer.attachBitmovinTracker()
         AwesomeMediaManager.shared.youtubePlayerView?.pauseVideo()
         
@@ -119,6 +119,19 @@ public class AwesomeMediaManager: NSObject {
         }
         
         return AwesomeMediaManager.shared.bufferingState[url.absoluteString] ?? false
+    }
+    
+    public func updateMediaState(event: AwesomeMediaEvent) {
+        if let url = sharedAVPlayer.currentItem?.url {
+            switch event {
+            case .buffering:
+                bufferingState[url.absoluteString] = true
+            case .stopped, .stoppedBuffering, .paused:
+                bufferingState[url.absoluteString] = false
+            default:
+                break
+            }
+        }
     }
 }
 

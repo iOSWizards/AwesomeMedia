@@ -74,18 +74,27 @@ extension AVPlayerItem {
     
     // Captions
     
-    /*public func setCaption(_ caption: AwesomeMediaCaption?) {
+    public func setCaption(_ caption: AwesomeMediaCaption?, mediaParams: AwesomeMediaParams) {
         saveTime()
         
-        if let composition = self.asset as? AVMutableComposition,
+        var mediaParams = mediaParams
+        mediaParams.currentCaption = caption
+        
+        sharedAVPlayer.pause()
+        
+        if let url = mediaParams.url?.url {
+            AwesomeMediaManager.shared.prepareMedia(withUrl: url)
+        }
+        
+        /*if let composition = self.asset as? AVMutableComposition,
             let textTrack = composition.tracks(withMediaType: .text).first {
             composition.removeTrack(textTrack)
             
             if let captionUrl = caption?.url.url {
                 AVAsset.configureAsset(for: composition, url: captionUrl, ofType: .text)
             }
-        }
-    }*/
+        }*/
+    }
     
     // Video in background
     
@@ -147,6 +156,10 @@ extension AVPlayerItem {
             // Configure Caption Track
             AVAsset.configureAsset(for: mixComposition, url: subtitleUrl, ofType: .text)
             
+//            let captionSelectionGroup = AVMediaSelectionGroup()
+//            let option = AVMediaSelectionOption()
+//            option.
+//            
             DispatchQueue.main.async {
                 completion(AMAVPlayerItem(asset: mixComposition))
             }
