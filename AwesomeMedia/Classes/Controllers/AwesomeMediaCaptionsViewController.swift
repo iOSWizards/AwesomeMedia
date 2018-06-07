@@ -91,10 +91,11 @@ extension AwesomeMediaCaptionsViewController {
 }
 
 extension UIViewController {
-    public func showCaptions(_ captions: [AwesomeMediaCaption], captionCallback: CaptionCallback? = nil) {
+    public func showCaptions(_ captions: [AwesomeMediaCaption], current: AwesomeMediaCaption?, captionCallback: CaptionCallback? = nil) {
         let viewController = AwesomeMediaCaptionsViewController.newInstance
         viewController.modalPresentationStyle = .overCurrentContext
-        viewController.viewModel.captions = captions
+        viewController.viewModel.configure(with: captions, current: current)
+        
         self.present(viewController, animated: false, completion: nil)
         
         viewController.captionCallback = captionCallback

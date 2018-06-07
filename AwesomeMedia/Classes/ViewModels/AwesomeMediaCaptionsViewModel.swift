@@ -13,12 +13,35 @@ public enum AwesomeMediaCaptionCellType: String {
     case caption
 }
 
-open class AwesomeMediaCaptionsViewModel: NSObject {
+public struct AwesomeMediaCaptionCellObject {
+    public var caption: AwesomeMediaCaption?
     
-    open var currentTime: Double?
-    open var captions = [AwesomeMediaCaption]()
-    open var showHours = false
-    open var currentCaption: AwesomeMediaCaption?
+    public init(caption: AwesomeMediaCaption? = nil) {
+        self.caption = caption
+    }
+}
+
+public class AwesomeMediaCaptionsViewModel: NSObject {
+    
+    public var cells = [AwesomeMediaCaptionCellObject]()
+    public var selectedIndex = 0
+    
+    public func configure(with captions: [AwesomeMediaCaption], current: AwesomeMediaCaption?) {
+        
+        var cells = [AwesomeMediaCaptionCellObject]()
+        
+        cells.append(AwesomeMediaCaptionCellObject())
+        
+        for caption in captions {
+            if current == caption {
+                selectedIndex = cells.count
+            }
+            
+            cells.append(AwesomeMediaCaptionCellObject(caption: caption))
+        }
+     
+        self.cells = cells
+    }
     
 }
 
@@ -33,18 +56,16 @@ extension AwesomeMediaCaptionsViewController: UITableViewDataSource, UITableView
     }
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.captions.count
+        return viewModel.cells.count
     }
     
     // MARK: - Cell Configuration
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let type: AwesomeMediaCaptionCellType = viewModel.selectedIndex == indexPath.row ? .captionSelected : .caption
+        let cell = tableView.dequeueReusableCell(withIdentifier: type.rawValue, for: indexPath) as! AwesomeMediaCaptionTableViewCell
         
-        let isCurrent = viewModel.captions[indexPath.row] == viewModel.currentCaption
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: isCurrent ? AwesomeMediaCaptionCellType.captionSelected.rawValue : AwesomeMediaCaptionCellType.caption.rawValue, for: indexPath) as! AwesomeMediaCaptionTableViewCell
-        
-        cell.titleLabel.text = viewModel.captions[indexPath.row].label
+        cell.titleLabel.text = viewModel.cells[indexPath.row].caption?.label ?? "Off".localized
         
         return cell
     }
@@ -54,7 +75,11 @@ extension AwesomeMediaCaptionsViewController: UITableViewDataSource, UITableView
     }
     
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.captionCallback?(viewModel.captions[indexPath.row])
+        self.captionCallback?(viewModel.cells[indexPath.row].caption)
+        
+        // select index
+        viewModel.selectedIndex = indexPath.row
+        tableView.reloadData()
         self.close()
         
         // track event
