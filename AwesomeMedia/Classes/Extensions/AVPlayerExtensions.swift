@@ -14,7 +14,15 @@ public var sharedAVPlayer: AVPlayer {
 extension AVPlayer {
     
     public var currentItemUrl: URL? {
-        return ((currentItem?.asset) as? AVURLAsset)?.url
+        if let asset = currentItem?.asset as? AVURLAsset {
+            // for normal media, we just return the asset url if AVURLAsset
+            return asset.url
+        } else if currentItem?.asset is AVComposition {
+            // for subtitled media, we return the asset url from shared media params
+            return AwesomeMediaManager.shared.mediaParams.url?.url
+        }
+        
+        return nil
     }
     
     public func isCurrentItem(withUrl url: URL?) -> Bool {

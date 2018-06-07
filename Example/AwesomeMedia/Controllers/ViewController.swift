@@ -35,9 +35,9 @@ class ViewController: UIViewController {
                     title: "Caption test",
                     duration: 120,
                     markers: AwesomeMediaManager.testMediaMarkers,
-                    captions: [AwesomeMediaCaption(url: "https://overmind2.mvstg.com/api/v1/assets/cd2b9789-13f8-4e40-b4cb-a1c75a07f6f7.vtt", label: "Danish", language: "de"),
-                               AwesomeMediaCaption(url: "https://overmind2.mvstg.com/api/v1/assets/1a06d26b-ceb1-439a-99ea-6071a95e25d4.vtt", label: "Spanish", language: "es"),
-                               AwesomeMediaCaption(url: "https://overmind2.mvstg.com/api/v1/assets/f9d83a3b-c9b3-464c-8b20-4a2a4735a015.vtt", label: "English", language: "en")],
+                    captions: [AwesomeMediaCaption(url: "https://overmind2.mvstg.com/api/v1/assets/cd2b9789-13f8-4e40-b4cb-a1c75a07f6f7.vtt", label: "Danish", language: "de", isDefault: false),
+                               AwesomeMediaCaption(url: "https://overmind2.mvstg.com/api/v1/assets/1a06d26b-ceb1-439a-99ea-6071a95e25d4.vtt", label: "Spanish", language: "es", isDefault: false),
+                               AwesomeMediaCaption(url: "https://overmind2.mvstg.com/api/v1/assets/f9d83a3b-c9b3-464c-8b20-4a2a4735a015.vtt", label: "English", language: "en", isDefault: true)],
                     params: ["id":"45"])),
         MediaCell(type: .audio,
                   mediaParams: AwesomeMediaParams(

@@ -48,4 +48,37 @@ public struct AwesomeMediaParams {
         self.params = params
     }
     
+    // MARK: - Captions
+    
+    public func caption(withLanguage language: String) -> AwesomeMediaCaption? {
+        for caption in captions where caption.language == language {
+            return caption
+        }
+        
+        return nil
+    }
+    
+    public var defaultCaption: AwesomeMediaCaption? {
+        for caption in captions where caption.isDefault {
+            return caption
+        }
+        
+        return captions.first
+    }
+    
+    public var currentCaption: AwesomeMediaCaption? {
+        set {
+            if let url = url {
+                UserDefaults.standard.set(newValue?.language, forKey: "\(url)-currentCaption")
+            }
+        }
+        get {
+            if let url = url, let language = UserDefaults.standard.string(forKey: "\(url)-currentCaption") {
+                return caption(withLanguage: language)
+            }
+            
+            return nil
+        }
+    }
+    
 }
