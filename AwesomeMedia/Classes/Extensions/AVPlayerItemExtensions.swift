@@ -134,16 +134,30 @@ extension AVPlayerItem {
     // Item
     
     public static func item(withUrl url: URL, andCaptionUrl subtitleUrl: URL? = nil, completion: @escaping (AMAVPlayerItem) -> Void) {
+        if subtitleUrl != nil {
+            compositionItem(withUrl: url, andCaptionUrl: subtitleUrl, completion: completion)
+        } else {
+            urlItem(withUrl: url, completion: completion)
+        }
+    }
+    
+    public static func urlItem(withUrl url: URL, andCaptionUrl subtitleUrl: URL? = nil, completion: @escaping (AMAVPlayerItem) -> Void) {
         DispatchQueue.global(qos: .background).async {
-            /*guard let subtitleUrl = subtitleUrl else {
-                let playerItem = AMAVPlayerItem(url: url)
-                
-                DispatchQueue.main.async {
-                    completion(playerItem)
-                }
-                return
-            }*/
+            var playerItem = AMAVPlayerItem(url: url)
             
+//            let subtitles = playerItem.tracks(type: .subtitle)
+//            let selectedSubtitle = playerItem.selected(type: .subtitle)
+//
+//            let audio = playerItem.tracks(type: .audio)
+            
+            DispatchQueue.main.async {
+                completion(playerItem)
+            }
+        }
+    }
+    
+    public static func compositionItem(withUrl url: URL, andCaptionUrl subtitleUrl: URL? = nil, completion: @escaping (AMAVPlayerItem) -> Void) {
+        DispatchQueue.global(qos: .background).async {
             // Create a Mix composition
             let mixComposition = AVMutableComposition()
             
@@ -158,15 +172,59 @@ extension AVPlayerItem {
                 AVAsset.configureAsset(for: mixComposition, url: subtitleUrl, ofType: .text)
             }
             
-//            let captionSelectionGroup = AVMediaSelectionGroup()
-//            let option = AVMediaSelectionOption()
-//            option.
-//            
+            //            let captionSelectionGroup = AVMediaSelectionGroup()
+            //            let option = AVMediaSelectionOption()
+            //            option.
+            //
             DispatchQueue.main.async {
                 completion(AMAVPlayerItem(asset: mixComposition))
             }
         }
-        
     }
     
+}
+
+extension AVPlayerItem {
+    
+    enum TrackType {
+        case subtitle
+        case audio
+        
+        /**
+         Return valid AVMediaSelectionGroup is item is available.
+         */
+        fileprivate func characteristic(item:AVPlayerItem) -> AVMediaSelectionGroup?  {
+            let str = self == .subtitle ? AVMediaCharacteristic.legible : AVMediaCharacteristic.audible
+            if item.asset.availableMediaCharacteristicsWithMediaSelectionOptions.contains(str) {
+                return item.asset.mediaSelectionGroup(forMediaCharacteristic: str)
+            }
+            return nil
+        }
+    }
+    
+    func tracks(type:TrackType) -> [String] {
+        if let characteristic = type.characteristic(item: self) {
+            return characteristic.options.map { $0.displayName }
+        }
+        return [String]()
+    }
+    
+    func selected(type:TrackType) -> String? {
+        guard let group = type.characteristic(item: self) else {
+            return nil
+        }
+        let selected = self.selectedMediaOption(in: group)
+        return selected?.displayName
+    }
+    
+    func select(type:TrackType, name:String) -> Bool {
+        guard let group = type.characteristic(item: self) else {
+            return false
+        }
+        guard let matched = group.options.filter({ $0.displayName == name }).first else {
+            return false
+        }
+        self.select(matched, in: group)
+        return true
+    }
 }

@@ -74,7 +74,7 @@ class ViewController: UIViewController {
                     coverUrl: "https://i0.wp.com/res.cloudinary.com/changethatmind/image/upload/v1501884914/wildfitsales.png?fit=500%2C500&ssl=1")),
         MediaCell(type: .video,
                   mediaParams: AwesomeMediaParams(
-                    url: AwesomeMediaManager.testVideoURL3,
+                    url: "https://overmind2.mvstg.com/api/v1/assets/0892a82b-a9ad-4069-a5b6-cf2e6103267c.m3u8",
                     coverUrl: "https://thumbs.dreamstime.com/z/awesome-word-cloud-explosion-background-51481417.jpg",
                     author: "Eric Mendez",
                     title: "WildFit 3",
