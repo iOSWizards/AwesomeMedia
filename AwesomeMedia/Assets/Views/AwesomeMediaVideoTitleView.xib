@@ -110,7 +110,7 @@
     </objects>
     <resources>
         <image name="btnAirPlay" width="24" height="18"/>
-        <image name="btnCaptions" width="27" height="18"/>
+        <image name="btnCaptions" width="24" height="24"/>
         <image name="btnClose" width="13" height="14"/>
     </resources>
 </document>
