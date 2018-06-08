@@ -77,7 +77,7 @@ public struct AwesomeMediaParams {
                 return caption(withLanguage: language)
             }
             
-            return nil
+            return defaultCaption
         }
     }
     
