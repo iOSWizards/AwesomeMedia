@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -24,48 +24,57 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x7y-xd-F9y" customClass="GradientView" customModule="AwesomeUIMagic">
                     <rect key="frame" x="0.0" y="0.0" width="812" height="91"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vIc-ey-44p">
-                            <rect key="frame" x="0.0" y="0.0" width="56" height="50"/>
+                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yGS-hE-yR6">
+                            <rect key="frame" x="0.0" y="0.0" width="812" height="50"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vIc-ey-44p">
+                                    <rect key="frame" x="0.0" y="0.0" width="56" height="50"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="50" id="KAn-Pw-kav">
+                                            <variation key="heightClass=regular-widthClass=regular" constant="106"/>
+                                        </constraint>
+                                        <constraint firstAttribute="width" constant="56" id="hmq-p3-u4t">
+                                            <variation key="heightClass=regular-widthClass=regular" constant="80"/>
+                                        </constraint>
+                                    </constraints>
+                                    <state key="normal" image="btnClose"/>
+                                    <connections>
+                                        <action selector="closeButtonPressed:" destination="4ZI-z2-osl" eventType="touchUpInside" id="VGv-6y-fNr"/>
+                                    </connections>
+                                </button>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Video Title Goes Here" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nmH-jX-HIW">
+                                    <rect key="frame" x="56" y="0.0" width="644" height="50"/>
+                                    <fontDescription key="fontDescription" name="Gilroy-Bold" family="Gilroy" pointSize="16"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="highlightedColor"/>
+                                    <variation key="heightClass=regular-widthClass=regular">
+                                        <fontDescription key="fontDescription" name="Gilroy-Bold" family="Gilroy" pointSize="20"/>
+                                    </variation>
+                                </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C6H-xW-Azq">
+                                    <rect key="frame" x="700" y="0.0" width="56" height="50"/>
+                                    <state key="normal" image="btnAirPlay"/>
+                                    <connections>
+                                        <action selector="airplayButtonPressed:" destination="4ZI-z2-osl" eventType="touchUpInside" id="8KJ-jw-FPE"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bI0-xW-2Mg">
+                                    <rect key="frame" x="756" y="0.0" width="56" height="50"/>
+                                    <state key="normal" image="btnCaptions"/>
+                                    <connections>
+                                        <action selector="captionsButtonPressed:" destination="4ZI-z2-osl" eventType="touchUpInside" id="vhV-ZN-P3E"/>
+                                    </connections>
+                                </button>
+                            </subviews>
                             <constraints>
-                                <constraint firstAttribute="height" constant="50" id="KAn-Pw-kav">
-                                    <variation key="heightClass=regular-widthClass=regular" constant="106"/>
-                                </constraint>
-                                <constraint firstAttribute="width" constant="56" id="hmq-p3-u4t">
-                                    <variation key="heightClass=regular-widthClass=regular" constant="80"/>
-                                </constraint>
+                                <constraint firstItem="bI0-xW-2Mg" firstAttribute="height" secondItem="C6H-xW-Azq" secondAttribute="height" id="NXO-vY-xag"/>
+                                <constraint firstItem="C6H-xW-Azq" firstAttribute="width" secondItem="vIc-ey-44p" secondAttribute="width" id="Yx8-dY-eEd"/>
+                                <constraint firstItem="bI0-xW-2Mg" firstAttribute="width" secondItem="C6H-xW-Azq" secondAttribute="width" id="mL6-bF-PsK"/>
+                                <constraint firstItem="C6H-xW-Azq" firstAttribute="height" secondItem="vIc-ey-44p" secondAttribute="height" id="qkA-py-ueT"/>
                             </constraints>
-                            <state key="normal" image="btnClose"/>
-                            <connections>
-                                <action selector="closeButtonPressed:" destination="4ZI-z2-osl" eventType="touchUpInside" id="VGv-6y-fNr"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C6H-xW-Azq">
-                            <rect key="frame" x="756" y="0.0" width="56" height="50"/>
-                            <state key="normal" image="btnAirPlay"/>
-                            <connections>
-                                <action selector="airplayButtonPressed:" destination="4ZI-z2-osl" eventType="touchUpInside" id="8KJ-jw-FPE"/>
-                            </connections>
-                        </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Video Title Goes Here" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nmH-jX-HIW">
-                            <rect key="frame" x="56" y="0.0" width="700" height="50"/>
-                            <fontDescription key="fontDescription" name="Gilroy-Bold" family="Gilroy" pointSize="16"/>
-                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <nil key="highlightedColor"/>
-                            <variation key="heightClass=regular-widthClass=regular">
-                                <fontDescription key="fontDescription" name="Gilroy-Bold" family="Gilroy" pointSize="20"/>
-                            </variation>
-                        </label>
+                        </stackView>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <constraints>
-                        <constraint firstItem="nmH-jX-HIW" firstAttribute="leading" secondItem="vIc-ey-44p" secondAttribute="trailing" id="1gn-QN-L9k"/>
-                        <constraint firstItem="C6H-xW-Azq" firstAttribute="top" secondItem="vIc-ey-44p" secondAttribute="top" id="2Ts-1q-Bz3"/>
-                        <constraint firstItem="C6H-xW-Azq" firstAttribute="leading" secondItem="nmH-jX-HIW" secondAttribute="trailing" id="5jB-sU-ZIO"/>
-                        <constraint firstItem="nmH-jX-HIW" firstAttribute="top" secondItem="vIc-ey-44p" secondAttribute="top" id="7au-Af-k84"/>
-                        <constraint firstItem="nmH-jX-HIW" firstAttribute="bottom" secondItem="vIc-ey-44p" secondAttribute="bottom" id="Loa-Ps-fHG"/>
-                        <constraint firstItem="C6H-xW-Azq" firstAttribute="height" secondItem="vIc-ey-44p" secondAttribute="height" id="WDj-v3-DiF"/>
-                        <constraint firstItem="C6H-xW-Azq" firstAttribute="width" secondItem="vIc-ey-44p" secondAttribute="width" id="rWX-ei-GTX"/>
-                    </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="color" keyPath="gradientTopColor">
                             <color key="value" red="0.098039215690000001" green="0.098039215690000001" blue="0.1176470588" alpha="1" colorSpace="calibratedRGB"/>
@@ -83,16 +92,17 @@
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="x7y-xd-F9y" secondAttribute="trailing" id="CXu-Q3-3tt"/>
                 <constraint firstAttribute="bottom" secondItem="x7y-xd-F9y" secondAttribute="bottom" id="LVG-sh-OWS"/>
-                <constraint firstItem="vIc-ey-44p" firstAttribute="leading" secondItem="rWy-UC-fQB" secondAttribute="leading" id="YZA-gR-Ycd"/>
-                <constraint firstItem="C6H-xW-Azq" firstAttribute="trailing" secondItem="rWy-UC-fQB" secondAttribute="trailing" id="iiY-Kv-oQm"/>
+                <constraint firstItem="rWy-UC-fQB" firstAttribute="leading" secondItem="yGS-hE-yR6" secondAttribute="leading" id="ML5-Sc-0Rb"/>
+                <constraint firstItem="rWy-UC-fQB" firstAttribute="top" secondItem="yGS-hE-yR6" secondAttribute="top" id="cms-M1-5Sp"/>
                 <constraint firstItem="x7y-xd-F9y" firstAttribute="top" secondItem="4ZI-z2-osl" secondAttribute="top" id="mXU-eF-d0u"/>
-                <constraint firstItem="vIc-ey-44p" firstAttribute="top" secondItem="rWy-UC-fQB" secondAttribute="top" id="oeE-mb-2MZ"/>
+                <constraint firstItem="rWy-UC-fQB" firstAttribute="trailing" secondItem="yGS-hE-yR6" secondAttribute="trailing" id="oHf-6o-dh8"/>
                 <constraint firstItem="x7y-xd-F9y" firstAttribute="leading" secondItem="4ZI-z2-osl" secondAttribute="leading" id="rdO-Vc-KNo"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="rWy-UC-fQB"/>
             <connections>
                 <outlet property="airplayButton" destination="C6H-xW-Azq" id="5gJ-Hc-cS7"/>
+                <outlet property="captionsButton" destination="bI0-xW-2Mg" id="gvs-Ua-RNh"/>
                 <outlet property="closeButton" destination="vIc-ey-44p" id="O0J-Cx-9r7"/>
                 <outlet property="titleLabel" destination="nmH-jX-HIW" id="e3S-Fk-03J"/>
             </connections>
@@ -100,6 +110,7 @@
     </objects>
     <resources>
         <image name="btnAirPlay" width="24" height="18"/>
+        <image name="btnCaptions" width="24" height="24"/>
         <image name="btnClose" width="13" height="14"/>
     </resources>
 </document>

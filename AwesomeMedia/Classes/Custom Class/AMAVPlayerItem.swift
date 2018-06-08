@@ -44,5 +44,4 @@ public class AMAVPlayerItem: AVPlayerItem {
         super.removeObserver(observer, forKeyPath: keyPath)
         observersKeyPath[keyPath] = nil
     }
-    
 }

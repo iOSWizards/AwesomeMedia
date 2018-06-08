@@ -43,7 +43,7 @@ public class AwesomeMediaManager: NSObject {
     public static let testAudioURL = "https://archive.org/download/VirtualHaircut/virtualbarbershop.mp3"
     public static let testPDFURL = "https://www.paloaltonetworks.com/content/dam/pan/en_US/assets/pdf/datasheets/wildfire/wildfire-ds.pdf"
     
-    public func playMedia(withParams params: AwesomeMediaParams, inPlayerLayer playerLayer: AVPlayerLayer? = nil, viewController: UIViewController? = nil) {
+    public func playMedia(withParams params: AwesomeMediaParams, reset: Bool = false, inPlayerLayer playerLayer: AVPlayerLayer? = nil, viewController: UIViewController? = nil) {
         
         guard let url = params.url?.url?.offlineURLIfAvailable else {
             AwesomeMedia.log("No URL provided")
@@ -63,7 +63,7 @@ public class AwesomeMediaManager: NSObject {
         mediaParams = params
         
         // prepare media
-        if !avPlayer.isCurrentItem(withUrl: url) {
+        if !avPlayer.isCurrentItem(withUrl: url) || reset {
             prepareMedia(withUrl: url)
         } else {
             avPlayer.play()
@@ -80,25 +80,30 @@ public class AwesomeMediaManager: NSObject {
         AwesomeMediaControlCenter.configBackgroundPlay(withParams: params)
     }
     
-    fileprivate func prepareMedia(withUrl url: URL, andPlay play: Bool = true) {
+    public func prepareMedia(withUrl url: URL, andPlay play: Bool = true) {
         avPlayer.attachBitmovinTracker()
         AwesomeMediaManager.shared.youtubePlayerView?.pauseVideo()
         
-        let playerItem = AMAVPlayerItem(url: url)
-        avPlayer.replaceCurrentItem(with: playerItem)
-        
-        // add observers for player and current item
-        addObservers(withItem: playerItem)
-        
-        // at this point media will start buffering
-        startedBuffering()
-        
-        // load saved media time
-        playerItem.loadSavedTime()
-        
-        // start playing if the case
-        if play {
-            avPlayer.play()
+        notifyMediaEvent(.buffering)
+        AMAVPlayerItem.item(withUrl: url, andCaptionUrl: AwesomeMediaManager.shared.mediaParams.currentCaption?.url.url) { (playerItem) in
+            notifyMediaEvent(.stoppedBuffering)
+            
+            // replace current item
+            self.avPlayer.replaceCurrentItem(with: playerItem)
+            
+            // add observers for player and current item
+            self.addObservers(withItem: playerItem)
+            
+            // at this point media will start buffering
+            self.startedBuffering()
+            
+            // load saved media time
+            playerItem.loadSavedTime()
+            
+            // start playing if the case
+            if play {
+                self.avPlayer.play()
+            }
         }
     }
     
@@ -114,6 +119,19 @@ public class AwesomeMediaManager: NSObject {
         }
         
         return AwesomeMediaManager.shared.bufferingState[url.absoluteString] ?? false
+    }
+    
+    public func updateMediaState(event: AwesomeMediaEvent) {
+        if let url = sharedAVPlayer.currentItem?.url {
+            switch event {
+            case .buffering:
+                bufferingState[url.absoluteString] = true
+            case .stopped, .stoppedBuffering, .paused:
+                bufferingState[url.absoluteString] = false
+            default:
+                break
+            }
+        }
     }
 }
 

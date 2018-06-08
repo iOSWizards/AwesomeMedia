@@ -38,7 +38,7 @@ extension AVPlayerItem {
     // MARK: - Time
     
     public func saveTime() {
-        guard var url = (asset as? AVURLAsset)?.url else {
+        guard var url = url else {
             return
         }
         
@@ -46,21 +46,54 @@ extension AVPlayerItem {
     }
     
     public func loadSavedTime() {
-        guard var url = (asset as? AVURLAsset)?.url else {
-            return
-        }
-        
-        if let time = url.time {
+
+        if let time = url?.time {
             seek(to: CMTime(seconds: Double(time), preferredTimescale: currentTime().timescale))
         }
     }
     
     public func resetTime() {
-        guard var url = (asset as? AVURLAsset)?.url else {
+        guard var url = url else {
             return
         }
         
         url.time = 0
+    }
+    
+    public var url: URL? {
+        if let asset = self.asset as? AVURLAsset {
+            // for normal media, we just return the asset url if AVURLAsset
+            return asset.url
+        } else if self.asset is AVComposition {
+            // for subtitled media, we return the asset url from shared media params
+            return AwesomeMediaManager.shared.mediaParams.url?.url
+        }
+        
+        return nil
+    }
+    
+    // Captions
+    
+    public func setCaption(_ caption: AwesomeMediaCaption?, mediaParams: AwesomeMediaParams) {
+        saveTime()
+        
+        var mediaParams = mediaParams
+        mediaParams.currentCaption = caption
+        
+        sharedAVPlayer.pause()
+        
+        if let url = mediaParams.url?.url {
+            AwesomeMediaManager.shared.prepareMedia(withUrl: url)
+        }
+        
+        /*if let composition = self.asset as? AVMutableComposition,
+            let textTrack = composition.tracks(withMediaType: .text).first {
+            composition.removeTrack(textTrack)
+            
+            if let captionUrl = caption?.url.url {
+                AVAsset.configureAsset(for: composition, url: captionUrl, ofType: .text)
+            }
+        }*/
     }
     
     // Video in background
@@ -96,6 +129,44 @@ extension AVPlayerItem {
         } else {
             AwesomeMediaPlayerLayer.shared.player = sharedAVPlayer
         }
+    }
+    
+    // Item
+    
+    public static func item(withUrl url: URL, andCaptionUrl subtitleUrl: URL? = nil, completion: @escaping (AMAVPlayerItem) -> Void) {
+        DispatchQueue.global(qos: .background).async {
+            /*guard let subtitleUrl = subtitleUrl else {
+                let playerItem = AMAVPlayerItem(url: url)
+                
+                DispatchQueue.main.async {
+                    completion(playerItem)
+                }
+                return
+            }*/
+            
+            // Create a Mix composition
+            let mixComposition = AVMutableComposition()
+            
+            // Configure Video Track
+            AVAsset.configureAsset(for: mixComposition, url: url, ofType: .video)
+            
+            // Configure Audio Track
+            AVAsset.configureAsset(for: mixComposition, url: url, ofType: .audio)
+            
+            // Configure Caption Track
+            if let subtitleUrl = subtitleUrl {
+                AVAsset.configureAsset(for: mixComposition, url: subtitleUrl, ofType: .text)
+            }
+            
+//            let captionSelectionGroup = AVMediaSelectionGroup()
+//            let option = AVMediaSelectionOption()
+//            option.
+//            
+            DispatchQueue.main.async {
+                completion(AMAVPlayerItem(asset: mixComposition))
+            }
+        }
+        
     }
     
 }

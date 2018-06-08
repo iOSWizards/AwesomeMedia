@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct AwesomeMediaMarker{
+public struct AwesomeMediaMarker: Equatable {
     public var title: String = ""
     public var time: Double = 0
     

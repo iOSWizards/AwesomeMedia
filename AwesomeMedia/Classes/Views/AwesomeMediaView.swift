@@ -142,6 +142,13 @@ public class AwesomeMediaView: UIView {
         titleView?.airplayCallback = {
             self.showAirplayMenu()
         }
+        
+        // show captions menu
+        titleView?.captionsCallback = {
+            self.parentViewController?.showCaptions(self.mediaParams.captions, current: self.mediaParams.currentCaption) { (caption) in
+                sharedAVPlayer.currentItem?.setCaption(caption, mediaParams: self.mediaParams)
+            }
+        }
     }
     
     public func applyParamKeys() {
