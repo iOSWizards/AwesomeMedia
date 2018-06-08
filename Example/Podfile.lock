@@ -4,20 +4,15 @@ PODS:
     - Kingfisher (~> 4.0)
   - AwesomeLoading (0.1.3):
     - lottie-ios
-  - AwesomeMedia (1.8.1):
+  - AwesomeMedia (1.8.7):
     - AwesomeImage
     - AwesomeLoading
     - AwesomeNetwork
     - AwesomeUIMagic
-    - BitmovinAnalyticsCollector
-    - BitmovinPlayer
     - youtube-ios-player-helper
   - AwesomeNetwork (0.1.4):
     - ReachabilitySwift (~> 3)
   - AwesomeUIMagic (0.4.6)
-  - BitmovinAnalyticsCollector (1.0.0):
-    - BitmovinPlayer (~> 2.7.0)
-  - BitmovinPlayer (2.7.0)
   - Kingfisher (4.8.0)
   - lottie-ios (2.5.0)
   - ReachabilitySwift (3)
@@ -29,8 +24,6 @@ DEPENDENCIES:
   - AwesomeMedia (from `../`)
   - AwesomeNetwork (from `https://github.com/iOSWizards/AwesomeNetwork`, tag `0.1.4`)
   - AwesomeUIMagic (from `https://github.com/iOSWizards/AwesomeUIMagic`, tag `0.4.6`)
-  - BitmovinAnalyticsCollector (from `https://github.com/bitmovin/bitmovin-analytics-collector-ios.git`, tag `1.0.0`)
-  - BitmovinPlayer (from `https://github.com/bitmovin/bitmovin-player-ios-sdk-cocoapod.git`, tag `2.7.0`)
   - youtube-ios-player-helper
 
 SPEC REPOS:
@@ -55,12 +48,6 @@ EXTERNAL SOURCES:
   AwesomeUIMagic:
     :git: https://github.com/iOSWizards/AwesomeUIMagic
     :tag: 0.4.6
-  BitmovinAnalyticsCollector:
-    :git: https://github.com/bitmovin/bitmovin-analytics-collector-ios.git
-    :tag: 1.0.0
-  BitmovinPlayer:
-    :git: https://github.com/bitmovin/bitmovin-player-ios-sdk-cocoapod.git
-    :tag: 2.7.0
 
 CHECKOUT OPTIONS:
   AwesomeImage:
@@ -75,26 +62,18 @@ CHECKOUT OPTIONS:
   AwesomeUIMagic:
     :git: https://github.com/iOSWizards/AwesomeUIMagic
     :tag: 0.4.6
-  BitmovinAnalyticsCollector:
-    :git: https://github.com/bitmovin/bitmovin-analytics-collector-ios.git
-    :tag: 1.0.0
-  BitmovinPlayer:
-    :git: https://github.com/bitmovin/bitmovin-player-ios-sdk-cocoapod.git
-    :tag: 2.7.0
 
 SPEC CHECKSUMS:
   AwesomeImage: 4c87b3736f777d1c3d6868b3a7d51582a84a66da
   AwesomeLoading: a035744e09a5334bd918f394bfd07e60a196eb1d
-  AwesomeMedia: 53ae8bea3720ac3422ee0d0d54d1ac3221ab8fb3
+  AwesomeMedia: 953469f95726d189baccd7bcb78e09be0ad2fa6f
   AwesomeNetwork: 295b7f6aa0d3783090cb1e9dc844bcb8fa05e094
   AwesomeUIMagic: ecd21700f29490ba6ca016ec1a38b72a3dc177d9
-  BitmovinAnalyticsCollector: 2f0c624fcec73e4b25c65957e3593bfd69e6b57f
-  BitmovinPlayer: fdbc98fb1a096c73c21d1efe2e77db6acd32c585
   Kingfisher: 976d828df2b24834c6a3f2fc4d82cdbd26552be1
   lottie-ios: d699fdee68d7b63e721d949388b015fef1aaa4ac
   ReachabilitySwift: f5b9bb30a0777fac8f09ce8b067e32faeb29bb64
   youtube-ios-player-helper: 21ab92db027c7ff86cb17a3843a3f6eafc8158d2
 
-PODFILE CHECKSUM: 9e0daf34aa23a1790d71dde1ff6c65feed50fec9
+PODFILE CHECKSUM: b8d34ab775eaba683cb0f350a707139e7f6e5339
 
 COCOAPODS: 1.5.3

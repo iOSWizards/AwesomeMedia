@@ -62,7 +62,7 @@ class ViewController: UIViewController {
                     coverUrl: "https://www.awesometlv.co.il/wp-content/uploads/2016/01/awesome_logo-01.png")),
         MediaCell(type: .video,
                   mediaParams: AwesomeMediaParams(
-                    url: AwesomeMediaManager.testVideoURL2,
+                    url: AwesomeMediaManager.testVideoURL,
                     coverUrl: "https://i0.wp.com/res.cloudinary.com/changethatmind/image/upload/v1501884914/wildfitsales.png?fit=500%2C500&ssl=1",
                     author: "Eric Mendez",
                     title: "WildFit 2",
