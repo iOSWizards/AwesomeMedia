@@ -295,7 +295,7 @@
                                     <constraint firstItem="IZt-ZZ-DsI" firstAttribute="width" secondItem="aY5-bp-wlD" secondAttribute="width" id="rvp-AL-Evt"/>
                                 </constraints>
                             </stackView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g8Q-lC-2Ki">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g8Q-lC-2Ki" customClass="GradientView" customModule="AwesomeUIMagic">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="134"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aqp-Y8-HB5">
@@ -399,6 +399,17 @@
                                     <constraint firstItem="cA6-ck-j94" firstAttribute="bottom" secondItem="aqp-Y8-HB5" secondAttribute="bottom" id="a4x-za-Jxt"/>
                                     <constraint firstItem="aqp-Y8-HB5" firstAttribute="leading" secondItem="g8Q-lC-2Ki" secondAttribute="leading" id="dxg-zX-Khd"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="gradientTopColor">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="gradientMiddleColor">
+                                        <color key="value" white="0.0" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="gradientBottomColor">
+                                        <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.13725490196078433" green="0.15294117647058825" blue="0.18431372549019609" alpha="1" colorSpace="calibratedRGB"/>
