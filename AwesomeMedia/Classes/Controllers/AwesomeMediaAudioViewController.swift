@@ -19,7 +19,8 @@ public class AwesomeMediaAudioViewController: UIViewController {
     @IBOutlet weak var downloadStateStackView: UIStackView!
     @IBOutlet weak var downloadStateLabel: UILabel!
     @IBOutlet weak var downloadStateImageView: UIImageView!
-
+    @IBOutlet weak var downloadProgressView: UIProgressView!
+    
     // Public Variaables
     public var mediaParams = AwesomeMediaParams()
     
@@ -153,7 +154,8 @@ public class AwesomeMediaAudioViewController: UIViewController {
         downloadState = .downloading
         updateDownloadState()
         
-        AwesomeMediaDownloadManager.downloadMedia(withParams: mediaParams) { (success) in
+        downloadProgressView.progress = 0
+        AwesomeMediaDownloadManager.downloadMedia(withParams: mediaParams, completion: { (success) in
             self.refreshDownloadState()
             
             if success, sharedAVPlayer.isPlaying {
@@ -161,7 +163,9 @@ public class AwesomeMediaAudioViewController: UIViewController {
                 sharedAVPlayer.stop()
                 self.play()
             }
-        }
+        }, progressUpdated: { (progress) in
+            self.downloadProgressView.progress = progress
+        })
     }
     
     fileprivate func deleteMedia() {
