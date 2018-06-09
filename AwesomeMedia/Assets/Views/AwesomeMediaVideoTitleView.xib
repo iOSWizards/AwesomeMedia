@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14269.12" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_9" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14252.5"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -25,7 +25,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="812" height="91"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yGS-hE-yR6">
-                            <rect key="frame" x="0.0" y="0.0" width="812" height="50"/>
+                            <rect key="frame" x="44" y="0.0" width="724" height="50"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vIc-ey-44p">
                                     <rect key="frame" x="0.0" y="0.0" width="56" height="50"/>
@@ -43,7 +43,7 @@
                                     </connections>
                                 </button>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Video Title Goes Here" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nmH-jX-HIW">
-                                    <rect key="frame" x="56" y="0.0" width="644" height="50"/>
+                                    <rect key="frame" x="56" y="0.0" width="556" height="50"/>
                                     <fontDescription key="fontDescription" name="Gilroy-Bold" family="Gilroy" pointSize="16"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
@@ -52,14 +52,14 @@
                                     </variation>
                                 </label>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C6H-xW-Azq">
-                                    <rect key="frame" x="700" y="0.0" width="56" height="50"/>
+                                    <rect key="frame" x="612" y="0.0" width="56" height="50"/>
                                     <state key="normal" image="btnAirPlay"/>
                                     <connections>
                                         <action selector="airplayButtonPressed:" destination="4ZI-z2-osl" eventType="touchUpInside" id="8KJ-jw-FPE"/>
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bI0-xW-2Mg">
-                                    <rect key="frame" x="756" y="0.0" width="56" height="50"/>
+                                    <rect key="frame" x="668" y="0.0" width="56" height="50"/>
                                     <state key="normal" image="btnCaptions"/>
                                     <connections>
                                         <action selector="captionsButtonPressed:" destination="4ZI-z2-osl" eventType="touchUpInside" id="vhV-ZN-P3E"/>
@@ -110,7 +110,7 @@
     </objects>
     <resources>
         <image name="btnAirPlay" width="24" height="18"/>
-        <image name="btnCaptions" width="24" height="24"/>
+        <image name="btnCaptions" width="20" height="20"/>
         <image name="btnClose" width="13" height="14"/>
     </resources>
 </document>

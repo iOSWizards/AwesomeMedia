@@ -12,7 +12,7 @@ public class AwesomeMediaVideoTitleView: UIView {
     @IBOutlet public weak var titleLabel: UILabel!
     @IBOutlet public weak var closeButton: UIButton!
     @IBOutlet public weak var airplayButton: UIButton!
-    @IBOutlet weak var captionsButton: UIButton!
+    @IBOutlet public weak var captionsButton: UIButton?
     
     // Callbacks
     public var closeCallback: (() -> Void)?
@@ -28,7 +28,11 @@ public class AwesomeMediaVideoTitleView: UIView {
     
     public func configure(withMediaParams params: AwesomeMediaParams) {
         titleLabel.text = params.title
-        captionsButton.isHidden = params.captions.count == 0
+        
+        // there is a bug with stack view that will still show the hidden component if we don't remove it.
+        if params.captions.count == 0 {
+            captionsButton?.removeFromSuperview()
+        }
     }
     
     // MARK: - Events
