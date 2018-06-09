@@ -17,7 +17,7 @@ public class AwesomeMediaVideoControlView: AwesomeMediaControlView {
     // Outlets
     @IBOutlet public weak var timeStackView: UIStackView!
     @IBOutlet public weak var toggleFullscreenButton: UIButton!
-    @IBOutlet public weak var playlistButton: UIButton!
+//    @IBOutlet public weak var playlistButton: UIButton!
     @IBOutlet public weak var jumptoButton: UIButton!
     @IBOutlet public weak var jumptoLabel: UILabel!
     @IBOutlet public weak var jumptoView: UIView!
@@ -59,7 +59,7 @@ public class AwesomeMediaVideoControlView: AwesomeMediaControlView {
         timeStackView.isHidden = !controls.contains(.time)
         jumptoView.isHidden = !controls.contains(.jumpto)
         speedView.isHidden = !controls.contains(.speed)
-        playlistButton.isHidden = !controls.contains(.playlist)
+//        playlistButton.isHidden = !controls.contains(.playlist)
         rewindButton.isHidden = !controls.contains(.rewind)
         toggleFullscreenButton.isHidden = !controls.contains(.fullscreen) && !controls.contains(.minimize)
         toggleFullscreenButton.setImage(controls.contains(.fullscreen) ? UIImage.image("btnFullscreen") : UIImage.image("btnMinimize"), for: .normal)
@@ -76,9 +76,9 @@ public class AwesomeMediaVideoControlView: AwesomeMediaControlView {
             speedView.isHidden = isPortrait
         }
         
-        if controls.contains(.playlist) {
-            playlistButton.isHidden = isPortrait
-        }
+//        if controls.contains(.playlist) {
+//            playlistButton.isHidden = isPortrait
+//        }
         
         if controls.contains(.rewind) {
             rewindButton.isHidden = isPortrait

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -63,7 +63,7 @@
                                                     </connections>
                                                 </button>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="BzJ-ei-xEY" userLabel="Timer Stack View">
-                                                    <rect key="frame" x="60" y="0.0" width="421" height="64"/>
+                                                    <rect key="frame" x="60" y="0.0" width="481" height="64"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2fL-zG-lnh">
                                                             <rect key="frame" x="0.0" y="0.0" width="40" height="64"/>
@@ -72,7 +72,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="399-Jq-6Be">
-                                                            <rect key="frame" x="48" y="0.0" width="325" height="65"/>
+                                                            <rect key="frame" x="48" y="0.0" width="385" height="65"/>
                                                             <color key="minimumTrackTintColor" red="0.1647058824" green="0.54901960780000003" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
                                                             <color key="maximumTrackTintColor" white="1" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <color key="thumbTintColor" red="0.1647058824" green="0.54901960780000003" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
@@ -89,7 +89,7 @@
                                                             </connections>
                                                         </slider>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b2L-Es-qY8">
-                                                            <rect key="frame" x="381" y="0.0" width="40" height="64"/>
+                                                            <rect key="frame" x="441" y="0.0" width="40" height="64"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="40" id="lRG-fz-pr2"/>
                                                             </constraints>
@@ -111,11 +111,13 @@
                                                         </constraint>
                                                     </constraints>
                                                     <state key="normal" image="btnPlaylists"/>
-                                                    <connections>
-                                                        <action selector="playlistButtonPressed:" destination="KpV-7W-VZN" eventType="touchUpInside" id="CB3-4c-40N"/>
-                                                    </connections>
                                                 </button>
                                             </subviews>
+                                            <variation key="default">
+                                                <mask key="subviews">
+                                                    <exclude reference="PmL-mF-obz"/>
+                                                </mask>
+                                            </variation>
                                         </stackView>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qhp-FB-Rah">
                                             <rect key="frame" x="541" y="0.0" width="44" height="64"/>
@@ -284,7 +286,6 @@
                 <outlet property="pausedView" destination="cH9-OF-qzo" id="bkH-XA-muv"/>
                 <outlet property="playButton" destination="32i-de-JsX" id="FLT-j8-b4V"/>
                 <outlet property="playingView" destination="Dgj-lD-Tr5" id="ZJh-fD-Dpn"/>
-                <outlet property="playlistButton" destination="PmL-mF-obz" id="dGy-Ll-22C"/>
                 <outlet property="rewindButton" destination="ZMH-jd-vFf" id="aeu-jN-QSY"/>
                 <outlet property="speedButton" destination="7ZG-2M-XY6" id="wbD-D4-QDg"/>
                 <outlet property="speedLabel" destination="OQX-Vk-lBy" id="493-8B-qc0"/>
