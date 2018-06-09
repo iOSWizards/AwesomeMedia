@@ -12,13 +12,19 @@ import youtube_ios_player_helper
 open class AwesomeMediaYoutubeView: UIView {
     
     @IBOutlet weak var contentView: UIView!
-    @IBOutlet var youtubePlayerView: YTPlayerView!
+    @IBOutlet weak var youtubePlayerView: YTPlayerView!
     @IBOutlet weak var coverImageView: UIImageView!
-    @IBOutlet weak var playButton: UIImageView!
+    @IBOutlet weak var playButton: UIButton!
+    @IBOutlet weak var overlayerView: UIView!
+    
+    // Private variables
     private var playsInLine: Bool = true
+    fileprivate var bufferTimer: Timer?
     
     override open func awakeFromNib() {
         super.awakeFromNib()
+        
+        addObservers()
     }
     
     required public init?(coder aDecoder: NSCoder) {
@@ -27,16 +33,15 @@ open class AwesomeMediaYoutubeView: UIView {
         Bundle(for: AwesomeMediaYoutubeView.self).loadNibNamed("AwesomeMediaYoutubeView", owner: self, options: nil)
         
         if !playsInLine {
-            let gesture = UITapGestureRecognizer.init(target: self, action: #selector(playVideo))
+            /*let gesture = UITapGestureRecognizer.init(target: self, action: #selector(playVideo))
             contentView.addGestureRecognizer(gesture)
-            contentView.isUserInteractionEnabled = true
+            contentView.isUserInteractionEnabled = true*/
             youtubePlayerView.isHidden = true
         }
         
         addSubview(contentView)
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        
         
         youtubePlayerView.delegate = self
         AwesomeMediaManager.shared.youtubePlayerView = youtubePlayerView
@@ -62,19 +67,58 @@ extension AwesomeMediaYoutubeView {
 
 extension AwesomeMediaYoutubeView {
     func showCoverAndPlay(_ enable: Bool) {
-        coverImageView.isHidden = !enable
-        playButton.isHidden = !enable
+        guard self.overlayerView.isHidden != !enable else {
+            return
+        }
+        
+        UIView.animate(withDuration: 0.3, animations: {
+            self.overlayerView.alpha = enable ? 1 : 0
+        }, completion: { (_) in
+            self.overlayerView.isHidden = !enable
+        })
     }
+}
+
+// MARK: - Actions
+
+extension AwesomeMediaYoutubeView {
+    
+    @IBAction func playVideo(_ sender: UIButton) {
+        showCoverAndPlay(false)
+        sharedAVPlayer.stop()
+        contentView.startLoadingAnimation()
+        youtubePlayerView.playVideo()
+        startBufferTimer()
+    }
+    
+    public func startBufferTimer() {
+        cancelBufferTimer()
+        bufferTimer = Timer.scheduledTimer(withTimeInterval: AwesomeMedia.bufferTimeout, repeats: false, block: { (timer) in
+            self.parentViewController?.showMediaTimedOutAlert(onWait: {
+                self.playVideo(self.playButton)
+            }, onCancel: {
+                self.reset()
+            })
+        })
+    }
+    
+    public func cancelBufferTimer() {
+        bufferTimer?.invalidate()
+        bufferTimer = nil
+    }
+    
+    public func reset() {
+        youtubePlayerView.stopVideo()
+        showCoverAndPlay(true)
+        contentView.stopLoadingAnimation()
+        cancelBufferTimer()
+    }
+    
 }
 
 // MARK: - Youtube Player
 
 extension AwesomeMediaYoutubeView: YTPlayerViewDelegate {
-    
-    @objc func playVideo() {
-        contentView.startLoadingAnimation()
-        youtubePlayerView.playVideo()
-    }
     
     public func playerView(_ playerView: YTPlayerView, didChangeTo state: YTPlayerState) {
         if isPad {
@@ -83,22 +127,59 @@ extension AwesomeMediaYoutubeView: YTPlayerViewDelegate {
             // these two lines above fix the problem of not playing on iPad
         }
         
+        // ends custom animation at this moment
+        contentView.stopLoadingAnimation()
+        cancelBufferTimer()
+        showCoverAndPlay(false)
+        
         if state == .buffering {
-            if playsInLine {
-                contentView.startLoadingAnimation()
-            }
-            sharedAVPlayer.stop()
+            // it's buffering
         } else if state == .playing {
-            if playsInLine {
-                showCoverAndPlay(false)
-            }
-            contentView.stopLoadingAnimation()
-            sharedAVPlayer.stop()
+            // it's playing
         } else if state == .ended {
-            if playsInLine {
-                showCoverAndPlay(true)
-            }
-            youtubePlayerView.stopVideo()
+            reset()
         }
     }
+}
+
+// MARK: - Observers
+
+extension AwesomeMediaYoutubeView: AwesomeMediaEventObserver {
+    
+    public func addObservers() {
+        AwesomeMediaNotificationCenter.addObservers(.basic, to: self)
+    }
+    
+    public func removeObservers() {
+        AwesomeMediaNotificationCenter.removeObservers(from: self)
+    }
+    
+    public func startedPlaying() {
+        reset()
+    }
+    
+    public func pausedPlaying() {
+        reset()
+    }
+    
+    public func stoppedPlaying() {
+        
+    }
+    
+    public func timeUpdated() {
+        
+    }
+    
+    public func startedBuffering() {
+        reset()
+    }
+    
+    public func stoppedBuffering() {
+        reset()
+    }
+    
+    public func finishedPlaying() {
+        
+    }
+    
 }
