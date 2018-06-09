@@ -7,13 +7,28 @@
 
 import Foundation
 
+public typealias ProgressCallback = (Float) -> ()
+public typealias DownloadedCallback = (Bool) -> ()
+
 public enum AwesomeMediaDownloadState {
     case downloading
     case downloaded
     case none
 }
 
-public class AwesomeMediaDownloadManager {
+public class AwesomeMediaDownloadManager: NSObject {
+    
+    // public shared
+    public static var shared = AwesomeMediaDownloadManager()
+    
+    // Private variables
+    fileprivate var session: URLSession?
+    fileprivate var downloadTask: URLSessionDownloadTask?
+    fileprivate var downloadUrl: URL?
+    
+    // Callbacks
+    public var progressCallback: ProgressCallback?
+    public var downloadedCallback: DownloadedCallback?
     
     public static func mediaDownloadState(withParams mediaParams: AwesomeMediaParams) -> AwesomeMediaDownloadState {
         guard let downloadUrl = mediaParams.url?.url else {
@@ -28,7 +43,7 @@ public class AwesomeMediaDownloadManager {
         return .none
     }
     
-    public static func downloadMedia(withParams mediaParams: AwesomeMediaParams, completion:@escaping (Bool) -> Void){
+    public static func downloadMedia(withParams mediaParams: AwesomeMediaParams, completion: @escaping DownloadedCallback, progressUpdated: @escaping ProgressCallback){
         guard let downloadUrl = mediaParams.url?.url else {
             completion(false)
             return
@@ -39,20 +54,9 @@ public class AwesomeMediaDownloadManager {
             AwesomeMedia.log("The file already exists at path")
             completion(true)
         } else {
-            URLSession.shared.downloadTask(with: downloadUrl, completionHandler: { (location, response, error) -> Void in
-                guard let location = location , error == nil else {
-                    DispatchQueue.main.async {
-                        completion(false)
-                    }
-                    return
-                }
-                
-                location.moveOfflineFile(to: downloadUrl.offlineFileDestination, completion: { (success) in
-                    DispatchQueue.main.async {
-                        completion(success)
-                    }
-                })
-            }).resume()
+            shared.progressCallback = progressUpdated
+            shared.downloadedCallback = completion
+            shared.startDownloadSession(withUrl: downloadUrl)
         }
     }
     
@@ -64,6 +68,55 @@ public class AwesomeMediaDownloadManager {
         
         downloadUrl.deleteOfflineFile(completion)
     }
+}
+
+extension AwesomeMediaDownloadManager {
+    
+    fileprivate func startDownloadSession(withUrl url: URL) {
+        downloadUrl = url
+        
+        let configuration = URLSessionConfiguration.default
+        //let queue = NSOperationQueue.mainQueue()
+        
+        session = URLSession(configuration: configuration, delegate: self, delegateQueue: nil)
+        downloadTask = session?.downloadTask(with: url)
+        downloadTask?.resume()
+    }
+    
+    fileprivate func finishDownloadSession() {
+        session?.finishTasksAndInvalidate()
+        session = nil
+        downloadTask?.cancel()
+        downloadTask = nil
+    }
+    
+}
+
+extension AwesomeMediaDownloadManager: URLSessionDelegate, URLSessionDownloadDelegate {
+    
+    public func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {
+        
+        finishDownloadSession()
+        
+        guard let downloadUrl = downloadUrl else {
+            return
+        }
+        
+        location.moveOfflineFile(to: downloadUrl.offlineFileDestination, completion: { (success) in
+            DispatchQueue.main.async {
+                self.downloadedCallback?(success)
+            }
+        })
+    }
+    
+    public func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didWriteData bytesWritten: Int64, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64) {
+        let progress = Float(totalBytesWritten)/Float(totalBytesExpectedToWrite)
+        
+        DispatchQueue.main.async {
+            self.progressCallback?(progress)
+        }
+    }
+    
 }
 
 extension UIViewController {
