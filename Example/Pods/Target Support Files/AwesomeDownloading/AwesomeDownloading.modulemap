@@ -1,0 +1,6 @@
+framework module AwesomeDownloading {
+  umbrella header "AwesomeDownloading-umbrella.h"
+
+  export *
+  module * { export * }
+}

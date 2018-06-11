@@ -1,10 +1,12 @@
 PODS:
+  - AwesomeDownloading (0.1.2)
   - AwesomeImage (0.1.3):
     - AwesomeUIMagic
     - Kingfisher (~> 4.0)
   - AwesomeLoading (0.1.3):
     - lottie-ios
-  - AwesomeMedia (1.8.7):
+  - AwesomeMedia (1.8.8.4):
+    - AwesomeDownloading
     - AwesomeImage
     - AwesomeLoading
     - AwesomeNetwork
@@ -19,6 +21,7 @@ PODS:
   - youtube-ios-player-helper (0.1.6)
 
 DEPENDENCIES:
+  - AwesomeDownloading (from `https://github.com/iOSWizards/AwesomeDownloading`, tag `0.1.2`)
   - AwesomeImage (from `https://github.com/iOSWizards/AwesomeImage`, tag `0.1.3`)
   - AwesomeLoading (from `https://github.com/Mindvalley/Mobile_iOS_Library_AwesomeLoading.git`, tag `0.1.3`)
   - AwesomeMedia (from `../`)
@@ -34,6 +37,9 @@ SPEC REPOS:
     - youtube-ios-player-helper
 
 EXTERNAL SOURCES:
+  AwesomeDownloading:
+    :git: https://github.com/iOSWizards/AwesomeDownloading
+    :tag: 0.1.2
   AwesomeImage:
     :git: https://github.com/iOSWizards/AwesomeImage
     :tag: 0.1.3
@@ -50,6 +56,9 @@ EXTERNAL SOURCES:
     :tag: 0.4.6
 
 CHECKOUT OPTIONS:
+  AwesomeDownloading:
+    :git: https://github.com/iOSWizards/AwesomeDownloading
+    :tag: 0.1.2
   AwesomeImage:
     :git: https://github.com/iOSWizards/AwesomeImage
     :tag: 0.1.3
@@ -64,9 +73,10 @@ CHECKOUT OPTIONS:
     :tag: 0.4.6
 
 SPEC CHECKSUMS:
+  AwesomeDownloading: 2952d8121b2c40c83c1217da27f182022e7661bf
   AwesomeImage: 4c87b3736f777d1c3d6868b3a7d51582a84a66da
   AwesomeLoading: a035744e09a5334bd918f394bfd07e60a196eb1d
-  AwesomeMedia: 953469f95726d189baccd7bcb78e09be0ad2fa6f
+  AwesomeMedia: 85553524b642f23ed4c32688d9a05519e9bbc7a9
   AwesomeNetwork: 295b7f6aa0d3783090cb1e9dc844bcb8fa05e094
   AwesomeUIMagic: ecd21700f29490ba6ca016ec1a38b72a3dc177d9
   Kingfisher: 976d828df2b24834c6a3f2fc4d82cdbd26552be1
@@ -74,6 +84,6 @@ SPEC CHECKSUMS:
   ReachabilitySwift: f5b9bb30a0777fac8f09ce8b067e32faeb29bb64
   youtube-ios-player-helper: 21ab92db027c7ff86cb17a3843a3f6eafc8158d2
 
-PODFILE CHECKSUM: b8d34ab775eaba683cb0f350a707139e7f6e5339
+PODFILE CHECKSUM: 18defe98a280793889e7142a3e3f633c315151f5
 
 COCOAPODS: 1.5.3
