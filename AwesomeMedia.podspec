@@ -43,5 +43,6 @@ Play Media from any app using this library.
   s.dependency 'AwesomeLoading'
   s.dependency 'AwesomeNetwork'
   s.dependency 'AwesomeImage'
+  s.dependency 'AwesomeDownloading'
   s.dependency 'youtube-ios-player-helper'
 end

@@ -212,6 +212,7 @@
 				607FACCD1AFB9204008FA782 /* Frameworks */,
 				607FACCE1AFB9204008FA782 /* Resources */,
 				AF873AF9B599D71CF62186D2 /* [CP] Embed Pods Frameworks */,
+				EA078C0992BE3ECBE0540EAB /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -359,6 +360,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AwesomeMedia_Example/Pods-AwesomeMedia_Example-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EA078C0992BE3ECBE0540EAB /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-AwesomeMedia_Example/Pods-AwesomeMedia_Example-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/AwesomeDownloading/AwesomeDownloading.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AwesomeDownloading.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AwesomeMedia_Example/Pods-AwesomeMedia_Example-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FF952DC3CC3CE1D58A6ACF72 /* [CP] Check Pods Manifest.lock */ = {
