@@ -1,11 +1,12 @@
 //
-//  AwesomeMediaDownloadManager.swift
-//  AwesomeMedia
+//  AwesomeDownloading.swift
+//  AwesomeDownloading
 //
-//  Created by Evandro Harrison Hoffmann on 4/24/18.
+//  Created by Emmanuel on 10/06/2018.
 //
 
 import Foundation
+import UIKit
 
 public typealias ProgressCallback = (Float) -> ()
 public typealias DownloadedCallback = (Bool) -> ()
@@ -16,10 +17,10 @@ public enum AwesomeMediaDownloadState {
     case none
 }
 
-public class AwesomeMediaDownloadManager: NSObject {
+public class AwesomeDownloading: NSObject {
     
     // public shared
-    public static var shared = AwesomeMediaDownloadManager()
+    public static var shared = AwesomeDownloading()
     
     // Private variables
     fileprivate var session: URLSession?
@@ -30,8 +31,8 @@ public class AwesomeMediaDownloadManager: NSObject {
     public var progressCallback: ProgressCallback?
     public var downloadedCallback: DownloadedCallback?
     
-    public static func mediaDownloadState(withParams mediaParams: AwesomeMediaParams) -> AwesomeMediaDownloadState {
-        guard let downloadUrl = mediaParams.url?.url else {
+    public static func mediaDownloadState(withUrl url: URL?) -> AwesomeMediaDownloadState {
+        guard let downloadUrl = url else {
             return .none
         }
         
@@ -43,15 +44,15 @@ public class AwesomeMediaDownloadManager: NSObject {
         return .none
     }
     
-    public static func downloadMedia(withParams mediaParams: AwesomeMediaParams, completion: @escaping DownloadedCallback, progressUpdated: @escaping ProgressCallback){
-        guard let downloadUrl = mediaParams.url?.url else {
+    public static func downloadMedia(withUrl url: URL?, completion: @escaping DownloadedCallback, progressUpdated: @escaping ProgressCallback){
+        guard let downloadUrl = url else {
             completion(false)
             return
         }
         
         // to check if it exists before downloading it
         if downloadUrl.offlineFileExists {
-            AwesomeMedia.log("The file already exists at path")
+            print("The file already exists at path")
             completion(true)
         } else {
             shared.progressCallback = progressUpdated
@@ -60,17 +61,18 @@ public class AwesomeMediaDownloadManager: NSObject {
         }
     }
     
-    public static func deleteDownloadedMedia(withParams mediaParams: AwesomeMediaParams, completion:@escaping (Bool) -> Void){
-        guard let downloadUrl = mediaParams.url?.url else {
+    public static func deleteDownloadedMedia(withUrl url: URL?, completion:@escaping (Bool) -> Void){
+        guard let downloadUrl = url else {
             completion(false)
             return
         }
         
         downloadUrl.deleteOfflineFile(completion)
     }
+    
 }
 
-extension AwesomeMediaDownloadManager {
+extension AwesomeDownloading {
     
     fileprivate func startDownloadSession(withUrl url: URL) {
         downloadUrl = url
@@ -89,10 +91,9 @@ extension AwesomeMediaDownloadManager {
         downloadTask?.cancel()
         downloadTask = nil
     }
-    
 }
 
-extension AwesomeMediaDownloadManager: URLSessionDelegate, URLSessionDownloadDelegate {
+extension AwesomeDownloading: URLSessionDelegate, URLSessionDownloadDelegate {
     
     public func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {
         
@@ -116,43 +117,43 @@ extension AwesomeMediaDownloadManager: URLSessionDelegate, URLSessionDownloadDel
             self.progressCallback?(progress)
         }
     }
-    
 }
+
 
 extension UIViewController {
     
-    public func confirmMediaDeletion(withParams mediaParams: AwesomeMediaParams, fromView: UIView? = nil, completion:@escaping (Bool) -> Void) {
-        guard let downloadUrl = mediaParams.url else {
+    public func confirmMediaDeletion(withUrl url: URL?, fromView: UIView? = nil, withTitle title: String, withMessage message: String, withConfirmButtonTitle confirmButtonTitle:String, withCancelButtonTitle cancelButtonTitle:String, completion:@escaping (Bool) -> Void) {
+        guard let downloadUrl = url else {
             completion(false)
             return
         }
         
         // we should delete the media.
         let alertController = UIAlertController(
-            title: "availableoffline_delete_title".localized,
-            message: "availableoffline_delete_message".localized,
+            title: title,
+            message: message,
             preferredStyle: .actionSheet)
         
         alertController.addAction(UIAlertAction(
-            title: "availableoffline_delete_button_confirm".localized,
+            title: confirmButtonTitle,
             style: .destructive,
             handler: { (action) in
-                downloadUrl.url?.deleteOfflineFile { (success) in
+                downloadUrl.deleteOfflineFile { (success) in
                     DispatchQueue.main.async {
                         completion(success)
                     }
                 }
         }))
         
-        alertController.addAction(UIAlertAction(title: "availableoffline_delete_button_cancel".localized, style: .cancel, handler: { (action) in
-            
-        }))
+        alertController.addAction(UIAlertAction(title: cancelButtonTitle, style: .cancel, handler: { (action) in
         
+        }))
+    
         if let fromView = fromView {
             alertController.popoverPresentationController?.sourceView = fromView
             alertController.popoverPresentationController?.sourceRect = fromView.bounds
         }
-        
+    
         present(alertController, animated: true, completion: nil)
     }
 }

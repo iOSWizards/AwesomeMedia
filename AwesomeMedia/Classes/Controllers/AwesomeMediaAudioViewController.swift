@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AwesomeDownloading
 
 public class AwesomeMediaAudioViewController: UIViewController {
     
@@ -155,7 +156,8 @@ public class AwesomeMediaAudioViewController: UIViewController {
         updateDownloadState()
         
         downloadProgressView.progress = 0
-        AwesomeMediaDownloadManager.downloadMedia(withParams: mediaParams, completion: { (success) in
+        
+        AwesomeDownloading.downloadMedia(withUrl: mediaParams.url?.url, completion: { (success) in
             self.refreshDownloadState()
             
             if success, sharedAVPlayer.isPlaying {
@@ -163,25 +165,33 @@ public class AwesomeMediaAudioViewController: UIViewController {
                 sharedAVPlayer.stop()
                 self.play()
             }
-        }, progressUpdated: { (progress) in
+        }, progressUpdated: {(progress) in
             self.downloadProgressView.progress = progress
         })
+        
     }
     
     fileprivate func deleteMedia() {
         sharedAVPlayer.stop()
-        self.confirmMediaDeletion(withParams: mediaParams, fromView: downloadStateStackView) { (success) in
-            self.refreshDownloadState()
-            
-            if success {
-                // play online media
-                sharedAVPlayer.stop()
-                self.play()
-            }
-            
-            // track event
-            track(event: .deletedDownload, source: .audioFullscreen)
-        }
+        self.confirmMediaDeletion(withUrl: mediaParams.url?.url,
+                                  withTitle: "availableoffline_delete_title".localized,
+                                  withMessage: "availableoffline_delete_message".localized,
+                                  withConfirmButtonTitle: "availableoffline_delete_button_confirm".localized,
+                                  withCancelButtonTitle: "availableoffline_delete_button_cancel".localized,
+                                  completion: {(success) in
+                                    if success {
+                                        // play online media
+                                        sharedAVPlayer.stop()
+                                        self.play()
+                                        
+                                        // update download button
+                                        self.refreshDownloadState()
+                                    }
+                                    
+                                    // track event
+                                    track(event: .deletedDownload, source: .audioFullscreen)
+        })
+        
     }
     
     fileprivate func play() {
@@ -215,7 +225,7 @@ extension AwesomeMediaAudioViewController {
     
     // update download state
     public func refreshDownloadState() {
-        downloadState = AwesomeMediaDownloadManager.mediaDownloadState(withParams: mediaParams)
+        downloadState = AwesomeDownloading.mediaDownloadState(withUrl: mediaParams.url?.url)
         
         updateDownloadState()
     }
@@ -231,10 +241,14 @@ extension AwesomeMediaAudioViewController {
             } else {
                 downloadStateLabel.text = "downloading".localized
             }
+            downloadStateImageView.image = UIImage(named: "btnDownload", in: Bundle(for: AwesomeMedia.self), compatibleWith: nil)
+            
         case .downloaded:
             downloadButton.isHidden = true
             downloadStateStackView.isHidden = false
             downloadStateLabel.text = "availableoffline".localized
+            downloadStateImageView.image = UIImage(named: "icoOfflineAudio", in: Bundle(for: AwesomeMedia.self), compatibleWith: nil)
+
         default:
             downloadButton.isHidden = false
             downloadStateStackView.isHidden = true

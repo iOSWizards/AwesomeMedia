@@ -143,6 +143,7 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "${BUILT_PRODUCTS_DIR}/AwesomeDownloading/AwesomeDownloading.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/AwesomeImage/AwesomeImage.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/AwesomeLoading/AwesomeLoading.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/AwesomeMedia/AwesomeMedia.framework"
@@ -154,6 +155,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/youtube-ios-player-helper/youtube_ios_player_helper.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "${BUILT_PRODUCTS_DIR}/AwesomeDownloading/AwesomeDownloading.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/AwesomeImage/AwesomeImage.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/AwesomeLoading/AwesomeLoading.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/AwesomeMedia/AwesomeMedia.framework"

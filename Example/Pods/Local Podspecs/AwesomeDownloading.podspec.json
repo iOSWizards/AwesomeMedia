@@ -1,0 +1,27 @@
+{
+  "name": "AwesomeDownloading",
+  "version": "0.1.2",
+  "summary": "Download Files and Show Progress View.",
+  "description": "Download Files using this Library",
+  "homepage": "https://github.com/iOSWizards/AwesomeDownloading",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "emmanuelstroem": "emmanuel.stroem@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/iOSWizards/AwesomeDownloading.git",
+    "tag": "0.1.2"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "source_files": "AwesomeDownloading/Classes/**/*",
+  "resource_bundles": {
+    "AwesomeDownloading": [
+      "AwesomeDownloading/Assets/**/*.{storyboard,xib,xcassets,json,imageset,png,otf,lproj}"
+    ]
+  }
+}

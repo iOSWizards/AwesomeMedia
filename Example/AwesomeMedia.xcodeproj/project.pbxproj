@@ -334,6 +334,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-AwesomeMedia_Example/Pods-AwesomeMedia_Example-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AwesomeDownloading/AwesomeDownloading.framework",
 				"${BUILT_PRODUCTS_DIR}/AwesomeImage/AwesomeImage.framework",
 				"${BUILT_PRODUCTS_DIR}/AwesomeLoading/AwesomeLoading.framework",
 				"${BUILT_PRODUCTS_DIR}/AwesomeMedia/AwesomeMedia.framework",
@@ -346,6 +347,7 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AwesomeDownloading.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AwesomeImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AwesomeLoading.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AwesomeMedia.framework",
