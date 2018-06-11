@@ -1,6 +1,6 @@
 {
   "name": "AwesomeDownloading",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "summary": "Download Files and Show Progress View.",
   "description": "Download Files using this Library",
   "homepage": "https://github.com/iOSWizards/AwesomeDownloading",
@@ -13,21 +13,12 @@
   },
   "source": {
     "git": "https://github.com/iOSWizards/AwesomeDownloading.git",
-    "tag": "0.1.0"
+    "tag": "0.1.2"
   },
   "platforms": {
     "ios": "10.0"
   },
   "source_files": "AwesomeDownloading/Classes/**/*",
-  "ios": {
-    "resources": [
-      "AwesomeDownloading/Assets/Views/*.{xib,storyboard}",
-      "AwesomeMedia/Assets/Gilroy/*.{otf}",
-      "AwesomeMedia/Assets/Assets.xcassets",
-      "AwesomeMedia/Assets/Localizations/*.{lproj}"
-    ],
-    "preserve_paths": "AwesomeDownloading/Assets/*"
-  },
   "resource_bundles": {
     "AwesomeDownloading": [
       "AwesomeDownloading/Assets/**/*.{storyboard,xib,xcassets,json,imageset,png,otf,lproj}"

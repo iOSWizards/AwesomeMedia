@@ -1,5 +1,5 @@
 PODS:
-  - AwesomeDownloading (0.1.0)
+  - AwesomeDownloading (0.1.2)
   - AwesomeImage (0.1.3):
     - AwesomeUIMagic
     - Kingfisher (~> 4.0)
@@ -21,7 +21,7 @@ PODS:
   - youtube-ios-player-helper (0.1.6)
 
 DEPENDENCIES:
-  - AwesomeDownloading (from `https://github.com/iOSWizards/AwesomeDownloading`, tag `0.1.0`)
+  - AwesomeDownloading (from `https://github.com/iOSWizards/AwesomeDownloading`, tag `0.1.2`)
   - AwesomeImage (from `https://github.com/iOSWizards/AwesomeImage`, tag `0.1.3`)
   - AwesomeLoading (from `https://github.com/Mindvalley/Mobile_iOS_Library_AwesomeLoading.git`, tag `0.1.3`)
   - AwesomeMedia (from `../`)
@@ -39,7 +39,7 @@ SPEC REPOS:
 EXTERNAL SOURCES:
   AwesomeDownloading:
     :git: https://github.com/iOSWizards/AwesomeDownloading
-    :tag: 0.1.0
+    :tag: 0.1.2
   AwesomeImage:
     :git: https://github.com/iOSWizards/AwesomeImage
     :tag: 0.1.3
@@ -58,7 +58,7 @@ EXTERNAL SOURCES:
 CHECKOUT OPTIONS:
   AwesomeDownloading:
     :git: https://github.com/iOSWizards/AwesomeDownloading
-    :tag: 0.1.0
+    :tag: 0.1.2
   AwesomeImage:
     :git: https://github.com/iOSWizards/AwesomeImage
     :tag: 0.1.3
@@ -73,7 +73,7 @@ CHECKOUT OPTIONS:
     :tag: 0.4.6
 
 SPEC CHECKSUMS:
-  AwesomeDownloading: 7b0c3c4a580dd4272c11d94277f2bf9c61b24490
+  AwesomeDownloading: 2952d8121b2c40c83c1217da27f182022e7661bf
   AwesomeImage: 4c87b3736f777d1c3d6868b3a7d51582a84a66da
   AwesomeLoading: a035744e09a5334bd918f394bfd07e60a196eb1d
   AwesomeMedia: 85553524b642f23ed4c32688d9a05519e9bbc7a9
@@ -84,6 +84,6 @@ SPEC CHECKSUMS:
   ReachabilitySwift: f5b9bb30a0777fac8f09ce8b067e32faeb29bb64
   youtube-ios-player-helper: 21ab92db027c7ff86cb17a3843a3f6eafc8158d2
 
-PODFILE CHECKSUM: a68e96636bedb51c31f1e0b9d7147178add7826a
+PODFILE CHECKSUM: 18defe98a280793889e7142a3e3f633c315151f5
 
 COCOAPODS: 1.5.3

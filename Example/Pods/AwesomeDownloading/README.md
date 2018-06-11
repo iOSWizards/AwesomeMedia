@@ -18,7 +18,7 @@ AwesomeDownloading is available through [CocoaPods](https://cocoapods.org). To i
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod 'AwesomeDownloading', git: 'https://github.com/iOSWizards/AwesomeDownloading.git', tag: '0.1.0'
+pod "AwesomeDownloading", git: 'https://github.com/iOSWizards/AwesomeDownloading.git', tag: '0.1.2'
 ```
 
 ## License
