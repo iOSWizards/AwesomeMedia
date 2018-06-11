@@ -183,6 +183,9 @@ public class AwesomeMediaAudioViewController: UIViewController {
                                         // play online media
                                         sharedAVPlayer.stop()
                                         self.play()
+                                        
+                                        // update download button
+                                        self.refreshDownloadState()
                                     }
                                     
                                     // track event
@@ -238,10 +241,14 @@ extension AwesomeMediaAudioViewController {
             } else {
                 downloadStateLabel.text = "downloading".localized
             }
+            downloadStateImageView.image = UIImage(named: "btnDownload", in: Bundle(for: AwesomeMedia.self), compatibleWith: nil)
+            
         case .downloaded:
             downloadButton.isHidden = true
             downloadStateStackView.isHidden = false
             downloadStateLabel.text = "availableoffline".localized
+            downloadStateImageView.image = UIImage(named: "icoOfflineAudio", in: Bundle(for: AwesomeMedia.self), compatibleWith: nil)
+
         default:
             downloadButton.isHidden = false
             downloadStateStackView.isHidden = true
