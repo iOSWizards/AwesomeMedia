@@ -107,6 +107,9 @@ public class AwesomeMediaVideoControlView: AwesomeMediaControlView {
         if !states.contains(.info) || !shouldShowInfo {
             pausedView.isHidden = true
             playingView.isHidden = false
+            
+            // hide progressView if started playing at least once.
+            progressView.isHidden = true
         }
     }
     
