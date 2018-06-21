@@ -24,6 +24,7 @@ public class AwesomeMediaVideoControlView: AwesomeMediaControlView {
     @IBOutlet public weak var pausedView: UIView!
     @IBOutlet public weak var playingView: UIView!
     @IBOutlet public weak var timeLabel: UILabel!
+    @IBOutlet public weak var progressView: UIProgressView!
     
     // Callbacks
     public var fullscreenCallback: FullScreenCallback?
