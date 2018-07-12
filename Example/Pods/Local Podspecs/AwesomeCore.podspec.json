@@ -1,0 +1,35 @@
+{
+  "name": "AwesomeCore",
+  "version": "0.14.3",
+  "summary": "A short description of AwesomeCore.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/mindvalley/Mobile_iOS_Library_AwesomeCore",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "leonardo-ferreira07": "leonardo.ferreira@beautydate.com"
+  },
+  "source": {
+    "git": "https://github.com/mindvalley/Mobile_iOS_Library_AwesomeCore.git",
+    "tag": "0.14.3"
+  },
+  "platforms": {
+    "ios": "9.0",
+    "osx": "10.10",
+    "watchos": "4.0",
+    "tvos": "10.0"
+  },
+  "source_files": "AwesomeCore/Classes/**/*.{swift}",
+  "resource_bundles": {
+    "AwesomeCore": [
+      "AwesomeCore/**/*.{storyboard,xib,xcassets,json,imageset,png}"
+    ]
+  },
+  "dependencies": {
+    "RealmSwift": [
+
+    ]
+  }
+}

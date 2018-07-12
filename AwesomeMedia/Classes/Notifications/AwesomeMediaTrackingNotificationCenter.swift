@@ -58,6 +58,7 @@ func track(event: AwesomeMediaTrackingEvent,
     //AwesomeMedia.log("notification tracking event: \(event.rawValue) source: \(object.source.rawValue)")
     
     AwesomeMediaTrackingNotificationCenter.shared.notify(event, object: AwesomeMediaTrackingObject(source: source, value: value, params: params))
+    
 }
 
 public class AwesomeMediaTrackingNotificationCenter: NotificationCenter {

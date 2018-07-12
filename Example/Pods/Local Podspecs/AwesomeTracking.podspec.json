@@ -1,0 +1,57 @@
+{
+  "name": "AwesomeTracking",
+  "version": "0.1.3",
+  "summary": "A short description of AwesomeTracking.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/mindvalley/Mobile_iOS_Library_AwesomeTracking",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "evandro@mindvalley.com": "evandro@itsdayoff.com"
+  },
+  "source": {
+    "git": "https://github.com/mindvalley/Mobile_iOS_Library_AwesomeTracking.git",
+    "tag": "0.1.3"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "static_framework": true,
+  "source_files": "AwesomeTracking/Classes/**/*.{swift}",
+  "ios": {
+    "resources": [
+      "AwesomeTracking/Assets/Views/*.{xib,storyboard}",
+      "AwesomeTracking/Assets/Gilroy/*.{otf}",
+      "AwesomeTracking/Assets/Assets.xcassets",
+      "AwesomeTracking/Assets/Localizations/*.{lproj}"
+    ],
+    "preserve_paths": "AwesomeTracking/Assets/*"
+  },
+  "resource_bundles": {
+    "AwesomeTracking": [
+      "AwesomeTracking/Assets/**/*.{storyboard,xib,xcassets,json,imageset,png,otf,lproj}"
+    ]
+  },
+  "dependencies": {
+    "Mixpanel-swift": [
+
+    ],
+    "FBSDKCoreKit": [
+
+    ],
+    "Appboy-iOS-SDK": [
+
+    ],
+    "AppsFlyerFramework": [
+
+    ],
+    "AwesomeCore": [
+
+    ],
+    "AwesomeConstants": [
+
+    ]
+  }
+}

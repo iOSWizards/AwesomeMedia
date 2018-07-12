@@ -29,6 +29,7 @@ Play Media from any app using this library.
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '10.0'
+  s.static_framework = true
 
   s.source_files = 'AwesomeMedia/Classes/**/*.{swift}'
   s.ios.resources = ['AwesomeMedia/Assets/Views/*.{xib,storyboard}', 'AwesomeMedia/Assets/Gilroy/*.{otf}', 'AwesomeMedia/Assets/Assets.xcassets', 'AwesomeMedia/Assets/Localizations/*.{lproj}']
@@ -45,4 +46,7 @@ Play Media from any app using this library.
   s.dependency 'AwesomeImage'
   s.dependency 'AwesomeDownloading'
   s.dependency 'youtube-ios-player-helper'
+  s.dependency 'AwesomeConstants'
+  s.dependency 'AwesomeCore'
+  s.dependency 'AwesomeTracking'
 end
