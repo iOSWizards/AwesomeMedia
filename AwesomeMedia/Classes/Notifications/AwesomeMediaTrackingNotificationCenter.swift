@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import AwesomeTracking
 
 public enum AwesomeMediaTrackingSource: String {
     case unknown
@@ -19,39 +20,13 @@ public enum AwesomeMediaTrackingSource: String {
     case controlCenter = "Control center"
 }
 
-public enum AwesomeMediaTrackingEvent: String {
-    case startedPlaying = "Media started playing"
-    case stoppedPlaying = "Media stopped playing"
-    case sliderChanged = "Media slider changed"
-    case toggleFullscreen = "Media toggle full screen"
-    case closeFullscreen = "Media close full screen"
-    case openedMarkers = "Media opened markers"
-    case closedMarkers = "Media closed markers"
-    case selectedMarker = "Media selected markers"
-    case openedCaptions = "Media opened captions"
-    case closedCaptions = "Media closed captions"
-    case selectedCaption = "Media selected caption"
-    case toggledSpeed = "Media toggled speed"
-    case tappedRewind = "Media tapped rewind"
-    case tappedAdvance = "Media tapped advance"
-    case tappedAirplay = "Media tapped airplay"
-    case changedOrientation = "Media changed orientation"
-    case openedFullscreenWithRotation = "Media opened full screen rotation"
-    case tappedDownload = "Media tapped download"
-    case deletedDownload = "Media deleted download"
-    case timedOut = "Media timed out"
-    case timeoutCancel = "Media timed out cancel"
-    case timeoutWait = "Media timed out wait"
-    case playingInBackground = "Media playing background"
-}
-
 public struct AwesomeMediaTrackingObject {
     public var source: AwesomeMediaTrackingSource = .unknown
     public var value: Any?
     public var params = AwesomeMediaParams()
 }
 
-func track(event: AwesomeMediaTrackingEvent,
+func track(event: AwesomeTrackingEvent.AwesomeMedia,
            source: AwesomeMediaTrackingSource,
            params: AwesomeMediaParams = AwesomeMediaManager.shared.mediaParams,
            value: Any? = nil) {
@@ -65,11 +40,11 @@ public class AwesomeMediaTrackingNotificationCenter: NotificationCenter {
     
     public static var shared = AwesomeMediaTrackingNotificationCenter()
     
-    public func notify(_ event: AwesomeMediaTrackingEvent, object: AwesomeMediaTrackingObject) {
+    public func notify(_ event: AwesomeTrackingEvent.AwesomeMedia, object: AwesomeMediaTrackingObject) {
         post(name: Notification.Name(rawValue: event.rawValue), object: object)
     }
     
-    public func addObserver(_ observer: Any, selector: Selector, event: AwesomeMediaTrackingEvent, object: AnyObject? = nil) {
+    public func addObserver(_ observer: Any, selector: Selector, event: AwesomeTrackingEvent.AwesomeMedia, object: AnyObject? = nil) {
         addObserver(observer, selector: selector, name: NSNotification.Name(rawValue: event.rawValue), object: object)
     }
     
