@@ -20,7 +20,7 @@ AwesomeUIMagic is available through [CocoaPods](http://cocoapods.org). To instal
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod "AwesomeConstants", git: 'https://github.com/Mindvalley/Mobile_iOS_Library_AwesomeConstants', tag: '0.1.9'
+pod "AwesomeConstants", git: 'https://github.com/Mindvalley/Mobile_iOS_Library_AwesomeConstants', tag: '0.2.0'
 ```
 
 ## Usage

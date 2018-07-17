@@ -102,7 +102,7 @@ public var industriesList: [String : String]  {
         "Pharmaceuticals" : "Pharmaceuticals",
         "Philantropy" : "Philanthropy",
         "Photography" : "Photography",
-        "Professional Training & Coaching" : "Professional Training & Coaching",
+        "Professional Training" : "Professional Training",
         "Program Development" : "Program Development",
         "PR and Communications" : "PR and Communications",
         "Publishing" : "Publishing",
@@ -114,7 +114,13 @@ public var industriesList: [String : String]  {
         "Telecommunications" : "Telecommunications",
         "Transportation/Trucking/Railroad" : "Transportation/Trucking/Railroad",
         "Venture Capital and Private Equity" : "Venture Capital & Private Equity",
-        "Writing and Editing" : "Writing and Editing"
+        "Writing and Editing" : "Writing and Editing",
+        "Digital Marketing": "Digital Marketing",
+        "E-commerce": "E-commerce",
+        "Software engineering": "Software engineering",
+        "Coaching": "Coaching",
+        "Blockchain technology": "Blockchain technology",
+        "Business Consulting": "Business Consulting"
     ]
 }
 

@@ -7,7 +7,7 @@
 
 import Foundation
 
-public class QuestPage: Codable, Equatable {
+public struct QuestPage: Codable, Equatable {
     
     public let completionsCount: Int?
     public let date: String?
@@ -22,37 +22,7 @@ public class QuestPage: Codable, Equatable {
     public let type: String?
     public let url: String?
     public var completed: Bool?
-    public let questId: String? // FK to the CDQuest
-    
-    init(completionsCount: Int?,
-         date: String?,
-         description: String?,
-         duration: Double?,
-         groupName: String?,
-         id: String?,
-         name: String?,
-         position: Int,
-         sections: [QuestSection]?,
-         tasks: [QuestTask]?,
-         type: String?,
-         url: String?,
-         completed: Bool?,
-         questId: String? = nil) {
-        self.completionsCount = completionsCount
-        self.date = date
-        self.description = description
-        self.duration = duration
-        self.groupName = groupName
-        self.id = id
-        self.name = name
-        self.position = position
-        self.sections = sections
-        self.tasks = tasks
-        self.type = type
-        self.url = url
-        self.completed = completed
-        self.questId = questId
-    }
+    public let coverAsset: QuestAsset?
     
     // MARK: - Computed properties
     
@@ -211,10 +181,10 @@ extension QuestPage {
         if lhs.url != rhs.url {
             return false
         }
-        if lhs.questId != rhs.questId {
+        if lhs.completed != rhs.completed {
             return false
         }
-        if lhs.completed != rhs.completed {
+        if lhs.coverAsset != rhs.coverAsset {
             return false
         }
         return true

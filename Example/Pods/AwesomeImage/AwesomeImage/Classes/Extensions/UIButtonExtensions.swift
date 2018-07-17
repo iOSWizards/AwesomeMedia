@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import AwesomeUIMagic
+import AwesomeLoading
 import Kingfisher
 
 extension UIButton{
