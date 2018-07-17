@@ -7,7 +7,7 @@
 
 import Foundation
 
-public class QuestUserProgress: Codable, Equatable {
+public struct QuestUserProgress: Codable, Equatable {
     
     public let id: String? // we're using Quest.id here, this way we can map this Model back and forth from Core Data
     public let currentDay: QuestPage?
@@ -26,46 +26,8 @@ public class QuestUserProgress: Codable, Equatable {
     public var totalDaysCompleted: Int?
     public let totalIntros: Int?
     public var totalIntrosCompleted: Int?
-    public let questId: String? // FK to the CDQuest
+    public var totalDaysMissed: Int?
     
-    init(
-        id: String?,
-        currentDay: QuestPage?,
-        currentDayId: String?,
-        daysCompleted: [Int],
-        ended: Bool,
-        endedAt: String?,
-        completed: Bool,
-        completedAt: String?,
-        enrolledAt: String?,
-        enrollmentStartedAt: String?,
-        introsCompleted: [Int],
-        started: Bool,
-        startedAt: String?,
-        totalDays: Int?,
-        totalDaysCompleted: Int?,
-        totalIntros: Int?,
-        totalIntrosCompleted: Int?,
-        questId: String? = nil) {
-        self.id = id
-        self.currentDay = currentDay
-        self.currentDayId = currentDayId
-        self.daysCompleted = daysCompleted
-        self.ended = ended
-        self.endedAt = endedAt
-        self.completed = completed
-        self.completedAt = completedAt
-        self.enrolledAt = enrolledAt
-        self.enrollmentStartedAt = enrollmentStartedAt
-        self.introsCompleted = introsCompleted
-        self.started = started
-        self.startedAt = startedAt
-        self.totalDays = totalDays
-        self.totalDaysCompleted = totalDaysCompleted
-        self.totalIntros = totalIntros
-        self.totalIntrosCompleted = totalIntrosCompleted
-        self.questId = questId
-    }
 }
 
 // MARK: - JSON Key
@@ -132,7 +94,7 @@ extension QuestUserProgress {
         if lhs.totalIntrosCompleted != rhs.totalIntrosCompleted {
             return false
         }
-        if lhs.questId != rhs.questId {
+        if lhs.totalDaysMissed != rhs.totalDaysMissed {
             return false
         }
         return true

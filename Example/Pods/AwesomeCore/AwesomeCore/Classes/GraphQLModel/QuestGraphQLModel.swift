@@ -17,12 +17,12 @@ public struct QuestGraphQLModel {
     static let questCommunityModel = "id name published settings { \(questSettingsModel) }"
     static let questContentModel = "\(questModel) pages { \(pageModel) }"
     static let questSettingsModel = "tribelearnTribeId studentsCount salesUrl shareImageUrl perpetual facebookGroupImageUrl facebookGroupPassPhrase facebookGroupUrl facebookGroupId awcProductId"
-    static let userProgressModel = "daysCompleted introsCompleted totalDays totalDaysCompleted totalIntros totalIntrosCompleted started ended startedAt endedAt completed completedAt currentDay { \(pageModel) }"
+    static let userProgressModel = "daysCompleted introsCompleted totalDays totalDaysCompleted totalIntros totalIntrosCompleted totalDaysMissed started ended startedAt endedAt completed completedAt currentDay { \(pageModel) }"
     
     // My Time
     static let questMyTimeModel = "id name duration courseStartedAt courseEndedAt url settings { \(questSettingsModel) } coverAsset { \(assetImageModel) } userProgress { \(userProgressMyTimeModel) } pages { \(pageMyTimeModel) }"
-    static let userProgressMyTimeModel = "daysCompleted introsCompleted started ended completed currentDay { \(pageMyTimeContentModel) }"
-    static let pageMyTimeModel = "id name type position duration groupName completed"
+    static let userProgressMyTimeModel = "daysCompleted introsCompleted started ended completed totalDaysMissed currentDay { \(pageMyTimeContentModel) }"
+    static let pageMyTimeModel = "id name type position duration groupName completed coverAsset { \(assetImageModel) }"
     static let pageMyTimeContentModel = "\(pageMyTimeModel) sections { \(sectionMyTimeModel) } "
     static let sectionMyTimeModel = "id duration position type coverAsset { \(assetImageModel) }"
     
@@ -42,7 +42,7 @@ public struct QuestGraphQLModel {
     
     // Page
     
-    static let pageModel = "id name position description type date completionsCount duration groupName completed"
+    static let pageModel = "id name position description type date completionsCount duration groupName completed coverAsset { \(assetImageModel) }"
     static let pageContentModel = "\(pageModel) sections { \(sectionModel) } tasks { \(taskModel) }"
     
     static let taskModel = "completed completionDetails imageUrl id description name position required type coverAsset { \(assetImageModel) }"

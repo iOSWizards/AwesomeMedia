@@ -1,9 +1,8 @@
 //
 //  ShimmerView.swift
-//  Mindvalley
+//  AwesomeLoading
 //
-//  Created by Evandro Harrison Hoffmann on 8/30/17.
-//  Copyright © 2017 Mindvalley. All rights reserved.
+//  Created by Emmanuel on 21/06/2018.
 //
 
 import UIKit
@@ -34,12 +33,12 @@ class ShimmerView: UIView, ShimmerEffect {
 extension UIView {
     
     public func startShimmerAnimation(delay: Double = 0.2,
-                               tint: UIColor = UIColor.init(red: 35/255.0, green: 39/255.0, blue: 47/255.0, alpha: 0.2),
-                               highlight: UIColor = UIColor.init(red: 40/255.0, green: 45/255.0, blue: 53/255.0, alpha: 0.8),
-                               highlightRatio: Double = 0.8,
-                               widthRatio: CGFloat = 1,
-                               heightRatio: CGFloat = 1,
-                               alignment: NSTextAlignment = .center) {
+                                      tint: UIColor = UIColor.init(red: 35/255.0, green: 39/255.0, blue: 47/255.0, alpha: 0.2),
+                                      highlight: UIColor = UIColor.init(red: 40/255.0, green: 45/255.0, blue: 53/255.0, alpha: 0.8),
+                                      highlightRatio: Double = 0.8,
+                                      widthRatio: CGFloat = 1,
+                                      heightRatio: CGFloat = 1,
+                                      alignment: NSTextAlignment = .center) {
         stopShimmerAnimation()
         
         let shimmerView = ShimmerView()

@@ -1,8 +1,8 @@
 //
-//  UIView+Shimmer.swift
-//  AwesomeUIMagic
+//  ShimmerUIViewExtensions.swift
+//  AwesomeLoading
 //
-//  Created by Evandro Harrison Hoffmann on 2/9/18.
+//  Created by Emmanuel on 21/06/2018.
 //
 
 import UIKit
