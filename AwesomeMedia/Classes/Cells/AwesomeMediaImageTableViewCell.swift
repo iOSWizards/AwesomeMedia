@@ -95,6 +95,7 @@ extension AwesomeMediaImageTableViewCell {
             // reset background status
             self.mainView.backgroundColor = .placeholderBackground
             self.coverIconImageView.isHidden = false
+            self.coverImageView.contentMode = .scaleAspectFill
             
             if image != nil {
                 self.mainView.backgroundColor = .clear
