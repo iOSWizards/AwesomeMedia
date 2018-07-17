@@ -10,7 +10,7 @@ target 'AwesomeMedia_Example' do
   pod 'youtube-ios-player-helper'
   pod 'AwesomeCore', git: 'https://github.com/mindvalley/Mobile_iOS_Library_AwesomeCore.git', tag: '0.14.4'
   pod 'AwesomeConstants', git: 'https://github.com/Mindvalley/Mobile_iOS_Library_AwesomeConstants.git', tag: '0.2.0'
-  pod 'AwesomeTracking', git: 'https://github.com/Mindvalley/Mobile_iOS_Library_AwesomeTracking.git', tag: '0.1.3'
+  pod 'AwesomeTracking', git: 'https://github.com/Mindvalley/Mobile_iOS_Library_AwesomeTracking.git', tag: '0.1.4'
 
   target 'AwesomeMedia_Tests' do
     inherit! :search_paths

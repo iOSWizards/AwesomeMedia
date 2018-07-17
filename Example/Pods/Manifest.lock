@@ -37,7 +37,7 @@ PODS:
     - youtube-ios-player-helper
   - AwesomeNetwork (0.1.4):
     - ReachabilitySwift (~> 3)
-  - AwesomeTracking (0.1.3):
+  - AwesomeTracking (0.1.4):
     - Appboy-iOS-SDK
     - AppsFlyerFramework
     - AwesomeConstants
@@ -79,7 +79,7 @@ DEPENDENCIES:
   - AwesomeLoading (from `https://github.com/iOSWizards/AwesomeLoading.git`, tag `0.1.5`)
   - AwesomeMedia (from `../`)
   - AwesomeNetwork (from `https://github.com/iOSWizards/AwesomeNetwork`, tag `0.1.4`)
-  - AwesomeTracking (from `https://github.com/Mindvalley/Mobile_iOS_Library_AwesomeTracking.git`, tag `0.1.3`)
+  - AwesomeTracking (from `https://github.com/Mindvalley/Mobile_iOS_Library_AwesomeTracking.git`, tag `0.1.4`)
   - AwesomeUIMagic (from `https://github.com/iOSWizards/AwesomeUIMagic`, tag `0.4.7`)
   - youtube-ios-player-helper
 
@@ -122,7 +122,7 @@ EXTERNAL SOURCES:
     :tag: 0.1.4
   AwesomeTracking:
     :git: https://github.com/Mindvalley/Mobile_iOS_Library_AwesomeTracking.git
-    :tag: 0.1.3
+    :tag: 0.1.4
   AwesomeUIMagic:
     :git: https://github.com/iOSWizards/AwesomeUIMagic
     :tag: 0.4.7
@@ -148,7 +148,7 @@ CHECKOUT OPTIONS:
     :tag: 0.1.4
   AwesomeTracking:
     :git: https://github.com/Mindvalley/Mobile_iOS_Library_AwesomeTracking.git
-    :tag: 0.1.3
+    :tag: 0.1.4
   AwesomeUIMagic:
     :git: https://github.com/iOSWizards/AwesomeUIMagic
     :tag: 0.4.7
@@ -163,7 +163,7 @@ SPEC CHECKSUMS:
   AwesomeLoading: 08d501a8f4eefc6e8f16bdff4b6856a41c68bdf4
   AwesomeMedia: 02e6fc5a28dbc28875074c437ffb7fb958257c26
   AwesomeNetwork: 295b7f6aa0d3783090cb1e9dc844bcb8fa05e094
-  AwesomeTracking: c7388862cf12e486a98bf39dea0b2e9d796e995d
+  AwesomeTracking: 55a0e7185c39392440541b11d99a2e26bb613f97
   AwesomeUIMagic: b07f77437bcd5f7283f7e6d32025f5acb5fdcb80
   Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
   FBSDKCoreKit: 0ff57f093b85c8c9d5aba697d3edf68a8960ce78
@@ -177,6 +177,6 @@ SPEC CHECKSUMS:
   SDWebImage: 47e9b5b925cbce75946c23f0c42dd19464189af4
   youtube-ios-player-helper: 21ab92db027c7ff86cb17a3843a3f6eafc8158d2
 
-PODFILE CHECKSUM: d6af34add8424edb14bc0e1d6b0ce2bce32652b0
+PODFILE CHECKSUM: c3dfea6672d2c1b0e57a93f2a43804944c24c5e0
 
 COCOAPODS: 1.5.3
