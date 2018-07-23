@@ -26,14 +26,46 @@ public struct AwesomeMediaTrackingObject {
     public var params = AwesomeMediaParams()
 }
 
+// MARK: - Tracking object extension
+
+extension AwesomeMediaTrackingObject {
+    
+    var assetId: String? {
+        return params.params["assetId"] as? String
+    }
+    
+    var questId: Int32? {
+        guard let questId = params.params["questId"] as? String else {
+            return nil
+        }
+        
+        return Int32(questId)
+    }
+}
+
 func track(event: AwesomeTrackingEvent.AwesomeMedia,
            source: AwesomeMediaTrackingSource,
            params: AwesomeMediaParams = AwesomeMediaManager.shared.mediaParams,
            value: Any? = nil) {
     //AwesomeMedia.log("notification tracking event: \(event.rawValue) source: \(object.source.rawValue)")
     
-    AwesomeMediaTrackingNotificationCenter.shared.notify(event, object: AwesomeMediaTrackingObject(source: source, value: value, params: params))
+    let trackingObject = AwesomeMediaTrackingObject(source: source, value: value, params: params)
+    AwesomeMediaTrackingNotificationCenter.shared.notify(event, object: trackingObject)
     
+    let dict: AwesomeTrackingDictionary = [:]
+    dict.addElement(trackingObject.source.rawValue, forKey: .mediaSource)
+    
+    if let questId = trackingObject.questId {
+        dict.addElement(questId, forKey: .questID)
+    }
+    if let assetId = trackingObject.assetId {
+        dict.addElement(assetId, forKey: .assetID)
+    }
+    if let timeElapsed = trackingObject.value as? String {
+        dict.addElement(timeElapsed, forKey: .timeElapsed)
+    }
+    
+    AwesomeTracking.track(event, with: dict)
 }
 
 public class AwesomeMediaTrackingNotificationCenter: NotificationCenter {
