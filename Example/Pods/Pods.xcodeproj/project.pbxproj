@@ -2032,6 +2032,7 @@
 		14F95B4F210B196E00CDC90A /* Gilroy-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gilroy-ExtraBold.otf"; sourceTree = "<group>"; };
 		14F95B50210B196E00CDC90A /* Gilroy-MediumItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gilroy-MediumItalic.otf"; sourceTree = "<group>"; };
 		14F95B51210B196E00CDC90A /* Gilroy-ExtraBoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gilroy-ExtraBoldItalic.otf"; sourceTree = "<group>"; };
+		14F95B65210B1FE600CDC90A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		153CB0C9AC5A5375B9B1205690A105DD /* LinkingObjects.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LinkingObjects.swift; path = RealmSwift/LinkingObjects.swift; sourceTree = "<group>"; };
 		159C9E34B327C16E46D70364AE6BA1FB /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
 		15BB1B4542F849849D768E524D7E51C3 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -6854,6 +6855,7 @@
 				it,
 				Base,
 				ru,
+				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
 			productRefGroup = A8D760FA691CDA4685A783F940877D1F /* Products */;
@@ -8472,6 +8474,7 @@
 				14F95B10210B168D00CDC90A /* it */,
 				14F95B11210B168D00CDC90A /* Base */,
 				14F95B12210B168D00CDC90A /* ru */,
+				14F95B65210B1FE600CDC90A /* en */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";

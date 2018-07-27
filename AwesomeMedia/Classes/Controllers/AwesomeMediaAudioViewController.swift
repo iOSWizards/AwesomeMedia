@@ -243,7 +243,7 @@ extension AwesomeMediaAudioViewController {
             } else {
                 downloadStateLabel.text = "downloading".localized(bundle: AwesomeMedia.bundle)
             }
-            downloadStateImageView.image = UIImage(named: "btnDownload", in: Bundle(for: AwesomeMedia.self), compatibleWith: nil)
+            downloadStateImageView.image = UIImage(named: "icoDownload", in: Bundle(for: AwesomeMedia.self), compatibleWith: nil)
             
         case .downloaded:
             downloadButton.isHidden = true
