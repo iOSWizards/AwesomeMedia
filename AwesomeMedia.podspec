@@ -49,4 +49,5 @@ Play Media from any app using this library.
   s.dependency 'AwesomeConstants'
   s.dependency 'AwesomeCore'
   s.dependency 'AwesomeTracking'
+  s.dependency 'AwesomeLocalization'
 end

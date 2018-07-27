@@ -28,4 +28,12 @@ public extension AwesomeCore {
     public static func patchTravelDates(eventSlug: EventCode = .mvu, arrivalDate: String, departureDate: String, forcingUpdate: Bool = false, response: @escaping (Bool, ErrorData?) -> Void) {
         EventRegistrationBO.patchTravelDates(eventSlug: eventSlug, arrivalDate: arrivalDate, departureDate: departureDate, forcingUpdate: forcingUpdate, response: response)
     }
+    
+    public static func fetchHomeUserProfile(forcingUpdate: Bool, response: @escaping (HomeUserProfile?, ErrorData?)-> Void) {
+        UserProfileBO.fetchHomeUserProfile(forcingUpdate: forcingUpdate, response: response)
+    }
+    
+    public static func fetchPurchaseStatus(eventSlug: EventCode = .mvu, response: @escaping (PurchaseStatus?, ErrorData?)-> Void) {
+        PurchaseStatusBO.fetchPurchaseStatus(eventSlug: eventSlug, params: .standard, response: response)
+    }
 }

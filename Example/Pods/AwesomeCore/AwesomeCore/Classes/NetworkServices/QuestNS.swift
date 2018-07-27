@@ -15,7 +15,6 @@ class QuestNS {
     init() {}
     
     var lastQuestRequest: URLSessionDataTask?
-    var lastQuestsRequest: URLSessionDataTask?
     var lastQuestPageRequest: URLSessionDataTask?
     var lastContentCompleteRequest: URLSessionDataTask?
     var lastTaskCompleteRequest: URLSessionDataTask?
@@ -39,15 +38,8 @@ class QuestNS {
         
         func fetchFromAPI(forceUpdate: Bool) {
             
-            // cancel previews request only if should
-            if params.contains(.canCancelRequest) {
-                lastQuestsRequest?.cancel()
-                lastQuestsRequest = nil
-            }
-            
-            lastQuestsRequest = requester.performRequestAuthorized(
+            _ = requester.performRequestAuthorized(
                 ACConstants.shared.questsURL, forceUpdate: forceUpdate, method: .POST, jsonBody: query, completion: { (data, error, responseType) in
-                    self.lastQuestsRequest = nil
                     
                     //process response
                     let hasResponse = processResponse(data: data, response: response)
@@ -92,15 +84,8 @@ class QuestNS {
         
         func fetchFromAPI(forceUpdate: Bool) {
             
-            // cancel previews request only if should
-            if params.contains(.canCancelRequest) {
-                lastQuestsRequest?.cancel()
-                lastQuestsRequest = nil
-            }
-            
-            lastQuestsRequest = requester.performRequestAuthorized(
+            _ = requester.performRequestAuthorized(
                 ACConstants.shared.questsURL, forceUpdate: forceUpdate, method: .POST, jsonBody: QuestGraphQLModel.queryQuestCommunities(), completion: { (data, error, responseType) in
-                    self.lastQuestsRequest = nil
                     
                     //process response
                     let hasResponse = processResponse(data: data, response: response)
