@@ -14,11 +14,11 @@ struct AppsflyerHelper {
         AppsFlyerTracker.shared().trackEvent(eventName, withValues: params.stringLiteral())
     }
     
-    static func trackRevenue(with params: [AwesomeTrackingParams: Any]) {
-        var dict = params
-//        dict[AFEventParamRevenue] = params.cartValue as AnyObject
-//        dict[AFEventParamCurrency] = params.currency as AnyObject
-//        dict[AFEventParamPurchaseCurrency] = params.currency as AnyObject
+    static func trackAppsflyerRevenue(with params: AwesomeTrackingDictionary) {
+        var dict = params.stringLiteral()
+        dict[AFEventParamRevenue] = params.stringLiteral()["cartValue"] as AnyObject
+        dict[AFEventParamCurrency] = params.stringLiteral()["currency"] as AnyObject
+        dict[AFEventParamPurchaseCurrency] = params.stringLiteral()["currency"] as AnyObject
         AppsFlyerTracker.shared().trackEvent(AFEventPurchase, withValues: dict)
     }
     
