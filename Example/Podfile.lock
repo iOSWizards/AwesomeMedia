@@ -17,7 +17,7 @@ PODS:
     - Appboy-iOS-SDK/NewsFeed
   - AppsFlyerFramework (4.8.7)
   - AwesomeConstants (0.2.0)
-  - AwesomeCore (0.14.7):
+  - AwesomeCore (0.14.8):
     - RealmSwift
   - AwesomeDownloading (0.1.2)
   - AwesomeImage (0.1.4):
@@ -26,7 +26,7 @@ PODS:
   - AwesomeLoading (0.1.5):
     - lottie-ios
   - AwesomeLocalization (0.2.1)
-  - AwesomeMedia (1.8.8.9):
+  - AwesomeMedia (1.8.9):
     - AwesomeConstants
     - AwesomeCore
     - AwesomeDownloading
@@ -53,7 +53,7 @@ PODS:
   - Bolts/AppLinks (1.9.0):
     - Bolts/Tasks
   - Bolts/Tasks (1.9.0)
-  - FBSDKCoreKit (4.34.0):
+  - FBSDKCoreKit (4.35.0):
     - Bolts (~> 1.7)
   - FLAnimatedImage (1.0.12)
   - Kingfisher (4.8.1)
@@ -75,7 +75,7 @@ PODS:
 
 DEPENDENCIES:
   - AwesomeConstants (from `https://github.com/Mindvalley/Mobile_iOS_Library_AwesomeConstants.git`, tag `0.2.0`)
-  - AwesomeCore (from `https://github.com/mindvalley/Mobile_iOS_Library_AwesomeCore.git`, tag `0.14.7`)
+  - AwesomeCore (from `https://github.com/mindvalley/Mobile_iOS_Library_AwesomeCore.git`, tag `0.14.8`)
   - AwesomeDownloading (from `https://github.com/iOSWizards/AwesomeDownloading`, tag `0.1.2`)
   - AwesomeImage (from `https://github.com/iOSWizards/AwesomeImage`, tag `0.1.4`)
   - AwesomeLoading (from `https://github.com/iOSWizards/AwesomeLoading.git`, tag `0.1.5`)
@@ -108,7 +108,7 @@ EXTERNAL SOURCES:
     :tag: 0.2.0
   AwesomeCore:
     :git: https://github.com/mindvalley/Mobile_iOS_Library_AwesomeCore.git
-    :tag: 0.14.7
+    :tag: 0.14.8
   AwesomeDownloading:
     :git: https://github.com/iOSWizards/AwesomeDownloading
     :tag: 0.1.2
@@ -139,7 +139,7 @@ CHECKOUT OPTIONS:
     :tag: 0.2.0
   AwesomeCore:
     :git: https://github.com/mindvalley/Mobile_iOS_Library_AwesomeCore.git
-    :tag: 0.14.7
+    :tag: 0.14.8
   AwesomeDownloading:
     :git: https://github.com/iOSWizards/AwesomeDownloading
     :tag: 0.1.2
@@ -166,17 +166,17 @@ SPEC CHECKSUMS:
   Appboy-iOS-SDK: 7db0cdbfbd11f2cf4f67d22a2676da4edb62f4f9
   AppsFlyerFramework: c5f1266f51fd2b3c04391444950f480a765c945f
   AwesomeConstants: f6ab572586381cbbf5d89a2bf5681c2691ee2246
-  AwesomeCore: 9229b4549102ebca43106b216c44161a7c6f67de
+  AwesomeCore: 03b4d1ee334af02eb2403e1ed0d7f1c357d051d5
   AwesomeDownloading: 2952d8121b2c40c83c1217da27f182022e7661bf
   AwesomeImage: 927dc504433332293f5ee3e216b16272cb2e93d4
   AwesomeLoading: 08d501a8f4eefc6e8f16bdff4b6856a41c68bdf4
   AwesomeLocalization: 2b8ebbd7f6ca4bbb7e1f6056a761143bfa987c71
-  AwesomeMedia: 8d62a8878004d3e006f8658790c1f01691531314
+  AwesomeMedia: 11befcd9ea1d1462291da34e536d36f2beb1d306
   AwesomeNetwork: 295b7f6aa0d3783090cb1e9dc844bcb8fa05e094
   AwesomeTracking: 708524a672bcd13010d5d1a4ef75af006e18fd3c
   AwesomeUIMagic: b07f77437bcd5f7283f7e6d32025f5acb5fdcb80
   Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
-  FBSDKCoreKit: 0ff57f093b85c8c9d5aba697d3edf68a8960ce78
+  FBSDKCoreKit: 1a5b2e3ceb5ca827a53c54aa5f4a3480efff80d2
   FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
   Kingfisher: 868c1149679a7ab6869be118faa9b5aed154aaf0
   lottie-ios: d699fdee68d7b63e721d949388b015fef1aaa4ac
@@ -187,6 +187,6 @@ SPEC CHECKSUMS:
   SDWebImage: 624d6e296c69b244bcede364c72ae0430ac14681
   youtube-ios-player-helper: 21ab92db027c7ff86cb17a3843a3f6eafc8158d2
 
-PODFILE CHECKSUM: 41368d571940ee297f1a56a2ca7e7e521404f151
+PODFILE CHECKSUM: fc321309be44b3b1ef254d3186e35ac953e3db32
 
 COCOAPODS: 1.5.3
