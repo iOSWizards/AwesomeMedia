@@ -2001,7 +2001,6 @@
 		144E5983F7612CCD12B476ABF3C57AC7 /* FBSDKCopying.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBSDKCopying.h; path = FBSDKCoreKit/FBSDKCoreKit/FBSDKCopying.h; sourceTree = "<group>"; };
 		14675F60CDE99F79AE62ED0DAAC97129 /* youtube-ios-player-helper-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "youtube-ios-player-helper-dummy.m"; sourceTree = "<group>"; };
 		147B54D2C2E4DD4BE07EFCB33F0A1D78 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		14DFEC6C210F03D100AA3193 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		14DFEC6D210F03D100AA3193 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
 		14DFEC6E210F03D100AA3193 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		14DFEC6F210F03D100AA3193 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -8473,7 +8472,6 @@
 		14DFEC6B210F03D100AA3193 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				14DFEC6C210F03D100AA3193 /* en */,
 				14DFEC6D210F03D100AA3193 /* it */,
 				14DFEC6E210F03D100AA3193 /* Base */,
 				14DFEC6F210F03D100AA3193 /* ru */,
