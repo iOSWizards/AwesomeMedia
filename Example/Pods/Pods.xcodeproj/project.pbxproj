@@ -115,7 +115,6 @@
 		141D2932796A27EEFCCA037AD5BFC390 /* QuestUserProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3002091000AFECE2A304B9D47E8DA676 /* QuestUserProgress.swift */; };
 		142357DD37EDC6A53CF59D39A6739363 /* QuestSectionInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD36A307C890446C6DBD539D7881537C /* QuestSectionInfo.swift */; };
 		146D2E84A65B7EE11A2490B64A59794D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6962E47495204B60A3705F34E03DB15 /* Foundation.framework */; };
-		14DFEC70210F03D100AA3193 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 14DFEC6B210F03D100AA3193 /* Localizable.strings */; };
 		14DFEC7C210F03ED00AA3193 /* AwesomeMediaAudioTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14DFEC72210F03EC00AA3193 /* AwesomeMediaAudioTableViewCell.xib */; };
 		14DFEC7D210F03ED00AA3193 /* AwesomeMediaVideoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14DFEC73210F03EC00AA3193 /* AwesomeMediaVideoTableViewCell.xib */; };
 		14DFEC7E210F03ED00AA3193 /* AwesomeMedia.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14DFEC74210F03EC00AA3193 /* AwesomeMedia.storyboard */; };
@@ -143,6 +142,7 @@
 		14DFECA5210F040D00AA3193 /* Gilroy-MediumItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 14DFEC95210F040D00AA3193 /* Gilroy-MediumItalic.otf */; };
 		14DFECA6210F040D00AA3193 /* Gilroy-ExtraBoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 14DFEC96210F040D00AA3193 /* Gilroy-ExtraBoldItalic.otf */; };
 		14E609288B2B63FC28611DBC96FCAB93 /* IdentityTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A973B79639810CAA60AF7EB86725C911 /* IdentityTransformer.swift */; };
+		14EAE6CD210FA34A0004A7FE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 14EAE6C8210FA3490004A7FE /* Localizable.strings */; };
 		14FDB39BE485BEEC1FA29CF11CE3685F /* object_store.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2905C1845D6F9497A15B243D759F8BE9 /* object_store.cpp */; settings = {COMPILER_FLAGS = "-DREALM_HAVE_CONFIG -DREALM_COCOA_VERSION='@\"3.7.5\"' -D__ASSERTMACROS__ -DREALM_ENABLE_SYNC"; }; };
 		15163E00AEFB4CB9AD0FA5A443013DCA /* LOTBezierData.h in Headers */ = {isa = PBXBuildFile; fileRef = 986A07623557976616AB2F21733FB73A /* LOTBezierData.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		1545FEC8F13D666DE0A961715175C167 /* RLMObject_Private.h in Copy . Private Headers */ = {isa = PBXBuildFile; fileRef = 856A5768C99499A31D84FB17A90E5997 /* RLMObject_Private.h */; };
@@ -2001,9 +2001,6 @@
 		144E5983F7612CCD12B476ABF3C57AC7 /* FBSDKCopying.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBSDKCopying.h; path = FBSDKCoreKit/FBSDKCoreKit/FBSDKCopying.h; sourceTree = "<group>"; };
 		14675F60CDE99F79AE62ED0DAAC97129 /* youtube-ios-player-helper-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "youtube-ios-player-helper-dummy.m"; sourceTree = "<group>"; };
 		147B54D2C2E4DD4BE07EFCB33F0A1D78 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		14DFEC6D210F03D100AA3193 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
-		14DFEC6E210F03D100AA3193 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
-		14DFEC6F210F03D100AA3193 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		14DFEC72210F03EC00AA3193 /* AwesomeMediaAudioTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AwesomeMediaAudioTableViewCell.xib; sourceTree = "<group>"; };
 		14DFEC73210F03EC00AA3193 /* AwesomeMediaVideoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AwesomeMediaVideoTableViewCell.xib; sourceTree = "<group>"; };
 		14DFEC74210F03EC00AA3193 /* AwesomeMedia.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AwesomeMedia.storyboard; sourceTree = "<group>"; };
@@ -2031,6 +2028,10 @@
 		14DFEC95210F040D00AA3193 /* Gilroy-MediumItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gilroy-MediumItalic.otf"; sourceTree = "<group>"; };
 		14DFEC96210F040D00AA3193 /* Gilroy-ExtraBoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gilroy-ExtraBoldItalic.otf"; sourceTree = "<group>"; };
 		14E193B1A00CD986FD25368971C8508C /* RLMThreadSafeReference.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RLMThreadSafeReference.h; path = include/RLMThreadSafeReference.h; sourceTree = "<group>"; };
+		14EAE6C9210FA3490004A7FE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		14EAE6CA210FA3490004A7FE /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
+		14EAE6CB210FA3490004A7FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		14EAE6CC210FA3490004A7FE /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		153CB0C9AC5A5375B9B1205690A105DD /* LinkingObjects.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LinkingObjects.swift; path = RealmSwift/LinkingObjects.swift; sourceTree = "<group>"; };
 		159C9E34B327C16E46D70364AE6BA1FB /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
 		15BB1B4542F849849D768E524D7E51C3 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -3655,15 +3656,6 @@
 			path = SDWebImage;
 			sourceTree = "<group>";
 		};
-		14DFEC6A210F03D100AA3193 /* Localizations */ = {
-			isa = PBXGroup;
-			children = (
-				14DFEC6B210F03D100AA3193 /* Localizable.strings */,
-			);
-			name = Localizations;
-			path = AwesomeMedia/Assets/Localizations;
-			sourceTree = "<group>";
-		};
 		14DFEC71210F03EC00AA3193 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -3704,6 +3696,15 @@
 			);
 			name = Gilroy;
 			path = AwesomeMedia/Assets/Gilroy;
+			sourceTree = "<group>";
+		};
+		14EAE6C7210FA3490004A7FE /* Localizations */ = {
+			isa = PBXGroup;
+			children = (
+				14EAE6C8210FA3490004A7FE /* Localizable.strings */,
+			);
+			name = Localizations;
+			path = AwesomeMedia/Assets/Localizations;
 			sourceTree = "<group>";
 		};
 		1F88474F1C6E09045434683533266A9B /* AppLinks */ = {
@@ -3875,7 +3876,7 @@
 			children = (
 				9FDB9DCDCE9FD137C72C0D7B23254B51 /* Assets.xcassets */,
 				14DFEC86210F040D00AA3193 /* Gilroy */,
-				14DFEC6A210F03D100AA3193 /* Localizations */,
+				14EAE6C7210FA3490004A7FE /* Localizations */,
 				14DFEC71210F03EC00AA3193 /* Views */,
 			);
 			name = Resources;
@@ -6854,6 +6855,7 @@
 				it,
 				Base,
 				ru,
+				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
 			productRefGroup = A8D760FA691CDA4685A783F940877D1F /* Products */;
@@ -6984,12 +6986,12 @@
 				14DFECA0210F040D00AA3193 /* Gilroy-Heavy.otf in Resources */,
 				14DFEC9C210F040D00AA3193 /* Gilroy-HeavyItalic.otf in Resources */,
 				14DFECA6210F040D00AA3193 /* Gilroy-ExtraBoldItalic.otf in Resources */,
-				14DFEC70210F03D100AA3193 /* Localizable.strings in Resources */,
 				14DFEC81210F03ED00AA3193 /* AwesomeMediaYoutubeView.xib in Resources */,
 				14DFEC9E210F040D00AA3193 /* Gilroy-SemiBoldItalic.otf in Resources */,
 				14DFEC83210F03ED00AA3193 /* AwesomeMediaFileTableViewCell.xib in Resources */,
 				14DFEC9A210F040D00AA3193 /* Gilroy-RegularItalic.otf in Resources */,
 				14DFEC82210F03ED00AA3193 /* AwesomeMediaAudioPlayerView.xib in Resources */,
+				14EAE6CD210FA34A0004A7FE /* Localizable.strings in Resources */,
 				14DFECA1210F040D00AA3193 /* Gilroy-Bold.otf in Resources */,
 				4B63431B80B70FDAD3E3DD315B628788 /* AwesomeMedia.bundle in Resources */,
 				14DFEC9B210F040D00AA3193 /* Gilroy-LightItalic.otf in Resources */,
@@ -8466,12 +8468,13 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		14DFEC6B210F03D100AA3193 /* Localizable.strings */ = {
+		14EAE6C8210FA3490004A7FE /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				14DFEC6D210F03D100AA3193 /* it */,
-				14DFEC6E210F03D100AA3193 /* Base */,
-				14DFEC6F210F03D100AA3193 /* ru */,
+				14EAE6C9210FA3490004A7FE /* en */,
+				14EAE6CA210FA3490004A7FE /* it */,
+				14EAE6CB210FA3490004A7FE /* Base */,
+				14EAE6CC210FA3490004A7FE /* ru */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
