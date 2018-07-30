@@ -26,7 +26,7 @@ PODS:
   - AwesomeLoading (0.1.5):
     - lottie-ios
   - AwesomeLocalization (0.2.1)
-  - AwesomeMedia (1.8.9):
+  - AwesomeMedia (1.8.9.3):
     - AwesomeConstants
     - AwesomeCore
     - AwesomeDownloading
@@ -39,7 +39,7 @@ PODS:
     - youtube-ios-player-helper
   - AwesomeNetwork (0.1.4):
     - ReachabilitySwift (~> 3)
-  - AwesomeTracking (0.1.5):
+  - AwesomeTracking (0.1.6):
     - Appboy-iOS-SDK
     - AppsFlyerFramework
     - AwesomeConstants
@@ -82,7 +82,7 @@ DEPENDENCIES:
   - AwesomeLocalization (from `https://github.com/iOSWizards/AwesomeLocalization.git`, tag `0.2.1`)
   - AwesomeMedia (from `../`)
   - AwesomeNetwork (from `https://github.com/iOSWizards/AwesomeNetwork`, tag `0.1.4`)
-  - AwesomeTracking (from `https://github.com/Mindvalley/Mobile_iOS_Library_AwesomeTracking.git`, tag `0.1.5`)
+  - AwesomeTracking (from `https://github.com/Mindvalley/Mobile_iOS_Library_AwesomeTracking.git`, tag `0.1.6`)
   - AwesomeUIMagic (from `https://github.com/iOSWizards/AwesomeUIMagic`, tag `0.4.7`)
   - youtube-ios-player-helper
 
@@ -128,7 +128,7 @@ EXTERNAL SOURCES:
     :tag: 0.1.4
   AwesomeTracking:
     :git: https://github.com/Mindvalley/Mobile_iOS_Library_AwesomeTracking.git
-    :tag: 0.1.5
+    :tag: 0.1.6
   AwesomeUIMagic:
     :git: https://github.com/iOSWizards/AwesomeUIMagic
     :tag: 0.4.7
@@ -157,7 +157,7 @@ CHECKOUT OPTIONS:
     :tag: 0.1.4
   AwesomeTracking:
     :git: https://github.com/Mindvalley/Mobile_iOS_Library_AwesomeTracking.git
-    :tag: 0.1.5
+    :tag: 0.1.6
   AwesomeUIMagic:
     :git: https://github.com/iOSWizards/AwesomeUIMagic
     :tag: 0.4.7
@@ -171,9 +171,9 @@ SPEC CHECKSUMS:
   AwesomeImage: 927dc504433332293f5ee3e216b16272cb2e93d4
   AwesomeLoading: 08d501a8f4eefc6e8f16bdff4b6856a41c68bdf4
   AwesomeLocalization: 2b8ebbd7f6ca4bbb7e1f6056a761143bfa987c71
-  AwesomeMedia: 11befcd9ea1d1462291da34e536d36f2beb1d306
+  AwesomeMedia: 8c5c464ce5b1d56698c014a93e5a2900f8855418
   AwesomeNetwork: 295b7f6aa0d3783090cb1e9dc844bcb8fa05e094
-  AwesomeTracking: 708524a672bcd13010d5d1a4ef75af006e18fd3c
+  AwesomeTracking: d3a15a1209b68f9577b0cf674b9b2b01b8385965
   AwesomeUIMagic: b07f77437bcd5f7283f7e6d32025f5acb5fdcb80
   Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
   FBSDKCoreKit: 1a5b2e3ceb5ca827a53c54aa5f4a3480efff80d2
@@ -187,6 +187,6 @@ SPEC CHECKSUMS:
   SDWebImage: 624d6e296c69b244bcede364c72ae0430ac14681
   youtube-ios-player-helper: 21ab92db027c7ff86cb17a3843a3f6eafc8158d2
 
-PODFILE CHECKSUM: fc321309be44b3b1ef254d3186e35ac953e3db32
+PODFILE CHECKSUM: 27a5e0601cfd82776d00a398a481c93917cae1a9
 
 COCOAPODS: 1.5.3

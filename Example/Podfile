@@ -10,7 +10,7 @@ target 'AwesomeMedia_Example' do
   pod 'youtube-ios-player-helper'
   pod 'AwesomeCore', git: 'https://github.com/mindvalley/Mobile_iOS_Library_AwesomeCore.git', tag: '0.14.8'
   pod 'AwesomeConstants', git: 'https://github.com/Mindvalley/Mobile_iOS_Library_AwesomeConstants.git', tag: '0.2.0'
-  pod 'AwesomeTracking', git: 'https://github.com/Mindvalley/Mobile_iOS_Library_AwesomeTracking.git', tag: '0.1.5'
+  pod 'AwesomeTracking', git: 'https://github.com/Mindvalley/Mobile_iOS_Library_AwesomeTracking.git', tag: '0.1.6'
   pod 'AwesomeLocalization', git: 'https://github.com/iOSWizards/AwesomeLocalization.git', tag: '0.2.1'
 
 
