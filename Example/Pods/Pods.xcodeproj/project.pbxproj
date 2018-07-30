@@ -2469,7 +2469,6 @@
 		67D865AF2A133DA7F7296D00485368B3 /* img-recommended-tab.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "img-recommended-tab.png"; path = "AppboyUI/ABKFeedViewController/Feed_Resources/images/img-recommended-tab.png"; sourceTree = "<group>"; };
 		67FA3510F1EF8D8A8047FD4673C5B832 /* FBSDKURLSessionTask.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FBSDKURLSessionTask.m; path = FBSDKCoreKit/FBSDKCoreKit/Internal/Network/FBSDKURLSessionTask.m; sourceTree = "<group>"; };
 		6811B6E82B093DD7B812A6B8BE18F594 /* FBSDKMath.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FBSDKMath.m; path = FBSDKCoreKit/FBSDKCoreKit/Internal/FBSDKMath.m; sourceTree = "<group>"; };
-		68340442DA10FF6572BF4314F577C1C6 /* AppboyFeedLocalizable.strings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = AppboyFeedLocalizable.strings; path = en.lproj/AppboyFeedLocalizable.strings; sourceTree = "<group>"; };
 		6850CE15E0D3A0ECF5E7270317CFA475 /* AwesomeCoreStorage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AwesomeCoreStorage.swift; path = AwesomeCore/Classes/AwesomeCoreStorage.swift; sourceTree = "<group>"; };
 		6861146DF09AB24722066E3D4021F03B /* Icons_Unread@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "Icons_Unread@2x.png"; path = "AppboyUI/ABKFeedViewController/Feed_Resources/images/Icons_Unread@2x.png"; sourceTree = "<group>"; };
 		6864C14B50606FAC2D5657BDF3941CDB /* SubscriptionBO.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SubscriptionBO.swift; path = AwesomeCore/Classes/BusinessObjects/SubscriptionBO.swift; sourceTree = "<group>"; };
@@ -2749,7 +2748,6 @@
 		9CF7C7880D6832153A2E2C27EEC5D97C /* FBSDKGraphRequestConnection+Internal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "FBSDKGraphRequestConnection+Internal.h"; path = "FBSDKCoreKit/FBSDKCoreKit/Internal/Network/FBSDKGraphRequestConnection+Internal.h"; sourceTree = "<group>"; };
 		9D64DCA15ED3EB5B9BCE610DC2C9087C /* Kingfisher-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Kingfisher-dummy.m"; sourceTree = "<group>"; };
 		9D6840E6AA54A9C174446D4719327270 /* FBSDKCoreKit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBSDKCoreKit.h; path = FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit.h; sourceTree = "<group>"; };
-		9D76742F85469188F56231C6AD5C61D6 /* AppboyFeedbackLocalizable.strings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = AppboyFeedbackLocalizable.strings; path = en.lproj/AppboyFeedbackLocalizable.strings; sourceTree = "<group>"; };
 		9DBBE5D240AB3AB1E6E5A1D2EFEEEA13 /* SDImageCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDImageCache.h; path = SDWebImage/SDImageCache.h; sourceTree = "<group>"; };
 		9E16BA215D622B52B536AA20C6C76416 /* AppboyFeedLocalizable.strings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = AppboyFeedLocalizable.strings; path = "es-MX.lproj/AppboyFeedLocalizable.strings"; sourceTree = "<group>"; };
 		9E2EAD7024F5A6ADC88590127A1722C9 /* AwesomeNetwork-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "AwesomeNetwork-dummy.m"; sourceTree = "<group>"; };
@@ -6853,7 +6851,6 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				en,
 				it,
 				Base,
 				ru,
@@ -8486,7 +8483,6 @@
 				F19560114AD9D0CBEB70F0BE51737391 /* AppboyFeedbackLocalizable.strings */,
 				2EA1E3A27528056078A8456178CC3907 /* AppboyFeedbackLocalizable.strings */,
 				E28C64655E1B664837656004BA4DC4F7 /* AppboyFeedbackLocalizable.strings */,
-				9D76742F85469188F56231C6AD5C61D6 /* AppboyFeedbackLocalizable.strings */,
 				C42B746C8962ED082C3F322A23EF4726 /* AppboyFeedbackLocalizable.strings */,
 				44A0CD0A17632AC918C36B25FC729356 /* AppboyFeedbackLocalizable.strings */,
 				4100780264FE5B3991A7667DD83B23C2 /* AppboyFeedbackLocalizable.strings */,
@@ -8530,7 +8526,6 @@
 				3C2593AE46E06471D14294D807AE2031 /* AppboyFeedLocalizable.strings */,
 				AAE1A04715CA139BE2922F8F828F57F7 /* AppboyFeedLocalizable.strings */,
 				CB6A6D799C3368E30CB5765A65FE2C63 /* AppboyFeedLocalizable.strings */,
-				68340442DA10FF6572BF4314F577C1C6 /* AppboyFeedLocalizable.strings */,
 				0AD4F41B915410EB4B2DB2DF638DB8A2 /* AppboyFeedLocalizable.strings */,
 				9E16BA215D622B52B536AA20C6C76416 /* AppboyFeedLocalizable.strings */,
 				0B5B5DD6FB5AE64110CB3011F10362C9 /* AppboyFeedLocalizable.strings */,
