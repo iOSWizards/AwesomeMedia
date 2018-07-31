@@ -21,7 +21,6 @@
 
 #include <realm/sync/instructions.hpp>
 #include <realm/sync/changeset.hpp>
-#include <realm/sync/object.hpp>
 #include <realm/util/logger.hpp>
 
 namespace realm {
@@ -60,7 +59,6 @@ private:
     TableRef m_selected_array;
     LinkViewRef m_selected_link_list;
     TableRef m_link_target_table;
-    TableInfoCache m_table_info;
 
     template <class... Args>
     void log(const char* fmt, Args&&... args)
@@ -81,8 +79,7 @@ private:
 // Implementation
 
 inline InstructionApplier::InstructionApplier(Group& group) noexcept:
-    m_group(group),
-    m_table_info(m_group)
+    m_group(group)
 {
 }
 

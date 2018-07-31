@@ -284,6 +284,8 @@ open class ImageDownloader {
     Init a downloader with name.
     
     - parameter name: The name for the downloader. It should not be empty.
+    
+    - returns: The downloader object.
     */
     public init(name: String) {
         if name.isEmpty {

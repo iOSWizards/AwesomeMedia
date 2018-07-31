@@ -65,7 +65,7 @@ extension AwesomeMediaCaptionsViewController: UITableViewDataSource, UITableView
         let type: AwesomeMediaCaptionCellType = viewModel.selectedIndex == indexPath.row ? .captionSelected : .caption
         let cell = tableView.dequeueReusableCell(withIdentifier: type.rawValue, for: indexPath) as! AwesomeMediaCaptionTableViewCell
         
-        cell.titleLabel.text = viewModel.cells[indexPath.row].caption?.label ?? "Off".localized(bundle: AwesomeMedia.bundle)
+        cell.titleLabel.text = viewModel.cells[indexPath.row].caption?.label ?? "Off".localized
         
         return cell
     }

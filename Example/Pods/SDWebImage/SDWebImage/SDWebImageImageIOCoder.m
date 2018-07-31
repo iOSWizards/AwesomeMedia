@@ -11,7 +11,6 @@
 #import "NSImage+WebCache.h"
 #import <ImageIO/ImageIO.h>
 #import "NSData+ImageContentType.h"
-#import "UIImage+MultiFormat.h"
 
 #if SD_UIKIT || SD_WATCH
 static const size_t kBytesPerPixel = 4;
@@ -98,7 +97,6 @@ static const CGFloat kDestSeemOverlap = 2.0f;   // the numbers of pixels to over
     }
     
     UIImage *image = [[UIImage alloc] initWithData:data];
-    image.sd_imageFormat = [NSData sd_imageFormatForImageData:data];
     
     return image;
 }
@@ -148,7 +146,6 @@ static const CGFloat kDestSeemOverlap = 2.0f;   // the numbers of pixels to over
             image = [[UIImage alloc] initWithCGImage:partialImageRef size:NSZeroSize];
 #endif
             CGImageRelease(partialImageRef);
-            image.sd_imageFormat = [NSData sd_imageFormatForImageData:data];
         }
     }
     
@@ -404,7 +401,7 @@ static const CGFloat kDestSeemOverlap = 2.0f;   // the numbers of pixels to over
     NSMutableDictionary *properties = [NSMutableDictionary dictionary];
 #if SD_UIKIT || SD_WATCH
     NSInteger exifOrientation = [SDWebImageCoderHelper exifOrientationFromImageOrientation:image.imageOrientation];
-    [properties setValue:@(exifOrientation) forKey:(__bridge NSString *)kCGImagePropertyOrientation];
+    [properties setValue:@(exifOrientation) forKey:(__bridge_transfer NSString *)kCGImagePropertyOrientation];
 #endif
     
     // Add your image to the destination.

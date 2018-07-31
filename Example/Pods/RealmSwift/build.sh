@@ -1005,7 +1005,7 @@ EOM
           cp Realm/ObjectStore/src/util/*.hpp include/util
           cp Realm/ObjectStore/src/util/apple/*.hpp include/util/apple
 
-          echo '' > Realm/RLMPlatform.h
+          touch Realm/RLMPlatform.h
           if [ -n "$COCOAPODS_VERSION" ]; then
             # This variable is set for the prepare_command available
             # from the 1.0 prereleases, which requires a different
@@ -1181,8 +1181,7 @@ EOM
         ln -s swift-4.0.2 swift-3.2.3
         ln -s swift-4.0.2 swift-4.0.3
         ln -s swift-4.1 swift-3.3
-        ln -s swift-4.1 swift-4.1.2
-        zip --symlinks -r realm-swift-framework-$PLATFORM.zip swift-3.1 swift-3.2 swift-3.2.2 swift-3.2.3 swift-3.3 swift-4.0 swift-4.0.2 swift-4.0.3 swift-4.1 swift-4.1.2
+        zip --symlinks -r realm-swift-framework-$PLATFORM.zip swift-3.1 swift-3.2 swift-3.2.2 swift-3.2.3 swift-3.3 swift-4.0 swift-4.0.2 swift-4.0.3 swift-4.1
         ;;
 
     package-*-swift-3.2)
@@ -1223,14 +1222,6 @@ EOM
         cd build/$PLATFORM
         ln -s swift-4.0.2 swift-4.0.3
         zip --symlinks -r realm-swift-framework-$PLATFORM-swift-4.0.3.zip swift-4.0.3
-        ;;
-
-    package-*-swift-4.1.2)
-        PLATFORM=$(echo $COMMAND | cut -d - -f 2)
-        mkdir -p build/$PLATFORM
-        cd build/$PLATFORM
-        ln -s swift-4.1 swift-4.1.2
-        zip --symlinks -r realm-swift-framework-$PLATFORM-swift-4.1.2.zip swift-4.1.2
         ;;
 
     package-*-swift-*)

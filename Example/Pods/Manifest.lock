@@ -15,9 +15,9 @@ PODS:
     - Appboy-iOS-SDK/Feedback
     - Appboy-iOS-SDK/InAppMessage
     - Appboy-iOS-SDK/NewsFeed
-  - AppsFlyerFramework (4.8.7)
+  - AppsFlyerFramework (4.8.6)
   - AwesomeConstants (0.2.0)
-  - AwesomeCore (0.14.8):
+  - AwesomeCore (0.14.4):
     - RealmSwift
   - AwesomeDownloading (0.1.2)
   - AwesomeImage (0.1.4):
@@ -25,21 +25,19 @@ PODS:
     - Kingfisher (~> 4.0)
   - AwesomeLoading (0.1.5):
     - lottie-ios
-  - AwesomeLocalization (0.2.1)
-  - AwesomeMedia (1.8.9.3):
+  - AwesomeMedia (1.8.8.7):
     - AwesomeConstants
     - AwesomeCore
     - AwesomeDownloading
     - AwesomeImage
     - AwesomeLoading
-    - AwesomeLocalization
     - AwesomeNetwork
     - AwesomeTracking
     - AwesomeUIMagic
     - youtube-ios-player-helper
   - AwesomeNetwork (0.1.4):
     - ReachabilitySwift (~> 3)
-  - AwesomeTracking (0.1.6):
+  - AwesomeTracking (0.1.4):
     - Appboy-iOS-SDK
     - AppsFlyerFramework
     - AwesomeConstants
@@ -53,36 +51,35 @@ PODS:
   - Bolts/AppLinks (1.9.0):
     - Bolts/Tasks
   - Bolts/Tasks (1.9.0)
-  - FBSDKCoreKit (4.35.0):
+  - FBSDKCoreKit (4.34.0):
     - Bolts (~> 1.7)
   - FLAnimatedImage (1.0.12)
-  - Kingfisher (4.8.1)
+  - Kingfisher (4.8.0)
   - lottie-ios (2.5.0)
   - Mixpanel-swift (2.4.4):
     - Mixpanel-swift/Complete (= 2.4.4)
   - Mixpanel-swift/Complete (2.4.4)
   - ReachabilitySwift (3)
-  - Realm (3.7.5):
-    - Realm/Headers (= 3.7.5)
-  - Realm/Headers (3.7.5)
-  - RealmSwift (3.7.5):
-    - Realm (= 3.7.5)
-  - SDWebImage/Core (4.4.2)
-  - SDWebImage/GIF (4.4.2):
+  - Realm (3.7.4):
+    - Realm/Headers (= 3.7.4)
+  - Realm/Headers (3.7.4)
+  - RealmSwift (3.7.4):
+    - Realm (= 3.7.4)
+  - SDWebImage/Core (4.4.1)
+  - SDWebImage/GIF (4.4.1):
     - FLAnimatedImage (~> 1.0)
     - SDWebImage/Core
   - youtube-ios-player-helper (0.1.6)
 
 DEPENDENCIES:
   - AwesomeConstants (from `https://github.com/Mindvalley/Mobile_iOS_Library_AwesomeConstants.git`, tag `0.2.0`)
-  - AwesomeCore (from `https://github.com/mindvalley/Mobile_iOS_Library_AwesomeCore.git`, tag `0.14.8`)
+  - AwesomeCore (from `https://github.com/mindvalley/Mobile_iOS_Library_AwesomeCore.git`, tag `0.14.4`)
   - AwesomeDownloading (from `https://github.com/iOSWizards/AwesomeDownloading`, tag `0.1.2`)
   - AwesomeImage (from `https://github.com/iOSWizards/AwesomeImage`, tag `0.1.4`)
   - AwesomeLoading (from `https://github.com/iOSWizards/AwesomeLoading.git`, tag `0.1.5`)
-  - AwesomeLocalization (from `https://github.com/iOSWizards/AwesomeLocalization.git`, tag `0.2.1`)
   - AwesomeMedia (from `../`)
   - AwesomeNetwork (from `https://github.com/iOSWizards/AwesomeNetwork`, tag `0.1.4`)
-  - AwesomeTracking (from `https://github.com/Mindvalley/Mobile_iOS_Library_AwesomeTracking.git`, tag `0.1.6`)
+  - AwesomeTracking (from `https://github.com/Mindvalley/Mobile_iOS_Library_AwesomeTracking.git`, tag `0.1.4`)
   - AwesomeUIMagic (from `https://github.com/iOSWizards/AwesomeUIMagic`, tag `0.4.7`)
   - youtube-ios-player-helper
 
@@ -108,7 +105,7 @@ EXTERNAL SOURCES:
     :tag: 0.2.0
   AwesomeCore:
     :git: https://github.com/mindvalley/Mobile_iOS_Library_AwesomeCore.git
-    :tag: 0.14.8
+    :tag: 0.14.4
   AwesomeDownloading:
     :git: https://github.com/iOSWizards/AwesomeDownloading
     :tag: 0.1.2
@@ -118,9 +115,6 @@ EXTERNAL SOURCES:
   AwesomeLoading:
     :git: https://github.com/iOSWizards/AwesomeLoading.git
     :tag: 0.1.5
-  AwesomeLocalization:
-    :git: https://github.com/iOSWizards/AwesomeLocalization.git
-    :tag: 0.2.1
   AwesomeMedia:
     :path: "../"
   AwesomeNetwork:
@@ -128,7 +122,7 @@ EXTERNAL SOURCES:
     :tag: 0.1.4
   AwesomeTracking:
     :git: https://github.com/Mindvalley/Mobile_iOS_Library_AwesomeTracking.git
-    :tag: 0.1.6
+    :tag: 0.1.4
   AwesomeUIMagic:
     :git: https://github.com/iOSWizards/AwesomeUIMagic
     :tag: 0.4.7
@@ -139,7 +133,7 @@ CHECKOUT OPTIONS:
     :tag: 0.2.0
   AwesomeCore:
     :git: https://github.com/mindvalley/Mobile_iOS_Library_AwesomeCore.git
-    :tag: 0.14.8
+    :tag: 0.14.4
   AwesomeDownloading:
     :git: https://github.com/iOSWizards/AwesomeDownloading
     :tag: 0.1.2
@@ -149,44 +143,40 @@ CHECKOUT OPTIONS:
   AwesomeLoading:
     :git: https://github.com/iOSWizards/AwesomeLoading.git
     :tag: 0.1.5
-  AwesomeLocalization:
-    :git: https://github.com/iOSWizards/AwesomeLocalization.git
-    :tag: 0.2.1
   AwesomeNetwork:
     :git: https://github.com/iOSWizards/AwesomeNetwork
     :tag: 0.1.4
   AwesomeTracking:
     :git: https://github.com/Mindvalley/Mobile_iOS_Library_AwesomeTracking.git
-    :tag: 0.1.6
+    :tag: 0.1.4
   AwesomeUIMagic:
     :git: https://github.com/iOSWizards/AwesomeUIMagic
     :tag: 0.4.7
 
 SPEC CHECKSUMS:
   Appboy-iOS-SDK: 7db0cdbfbd11f2cf4f67d22a2676da4edb62f4f9
-  AppsFlyerFramework: c5f1266f51fd2b3c04391444950f480a765c945f
+  AppsFlyerFramework: cd4fab954ab8034288575b5ac45c4532b2f36689
   AwesomeConstants: f6ab572586381cbbf5d89a2bf5681c2691ee2246
-  AwesomeCore: 03b4d1ee334af02eb2403e1ed0d7f1c357d051d5
+  AwesomeCore: 8d98a76477ce5170bf8b33ebdcc03d15fb61b3e0
   AwesomeDownloading: 2952d8121b2c40c83c1217da27f182022e7661bf
   AwesomeImage: 927dc504433332293f5ee3e216b16272cb2e93d4
   AwesomeLoading: 08d501a8f4eefc6e8f16bdff4b6856a41c68bdf4
-  AwesomeLocalization: 2b8ebbd7f6ca4bbb7e1f6056a761143bfa987c71
-  AwesomeMedia: 8c5c464ce5b1d56698c014a93e5a2900f8855418
+  AwesomeMedia: 02e6fc5a28dbc28875074c437ffb7fb958257c26
   AwesomeNetwork: 295b7f6aa0d3783090cb1e9dc844bcb8fa05e094
-  AwesomeTracking: d3a15a1209b68f9577b0cf674b9b2b01b8385965
+  AwesomeTracking: 55a0e7185c39392440541b11d99a2e26bb613f97
   AwesomeUIMagic: b07f77437bcd5f7283f7e6d32025f5acb5fdcb80
   Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
-  FBSDKCoreKit: 1a5b2e3ceb5ca827a53c54aa5f4a3480efff80d2
+  FBSDKCoreKit: 0ff57f093b85c8c9d5aba697d3edf68a8960ce78
   FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
-  Kingfisher: 868c1149679a7ab6869be118faa9b5aed154aaf0
+  Kingfisher: 976d828df2b24834c6a3f2fc4d82cdbd26552be1
   lottie-ios: d699fdee68d7b63e721d949388b015fef1aaa4ac
   Mixpanel-swift: 1908db7a972b362fcab1a0c3b37ec6087b95d8d9
   ReachabilitySwift: f5b9bb30a0777fac8f09ce8b067e32faeb29bb64
-  Realm: c286caf4dbf346ce24aad49ca76c7ce622d4a082
-  RealmSwift: 2a9281e37d6de55f66f76254d49d28aeb1b729e4
-  SDWebImage: 624d6e296c69b244bcede364c72ae0430ac14681
+  Realm: a469bb59e33f9926102ccaea4349822c53b9117e
+  RealmSwift: a45861b21c180f5cf0f122144b9759fa8dde3e9e
+  SDWebImage: 47e9b5b925cbce75946c23f0c42dd19464189af4
   youtube-ios-player-helper: 21ab92db027c7ff86cb17a3843a3f6eafc8158d2
 
-PODFILE CHECKSUM: 27a5e0601cfd82776d00a398a481c93917cae1a9
+PODFILE CHECKSUM: c3dfea6672d2c1b0e57a93f2a43804944c24c5e0
 
 COCOAPODS: 1.5.3

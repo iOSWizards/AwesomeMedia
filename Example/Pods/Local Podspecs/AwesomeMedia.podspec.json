@@ -1,6 +1,6 @@
 {
   "name": "AwesomeMedia",
-  "version": "1.8.9.3",
+  "version": "1.8.8.7",
   "summary": "Play Sounds and Videos with AvPlayer.",
   "description": "Play Media from any app using this library.",
   "homepage": "https://github.com/iOSWizards/AwesomeMedia",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/iOSWizards/AwesomeMedia.git",
-    "tag": "1.8.9.3"
+    "tag": "1.8.8.7"
   },
   "platforms": {
     "ios": "10.0"
@@ -60,9 +60,6 @@
 
     ],
     "AwesomeTracking": [
-
-    ],
-    "AwesomeLocalization": [
 
     ]
   }

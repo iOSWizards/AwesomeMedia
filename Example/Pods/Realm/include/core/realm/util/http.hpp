@@ -402,8 +402,7 @@ private:
 
     void on_complete(std::error_code ec) override final
     {
-        auto handler = std::move(m_handler);
-        m_handler = nullptr;
+        auto handler = std::move(m_handler); // Nullifies m_handler
         handler(std::move(m_response), ec);
     }
 };

@@ -8,11 +8,9 @@ target 'AwesomeMedia_Example' do
   pod 'AwesomeNetwork', git: 'https://github.com/iOSWizards/AwesomeNetwork', tag: '0.1.4'
   pod 'AwesomeDownloading', git: 'https://github.com/iOSWizards/AwesomeDownloading', tag: '0.1.2'
   pod 'youtube-ios-player-helper'
-  pod 'AwesomeCore', git: 'https://github.com/mindvalley/Mobile_iOS_Library_AwesomeCore.git', tag: '0.14.8'
+  pod 'AwesomeCore', git: 'https://github.com/mindvalley/Mobile_iOS_Library_AwesomeCore.git', tag: '0.14.4'
   pod 'AwesomeConstants', git: 'https://github.com/Mindvalley/Mobile_iOS_Library_AwesomeConstants.git', tag: '0.2.0'
-  pod 'AwesomeTracking', git: 'https://github.com/Mindvalley/Mobile_iOS_Library_AwesomeTracking.git', tag: '0.1.6'
-  pod 'AwesomeLocalization', git: 'https://github.com/iOSWizards/AwesomeLocalization.git', tag: '0.2.1'
-
+  pod 'AwesomeTracking', git: 'https://github.com/Mindvalley/Mobile_iOS_Library_AwesomeTracking.git', tag: '0.1.4'
 
   target 'AwesomeMedia_Tests' do
     inherit! :search_paths

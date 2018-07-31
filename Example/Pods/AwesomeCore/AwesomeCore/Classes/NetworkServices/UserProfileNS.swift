@@ -13,6 +13,7 @@ class UserProfileNS {
     lazy var awesomeRequester: AwesomeCoreRequester = AwesomeCoreRequester(cacheType: .realm)
     
     var lastUserProfileRequest: URLSessionDataTask?
+    var lastQuestUserProfileRequest: URLSessionDataTask?
     var lastUserProfilePictureRequest: URLSessionDataTask?
     var lastUpdateProfileRequest: URLSessionDataTask?
     var lastHomeUserProfileRequest: URLSessionDataTask?
@@ -57,8 +58,15 @@ class UserProfileNS {
         
         func fetchFromAPI(forceUpdate: Bool) {
             
-            _ = awesomeRequester.performRequestAuthorized(
+            // cancel previews request only if should
+            if params.contains(.canCancelRequest) {
+                lastQuestUserProfileRequest?.cancel()
+                lastQuestUserProfileRequest = nil
+            }
+            
+            lastQuestUserProfileRequest = awesomeRequester.performRequestAuthorized(
                 ACConstants.shared.questsURL, forceUpdate: forceUpdate, method: .POST, jsonBody: QuestProfileGraphQLModel.queryProfile(), completion: { (data, error, responseType) in
+                    self.lastQuestUserProfileRequest = nil
                     
                     //process response
                     let hasResponse = processResponse(data: data, response: response)

@@ -92,8 +92,4 @@ extension AwesomeTracking {
         BrazeHelper.trackFacebookUser(user)
     }
     
-    public static func trackAppsflyerRevenue(with params: AwesomeTrackingDictionary) {
-        AppsflyerHelper.trackAppsflyerRevenue(with: addSuperProperties(to: params))
-    }
-    
 }

@@ -12,7 +12,6 @@
 #ifdef SD_WEBP
 #import "SDWebImageWebPCoder.h"
 #endif
-#import "UIImage+MultiFormat.h"
 
 #define LOCK(lock) dispatch_semaphore_wait(lock, DISPATCH_TIME_FOREVER);
 #define UNLOCK(lock) dispatch_semaphore_signal(lock);
@@ -122,9 +121,7 @@
     UNLOCK(self.codersLock);
     for (id<SDWebImageCoder> coder in coders.reverseObjectEnumerator) {
         if ([coder canDecodeFromData:*data]) {
-            UIImage *decompressedImage = [coder decompressedImageWithImage:image data:data options:optionsDict];
-            decompressedImage.sd_imageFormat = image.sd_imageFormat;
-            return decompressedImage;
+            return [coder decompressedImageWithImage:image data:data options:optionsDict];
         }
     }
     return nil;

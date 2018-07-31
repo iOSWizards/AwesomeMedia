@@ -197,14 +197,14 @@ extension UIViewController {
         // track event
         track(event: .timedOut, source: .unknown)
         
-        showAlert(withTitle: "failed_to_play_title".localized(bundle: AwesomeMedia.bundle),
-                  message: "failed_to_play".localized(bundle: AwesomeMedia.bundle),
-                  buttons: (UIAlertActionStyle.default, "wait".localized(bundle: AwesomeMedia.bundle), {
+        showAlert(withTitle: "failed_to_play_title".localized,
+                  message: "failed_to_play".localized,
+                  buttons: (UIAlertActionStyle.default, "wait".localized, {
                     onWait()
                     
                     // track event
                     track(event: .timeoutWait, source: .unknown)
-                  }), (UIAlertActionStyle.destructive, "cancel".localized(bundle: AwesomeMedia.bundle), {
+                  }), (UIAlertActionStyle.destructive, "cancel".localized, {
                     onCancel()
                     
                     // track event
@@ -213,9 +213,9 @@ extension UIViewController {
     }
     
     func showNoConnectionAlert() {
-        showAlert(withTitle: "no_internet_title".localized(bundle: AwesomeMedia.bundle),
-                  message: "no_internet".localized(bundle: AwesomeMedia.bundle),
-                  buttons: (UIAlertActionStyle.destructive, "ok".localized(bundle: AwesomeMedia.bundle), {
+        showAlert(withTitle: "no_internet_title".localized,
+                  message: "no_internet".localized,
+                  buttons: (UIAlertActionStyle.destructive, "ok".localized, {
                     sharedAVPlayer.stop()
                   }))
     }

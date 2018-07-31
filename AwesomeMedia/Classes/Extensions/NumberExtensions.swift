@@ -53,15 +53,15 @@ extension Int {
         let hours = (ti / 3600)
         
         if hours > 0 {
-            var timeString = "\(hours) \(hours == 1 ? "hour".localized(bundle: AwesomeMedia.bundle) : "hours".localized(bundle: AwesomeMedia.bundle))"
+            var timeString = "\(hours) \(hours == 1 ? "hour".localized : "hours".localized)"
             if minutes > 0 {
-                timeString.append(" \(minutes) \(minutes == 1 ? "minute".localized(bundle: AwesomeMedia.bundle) : "minutes".localized(bundle: AwesomeMedia.bundle))")
+                timeString.append(" \(minutes) \(minutes == 1 ? "minute".localized : "minutes".localized)")
             }
             return timeString
         } else if minutes > 0 {
-            return "\(minutes) \(minutes == 1 ? "min".localized(bundle: AwesomeMedia.bundle) : "mins".localized(bundle: AwesomeMedia.bundle))"
+            return "\(minutes) \(minutes == 1 ? "min".localized : "mins".localized)"
         } else if seconds > 0 {
-            return "\(seconds) \(seconds == 1 ? "seconds".localized(bundle: AwesomeMedia.bundle) : "seconds".localized(bundle: AwesomeMedia.bundle))"
+            return "\(seconds) \(seconds == 1 ? "seconds".localized : "seconds".localized)"
         }
         
         return ""

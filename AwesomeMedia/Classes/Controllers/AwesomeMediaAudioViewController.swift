@@ -7,7 +7,6 @@
 
 import UIKit
 import AwesomeDownloading
-import AwesomeLocalization
 
 public class AwesomeMediaAudioViewController: UIViewController {
     
@@ -176,10 +175,10 @@ public class AwesomeMediaAudioViewController: UIViewController {
         sharedAVPlayer.stop()
         self.confirmMediaDeletion(withUrl: mediaParams.url?.url,
                                   fromView: downloadButton,
-                                  withTitle: "availableoffline_delete_title".localized(bundle: AwesomeMedia.bundle),
-                                  withMessage: "availableoffline_delete_message".localized(bundle: AwesomeMedia.bundle),
-                                  withConfirmButtonTitle: "availableoffline_delete_button_confirm".localized(bundle: AwesomeMedia.bundle),
-                                  withCancelButtonTitle: "availableoffline_delete_button_cancel".localized(bundle: AwesomeMedia.bundle),
+                                  withTitle: "availableoffline_delete_title".localized,
+                                  withMessage: "availableoffline_delete_message".localized,
+                                  withConfirmButtonTitle: "availableoffline_delete_button_confirm".localized,
+                                  withCancelButtonTitle: "availableoffline_delete_button_cancel".localized,
                                   completion: {(success) in
                                     if success {
                                         // play online media
@@ -239,16 +238,16 @@ extension AwesomeMediaAudioViewController {
             downloadStateStackView.isHidden = false
             
             if let size = mediaParams.size {
-                downloadStateLabel.text = "\(size.uppercased()) - \("downloading".localized(bundle: AwesomeMedia.bundle))"
+                downloadStateLabel.text = "\(size.uppercased()) - \("downloading".localized)"
             } else {
-                downloadStateLabel.text = "downloading".localized(bundle: AwesomeMedia.bundle)
+                downloadStateLabel.text = "downloading".localized
             }
-            downloadStateImageView.image = UIImage(named: "icoDownload", in: Bundle(for: AwesomeMedia.self), compatibleWith: nil)
+            downloadStateImageView.image = UIImage(named: "btnDownload", in: Bundle(for: AwesomeMedia.self), compatibleWith: nil)
             
         case .downloaded:
             downloadButton.isHidden = true
             downloadStateStackView.isHidden = false
-            downloadStateLabel.text = "availableoffline".localized(bundle: AwesomeMedia.bundle)
+            downloadStateLabel.text = "availableoffline".localized
             downloadStateImageView.image = UIImage(named: "icoOfflineAudio", in: Bundle(for: AwesomeMedia.self), compatibleWith: nil)
 
         default:
