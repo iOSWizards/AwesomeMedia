@@ -119,9 +119,6 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_resource "${PODS_ROOT}/../../AwesomeMedia/Assets/Gilroy/Gilroy-SemiBold.otf"
   install_resource "${PODS_ROOT}/../../AwesomeMedia/Assets/Gilroy/Gilroy-SemiBoldItalic.otf"
   install_resource "${PODS_ROOT}/../../AwesomeMedia/Assets/Assets.xcassets"
-  install_resource "${PODS_ROOT}/../../AwesomeMedia/Assets/Localizations/Base.lproj"
-  install_resource "${PODS_ROOT}/../../AwesomeMedia/Assets/Localizations/it.lproj"
-  install_resource "${PODS_ROOT}/../../AwesomeMedia/Assets/Localizations/ru.lproj"
   install_resource "${PODS_CONFIGURATION_BUILD_DIR}/AwesomeMedia/AwesomeMedia.bundle"
   install_resource "${PODS_CONFIGURATION_BUILD_DIR}/AwesomeTracking/AwesomeTracking.bundle"
 fi
@@ -153,9 +150,6 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_resource "${PODS_ROOT}/../../AwesomeMedia/Assets/Gilroy/Gilroy-SemiBold.otf"
   install_resource "${PODS_ROOT}/../../AwesomeMedia/Assets/Gilroy/Gilroy-SemiBoldItalic.otf"
   install_resource "${PODS_ROOT}/../../AwesomeMedia/Assets/Assets.xcassets"
-  install_resource "${PODS_ROOT}/../../AwesomeMedia/Assets/Localizations/Base.lproj"
-  install_resource "${PODS_ROOT}/../../AwesomeMedia/Assets/Localizations/it.lproj"
-  install_resource "${PODS_ROOT}/../../AwesomeMedia/Assets/Localizations/ru.lproj"
   install_resource "${PODS_CONFIGURATION_BUILD_DIR}/AwesomeMedia/AwesomeMedia.bundle"
   install_resource "${PODS_CONFIGURATION_BUILD_DIR}/AwesomeTracking/AwesomeTracking.bundle"
 fi
