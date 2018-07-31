@@ -32,6 +32,15 @@ public struct ChannelData: Codable {
     
 }
 
+public enum ChannelEpisodeVideoRenditionType: String {
+    case hls
+    case mp4
+    case webm
+    case videoposter1
+    case videoposter2
+    case videoposter3
+}
+
 public struct ChannelEpisode: Codable {
     public let id: String
     public let title: String
@@ -43,6 +52,37 @@ public struct ChannelEpisode: Codable {
     public let publishedAt: String
     public let serie: ChannelSerie?
     public let renditions: [QuestRendition]?
+}
+
+// MARK: - Renditions of ChannelEpisode
+
+extension ChannelEpisode {
+    public func videoUrl(withType type: QuestAssetVideoRenditionType = .hls) -> String? {
+        guard let renditions = renditions, renditions.count > 0 else {
+            return assetUrl
+        }
+        
+        let streamingRendition = videoRendition(withType: type)
+        
+        if streamingRendition?.status == "error" {
+            return videoRendition(withType: .mp4)?.url
+        }
+        
+        return streamingRendition?.url
+    }
+
+    public func videoRendition(withType type: QuestAssetVideoRenditionType) -> QuestRendition? {
+        
+        guard let renditions = renditions, renditions.count > 0 else {
+            return nil
+        }
+        
+        for rendition in renditions where rendition.id == type.rawValue {
+            return rendition
+        }
+        
+        return nil
+    }
 }
 
 public struct ChannelSerie: Codable {
