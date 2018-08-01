@@ -26,23 +26,6 @@ public class AwesomeMediaManager: NSObject {
     public var bufferingState = [String: Bool]()
     public var mediaParams = AwesomeMediaParams()
     
-    // Testing Variables
-    public static let testVideoURL = "https://overmind2.mvstg.com/api/v1/assets/0af656fc-dcde-45ad-9b59-7632ca247001.m3u8"
-    public static let testVideoURL2 = "http://overmind2.mindvalleyacademy.com/api/v1/assets/cb19bc38-d804-4c30-b1f1-79d28d9d71d4.m3u8"
-    public static let testVideoURL3 = "http://overmind2.mindvalleyacademy.com/api/v1/assets/b78856cc-d0f0-4069-b1e1-9dbbe47b4df6.m3u8"
-    public static let testMediaMarkers = [AwesomeMediaMarker(title: "Intro", time: 120),
-                                          AwesomeMediaMarker(title: "About WildFit", time: 360),
-                                          AwesomeMediaMarker(title: "Day 1", time: 420),
-                                          AwesomeMediaMarker(title: "Test Marker 1", time: 422),
-                                          AwesomeMediaMarker(title: "Test Marker 2", time: 424),
-                                          AwesomeMediaMarker(title: "Test Marker 3", time: 426),
-                                          AwesomeMediaMarker(title: "Test Marker 4", time: 428),
-                                          AwesomeMediaMarker(title: "Test Marker 5", time: 430),
-                                          AwesomeMediaMarker(title: "Test Marker 6", time: 440),
-                                          AwesomeMediaMarker(title: "Test Marker 7", time: 441)]
-    public static let testAudioURL = "https://archive.org/download/VirtualHaircut/virtualbarbershop.mp3"
-    public static let testPDFURL = "https://www.paloaltonetworks.com/content/dam/pan/en_US/assets/pdf/datasheets/wildfire/wildfire-ds.pdf"
-    
     public func playMedia(withParams params: AwesomeMediaParams, reset: Bool = false, inPlayerLayer playerLayer: AVPlayerLayer? = nil, viewController: UIViewController? = nil) {
         
         guard let url = params.url?.url?.offlineURLIfAvailable else {
@@ -85,8 +68,11 @@ public class AwesomeMediaManager: NSObject {
         AwesomeMediaManager.shared.youtubePlayerView?.pauseVideo()
         
         notifyMediaEvent(.buffering)
-        AMAVPlayerItem.item(withUrl: url, andCaptionUrl: AwesomeMediaManager.shared.mediaParams.currentCaption?.url.url) { (playerItem) in
+        AMAVPlayerItem.item(withUrl: url) { (playerItem) in
             notifyMediaEvent(.stoppedBuffering)
+            
+            //select current caption
+            //AwesomeMediaManager.shared.mediaParams.currentCaption?.language
             
             // replace current item
             self.avPlayer.replaceCurrentItem(with: playerItem)

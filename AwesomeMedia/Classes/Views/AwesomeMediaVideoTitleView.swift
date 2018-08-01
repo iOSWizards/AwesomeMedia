@@ -29,10 +29,11 @@ public class AwesomeMediaVideoTitleView: UIView {
     public func configure(withMediaParams params: AwesomeMediaParams) {
         titleLabel.text = params.title
         
-        // there is a bug with stack view that will still show the hidden component if we don't remove it.
-        if params.captions.count == 0 {
-            captionsButton?.removeFromSuperview()
-        }
+        updateCaptionButtonBasedOnCurrentItem()
+    }
+    
+    public func updateCaptionButtonBasedOnCurrentItem() {
+        captionsButton?.isHidden = !sharedAVPlayer.hasSubtitles
     }
     
     // MARK: - Events
