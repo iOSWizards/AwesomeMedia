@@ -29,9 +29,11 @@ public class AwesomeMediaVideoTitleView: UIView {
     public func configure(withMediaParams params: AwesomeMediaParams) {
         titleLabel.text = params.title
         
-        if !sharedAVPlayer.hasSubtitles {
-            captionsButton?.removeFromSuperview()
-        }
+        updateCaptionButtonBasedOnCurrentItem()
+    }
+    
+    public func updateCaptionButtonBasedOnCurrentItem() {
+        captionsButton?.isHidden = !sharedAVPlayer.hasSubtitles
     }
     
     // MARK: - Events

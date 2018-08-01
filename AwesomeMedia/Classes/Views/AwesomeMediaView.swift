@@ -113,6 +113,9 @@ public class AwesomeMediaView: UIView {
                     inPlayerLayer: AwesomeMediaPlayerLayer.shared,
                     viewController: self.parentViewController)
                 
+                // update caption button based on current item
+                self.titleView?.updateCaptionButtonBasedOnCurrentItem()
+                
                 // adds player layer
                 self.addPlayerLayer()
             } else {
