@@ -1,0 +1,6 @@
+framework module AwesomeTracking {
+  umbrella header "AwesomeTracking-umbrella.h"
+
+  export *
+  module * { export * }
+}

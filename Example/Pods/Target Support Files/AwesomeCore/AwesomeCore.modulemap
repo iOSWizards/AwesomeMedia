@@ -1,0 +1,6 @@
+framework module AwesomeCore {
+  umbrella header "AwesomeCore-umbrella.h"
+
+  export *
+  module * { export * }
+}
