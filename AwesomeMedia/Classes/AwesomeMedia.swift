@@ -91,4 +91,13 @@ public class AwesomeMedia {
         return videoUrl.contains("youtu.be") || videoUrl.contains("youtube")
     }
     
+    
+    public static var defaultSubtitle: String? {
+        set {
+            UserDefaults.standard.set(newValue, forKey: "awesomeMediaDefaultSubtitle")
+        }
+        get {
+            return UserDefaults.standard.string(forKey: "awesomeMediaDefaultSubtitle")
+        }
+    }
 }

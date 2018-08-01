@@ -14,9 +14,9 @@ public enum AwesomeMediaCaptionCellType: String {
 }
 
 public struct AwesomeMediaCaptionCellObject {
-    public var caption: AwesomeMediaCaption?
+    public var caption: String?
     
-    public init(caption: AwesomeMediaCaption? = nil) {
+    public init(caption: String? = nil) {
         self.caption = caption
     }
 }
@@ -26,7 +26,13 @@ public class AwesomeMediaCaptionsViewModel: NSObject {
     public var cells = [AwesomeMediaCaptionCellObject]()
     public var selectedIndex = 0
     
-    public func configure(with captions: [AwesomeMediaCaption], current: AwesomeMediaCaption?) {
+    public override init() {
+        super.init()
+        // update based on current media
+        configure(with: sharedAVPlayer.currentItem?.subtitles ?? [], current: sharedAVPlayer.currentItem?.selectedSubtitle)
+    }
+    
+    fileprivate func configure(with captions: [String], current: String?) {
         
         var cells = [AwesomeMediaCaptionCellObject]()
         
@@ -65,7 +71,7 @@ extension AwesomeMediaCaptionsViewController: UITableViewDataSource, UITableView
         let type: AwesomeMediaCaptionCellType = viewModel.selectedIndex == indexPath.row ? .captionSelected : .caption
         let cell = tableView.dequeueReusableCell(withIdentifier: type.rawValue, for: indexPath) as! AwesomeMediaCaptionTableViewCell
         
-        cell.titleLabel.text = viewModel.cells[indexPath.row].caption?.label ?? "Off".localized
+        cell.titleLabel.text = viewModel.cells[indexPath.row].caption ?? "Off".localized
         
         return cell
     }

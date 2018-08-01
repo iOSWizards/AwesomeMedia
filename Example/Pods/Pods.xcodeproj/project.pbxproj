@@ -52,7 +52,6 @@
 		087CF4292E3A1F4B426A579586A28BD5 /* LOTBezierPath.m in Sources */ = {isa = PBXBuildFile; fileRef = F08CE49F9A57A6CEE5E3B6EBDABF3260 /* LOTBezierPath.m */; };
 		08E80DAA01C770EB64DB090EF1E26202 /* BFWebViewAppLinkResolver.m in Sources */ = {isa = PBXBuildFile; fileRef = 229231FAD173E5309956F34947065673 /* BFWebViewAppLinkResolver.m */; };
 		091C6D7C5BCAFF9E35D7B9B1543F9898 /* FBSDKGraphRequestMetadata.m in Sources */ = {isa = PBXBuildFile; fileRef = 89418014D66DB936CA9D9773DB7F437F /* FBSDKGraphRequestMetadata.m */; };
-		0965C178B98DD6172BF920A0ED94B9AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D0E28DFE775F2B29184F3166254DBB6 /* Assets.xcassets */; };
 		0A1B6F170AB67E69DB6DD10B42356D5B /* SingleCourseNS.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16B0BC5AD9FAEE8FEE04C7AC1B629EA /* SingleCourseNS.swift */; };
 		0A6EFDDB88B61BAF68B0475418F89FAA /* img-star-half.png in Resources */ = {isa = PBXBuildFile; fileRef = D4207822256EF2B2ECEA0321396E9A80 /* img-star-half.png */; };
 		0A837CAE6D61419CE6406B3CD1E17DBD /* img-star-empty.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C88D1E8C0B2F706B1E262EFA2CECA1F /* img-star-empty.png */; };
@@ -116,7 +115,6 @@
 		1648F5AA2A1963507357109D1796B2D7 /* Tweak.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38579C1447B64B7A989A5932628C4FEF /* Tweak.swift */; };
 		16540DABC3CC0C63F9315C2C60E95F4C /* DeeplinkingConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54511D0F35EC39C9C108BB04F1449D8 /* DeeplinkingConstants.swift */; };
 		165EB00A1715C0BAED0D36264A93E275 /* transact_log_handler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D42A6D7F339AFA9E4B64C9FE7A9BD6FD /* transact_log_handler.cpp */; settings = {COMPILER_FLAGS = "-DREALM_HAVE_CONFIG -DREALM_COCOA_VERSION='@\"3.7.4\"' -D__ASSERTMACROS__ -DREALM_ENABLE_SYNC"; }; };
-		1691668E7C227BB4FB7462D23AF4AFC5 /* Gilroy-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 82E2F96A1961DF7A20D156D7128DF2F5 /* Gilroy-ExtraBold.otf */; };
 		16941BB5C304E990882DC3A9C8962C63 /* LOTMask.h in Headers */ = {isa = PBXBuildFile; fileRef = E618CB7E93718A50E9F08B6790DC21FA /* LOTMask.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		16CF6F7392751AA447675977D6E8F15F /* RLMRealmConfiguration.h in Copy . Public Headers */ = {isa = PBXBuildFile; fileRef = 46352231F205591D9972FEFEF0AE2E12 /* RLMRealmConfiguration.h */; };
 		173020DC658B6211CE38F8374923DA40 /* FBSDKColor.m in Sources */ = {isa = PBXBuildFile; fileRef = B00AF2EC7CEC26B14C6F0155513F2F80 /* FBSDKColor.m */; };
@@ -162,7 +160,6 @@
 		1DB867BEA3AC4C6DD3C2FB616C920F08 /* RLMSchema.h in Copy . Public Headers */ = {isa = PBXBuildFile; fileRef = ACAA108329B87A6291911557A7C00186 /* RLMSchema.h */; };
 		1E25E72715F3CFCBDFCF77442EE53B00 /* ABKInAppMessageControl.h in Headers */ = {isa = PBXBuildFile; fileRef = B86F154D1363AA1E1C9791EE26651F9B /* ABKInAppMessageControl.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1E29A19B6E39419840963ED2E98EB490 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6962E47495204B60A3705F34E03DB15 /* Foundation.framework */; };
-		1E2DCB25731508937432981CC7E24827 /* Gilroy-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4F457B2FCB29530549EDD053CB6019AD /* Gilroy-Medium.otf */; };
 		1E2E2262709A0A620C020C63AF92A62D /* ABKInAppMessageSlideupViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = DAAC23CFB40A4EAAA95D0EEF30A94AA6 /* ABKInAppMessageSlideupViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1EAE4A4D52955FC3B9FC6874B8428177 /* SingleCourseMP.swift in Sources */ = {isa = PBXBuildFile; fileRef = C097F7ACC184B18791CF62FB58A29EF0 /* SingleCourseMP.swift */; };
 		1EC03CBF72D4F0E32A15AB6F22E506D6 /* btn-app-purchase-highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = B83A57381E4EF041C78A00EF3667C13B /* btn-app-purchase-highlighted.png */; };
@@ -229,7 +226,6 @@
 		287E566E2338B7695AD4347425574D77 /* LOTRoundedRectAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B529266CC99E7657201F0A232112628 /* LOTRoundedRectAnimator.m */; };
 		289B3EAB7A1A3E79F817D662A2F32CF1 /* RLMProperty_Private.h in Headers */ = {isa = PBXBuildFile; fileRef = D12B273D1CEE185A2A7473D3456A4DD5 /* RLMProperty_Private.h */; };
 		28A41D353DDD45D8CF6D946E521059DC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6962E47495204B60A3705F34E03DB15 /* Foundation.framework */; };
-		28AF149D1FA61AF41AE87C2A04E10F83 /* Gilroy-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 00CEF688369EADB6EC44AE76687799EE /* Gilroy-Light.otf */; };
 		28E079ED9EC39BCA4E31BB81C2787641 /* LOTAnimationTransitionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D6BDD30A6805C743832DA8BBBF72AB5 /* LOTAnimationTransitionController.m */; };
 		290AE5DB6A3D242227A3C2400EACF0A9 /* UIView+Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0D39429F28D871165DD84EE13441E5 /* UIView+Shadow.swift */; };
 		292AEB907382B1A142C2F6A2BD7DC457 /* ABKNFBaseCardCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 4CB5C2980914960BC8E2F92D80BF3F2A /* ABKNFBaseCardCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -250,7 +246,6 @@
 		2AF94417007E8A0A5943D2027D6D96FE /* LOTAnimationCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 705C04F7658D2ADBBDB28FCD28BCD905 /* LOTAnimationCache.m */; };
 		2AFFB2E528CE9CF18A68ED9BECC6B116 /* VariantAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = F128591E6823FA31231643489EB65ADC /* VariantAction.swift */; };
 		2B295D861A38AF8FEBCB0F301756C719 /* AwesomeMediaCaptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521C706DCF1854415A3B49D9349C7A9F /* AwesomeMediaCaptionsViewController.swift */; };
-		2B2A5BDDF220A128A7460C59CE792CC0 /* Gilroy-LightItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = DFA65DC2AABE9F9FFCA1EC997A7957C2 /* Gilroy-LightItalic.otf */; };
 		2B5982D9F68A240218F7E332B2ACAEB9 /* ABKInAppMessageUIButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 20919AB1DAC59700E007DC42B4B1619C /* ABKInAppMessageUIButton.m */; };
 		2B7D64D37CEF725F1368289BF394ADFC /* ImageTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5A727706903853ABE4CBD9C8257838 /* ImageTransition.swift */; };
 		2B7F1BA57308B414BFF44761DDAD5B5F /* RLMObjectBase_Private.h in Headers */ = {isa = PBXBuildFile; fileRef = A0AF8038BE00C44A044CB17D0CCFB80E /* RLMObjectBase_Private.h */; };
@@ -273,7 +268,6 @@
 		2EAB419B28CA54519C8ACD2C863731F4 /* LOTArrayInterpolator.m in Sources */ = {isa = PBXBuildFile; fileRef = 752C6115A2BA2E3D1D7E4CF9E3071FFC /* LOTArrayInterpolator.m */; };
 		2EE83394CD0877470A2A71E9D39F586F /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32CF0FF814D79575D2750E05D3AF9F1F /* UIViewExtensions.swift */; };
 		2F28F78E7A85B5C437F46C0917322314 /* checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = F2D4D754DBE28B70014E4DF6F800C595 /* checkmark.png */; };
-		2F36BB9807F7F4B0BD7CAC848B42B68B /* Gilroy-RegularItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9601C6F8E71F9E192A51F31E29D66C1B /* Gilroy-RegularItalic.otf */; };
 		2F7D135340C94140075AEAEFA46DDCB9 /* ABKInAppMessageFullViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42A7597D752DA592F91905EEE43018BB /* ABKInAppMessageFullViewController.m */; };
 		2F9CEB177F909B02DFBB5686F54B228B /* RealmConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3152B8D60D14593598A56F0D44E07477 /* RealmConfiguration.swift */; };
 		301CDA30054EDA7D29C945F7E2714371 /* Community.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F09E7F38CC10F6400609565F3FBB732 /* Community.swift */; };
@@ -397,7 +391,6 @@
 		48A76FEBA4D7BFF26385708C9E7AB7A3 /* AwesomeMediaCaptionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B0CFC7E4B59C27E0C710956D689D04 /* AwesomeMediaCaptionsViewModel.swift */; };
 		48C1CED34155DD263C300C6E26FE6CE1 /* QuestCategoryMP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C027FAACF0BDFFDC193BDD41DF8A4C /* QuestCategoryMP.swift */; };
 		48DD9B4030330617FDD76E5026D0AAA9 /* ABKNoConnectionLocalization.h in Headers */ = {isa = PBXBuildFile; fileRef = E83BF1943A1BA498DDD2960060619BC7 /* ABKNoConnectionLocalization.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		490009839E94092ADAAF28DB86CF572D /* Gilroy-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 03B6B65201C3601C3B1F9102E790139C /* Gilroy-Regular.otf */; };
 		4907357FBEB187CB64B6535C2D93B42F /* RLMSchema_Private.h in Headers */ = {isa = PBXBuildFile; fileRef = FE2295CFC39EC407634601A00ECF9C6B /* RLMSchema_Private.h */; };
 		495820C784B039AED9897A5EADE3CCB7 /* FBSDKCodelessParameterComponent.h in Headers */ = {isa = PBXBuildFile; fileRef = 90AB4DA3116A1A4C4D209D9B6AEAFDE6 /* FBSDKCodelessParameterComponent.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		49A1287E495643606FC48395A0F78CC5 /* courses_array.json in Resources */ = {isa = PBXBuildFile; fileRef = AE6EE63441D5A550BE965E566B0F29B9 /* courses_array.json */; };
@@ -430,7 +423,6 @@
 		4EB2E0F7AE8B1525C9F1F4A03BABBA7E /* UIButton+Kingfisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563F7AC38DFD5CAA7CD23DFDDA08E4CB /* UIButton+Kingfisher.swift */; };
 		4EBFAD18DD0300E18A07A597C6BEC2C0 /* ABKInAppMessageFull.h in Headers */ = {isa = PBXBuildFile; fileRef = 845A1E52BAD370338C4D44F76B664C5C /* ABKInAppMessageFull.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4F20D0704B9FE6C1E2D54B7656F99831 /* FBSDKBridgeAPIRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = DDAEDD582FFEAAE057D59679971144C7 /* FBSDKBridgeAPIRequest.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		4F4F3D68B6CD25A0AAE04C6A3C029EE5 /* Gilroy-HeavyItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = B30518532405C43A25ACBA2D6B50959A /* Gilroy-HeavyItalic.otf */; };
 		4FD332EDC3A4B3246D4E2374A43A730F /* FBSDKAccessToken.h in Headers */ = {isa = PBXBuildFile; fileRef = 0A64DF0B7F371C06C4FAD5F92CBBEA3F /* FBSDKAccessToken.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		50059247EBA0F662C97CD73391D6B7AF /* FBSDKBridgeAPIRequest+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = C66BB6E38502668605F3DF243EF516FE /* FBSDKBridgeAPIRequest+Private.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		5033E8006CC2D00D9FFC288639777ABB /* SDImageCacheConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = CF41EF929D68CB661634B62393308627 /* SDImageCacheConfig.m */; };
@@ -461,7 +453,6 @@
 		575FADAC2038F4B01FEE7CF56668DB9A /* SDWebImageFrame.h in Headers */ = {isa = PBXBuildFile; fileRef = 6806877A3F35DB6A2C0C3494E579F5ED /* SDWebImageFrame.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		57916F7E4FC6AF728BA5A7227759A995 /* SDWebImageDownloader.h in Headers */ = {isa = PBXBuildFile; fileRef = A3CBF7F0D6E1F366DB0C245D767D8F1D /* SDWebImageDownloader.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		57F7093C72B97B4D1C4CAEBA6112830D /* FBSDKKeychainStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F7EC1C3D08FA2BD5085CE3E55A0F13 /* FBSDKKeychainStore.m */; };
-		580C912682E1FE3CF1D18278C33797E6 /* Gilroy-BlackItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = D2301E513B206A7A7482B3779E62AB13 /* Gilroy-BlackItalic.otf */; };
 		582821CF11F47ED9277B8A0ADAC505F7 /* ACAcademy.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7E4D047CEBF56F3EDE3DD74EE78871 /* ACAcademy.swift */; };
 		5861E51B0BFC388B63017B5EC7F2CBE7 /* LOTStrokeRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 736E18A1D0E32382206592D02A296804 /* LOTStrokeRenderer.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		591223F8D72E38CC42117233225C2BD2 /* UIImageViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEF69C4FBDFA605646BF3E929803D34 /* UIImageViewExtensions.swift */; };
@@ -479,7 +470,6 @@
 		5B2D6C6E9740B3F85179A13837145195 /* QuizCategories.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8B85FD2464A3FAB24E1F8326712352 /* QuizCategories.swift */; };
 		5B8043891A9651A3FD78786E923B08B7 /* AppboyFeedbackLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 810CC61FA1FE19AEAE6335C8081CD2A3 /* AppboyFeedbackLocalizable.strings */; };
 		5B88690C36B9732EE30F570533732A16 /* RLMSyncManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 4005F81C992EA797191A508FF428E72D /* RLMSyncManager.h */; };
-		5BE66439BE604A3B5480AFF3C68B0D55 /* Gilroy-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7628E326D6EA346039661915F5C1DC43 /* Gilroy-BoldItalic.otf */; };
 		5C41E3CA5D81938170DB47DB516C969F /* FBSDKAccessToken.m in Sources */ = {isa = PBXBuildFile; fileRef = B4467918B404FF7CD668CD77167237B2 /* FBSDKAccessToken.m */; };
 		5C5E50B19B218C3EE4B7458FECEF7AD0 /* BFExecutor.h in Headers */ = {isa = PBXBuildFile; fileRef = E47A7788A77BF9297ADE58546D42DB23 /* BFExecutor.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5D41E26D0E7BB2E5BA00B0486EEA67C2 /* RLMSyncManager_Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 9BB8A287F59AB91B566FC5E3BEE49980 /* RLMSyncManager_Private.h */; };
@@ -530,7 +520,6 @@
 		68FA3A45EDEBC0FA654C890B3498E049 /* SeriesBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A510D2852C28132610144FE124AFE95 /* SeriesBO.swift */; };
 		68FBD04965C19D9002527CC9587286D9 /* ShimmerEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA23D637F9C39E329DE28BA054444AD /* ShimmerEffect.swift */; };
 		6905CE5D1C798D1583E09F7FD68EBB80 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6962E47495204B60A3705F34E03DB15 /* Foundation.framework */; };
-		6909BED15A58B004E8DA18DD46375862 /* Gilroy-Heavy.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0FDF9CA2B1A9EF6E85F4D2273488D377 /* Gilroy-Heavy.otf */; };
 		6910ED087988DEC2B8160AB1B09A9932 /* FBSDKAppEventsDeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = EAFC576B1F6111751D7B187D3A49FA7A /* FBSDKAppEventsDeviceInfo.m */; };
 		691B05F7749CB8CEE78E21164E9598BF /* FBSDKError.h in Headers */ = {isa = PBXBuildFile; fileRef = 54698B765FB7FE11B28B612D8BA70741 /* FBSDKError.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		69204907F3CC975BD28DF1FA95CC4A84 /* RLMClassInfo.mm in Sources */ = {isa = PBXBuildFile; fileRef = A10E63E463109D80FACBE345153801D2 /* RLMClassInfo.mm */; settings = {COMPILER_FLAGS = "-DREALM_HAVE_CONFIG -DREALM_COCOA_VERSION='@\"3.7.4\"' -D__ASSERTMACROS__ -DREALM_ENABLE_SYNC"; }; };
@@ -583,7 +572,6 @@
 		73CF3F4D22F5D405E9E9C5D77AD3126A /* binding_callback_thread_observer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F0D943D1CD6D0ACB80B86EF678FD1B2 /* binding_callback_thread_observer.cpp */; settings = {COMPILER_FLAGS = "-DREALM_HAVE_CONFIG -DREALM_COCOA_VERSION='@\"3.7.4\"' -D__ASSERTMACROS__ -DREALM_ENABLE_SYNC"; }; };
 		73DA5AA4FA0D2316F80C51CAAED855B5 /* FBSDKAppEvents+Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = A2768C3CAD77B3728E79613F5C0CC641 /* FBSDKAppEvents+Internal.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		740EF26A6D13644E7D9FD767CD2677FC /* RLMSyncSessionRefreshHandle.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4253E8370B0C6694C51F3E60C178EE24 /* RLMSyncSessionRefreshHandle.mm */; settings = {COMPILER_FLAGS = "-DREALM_HAVE_CONFIG -DREALM_COCOA_VERSION='@\"3.7.4\"' -D__ASSERTMACROS__ -DREALM_ENABLE_SYNC"; }; };
-		743943B9923A547A24FE57472A506B87 /* Gilroy-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 00CEF688369EADB6EC44AE76687799EE /* Gilroy-Light.otf */; };
 		74472ACA9E1E5263F3FA5FE8E2B6DB26 /* AwesomeTrackingDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CEF8E9F460A401C70B11A0B07AE9B6 /* AwesomeTrackingDictionary.swift */; };
 		74591C7C8E6A3B11ED5D56D1A266D0F7 /* Optional.swift in Sources */ = {isa = PBXBuildFile; fileRef = B333F715988F46556CDB0981FC3AB104 /* Optional.swift */; };
 		74C011E739AD53E5FB93BBBF1B0F3EC0 /* ABKCrossPromotionCard.h in Headers */ = {isa = PBXBuildFile; fileRef = F8C86060D9C51C597AE2E4EECEC4C55D /* ABKCrossPromotionCard.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -623,7 +611,6 @@
 		79ACCA332CBF3B7A6C30A03C28AE1F01 /* UserMeBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D51545E27C26805641D55C26F40E88AD /* UserMeBO.swift */; };
 		79FB150674042C6BC78F108CABA48BBD /* TweakLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF2239127BD7F313699ED552E94DE05 /* TweakLibrary.swift */; };
 		7A1920AC95A134DE4E7D261D24761869 /* FBSDKIcon.m in Sources */ = {isa = PBXBuildFile; fileRef = 92243BFE842D1065E9DDEADEC027287A /* FBSDKIcon.m */; };
-		7A8460A008738992F58565B59F5B7E90 /* Gilroy-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 82E2F96A1961DF7A20D156D7128DF2F5 /* Gilroy-ExtraBold.otf */; };
 		7AA27B603F873811CB0CF3D7849BB184 /* BFAppLinkNavigation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A0C73189FBE44331B273255AC252027 /* BFAppLinkNavigation.m */; };
 		7AB5E96F0016A18233C2EB9BD3683CA9 /* ABKNewsFeedCardStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34C7ED1919C54BF4810EB82D54D2D49A /* ABKNewsFeedCardStoryboard.storyboard */; };
 		7AE22D6773576409B76C32ED9C3AE6DC /* ABKInAppMessageController.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EB77846D94C73BCE9C86C7956034F51 /* ABKInAppMessageController.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -706,7 +693,6 @@
 		87B21A889E28DB3A38162A6D37257240 /* Bolts-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 23ABA44E329FED470B3C7DB273028334 /* Bolts-dummy.m */; };
 		87DAE6C8F832AA227E8CA8E731D0E350 /* FBSDKDynamicFrameworkLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 8109ECEA19E74789EEFCF98DBB1E4ABC /* FBSDKDynamicFrameworkLoader.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		87E185BC8EAD3975751CC0F1AB65E93A /* SDWebImageFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 6626F2EE9BF71A6F81E9CBC1794AE0BC /* SDWebImageFrame.m */; };
-		883C54DA3F797AB53965727D0FE33878 /* Gilroy-MediumItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 648978271207EA7A31E26DD8B7AC7E2A /* Gilroy-MediumItalic.otf */; };
 		88461A575478A45BD2329176F322CFB3 /* Icons_Read.png in Resources */ = {isa = PBXBuildFile; fileRef = BC812DF8DDBFBBBC3A9D987E2657AF4D /* Icons_Read.png */; };
 		886AA568EAB8AB03B15262CE5D5AC664 /* AwesomeMedia.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9EC4916828CAE7A503674BA6E1F4BA1B /* AwesomeMedia.bundle */; };
 		88AD9C69AD9CD0DCA98068B2C9754E0A /* HappeningsBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E956AB77E4B0B55147B42ECF48DC789D /* HappeningsBO.swift */; };
@@ -720,11 +706,9 @@
 		8A7778F8CC7C60B6B5F9DE55EB791825 /* URLExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8597FEB52393146148FF21D0523DA7 /* URLExtensions.swift */; };
 		8A8915636A0EDA79B2B557E6F937560C /* AuthorDA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78ED0DB2A159B53A6DAAF0AEA213B6F7 /* AuthorDA.swift */; };
 		8AB35EDC9FBE7F8D8B44D86D26D87F07 /* TweakableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098D5F3568B6800783C174E5D2A0223D /* TweakableType.swift */; };
-		8AE0EE3C2FBC721649021F8DB6802BDC /* Gilroy-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = E3F4A4426C145AC1EA6EC085D900F83A /* Gilroy-Bold.otf */; };
 		8B33E77B7C57A80E5B04354F6A8E6E09 /* CommunityBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9905C8E47762593A387233486B93321 /* CommunityBO.swift */; };
 		8BE9E7FD3F7D2739C5AC6A7A1D7936E9 /* FBSDKCodelessPathComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A16D01ED66D364CE500751787FC9D4 /* FBSDKCodelessPathComponent.m */; };
 		8C0C32D906DEA9DC8CE87450432F7D8F /* FBSDKGraphRequestBody.m in Sources */ = {isa = PBXBuildFile; fileRef = 83CB83B6589A87993E9FAFEE559B08CE /* FBSDKGraphRequestBody.m */; };
-		8C7D599A54208E37E5940C5C471820E3 /* Gilroy-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 03B6B65201C3601C3B1F9102E790139C /* Gilroy-Regular.otf */; };
 		8C7F0DE640A9F2BDD89FCC34338DABBB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6962E47495204B60A3705F34E03DB15 /* Foundation.framework */; };
 		8C8334CBE563E65383DDD3A07F36DEF2 /* img-star-filled.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C824CFD2ABBF2DF58A7AB278BF55F60 /* img-star-filled.png */; };
 		8C99C0F92F47DADAA33EDB2024286020 /* AwesomeMediaVideoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B24C3909D68B78BEB64758186E29DE17 /* AwesomeMediaVideoTableViewCell.xib */; };
@@ -809,7 +793,6 @@
 		9AA82E3740F4070CCD44B0E18422C59F /* LOTNumberInterpolator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F8E6F1EA290FA2059D697D25531343E /* LOTNumberInterpolator.m */; };
 		9AD03DD2F58A677B8ADC09887457D2A8 /* RLMOptionalBase.h in Copy . Public Headers */ = {isa = PBXBuildFile; fileRef = 5C2A7884A8AB82E1E8D53A901A19F92D /* RLMOptionalBase.h */; };
 		9B009193E344ED703C0E7406322049A9 /* HTMLConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FED5B67C49C41FCF195A3E87B149D1 /* HTMLConfiguration.swift */; };
-		9B0CBB5A4CB1DEA34F1FF22CB8BC91C5 /* Gilroy-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = EBC8CD17F275D8F72A7A1D1755958D47 /* Gilroy-SemiBold.otf */; };
 		9B39BF9D9F9189D55682C730434BAC30 /* FBSDKBridgeAPIProtocolType.h in Headers */ = {isa = PBXBuildFile; fileRef = C6E9C44FF298B0324DFBA46809D992BF /* FBSDKBridgeAPIProtocolType.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		9B7D7206AAAFA4252B37B660E0A5D4EC /* RLMAccessor.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2861DF404F1C1D5626909D2904E98329 /* RLMAccessor.mm */; settings = {COMPILER_FLAGS = "-DREALM_HAVE_CONFIG -DREALM_COCOA_VERSION='@\"3.7.4\"' -D__ASSERTMACROS__ -DREALM_ENABLE_SYNC"; }; };
 		9B8CE8543C42F47F5AC8FC128083EAAB /* AwesomeMediaYoutubeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E878D6AF57A17E3F72ADBCE094C972A /* AwesomeMediaYoutubeTableViewCell.xib */; };
@@ -882,7 +865,6 @@
 		AA413D7049E566C7C46014F37A470AE9 /* FBSDKApplicationDelegate+Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = F62B1D99F91A3CA137F496C16FABE06C /* FBSDKApplicationDelegate+Internal.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		AA7AB60525607702BF9367B2F184FB64 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDCBE68C543E299F3B44C3EFB09A24A /* Image.swift */; };
 		AA81A19A9F67C45DDA1CBF94A71EF4C2 /* keychain_helper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E2F0575F5DB59B987BF6A005F331B64E /* keychain_helper.cpp */; settings = {COMPILER_FLAGS = "-DREALM_HAVE_CONFIG -DREALM_COCOA_VERSION='@\"3.7.4\"' -D__ASSERTMACROS__ -DREALM_ENABLE_SYNC"; }; };
-		AA953E51E0731C628B7E031047D56F87 /* Gilroy-SemiBoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 67A678AAB716EEB5EAE436C3673703DB /* Gilroy-SemiBoldItalic.otf */; };
 		AAB4B6905ED33D6EBFC2CA11B186382A /* ABKNewsFeedViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 83032644540172A166B7C3CD7D4748B5 /* ABKNewsFeedViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AAB96C564A7E0C0E08AE92BF0A921238 /* FBSDKAccessTokenExpirer.m in Sources */ = {isa = PBXBuildFile; fileRef = 739F24024ACB2E0D8AE5668F4B1C29C4 /* FBSDKAccessTokenExpirer.m */; };
 		AAC804ABAE3372A669EDEA1E6785AEDD /* UIViewSelectors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B22258B93C35695DB18E1550E59D85 /* UIViewSelectors.swift */; };
@@ -927,11 +909,9 @@
 		B24804376473600479D261CEE5506D1C /* Decide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FD5B1A9D2F69406DC67A038A061865 /* Decide.swift */; };
 		B260AE212EDD2A94FD77F51D1F61ACA9 /* FBSDKAppLinkResolver.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D62C9445FF7EEE54524B7BD9C14E417 /* FBSDKAppLinkResolver.m */; };
 		B276A5332383A9EB148CF4B81395C057 /* ABKModalWebViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 17076AE4EABA8DB445B777A3FBCC188C /* ABKModalWebViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B299ADD1F4820EC8E3533A3A65B5C236 /* Gilroy-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = EBC8CD17F275D8F72A7A1D1755958D47 /* Gilroy-SemiBold.otf */; };
 		B309CA8097F124E5D2B52F971F603E8A /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7864299E4FB4FFA5CA327598E1E0CFA4 /* UIImageViewExtension.swift */; };
 		B30C0042FA10233CD36652F155212DA8 /* LOTPointInterpolator.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D56C6DE2FD58C9468435EA3F58962A0 /* LOTPointInterpolator.m */; };
 		B32E27C45F939E7F8A73FBB079EDEF81 /* FBSDKAppEventsState.h in Headers */ = {isa = PBXBuildFile; fileRef = 6A7BB7DFBD6F4203A376F09D216CF23F /* FBSDKAppEventsState.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		B3387D000EF8AF9649F3B9C3AC07EDCB /* Gilroy-ExtraBoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4B96F23BBD34CEF93158F066F5FC67D0 /* Gilroy-ExtraBoldItalic.otf */; };
 		B36621CC6E15B78DBA4C34196A378A14 /* UIColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 30790CBDFA9447ED005405198F434A41 /* UIColor.m */; };
 		B36FD95CE63CBAC5D2E133731CA3A663 /* BFCancellationTokenRegistration.h in Headers */ = {isa = PBXBuildFile; fileRef = 2A2233DE7CC9F158D37C3742D97FB5C7 /* BFCancellationTokenRegistration.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B381A14D7CC92F34D4DCD07F969ECE7E /* Appboy.h in Headers */ = {isa = PBXBuildFile; fileRef = BB1DED4886F1E03FE750E44EBAD50B71 /* Appboy.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -968,12 +948,10 @@
 		BA15BF52ADD1CA9E3CE7748DA6D91554 /* ABKInAppMessageSlideupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E326397EC59A4EA57EACA84E202F28F6 /* ABKInAppMessageSlideupViewController.xib */; };
 		BA3627443747C5675BDB7ACC43C89955 /* ABKInAppMessageUIController.m in Sources */ = {isa = PBXBuildFile; fileRef = A215E9E7080AE0EFF3325E762D08625E /* ABKInAppMessageUIController.m */; };
 		BA7885B3A511FAB6F399C254EF2A1C10 /* AwesomeMediaYoutubeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BD8C5C738397E25366AD75F002FE3C /* AwesomeMediaYoutubeCollectionViewCell.swift */; };
-		BAC4501145BA5E794832DE23666D2DBE /* Gilroy-MediumItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 648978271207EA7A31E26DD8B7AC7E2A /* Gilroy-MediumItalic.otf */; };
 		BAEB71C35F613DE2D3650D64F1439F30 /* FlushRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0159E810FE64727911AC85420319CD9 /* FlushRequest.swift */; };
 		BAEC6AF8EB0AB247520D8FF55AE34E3A /* LOTTrimPathNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 910DE97A3EF302BA8651142857C0AF06 /* LOTTrimPathNode.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		BAFF69262BB32AE7E919EB25DCA96FFE /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 361779803CA7134797A4837AC60E2873 /* Util.swift */; };
 		BBB109DE6623402299B3CAE76784DAC6 /* ABKInAppMessageHTMLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C04A86777A0C45D278FD592F8B24CFB /* ABKInAppMessageHTMLViewController.m */; };
-		BC3A6123E49E45BF829B1D9184183287 /* Gilroy-LightItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = DFA65DC2AABE9F9FFCA1EC997A7957C2 /* Gilroy-LightItalic.otf */; };
 		BC9991455834DEA694975D796E9B048A /* AwesomeDownloading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021E85B9170EF8088BDDC4D9F8CD3059 /* AwesomeDownloading.swift */; };
 		BCB269D6E473C7E01856F36D0B870559 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFFE26145C0720B77203070165B75FB8 /* ImageIO.framework */; };
 		BCD9243147B48E7615F2C74A0A90FDA4 /* FBSDKGraphRequestMetadata.h in Headers */ = {isa = PBXBuildFile; fileRef = BABCE2D4F73F917A24F1D8E1ED2A03F7 /* FBSDKGraphRequestMetadata.h */; settings = {ATTRIBUTES = (Project, ); }; };
@@ -1020,7 +998,6 @@
 		C554B2F6BB2A17DF7F7B1C2FDF41EB06 /* NSNumberExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A9D0E1CC7F40FB2195C4A7310415A6 /* NSNumberExtensions.swift */; };
 		C5F348160F4A590BCC67C0DD1E77CA97 /* Lottie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 444AC25E35A04569EB0AEB6CCC7782A5 /* Lottie.framework */; };
 		C6D8FA771226BD3335A583B61803980D /* FLAnimatedImage-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 764255F6147D3810E49C798AE4B444A6 /* FLAnimatedImage-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C6E1235F2EDA9175BA52B2CE5971E45A /* Gilroy-RegularItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9601C6F8E71F9E192A51F31E29D66C1B /* Gilroy-RegularItalic.otf */; };
 		C721159CA1CE0E4313EC62903DFC6781 /* LOTShapeRectangle.h in Headers */ = {isa = PBXBuildFile; fileRef = F7541F350D5A50C4C768A8AE62F17415 /* LOTShapeRectangle.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		C7522DFB2175E1D18696BE3E8FEEF52D /* HashBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7B38DB9FF91F490C07F127D2414334 /* HashBuilder.swift */; };
 		C7549A95DF53C08C314068CA8E78E548 /* UIImage+GIF.h in Headers */ = {isa = PBXBuildFile; fileRef = 8BE70295BE5FAD6BAF63670D8E778CD4 /* UIImage+GIF.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -1028,7 +1005,6 @@
 		C8704A770CF5A688537DEC3473F2A306 /* NSValue+Compat.m in Sources */ = {isa = PBXBuildFile; fileRef = B684CE090753538C45376C4E434FD8C2 /* NSValue+Compat.m */; };
 		C8BE869A8090C9A703A81BA493DCBA08 /* LOTAnimationView_Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = 51893995E2FC433E0E147925A66B532E /* LOTAnimationView_Internal.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		C8BFBC01B50FF25A05A3F30F8B42A9DE /* SubscriptionBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79AFB3226D80B36F86D0BA4B35BC7FAF /* SubscriptionBO.swift */; };
-		C8D9DFC382B4D97346C7663978D30DD3 /* Gilroy-ExtraBoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4B96F23BBD34CEF93158F066F5FC67D0 /* Gilroy-ExtraBoldItalic.otf */; };
 		C8F302A8EDDAA77A79D5147E72AA35C4 /* AwesomeLoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4FEFB1E1EF1F4FA2957346DDCCF656E /* AwesomeLoadingView.xib */; };
 		C8FBC9C952F3C1B8096F2376876ADC78 /* UIBezierPath.h in Headers */ = {isa = PBXBuildFile; fileRef = 26E3A472E28C5367630F9AE19587650E /* UIBezierPath.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		C9AF8E62BB6C0AA563305BC988D4F247 /* AwesomeMediaYoutubeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E878D6AF57A17E3F72ADBCE094C972A /* AwesomeMediaYoutubeTableViewCell.xib */; };
@@ -1047,7 +1023,6 @@
 		CD21CDDDCEA57CECB0B2ECC16C4791C3 /* ObjectAssociation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFB9AF146959413208ACA76C102BF53 /* ObjectAssociation.swift */; };
 		CD2270CF169C14D18EA96B81C9870717 /* ABKFacebookUser.h in Headers */ = {isa = PBXBuildFile; fileRef = DE2F8A7618972312C687E9243EDAA14B /* ABKFacebookUser.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CD324C3FAD2F0CDA536E5390C8228C05 /* Subscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856222BA6B958F3FEA0AFCC7AD9D869C /* Subscription.swift */; };
-		CD8B0A088514D3AA4A0719B152FEBB51 /* Gilroy-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = E3F4A4426C145AC1EA6EC085D900F83A /* Gilroy-Bold.otf */; };
 		CDF0385FB42E242FAC20DEC54B5DC1BC /* RLMQueryUtil.mm in Sources */ = {isa = PBXBuildFile; fileRef = 320BA529723D523AC3545988B59FC320 /* RLMQueryUtil.mm */; settings = {COMPILER_FLAGS = "-DREALM_HAVE_CONFIG -DREALM_COCOA_VERSION='@\"3.7.4\"' -D__ASSERTMACROS__ -DREALM_ENABLE_SYNC"; }; };
 		CE2CB4ABBB495AB5223436A4DA16C858 /* CGAffineTransformToNSDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 687A2428B79F209F40BFAB8F56C68BCD /* CGAffineTransformToNSDictionary.swift */; };
 		CE43EB520280E0359432246441C83273 /* FBSDKBridgeAPIProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = FDE1A391D5A68BE54F5E7E0CC13D442B /* FBSDKBridgeAPIProtocol.h */; settings = {ATTRIBUTES = (Project, ); }; };
@@ -1062,7 +1037,6 @@
 		CF732DC9D629ED32027A3F87B9BF5526 /* object.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 513369F4F594C53582A893AE43AC178C /* object.cpp */; settings = {COMPILER_FLAGS = "-DREALM_HAVE_CONFIG -DREALM_COCOA_VERSION='@\"3.7.4\"' -D__ASSERTMACROS__ -DREALM_ENABLE_SYNC"; }; };
 		CFC8DB0A038F1EE47B833983E6B968F5 /* RLMConstants.h in Copy . Public Headers */ = {isa = PBXBuildFile; fileRef = A6B8E9F0EFF540D73E18185CD4D63E8E /* RLMConstants.h */; };
 		D03009D68A194F84C8DA909F86650AEA /* AwesomeMediaControlOptionSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5568399C4C14BB677E66DB41ADC0E7F0 /* AwesomeMediaControlOptionSet.swift */; };
-		D0309AA70E63333B9D1A021C2C3508B1 /* Gilroy-HeavyItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = B30518532405C43A25ACBA2D6B50959A /* Gilroy-HeavyItalic.otf */; };
 		D05D69F5FD615484926A89806C7C9423 /* LOTLayerGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F58FBAAF5594D7A9205387A73121FD7 /* LOTLayerGroup.m */; };
 		D0DE5304D9C048E9B605FEAF2678A7F2 /* RLMResults_Private.h in Copy . Private Headers */ = {isa = PBXBuildFile; fileRef = FCDAF6B4FAEE2F8ED0260583E9E872C0 /* RLMResults_Private.h */; };
 		D0EF96FD2693BD417A29DE664E12BB6A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6962E47495204B60A3705F34E03DB15 /* Foundation.framework */; };
@@ -1079,7 +1053,6 @@
 		D2EB189AA47C5E4755400E8F2E2D71B8 /* object_schema.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8F34B74A5CEFF261CBFC67D2D1669437 /* object_schema.cpp */; settings = {COMPILER_FLAGS = "-DREALM_HAVE_CONFIG -DREALM_COCOA_VERSION='@\"3.7.4\"' -D__ASSERTMACROS__ -DREALM_ENABLE_SYNC"; }; };
 		D2F3505102F92C88BADE5AD6C947182D /* QuizCategoriesNS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C65AF6DCE264B4572E725A919EC734 /* QuizCategoriesNS.swift */; };
 		D2F7A3DB4F222E2D9C6C51B2CE67E56D /* BFURL.h in Headers */ = {isa = PBXBuildFile; fileRef = 394B4E8235F1CCD2EDD633D34253D718 /* BFURL.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D309BE082CCB7E48C6C5F18D39BA0AC4 /* Gilroy-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4F457B2FCB29530549EDD053CB6019AD /* Gilroy-Medium.otf */; };
 		D31CEDBCD4C6E0FA1AE9A1A1328A2DB6 /* RLMProperty.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BD553E8BFB0F7242BAC30C70C6EF858 /* RLMProperty.h */; };
 		D354CB6A95A7E0DBCB9152D407AB21C1 /* AwesomeMediaAudioPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF8827EAF8A0663E2403879B2D7F693 /* AwesomeMediaAudioPlayerView.swift */; };
 		D39BA00146092948A36074D8D27ED29D /* AcademyBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B3BFA5EC108864F982531EBDB1E86E /* AcademyBO.swift */; };
@@ -1150,7 +1123,6 @@
 		E0794ECBB3596DB62690F760E7F84BA3 /* AwesomeCoreCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECD2EA780A1D94FF5F2D1F7FF7AB44C /* AwesomeCoreCache.swift */; };
 		E11519F22EC1B2857B7128DE8AF12BCC /* LOTComposition.h in Headers */ = {isa = PBXBuildFile; fileRef = 94E471A580C086F7EE2E3013F80BD4A7 /* LOTComposition.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E16B7A329D9DFA2F515D36BB4F2AF58B /* ABKPushUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 4114804A47DA505019F38E2FABC8D7FC /* ABKPushUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E185C3B92F1312E77E42AE8C706F0B0B /* Gilroy-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = FA753C17C630E57BD058247E0452868F /* Gilroy-Black.otf */; };
 		E19B7CD20E36D3B49FA740882455A849 /* NSButton+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 665B759B46384D6EBD1A2F8E2B7D7CD1 /* NSButton+WebCache.m */; };
 		E1C00A8436F15B9DBCECC02D2A38350F /* UserMe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E350EA33F35D8E524D8ECEB12D43241 /* UserMe.swift */; };
 		E2280878C00DB3AD51E7C197F140919C /* MembershipAcademiesMP.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80504901C0D25E4021D8BB7AFA4E7A3 /* MembershipAcademiesMP.swift */; };
@@ -1190,7 +1162,6 @@
 		E89F6E2664ED6CF2EFF776F29322A194 /* ThreadHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB1C3D05F066244D4CB110B81799DD3 /* ThreadHelper.swift */; };
 		E8AFDD728AA3348F31D703CCC84BA367 /* LOTAnimatedSwitch.h in Headers */ = {isa = PBXBuildFile; fileRef = BDADFEF127FBF1BA5F5B5BC02320E43E /* LOTAnimatedSwitch.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E8D36F93257AEB5ECC285BD2CA1D2F92 /* LOTAssetGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E894A6F61DB90E3FCABC3C6F2CABA09 /* LOTAssetGroup.m */; };
-		E8E1B91B5A979FCC7CB242CE232960F0 /* Gilroy-SemiBoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 67A678AAB716EEB5EAE436C3673703DB /* Gilroy-SemiBoldItalic.otf */; };
 		E90284F79E453C07DA749101A50668EC /* SDWebImageDownloaderOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = EC579454C398D4817D374D43BC103C37 /* SDWebImageDownloaderOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E90738BAD1110A88CB7B4F9F72AB544B /* RLMSyncConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = 1AFCCF1E12A5734B8A87F7F0C4063512 /* RLMSyncConfiguration.h */; };
 		E981C33A928CB47B0A67FB0E7C9E4847 /* FBSDKEventBindingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BAD0FA0B5B54CEC837DBBF3E21985104 /* FBSDKEventBindingManager.m */; };
@@ -1203,7 +1174,6 @@
 		EB03C267ED9304EF24C860F3E0CD1CBE /* ABKModalWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3278F7774F6F54200F5476C8B6072ABC /* ABKModalWebViewController.m */; };
 		EB1B20D37AAE76483CFDC3D6EA442536 /* QuestMP.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA91216313A0CE9F8756392C6A2C98DE /* QuestMP.swift */; };
 		EB4F8B7064AB4D47E0C01D542B48CA4E /* FBSDKGraphRequestBody.h in Headers */ = {isa = PBXBuildFile; fileRef = 55E99D82EAFA3A680F7AC7153B825DCB /* FBSDKGraphRequestBody.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		EB5ECC52A2C0F76ECC06AF70DA0C933B /* Gilroy-Heavy.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0FDF9CA2B1A9EF6E85F4D2273488D377 /* Gilroy-Heavy.otf */; };
 		EB87FECCC3412D44CD9F1EA8C7301509 /* CategoriesNS.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1C17708B42522EAD51F7374F365AEA /* CategoriesNS.swift */; };
 		EB95BDA07FBC08EA72662BA31DF6D7A1 /* RLMAnalytics.mm in Sources */ = {isa = PBXBuildFile; fileRef = A393CEFBD311F6A39B1369A29DE8FC87 /* RLMAnalytics.mm */; settings = {COMPILER_FLAGS = "-DREALM_HAVE_CONFIG -DREALM_COCOA_VERSION='@\"3.7.4\"' -D__ASSERTMACROS__ -DREALM_ENABLE_SYNC"; }; };
 		EBA3603456C3E7013C4FD81B0DDA84A9 /* CompletionProgressMP.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D1225E637C603D8950FB391BCDD2F3 /* CompletionProgressMP.swift */; };
@@ -1250,7 +1220,6 @@
 		F0F2EDF48364F4DB493F69198F0ABCB8 /* LOTInterpolatorCallback.h in Headers */ = {isa = PBXBuildFile; fileRef = B2DE55A0A13967592AD871B9C08F356D /* LOTInterpolatorCallback.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F117EA3B4E7E3EB61772319EFCD2A195 /* MixpanelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB27451B45953008E3AD625FF2A87A25 /* MixpanelType.swift */; };
 		F1230DF1D6E17E19E6536B51E092BF6D /* FBSDKProfile+Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = 1945FB5047B8DE5B7DE1F4CF7CB7BFCD /* FBSDKProfile+Internal.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		F14B483937B0D9F80ADB0F573E743EA1 /* Gilroy-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = FA753C17C630E57BD058247E0452868F /* Gilroy-Black.otf */; };
 		F163AA30C5EC5F8EFB16668ED306CC7D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6962E47495204B60A3705F34E03DB15 /* Foundation.framework */; };
 		F1C4B2727B7206194C4D96641B988101 /* LOTRenderGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A5EF1783999A16110C20D15A13A0C5F /* LOTRenderGroup.m */; };
 		F1CD541AAD9918F32D3C5A3EBC4F233E /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 178071684A8B99DD020B2D9467021F5D /* Realm.framework */; };
@@ -1270,7 +1239,6 @@
 		F3FB04EAFE3BE8EB6EE37A37F261698F /* RLMCollection_Private.h in Copy . Private Headers */ = {isa = PBXBuildFile; fileRef = 761C84DF11DC7C9AE998FC90025225EC /* RLMCollection_Private.h */; };
 		F402D5C8C11687CCB3A0D8E02F9275F1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6962E47495204B60A3705F34E03DB15 /* Foundation.framework */; };
 		F437631BB7A6FA5ECD198BDECD4D1DDC /* SeriesMP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F082286B489C65C31431DCF5002C71 /* SeriesMP.swift */; };
-		F48590D0C682A3715031AAFAC61D8BF1 /* Gilroy-BlackItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = D2301E513B206A7A7482B3779E62AB13 /* Gilroy-BlackItalic.otf */; };
 		F490A02180F7ABCC8570DA6879F51769 /* ABKInAppMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7A610D28347312795F8F8C9CBD578A1 /* ABKInAppMessageViewController.m */; };
 		F4A35643CF3B8D2B343F6C8121ADF658 /* QuizResultsCoursesMP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7A93D87C8A866EDA893CA03D127362 /* QuizResultsCoursesMP.swift */; };
 		F4F9466DF954A1DBB5FFD1BEECDEEAA9 /* FBSDKAccessTokenCacheV3_21.m in Sources */ = {isa = PBXBuildFile; fileRef = CDAA23BDB181BD04CEA37388CA90B535 /* FBSDKAccessTokenCacheV3_21.m */; };
@@ -1308,7 +1276,6 @@
 		FBD5A8E58604909A394F88062AD7D8BA /* FBSDKMath.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B3C5B92353E55461B7924CBFFB2D72E /* FBSDKMath.m */; };
 		FC438E45987C18F0D6C429E0FDA006A6 /* AwesomeMedia-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = AA9B9133821479E6478EE0438C10D9E0 /* AwesomeMedia-dummy.m */; };
 		FC8E8C32396AE408938673B56DEF6F69 /* FBSDKPaymentObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A2DBB4ACA072ABD60808C1BA2889138 /* FBSDKPaymentObserver.m */; };
-		FD1CDC808C3DFDDC8BEF08A95E87B0EA /* Gilroy-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7628E326D6EA346039661915F5C1DC43 /* Gilroy-BoldItalic.otf */; };
 		FD71C8A349A0ACD222096B56F3A63FEC /* ABKNewsFeedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D20E250A4E7A17ABBE307626ED6F836 /* ABKNewsFeedTableViewController.m */; };
 		FD8FF9F1E095AA2BC5F4F5D41265F174 /* AwesomeImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229E98A70278E4A8A862A82D12ED202B /* AwesomeImage.swift */; };
 		FDA8BC840FD0BAF2DAEB3E97583758C9 /* BFAppLinkReturnToRefererView.m in Sources */ = {isa = PBXBuildFile; fileRef = DC1CCA6F5DDD97EA407A2F0390066E29 /* BFAppLinkReturnToRefererView.m */; };
@@ -1861,7 +1828,6 @@
 		0030233059DBC1CA68FF1CE107BF25CD /* AwesomeMediaAudioViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AwesomeMediaAudioViewController.swift; sourceTree = "<group>"; };
 		006B4F115B17E5A99BF17C23AC99BAC1 /* MemberBenefits.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MemberBenefits.swift; path = AwesomeCore/Classes/Model/MemberBenefits.swift; sourceTree = "<group>"; };
 		00CC37EA2815A9397093134C44155B98 /* BrazeHelper.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BrazeHelper.swift; path = AwesomeTracking/Classes/Helpers/BrazeHelper.swift; sourceTree = "<group>"; };
-		00CEF688369EADB6EC44AE76687799EE /* Gilroy-Light.otf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; path = "Gilroy-Light.otf"; sourceTree = "<group>"; };
 		0103AE992B0547651C75D96FE1BE34B2 /* AwesomeNetwork.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AwesomeNetwork.swift; path = AwesomeNetwork/Classes/AwesomeNetwork.swift; sourceTree = "<group>"; };
 		012CDF53557455918CE796F8140A6775 /* QuestProductGraphQLModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = QuestProductGraphQLModel.swift; path = AwesomeCore/Classes/GraphQLModel/QuestProductGraphQLModel.swift; sourceTree = "<group>"; };
 		01669BA019D19B370262685B26CA143C /* UIImageExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UIImageExtensions.swift; path = AwesomeImage/Classes/Extensions/UIImageExtensions.swift; sourceTree = "<group>"; };
@@ -1875,7 +1841,6 @@
 		03269956050C83DAE747D3802D9230D9 /* LOTColorInterpolator.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LOTColorInterpolator.m; path = "lottie-ios/Classes/RenderSystem/InterpolatorNodes/LOTColorInterpolator.m"; sourceTree = "<group>"; };
 		03937CE421018694187BDD62006ADA76 /* QuestProductPageDA.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = QuestProductPageDA.swift; path = AwesomeCore/Classes/DataAccess/QuestProductPageDA.swift; sourceTree = "<group>"; };
 		03B690ECE1D81DFFABF535785F50287A /* AwesomeMediaAudioTableViewCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = AwesomeMediaAudioTableViewCell.xib; sourceTree = "<group>"; };
-		03B6B65201C3601C3B1F9102E790139C /* Gilroy-Regular.otf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; path = "Gilroy-Regular.otf"; sourceTree = "<group>"; };
 		03BF3B023FE8E0DE99F4C7746F5000A2 /* Pods-AwesomeMedia_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-AwesomeMedia_Tests-umbrella.h"; sourceTree = "<group>"; };
 		0480CD6E71513FF342FD71E1F55CF16D /* RLMSyncSubscription.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RLMSyncSubscription.h; path = include/RLMSyncSubscription.h; sourceTree = "<group>"; };
 		04C29CDE151583D8525FEF5F24F41441 /* uuid.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = uuid.cpp; path = Realm/ObjectStore/src/util/uuid.cpp; sourceTree = "<group>"; };
@@ -1934,7 +1899,6 @@
 		0F6432ED53F0E753087F9C9E0C97DB57 /* Pods-AwesomeMedia_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-AwesomeMedia_Tests.modulemap"; sourceTree = "<group>"; };
 		0FB8F8DC1D89CFB84DD78ACF4051409F /* AMAVPlayerItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AMAVPlayerItem.swift; sourceTree = "<group>"; };
 		0FCB81E6E54F2D8B8E326A21C199AF3C /* ResourceBundle-AwesomeLoading-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-AwesomeLoading-Info.plist"; sourceTree = "<group>"; };
-		0FDF9CA2B1A9EF6E85F4D2273488D377 /* Gilroy-Heavy.otf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; path = "Gilroy-Heavy.otf"; sourceTree = "<group>"; };
 		102C70EF54452C0FCEC12825F6079431 /* LOTMaskContainer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LOTMaskContainer.h; path = "lottie-ios/Classes/AnimatableLayers/LOTMaskContainer.h"; sourceTree = "<group>"; };
 		103527A784058CA752CEF55663A1019E /* RLMRealmConfiguration+Sync.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "RLMRealmConfiguration+Sync.h"; path = "include/RLMRealmConfiguration+Sync.h"; sourceTree = "<group>"; };
 		103FA9DFF991C178802D1CB032781A51 /* AwesomeDownloading.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AwesomeDownloading.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -2269,7 +2233,6 @@
 		4B640E8927216E154DE6AD67D9902670 /* RLMObjectStore.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RLMObjectStore.h; path = include/RLMObjectStore.h; sourceTree = "<group>"; };
 		4B74816692464522B6EA50ED219A055E /* FLAnimatedImageView+WebCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "FLAnimatedImageView+WebCache.h"; path = "SDWebImage/FLAnimatedImage/FLAnimatedImageView+WebCache.h"; sourceTree = "<group>"; };
 		4B88588081D064D5B40DFCFB873497F4 /* AwesomeMedia.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; path = AwesomeMedia.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		4B96F23BBD34CEF93158F066F5FC67D0 /* Gilroy-ExtraBoldItalic.otf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; path = "Gilroy-ExtraBoldItalic.otf"; sourceTree = "<group>"; };
 		4BB05F661FE5376AEB23AAEC04AD3403 /* QuestRenditionDA.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = QuestRenditionDA.swift; path = AwesomeCore/Classes/DataAccess/QuestRenditionDA.swift; sourceTree = "<group>"; };
 		4BC0EB7E0F62C7BE956706AD740D1F4B /* youtube-ios-player-helper-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "youtube-ios-player-helper-umbrella.h"; sourceTree = "<group>"; };
 		4C2395FFE964EA73DE8950A3DD8AEDEF /* btn-app-purchase-highlighted@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "btn-app-purchase-highlighted@2x.png"; path = "AppboyUI/ABKFeedViewController/Feed_Resources/images/btn-app-purchase-highlighted@2x.png"; sourceTree = "<group>"; };
@@ -2286,7 +2249,6 @@
 		4EB276F1F7877B3B79B50F375154C48E /* AppboyFeedLocalizable.strings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = AppboyFeedLocalizable.strings; path = fi.lproj/AppboyFeedLocalizable.strings; sourceTree = "<group>"; };
 		4EB81679BAFB4B9F0B118E615E38DF11 /* QuestCategoryDA.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = QuestCategoryDA.swift; path = AwesomeCore/Classes/DataAccess/QuestCategoryDA.swift; sourceTree = "<group>"; };
 		4EC69E44972F372E469CF0C93F79E163 /* ABKNFCrossPromotionCardActionDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ABKNFCrossPromotionCardActionDelegate.h; path = AppboyUI/ABKFeedViewController/FeedViewController/Cells/ABKNFCrossPromotionCardActionDelegate.h; sourceTree = "<group>"; };
-		4F457B2FCB29530549EDD053CB6019AD /* Gilroy-Medium.otf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; path = "Gilroy-Medium.otf"; sourceTree = "<group>"; };
 		4FAC11226B0B1644D98A8BC9FC8E55C7 /* AppboyFeedLocalizable.strings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = AppboyFeedLocalizable.strings; path = lo.lproj/AppboyFeedLocalizable.strings; sourceTree = "<group>"; };
 		4FC7722F969847E6561AA621442A68BE /* QuestTask.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = QuestTask.swift; path = AwesomeCore/Classes/Model/QuestTask.swift; sourceTree = "<group>"; };
 		5049B18C70CDCA13DE8931BFC0B594EB /* LOTModels.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LOTModels.h; path = "lottie-ios/Classes/Models/LOTModels.h"; sourceTree = "<group>"; };
@@ -2403,7 +2365,6 @@
 		641244605F9E39B97E24DFB471AEA58E /* QuestSectionMP.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = QuestSectionMP.swift; path = AwesomeCore/Classes/ModelParser/QuestSectionMP.swift; sourceTree = "<group>"; };
 		645ABDB1F4BD0E1493E41935B550CC4C /* AwesomeTracking.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = AwesomeTracking.modulemap; sourceTree = "<group>"; };
 		647CC0C897DB3B393B6BE4C01ED28702 /* LOTBlockCallback.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LOTBlockCallback.m; path = "lottie-ios/Classes/Private/LOTBlockCallback.m"; sourceTree = "<group>"; };
-		648978271207EA7A31E26DD8B7AC7E2A /* Gilroy-MediumItalic.otf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; path = "Gilroy-MediumItalic.otf"; sourceTree = "<group>"; };
 		660F069BAED36572FB08C795BBF9D927 /* AwesomeMediaDismissAnimator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AwesomeMediaDismissAnimator.swift; sourceTree = "<group>"; };
 		6626F2EE9BF71A6F81E9CBC1794AE0BC /* SDWebImageFrame.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImageFrame.m; path = SDWebImage/SDWebImageFrame.m; sourceTree = "<group>"; };
 		662CC7EBAC60507F39A93760042C8D7C /* LOTLayer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LOTLayer.h; path = "lottie-ios/Classes/Models/LOTLayer.h"; sourceTree = "<group>"; };
@@ -2413,7 +2374,6 @@
 		66BB92E001B0B14D072FE2B3322BFBE9 /* AppboyFeedLocalizable.strings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = AppboyFeedLocalizable.strings; path = pl.lproj/AppboyFeedLocalizable.strings; sourceTree = "<group>"; };
 		6740AA2F35DEC734C27E07DAF88CA912 /* AppboyFeedLocalizable.strings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = AppboyFeedLocalizable.strings; path = my.lproj/AppboyFeedLocalizable.strings; sourceTree = "<group>"; };
 		6757404DDD7DC4C28F392ABC8504F580 /* Pods-AwesomeMedia_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-AwesomeMedia_Tests-frameworks.sh"; sourceTree = "<group>"; };
-		67A678AAB716EEB5EAE436C3673703DB /* Gilroy-SemiBoldItalic.otf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; path = "Gilroy-SemiBoldItalic.otf"; sourceTree = "<group>"; };
 		67BAC231B151C5510F3852329B8A8DCC /* LOTSizeInterpolator.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LOTSizeInterpolator.m; path = "lottie-ios/Classes/RenderSystem/InterpolatorNodes/LOTSizeInterpolator.m"; sourceTree = "<group>"; };
 		67C0220103025989A5A03534C501C855 /* Logger.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Logger.swift; path = Mixpanel/Logger.swift; sourceTree = "<group>"; };
 		67D630D2F36282479AEF1C28982BB2BB /* RLMListBase.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RLMListBase.h; path = include/RLMListBase.h; sourceTree = "<group>"; };
@@ -2490,7 +2450,6 @@
 		75F6C61B9019DB3ADCA6CB36EE38887C /* FBSDKCoreKit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBSDKCoreKit.h; path = FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit.h; sourceTree = "<group>"; };
 		761C84DF11DC7C9AE998FC90025225EC /* RLMCollection_Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RLMCollection_Private.h; path = include/RLMCollection_Private.h; sourceTree = "<group>"; };
 		76276108A97066543B5F98AAEB05FD82 /* FBSDKAccessTokenCacheV3.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FBSDKAccessTokenCacheV3.m; path = FBSDKCoreKit/FBSDKCoreKit/Internal/TokenCaching/FBSDKAccessTokenCacheV3.m; sourceTree = "<group>"; };
-		7628E326D6EA346039661915F5C1DC43 /* Gilroy-BoldItalic.otf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; path = "Gilroy-BoldItalic.otf"; sourceTree = "<group>"; };
 		764255F6147D3810E49C798AE4B444A6 /* FLAnimatedImage-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FLAnimatedImage-umbrella.h"; sourceTree = "<group>"; };
 		76878D53783CAFB8C3380CC0A6E26DC7 /* StringExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		769656AB9E544FFB07783EF972180E49 /* RLMRealm_Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RLMRealm_Private.h; path = include/RLMRealm_Private.h; sourceTree = "<group>"; };
@@ -2560,7 +2519,6 @@
 		82A8E40EDB91B5758E554C3967403EAE /* LOTAssetGroup.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LOTAssetGroup.h; path = "lottie-ios/Classes/Models/LOTAssetGroup.h"; sourceTree = "<group>"; };
 		82C51092A855511871EF78FC890AE0F3 /* ObjectSchema.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ObjectSchema.swift; path = RealmSwift/ObjectSchema.swift; sourceTree = "<group>"; };
 		82CDB949FEFCEC45F7203A91EFAE876E /* FacebookSDKStrings.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; path = FacebookSDKStrings.bundle; sourceTree = "<group>"; };
-		82E2F96A1961DF7A20D156D7128DF2F5 /* Gilroy-ExtraBold.otf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; path = "Gilroy-ExtraBold.otf"; sourceTree = "<group>"; };
 		83032644540172A166B7C3CD7D4748B5 /* ABKNewsFeedViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ABKNewsFeedViewController.h; path = AppboyUI/ABKFeedViewController/FeedViewController/ABKNewsFeedViewController.h; sourceTree = "<group>"; };
 		833C3A7940581C765147292FDD8A59C0 /* RLMRealm+Sync.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = "RLMRealm+Sync.mm"; path = "Realm/RLMRealm+Sync.mm"; sourceTree = "<group>"; };
 		83A1170F6FEEEF935D7A21264EA8FFFD /* _FBSDKTemporaryErrorRecoveryAttempter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = _FBSDKTemporaryErrorRecoveryAttempter.m; path = FBSDKCoreKit/FBSDKCoreKit/Internal/ErrorRecovery/_FBSDKTemporaryErrorRecoveryAttempter.m; sourceTree = "<group>"; };
@@ -2659,7 +2617,6 @@
 		94E471A580C086F7EE2E3013F80BD4A7 /* LOTComposition.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LOTComposition.h; path = "lottie-ios/Classes/PublicHeaders/LOTComposition.h"; sourceTree = "<group>"; };
 		952B250D718F231D114120F15C24FCE3 /* FBSDKCrypto.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBSDKCrypto.h; path = FBSDKCoreKit/FBSDKCoreKit/Internal/Cryptography/FBSDKCrypto.h; sourceTree = "<group>"; };
 		954C73308EE38D40F2853224B00C9F2C /* FBSDKURLSessionTask.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBSDKURLSessionTask.h; path = FBSDKCoreKit/FBSDKCoreKit/Internal/Network/FBSDKURLSessionTask.h; sourceTree = "<group>"; };
-		9601C6F8E71F9E192A51F31E29D66C1B /* Gilroy-RegularItalic.otf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; path = "Gilroy-RegularItalic.otf"; sourceTree = "<group>"; };
 		9601F8DF7E96AF9B3A805624B08DD01E /* CourseMP.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CourseMP.swift; path = AwesomeCore/Classes/ModelParser/CourseMP.swift; sourceTree = "<group>"; };
 		968332A794E00AC55CDDC495D732C225 /* MPCloseButton@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "MPCloseButton@3x.png"; path = "Mixpanel/MPCloseButton@3x.png"; sourceTree = "<group>"; };
 		96A9BDD995C2DE1121CF79F48AE9FA5C /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/CoreText.framework; sourceTree = DEVELOPER_DIR; };
@@ -2826,7 +2783,6 @@
 		B2E1E5CD280440029D3FDC5D8BBF59A9 /* BFURL.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BFURL.m; path = Bolts/iOS/BFURL.m; sourceTree = "<group>"; };
 		B2F99DB6E24B80CF9F8C53303F085FC2 /* UIButton+WebCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIButton+WebCache.m"; path = "SDWebImage/UIButton+WebCache.m"; sourceTree = "<group>"; };
 		B2FD4C411BD21536BF1EE57A3A1F0041 /* Resource.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Resource.swift; path = Sources/Resource.swift; sourceTree = "<group>"; };
-		B30518532405C43A25ACBA2D6B50959A /* Gilroy-HeavyItalic.otf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; path = "Gilroy-HeavyItalic.otf"; sourceTree = "<group>"; };
 		B30606B53487D99C0EA94B9A8150079B /* ObjectFilter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ObjectFilter.swift; path = Mixpanel/ObjectFilter.swift; sourceTree = "<group>"; };
 		B31FF7C1EDF8B8DB020B106A8753E193 /* LOTNumberInterpolator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LOTNumberInterpolator.h; path = "lottie-ios/Classes/RenderSystem/InterpolatorNodes/LOTNumberInterpolator.h"; sourceTree = "<group>"; };
 		B333F715988F46556CDB0981FC3AB104 /* Optional.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Optional.swift; path = RealmSwift/Optional.swift; sourceTree = "<group>"; };
@@ -2998,7 +2954,6 @@
 		D1DFAFDF59B21FA380C682E08B167F10 /* AwesomeImage-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AwesomeImage-umbrella.h"; sourceTree = "<group>"; };
 		D1ED2644D7AF1F7F67B4E0D83AAD2460 /* Bolts.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = Bolts.m; path = Bolts/Common/Bolts.m; sourceTree = "<group>"; };
 		D1FCF35FB1539AFA7707679840067CC3 /* FBSDKServerConfigurationManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FBSDKServerConfigurationManager.m; path = FBSDKCoreKit/FBSDKCoreKit/Internal/ServerConfiguration/FBSDKServerConfigurationManager.m; sourceTree = "<group>"; };
-		D2301E513B206A7A7482B3779E62AB13 /* Gilroy-BlackItalic.otf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; path = "Gilroy-BlackItalic.otf"; sourceTree = "<group>"; };
 		D24E5018B930D2B524D07A31FC1A76A4 /* SHA256.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SHA256.swift; path = Mixpanel/SHA256.swift; sourceTree = "<group>"; };
 		D2569B5366B11B4F0C7B9345B2D8AB44 /* network_reachability_observer.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = network_reachability_observer.cpp; path = Realm/ObjectStore/src/sync/impl/apple/network_reachability_observer.cpp; sourceTree = "<group>"; };
 		D293B9CA9D92FF0AE8A6E442FF8A2471 /* UIViewExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
@@ -3087,7 +3042,6 @@
 		DF52B3803FCC16E4A87EEC464932E79F /* FBSDKSwizzler.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FBSDKSwizzler.m; path = FBSDKCoreKit/FBSDKCoreKit/Internal/FBSDKSwizzler.m; sourceTree = "<group>"; };
 		DF59A4C543D11EA1235208AA9B6FAFE2 /* Object.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Object.swift; path = RealmSwift/Object.swift; sourceTree = "<group>"; };
 		DF94645CC15C550A5EDB4A3888E5408F /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DFA65DC2AABE9F9FFCA1EC997A7957C2 /* Gilroy-LightItalic.otf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; path = "Gilroy-LightItalic.otf"; sourceTree = "<group>"; };
 		DFA95A99DC292EB2FC89004E8BEDE5A3 /* QuestSectionInfoMP.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = QuestSectionInfoMP.swift; path = AwesomeCore/Classes/ModelParser/QuestSectionInfoMP.swift; sourceTree = "<group>"; };
 		E0628275D8A96F11DC9ABD005461B3A9 /* LOTRenderNode.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LOTRenderNode.h; path = "lottie-ios/Classes/RenderSystem/LOTRenderNode.h"; sourceTree = "<group>"; };
 		E0671119BFBA91717C65F58C7F1C7E1F /* img-noimage-lrg.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "img-noimage-lrg.png"; path = "AppboyUI/ABKFeedViewController/Feed_Resources/images/img-noimage-lrg.png"; sourceTree = "<group>"; };
@@ -3111,7 +3065,6 @@
 		E356600EAE806871803E07780221C12C /* FBSDKGraphRequestPiggybackManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FBSDKGraphRequestPiggybackManager.m; path = FBSDKCoreKit/FBSDKCoreKit/Internal/Network/FBSDKGraphRequestPiggybackManager.m; sourceTree = "<group>"; };
 		E388DDFC8AF29069711C5775BFEBEED5 /* AwesomeLoading.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = AwesomeLoading.xcconfig; sourceTree = "<group>"; };
 		E3C77AD5D8CF0F6A6EB22B92C82C760E /* AuthorMP.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AuthorMP.swift; path = AwesomeCore/Classes/ModelParser/AuthorMP.swift; sourceTree = "<group>"; };
-		E3F4A4426C145AC1EA6EC085D900F83A /* Gilroy-Bold.otf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; path = "Gilroy-Bold.otf"; sourceTree = "<group>"; };
 		E41D049DF4457A2710FC7A592CC124CF /* Mixpanel-swift.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Mixpanel-swift.xcconfig"; sourceTree = "<group>"; };
 		E47A7788A77BF9297ADE58546D42DB23 /* BFExecutor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BFExecutor.h; path = Bolts/Common/BFExecutor.h; sourceTree = "<group>"; };
 		E4DF9FBE656776AA298119461BB84F22 /* QuestCaptionMP.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = QuestCaptionMP.swift; path = AwesomeCore/Classes/ModelParser/QuestCaptionMP.swift; sourceTree = "<group>"; };
@@ -3163,7 +3116,6 @@
 		EB72A9968BC50AEE50A7971622F990AA /* AwesomeMedia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AwesomeMedia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB9E9328CD7EA605AECFDBD2C21522FA /* lottie-ios.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "lottie-ios.xcconfig"; sourceTree = "<group>"; };
 		EBC0D319473278ABC2B6F6FF1D3FE37D /* LOTFillRenderer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LOTFillRenderer.h; path = "lottie-ios/Classes/RenderSystem/RenderNodes/LOTFillRenderer.h"; sourceTree = "<group>"; };
-		EBC8CD17F275D8F72A7A1D1755958D47 /* Gilroy-SemiBold.otf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; path = "Gilroy-SemiBold.otf"; sourceTree = "<group>"; };
 		EBCE3CFACCE04AFFC7D98E31E6428F3C /* Lottie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Lottie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBD16E8BAC2C5CE405A305B6CD933644 /* LOTAnimatorNode.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LOTAnimatorNode.h; path = "lottie-ios/Classes/RenderSystem/LOTAnimatorNode.h"; sourceTree = "<group>"; };
 		EC170D75DBFF894E0FDE8564054ECD35 /* QuizResultsCoursesBO.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = QuizResultsCoursesBO.swift; path = AwesomeCore/Classes/BusinessObjects/QuizResultsCoursesBO.swift; sourceTree = "<group>"; };
@@ -3236,7 +3188,6 @@
 		F96BC00A9A227D5EB07819BCBB60612D /* AppboyFeedbackLocalizable.strings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = AppboyFeedbackLocalizable.strings; path = es.lproj/AppboyFeedbackLocalizable.strings; sourceTree = "<group>"; };
 		F9E5593E7E6F964052131CA771CDD9D9 /* LOTShapeRepeater.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LOTShapeRepeater.m; path = "lottie-ios/Classes/Models/LOTShapeRepeater.m"; sourceTree = "<group>"; };
 		FA1DC434D6D322FE6D81F7F2504EFD24 /* MPCloseButton.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = MPCloseButton.png; path = Mixpanel/MPCloseButton.png; sourceTree = "<group>"; };
-		FA753C17C630E57BD058247E0452868F /* Gilroy-Black.otf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; path = "Gilroy-Black.otf"; sourceTree = "<group>"; };
 		FAA7B4C12432BC17D47A4000D3154216 /* ABKInAppMessageWindowController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ABKInAppMessageWindowController.h; path = AppboyUI/InAppMessage/ViewControllers/ABKInAppMessageWindowController.h; sourceTree = "<group>"; };
 		FAB665924D37B43B703C2D29E0245633 /* RLMSyncPermission.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = RLMSyncPermission.mm; path = Realm/RLMSyncPermission.mm; sourceTree = "<group>"; };
 		FAE0B93C598250F33810900B2696C981 /* NSImage+WebCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSImage+WebCache.m"; path = "SDWebImage/NSImage+WebCache.m"; sourceTree = "<group>"; };
@@ -3575,7 +3526,6 @@
 			isa = PBXGroup;
 			children = (
 				9D0E28DFE775F2B29184F3166254DBB6 /* Assets.xcassets */,
-				62F8CCE214D8C9458CD21B8D107DBB8F /* Gilroy */,
 				C4B121CB72C8B4D39D336F46292D1216 /* Views */,
 			);
 			name = Resources;
@@ -4321,30 +4271,6 @@
 			);
 			name = AwesomeMedia;
 			path = ../..;
-			sourceTree = "<group>";
-		};
-		62F8CCE214D8C9458CD21B8D107DBB8F /* Gilroy */ = {
-			isa = PBXGroup;
-			children = (
-				FA753C17C630E57BD058247E0452868F /* Gilroy-Black.otf */,
-				D2301E513B206A7A7482B3779E62AB13 /* Gilroy-BlackItalic.otf */,
-				E3F4A4426C145AC1EA6EC085D900F83A /* Gilroy-Bold.otf */,
-				7628E326D6EA346039661915F5C1DC43 /* Gilroy-BoldItalic.otf */,
-				82E2F96A1961DF7A20D156D7128DF2F5 /* Gilroy-ExtraBold.otf */,
-				4B96F23BBD34CEF93158F066F5FC67D0 /* Gilroy-ExtraBoldItalic.otf */,
-				0FDF9CA2B1A9EF6E85F4D2273488D377 /* Gilroy-Heavy.otf */,
-				B30518532405C43A25ACBA2D6B50959A /* Gilroy-HeavyItalic.otf */,
-				00CEF688369EADB6EC44AE76687799EE /* Gilroy-Light.otf */,
-				DFA65DC2AABE9F9FFCA1EC997A7957C2 /* Gilroy-LightItalic.otf */,
-				4F457B2FCB29530549EDD053CB6019AD /* Gilroy-Medium.otf */,
-				648978271207EA7A31E26DD8B7AC7E2A /* Gilroy-MediumItalic.otf */,
-				03B6B65201C3601C3B1F9102E790139C /* Gilroy-Regular.otf */,
-				9601C6F8E71F9E192A51F31E29D66C1B /* Gilroy-RegularItalic.otf */,
-				EBC8CD17F275D8F72A7A1D1755958D47 /* Gilroy-SemiBold.otf */,
-				67A678AAB716EEB5EAE436C3673703DB /* Gilroy-SemiBoldItalic.otf */,
-			);
-			name = Gilroy;
-			path = AwesomeMedia/Assets/Gilroy;
 			sourceTree = "<group>";
 		};
 		638294B4215497C4B6FB3B52B6992114 /* AwesomeLoading */ = {
@@ -6866,7 +6792,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0965C178B98DD6172BF920A0ED94B9AB /* Assets.xcassets in Resources */,
 				762721DE0C177148D4F8CFF359A46190 /* AwesomeMedia.storyboard in Resources */,
 				0773DAC395F0A68BB8BBA426CE3D9076 /* AwesomeMediaAudioPlayerView.xib in Resources */,
 				E4F4387437D9F77426E0528556491509 /* AwesomeMediaAudioTableViewCell.xib in Resources */,
@@ -6877,22 +6802,6 @@
 				F6BC7066C98EF0DC02EF3A9A1EFB1339 /* AwesomeMediaVideoTitleView.xib in Resources */,
 				C9AF8E62BB6C0AA563305BC988D4F247 /* AwesomeMediaYoutubeTableViewCell.xib in Resources */,
 				F98300AC9DDA8657B5585B099164316F /* AwesomeMediaYoutubeView.xib in Resources */,
-				F14B483937B0D9F80ADB0F573E743EA1 /* Gilroy-Black.otf in Resources */,
-				F48590D0C682A3715031AAFAC61D8BF1 /* Gilroy-BlackItalic.otf in Resources */,
-				CD8B0A088514D3AA4A0719B152FEBB51 /* Gilroy-Bold.otf in Resources */,
-				FD1CDC808C3DFDDC8BEF08A95E87B0EA /* Gilroy-BoldItalic.otf in Resources */,
-				1691668E7C227BB4FB7462D23AF4AFC5 /* Gilroy-ExtraBold.otf in Resources */,
-				B3387D000EF8AF9649F3B9C3AC07EDCB /* Gilroy-ExtraBoldItalic.otf in Resources */,
-				EB5ECC52A2C0F76ECC06AF70DA0C933B /* Gilroy-Heavy.otf in Resources */,
-				D0309AA70E63333B9D1A021C2C3508B1 /* Gilroy-HeavyItalic.otf in Resources */,
-				743943B9923A547A24FE57472A506B87 /* Gilroy-Light.otf in Resources */,
-				BC3A6123E49E45BF829B1D9184183287 /* Gilroy-LightItalic.otf in Resources */,
-				D309BE082CCB7E48C6C5F18D39BA0AC4 /* Gilroy-Medium.otf in Resources */,
-				883C54DA3F797AB53965727D0FE33878 /* Gilroy-MediumItalic.otf in Resources */,
-				8C7D599A54208E37E5940C5C471820E3 /* Gilroy-Regular.otf in Resources */,
-				C6E1235F2EDA9175BA52B2CE5971E45A /* Gilroy-RegularItalic.otf in Resources */,
-				B299ADD1F4820EC8E3533A3A65B5C236 /* Gilroy-SemiBold.otf in Resources */,
-				AA953E51E0731C628B7E031047D56F87 /* Gilroy-SemiBoldItalic.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -6935,22 +6844,6 @@
 				19FEF89A5AB594963BA5D46AD9968F9A /* AwesomeMediaVideoTitleView.xib in Resources */,
 				9B8CE8543C42F47F5AC8FC128083EAAB /* AwesomeMediaYoutubeTableViewCell.xib in Resources */,
 				77FCF202607152B255F925B66D458AD3 /* AwesomeMediaYoutubeView.xib in Resources */,
-				E185C3B92F1312E77E42AE8C706F0B0B /* Gilroy-Black.otf in Resources */,
-				580C912682E1FE3CF1D18278C33797E6 /* Gilroy-BlackItalic.otf in Resources */,
-				8AE0EE3C2FBC721649021F8DB6802BDC /* Gilroy-Bold.otf in Resources */,
-				5BE66439BE604A3B5480AFF3C68B0D55 /* Gilroy-BoldItalic.otf in Resources */,
-				7A8460A008738992F58565B59F5B7E90 /* Gilroy-ExtraBold.otf in Resources */,
-				C8D9DFC382B4D97346C7663978D30DD3 /* Gilroy-ExtraBoldItalic.otf in Resources */,
-				6909BED15A58B004E8DA18DD46375862 /* Gilroy-Heavy.otf in Resources */,
-				4F4F3D68B6CD25A0AAE04C6A3C029EE5 /* Gilroy-HeavyItalic.otf in Resources */,
-				28AF149D1FA61AF41AE87C2A04E10F83 /* Gilroy-Light.otf in Resources */,
-				2B2A5BDDF220A128A7460C59CE792CC0 /* Gilroy-LightItalic.otf in Resources */,
-				1E2DCB25731508937432981CC7E24827 /* Gilroy-Medium.otf in Resources */,
-				BAC4501145BA5E794832DE23666D2DBE /* Gilroy-MediumItalic.otf in Resources */,
-				490009839E94092ADAAF28DB86CF572D /* Gilroy-Regular.otf in Resources */,
-				2F36BB9807F7F4B0BD7CAC848B42B68B /* Gilroy-RegularItalic.otf in Resources */,
-				9B0CBB5A4CB1DEA34F1FF22CB8BC91C5 /* Gilroy-SemiBold.otf in Resources */,
-				E8E1B91B5A979FCC7CB242CE232960F0 /* Gilroy-SemiBoldItalic.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

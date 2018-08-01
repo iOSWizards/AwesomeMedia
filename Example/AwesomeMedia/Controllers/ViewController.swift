@@ -26,22 +26,36 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
+    // Testing Variables
+    public static let testVideoURL = "https://overmind2.mvstg.com/api/v1/assets/0af656fc-dcde-45ad-9b59-7632ca247001.m3u8"
+    public static let testVideoURL2 = "http://overmind2.mindvalleyacademy.com/api/v1/assets/cb19bc38-d804-4c30-b1f1-79d28d9d71d4.m3u8"
+    public static let testVideoURL3 = "http://overmind2.mindvalleyacademy.com/api/v1/assets/b78856cc-d0f0-4069-b1e1-9dbbe47b4df6.m3u8"
+    public static let testMediaMarkers = [AwesomeMediaMarker(title: "Intro", time: 120),
+                                          AwesomeMediaMarker(title: "About WildFit", time: 360),
+                                          AwesomeMediaMarker(title: "Day 1", time: 420),
+                                          AwesomeMediaMarker(title: "Test Marker 1", time: 422),
+                                          AwesomeMediaMarker(title: "Test Marker 2", time: 424),
+                                          AwesomeMediaMarker(title: "Test Marker 3", time: 426),
+                                          AwesomeMediaMarker(title: "Test Marker 4", time: 428),
+                                          AwesomeMediaMarker(title: "Test Marker 5", time: 430),
+                                          AwesomeMediaMarker(title: "Test Marker 6", time: 440),
+                                          AwesomeMediaMarker(title: "Test Marker 7", time: 441)]
+    public static let testAudioURL = "https://archive.org/download/VirtualHaircut/virtualbarbershop.mp3"
+    public static let testPDFURL = "https://www.paloaltonetworks.com/content/dam/pan/en_US/assets/pdf/datasheets/wildfire/wildfire-ds.pdf"
+    
     let cells: [MediaCell] = [
         MediaCell(type: .video,
                   mediaParams: AwesomeMediaParams(
-                    url: "https://overmind2.mvstg.com/api/v1/assets/05f9aea7-9c70-4cbc-a891-2b04805801e3.mp4",
+                    url: "https://overmind2.mvstg.com/api/v1/assets/7cdddc7f-7344-4eee-8f05-eaeb49cc11ec.m3u8",
                     coverUrl: "https://thumbs.dreamstime.com/z/awesome-word-cloud-explosion-background-51481417.jpg",
                     author: "John",
                     title: "Caption test",
                     duration: 120,
-                    markers: AwesomeMediaManager.testMediaMarkers,
-                    captions: [AwesomeMediaCaption(url: "https://overmind2.mvstg.com/api/v1/assets/cd2b9789-13f8-4e40-b4cb-a1c75a07f6f7.vtt", label: "Danish", language: "de", isDefault: false),
-                               AwesomeMediaCaption(url: "https://overmind2.mvstg.com/api/v1/assets/1a06d26b-ceb1-439a-99ea-6071a95e25d4.vtt", label: "Spanish", language: "es", isDefault: false),
-                               AwesomeMediaCaption(url: "https://overmind2.mvstg.com/api/v1/assets/f9d83a3b-c9b3-464c-8b20-4a2a4735a015.vtt", label: "English", language: "en", isDefault: true)],
-                    params: ["id":"45"])),
+                    markers: testMediaMarkers,
+                    params: ["id":"123"])),
         MediaCell(type: .audio,
                   mediaParams: AwesomeMediaParams(
-                    url: AwesomeMediaManager.testAudioURL,
+                    url: testAudioURL,
                     coverUrl: "https://i.ytimg.com/vi/fwLuHqMMonc/0.jpg",
                     author: "The barber",
                     title: "Virtual Barbershop",
@@ -50,7 +64,7 @@ class ViewController: UIViewController {
                     params: ["id":"45"])),
         MediaCell(type: .file,
                   mediaParams: AwesomeMediaParams(
-                    url: AwesomeMediaManager.testPDFURL,
+                    url: testPDFURL,
                     coverUrl: "https://i0.wp.com/res.cloudinary.com/changethatmind/image/upload/v1501884914/wildfitsales.png?fit=500%2C500&ssl=1",
                     author: "Eric Mendez",
                     title: "Wildfit",
@@ -62,12 +76,12 @@ class ViewController: UIViewController {
                     coverUrl: "https://www.awesometlv.co.il/wp-content/uploads/2016/01/awesome_logo-01.png")),
         MediaCell(type: .video,
                   mediaParams: AwesomeMediaParams(
-                    url: AwesomeMediaManager.testVideoURL,
+                    url: testVideoURL,
                     coverUrl: "https://i0.wp.com/res.cloudinary.com/changethatmind/image/upload/v1501884914/wildfitsales.png?fit=500%2C500&ssl=1",
                     author: "Eric Mendez",
                     title: "WildFit 2",
                     duration: 12312,
-                    markers: AwesomeMediaManager.testMediaMarkers,
+                    markers: testMediaMarkers,
                     params: ["id":"45"])),
         MediaCell(type: .image,
                   mediaParams: AwesomeMediaParams(
@@ -79,7 +93,7 @@ class ViewController: UIViewController {
                     author: "Eric Mendez",
                     title: "WildFit 3",
                     duration: 33222,
-                    markers: AwesomeMediaManager.testMediaMarkers,
+                    markers: testMediaMarkers,
                     params: ["id":"45"])),
         MediaCell(type: .youtube,
                   mediaParams: AwesomeMediaParams(

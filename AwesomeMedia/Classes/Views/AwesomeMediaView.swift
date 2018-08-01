@@ -113,6 +113,9 @@ public class AwesomeMediaView: UIView {
                     inPlayerLayer: AwesomeMediaPlayerLayer.shared,
                     viewController: self.parentViewController)
                 
+                // update caption button based on current item
+                self.titleView?.updateCaptionButtonBasedOnCurrentItem()
+                
                 // adds player layer
                 self.addPlayerLayer()
             } else {
@@ -156,8 +159,9 @@ public class AwesomeMediaView: UIView {
         
         // show captions menu
         titleView?.captionsCallback = {
-            self.parentViewController?.showCaptions(self.mediaParams.captions, current: self.mediaParams.currentCaption) { (caption) in
-                sharedAVPlayer.currentItem?.setCaption(caption, mediaParams: self.mediaParams)
+            self.parentViewController?.showCaptions { (caption) in
+                let selected = sharedAVPlayer.currentItem?.selectSubtitle(caption)
+                print("\(caption ?? "none") caption selected: \(selected ?? false)")
             }
         }
     }
