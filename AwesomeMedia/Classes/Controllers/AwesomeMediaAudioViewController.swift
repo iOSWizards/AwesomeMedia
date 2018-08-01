@@ -174,6 +174,7 @@ public class AwesomeMediaAudioViewController: UIViewController {
     fileprivate func deleteMedia() {
         sharedAVPlayer.stop()
         self.confirmMediaDeletion(withUrl: mediaParams.url?.url,
+                                  fromView: downloadButton,
                                   withTitle: "availableoffline_delete_title".localized,
                                   withMessage: "availableoffline_delete_message".localized,
                                   withConfirmButtonTitle: "availableoffline_delete_button_confirm".localized,
