@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import AwesomeLoading
+import AwesomeUIMagic
 import Kingfisher
 
 extension UIImage {

@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import AwesomeLoading
+import AwesomeUIMagic
 import Kingfisher
 
 //private var loadedUrlAssociationKey: String = ""

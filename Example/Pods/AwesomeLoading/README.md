@@ -20,35 +20,15 @@ AwesomeLoading is available through [CocoaPods](http://cocoapods.org). To instal
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod 'AwesomeLoading', git: 'https://github.com/iOSWizards/AwesomeLoading', tag: '0.1.5'
+pod "AwesomeLoading", git: 'https://github.com/Mindvalley/Mobile_iOS_Library_AwesomeLoading', tag: '0.1.3'
 ```
 ## Usage
 
 Import AwesomeLoading to your class, from any UIView in the project:
-
-**Start Custom Animation:** viewName.`startLoadingAnimation(json: "customLoadingJSONFileName")`
-
-**Start Custom Animation from Separate Bundle:** viewName.`startLoadingAnimation(json: "customLoadingJSONFileName", bundle: Custom.bundle)`
-
-**Start Default ActivityIndicator Animation:** viewName.`startLoadingAnimation()`
-
-**Start (DELAYED) Custom Animation:** viewName.`startLoadingAnimationDelayed(delay: 3.0,json: "customLoadingJSONFileName", bundle: Custom.bundle)`
-
-**Stop Animation:** viewName.`stopLoadingAnimation()`
-
-### For default animations:
-
-First:
-**Default Json:** `AwesomeLoading.defaultAnimationJson = "beacon"`
-
-**Default Bundle:** `AwesomeLoading.defaultAnimationBundle = Bundle.main`
-
-**Default Size:** `AwesomeLoading.defaultAnimationSize = CGSize(width: 100, height: 100)`
-
-Then:
-**Default animation:** viewName.`startLoadingAnimation()`
+**Start animation:** viewName.`startLoadingAnimation()`
+**Stop animation:** viewName.`stopLoadingAnimation()`
 
 ## License
 
-AwesomeLoading is available under the MIT license. See the LICENSE file for more info.
+Mobile_iOS_Library_AwesomeLoading is available under the MIT license. See the LICENSE file for more info.
 

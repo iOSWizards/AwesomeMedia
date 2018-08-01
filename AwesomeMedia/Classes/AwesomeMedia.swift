@@ -16,7 +16,7 @@ public class AwesomeMedia {
     public static var shouldLockControlsWhenBuffering = true
     public static var showLogs = true
     public static var backwardForwardStep: Double = 10
-    public static var bufferTimeout: Double = 20
+    public static var bufferTimeout: Double = 10
     public static var shouldStopVideoWhenCloseFullScreen: Bool = false
     
     public static var bundle: Bundle {

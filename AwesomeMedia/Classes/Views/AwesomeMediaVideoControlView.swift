@@ -24,7 +24,6 @@ public class AwesomeMediaVideoControlView: AwesomeMediaControlView {
     @IBOutlet public weak var pausedView: UIView!
     @IBOutlet public weak var playingView: UIView!
     @IBOutlet public weak var timeLabel: UILabel!
-    @IBOutlet public weak var progressView: UIProgressView!
     
     // Callbacks
     public var fullscreenCallback: FullScreenCallback?
@@ -107,9 +106,6 @@ public class AwesomeMediaVideoControlView: AwesomeMediaControlView {
         if !states.contains(.info) || !shouldShowInfo {
             pausedView.isHidden = true
             playingView.isHidden = false
-            
-            // hide progressView if started playing at least once.
-            progressView.isHidden = true
         }
     }
     

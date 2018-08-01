@@ -1,0 +1,27 @@
+
+"Off" = "Via";
+"hour" = "ora";
+"hours" = "ore";
+"min" = "min";
+"mins" = "min";
+"minute" = "minuto";
+"minutes" = "minuti";
+"second" = "secondo";
+"seconds" = "secondi";
+
+"downloading" = "IN SCARICAMENTO...";
+"availableoffline" = "DISPONIBILE OFFLINE";
+"availableoffline_delete_title" = "Rimuovi la traccia offline";
+"availableoffline_delete_message" = "Vuoi rimuovere la traccia dal dispositivo? Sarai in grado di riprodurre la traccia solo quando sei online.";
+"availableoffline_delete_button_confirm" = "Sì! RIMUOVI";
+"availableoffline_delete_button_cancel" = "CANCELLA";
+
+"failed_to_play_title" = "Ops";
+"failed_to_play" = "Impossibile caricare i media.\nSi prega di verificare la connessione Internet.";
+"wait" = "Aspettare";
+"cancel" = "Annulla";
+
+"no_internet_title" = "La tua connessione sembra assente";
+"no_internet" = "Mantieni la calma, indossa la cintura di sicurezza e aggiorna per riprovare.";
+"retry" = "Riprova ";
+"ok" = "Ok";

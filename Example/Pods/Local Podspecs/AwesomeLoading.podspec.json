@@ -1,9 +1,9 @@
 {
   "name": "AwesomeLoading",
-  "version": "0.1.5",
-  "summary": "Loading JSON Animation for your Apps",
-  "description": "Loading JSON Animation for your Apps",
-  "homepage": "https://github.com/iOSWizards/AwesomeLoading",
+  "version": "0.1.3",
+  "summary": "Loading animation for MV apps",
+  "description": "Loading animation for MV apps",
+  "homepage": "https://github.com/Mindvalley/Mobile_iOS_Library_AwesomeLoading",
   "license": {
     "type": "MIT",
     "file": "LICENSE"
@@ -12,8 +12,8 @@
     "evandro@mindvalley.com": "evandro@mindvalley.com"
   },
   "source": {
-    "git": "https://github.com/iOSWizards/AwesomeLoading.git",
-    "tag": "0.1.5"
+    "git": "https://github.com/Mindvalley/Mobile_iOS_Library_AwesomeLoading.git",
+    "tag": "0.1.3"
   },
   "platforms": {
     "ios": "9.0"

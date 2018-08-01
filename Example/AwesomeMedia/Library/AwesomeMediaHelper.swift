@@ -14,6 +14,7 @@ class AwesomeMediaHelper {
     
     static func start() {
 //        BitmovinTracking.configure(with: "testingKey")
+        AwesomeMediaHelper.shared.addObservers()
     }
     
     static func stop() {
@@ -39,4 +40,128 @@ class AwesomeMediaHelper {
         AwesomeMedia.registerImageCell(to: tableView, withIdentifier: MediaType.image.rawValue)
         AwesomeMedia.registerYoutubeCell(to: tableView, withIdentifier: MediaType.youtube.rawValue)
     }
+}
+
+extension AwesomeMediaHelper: AwesomeMediaTrackingObserver {
+    
+    func addObservers() {
+        AwesomeMediaTrackingNotificationCenter.addObservers(to: AwesomeMediaHelper.shared)
+    }
+    
+    func removeObservers() {
+        AwesomeMediaTrackingNotificationCenter.removeObservers(from: AwesomeMediaHelper.shared)
+    }
+    
+    func startedPlaying(_ sender: Notification?) {
+        log(notification: sender)
+    }
+    
+    func stoppedPlaying(_ sender: Notification?) {
+        log(notification: sender)
+    }
+    
+    func sliderChanged(_ sender: Notification?) {
+        log(notification: sender)
+    }
+    
+    func toggleFullscreen(_ sender: Notification?) {
+        log(notification: sender)
+    }
+    
+    func closeFullscreen(_ sender: Notification?) {
+        log(notification: sender)
+    }
+    
+    func openedMarkers(_ sender: Notification?) {
+        log(notification: sender)
+    }
+    
+    func closedMarkers(_ sender: Notification?) {
+        log(notification: sender)
+    }
+    
+    func selectedMarker(_ sender: Notification?) {
+        log(notification: sender)
+    }
+    
+    func openedCaptions(_ sender: Notification?) {
+        log(notification: sender)
+    }
+    
+    func closedCaptions(_ sender: Notification?) {
+        log(notification: sender)
+    }
+    
+    func selectedCaption(_ sender: Notification?) {
+        log(notification: sender)
+    }
+    
+    func toggledSpeed(_ sender: Notification?) {
+        log(notification: sender)
+    }
+    
+    func tappedRewind(_ sender: Notification?) {
+        log(notification: sender)
+    }
+    
+    func tappedAdvance(_ sender: Notification?) {
+        log(notification: sender)
+    }
+    
+    func tappedAirplay(_ sender: Notification?) {
+        log(notification: sender)
+    }
+    
+    func changedOrientation(_ sender: Notification?) {
+        log(notification: sender)
+    }
+    
+    func openedFullscreenWithRotation(_ sender: Notification?) {
+        log(notification: sender)
+    }
+    
+    func tappedDownload(_ sender: Notification?) {
+        log(notification: sender)
+    }
+    
+    func deletedDownload(_ sender: Notification?) {
+        log(notification: sender)
+    }
+    
+    func didTimeOut(_ sender: Notification?) {
+        log(notification: sender)
+    }
+    
+    func timeoutCancel(_ sender: Notification?) {
+        log(notification: sender)
+    }
+    
+    func timeoutWait(_ sender: Notification?) {
+        log(notification: sender)
+    }
+    
+    func playingInBackground(_ sender: Notification?) {
+        log(notification: sender)
+    }
+    
+    fileprivate func log(notification: Notification?) {
+        guard let notification = notification else {
+            return
+        }
+        
+        guard let trackingObject = notification.object as? AwesomeMediaTrackingObject else {
+            return
+        }
+        
+        var string = "tracking \(trackingObject.source.rawValue): \(notification.name.rawValue)"
+        
+        if let value = trackingObject.value {
+            string.append(" with value: \(value)")
+        }
+        
+        string.append(" params: [\(trackingObject.params)]")
+        
+        print(string)
+    }
+    
 }
