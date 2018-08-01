@@ -212,6 +212,7 @@
 				607FACCD1AFB9204008FA782 /* Frameworks */,
 				607FACCE1AFB9204008FA782 /* Resources */,
 				AF873AF9B599D71CF62186D2 /* [CP] Embed Pods Frameworks */,
+				0D369075F54CF4637E97FD62 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -309,6 +310,86 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0D369075F54CF4637E97FD62 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-AwesomeMedia_Example/Pods-AwesomeMedia_Example-resources.sh",
+				"${PODS_ROOT}/../../AwesomeMedia/Assets/Views/AwesomeMedia.storyboard",
+				"${PODS_ROOT}/../../AwesomeMedia/Assets/Views/AwesomeMediaAudioPlayerView.xib",
+				"${PODS_ROOT}/../../AwesomeMedia/Assets/Views/AwesomeMediaAudioTableViewCell.xib",
+				"${PODS_ROOT}/../../AwesomeMedia/Assets/Views/AwesomeMediaFileTableViewCell.xib",
+				"${PODS_ROOT}/../../AwesomeMedia/Assets/Views/AwesomeMediaImageTableViewCell.xib",
+				"${PODS_ROOT}/../../AwesomeMedia/Assets/Views/AwesomeMediaVideoControlView.xib",
+				"${PODS_ROOT}/../../AwesomeMedia/Assets/Views/AwesomeMediaVideoTableViewCell.xib",
+				"${PODS_ROOT}/../../AwesomeMedia/Assets/Views/AwesomeMediaVideoTitleView.xib",
+				"${PODS_ROOT}/../../AwesomeMedia/Assets/Views/AwesomeMediaYoutubeTableViewCell.xib",
+				"${PODS_ROOT}/../../AwesomeMedia/Assets/Views/AwesomeMediaYoutubeView.xib",
+				"${PODS_ROOT}/../../AwesomeMedia/Assets/Gilroy/Gilroy-Black.otf",
+				"${PODS_ROOT}/../../AwesomeMedia/Assets/Gilroy/Gilroy-BlackItalic.otf",
+				"${PODS_ROOT}/../../AwesomeMedia/Assets/Gilroy/Gilroy-Bold.otf",
+				"${PODS_ROOT}/../../AwesomeMedia/Assets/Gilroy/Gilroy-BoldItalic.otf",
+				"${PODS_ROOT}/../../AwesomeMedia/Assets/Gilroy/Gilroy-ExtraBold.otf",
+				"${PODS_ROOT}/../../AwesomeMedia/Assets/Gilroy/Gilroy-ExtraBoldItalic.otf",
+				"${PODS_ROOT}/../../AwesomeMedia/Assets/Gilroy/Gilroy-Heavy.otf",
+				"${PODS_ROOT}/../../AwesomeMedia/Assets/Gilroy/Gilroy-HeavyItalic.otf",
+				"${PODS_ROOT}/../../AwesomeMedia/Assets/Gilroy/Gilroy-Light.otf",
+				"${PODS_ROOT}/../../AwesomeMedia/Assets/Gilroy/Gilroy-LightItalic.otf",
+				"${PODS_ROOT}/../../AwesomeMedia/Assets/Gilroy/Gilroy-Medium.otf",
+				"${PODS_ROOT}/../../AwesomeMedia/Assets/Gilroy/Gilroy-MediumItalic.otf",
+				"${PODS_ROOT}/../../AwesomeMedia/Assets/Gilroy/Gilroy-Regular.otf",
+				"${PODS_ROOT}/../../AwesomeMedia/Assets/Gilroy/Gilroy-RegularItalic.otf",
+				"${PODS_ROOT}/../../AwesomeMedia/Assets/Gilroy/Gilroy-SemiBold.otf",
+				"${PODS_ROOT}/../../AwesomeMedia/Assets/Gilroy/Gilroy-SemiBoldItalic.otf",
+				"${PODS_ROOT}/../../AwesomeMedia/Assets/Assets.xcassets",
+				"${PODS_ROOT}/../../AwesomeMedia/Assets/Localizations/Base.lproj",
+				"${PODS_ROOT}/../../AwesomeMedia/Assets/Localizations/it.lproj",
+				"${PODS_ROOT}/../../AwesomeMedia/Assets/Localizations/ru.lproj",
+				"${PODS_CONFIGURATION_BUILD_DIR}/AwesomeMedia/AwesomeMedia.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/AwesomeTracking/AwesomeTracking.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AwesomeMedia.storyboardc",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AwesomeMediaAudioPlayerView.nib",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AwesomeMediaAudioTableViewCell.nib",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AwesomeMediaFileTableViewCell.nib",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AwesomeMediaImageTableViewCell.nib",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AwesomeMediaVideoControlView.nib",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AwesomeMediaVideoTableViewCell.nib",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AwesomeMediaVideoTitleView.nib",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AwesomeMediaYoutubeTableViewCell.nib",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AwesomeMediaYoutubeView.nib",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Gilroy-Black.otf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Gilroy-BlackItalic.otf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Gilroy-Bold.otf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Gilroy-BoldItalic.otf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Gilroy-ExtraBold.otf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Gilroy-ExtraBoldItalic.otf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Gilroy-Heavy.otf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Gilroy-HeavyItalic.otf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Gilroy-Light.otf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Gilroy-LightItalic.otf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Gilroy-Medium.otf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Gilroy-MediumItalic.otf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Gilroy-Regular.otf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Gilroy-RegularItalic.otf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Gilroy-SemiBold.otf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Gilroy-SemiBoldItalic.otf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Assets.car",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Base.lproj",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/it.lproj",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ru.lproj",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AwesomeMedia.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AwesomeTracking.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AwesomeMedia_Example/Pods-AwesomeMedia_Example-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		A708ED875E1F8B1402FE57E3 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -334,27 +415,45 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-AwesomeMedia_Example/Pods-AwesomeMedia_Example-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Appboy-iOS-SDK/Appboy_iOS_SDK.framework",
+				"${BUILT_PRODUCTS_DIR}/AwesomeConstants/AwesomeConstants.framework",
+				"${BUILT_PRODUCTS_DIR}/AwesomeCore/AwesomeCore.framework",
 				"${BUILT_PRODUCTS_DIR}/AwesomeDownloading/AwesomeDownloading.framework",
 				"${BUILT_PRODUCTS_DIR}/AwesomeImage/AwesomeImage.framework",
 				"${BUILT_PRODUCTS_DIR}/AwesomeLoading/AwesomeLoading.framework",
-				"${BUILT_PRODUCTS_DIR}/AwesomeMedia/AwesomeMedia.framework",
 				"${BUILT_PRODUCTS_DIR}/AwesomeNetwork/AwesomeNetwork.framework",
 				"${BUILT_PRODUCTS_DIR}/AwesomeUIMagic/AwesomeUIMagic.framework",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FLAnimatedImage/FLAnimatedImage.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/Mixpanel-swift/Mixpanel.framework",
 				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/ReachabilitySwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
 				"${BUILT_PRODUCTS_DIR}/youtube-ios-player-helper/youtube_ios_player_helper.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Appboy_iOS_SDK.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AwesomeConstants.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AwesomeCore.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AwesomeDownloading.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AwesomeImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AwesomeLoading.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AwesomeMedia.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AwesomeNetwork.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AwesomeUIMagic.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FLAnimatedImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mixpanel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReachabilitySwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/youtube_ios_player_helper.framework",
 			);

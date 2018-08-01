@@ -1,6 +1,6 @@
 {
   "name": "AwesomeMedia",
-  "version": "1.8.8.4",
+  "version": "1.8.8.7",
   "summary": "Play Sounds and Videos with AvPlayer.",
   "description": "Play Media from any app using this library.",
   "homepage": "https://github.com/iOSWizards/AwesomeMedia",
@@ -13,11 +13,12 @@
   },
   "source": {
     "git": "https://github.com/iOSWizards/AwesomeMedia.git",
-    "tag": "1.8.8.4"
+    "tag": "1.8.8.7"
   },
   "platforms": {
     "ios": "10.0"
   },
+  "static_framework": true,
   "source_files": "AwesomeMedia/Classes/**/*.{swift}",
   "ios": {
     "resources": [
@@ -50,6 +51,15 @@
 
     ],
     "youtube-ios-player-helper": [
+
+    ],
+    "AwesomeConstants": [
+
+    ],
+    "AwesomeCore": [
+
+    ],
+    "AwesomeTracking": [
 
     ]
   }

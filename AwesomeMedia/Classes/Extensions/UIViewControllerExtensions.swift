@@ -65,7 +65,7 @@ extension UIViewController {
 // MARK: - Safari Extensions
 
 import SafariServices
-extension UIViewController: SFSafariViewControllerDelegate {
+extension UIViewController {
     
     func presentWebPageInSafari(withURLString URLString: String) {
         guard let url = URL(string: URLString) else{
