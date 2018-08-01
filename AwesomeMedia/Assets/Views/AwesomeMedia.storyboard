@@ -467,7 +467,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uQj-FC-dfC" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <panGestureRecognizer enabled="NO" minimumNumberOfTouches="1" id="VgN-6L-JQO">
+                <panGestureRecognizer minimumNumberOfTouches="1" id="VgN-6L-JQO">
                     <connections>
                         <action selector="handleGestureToDismissDown:" destination="sq5-sN-Db0" id="WcS-uH-wq6"/>
                     </connections>
