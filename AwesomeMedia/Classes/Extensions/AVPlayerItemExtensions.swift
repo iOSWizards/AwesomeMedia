@@ -74,7 +74,7 @@ extension AVPlayerItem {
     
     // Captions
     
-    public func setCaption(_ caption: AwesomeMediaCaption?, mediaParams: AwesomeMediaParams) {
+    /*public func setCaption(_ caption: AwesomeMediaCaption?, mediaParams: AwesomeMediaParams) {
         saveTime()
         
         var mediaParams = mediaParams
@@ -94,7 +94,7 @@ extension AVPlayerItem {
                 AVAsset.configureAsset(for: composition, url: captionUrl, ofType: .text)
             }
         }*/
-    }
+    }*/
     
     // Video in background
     
@@ -139,7 +139,9 @@ extension AVPlayerItem {
     
     public static func urlItem(withUrl url: URL, completion: @escaping (AMAVPlayerItem) -> Void) {
         DispatchQueue.global(qos: .background).async {
-            var playerItem = AMAVPlayerItem(url: url)
+            let playerItem = AMAVPlayerItem(url: url)
+            
+            playerItem.selectDefaultSubtitle()
             
 //            let subtitles = playerItem.tracks(type: .subtitle)
 //            if let selectedSubtitle = playerItem.selected(type: .subtitle) {
@@ -147,7 +149,6 @@ extension AVPlayerItem {
 //            }
 
             //let audio = playerItem.tracks(type: .audio)
-            
             
             DispatchQueue.main.async {
                 completion(playerItem)
@@ -241,7 +242,7 @@ extension AVPlayerItem {
     }
     
     var selectedSubtitle: String? {
-        return selected(type: .subtitle) ?? AwesomeMedia.defaultSubtitle
+        return /*selected(type: .subtitle) ??*/ AwesomeMedia.defaultSubtitle
     }
     
     func selectSubtitle(_ subtitle: String?) -> Bool {
@@ -249,5 +250,9 @@ extension AVPlayerItem {
         AwesomeMedia.defaultSubtitle = subtitle
         
         return select(type: .subtitle, name: subtitle)
+    }
+    
+    func selectDefaultSubtitle() {
+        _ = selectSubtitle(selectedSubtitle)
     }
 }
