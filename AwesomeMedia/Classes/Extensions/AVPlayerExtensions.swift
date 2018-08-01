@@ -75,6 +75,11 @@ extension AVPlayer {
     }
     
     public var hasSubtitles: Bool {
+        // several streaming have CC as default, but nothing to it. So filtering it out
+        if currentItem?.subtitles.first == "CC" {
+            return false
+        }
+        
         return currentItem?.subtitles.count ?? 0 > 0
     }
     
