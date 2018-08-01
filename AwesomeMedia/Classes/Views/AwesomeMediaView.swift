@@ -95,17 +95,6 @@ public class AwesomeMediaView: UIView {
         // set time label
         controlView?.timeLabel?.text = mediaParams.duration.timeString.uppercased()
         
-        // show progress from last play duration
-        let progressDuration = (mediaParams.url?.url?.time ?? 0) / Float(mediaParams.duration)
-        
-        if progressDuration < 1 {
-            controlView?.progressView.progress = (mediaParams.url?.url?.time ?? 0) / Float(mediaParams.duration)
-            controlView?.progressView.transform = CGAffineTransform(scaleX: 1.0, y: 3.0)
-        } else {
-            // set progress to 0.0
-            controlView?.progressView.progress = 0.0
-        }
-        
         controlView?.playCallback = { (isPlaying) in
             if isPlaying {
                 AwesomeMediaManager.shared.playMedia(

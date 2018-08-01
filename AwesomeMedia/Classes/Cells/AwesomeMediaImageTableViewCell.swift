@@ -96,26 +96,11 @@ extension AwesomeMediaImageTableViewCell {
             self.mainView.backgroundColor = .placeholderBackground
             self.coverIconImageView.isHidden = false
             
-            if self.isSquareImage(image: image) {
-                self.coverImageView.contentMode = .scaleAspectFill
-            } else {
-                self.coverImageView.contentMode = .scaleAspectFit
-            }
-            
             if image != nil {
                 self.mainView.backgroundColor = .clear
                 self.coverIconImageView.isHidden = true
                 //self.adjustSize()
             }
         }
-    }
-    
-    // check height and width to know how to scaleAspect
-    public func isSquareImage(image: UIImage?) -> Bool {
-        if let image = image, Float(image.size.height) >= Float(image.size.width) {
-            return true
-        }
-        
-        return false
     }
 }

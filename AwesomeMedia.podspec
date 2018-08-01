@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'AwesomeMedia'
-  s.version          = '1.9.1'
+  s.version          = '1.8.8.5'
   s.summary          = 'Play Sounds and Videos with AvPlayer.'
 
 # This description is used to generate tags and improve search results.
@@ -29,13 +29,12 @@ Play Media from any app using this library.
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '10.0'
-  s.static_framework = true
 
   s.source_files = 'AwesomeMedia/Classes/**/*.{swift}'
-  s.ios.resources = ['AwesomeMedia/Assets/Views/*.{xib,storyboard}', 'AwesomeMedia/Assets/Gilroy/*.{otf}', 'AwesomeMedia/Assets/Assets.xcassets']
+  s.ios.resources = ['AwesomeMedia/Assets/Views/*.{xib,storyboard}', 'AwesomeMedia/Assets/Gilroy/*.{otf}', 'AwesomeMedia/Assets/Assets.xcassets', 'AwesomeMedia/Assets/Localizations/*.{lproj}']
   s.ios.preserve_paths = 'AwesomeMedia/Assets/*'
   s.resource_bundles = {
-    'AwesomeMedia' => ['AwesomeMedia/Assets/**/*.{storyboard,xib,xcassets,json,imageset,png,otf}']
+    'AwesomeMedia' => ['AwesomeMedia/Assets/**/*.{storyboard,xib,xcassets,json,imageset,png,otf,lproj}']
   }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
@@ -46,7 +45,4 @@ Play Media from any app using this library.
   s.dependency 'AwesomeImage'
   s.dependency 'AwesomeDownloading'
   s.dependency 'youtube-ios-player-helper'
-  s.dependency 'AwesomeConstants'
-  s.dependency 'AwesomeCore'
-  s.dependency 'AwesomeTracking'
 end
