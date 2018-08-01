@@ -145,10 +145,13 @@ extension AVPlayerItem {
         DispatchQueue.global(qos: .background).async {
             var playerItem = AMAVPlayerItem(url: url)
             
-//            let subtitles = playerItem.tracks(type: .subtitle)
-//            let selectedSubtitle = playerItem.selected(type: .subtitle)
-//
-//            let audio = playerItem.tracks(type: .audio)
+            let subtitles = playerItem.tracks(type: .subtitle)
+            if let selectedSubtitle = playerItem.selected(type: .subtitle) {
+                print("\(playerItem.select(type: .subtitle, name: selectedSubtitle))")
+            }
+
+            //let audio = playerItem.tracks(type: .audio)
+            
             
             DispatchQueue.main.async {
                 completion(playerItem)
