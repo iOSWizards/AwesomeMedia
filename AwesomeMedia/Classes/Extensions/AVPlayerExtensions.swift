@@ -74,6 +74,10 @@ extension AVPlayer {
         return nil
     }
     
+    public var hasSubtitles: Bool {
+        return currentItem?.subtitles.count ?? 0 > 0
+    }
+    
     // MARK: - Controls
     public func seek(toTime time: Double, pausing: Bool = true) {
         if pausing {

@@ -133,22 +133,18 @@ extension AVPlayerItem {
     
     // Item
     
-    public static func item(withUrl url: URL, andCaptionUrl subtitleUrl: URL? = nil, completion: @escaping (AMAVPlayerItem) -> Void) {
-        if subtitleUrl != nil {
-            compositionItem(withUrl: url, andCaptionUrl: subtitleUrl, completion: completion)
-        } else {
-            urlItem(withUrl: url, completion: completion)
-        }
+    public static func item(withUrl url: URL, completion: @escaping (AMAVPlayerItem) -> Void) {
+        urlItem(withUrl: url, completion: completion)
     }
     
-    public static func urlItem(withUrl url: URL, andCaptionUrl subtitleUrl: URL? = nil, completion: @escaping (AMAVPlayerItem) -> Void) {
+    public static func urlItem(withUrl url: URL, completion: @escaping (AMAVPlayerItem) -> Void) {
         DispatchQueue.global(qos: .background).async {
             var playerItem = AMAVPlayerItem(url: url)
             
-            let subtitles = playerItem.tracks(type: .subtitle)
-            if let selectedSubtitle = playerItem.selected(type: .subtitle) {
-                print("\(playerItem.select(type: .subtitle, name: selectedSubtitle))")
-            }
+//            let subtitles = playerItem.tracks(type: .subtitle)
+//            if let selectedSubtitle = playerItem.selected(type: .subtitle) {
+//                print("\(playerItem.select(type: .subtitle, name: selectedSubtitle))")
+//            }
 
             //let audio = playerItem.tracks(type: .audio)
             
@@ -205,14 +201,14 @@ extension AVPlayerItem {
         }
     }
     
-    func tracks(type:TrackType) -> [String] {
+    func tracks(type: TrackType) -> [String] {
         if let characteristic = type.characteristic(item: self) {
             return characteristic.options.map { $0.displayName }
         }
         return [String]()
     }
     
-    func selected(type:TrackType) -> String? {
+    func selected(type: TrackType) -> String? {
         guard let group = type.characteristic(item: self) else {
             return nil
         }
@@ -220,14 +216,38 @@ extension AVPlayerItem {
         return selected?.displayName
     }
     
-    func select(type:TrackType, name:String) -> Bool {
+    func select(type: TrackType, name: String?) -> Bool {
         guard let group = type.characteristic(item: self) else {
             return false
         }
-        guard let matched = group.options.filter({ $0.displayName == name }).first else {
-            return false
+        
+        // in case it's nil, it means we are removing the subtitle, so return nil
+        guard let name = name else {
+            self.select(nil, in: group)
+            return true
         }
+        
+        let matched = group.options.filter({ $0.displayName.lowercased() == name.lowercased() }).first
+        
         self.select(matched, in: group)
-        return true
+        
+        return matched != nil //false for nil (meaning no caption selected)
+    }
+    
+    // Subtitles
+    
+    var subtitles: [String] {
+        return tracks(type: .subtitle)
+    }
+    
+    var selectedSubtitle: String? {
+        return selected(type: .subtitle) ?? AwesomeMedia.defaultSubtitle
+    }
+    
+    func selectSubtitle(_ subtitle: String?) -> Bool {
+        //set default subtitle
+        AwesomeMedia.defaultSubtitle = subtitle
+        
+        return select(type: .subtitle, name: subtitle)
     }
 }

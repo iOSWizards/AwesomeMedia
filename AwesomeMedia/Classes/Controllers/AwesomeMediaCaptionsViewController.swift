@@ -7,7 +7,7 @@
 
 import UIKit
 
-public typealias CaptionCallback = (AwesomeMediaCaption?) -> Void
+public typealias CaptionCallback = (String?) -> Void
 
 public class AwesomeMediaCaptionsViewController: UIViewController {
     
@@ -91,10 +91,13 @@ extension AwesomeMediaCaptionsViewController {
 }
 
 extension UIViewController {
-    public func showCaptions(_ captions: [AwesomeMediaCaption], current: AwesomeMediaCaption?, captionCallback: CaptionCallback? = nil) {
+    public func showCaptions(captionCallback: CaptionCallback? = nil) {
+        guard sharedAVPlayer.hasSubtitles else {
+            return
+        }
+        
         let viewController = AwesomeMediaCaptionsViewController.newInstance
         viewController.modalPresentationStyle = .overCurrentContext
-        viewController.viewModel.configure(with: captions, current: current)
         
         self.present(viewController, animated: false, completion: nil)
         
