@@ -34,6 +34,7 @@ public class AwesomeMediaVideoTitleView: UIView {
     
     public func updateCaptionButtonBasedOnCurrentItem() {
         captionsButton?.isHidden = !sharedAVPlayer.hasSubtitles
+        captionsButton?.alpha = sharedAVPlayer.hasSubtitles ? 1 : 0
     }
     
     // MARK: - Events
