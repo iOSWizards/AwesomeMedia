@@ -77,7 +77,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cmS-Tf-Gov" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <panGestureRecognizer minimumNumberOfTouches="1" id="LP9-Cl-4If">
+                <panGestureRecognizer enabled="NO" minimumNumberOfTouches="1" id="LP9-Cl-4If">
                     <connections>
                         <action selector="handleGestureToDismissDown:" destination="D5r-St-fKa" id="Xwn-Qv-UyT"/>
                     </connections>
@@ -467,7 +467,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uQj-FC-dfC" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <panGestureRecognizer minimumNumberOfTouches="1" id="VgN-6L-JQO">
+                <panGestureRecognizer enabled="NO" minimumNumberOfTouches="1" id="VgN-6L-JQO">
                     <connections>
                         <action selector="handleGestureToDismissDown:" destination="sq5-sN-Db0" id="WcS-uH-wq6"/>
                     </connections>
