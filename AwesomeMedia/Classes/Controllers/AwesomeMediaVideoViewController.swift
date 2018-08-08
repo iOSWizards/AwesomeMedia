@@ -111,6 +111,7 @@ extension UIViewController {
         guard !AwesomeMediaVideoViewController.presentingVideoInFullscreen else {
             return
         }
+        AwesomeMediaPlayerType.type = .video
         AwesomeMediaVideoViewController.presentingVideoInFullscreen = true
         
         let viewController = AwesomeMediaVideoViewController.newInstance

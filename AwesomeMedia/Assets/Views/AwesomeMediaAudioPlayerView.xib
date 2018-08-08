@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.3.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -25,11 +24,19 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AoY-Ts-zXj">
                     <rect key="frame" x="0.0" y="8" width="375" height="80"/>
                     <subviews>
+                        <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ME0-yR-7EW">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="lcb-Oo-1Yr">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </view>
+                            <blurEffect style="dark"/>
+                        </visualEffectView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xgp-Tl-fM5">
                             <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icoPlaceholderAudio" translatesAutoresizingMaskIntoConstraints="NO" id="59J-tY-wft">
-                                    <rect key="frame" x="21.5" y="20.5" width="38" height="40"/>
+                                    <rect key="frame" x="21" y="20" width="38" height="40"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="40" id="Ag2-k0-ChR"/>
                                         <constraint firstAttribute="width" constant="38" id="vLI-7k-V21"/>
@@ -84,13 +91,15 @@
                             </connections>
                         </button>
                     </subviews>
-                    <color key="backgroundColor" red="0.23529411759999999" green="0.26274509800000001" blue="0.30588235289999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="xbp-Jh-3KT" firstAttribute="leading" secondItem="Xgp-Tl-fM5" secondAttribute="trailing" constant="20" id="1Kr-oc-Dt9">
                             <variation key="heightClass=regular-widthClass=regular" constant="30"/>
                         </constraint>
                         <constraint firstItem="Xgp-Tl-fM5" firstAttribute="leading" secondItem="AoY-Ts-zXj" secondAttribute="leading" id="1Nr-Jo-9xV"/>
+                        <constraint firstItem="ME0-yR-7EW" firstAttribute="leading" secondItem="AoY-Ts-zXj" secondAttribute="leading" id="4zk-hb-LZ3"/>
                         <constraint firstItem="69S-ps-pIY" firstAttribute="top" secondItem="AoY-Ts-zXj" secondAttribute="top" id="6f2-aY-yKg"/>
+                        <constraint firstItem="ME0-yR-7EW" firstAttribute="top" secondItem="AoY-Ts-zXj" secondAttribute="top" id="7Lr-eY-gib"/>
                         <constraint firstAttribute="bottom" secondItem="xbp-Jh-3KT" secondAttribute="bottom" id="8Ks-O3-e0x"/>
                         <constraint firstItem="YtZ-Tv-BJ2" firstAttribute="leading" secondItem="AoY-Ts-zXj" secondAttribute="leading" id="9mE-s3-BPD"/>
                         <constraint firstAttribute="bottom" secondItem="YtZ-Tv-BJ2" secondAttribute="bottom" id="BFN-e0-o4Z"/>
@@ -100,9 +109,11 @@
                         <constraint firstAttribute="trailing" secondItem="69S-ps-pIY" secondAttribute="trailing" id="TTl-84-WNe"/>
                         <constraint firstItem="YtZ-Tv-BJ2" firstAttribute="top" secondItem="AoY-Ts-zXj" secondAttribute="top" id="aa9-p0-u9a"/>
                         <constraint firstItem="xbp-Jh-3KT" firstAttribute="top" secondItem="AoY-Ts-zXj" secondAttribute="top" id="amp-Dn-8pA"/>
+                        <constraint firstAttribute="bottom" secondItem="ME0-yR-7EW" secondAttribute="bottom" id="nxu-3c-r2X"/>
                         <constraint firstItem="69S-ps-pIY" firstAttribute="leading" secondItem="xbp-Jh-3KT" secondAttribute="trailing" constant="20" id="psv-6r-Vl6">
                             <variation key="heightClass=regular-widthClass=regular" constant="30"/>
                         </constraint>
+                        <constraint firstAttribute="trailing" secondItem="ME0-yR-7EW" secondAttribute="trailing" id="r68-Tw-gZ2"/>
                         <constraint firstItem="Xgp-Tl-fM5" firstAttribute="top" secondItem="AoY-Ts-zXj" secondAttribute="top" id="rmg-Ea-7nq"/>
                     </constraints>
                 </view>

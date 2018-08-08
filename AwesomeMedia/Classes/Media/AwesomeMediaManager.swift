@@ -230,8 +230,16 @@ extension AwesomeMediaManager {
         
         if sharedAVPlayer.currentItem?.isVideo ?? false {
             notifyMediaEvent(.playingVideo, object: mediaParams as AnyObject)
+            
+            // in case it's video, we can choose from the app to show or not mini player
+            if mediaParams.shouldShowMiniPlayer {
+                notifyMediaEvent(.showMiniPlayer, object: mediaParams as AnyObject)
+            } else {
+                notifyMediaEvent(.hideMiniPlayer, object: mediaParams as AnyObject)
+            }
         } else {
             notifyMediaEvent(.playingAudio, object: mediaParams as AnyObject)
+            notifyMediaEvent(.showMiniPlayer, object: mediaParams as AnyObject)
         }
     }
     

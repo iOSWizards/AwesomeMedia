@@ -292,6 +292,8 @@ extension AwesomeMediaVerticalVideoViewController {
 
 extension UIViewController {
     public func presentVerticalVideoFullscreen(withMediaParams mediaParams: AwesomeMediaParams) {
+        AwesomeMediaPlayerType.type = .verticalVideo
+        
         let viewController = AwesomeMediaVerticalVideoViewController.newInstance
         viewController.mediaParams = mediaParams
         

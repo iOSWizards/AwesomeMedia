@@ -28,7 +28,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     // Testing Variables
-    public static let testVideoURL = "https://overmind2.mvstg.com/api/v1/assets/0af656fc-dcde-45ad-9b59-7632ca247001.m3u8"
     public static let testVideoURL2 = "http://overmind2.mindvalleyacademy.com/api/v1/assets/cb19bc38-d804-4c30-b1f1-79d28d9d71d4.m3u8"
     public static let testVideoURL3 = "http://overmind2.mindvalleyacademy.com/api/v1/assets/b78856cc-d0f0-4069-b1e1-9dbbe47b4df6.m3u8"
     public static let testMediaMarkers = [AwesomeMediaMarker(title: "Intro", time: 120),
@@ -84,7 +83,7 @@ class ViewController: UIViewController {
         MediaCell(type: .image,
                   mediaParams: AwesomeMediaParams(
                     coverUrl: "https://www.awesometlv.co.il/wp-content/uploads/2016/01/awesome_logo-01.png")),
-        MediaCell(type: .video,
+        /*MediaCell(type: .video,
                   mediaParams: AwesomeMediaParams(
                     url: testVideoURL,
                     coverUrl: "https://i0.wp.com/res.cloudinary.com/changethatmind/image/upload/v1501884914/wildfitsales.png?fit=500%2C500&ssl=1",
@@ -92,7 +91,7 @@ class ViewController: UIViewController {
                     title: "WildFit 2",
                     duration: 12312,
                     markers: testMediaMarkers,
-                    params: ["id":"45"])),
+                    params: ["id":"45"])),*/
         MediaCell(type: .image,
                   mediaParams: AwesomeMediaParams(
                     coverUrl: "https://i0.wp.com/res.cloudinary.com/changethatmind/image/upload/v1501884914/wildfitsales.png?fit=500%2C500&ssl=1")),
@@ -121,7 +120,8 @@ class ViewController: UIViewController {
                     authorAvatar: "https://thumbs.dreamstime.com/z/awesome-word-cloud-explosion-background-51481417.jpg",
                     title: "Pushing the Senses",
                     about: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-                    duration: 20))
+                    duration: 20,
+                    shouldShowMiniPlayer: true))
         ]
     var mediaParamsArray: [AwesomeMediaParams] {
         var mediaParamsArray = [AwesomeMediaParams]()
@@ -231,14 +231,14 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
 
 extension UIViewController: AwesomeMediaEventObserver {
     public func addObservers() {
-        AwesomeMediaNotificationCenter.addObservers([.playingAudio, .playingVideo], to: self)
+        AwesomeMediaNotificationCenter.addObservers([.showMiniPlayer, .hideMiniPlayer], to: self)
     }
     
     public func removeObservers() {
         AwesomeMediaNotificationCenter.removeObservers(from: self)
     }
     
-    public func startedPlayingAudio(_ notification: NSNotification) {
+    public func showMiniPlayer(_ notification: NSNotification) {
         if let params = notification.object as? AwesomeMediaParams {
             _ = view.addAudioPlayer(withParams: params, animated: true)
         } else {
@@ -246,7 +246,7 @@ extension UIViewController: AwesomeMediaEventObserver {
         }
     }
     
-    public func startedPlayingVideo(_ notification: NSNotification) {
+    public func hideMiniPlayer(_ notification: NSNotification) {
         view.removeAudioControlView(animated: true)
     }
 }

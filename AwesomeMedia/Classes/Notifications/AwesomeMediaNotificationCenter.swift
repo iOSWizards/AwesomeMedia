@@ -12,6 +12,8 @@ public enum AwesomeMediaEvent: String {
     case playing
     case playingAudio
     case playingVideo
+    case showMiniPlayer
+    case hideMiniPlayer
     case paused
     case stopped
     case finished
@@ -60,6 +62,14 @@ public class AwesomeMediaNotificationCenter: NotificationCenter {
         
         if options.contains(.playingVideo) {
             AwesomeMediaNotificationCenter.shared.addObserver(to, selector: .playingVideo, event: .playingVideo)
+        }
+        
+        if options.contains(.showMiniPlayer) {
+            AwesomeMediaNotificationCenter.shared.addObserver(to, selector: .showMiniPlayer, event: .showMiniPlayer)
+        }
+        
+        if options.contains(.hideMiniPlayer) {
+            AwesomeMediaNotificationCenter.shared.addObserver(to, selector: .hideMiniPlayer, event: .hideMiniPlayer)
         }
         
         if options.contains(.paused) {
@@ -124,7 +134,9 @@ public struct AwesomeMediaNotificationCenterOptions: OptionSet {
     public static let speedRateChanged = AwesomeMediaNotificationCenterOptions(rawValue: 1 << 13)
     public static let playingAudio = AwesomeMediaNotificationCenterOptions(rawValue: 1 << 14)
     public static let playingVideo = AwesomeMediaNotificationCenterOptions(rawValue: 1 << 15)
-    public static let unknown = AwesomeMediaNotificationCenterOptions(rawValue: 1 << 16)
+    public static let showMiniPlayer = AwesomeMediaNotificationCenterOptions(rawValue: 1 << 16)
+    public static let hideMiniPlayer = AwesomeMediaNotificationCenterOptions(rawValue: 1 << 17)
+    public static let unknown = AwesomeMediaNotificationCenterOptions(rawValue: 1 << 18)
     
     public static let basic: AwesomeMediaNotificationCenterOptions = [.playing, .paused, .finished, .buffering, .stoppedBuffering]
 }

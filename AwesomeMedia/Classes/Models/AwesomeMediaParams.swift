@@ -24,6 +24,7 @@ public struct AwesomeMediaParams {
     //public var captions: [AwesomeMediaCaption] = []
     public var size: String?
     public var type: String?
+    public var shouldShowMiniPlayer: Bool = false
     public var params: [String: Any] = [:]
     
     public init(url: String? = nil,
@@ -38,6 +39,7 @@ public struct AwesomeMediaParams {
                 //captions: [AwesomeMediaCaption] = [],
                 size: String? = nil,
                 type: String? = nil,
+                shouldShowMiniPlayer: Bool = false,
                 params: [String: Any] = [:]) {
         self.url = url
         self.youtubeUrl = youtubeUrl
@@ -51,6 +53,7 @@ public struct AwesomeMediaParams {
         //self.captions = captions
         self.size = size
         self.type = type
+        self.shouldShowMiniPlayer = shouldShowMiniPlayer
         self.params = params
     }
     

@@ -354,6 +354,8 @@ extension AwesomeMediaAudioViewController {
 
 extension UIViewController {
     public func presentAudioFullscreen(withMediaParams mediaParams: AwesomeMediaParams) {
+        AwesomeMediaPlayerType.type = .audio
+        
         let viewController = AwesomeMediaAudioViewController.newInstance
         viewController.mediaParams = mediaParams
         

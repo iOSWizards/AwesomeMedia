@@ -53,6 +53,7 @@
 		0A6EFDDB88B61BAF68B0475418F89FAA /* img-star-half.png in Resources */ = {isa = PBXBuildFile; fileRef = 0590910237F3FC591C8BF8C9BD496581 /* img-star-half.png */; };
 		0A837CAE6D61419CE6406B3CD1E17DBD /* img-star-empty.png in Resources */ = {isa = PBXBuildFile; fileRef = DE3F5A5AAE2062F8EC92594D7674648B /* img-star-empty.png */; };
 		0A900AD7211AA7A40081F16F /* AwesomeMediaVerticalVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A900AD6211AA7A40081F16F /* AwesomeMediaVerticalVideoViewController.swift */; };
+		0A900AD9211B0D0D0081F16F /* AwesomeMediaPlayerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A900AD8211B0D0D0081F16F /* AwesomeMediaPlayerType.swift */; };
 		0ABB02FAE48817338823EB3257849956 /* LOTBlockCallback.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C7403A332AC796F557D85C2FA63C552 /* LOTBlockCallback.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0AC9FB149274BF9D3B4EA45B13A5F125 /* FBSDKButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B866A1258756337F8BCE8C49995CFEF8 /* FBSDKButton.m */; };
 		0AF78F077F24CC2D38CB210F4C01C9DA /* RLMSyncSubscription.h in Copy . Public Headers */ = {isa = PBXBuildFile; fileRef = 17027C171A0D5A544F199E0A4A56A893 /* RLMSyncSubscription.h */; };
@@ -1895,6 +1896,7 @@
 		0A33CA327932D6E5258E59735497A472 /* EventPurchaseStatusBO.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EventPurchaseStatusBO.swift; path = AwesomeCore/Classes/BusinessObjects/EventPurchaseStatusBO.swift; sourceTree = "<group>"; };
 		0A659B408ECE6BC3E9E0CCDAE0BE7E04 /* shared_realm.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = shared_realm.cpp; path = Realm/ObjectStore/src/shared_realm.cpp; sourceTree = "<group>"; };
 		0A900AD6211AA7A40081F16F /* AwesomeMediaVerticalVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwesomeMediaVerticalVideoViewController.swift; sourceTree = "<group>"; };
+		0A900AD8211B0D0D0081F16F /* AwesomeMediaPlayerType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwesomeMediaPlayerType.swift; sourceTree = "<group>"; };
 		0AAD946036F14900E2123667980A64E9 /* BrazeHelper.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BrazeHelper.swift; path = AwesomeTracking/Classes/Helpers/BrazeHelper.swift; sourceTree = "<group>"; };
 		0AF490CC03C6C69023985AC8D2BD03E5 /* SingleCourseNS.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SingleCourseNS.swift; path = AwesomeCore/Classes/NetworkServices/SingleCourseNS.swift; sourceTree = "<group>"; };
 		0AF8FA3361F2C4A56FD4F8BAABDCCD71 /* ABKNavigationFeedbackViewController.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = ABKNavigationFeedbackViewController.xib; path = AppboyUI/ABKFeedbackViewController/Feedback_Resources/ABKNavigationFeedbackViewController.xib; sourceTree = "<group>"; };
@@ -5590,6 +5592,7 @@
 				EB893F02DBEBC8FACEC9E628B379BC96 /* AwesomeMediaSpeed.swift */,
 				27D966DFBA2534E324C8340EDFFEC1E6 /* AwesomeMediaSubtitle.swift */,
 				08313BB1A8AAAD62E382E3DC7F41AA97 /* AwesomeMediaTime.swift */,
+				0A900AD8211B0D0D0081F16F /* AwesomeMediaPlayerType.swift */,
 			);
 			name = Models;
 			path = AwesomeMedia/Classes/Models;
@@ -7509,6 +7512,7 @@
 				29AE04B6922E1EDBA945056E71D3DF32 /* AwesomeMediaManager.swift in Sources */,
 				0A900AD7211AA7A40081F16F /* AwesomeMediaVerticalVideoViewController.swift in Sources */,
 				F16996502B5EDE2D3180C128EA12448A /* AwesomeMediaMarker.swift in Sources */,
+				0A900AD9211B0D0D0081F16F /* AwesomeMediaPlayerType.swift in Sources */,
 				E0A52263CB9506503B5F3094188C8F33 /* AwesomeMediaMarkersViewController.swift in Sources */,
 				65BCD69373CF6084956E6BFF41884A59 /* AwesomeMediaMarkersViewModel.swift in Sources */,
 				C6A20FE1870C4FE648DCA435E6A97FB3 /* AwesomeMediaMarkerTableViewCell.swift in Sources */,
