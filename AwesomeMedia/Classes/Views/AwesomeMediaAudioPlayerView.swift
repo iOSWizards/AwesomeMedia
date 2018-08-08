@@ -299,7 +299,18 @@ extension UIView {
         
         // add fullscreen callback
         playerView.fullScreenCallback = {
-            self.parentViewController?.presentAudioFullscreen(withMediaParams: params)
+            guard let playerType = AwesomeMediaPlayerType.type else {
+                return
+            }
+            
+            switch playerType {
+            case .video:
+                self.parentViewController?.presentVideoFullscreen(withMediaParams: params)
+            case .verticalVideo:
+                self.parentViewController?.presentVerticalVideoFullscreen(withMediaParams: params)
+            default:
+                self.parentViewController?.presentAudioFullscreen(withMediaParams: params)
+            }
         }
         
         return playerView

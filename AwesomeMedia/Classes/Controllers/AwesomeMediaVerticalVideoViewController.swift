@@ -1,33 +1,26 @@
 //
-//  AwesomeMediaAudioViewController.swift
+//  AwesomeMediaAudioSoulvanaViewController.swift
 //  AwesomeMedia
 //
-//  Created by Evandro Harrison Hoffmann on 4/23/18.
+//  Created by Evandro Harrison Hoffmann on 8/8/18.
 //
 
 import UIKit
-import AwesomeDownloading
 
-public class AwesomeMediaAudioViewController: UIViewController {
+public class AwesomeMediaVerticalVideoViewController: UIViewController {
     
-    @IBOutlet weak var contentStackView: UIStackView!
-    @IBOutlet weak var coverImageView: UIImageView!
+    @IBOutlet public weak var mediaView: UIView!
+    @IBOutlet public weak var authorImageView: UIImageView!
+    @IBOutlet public weak var authorNameLabel: UILabel!
+    @IBOutlet public weak var aboutAudioTextView: UITextView!
+    @IBOutlet public weak var coverImageView: UIImageView!
+    @IBOutlet public weak var minimizeButton: UIButton!
+    @IBOutlet public weak var toggleControlsButton: UIButton!
     @IBOutlet weak var controlView: AwesomeMediaAudioControlView!
-    @IBOutlet weak var minimizeButton: UIButton!
-    @IBOutlet weak var topControlsStackView: UIStackView!
-    @IBOutlet weak var airplayButton: UIButton!
-    @IBOutlet weak var downloadButton: UIButton!
-    @IBOutlet weak var downloadStateStackView: UIStackView!
-    @IBOutlet weak var downloadStateLabel: UILabel!
-    @IBOutlet weak var downloadStateImageView: UIImageView!
-    @IBOutlet weak var downloadProgressView: UIProgressView!
     
     // Public Variaables
     public var mediaParams = AwesomeMediaParams()
     
-    // Private Variables
-    fileprivate var downloadState: AwesomeMediaDownloadState = .none
-
     public override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -49,22 +42,31 @@ public class AwesomeMediaAudioViewController: UIViewController {
         removeObservers()
     }
     
-    public override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+    /*public override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         // track event
         track(event: .changedOrientation, source: .audioFullscreen, value: UIApplication.shared.statusBarOrientation)
+    }*/
+    
+    public override var shouldAutorotate: Bool {
+        return false
+    }
+    
+    public override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .portrait
     }
     
     // Configure
+    
     public override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        updateAppearance(isPortrait: UIApplication.shared.statusBarOrientation.isPortrait)
+        AwesomeMediaPlayerLayer.shared.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height)
     }
     
     fileprivate func configure() {
         configureControls()
-        refreshDownloadState()
         loadCoverImage()
+        setupAuthorInfo()
         play()
         
         // Refresh controls
@@ -75,6 +77,22 @@ public class AwesomeMediaAudioViewController: UIViewController {
         if AwesomeMediaManager.shared.mediaIsLoading(withParams: mediaParams) {
             coverImageView.startLoadingAnimation()
         }
+        
+        // remove player layer so that we can add it again when needed
+        mediaView.removePlayerLayer()
+        
+        // check for media playing
+        if let item = sharedAVPlayer.currentItem(withParams: mediaParams) {
+            controlView?.update(withItem: item)
+            
+            mediaView.addPlayerLayer()
+        }
+    }
+    
+    fileprivate func setupAuthorInfo() {
+        authorImageView.setImage(mediaParams.authorAvatar)
+        authorNameLabel.text = mediaParams.author
+        aboutAudioTextView.text = mediaParams.about
     }
     
     public override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -108,21 +126,15 @@ public class AwesomeMediaAudioViewController: UIViewController {
             sharedAVPlayer.seekBackward()
         }
         
-        // Speed
-        controlView.speedToggleCallback = {
-            sharedAVPlayer.toggleSpeed()
+        // Forward
+        controlView.forwardCallback = {
+            sharedAVPlayer.seekForward()
         }
         
     }
     
-    public func updateAppearance(isPortrait: Bool) {
-        contentStackView.axis = isPortrait ? .vertical : .horizontal
-        contentStackView.alignment = (isPortrait || isPhone) ? .fill : .center
-        contentStackView.spacing = (isPortrait || isPhone) ? 0 : 60
-    }
-    
     // MARK: - Events
-
+    
     @IBAction func minimizeButtonPressed(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
         
@@ -130,69 +142,8 @@ public class AwesomeMediaAudioViewController: UIViewController {
         track(event: .toggleFullscreen, source: .audioFullscreen)
     }
     
-    @IBAction func airplayButtonPressed(_ sender: Any) {
-        view.showAirplayMenu()
-        
-        // track event
-        track(event: .tappedAirplay, source: .audioFullscreen)
-    }
-    
-    @IBAction func downloadButtonPressed(_ sender: Any) {
-        switch downloadState {
-        case .downloaded:
-            deleteMedia()
-        case .downloading:
-            break
-        default:
-            downloadMedia()
-        }
-        
-        // track event
-        track(event: .tappedDownload, source: .audioFullscreen)
-    }
-    
-    fileprivate func downloadMedia() {
-        downloadState = .downloading
-        updateDownloadState()
-        
-        downloadProgressView.progress = 0
-        
-        AwesomeDownloading.downloadMedia(withUrl: mediaParams.url?.url, completion: { (success) in
-            self.refreshDownloadState()
-            
-            if success, sharedAVPlayer.isPlaying {
-                // play offline media
-                sharedAVPlayer.stop()
-                self.play()
-            }
-        }, progressUpdated: {(progress) in
-            self.downloadProgressView.progress = progress
-        })
-        
-    }
-    
-    fileprivate func deleteMedia() {
-        sharedAVPlayer.stop()
-        self.confirmMediaDeletion(withUrl: mediaParams.url?.url,
-                                  fromView: downloadButton,
-                                  withTitle: "availableoffline_delete_title".localized,
-                                  withMessage: "availableoffline_delete_message".localized,
-                                  withConfirmButtonTitle: "availableoffline_delete_button_confirm".localized,
-                                  withCancelButtonTitle: "availableoffline_delete_button_cancel".localized,
-                                  completion: {(success) in
-                                    if success {
-                                        // play online media
-                                        sharedAVPlayer.stop()
-                                        self.play()
-                                        
-                                        // update download button
-                                        self.refreshDownloadState()
-                                    }
-                                    
-                                    // track event
-                                    track(event: .deletedDownload, source: .audioFullscreen)
-        })
-        
+    @IBAction func toggleControls(_ sender: Any) {
+        controlView.show()
     }
     
     fileprivate func play() {
@@ -200,6 +151,9 @@ public class AwesomeMediaAudioViewController: UIViewController {
             withParams: self.mediaParams,
             inPlayerLayer: AwesomeMediaPlayerLayer.shared,
             viewController: self)
+        
+        // add player layer
+        mediaView.addPlayerLayer()
     }
     
     fileprivate func refreshControls() {
@@ -213,7 +167,7 @@ public class AwesomeMediaAudioViewController: UIViewController {
 
 // MARK: - Media Information
 
-extension AwesomeMediaAudioViewController {
+extension AwesomeMediaVerticalVideoViewController {
     
     public func loadCoverImage() {
         guard let coverImageUrl = mediaParams.coverUrl else {
@@ -223,43 +177,11 @@ extension AwesomeMediaAudioViewController {
         // set the cover image
         coverImageView.setImage(coverImageUrl)
     }
-    
-    // update download state
-    public func refreshDownloadState() {
-        downloadState = AwesomeDownloading.mediaDownloadState(withUrl: mediaParams.url?.url)
-        
-        updateDownloadState()
-    }
-    
-    public func updateDownloadState() {
-        switch downloadState {
-        case .downloading:
-            downloadButton.isHidden = true
-            downloadStateStackView.isHidden = false
-            
-            if let size = mediaParams.size {
-                downloadStateLabel.text = "\(size.uppercased()) - \("downloading".localized)"
-            } else {
-                downloadStateLabel.text = "downloading".localized
-            }
-            downloadStateImageView.image = UIImage(named: "btnDownload", in: Bundle(for: AwesomeMedia.self), compatibleWith: nil)
-            
-        case .downloaded:
-            downloadButton.isHidden = true
-            downloadStateStackView.isHidden = false
-            downloadStateLabel.text = "availableoffline".localized
-            downloadStateImageView.image = UIImage(named: "icoOfflineAudio", in: Bundle(for: AwesomeMedia.self), compatibleWith: nil)
-
-        default:
-            downloadButton.isHidden = false
-            downloadStateStackView.isHidden = true
-        }
-    }
 }
 
 // MARK: - Observers
 
-extension AwesomeMediaAudioViewController: AwesomeMediaEventObserver {
+extension AwesomeMediaVerticalVideoViewController: AwesomeMediaEventObserver {
     
     public func addObservers() {
         AwesomeMediaNotificationCenter.addObservers([.basic, .timeUpdated, .speedRateChanged, .timedOut, .stopped], to: self)
@@ -276,6 +198,9 @@ extension AwesomeMediaAudioViewController: AwesomeMediaEventObserver {
         
         controlView.playButton.isSelected = true
         
+        // add player layer
+        mediaView.addPlayerLayer()
+        
         // update Control Center
         AwesomeMediaControlCenter.updateControlCenter(withParams: mediaParams)
         
@@ -285,6 +210,9 @@ extension AwesomeMediaAudioViewController: AwesomeMediaEventObserver {
     
     public func pausedPlaying() {
         controlView.playButton.isSelected = sharedAVPlayer.isPlaying(withParams: mediaParams)
+        
+        // cancels auto hide
+        controlView.show()
     }
     
     public func stoppedPlaying() {
@@ -294,6 +222,9 @@ extension AwesomeMediaAudioViewController: AwesomeMediaEventObserver {
         
         // remove media alert if present
         removeAlertIfPresent()
+        
+        // cancels auto hide
+        controlView.show()
     }
     
     public func startedBuffering() {
@@ -305,6 +236,9 @@ extension AwesomeMediaAudioViewController: AwesomeMediaEventObserver {
         coverImageView.startLoadingAnimation()
         
         controlView.lock(true, animated: true)
+        
+        // cancels auto hide
+        controlView.show()
     }
     
     public func stoppedBuffering() {
@@ -314,6 +248,9 @@ extension AwesomeMediaAudioViewController: AwesomeMediaEventObserver {
         
         // remove media alert if present
         removeAlertIfPresent()
+        
+        // setup auto hide
+        controlView?.setupAutoHide()
     }
     
     public func finishedPlaying() {
@@ -342,21 +279,22 @@ extension AwesomeMediaAudioViewController: AwesomeMediaEventObserver {
     }
 }
 
+
 // MARK: - ViewController Initialization
 
-extension AwesomeMediaAudioViewController {
-    public static var newInstance: AwesomeMediaAudioViewController {
+extension AwesomeMediaVerticalVideoViewController {
+    public static var newInstance: AwesomeMediaVerticalVideoViewController {
         let storyboard = UIStoryboard(name: "AwesomeMedia", bundle: AwesomeMedia.bundle)
         
-        return storyboard.instantiateViewController(withIdentifier: "AwesomeMediaAudioViewController") as! AwesomeMediaAudioViewController
+        return storyboard.instantiateViewController(withIdentifier: "AwesomeMediaVerticalVideoViewController") as! AwesomeMediaVerticalVideoViewController
     }
 }
 
 extension UIViewController {
-    public func presentAudioFullscreen(withMediaParams mediaParams: AwesomeMediaParams) {
-        AwesomeMediaPlayerType.type = .audio
+    public func presentVerticalVideoFullscreen(withMediaParams mediaParams: AwesomeMediaParams) {
+        AwesomeMediaPlayerType.type = .verticalVideo
         
-        let viewController = AwesomeMediaAudioViewController.newInstance
+        let viewController = AwesomeMediaVerticalVideoViewController.newInstance
         viewController.mediaParams = mediaParams
         
         interactor = AwesomeMediaInteractor()

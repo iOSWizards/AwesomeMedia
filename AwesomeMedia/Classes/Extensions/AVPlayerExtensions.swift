@@ -51,6 +51,9 @@ extension AVPlayer {
     }
     
     public var isPlayingVideo: Bool {
+        if AwesomeMediaPlayerType.type == .audio || AwesomeMediaPlayerType.type == .verticalVideo {
+            return false
+        }
         return isPlaying && currentItem?.isVideo ?? false
     }
     

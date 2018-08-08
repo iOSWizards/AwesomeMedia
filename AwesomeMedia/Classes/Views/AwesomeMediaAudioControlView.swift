@@ -20,4 +20,19 @@ class AwesomeMediaAudioControlView: AwesomeMediaControlView {
         reset()
     }
 
+    override func toggleView() {
+        cancelAutoHide()
+        
+        if isHidden {
+            animateFadeIn {
+                self.setupAutoHide()
+            }
+        } else {
+            animateFadeOut {
+                self.isHidden = true
+            }
+        }
+        
+        toggleViewCallback?(isHidden)
+    }
 }

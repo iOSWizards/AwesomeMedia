@@ -12,7 +12,9 @@ public typealias PlaybackCallback = (_ playing: Bool) -> Void
 public typealias TimeSliderChangedCallback = (Double) -> Void
 public typealias TimeSliderFinishedDraggingCallback = (Bool) -> Void
 public typealias RewindCallback = () -> Void
+public typealias ForwardCallback = () -> Void
 public typealias SpeedToggleCallback = () -> Void
+public typealias ToggleViewCallback = (Bool) -> Void
 
 public class AwesomeMediaControlView: UIView {
     
@@ -21,18 +23,22 @@ public class AwesomeMediaControlView: UIView {
     @IBOutlet public weak var maxTimeLabel: UILabel!
     @IBOutlet public weak var timeSlider: UISlider!
     @IBOutlet public weak var rewindButton: UIButton!
-    @IBOutlet public weak var speedButton: UIButton!
-    @IBOutlet public weak var speedLabel: UILabel!
-    @IBOutlet public weak var speedView: UIView!
+    @IBOutlet public weak var forwardButton: UIButton?
+    @IBOutlet public weak var speedButton: UIButton?
+    @IBOutlet public weak var speedLabel: UILabel?
+    @IBOutlet public weak var speedView: UIView?
 
     // Callbacks
     public var playCallback: PlaybackCallback?
     public var timeSliderChangedCallback: TimeSliderChangedCallback?
     public var timeSliderFinishedDraggingCallback: TimeSliderFinishedDraggingCallback?
     public var rewindCallback: RewindCallback?
+    public var forwardCallback: ForwardCallback?
     public var speedToggleCallback: SpeedToggleCallback?
+    public var toggleViewCallback: ToggleViewCallback?
     
     // Private Variables
+    fileprivate var autoHideControlTimer: Timer?
     fileprivate var playButtonStateBeforeSliding = false
     
     // Public Variables
@@ -88,6 +94,13 @@ public class AwesomeMediaControlView: UIView {
         track(event: .tappedRewind, source: trackingSource, value: AwesomeMedia.backwardForwardStep)
     }
     
+    @IBAction func forwardButtonPressed(_ sender: Any) {
+        forwardCallback?()
+        
+        // tracking event
+        track(event: .tappedAdvance, source: trackingSource, value: AwesomeMedia.backwardForwardStep)
+    }
+    
     @IBAction func speedButtonPressed(_ sender: Any) {
         speedToggleCallback?()
         
@@ -125,6 +138,57 @@ public class AwesomeMediaControlView: UIView {
         maxTimeLabel.text = "00:00"
         shouldShowInfo = true
     }
+    
+    public func setupAutoHide() {
+        cancelAutoHide()
+        
+        guard !isHidden, playButton.isSelected, !isLocked else {
+            return
+        }
+        
+        autoHideControlTimer = Timer.scheduledTimer(withTimeInterval: AwesomeMedia.autoHideControlViewTime, repeats: false) { (_) in
+            self.toggleView()
+        }
+    }
+    
+    public func cancelAutoHide() {
+        autoHideControlTimer?.invalidate()
+    }
+    
+    public func show() {
+        cancelAutoHide()
+        
+        guard isHidden else {
+            return
+        }
+        
+        toggleView()
+    }
+
+    // MARK: - Control Toggle
+    
+    public var shouldToggleControl: Bool {
+        return playButton.isSelected || isHidden
+    }
+    
+    public func toggleViewIfPossible() {
+        guard shouldToggleControl else {
+            return
+        }
+        toggleView()
+    }
+    
+    func toggleView() {
+        cancelAutoHide()
+        
+        animateToggle(direction: .down) { (hidden) in
+            if !hidden {
+                self.setupAutoHide()
+            }
+        }
+        toggleViewCallback?(isHidden)
+    }
+    
 }
 
 // MARK: - Control State
@@ -155,8 +219,10 @@ extension AwesomeMediaControlView: AwesomeMediaControlState {
         rewindButton.isUserInteractionEnabled = !locked
         rewindButton.alpha = locked ? lockedAlpha : 1.0
         
-        speedView.isUserInteractionEnabled = !locked
-        speedView.alpha = locked ? lockedAlpha : 1.0
+        forwardButton?.isUserInteractionEnabled = !locked
+        forwardButton?.alpha = locked ? lockedAlpha : 1.0
+        
+        speedView?.isUserInteractionEnabled = !locked
+        speedView?.alpha = locked ? lockedAlpha : 1.0
     }
 }
-

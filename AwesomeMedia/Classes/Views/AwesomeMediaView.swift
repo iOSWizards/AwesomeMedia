@@ -273,7 +273,7 @@ extension AwesomeMediaView: AwesomeMediaEventObserver {
     }
     
     public func speedRateChanged() {
-        controlView?.speedLabel.text = AwesomeMediaSpeed.speedLabelForCurrentSpeed
+        controlView?.speedLabel?.text = AwesomeMediaSpeed.speedLabelForCurrentSpeed
     }
     
     public func timedOut() {
