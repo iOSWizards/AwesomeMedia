@@ -14,6 +14,7 @@ public typealias TimeSliderFinishedDraggingCallback = (Bool) -> Void
 public typealias RewindCallback = () -> Void
 public typealias ForwardCallback = () -> Void
 public typealias SpeedToggleCallback = () -> Void
+public typealias ToggleViewCallback = (Bool) -> Void
 
 public class AwesomeMediaControlView: UIView {
     
@@ -34,8 +35,10 @@ public class AwesomeMediaControlView: UIView {
     public var rewindCallback: RewindCallback?
     public var forwardCallback: ForwardCallback?
     public var speedToggleCallback: SpeedToggleCallback?
+    public var toggleViewCallback: ToggleViewCallback?
     
     // Private Variables
+    fileprivate var autoHideControlTimer: Timer?
     fileprivate var playButtonStateBeforeSliding = false
     
     // Public Variables
@@ -135,6 +138,57 @@ public class AwesomeMediaControlView: UIView {
         maxTimeLabel.text = "00:00"
         shouldShowInfo = true
     }
+    
+    public func setupAutoHide() {
+        cancelAutoHide()
+        
+        guard !isHidden, playButton.isSelected, !isLocked else {
+            return
+        }
+        
+        autoHideControlTimer = Timer.scheduledTimer(withTimeInterval: AwesomeMedia.autoHideControlViewTime, repeats: false) { (_) in
+            self.toggleView()
+        }
+    }
+    
+    public func cancelAutoHide() {
+        autoHideControlTimer?.invalidate()
+    }
+    
+    public func show() {
+        cancelAutoHide()
+        
+        guard isHidden else {
+            return
+        }
+        
+        toggleView()
+    }
+
+    // MARK: - Control Toggle
+    
+    public var shouldToggleControl: Bool {
+        return playButton.isSelected || isHidden
+    }
+    
+    public func toggleViewIfPossible() {
+        guard shouldToggleControl else {
+            return
+        }
+        toggleView()
+    }
+    
+    func toggleView() {
+        cancelAutoHide()
+        
+        animateToggle(direction: .down) { (hidden) in
+            if !hidden {
+                self.setupAutoHide()
+            }
+        }
+        toggleViewCallback?(isHidden)
+    }
+    
 }
 
 // MARK: - Control State
@@ -172,4 +226,3 @@ extension AwesomeMediaControlView: AwesomeMediaControlState {
         speedView?.alpha = locked ? lockedAlpha : 1.0
     }
 }
-

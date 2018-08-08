@@ -15,6 +15,7 @@ public class AwesomeMediaVerticalVideoViewController: UIViewController {
     @IBOutlet public weak var aboutAudioTextView: UITextView!
     @IBOutlet public weak var coverImageView: UIImageView!
     @IBOutlet public weak var minimizeButton: UIButton!
+    @IBOutlet public weak var toggleControlsButton: UIButton!
     @IBOutlet weak var controlView: AwesomeMediaAudioControlView!
     
     // Public Variaables
@@ -141,6 +142,10 @@ public class AwesomeMediaVerticalVideoViewController: UIViewController {
         track(event: .toggleFullscreen, source: .audioFullscreen)
     }
     
+    @IBAction func toggleControls(_ sender: Any) {
+        controlView.show()
+    }
+    
     fileprivate func play() {
         AwesomeMediaManager.shared.playMedia(
             withParams: self.mediaParams,
@@ -205,6 +210,9 @@ extension AwesomeMediaVerticalVideoViewController: AwesomeMediaEventObserver {
     
     public func pausedPlaying() {
         controlView.playButton.isSelected = sharedAVPlayer.isPlaying(withParams: mediaParams)
+        
+        // cancels auto hide
+        controlView.show()
     }
     
     public func stoppedPlaying() {
@@ -214,6 +222,9 @@ extension AwesomeMediaVerticalVideoViewController: AwesomeMediaEventObserver {
         
         // remove media alert if present
         removeAlertIfPresent()
+        
+        // cancels auto hide
+        controlView.show()
     }
     
     public func startedBuffering() {
@@ -225,6 +236,9 @@ extension AwesomeMediaVerticalVideoViewController: AwesomeMediaEventObserver {
         coverImageView.startLoadingAnimation()
         
         controlView.lock(true, animated: true)
+        
+        // cancels auto hide
+        controlView.show()
     }
     
     public func stoppedBuffering() {
@@ -234,6 +248,9 @@ extension AwesomeMediaVerticalVideoViewController: AwesomeMediaEventObserver {
         
         // remove media alert if present
         removeAlertIfPresent()
+        
+        // setup auto hide
+        controlView?.setupAutoHide()
     }
     
     public func finishedPlaying() {

@@ -927,15 +927,26 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sOf-8p-Aub">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
+                                        <connections>
+                                            <action selector="toggleControls:" destination="S44-oz-EZu" eventType="touchUpInside" id="gOZ-eh-GQm"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.23529411759999999" green="0.26274509800000001" blue="0.30588235289999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="dg7-bs-QKu" secondAttribute="trailing" id="8uF-Vs-NPA"/>
+                                    <constraint firstAttribute="trailing" secondItem="sOf-8p-Aub" secondAttribute="trailing" id="C4r-pq-0Nm"/>
                                     <constraint firstItem="v7s-S6-KIl" firstAttribute="centerY" secondItem="7pF-Km-Z0g" secondAttribute="centerY" id="COd-Tc-Pcw"/>
+                                    <constraint firstItem="sOf-8p-Aub" firstAttribute="top" secondItem="7pF-Km-Z0g" secondAttribute="top" id="JSo-Qj-FRH"/>
+                                    <constraint firstAttribute="bottom" secondItem="sOf-8p-Aub" secondAttribute="bottom" id="Jd2-yR-ZnV"/>
                                     <constraint firstItem="dg7-bs-QKu" firstAttribute="leading" secondItem="7pF-Km-Z0g" secondAttribute="leading" id="P59-FB-ta9"/>
                                     <constraint firstAttribute="bottom" secondItem="dg7-bs-QKu" secondAttribute="bottom" id="RaV-Kt-m20"/>
                                     <constraint firstItem="Q6z-zq-ayO" firstAttribute="top" secondItem="7pF-Km-Z0g" secondAttribute="top" id="Snb-5y-rTA"/>
                                     <constraint firstItem="dg7-bs-QKu" firstAttribute="top" secondItem="7pF-Km-Z0g" secondAttribute="top" id="Ukk-ap-2q0"/>
+                                    <constraint firstItem="sOf-8p-Aub" firstAttribute="leading" secondItem="7pF-Km-Z0g" secondAttribute="leading" id="Yaw-Ls-XFD"/>
                                     <constraint firstItem="v7s-S6-KIl" firstAttribute="centerX" secondItem="7pF-Km-Z0g" secondAttribute="centerX" id="cua-zm-p1f"/>
                                     <constraint firstItem="v7s-S6-KIl" firstAttribute="centerY" secondItem="7pF-Km-Z0g" secondAttribute="centerY" id="hEl-lV-wiz"/>
                                     <constraint firstAttribute="bottom" secondItem="Q6z-zq-ayO" secondAttribute="bottom" id="jvr-V8-XVY"/>
@@ -1166,6 +1177,7 @@
                         <outlet property="coverImageView" destination="Q6z-zq-ayO" id="N7p-Wo-aG5"/>
                         <outlet property="mediaView" destination="dg7-bs-QKu" id="gHh-6m-fMY"/>
                         <outlet property="minimizeButton" destination="b9P-fU-1HE" id="zyt-ND-VHI"/>
+                        <outlet property="toggleControlsButton" destination="sOf-8p-Aub" id="ano-Kd-DOp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UAw-yW-yej" userLabel="First Responder" sceneMemberID="firstResponder"/>

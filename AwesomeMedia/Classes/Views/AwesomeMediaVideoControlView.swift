@@ -10,7 +10,6 @@ import AVFoundation
 
 public typealias JumpToCallback = () -> Void
 public typealias FullScreenCallback = () -> Void
-public typealias ToggleViewCallback = (Bool) -> Void
 
 public class AwesomeMediaVideoControlView: AwesomeMediaControlView {
     
@@ -28,11 +27,9 @@ public class AwesomeMediaVideoControlView: AwesomeMediaControlView {
     
     // Callbacks
     public var fullscreenCallback: FullScreenCallback?
-    public var toggleViewCallback: ToggleViewCallback?
     public var jumpToCallback: JumpToCallback?
 
     // Private Variables
-    fileprivate var autoHideControlTimer: Timer?
     fileprivate var bottomConstraint: NSLayoutConstraint?
     fileprivate var states: AwesomeMediaVideoStates = .standard
     fileprivate var controls: AwesomeMediaVideoControls = .standard
@@ -177,60 +174,6 @@ public class AwesomeMediaVideoControlView: AwesomeMediaControlView {
         updatePlayState()
         show()
     }
-}
-
-// MARK: - Control Toggle
-    
-extension AwesomeMediaVideoControlView {
-    
-    public var shouldToggleControl: Bool {
-        return playButton.isSelected || isHidden
-    }
-    
-    public func toggleViewIfPossible() {
-        guard shouldToggleControl else {
-            return
-        }
-        toggleView()
-    }
-    
-    fileprivate func toggleView() {
-        cancelAutoHide()
-        
-        animateToggle(direction: .down) { (hidden) in
-            if !hidden {
-                self.setupAutoHide()
-            }
-        }
-        toggleViewCallback?(isHidden)
-    }
-    
-    public func setupAutoHide() {
-        cancelAutoHide()
-        
-        guard !isHidden, playButton.isSelected, !isLocked else {
-            return
-        }
-        
-        autoHideControlTimer = Timer.scheduledTimer(withTimeInterval: AwesomeMedia.autoHideControlViewTime, repeats: false) { (_) in
-            self.toggleView()
-        }
-    }
-    
-    public func cancelAutoHide() {
-        autoHideControlTimer?.invalidate()
-    }
-    
-    public func show() {
-        cancelAutoHide()
-        
-        guard isHidden else {
-            return
-        }
-        
-        toggleView()
-    }
-    
 }
 
 // MARK: - View Initialization
