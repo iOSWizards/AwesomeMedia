@@ -16,7 +16,9 @@ public struct AwesomeMediaParams {
     public var youtubeUrl: String?
     public var coverUrl: String?
     public var author: String?
+    public var authorAvatar: String?
     public var title: String?
+    public var about: String?
     public var duration: Int = 0
     public var markers: [AwesomeMediaMarker] = []
     //public var captions: [AwesomeMediaCaption] = []
@@ -28,7 +30,9 @@ public struct AwesomeMediaParams {
                 youtubeUrl: String? = nil,
                 coverUrl: String? = nil,
                 author: String? = nil,
+                authorAvatar: String? = nil,
                 title: String? = nil,
+                about: String? = nil,
                 duration: Int = 0,
                 markers: [AwesomeMediaMarker] = [],
                 //captions: [AwesomeMediaCaption] = [],
@@ -39,7 +43,9 @@ public struct AwesomeMediaParams {
         self.youtubeUrl = youtubeUrl
         self.coverUrl = coverUrl
         self.author = author
+        self.authorAvatar = authorAvatar
         self.title = title
+        self.about = about
         self.duration = duration
         self.markers = markers
         //self.captions = captions

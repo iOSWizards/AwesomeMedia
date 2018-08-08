@@ -61,7 +61,7 @@ public class AwesomeMediaAudioViewController: UIViewController {
         updateAppearance(isPortrait: UIApplication.shared.statusBarOrientation.isPortrait)
     }
     
-    fileprivate func configure() {
+    func configure() {
         configureControls()
         refreshDownloadState()
         loadCoverImage()
