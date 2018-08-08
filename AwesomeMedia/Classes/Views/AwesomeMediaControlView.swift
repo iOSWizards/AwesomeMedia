@@ -23,9 +23,9 @@ public class AwesomeMediaControlView: UIView {
     @IBOutlet public weak var timeSlider: UISlider!
     @IBOutlet public weak var rewindButton: UIButton!
     @IBOutlet public weak var forwardButton: UIButton?
-    @IBOutlet public weak var speedButton: UIButton!
-    @IBOutlet public weak var speedLabel: UILabel!
-    @IBOutlet public weak var speedView: UIView!
+    @IBOutlet public weak var speedButton: UIButton?
+    @IBOutlet public weak var speedLabel: UILabel?
+    @IBOutlet public weak var speedView: UIView?
 
     // Callbacks
     public var playCallback: PlaybackCallback?
@@ -165,8 +165,11 @@ extension AwesomeMediaControlView: AwesomeMediaControlState {
         rewindButton.isUserInteractionEnabled = !locked
         rewindButton.alpha = locked ? lockedAlpha : 1.0
         
-        speedView.isUserInteractionEnabled = !locked
-        speedView.alpha = locked ? lockedAlpha : 1.0
+        forwardButton?.isUserInteractionEnabled = !locked
+        forwardButton?.alpha = locked ? lockedAlpha : 1.0
+        
+        speedView?.isUserInteractionEnabled = !locked
+        speedView?.alpha = locked ? lockedAlpha : 1.0
     }
 }
 

@@ -61,7 +61,7 @@ public class AwesomeMediaAudioViewController: UIViewController {
         updateAppearance(isPortrait: UIApplication.shared.statusBarOrientation.isPortrait)
     }
     
-    func configure() {
+    fileprivate func configure() {
         configureControls()
         refreshDownloadState()
         loadCoverImage()
@@ -327,7 +327,7 @@ extension AwesomeMediaAudioViewController: AwesomeMediaEventObserver {
     }
     
     public func speedRateChanged() {
-        controlView.speedLabel.text = AwesomeMediaSpeed.speedLabelForCurrentSpeed
+        controlView.speedLabel?.text = AwesomeMediaSpeed.speedLabelForCurrentSpeed
     }
     
     public func timeUpdated() {

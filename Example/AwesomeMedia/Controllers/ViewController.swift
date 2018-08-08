@@ -15,6 +15,7 @@ enum MediaType: String {
     case file
     case image
     case youtube
+    case verticalVideo
 }
 
 struct MediaCell {
@@ -111,7 +112,16 @@ class ViewController: UIViewController {
         MediaCell(type: .youtube,
                   mediaParams: AwesomeMediaParams(
                     youtubeUrl: "https://www.youtube.com/watch?v=5WOxJ9rvU1s&t=3s",
-                    coverUrl: "https://i0.wp.com/res.cloudinary.com/changethatmind/image/upload/v1501884914/wildfitsales.png?fit=500%2C500&ssl=1"))
+                    coverUrl: "https://i0.wp.com/res.cloudinary.com/changethatmind/image/upload/v1501884914/wildfitsales.png?fit=500%2C500&ssl=1")),
+        MediaCell(type: .verticalVideo,
+                  mediaParams: AwesomeMediaParams(
+                    url: "https://overmind2.mvstg.com/api/v1/assets/0af656fc-dcde-45ad-9b59-7632ca247001.m3u8",
+                    coverUrl: "https://i.ytimg.com/vi/BiRED7kH-nQ/maxresdefault.jpg",
+                    author: "Brett Ninja",
+                    authorAvatar: "https://thumbs.dreamstime.com/z/awesome-word-cloud-explosion-background-51481417.jpg",
+                    title: "Pushing the Senses",
+                    about: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+                    duration: 20))
         ]
     var mediaParamsArray: [AwesomeMediaParams] {
         var mediaParamsArray = [AwesomeMediaParams]()
@@ -206,6 +216,14 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
             return AwesomeMediaImageTableViewCell.size(withTableView: tableView, indexPath: indexPath).height
         case .youtube:
             return AwesomeMediaYoutubeTableViewCell.defaultSize.height
+        case .verticalVideo:
+            return AwesomeMediaVideoTableViewCell.defaultSize.height
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if cells[indexPath.row].type == .verticalVideo {
+            presentVerticalVideoFullscreen(withMediaParams: cells[indexPath.row].mediaParams)
         }
     }
 

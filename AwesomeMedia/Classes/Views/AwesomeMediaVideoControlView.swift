@@ -59,7 +59,7 @@ public class AwesomeMediaVideoControlView: AwesomeMediaControlView {
     public func setupControls() {
         timeStackView.isHidden = !controls.contains(.time)
         jumptoView.isHidden = !controls.contains(.jumpto)
-        speedView.isHidden = !controls.contains(.speed)
+        speedView?.isHidden = !controls.contains(.speed)
 //        playlistButton.isHidden = !controls.contains(.playlist)
         rewindButton.isHidden = !controls.contains(.rewind)
         toggleFullscreenButton.isHidden = !controls.contains(.fullscreen) && !controls.contains(.minimize)
@@ -74,7 +74,7 @@ public class AwesomeMediaVideoControlView: AwesomeMediaControlView {
         }
         
         if controls.contains(.speed) {
-            speedView.isHidden = isPortrait
+            speedView?.isHidden = isPortrait
         }
         
 //        if controls.contains(.playlist) {
