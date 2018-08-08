@@ -897,10 +897,10 @@
             </objects>
             <point key="canvasLocation" x="837.60000000000002" y="869.70443349753702"/>
         </scene>
-        <!--Awesome Media Audio Author View Controller-->
+        <!--Awesome Media Vertical Video View Controller-->
         <scene sceneID="r0B-8i-tb7">
             <objects>
-                <viewController storyboardIdentifier="AwesomeMediaAudioAuthorViewController" id="S44-oz-EZu" customClass="AwesomeMediaAudioAuthorViewController" customModule="AwesomeMedia" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AwesomeMediaVerticalVideoViewController" id="S44-oz-EZu" customClass="AwesomeMediaVerticalVideoViewController" customModule="AwesomeMedia" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="48D-RQ-OEU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1138,6 +1138,7 @@
                         <outlet property="authorNameLabel" destination="znp-yC-adW" id="Hmc-w0-gRH"/>
                         <outlet property="controlView" destination="15y-8T-Wc3" id="GgZ-fY-ft7"/>
                         <outlet property="coverImageView" destination="Q6z-zq-ayO" id="N7p-Wo-aG5"/>
+                        <outlet property="mediaView" destination="7pF-Km-Z0g" id="JFT-SG-bpY"/>
                         <outlet property="minimizeButton" destination="b9P-fU-1HE" id="zyt-ND-VHI"/>
                     </connections>
                 </viewController>

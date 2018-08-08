@@ -52,7 +52,7 @@
 		0A49D241F2C9D24BD13DCE9908EE6467 /* RLMPredicateUtil.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2AB76EC43690E526F8322E851051A007 /* RLMPredicateUtil.mm */; settings = {COMPILER_FLAGS = "-DREALM_HAVE_CONFIG -DREALM_COCOA_VERSION='@\"3.7.4\"' -D__ASSERTMACROS__ -DREALM_ENABLE_SYNC"; }; };
 		0A6EFDDB88B61BAF68B0475418F89FAA /* img-star-half.png in Resources */ = {isa = PBXBuildFile; fileRef = 0590910237F3FC591C8BF8C9BD496581 /* img-star-half.png */; };
 		0A837CAE6D61419CE6406B3CD1E17DBD /* img-star-empty.png in Resources */ = {isa = PBXBuildFile; fileRef = DE3F5A5AAE2062F8EC92594D7674648B /* img-star-empty.png */; };
-		0A900AD7211AA7A40081F16F /* AwesomeMediaAudioAuthorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A900AD6211AA7A40081F16F /* AwesomeMediaAudioAuthorViewController.swift */; };
+		0A900AD7211AA7A40081F16F /* AwesomeMediaVerticalVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A900AD6211AA7A40081F16F /* AwesomeMediaVerticalVideoViewController.swift */; };
 		0ABB02FAE48817338823EB3257849956 /* LOTBlockCallback.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C7403A332AC796F557D85C2FA63C552 /* LOTBlockCallback.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0AC9FB149274BF9D3B4EA45B13A5F125 /* FBSDKButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B866A1258756337F8BCE8C49995CFEF8 /* FBSDKButton.m */; };
 		0AF78F077F24CC2D38CB210F4C01C9DA /* RLMSyncSubscription.h in Copy . Public Headers */ = {isa = PBXBuildFile; fileRef = 17027C171A0D5A544F199E0A4A56A893 /* RLMSyncSubscription.h */; };
@@ -1894,7 +1894,7 @@
 		09DD75A23661962410309980CD6100A4 /* FBSDKInternalUtility.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FBSDKInternalUtility.m; path = FBSDKCoreKit/FBSDKCoreKit/Internal/FBSDKInternalUtility.m; sourceTree = "<group>"; };
 		0A33CA327932D6E5258E59735497A472 /* EventPurchaseStatusBO.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EventPurchaseStatusBO.swift; path = AwesomeCore/Classes/BusinessObjects/EventPurchaseStatusBO.swift; sourceTree = "<group>"; };
 		0A659B408ECE6BC3E9E0CCDAE0BE7E04 /* shared_realm.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = shared_realm.cpp; path = Realm/ObjectStore/src/shared_realm.cpp; sourceTree = "<group>"; };
-		0A900AD6211AA7A40081F16F /* AwesomeMediaAudioAuthorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwesomeMediaAudioAuthorViewController.swift; sourceTree = "<group>"; };
+		0A900AD6211AA7A40081F16F /* AwesomeMediaVerticalVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwesomeMediaVerticalVideoViewController.swift; sourceTree = "<group>"; };
 		0AAD946036F14900E2123667980A64E9 /* BrazeHelper.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BrazeHelper.swift; path = AwesomeTracking/Classes/Helpers/BrazeHelper.swift; sourceTree = "<group>"; };
 		0AF490CC03C6C69023985AC8D2BD03E5 /* SingleCourseNS.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SingleCourseNS.swift; path = AwesomeCore/Classes/NetworkServices/SingleCourseNS.swift; sourceTree = "<group>"; };
 		0AF8FA3361F2C4A56FD4F8BAABDCCD71 /* ABKNavigationFeedbackViewController.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = ABKNavigationFeedbackViewController.xib; path = AppboyUI/ABKFeedbackViewController/Feedback_Resources/ABKNavigationFeedbackViewController.xib; sourceTree = "<group>"; };
@@ -3922,7 +3922,7 @@
 			isa = PBXGroup;
 			children = (
 				50EEB395C42845B6A7828F8E2B3FFCB6 /* AwesomeMediaAudioViewController.swift */,
-				0A900AD6211AA7A40081F16F /* AwesomeMediaAudioAuthorViewController.swift */,
+				0A900AD6211AA7A40081F16F /* AwesomeMediaVerticalVideoViewController.swift */,
 				3ABB241CA1E1ABFA12ABE244322B8A45 /* AwesomeMediaCaptionsViewController.swift */,
 				3B0370305B7B01C6BE3295558116CB66 /* AwesomeMediaInteractor.swift */,
 				8C8ADC33D166BAE0711C31AE2452E6C3 /* AwesomeMediaMarkersViewController.swift */,
@@ -7507,7 +7507,7 @@
 				368563DC8E1D91C13CFE0792FB60FE5D /* AwesomeMediaImageTableViewCell.swift in Sources */,
 				91895F6A3852B7508EE0D4EE7495D439 /* AwesomeMediaInteractor.swift in Sources */,
 				29AE04B6922E1EDBA945056E71D3DF32 /* AwesomeMediaManager.swift in Sources */,
-				0A900AD7211AA7A40081F16F /* AwesomeMediaAudioAuthorViewController.swift in Sources */,
+				0A900AD7211AA7A40081F16F /* AwesomeMediaVerticalVideoViewController.swift in Sources */,
 				F16996502B5EDE2D3180C128EA12448A /* AwesomeMediaMarker.swift in Sources */,
 				E0A52263CB9506503B5F3094188C8F33 /* AwesomeMediaMarkersViewController.swift in Sources */,
 				65BCD69373CF6084956E6BFF41884A59 /* AwesomeMediaMarkersViewModel.swift in Sources */,

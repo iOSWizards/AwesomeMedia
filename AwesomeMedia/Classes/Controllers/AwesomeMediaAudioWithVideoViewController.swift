@@ -7,7 +7,7 @@
 
 import UIKit
 
-public class AwesomeMediaAudioAuthorViewController: AwesomeMediaAudioViewController {
+public class AwesomeMediaVerticalVideoViewController: AwesomeMediaAudioViewController {
     
     @IBOutlet public weak var authorImageView: UIImageView!
     @IBOutlet public weak var authorNameLabel: UILabel!
