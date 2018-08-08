@@ -12,6 +12,7 @@ public typealias PlaybackCallback = (_ playing: Bool) -> Void
 public typealias TimeSliderChangedCallback = (Double) -> Void
 public typealias TimeSliderFinishedDraggingCallback = (Bool) -> Void
 public typealias RewindCallback = () -> Void
+public typealias ForwardCallback = () -> Void
 public typealias SpeedToggleCallback = () -> Void
 
 public class AwesomeMediaControlView: UIView {
@@ -21,6 +22,7 @@ public class AwesomeMediaControlView: UIView {
     @IBOutlet public weak var maxTimeLabel: UILabel!
     @IBOutlet public weak var timeSlider: UISlider!
     @IBOutlet public weak var rewindButton: UIButton!
+    @IBOutlet public weak var forwardButton: UIButton?
     @IBOutlet public weak var speedButton: UIButton!
     @IBOutlet public weak var speedLabel: UILabel!
     @IBOutlet public weak var speedView: UIView!
@@ -30,6 +32,7 @@ public class AwesomeMediaControlView: UIView {
     public var timeSliderChangedCallback: TimeSliderChangedCallback?
     public var timeSliderFinishedDraggingCallback: TimeSliderFinishedDraggingCallback?
     public var rewindCallback: RewindCallback?
+    public var forwardCallback: ForwardCallback?
     public var speedToggleCallback: SpeedToggleCallback?
     
     // Private Variables
@@ -86,6 +89,13 @@ public class AwesomeMediaControlView: UIView {
         
         // tracking event
         track(event: .tappedRewind, source: trackingSource, value: AwesomeMedia.backwardForwardStep)
+    }
+    
+    @IBAction func forwardButtonPressed(_ sender: Any) {
+        forwardCallback?()
+        
+        // tracking event
+        track(event: .tappedAdvance, source: trackingSource, value: AwesomeMedia.backwardForwardStep)
     }
     
     @IBAction func speedButtonPressed(_ sender: Any) {
