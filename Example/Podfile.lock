@@ -25,7 +25,7 @@ PODS:
     - Kingfisher (~> 4.0)
   - AwesomeLoading (0.1.5):
     - lottie-ios
-  - AwesomeMedia (1.9.1):
+  - AwesomeMedia (1.9.3):
     - AwesomeConstants
     - AwesomeCore
     - AwesomeDownloading
@@ -161,7 +161,7 @@ SPEC CHECKSUMS:
   AwesomeDownloading: 2952d8121b2c40c83c1217da27f182022e7661bf
   AwesomeImage: 927dc504433332293f5ee3e216b16272cb2e93d4
   AwesomeLoading: 08d501a8f4eefc6e8f16bdff4b6856a41c68bdf4
-  AwesomeMedia: a5b5c07290bee6818d17f2b5e0a75fef3ec340d0
+  AwesomeMedia: 26bd1e2d9c700cdeea5191ba66f7cc5ef88a19e8
   AwesomeNetwork: 295b7f6aa0d3783090cb1e9dc844bcb8fa05e094
   AwesomeTracking: 55a0e7185c39392440541b11d99a2e26bb613f97
   AwesomeUIMagic: b07f77437bcd5f7283f7e6d32025f5acb5fdcb80
