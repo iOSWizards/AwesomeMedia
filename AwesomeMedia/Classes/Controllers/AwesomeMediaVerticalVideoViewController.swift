@@ -87,7 +87,7 @@ public class AwesomeMediaVerticalVideoViewController: UIViewController {
         }
         
         // remove player layer so that we can add it again when needed
-        mediaView.removePlayerLayer()
+//        mediaView.removePlayerLayer()
         
         // check for media playing
         if let item = sharedAVPlayer.currentItem(withParams: mediaParams) {
@@ -147,7 +147,7 @@ public class AwesomeMediaVerticalVideoViewController: UIViewController {
         // configure player item
         let playerItem = AVPlayerItem(url: backgroundUrl)
         self.avPlayer.replaceCurrentItem(with: playerItem)
-        self.avPlayer.volume = 0
+        self.avPlayer.isMuted = true
         self.avPlayer.play()
         
         // configures autoplay loop
