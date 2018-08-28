@@ -143,9 +143,8 @@ public class AwesomeMediaVerticalVideoViewController: UIViewController {
         
         // configure player item
         let playerItem = AVPlayerItem(url: backgroundUrl)
-        self.backgroundPlayer.replaceCurrentItem(with: playerItem)
-        self.backgroundPlayer.isMuted = true
-        self.backgroundPlayer.play()
+        backgroundPlayer.replaceCurrentItem(with: playerItem)
+        backgroundPlayer.isMuted = true
         
         // configures autoplay loop
         NotificationCenter.default.addObserver(forName: .AVPlayerItemDidPlayToEndTime, object: playerItem, queue: .main) { _ in
@@ -261,16 +260,19 @@ extension AwesomeMediaVerticalVideoViewController: AwesomeMediaEventObserver {
             return
         }
         
-        coverImageView.startLoadingAnimation()
+        mediaView.startLoadingAnimation()
         
         controlView.lock(true, animated: true)
         
         // cancels auto hide
         controlView.show()
+        
+        // pauses background
+        backgroundPlayer.pause()
     }
     
     public func stoppedBuffering() {
-        coverImageView.stopLoadingAnimation()
+        mediaView.stopLoadingAnimation()
         
         controlView.lock(false, animated: true)
         
@@ -288,6 +290,9 @@ extension AwesomeMediaVerticalVideoViewController: AwesomeMediaEventObserver {
         
         // pause background
         backgroundPlayer.pause()
+        
+        // close Player
+        dismiss(animated: true, completion: nil)
     }
     
     public func timedOut() {
