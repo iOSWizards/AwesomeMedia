@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AVKit
 
 public class AwesomeMediaVerticalVideoViewController: UIViewController {
     
@@ -16,10 +17,14 @@ public class AwesomeMediaVerticalVideoViewController: UIViewController {
     @IBOutlet public weak var coverImageView: UIImageView!
     @IBOutlet public weak var minimizeButton: UIButton!
     @IBOutlet public weak var toggleControlsButton: UIButton!
-    @IBOutlet weak var controlView: AwesomeMediaAudioControlView!
+    @IBOutlet public weak var controlView: AwesomeMediaAudioControlView!
     
     // Public Variaables
     public var mediaParams = AwesomeMediaParams()
+    
+    // Private Variables
+    fileprivate var avPlayer = AVPlayer()
+    fileprivate var playerLayer = AwesomeMediaPlayerLayer.newInstance
     
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,14 +65,17 @@ public class AwesomeMediaVerticalVideoViewController: UIViewController {
     public override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        AwesomeMediaPlayerLayer.shared.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height)
+        playerLayer.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height)
     }
     
     fileprivate func configure() {
         configureControls()
-        loadCoverImage()
+        //loadCoverImage()
         setupAuthorInfo()
         play()
+        
+        // add background video
+        configureBackgroundVideo()
         
         // Refresh controls
         refreshControls()
@@ -84,8 +92,6 @@ public class AwesomeMediaVerticalVideoViewController: UIViewController {
         // check for media playing
         if let item = sharedAVPlayer.currentItem(withParams: mediaParams) {
             controlView?.update(withItem: item)
-            
-            mediaView.addPlayerLayer()
         }
     }
     
@@ -133,6 +139,28 @@ public class AwesomeMediaVerticalVideoViewController: UIViewController {
         
     }
     
+    fileprivate func configureBackgroundVideo() {
+        guard let backgroundStringUrl = mediaParams.backgroundUrl, let backgroundUrl = URL(string: backgroundStringUrl) else {
+            return
+        }
+        
+        // configure player item
+        let playerItem = AVPlayerItem(url: backgroundUrl)
+        self.avPlayer.replaceCurrentItem(with: playerItem)
+        self.avPlayer.volume = 0
+        self.avPlayer.play()
+        
+        // configures autoplay loop
+        NotificationCenter.default.addObserver(forName: .AVPlayerItemDidPlayToEndTime, object: playerItem, queue: .main) { _ in
+            self.avPlayer.seek(to: kCMTimeZero)
+            self.avPlayer.play()
+        }
+        
+        // add player layer
+        playerLayer.player = avPlayer
+        mediaView.addPlayerLayer(playerLayer)
+    }
+    
     // MARK: - Events
     
     @IBAction func minimizeButtonPressed(_ sender: Any) {
@@ -151,9 +179,6 @@ public class AwesomeMediaVerticalVideoViewController: UIViewController {
             withParams: self.mediaParams,
             inPlayerLayer: AwesomeMediaPlayerLayer.shared,
             viewController: self)
-        
-        // add player layer
-        mediaView.addPlayerLayer()
     }
     
     fileprivate func refreshControls() {
@@ -197,9 +222,6 @@ extension AwesomeMediaVerticalVideoViewController: AwesomeMediaEventObserver {
         }
         
         controlView.playButton.isSelected = true
-        
-        // add player layer
-        mediaView.addPlayerLayer()
         
         // update Control Center
         AwesomeMediaControlCenter.updateControlCenter(withParams: mediaParams)
