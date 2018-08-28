@@ -114,8 +114,9 @@ class ViewController: UIViewController {
                     coverUrl: "https://i0.wp.com/res.cloudinary.com/changethatmind/image/upload/v1501884914/wildfitsales.png?fit=500%2C500&ssl=1")),
         MediaCell(type: .verticalVideo,
                   mediaParams: AwesomeMediaParams(
-                    url: "https://overmind2.mvstg.com/api/v1/assets/0af656fc-dcde-45ad-9b59-7632ca247001.m3u8",
+                    url: testAudioURL,
                     coverUrl: "https://i.ytimg.com/vi/BiRED7kH-nQ/maxresdefault.jpg",
+                    backgroundUrl: "https://www.sample-videos.com/video/mp4/720/big_buck_bunny_720p_1mb.mp4",
                     author: "Brett Ninja",
                     authorAvatar: "https://thumbs.dreamstime.com/z/awesome-word-cloud-explosion-background-51481417.jpg",
                     title: "Pushing the Senses",

@@ -592,7 +592,6 @@
 		73028BD6B9FEFC5C93CEE7FDA2FC91C6 /* FBSDKGraphErrorRecoveryProcessor.h in Headers */ = {isa = PBXBuildFile; fileRef = 544C19D4CC758F1B28402CC658839C7E /* FBSDKGraphErrorRecoveryProcessor.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		733522FC3C2ACB73E72EB394B827DB3B /* SDWebImageManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 34DB60C5001FD18B8E72CCADC46841AE /* SDWebImageManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		73358E0F4D8F3A7808DAEC17C42D0025 /* LOTValueCallback.m in Sources */ = {isa = PBXBuildFile; fileRef = B7E3417E6D244936522C8795AC2F3D24 /* LOTValueCallback.m */; };
-		7348B758949CA2641B3B877737171545 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8F9E599ACFDFE45A9CB90821A68B2BA /* Assets.xcassets */; };
 		737BEE3BD4A7FF942445EA0B5E514F4A /* AwesomeMediaYoutubeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5EDD28317BBDFF0A2099D923B9F029E /* AwesomeMediaYoutubeTableViewCell.xib */; };
 		738028B04D65CD4745C0DA23B6D035D3 /* UIEdgeInsetsToNSDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94D1FD837B8550676B05E3B925DF9CC /* UIEdgeInsetsToNSDictionary.swift */; };
 		73803843D1E1571C22A7A393080FDCBE /* LOTShapeFill.m in Sources */ = {isa = PBXBuildFile; fileRef = 46E3BCB00DF8DA95AACC9E590457F972 /* LOTShapeFill.m */; };
@@ -6764,7 +6763,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7348B758949CA2641B3B877737171545 /* Assets.xcassets in Resources */,
 				C5C745346CCDF0FB11AE59083A6E545E /* AwesomeMedia.storyboard in Resources */,
 				D520AB9EB446C78A05B26C703C04284C /* AwesomeMediaAudioPlayerView.xib in Resources */,
 				04AA6ED8D551F3689B2031216E51ECE6 /* AwesomeMediaAudioTableViewCell.xib in Resources */,

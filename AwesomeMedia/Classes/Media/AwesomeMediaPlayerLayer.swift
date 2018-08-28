@@ -10,19 +10,23 @@ import AVFoundation
 public class AwesomeMediaPlayerLayer: AVPlayerLayer {
     
     public static var shared: AwesomeMediaPlayerLayer = {
+        return newInstance
+    }()
+    
+    public static var newInstance: AwesomeMediaPlayerLayer {
         let playerLayer = AwesomeMediaPlayerLayer()
         playerLayer.videoGravity = .resizeAspectFill
         
         return playerLayer
-    }()
+    }
 }
 
 extension UIView {
     
-    public func addPlayerLayer() {
+    public func addPlayerLayer(_ playerLayer: AVPlayerLayer = AwesomeMediaPlayerLayer.shared) {
         removePlayerLayer()
         
-        self.layer.insertSublayer(AwesomeMediaPlayerLayer.shared, at: 0)
+        self.layer.insertSublayer(playerLayer, at: 0)
         self.layer.masksToBounds = true
     }
     

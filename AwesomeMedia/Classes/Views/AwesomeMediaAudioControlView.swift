@@ -7,9 +7,9 @@
 
 import UIKit
 
-class AwesomeMediaAudioControlView: AwesomeMediaControlView {
+public class AwesomeMediaAudioControlView: AwesomeMediaControlView {
     
-    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet public weak var titleLabel: UILabel!
     
     // Configuration
     public func configure(withParams params: AwesomeMediaParams, trackingSource: AwesomeMediaTrackingSource) {
@@ -20,7 +20,7 @@ class AwesomeMediaAudioControlView: AwesomeMediaControlView {
         reset()
     }
 
-    override func toggleView() {
+    override public func toggleView() {
         cancelAutoHide()
         
         if isHidden {
