@@ -23,8 +23,8 @@ public class AwesomeMediaVerticalVideoViewController: UIViewController {
     public var mediaParams = AwesomeMediaParams()
     
     // Private Variables
-    fileprivate var avPlayer = AVPlayer()
-    fileprivate var playerLayer = AwesomeMediaPlayerLayer.newInstance
+    fileprivate var backgroundPlayer = AVPlayer()
+    fileprivate var backgroundPlayerLayer = AwesomeMediaPlayerLayer.newInstance
     
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,7 +65,7 @@ public class AwesomeMediaVerticalVideoViewController: UIViewController {
     public override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        playerLayer.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height)
+        backgroundPlayerLayer.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height)
     }
     
     fileprivate func configure() {
@@ -85,9 +85,6 @@ public class AwesomeMediaVerticalVideoViewController: UIViewController {
         if AwesomeMediaManager.shared.mediaIsLoading(withParams: mediaParams) {
             coverImageView.startLoadingAnimation()
         }
-        
-        // remove player layer so that we can add it again when needed
-//        mediaView.removePlayerLayer()
         
         // check for media playing
         if let item = sharedAVPlayer.currentItem(withParams: mediaParams) {
@@ -146,19 +143,19 @@ public class AwesomeMediaVerticalVideoViewController: UIViewController {
         
         // configure player item
         let playerItem = AVPlayerItem(url: backgroundUrl)
-        self.avPlayer.replaceCurrentItem(with: playerItem)
-        self.avPlayer.isMuted = true
-        self.avPlayer.play()
+        self.backgroundPlayer.replaceCurrentItem(with: playerItem)
+        self.backgroundPlayer.isMuted = true
+        self.backgroundPlayer.play()
         
         // configures autoplay loop
         NotificationCenter.default.addObserver(forName: .AVPlayerItemDidPlayToEndTime, object: playerItem, queue: .main) { _ in
-            self.avPlayer.seek(to: kCMTimeZero)
-            self.avPlayer.play()
+            self.backgroundPlayer.seek(to: kCMTimeZero)
+            self.backgroundPlayer.play()
         }
         
         // add player layer
-        playerLayer.player = avPlayer
-        mediaView.addPlayerLayer(playerLayer)
+        backgroundPlayerLayer.player = backgroundPlayer
+        mediaView.addPlayerLayer(backgroundPlayerLayer)
     }
     
     // MARK: - Events
@@ -228,6 +225,9 @@ extension AwesomeMediaVerticalVideoViewController: AwesomeMediaEventObserver {
         
         // remove media alert if present
         removeAlertIfPresent()
+        
+        // play background
+        backgroundPlayer.play()
     }
     
     public func pausedPlaying() {
@@ -235,6 +235,9 @@ extension AwesomeMediaVerticalVideoViewController: AwesomeMediaEventObserver {
         
         // cancels auto hide
         controlView.show()
+        
+        // pause background
+        backgroundPlayer.pause()
     }
     
     public func stoppedPlaying() {
@@ -247,6 +250,9 @@ extension AwesomeMediaVerticalVideoViewController: AwesomeMediaEventObserver {
         
         // cancels auto hide
         controlView.show()
+        
+        // pause background
+        backgroundPlayer.pause()
     }
     
     public func startedBuffering() {
@@ -279,6 +285,9 @@ extension AwesomeMediaVerticalVideoViewController: AwesomeMediaEventObserver {
         controlView.playButton.isSelected = false
         
         controlView.lock(false, animated: true)
+        
+        // pause background
+        backgroundPlayer.pause()
     }
     
     public func timedOut() {
