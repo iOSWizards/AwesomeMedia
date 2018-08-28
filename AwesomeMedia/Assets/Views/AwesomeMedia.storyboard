@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.13.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.9"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -1056,18 +1053,21 @@
                                                             <constraint firstItem="6vY-tt-b6v" firstAttribute="width" secondItem="0Ef-Sv-l4U" secondAttribute="width" id="4mQ-fe-nrh"/>
                                                         </constraints>
                                                     </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="oq0-jv-w93">
+                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="28" translatesAutoresizingMaskIntoConstraints="NO" id="oq0-jv-w93">
                                                         <rect key="frame" x="0.0" y="60" width="335" height="100"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jCc-eG-jeA">
-                                                                <rect key="frame" x="0.0" y="0.0" width="88.333333333333329" height="100"/>
-                                                                <state key="normal" image="btnRewindAudioLarge"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="32.333333333333336" height="100"/>
                                                                 <connections>
                                                                     <action selector="rewindButtonPressed:" destination="15y-8T-Wc3" eventType="touchUpInside" id="r8w-rD-0gv"/>
                                                                 </connections>
                                                             </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CJn-ea-kxs">
+                                                                <rect key="frame" x="60.333333333333329" y="0.0" width="37.666666666666671" height="100"/>
+                                                                <state key="normal" image="btnRewindAudioLarge"/>
+                                                            </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GkC-fh-Egd">
-                                                                <rect key="frame" x="123.33333333333334" y="0.0" width="88.333333333333343" height="100"/>
+                                                                <rect key="frame" x="126" y="0.0" width="88.333333333333314" height="100"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="88.329999999999998" id="4o8-X5-kYU"/>
                                                                 </constraints>
@@ -1078,10 +1078,18 @@
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9wj-1W-Ieq">
-                                                                <rect key="frame" x="246.66666666666671" y="0.0" width="88.333333333333343" height="100"/>
+                                                                <rect key="frame" x="242.33333333333329" y="0.0" width="37.666666666666657" height="100"/>
                                                                 <state key="normal" image="btnForwardAudioLarge"/>
                                                                 <connections>
                                                                     <action selector="forwardButtonPressed:" destination="15y-8T-Wc3" eventType="touchUpInside" id="k4W-DZ-Gyp"/>
+                                                                </connections>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gjg-U5-cS8">
+                                                                <rect key="frame" x="308" y="0.0" width="27" height="100"/>
+                                                                <state key="normal" image="icoFavourite"/>
+                                                                <state key="selected" image="icoFavouriteSelected"/>
+                                                                <connections>
+                                                                    <action selector="favouriteButtonPressed:" destination="15y-8T-Wc3" eventType="touchUpInside" id="Mki-fb-0T0"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>
@@ -1147,6 +1155,7 @@
                                     <constraint firstItem="juB-WC-RUW" firstAttribute="top" secondItem="b9P-fU-1HE" secondAttribute="bottom" id="xEK-zv-aAY"/>
                                 </constraints>
                                 <connections>
+                                    <outlet property="favouriteButton" destination="gjg-U5-cS8" id="EWw-Tz-9v6"/>
                                     <outlet property="forwardButton" destination="9wj-1W-Ieq" id="acc-5H-VeP"/>
                                     <outlet property="maxTimeLabel" destination="0Ef-Sv-l4U" id="NIv-5G-DW2"/>
                                     <outlet property="minTimeLabel" destination="6vY-tt-b6v" id="tlR-ZK-7Gp"/>
@@ -1205,6 +1214,8 @@
         <image name="btnPauseAudioLarge" width="80" height="80"/>
         <image name="btnPlayAudioLarge" width="80" height="80"/>
         <image name="btnRewindAudioLarge" width="35" height="39"/>
+        <image name="icoFavourite" width="19" height="17"/>
+        <image name="icoFavouriteSelected" width="19" height="17"/>
         <image name="icoPlaceholderAudio" width="38" height="40"/>
         <image name="icoPlaceholderVideo" width="44" height="32"/>
         <image name="icoPlayMarkers" width="10" height="12"/>
