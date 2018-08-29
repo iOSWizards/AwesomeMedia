@@ -137,9 +137,9 @@ public class AwesomeMediaVerticalVideoViewController: UIViewController {
         // Favourite
         controlView.favouriteCallback = { (isFavourited) in
             if isFavourited {
-                notifyMediaEvent(.favourited)
+                notifyMediaEvent(.favourited, object: self.mediaParams as AnyObject)
             } else {
-                notifyMediaEvent(.unfavourited)
+                notifyMediaEvent(.unfavourited, object: self.mediaParams as AnyObject)
             }
         }
         
