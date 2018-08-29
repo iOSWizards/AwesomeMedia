@@ -23,6 +23,7 @@ public extension Selector {
     public static let timedOut = #selector(AwesomeMediaEventObserver.timedOut)
     public static let favourited = #selector(AwesomeMediaEventObserver.favourited(_:))
     public static let unfavourited = #selector(AwesomeMediaEventObserver.unfavourited(_:))
+    public static let share = #selector(AwesomeMediaEventObserver.share(_:))
 }
 
 @objc public protocol AwesomeMediaEventObserver {
@@ -43,4 +44,5 @@ public extension Selector {
     @objc optional func timedOut()
     @objc optional func favourited(_ notification: NSNotification)
     @objc optional func unfavourited(_ notification: NSNotification)
+    @objc optional func share(_ notification: NSNotification)
 }

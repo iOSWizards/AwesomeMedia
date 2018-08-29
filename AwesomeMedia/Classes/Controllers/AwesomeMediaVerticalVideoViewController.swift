@@ -17,6 +17,7 @@ public class AwesomeMediaVerticalVideoViewController: UIViewController {
     @IBOutlet public weak var coverImageView: UIImageView!
     @IBOutlet public weak var minimizeButton: UIButton!
     @IBOutlet public weak var toggleControlsButton: UIButton!
+    @IBOutlet public weak var shareButton: UIButton!
     @IBOutlet public weak var controlView: AwesomeMediaAudioControlView!
     
     // Public Variaables
@@ -177,6 +178,10 @@ public class AwesomeMediaVerticalVideoViewController: UIViewController {
     
     @IBAction func toggleControls(_ sender: Any) {
         controlView.show()
+    }
+    
+    @IBAction func shareButtonPressed(_ sender: Any) {
+        notifyMediaEvent(.share, object: mediaParams as AnyObject)
     }
     
     fileprivate func play() {
