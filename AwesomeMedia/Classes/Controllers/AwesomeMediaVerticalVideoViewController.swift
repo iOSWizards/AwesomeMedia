@@ -134,6 +134,15 @@ public class AwesomeMediaVerticalVideoViewController: UIViewController {
             sharedAVPlayer.seekForward()
         }
         
+        // Favourite
+        controlView.favouriteCallback = { (isFavourited) in
+            if isFavourited {
+                notifyMediaEvent(.favourited)
+            } else {
+                notifyMediaEvent(.unfavourited)
+            }
+        }
+        
     }
     
     fileprivate func configureBackgroundVideo() {

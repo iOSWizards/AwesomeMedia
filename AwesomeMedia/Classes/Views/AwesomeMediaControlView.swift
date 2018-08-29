@@ -15,7 +15,7 @@ public typealias RewindCallback = () -> Void
 public typealias ForwardCallback = () -> Void
 public typealias SpeedToggleCallback = () -> Void
 public typealias ToggleViewCallback = (Bool) -> Void
-public typealias FavouriteCallback = () -> Void
+public typealias FavouriteCallback = (Bool) -> Void
 
 public class AwesomeMediaControlView: UIView {
     
@@ -112,7 +112,9 @@ public class AwesomeMediaControlView: UIView {
     }
     
     @IBAction func favouriteButtonPressed(_ sender: Any) {
-        favouriteCallback?()
+        favouriteButton?.isSelected = !(favouriteButton?.isSelected ?? false)
+
+        favouriteCallback?(favouriteButton?.isSelected ?? false)
     }
     
     @IBAction func timeSliderValueChanged(_ sender: Any) {
@@ -231,5 +233,8 @@ extension AwesomeMediaControlView: AwesomeMediaControlState {
         
         speedView?.isUserInteractionEnabled = !locked
         speedView?.alpha = locked ? lockedAlpha : 1.0
+
+        favouriteButton?.isUserInteractionEnabled = !locked
+        favouriteButton?.alpha = locked ? lockedAlpha : 1.0
     }
 }

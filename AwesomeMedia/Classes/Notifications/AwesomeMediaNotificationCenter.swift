@@ -28,6 +28,8 @@ public enum AwesomeMediaEvent: String {
     case isGoingLandscape
     case speedRateChanged
     case unknown
+    case favourited
+    case unfavourited
 }
 
 func notifyMediaEvent(_ event: AwesomeMediaEvent, object: AnyObject? = nil) {
