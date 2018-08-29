@@ -15,6 +15,7 @@ public typealias RewindCallback = () -> Void
 public typealias ForwardCallback = () -> Void
 public typealias SpeedToggleCallback = () -> Void
 public typealias ToggleViewCallback = (Bool) -> Void
+public typealias FavouriteCallback = (Bool) -> Void
 
 public class AwesomeMediaControlView: UIView {
     
@@ -27,6 +28,7 @@ public class AwesomeMediaControlView: UIView {
     @IBOutlet public weak var speedButton: UIButton?
     @IBOutlet public weak var speedLabel: UILabel?
     @IBOutlet public weak var speedView: UIView?
+    @IBOutlet public weak var favouriteButton: UIButton?
 
     // Callbacks
     public var playCallback: PlaybackCallback?
@@ -36,6 +38,7 @@ public class AwesomeMediaControlView: UIView {
     public var forwardCallback: ForwardCallback?
     public var speedToggleCallback: SpeedToggleCallback?
     public var toggleViewCallback: ToggleViewCallback?
+    public var favouriteCallback: FavouriteCallback?
     
     // Private Variables
     fileprivate var autoHideControlTimer: Timer?
@@ -106,6 +109,12 @@ public class AwesomeMediaControlView: UIView {
         
         // tracking event
         track(event: .toggledSpeed, source: trackingSource, value: sharedAVPlayer.rate)
+    }
+    
+    @IBAction func favouriteButtonPressed(_ sender: Any) {
+        favouriteButton?.isSelected = !(favouriteButton?.isSelected ?? false)
+
+        favouriteCallback?(favouriteButton?.isSelected ?? false)
     }
     
     @IBAction func timeSliderValueChanged(_ sender: Any) {
@@ -224,5 +233,8 @@ extension AwesomeMediaControlView: AwesomeMediaControlState {
         
         speedView?.isUserInteractionEnabled = !locked
         speedView?.alpha = locked ? lockedAlpha : 1.0
+
+        favouriteButton?.isUserInteractionEnabled = !locked
+        favouriteButton?.alpha = locked ? lockedAlpha : 1.0
     }
 }

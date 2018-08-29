@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'AwesomeMedia'
-  s.version          = '1.9.3.1'
+  s.version          = '1.9.3.3'
   s.summary          = 'Play Sounds and Videos with AvPlayer.'
 
 # This description is used to generate tags and improve search results.
@@ -35,7 +35,7 @@ Play Media from any app using this library.
   s.ios.resources = ['AwesomeMedia/Assets/Views/*.{xib,storyboard}', 'AwesomeMedia/Assets/Assets.xcassets']
   s.ios.preserve_paths = 'AwesomeMedia/Assets/*'
   s.resource_bundles = {
-    'AwesomeMedia' => ['AwesomeMedia/Assets/**/*.{storyboard,xib,xcassets,json,imageset,png}']
+    'AwesomeMedia' => ['AwesomeMedia/Assets/**/*.{storyboard,xib,xcassets,json,imageset,png,pdf}']
   }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
