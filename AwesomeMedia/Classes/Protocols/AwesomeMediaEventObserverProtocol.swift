@@ -21,8 +21,8 @@ public extension Selector {
     public static let finishedPlaying = #selector(AwesomeMediaEventObserver.finishedPlaying)
     public static let speedRateChanged = #selector(AwesomeMediaEventObserver.speedRateChanged)
     public static let timedOut = #selector(AwesomeMediaEventObserver.timedOut)
-    public static let favourited = #selector(AwesomeMediaEventObserver.favourited)
-    public static let unfavourited = #selector(AwesomeMediaEventObserver.unfavourited)
+    public static let favourited = #selector(AwesomeMediaEventObserver.favourited(_:))
+    public static let unfavourited = #selector(AwesomeMediaEventObserver.unfavourited(_:))
 }
 
 @objc public protocol AwesomeMediaEventObserver {
@@ -41,6 +41,6 @@ public extension Selector {
     @objc optional func finishedPlaying()
     @objc optional func speedRateChanged()
     @objc optional func timedOut()
-    @objc optional func favourited()
-    @objc optional func unfavourited()
+    @objc optional func favourited(_ notification: NSNotification)
+    @objc optional func unfavourited(_ notification: NSNotification)
 }
