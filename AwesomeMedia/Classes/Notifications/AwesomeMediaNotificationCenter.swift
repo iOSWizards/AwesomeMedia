@@ -30,6 +30,7 @@ public enum AwesomeMediaEvent: String {
     case unknown
     case favourited
     case unfavourited
+    case share
 }
 
 func notifyMediaEvent(_ event: AwesomeMediaEvent, object: AnyObject? = nil) {
@@ -105,6 +106,18 @@ public class AwesomeMediaNotificationCenter: NotificationCenter {
         if options.contains(.timedOut) {
             AwesomeMediaNotificationCenter.shared.addObserver(to, selector: .timedOut, event: .timedOut)
         }
+        
+        if options.contains(.favourited) {
+            AwesomeMediaNotificationCenter.shared.addObserver(to, selector: .favourited, event: .favourited)
+        }
+        
+        if options.contains(.unfavourited) {
+            AwesomeMediaNotificationCenter.shared.addObserver(to, selector: .unfavourited, event: .unfavourited)
+        }
+        
+        if options.contains(.share) {
+            AwesomeMediaNotificationCenter.shared.addObserver(to, selector: .share, event: .share)
+        }
     }
     
     public static func removeObservers(from: AwesomeMediaEventObserver) {
@@ -139,6 +152,9 @@ public struct AwesomeMediaNotificationCenterOptions: OptionSet {
     public static let showMiniPlayer = AwesomeMediaNotificationCenterOptions(rawValue: 1 << 16)
     public static let hideMiniPlayer = AwesomeMediaNotificationCenterOptions(rawValue: 1 << 17)
     public static let unknown = AwesomeMediaNotificationCenterOptions(rawValue: 1 << 18)
+    public static let favourited = AwesomeMediaNotificationCenterOptions(rawValue: 1 << 19)
+    public static let unfavourited = AwesomeMediaNotificationCenterOptions(rawValue: 1 << 20)
+    public static let share = AwesomeMediaNotificationCenterOptions(rawValue: 1 << 21)
     
     public static let basic: AwesomeMediaNotificationCenterOptions = [.playing, .paused, .finished, .buffering, .stoppedBuffering]
 }

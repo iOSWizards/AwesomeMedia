@@ -1134,6 +1134,17 @@
                                             <action selector="minimizeButtonPressed:" destination="S44-oz-EZu" eventType="touchUpInside" id="9Yg-NO-qvR"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zXE-Xb-gh0">
+                                        <rect key="frame" x="0.0" y="44" width="70" height="70"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="70" id="Cjw-sE-FQd"/>
+                                            <constraint firstAttribute="width" constant="70" id="N1i-rQ-a8C"/>
+                                        </constraints>
+                                        <state key="normal" image="icoShare"/>
+                                        <connections>
+                                            <action selector="shareButtonPressed:" destination="S44-oz-EZu" eventType="touchUpInside" id="JtQ-RZ-8MF"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -1144,8 +1155,10 @@
                                     <constraint firstItem="67w-l0-3Tu" firstAttribute="top" secondItem="15y-8T-Wc3" secondAttribute="top" id="Jg5-2C-CHH"/>
                                     <constraint firstAttribute="trailing" secondItem="b9P-fU-1HE" secondAttribute="trailing" id="NzB-Q8-1aW"/>
                                     <constraint firstItem="67w-l0-3Tu" firstAttribute="leading" secondItem="15y-8T-Wc3" secondAttribute="leading" id="UsJ-Ca-osq"/>
+                                    <constraint firstItem="zXE-Xb-gh0" firstAttribute="leading" secondItem="15y-8T-Wc3" secondAttribute="leading" id="VDf-I6-Inh"/>
                                     <constraint firstItem="juB-WC-RUW" firstAttribute="leading" secondItem="15y-8T-Wc3" secondAttribute="leading" constant="20" id="WsD-sf-vTf"/>
                                     <constraint firstAttribute="trailing" secondItem="XC3-UB-odt" secondAttribute="trailing" constant="20" id="a2I-zr-tVV"/>
+                                    <constraint firstItem="zXE-Xb-gh0" firstAttribute="top" secondItem="b9P-fU-1HE" secondAttribute="top" id="cb9-KU-aXu"/>
                                     <constraint firstItem="Bz0-Nr-ZRd" firstAttribute="height" secondItem="XC3-UB-odt" secondAttribute="height" multiplier="0.6" id="cor-4C-dft"/>
                                     <constraint firstItem="XC3-UB-odt" firstAttribute="leading" secondItem="15y-8T-Wc3" secondAttribute="leading" constant="20" id="hVR-hC-24v"/>
                                     <constraint firstAttribute="bottom" secondItem="Bz0-Nr-ZRd" secondAttribute="bottom" id="qRa-Ju-Ook"/>
@@ -1191,6 +1204,7 @@
                         <outlet property="coverImageView" destination="Q6z-zq-ayO" id="N7p-Wo-aG5"/>
                         <outlet property="mediaView" destination="dg7-bs-QKu" id="gHh-6m-fMY"/>
                         <outlet property="minimizeButton" destination="b9P-fU-1HE" id="zyt-ND-VHI"/>
+                        <outlet property="shareButton" destination="zXE-Xb-gh0" id="lvu-xG-E5G"/>
                         <outlet property="toggleControlsButton" destination="sOf-8p-Aub" id="ano-Kd-DOp"/>
                     </connections>
                 </viewController>
@@ -1218,6 +1232,7 @@
         <image name="icoPlaceholderAudio" width="38" height="40"/>
         <image name="icoPlaceholderVideo" width="44" height="32"/>
         <image name="icoPlayMarkers" width="10" height="12"/>
+        <image name="icoShare" width="30" height="30"/>
         <image name="icoTick" width="157" height="116"/>
     </resources>
 </document>
