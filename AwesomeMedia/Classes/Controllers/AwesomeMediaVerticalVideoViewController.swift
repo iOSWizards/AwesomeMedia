@@ -71,7 +71,7 @@ public class AwesomeMediaVerticalVideoViewController: UIViewController {
     
     fileprivate func configure() {
         configureControls()
-        //loadCoverImage()
+        loadCoverImage()
         setupAuthorInfo()
         play()
         
@@ -82,9 +82,9 @@ public class AwesomeMediaVerticalVideoViewController: UIViewController {
         refreshControls()
         
         // check for loading state
-        coverImageView.stopLoadingAnimation()
+        authorImageView.stopLoadingAnimation()
         if AwesomeMediaManager.shared.mediaIsLoading(withParams: mediaParams) {
-            coverImageView.startLoadingAnimation()
+            authorImageView.startLoadingAnimation()
         }
         
         // check for media playing
@@ -165,6 +165,7 @@ public class AwesomeMediaVerticalVideoViewController: UIViewController {
         
         // add player layer
         backgroundPlayerLayer.player = backgroundPlayer
+        backgroundPlayerLayer.backgroundColor = nil
         mediaView.addPlayerLayer(backgroundPlayerLayer)
     }
     
@@ -275,7 +276,7 @@ extension AwesomeMediaVerticalVideoViewController: AwesomeMediaEventObserver {
             return
         }
         
-        mediaView.startLoadingAnimation()
+        authorImageView.startLoadingAnimation()
         
         controlView.lock(true, animated: true)
         
@@ -287,7 +288,7 @@ extension AwesomeMediaVerticalVideoViewController: AwesomeMediaEventObserver {
     }
     
     public func stoppedBuffering() {
-        mediaView.stopLoadingAnimation()
+        authorImageView.stopLoadingAnimation()
         
         controlView.lock(false, animated: true)
         
@@ -296,6 +297,9 @@ extension AwesomeMediaVerticalVideoViewController: AwesomeMediaEventObserver {
         
         // setup auto hide
         controlView?.setupAutoHide()
+        
+        // play background
+        backgroundPlayer.play()
     }
     
     public func finishedPlaying() {
