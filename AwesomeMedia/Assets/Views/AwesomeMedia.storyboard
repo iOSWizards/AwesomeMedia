@@ -970,7 +970,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="SxS-cm-gZK">
                                                 <rect key="frame" x="86.333333333333329" y="0.0" width="162.33333333333337" height="198.33333333333334"/>
                                                 <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FmU-0E-FDJ">
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FmU-0E-FDJ">
                                                         <rect key="frame" x="23.333333333333329" y="0.0" width="115.99999999999999" height="116"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="116" id="Njs-Dt-0jc"/>
