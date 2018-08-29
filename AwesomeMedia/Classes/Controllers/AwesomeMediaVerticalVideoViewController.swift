@@ -110,6 +110,7 @@ public class AwesomeMediaVerticalVideoViewController: UIViewController {
         controlView.playCallback = { (isPlaying) in
             if isPlaying {
                 self.play()
+                self.controlView.setupAutoHide()
             } else {
                 sharedAVPlayer.pause()
             }
