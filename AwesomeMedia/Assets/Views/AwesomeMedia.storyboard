@@ -283,7 +283,6 @@
                                             <outlet property="maxTimeLabel" destination="fLV-iS-hF1" id="MJ1-l0-qUO"/>
                                             <outlet property="minTimeLabel" destination="2kg-Ce-lvi" id="yKk-ck-Dsa"/>
                                             <outlet property="playButton" destination="XB8-Te-t6k" id="eaJ-2i-Lgg"/>
-                                            <outlet property="rewindButton" destination="K8p-XK-cjH" id="Etd-2u-BdC"/>
                                             <outlet property="speedButton" destination="7Hj-DU-QD4" id="xiS-3o-pV3"/>
                                             <outlet property="speedLabel" destination="QXE-5a-BwJ" id="FmC-BV-bjd"/>
                                             <outlet property="speedView" destination="0Ia-mt-rUQ" id="y5L-d9-erq"/>
@@ -1058,13 +1057,13 @@
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jCc-eG-jeA">
                                                                 <rect key="frame" x="0.0" y="0.0" width="32.333333333333336" height="100"/>
-                                                                <connections>
-                                                                    <action selector="rewindButtonPressed:" destination="15y-8T-Wc3" eventType="touchUpInside" id="r8w-rD-0gv"/>
-                                                                </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CJn-ea-kxs">
                                                                 <rect key="frame" x="60.333333333333329" y="0.0" width="37.666666666666671" height="100"/>
                                                                 <state key="normal" image="btnRewindAudioLarge"/>
+                                                                <connections>
+                                                                    <action selector="rewindButtonPressed:" destination="15y-8T-Wc3" eventType="touchUpInside" id="JWB-g2-FyQ"/>
+                                                                </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GkC-fh-Egd">
                                                                 <rect key="frame" x="126" y="0.0" width="88.333333333333314" height="100"/>
@@ -1160,7 +1159,7 @@
                                     <outlet property="maxTimeLabel" destination="0Ef-Sv-l4U" id="NIv-5G-DW2"/>
                                     <outlet property="minTimeLabel" destination="6vY-tt-b6v" id="tlR-ZK-7Gp"/>
                                     <outlet property="playButton" destination="GkC-fh-Egd" id="yvO-XG-hpr"/>
-                                    <outlet property="rewindButton" destination="jCc-eG-jeA" id="qnj-1K-NBA"/>
+                                    <outlet property="rewindButton" destination="CJn-ea-kxs" id="dq5-bW-78b"/>
                                     <outlet property="timeSlider" destination="dbj-AY-y1R" id="edp-NV-Btc"/>
                                     <outlet property="titleLabel" destination="iLl-Dn-6TE" id="7YY-sU-4j7"/>
                                 </connections>
