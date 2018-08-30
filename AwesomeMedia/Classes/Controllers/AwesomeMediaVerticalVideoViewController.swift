@@ -109,6 +109,9 @@ public class AwesomeMediaVerticalVideoViewController: UIViewController {
     fileprivate func configureControls() {
         controlView.configure(withParams: mediaParams, trackingSource: .audioFullscreen)
         
+        // show or hide sharing and favourite buttons
+        configureSharingAndFavourite()
+        
         // play/pause
         controlView.playCallback = { (isPlaying) in
             if isPlaying {
@@ -187,10 +190,12 @@ public class AwesomeMediaVerticalVideoViewController: UIViewController {
     
     @IBAction func shareButtonPressed(_ sender: Any) {
         
-        let activityViewController = UIActivityViewController(activityItems: [self.mediaParams.sharingText ?? "Check out this media out: ", self.mediaParams.sharingUrl ?? " "], applicationActivities: nil)
+        guard let sharingItems = self.mediaParams.sharingItems else {
+            return
+        }
+        let activityViewController = UIActivityViewController(activityItems: sharingItems, applicationActivities: nil)
         
         self.present(activityViewController, animated: true, completion: nil)
-    
     }
     
     fileprivate func play() {
@@ -206,6 +211,24 @@ public class AwesomeMediaVerticalVideoViewController: UIViewController {
         
         // update play button state
         controlView.playButton.isSelected = sharedAVPlayer.isPlaying(withParams: mediaParams)
+    }
+    
+    fileprivate func configureSharingAndFavourite() {
+        
+        // show or hide shareButton
+        showButton( mediaParams.sharingItems != nil, button: shareButton)
+        
+        // show or hide favouriteButton
+        showButton(mediaParams.favourited != nil, button: controlView.favouriteButton)
+        
+        if let favourited = mediaParams.favourited {
+            controlView.favouriteButton?.isSelected = favourited
+        }
+    }
+    
+    fileprivate func showButton(_ show: Bool, button: UIButton?) {
+        button?.isUserInteractionEnabled = show
+        button?.alpha = show ? 1.0 : 0
     }
 }
 
@@ -286,6 +309,7 @@ extension AwesomeMediaVerticalVideoViewController: AwesomeMediaEventObserver {
         authorImageView.startLoadingAnimation()
         
         controlView.lock(true, animated: true)
+        configureSharingAndFavourite()
         
         // cancels auto hide
         controlView.show()
@@ -298,6 +322,7 @@ extension AwesomeMediaVerticalVideoViewController: AwesomeMediaEventObserver {
         authorImageView.stopLoadingAnimation()
         
         controlView.lock(false, animated: true)
+        configureSharingAndFavourite()
         
         // remove media alert if present
         removeAlertIfPresent()
@@ -313,6 +338,7 @@ extension AwesomeMediaVerticalVideoViewController: AwesomeMediaEventObserver {
         controlView.playButton.isSelected = false
         
         controlView.lock(false, animated: true)
+        configureSharingAndFavourite()
         
         // pause background
         backgroundPlayer.pause()
