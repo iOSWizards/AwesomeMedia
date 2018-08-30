@@ -90,6 +90,9 @@ public class AwesomeMediaVerticalVideoViewController: UIViewController {
         // check for media playing
         if let item = sharedAVPlayer.currentItem(withParams: mediaParams) {
             controlView?.update(withItem: item)
+            backgroundPlayer.play()
+        } else {
+            sharedAVPlayer.pause()
         }
     }
     
