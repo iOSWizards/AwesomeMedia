@@ -186,7 +186,11 @@ public class AwesomeMediaVerticalVideoViewController: UIViewController {
     }
     
     @IBAction func shareButtonPressed(_ sender: Any) {
-        notifyMediaEvent(.share, object: mediaParams as AnyObject)
+        
+        let activityViewController = UIActivityViewController(activityItems: [self.mediaParams.sharingText ?? "Check out this media out: ", self.mediaParams.sharingUrl ?? " "], applicationActivities: nil)
+        
+        self.present(activityViewController, animated: true, completion: nil)
+    
     }
     
     fileprivate func play() {
