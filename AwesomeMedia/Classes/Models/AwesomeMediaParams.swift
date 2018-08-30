@@ -26,6 +26,9 @@ public struct AwesomeMediaParams {
     public var size: String?
     public var type: String?
     public var shouldShowMiniPlayer: Bool = false
+    public var sharingUrl: String?
+    public var sharingText: String?
+    public var favourited: Bool? = nil
     public var params: [String: Any] = [:]
     
     public init(url: String? = nil,
@@ -42,6 +45,9 @@ public struct AwesomeMediaParams {
                 size: String? = nil,
                 type: String? = nil,
                 shouldShowMiniPlayer: Bool = false,
+                sharingUrl: String? = nil,
+                sharingText: String? = nil,
+                favourited: Bool? = nil,
                 params: [String: Any] = [:]) {
         self.url = url
         self.youtubeUrl = youtubeUrl
@@ -57,6 +63,9 @@ public struct AwesomeMediaParams {
         self.size = size
         self.type = type
         self.shouldShowMiniPlayer = shouldShowMiniPlayer
+        self.sharingUrl = sharingUrl
+        self.sharingText = sharingText
+        self.favourited = favourited
         self.params = params
     }
     
