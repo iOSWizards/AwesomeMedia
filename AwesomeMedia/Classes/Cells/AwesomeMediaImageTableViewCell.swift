@@ -97,9 +97,9 @@ extension AwesomeMediaImageTableViewCell {
             self.coverIconImageView.isHidden = false
             
             if self.isSquareImage(image: image) {
-                self.coverImageView.contentMode = .scaleAspectFill
-            } else {
                 self.coverImageView.contentMode = .scaleAspectFit
+            } else {
+                self.coverImageView.contentMode = .scaleAspectFill
             }
             
             if image != nil {
