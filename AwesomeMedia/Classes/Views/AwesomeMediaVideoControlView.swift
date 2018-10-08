@@ -58,7 +58,7 @@ public class AwesomeMediaVideoControlView: AwesomeMediaControlView {
         jumptoView.isHidden = !controls.contains(.jumpto)
         speedView?.isHidden = !controls.contains(.speed)
 //        playlistButton.isHidden = !controls.contains(.playlist)
-        rewindButton.isHidden = !controls.contains(.rewind)
+        rewindButton?.isHidden = !controls.contains(.rewind)
         toggleFullscreenButton.isHidden = !controls.contains(.fullscreen) && !controls.contains(.minimize)
         toggleFullscreenButton.setImage(controls.contains(.fullscreen) ? UIImage.image("btnFullscreen") : UIImage.image("btnMinimize"), for: .normal)
     }
@@ -79,7 +79,7 @@ public class AwesomeMediaVideoControlView: AwesomeMediaControlView {
 //        }
         
         if controls.contains(.rewind) {
-            rewindButton.isHidden = isPortrait
+            rewindButton?.isHidden = isPortrait
         }
     }
     
