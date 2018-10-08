@@ -23,7 +23,7 @@ public class AwesomeMediaControlView: UIView {
     @IBOutlet public weak var minTimeLabel: UILabel!
     @IBOutlet public weak var maxTimeLabel: UILabel!
     @IBOutlet public weak var timeSlider: UISlider!
-    @IBOutlet public weak var rewindButton: UIButton!
+    @IBOutlet public weak var rewindButton: UIButton?
     @IBOutlet public weak var forwardButton: UIButton?
     @IBOutlet public weak var speedButton: UIButton?
     @IBOutlet public weak var speedLabel: UILabel?
@@ -225,8 +225,8 @@ extension AwesomeMediaControlView: AwesomeMediaControlState {
         timeSlider.isUserInteractionEnabled = !locked
         timeSlider.alpha = locked ? lockedAlpha : 1.0
         
-        rewindButton.isUserInteractionEnabled = !locked
-        rewindButton.alpha = locked ? lockedAlpha : 1.0
+        rewindButton?.isUserInteractionEnabled = !locked
+        rewindButton?.alpha = locked ? lockedAlpha : 1.0
         
         forwardButton?.isUserInteractionEnabled = !locked
         forwardButton?.alpha = locked ? lockedAlpha : 1.0
