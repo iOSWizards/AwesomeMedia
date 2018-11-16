@@ -52,79 +52,81 @@ class ViewController: UIViewController {
                     title: "Caption test",
                     duration: 20,
                     markers: testMediaMarkers,
-                    params: ["id":"123"])),
-        MediaCell(type: .video,
-                  mediaParams: AwesomeMediaParams(
-                    url: "https://overmind2.mvstg.com/api/v1/assets/86f21617-6c69-40ef-9cca-d927bf737de1.m3u8",
-                    coverUrl: "https://cdn.wccftech.com/wp-content/uploads/2017/05/subtitle-of-a-blu-ray-movie.jpg",
-                    author: "John",
-                    title: "Caption test 2",
-                    duration: 20,
-                    markers: testMediaMarkers,
-                    params: ["id":"123"])),
-        MediaCell(type: .audio,
-                  mediaParams: AwesomeMediaParams(
-                    url: testAudioURL,
-                    coverUrl: "https://i.ytimg.com/vi/fwLuHqMMonc/0.jpg",
-                    author: "The barber",
-                    title: "Virtual Barbershop",
-                    duration: 232,
-                    size: "2 mb",
-                    params: ["id":"45"])),
-        MediaCell(type: .file,
-                  mediaParams: AwesomeMediaParams(
-                    url: testPDFURL,
-                    coverUrl: "https://i0.wp.com/res.cloudinary.com/changethatmind/image/upload/v1501884914/wildfitsales.png?fit=500%2C500&ssl=1",
-                    author: "Eric Mendez",
-                    title: "Wildfit",
-                    size: "2 mb",
-                    type: "PDF",
-                    params: ["id":"45"])),
-        MediaCell(type: .image,
-                  mediaParams: AwesomeMediaParams(
-                    coverUrl: "https://www.awesometlv.co.il/wp-content/uploads/2016/01/awesome_logo-01.png")),
-        /*MediaCell(type: .video,
-                  mediaParams: AwesomeMediaParams(
-                    url: testVideoURL,
-                    coverUrl: "https://i0.wp.com/res.cloudinary.com/changethatmind/image/upload/v1501884914/wildfitsales.png?fit=500%2C500&ssl=1",
-                    author: "Eric Mendez",
-                    title: "WildFit 2",
-                    duration: 12312,
-                    markers: testMediaMarkers,
-                    params: ["id":"45"])),*/
-        MediaCell(type: .image,
-                  mediaParams: AwesomeMediaParams(
-                    coverUrl: "https://i0.wp.com/res.cloudinary.com/changethatmind/image/upload/v1501884914/wildfitsales.png?fit=500%2C500&ssl=1")),
-        MediaCell(type: .video,
-                  mediaParams: AwesomeMediaParams(
-                    url: "https://overmind2.mvstg.com/api/v1/assets/0892a82b-a9ad-4069-a5b6-cf2e6103267c.m3u8",
-                    coverUrl: "https://thumbs.dreamstime.com/z/awesome-word-cloud-explosion-background-51481417.jpg",
-                    author: "Eric Mendez",
-                    title: "WildFit 3",
-                    duration: 33222,
-                    markers: testMediaMarkers,
-                    params: ["id":"45"])),
-        MediaCell(type: .youtube,
-                  mediaParams: AwesomeMediaParams(
-                    youtubeUrl: "https://www.youtube.com/watch?v=5WOxJ9rvU1s&t=3s",
-                    coverUrl: "https://i0.wp.com/res.cloudinary.com/changethatmind/image/upload/v1501884914/wildfitsales.png?fit=500%2C500&ssl=1")),
-        MediaCell(type: .youtube,
-                  mediaParams: AwesomeMediaParams(
-                    youtubeUrl: "https://www.youtube.com/watch?v=5WOxJ9rvU1s&t=3s",
-                    coverUrl: "https://i0.wp.com/res.cloudinary.com/changethatmind/image/upload/v1501884914/wildfitsales.png?fit=500%2C500&ssl=1")),
-        MediaCell(type: .verticalVideo,
-                  mediaParams: AwesomeMediaParams(
-                    url: testAudioURL,
-                    coverUrl: "https://i.ytimg.com/vi/BiRED7kH-nQ/maxresdefault.jpg",
-                    backgroundUrl: "https://www.sample-videos.com/video/mp4/720/big_buck_bunny_720p_1mb.mp4",
-                    author: "Brett Ninja",
-                    authorAvatar: "https://thumbs.dreamstime.com/z/awesome-word-cloud-explosion-background-51481417.jpg",
-                    title: "Pushing the Senses",
-                    about: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-                    duration: 20,
-                    shouldShowMiniPlayer: true,
-                    sharingItems: ["jajajaja...."],
-                    favourited: true))
+                    params: ["id":"123",
+                             AwesomeMediaParamsKey.autoplay.rawValue: true,
+                             AwesomeMediaParamsKey.startOnTime.rawValue: Double(10)]))//,
+//        MediaCell(type: .video,
+//                  mediaParams: AwesomeMediaParams(
+//                    url: "https://overmind2.mvstg.com/api/v1/assets/86f21617-6c69-40ef-9cca-d927bf737de1.m3u8",
+//                    coverUrl: "https://cdn.wccftech.com/wp-content/uploads/2017/05/subtitle-of-a-blu-ray-movie.jpg",
+//                    author: "John",
+//                    title: "Caption test 2",
+//                    duration: 20,
+//                    markers: testMediaMarkers,
+//                    params: ["id":"123"])),
+//        MediaCell(type: .audio,
+//                  mediaParams: AwesomeMediaParams(
+//                    url: testAudioURL,
+//                    coverUrl: "https://i.ytimg.com/vi/fwLuHqMMonc/0.jpg",
+//                    author: "The barber",
+//                    title: "Virtual Barbershop",
+//                    duration: 232,
+//                    size: "2 mb",
+//                    params: ["id":"45"])),
+//        MediaCell(type: .file,
+//                  mediaParams: AwesomeMediaParams(
+//                    url: testPDFURL,
+//                    coverUrl: "https://i0.wp.com/res.cloudinary.com/changethatmind/image/upload/v1501884914/wildfitsales.png?fit=500%2C500&ssl=1",
+//                    author: "Eric Mendez",
+//                    title: "Wildfit",
+//                    size: "2 mb",
+//                    type: "PDF",
+//                    params: ["id":"45"])),
+//        MediaCell(type: .image,
+//                  mediaParams: AwesomeMediaParams(
+//                    coverUrl: "https://www.awesometlv.co.il/wp-content/uploads/2016/01/awesome_logo-01.png")),
+//        /*MediaCell(type: .video,
+//                  mediaParams: AwesomeMediaParams(
+//                    url: testVideoURL,
+//                    coverUrl: "https://i0.wp.com/res.cloudinary.com/changethatmind/image/upload/v1501884914/wildfitsales.png?fit=500%2C500&ssl=1",
+//                    author: "Eric Mendez",
+//                    title: "WildFit 2",
+//                    duration: 12312,
+//                    markers: testMediaMarkers,
+//                    params: ["id":"45"])),*/
+//        MediaCell(type: .image,
+//                  mediaParams: AwesomeMediaParams(
+//                    coverUrl: "https://i0.wp.com/res.cloudinary.com/changethatmind/image/upload/v1501884914/wildfitsales.png?fit=500%2C500&ssl=1")),
+//        MediaCell(type: .video,
+//                  mediaParams: AwesomeMediaParams(
+//                    url: "https://overmind2.mvstg.com/api/v1/assets/0892a82b-a9ad-4069-a5b6-cf2e6103267c.m3u8",
+//                    coverUrl: "https://thumbs.dreamstime.com/z/awesome-word-cloud-explosion-background-51481417.jpg",
+//                    author: "Eric Mendez",
+//                    title: "WildFit 3",
+//                    duration: 33222,
+//                    markers: testMediaMarkers,
+//                    params: ["id":"45"])),
+//        MediaCell(type: .youtube,
+//                  mediaParams: AwesomeMediaParams(
+//                    youtubeUrl: "https://www.youtube.com/watch?v=5WOxJ9rvU1s&t=3s",
+//                    coverUrl: "https://i0.wp.com/res.cloudinary.com/changethatmind/image/upload/v1501884914/wildfitsales.png?fit=500%2C500&ssl=1")),
+//        MediaCell(type: .youtube,
+//                  mediaParams: AwesomeMediaParams(
+//                    youtubeUrl: "https://www.youtube.com/watch?v=5WOxJ9rvU1s&t=3s",
+//                    coverUrl: "https://i0.wp.com/res.cloudinary.com/changethatmind/image/upload/v1501884914/wildfitsales.png?fit=500%2C500&ssl=1")),
+//        MediaCell(type: .verticalVideo,
+//                  mediaParams: AwesomeMediaParams(
+//                    url: testAudioURL,
+//                    coverUrl: "https://i.ytimg.com/vi/BiRED7kH-nQ/maxresdefault.jpg",
+//                    backgroundUrl: "https://www.sample-videos.com/video/mp4/720/big_buck_bunny_720p_1mb.mp4",
+//                    author: "Brett Ninja",
+//                    authorAvatar: "https://thumbs.dreamstime.com/z/awesome-word-cloud-explosion-background-51481417.jpg",
+//                    title: "Pushing the Senses",
+//                    about: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+//                    duration: 20,
+//                    shouldShowMiniPlayer: true,
+//                    sharingItems: ["jajajaja...."],
+//                    favourited: true))
         ]
     var mediaParamsArray: [AwesomeMediaParams] {
         var mediaParamsArray = [AwesomeMediaParams]()
@@ -195,7 +197,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if let cell = cell as? AwesomeMediaVideoTableViewCell {
-            cell.configure(withMediaParams: cells[indexPath.row].mediaParams)
+            cell.configure(withMediaParams: cells[indexPath.row].mediaParams, widthControls: .fullscreen, fullScreenControls: .minimize, startOnTime: 10)
         } else if let cell = cell as? AwesomeMediaAudioTableViewCell {
             cell.configure(withMediaParams: cells[indexPath.row].mediaParams)
         } else if let cell = cell as? AwesomeMediaFileTableViewCell {

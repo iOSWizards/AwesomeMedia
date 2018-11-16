@@ -15,16 +15,18 @@ public class AwesomeMediaVideoViewController: UIViewController {
     
     // Public variables
     public var mediaParams = AwesomeMediaParams()
-    public var controlsEnabled: Bool = true
+    var controls: AwesomeMediaVideoControls = .all
+    var startOnTime: Double?
     
     public override func viewDidLoad() {
         super.viewDidLoad()
 
         playerView.configure(withMediaParams: mediaParams,
-                             controls: .all,
+                             controls: controls,
                              states: .standard,
                              trackingSource: .videoFullscreen,
-                             titleViewVisible: true)
+                             titleViewVisible: true,
+                             startOnTime: startOnTime)
         playerView.controlView?.fullscreenCallback = {
             self.close()
             
@@ -108,7 +110,9 @@ extension AwesomeMediaVideoViewController {
 }
 
 extension UIViewController {
-    public func presentVideoFullscreen(withMediaParams mediaParams: AwesomeMediaParams, controlsEnabled: Bool = true) {
+    public func presentVideoFullscreen(withMediaParams mediaParams: AwesomeMediaParams,
+                                       withControls controls: AwesomeMediaVideoControls = .all,
+                                       startOnTime: Double? = nil) {
         guard !AwesomeMediaVideoViewController.presentingVideoInFullscreen else {
             return
         }
@@ -117,7 +121,7 @@ extension UIViewController {
         
         let viewController = AwesomeMediaVideoViewController.newInstance
         viewController.mediaParams = mediaParams
-        viewController.controllerEnabled = controllerEnabled
+        viewController.controls = controls
         
         interactor = AwesomeMediaInteractor()
         viewController.transitioningDelegate = self

@@ -41,7 +41,8 @@ public class AwesomeMediaView: UIView {
         controls: AwesomeMediaVideoControls,
         states: AwesomeMediaVideoStates,
         trackingSource: AwesomeMediaTrackingSource,
-        titleViewVisible: Bool = false) {
+        titleViewVisible: Bool = false,
+        startOnTime: Double? = nil) {
         
         self.mediaParams = mediaParams
         
@@ -130,6 +131,7 @@ public class AwesomeMediaView: UIView {
         controlView?.timeSliderChangedCallback = { (time) in
             sharedAVPlayer.seek(toTime: time)
         }
+
         controlView?.timeSliderFinishedDraggingCallback = { (play) in
             if play {
                 sharedAVPlayer.play()
@@ -167,6 +169,11 @@ public class AwesomeMediaView: UIView {
     }
     
     public func applyParamKeys() {
+        
+        // Auto start media on time
+        if let startOnTime = mediaParams.params[AwesomeMediaParamsKey.startOnTime.rawValue] as? Double {
+            sharedAVPlayer.seek(toTime: startOnTime, pausing: false)
+        }
         
         // Auto play media if the case
         if let autoPlay = mediaParams.params[AwesomeMediaParamsKey.autoplay.rawValue] as? Bool, autoPlay {

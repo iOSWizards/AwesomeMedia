@@ -9,8 +9,16 @@ import UIKit
 
 public class AwesomeMediaVideoTableViewCell: UITableViewCell {
 
+    // MARK: - Outlets
+    
     @IBOutlet public weak var playerView: AwesomeMediaView!
+    
+    // MARK: - Variables
+    
+    var fullScreenControls: AwesomeMediaVideoControls = .all
 
+    // MARK: - Methods
+    
     public override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
@@ -23,14 +31,20 @@ public class AwesomeMediaVideoTableViewCell: UITableViewCell {
         }
     }*/
     
-    public func configure(withMediaParams mediaParams: AwesomeMediaParams) {
+    public func configure(withMediaParams mediaParams: AwesomeMediaParams,
+                          widthControls controls: AwesomeMediaVideoControls = .standard,
+                          fullScreenControls: AwesomeMediaVideoControls = .all,
+                          startOnTime: Double? = nil) {
         //BitmovinTracking.start(withParams: mediaParams)
+        self.fullScreenControls = fullScreenControls
+        
         playerView.configure(withMediaParams: mediaParams,
-                             controls: .standard,
+                             controls: controls,
                              states: [.info],
-                             trackingSource: .videoCell)
+                             trackingSource: .videoCell,
+                             startOnTime: startOnTime)
         playerView.controlView?.fullscreenCallback = {
-            self.parentViewController?.presentVideoFullscreen(withMediaParams: mediaParams)
+            self.parentViewController?.presentVideoFullscreen(withMediaParams: mediaParams, withControls: self.fullScreenControls)
         }
     }
 
