@@ -328,7 +328,7 @@ extension AwesomeMediaVerticalVideoViewController: AwesomeMediaEventObserver {
         removeAlertIfPresent()
         
         // setup auto hide
-        controlView?.setupAutoHide()
+        //controlView?.setupAutoHide()
         
         // play background
         backgroundPlayer.play()
