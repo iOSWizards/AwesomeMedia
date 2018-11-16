@@ -76,7 +76,7 @@ public class AwesomeMediaVerticalVideoViewController: UIViewController {
         play()
         
         // add background video
-        configureBackgroundVideo()
+        //configureBackgroundVideo()
         
         // Refresh controls
         refreshControls()
@@ -97,7 +97,7 @@ public class AwesomeMediaVerticalVideoViewController: UIViewController {
     }
     
     fileprivate func setupAuthorInfo() {
-        authorImageView.setImage(mediaParams.authorAvatar)
+        authorImageView.setImage(mediaParams.coverUrl)
         authorNameLabel.text = mediaParams.author
         aboutAudioTextView.text = mediaParams.about
     }
@@ -116,7 +116,7 @@ public class AwesomeMediaVerticalVideoViewController: UIViewController {
         controlView.playCallback = { (isPlaying) in
             if isPlaying {
                 self.play()
-                self.controlView.setupAutoHide()
+                //self.controlView.setupAutoHide()
             } else {
                 sharedAVPlayer.pause()
             }

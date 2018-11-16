@@ -34,17 +34,22 @@ public class AwesomeMediaVideoTableViewCell: UITableViewCell {
     public func configure(withMediaParams mediaParams: AwesomeMediaParams,
                           widthControls controls: AwesomeMediaVideoControls = .standard,
                           fullScreenControls: AwesomeMediaVideoControls = .all,
-                          startOnTime: Double? = nil) {
+                          fullScreenTitleViewVisible: Bool = true) {
         //BitmovinTracking.start(withParams: mediaParams)
         self.fullScreenControls = fullScreenControls
+        var mediaParams = mediaParams
         
         playerView.configure(withMediaParams: mediaParams,
                              controls: controls,
                              states: [.info],
-                             trackingSource: .videoCell,
-                             startOnTime: startOnTime)
+                             trackingSource: .videoCell)
+        
+        mediaParams.params = [:]
+        
         playerView.controlView?.fullscreenCallback = {
-            self.parentViewController?.presentVideoFullscreen(withMediaParams: mediaParams, withControls: self.fullScreenControls)
+            self.parentViewController?.presentVideoFullscreen(withMediaParams: mediaParams,
+                                                              withControls: self.fullScreenControls,
+                                                              titleViewVisible: fullScreenTitleViewVisible)
         }
     }
 

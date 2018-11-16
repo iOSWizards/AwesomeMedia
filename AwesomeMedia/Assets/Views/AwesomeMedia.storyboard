@@ -918,7 +918,7 @@
                                             <constraint firstAttribute="width" constant="76" id="gxV-V9-7No"/>
                                         </constraints>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Q6z-zq-ayO">
+                                    <imageView userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Q6z-zq-ayO">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -979,15 +979,14 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="SxS-cm-gZK">
                                                 <rect key="frame" x="0.0" y="0.0" width="335" height="198.33333333333334"/>
                                                 <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FmU-0E-FDJ">
-                                                        <rect key="frame" x="109.66666666666666" y="0.0" width="116" height="116"/>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FmU-0E-FDJ">
+                                                        <rect key="frame" x="109.66666666666666" y="0.0" width="261" height="261"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="116" id="Njs-Dt-0jc"/>
                                                             <constraint firstAttribute="width" secondItem="FmU-0E-FDJ" secondAttribute="height" multiplier="1:1" id="g5d-VM-s59"/>
                                                         </constraints>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                <real key="value" value="58"/>
+                                                                <real key="value" value="0.0"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </imageView>
@@ -1016,6 +1015,10 @@
                                                         </variation>
                                                     </label>
                                                 </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="FmU-0E-FDJ" firstAttribute="leading" secondItem="SxS-cm-gZK" secondAttribute="leading" constant="37" id="Z89-Wz-BAN"/>
+                                                    <constraint firstAttribute="trailing" secondItem="FmU-0E-FDJ" secondAttribute="trailing" constant="37" id="ycV-pL-ZFs"/>
+                                                </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="BXh-Dw-mIw">
                                                 <rect key="frame" x="0.0" y="228.33333333333331" width="335" height="160"/>
@@ -1195,7 +1198,7 @@
                                     <outlet property="playButton" destination="GkC-fh-Egd" id="yvO-XG-hpr"/>
                                     <outlet property="rewindButton" destination="CJn-ea-kxs" id="dq5-bW-78b"/>
                                     <outlet property="timeSlider" destination="dbj-AY-y1R" id="edp-NV-Btc"/>
-                                    <outlet property="titleLabel" destination="iLl-Dn-6TE" id="7YY-sU-4j7"/>
+                                    <outlet property="titleLabel" destination="znp-yC-adW" id="1dz-wl-yIM"/>
                                 </connections>
                             </view>
                         </subviews>
@@ -1220,7 +1223,7 @@
                     <connections>
                         <outlet property="aboutAudioTextView" destination="XC3-UB-odt" id="5Mx-aT-8PA"/>
                         <outlet property="authorImageView" destination="FmU-0E-FDJ" id="7lk-Za-W6u"/>
-                        <outlet property="authorNameLabel" destination="znp-yC-adW" id="Hmc-w0-gRH"/>
+                        <outlet property="authorNameLabel" destination="iLl-Dn-6TE" id="Xrb-Jr-noj"/>
                         <outlet property="controlView" destination="15y-8T-Wc3" id="GgZ-fY-ft7"/>
                         <outlet property="coverImageView" destination="Q6z-zq-ayO" id="N7p-Wo-aG5"/>
                         <outlet property="mediaView" destination="dg7-bs-QKu" id="gHh-6m-fMY"/>

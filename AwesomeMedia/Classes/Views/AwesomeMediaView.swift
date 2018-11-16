@@ -41,8 +41,7 @@ public class AwesomeMediaView: UIView {
         controls: AwesomeMediaVideoControls,
         states: AwesomeMediaVideoStates,
         trackingSource: AwesomeMediaTrackingSource,
-        titleViewVisible: Bool = false,
-        startOnTime: Double? = nil) {
+        titleViewVisible: Bool = false) {
         
         self.mediaParams = mediaParams
         
@@ -170,16 +169,24 @@ public class AwesomeMediaView: UIView {
     
     public func applyParamKeys() {
         
+        var needDelay: Bool = false
+        
         // Auto start media on time
         if let startOnTime = mediaParams.params[AwesomeMediaParamsKey.startOnTime.rawValue] as? Double {
             sharedAVPlayer.seek(toTime: startOnTime, pausing: false)
+            needDelay = true
         }
         
         // Auto play media if the case
         if let autoPlay = mediaParams.params[AwesomeMediaParamsKey.autoplay.rawValue] as? Bool, autoPlay {
-            controlView?.playButtonPressed(controlView?.playButton ?? self)
+            DispatchQueue.main.asyncAfter(deadline: .now() + (needDelay ? 1 : 0)) {
+                if !(self.controlView?.playButton.isSelected ?? false) {
+                    self.controlView?.playButtonPressed(self)
+                }
+            }
         }
         
+        mediaParams.params = [:]
     }
 }
 
