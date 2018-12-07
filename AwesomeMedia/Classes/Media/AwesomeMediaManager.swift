@@ -66,7 +66,8 @@ public class AwesomeMediaManager: NSObject {
     public func prepareMedia(withUrl url: URL, andPlay play: Bool = true) {
         //avPlayer.attachBitmovinTracker()
         AwesomeMediaManager.shared.youtubePlayerView?.pauseVideo()
-        
+        sharedAVPlayer.stop(resetTime: false)
+
         notifyMediaEvent(.buffering)
         AMAVPlayerItem.item(withUrl: url) { (playerItem) in
             notifyMediaEvent(.stoppedBuffering)
