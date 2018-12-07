@@ -54,6 +54,7 @@ public class AwesomeMediaVideoControlView: AwesomeMediaControlView {
     }
     
     public func setupControls() {
+        playButton.isHidden = !controls.contains(.play)
         timeStackView.isHidden = !controls.contains(.time)
         jumptoView.isHidden = !controls.contains(.jumpto)
         speedView?.isHidden = !controls.contains(.speed)

@@ -92,9 +92,11 @@ extension AVPlayer {
             sharedAVPlayer.pause()
         }
         
-        currentItem?.seek(to: CMTime(seconds: time, preferredTimescale: currentTime().timescale))
-        
-        notifyMediaEvent (.timeUpdated, object: currentItem)
+        if time <= Double(currentItem?.durationInSeconds ?? 0) {
+            currentItem?.seek(to: CMTime(seconds: time, preferredTimescale: currentTime().timescale))
+            
+            notifyMediaEvent (.timeUpdated, object: currentItem)
+        }
     }
     
     public func seek(withStep step: Double) {

@@ -9,6 +9,7 @@ import Foundation
 
 public enum AwesomeMediaParamsKey: String {
     case autoplay
+    case startOnTime
 }
 
 public struct AwesomeMediaParams {
