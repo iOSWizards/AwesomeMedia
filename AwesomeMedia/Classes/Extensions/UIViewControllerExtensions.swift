@@ -158,7 +158,7 @@ extension UIViewController {
 
 extension UIViewController {
     
-    func showAlert(withTitle title: String? = nil, message: String?,  completion: (() -> ())? = nil, buttons: (UIAlertActionStyle, String, (() -> ())?)...) {
+    func showAlert(withTitle title: String? = nil, message: String?,  completion: (() -> ())? = nil, buttons: (UIAlertAction.Style, String, (() -> ())?)...) {
         
         guard let message = message, message.count > 0 else {
             return
@@ -199,12 +199,12 @@ extension UIViewController {
         
         showAlert(withTitle: "failed_to_play_title".localized,
                   message: "failed_to_play".localized,
-                  buttons: (UIAlertActionStyle.default, "wait".localized, {
+                  buttons: (UIAlertAction.Style.default, "wait".localized, {
                     onWait()
                     
                     // track event
                     track(event: .timeoutWait, source: .unknown)
-                  }), (UIAlertActionStyle.destructive, "cancel".localized, {
+                  }), (UIAlertAction.Style.destructive, "cancel".localized, {
                     onCancel()
                     
                     // track event
@@ -215,7 +215,7 @@ extension UIViewController {
     func showNoConnectionAlert() {
         showAlert(withTitle: "no_internet_title".localized,
                   message: "no_internet".localized,
-                  buttons: (UIAlertActionStyle.destructive, "ok".localized, {
+                  buttons: (UIAlertAction.Style.destructive, "ok".localized, {
                     sharedAVPlayer.stop()
                   }))
     }

@@ -259,7 +259,7 @@ extension AwesomeMediaView: AwesomeMediaEventObserver {
 	
         if let controlView = controlView {
             // bring controlview to front as loading animation will be on top
-            bringSubview(toFront: controlView)
+            bringSubviewToFront(controlView)
             
             // lock state for controlView
             controlView.lock(true, animated: true)
@@ -334,7 +334,7 @@ extension AwesomeMediaView {
         }
         coverImageView.contentMode = .scaleAspectFill
         superview?.addSubview(coverImageView)
-        superview?.sendSubview(toBack: coverImageView)
+        superview?.sendSubviewToBack(coverImageView)
         
         coverImageView.translatesAutoresizingMaskIntoConstraints = false
         

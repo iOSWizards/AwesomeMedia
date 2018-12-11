@@ -18,7 +18,7 @@ extension AVAsset {
         
         if let ofTrack = asset.tracks(withMediaType: type).first {
             do {
-                try assetTrack?.insertTimeRange(CMTimeRangeMake(kCMTimeZero, asset.duration), of: ofTrack, at: kCMTimeZero)
+                try assetTrack?.insertTimeRange(CMTimeRangeMake(start: CMTime.zero, duration: asset.duration), of: ofTrack, at: CMTime.zero)
             } catch {
                 print("Failed inserting time range to video.")
             }

@@ -165,7 +165,7 @@ public class AwesomeMediaVerticalVideoViewController: UIViewController {
         
         // configures autoplay loop
         NotificationCenter.default.addObserver(forName: .AVPlayerItemDidPlayToEndTime, object: playerItem, queue: .main) { _ in
-            self.backgroundPlayer.seek(to: kCMTimeZero)
+            self.backgroundPlayer.seek(to: CMTime.zero)
             self.backgroundPlayer.play()
         }
         
