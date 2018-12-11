@@ -11,9 +11,11 @@ import MediaPlayer
 public class AwesomeMediaControlCenter {
     
     public static func configBackgroundPlay(withParams params: AwesomeMediaParams) {
+       
         do {
-            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
-        }catch{
+            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
+            try AVAudioSession.sharedInstance().setActive(true)
+        } catch {
             print("Something went wrong creating audio session... \(error)")
             return
         }

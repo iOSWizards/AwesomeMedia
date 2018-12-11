@@ -100,22 +100,18 @@ extension AVPlayerItem {
     
     public var isVideo: Bool {
         for playerItemTrack in tracks {
-            if playerItemTrack.assetTrack.hasMediaCharacteristic(
-                AVMediaCharacteristic.visual) {
-                return true
+            if let assetTrack = playerItemTrack.assetTrack, assetTrack.hasMediaCharacteristic(AVMediaCharacteristic.visual) {
+                    return true
             }
         }
-        
         return false
     }
     
     public func playInBackground(_ background: Bool) {
         for playerItemTrack in tracks {
-            if playerItemTrack.assetTrack.hasMediaCharacteristic(
-                AVMediaCharacteristic.visual) {
-                
-                // Disable the track.
-                playerItemTrack.isEnabled = !background
+            if let assetTrack = playerItemTrack.assetTrack, assetTrack.hasMediaCharacteristic(AVMediaCharacteristic.visual) {
+                    // Disable the track.
+                    playerItemTrack.isEnabled = !background
             }
         }
 

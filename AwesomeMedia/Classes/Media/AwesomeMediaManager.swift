@@ -156,7 +156,7 @@ extension AwesomeMediaManager {
     // MARK: - Time Observer
     
     fileprivate func addTimeObserver() {
-        let timeInterval: CMTime = CMTimeMakeWithSeconds(1.0, 10)
+        let timeInterval: CMTime = CMTimeMakeWithSeconds(1.0, preferredTimescale: 10)
         timeObserver = avPlayer.addPeriodicTimeObserver(forInterval: timeInterval, queue: DispatchQueue.main) { (elapsedTime: CMTime) -> Void in
             self.observeTime(elapsedTime)
             } as AnyObject?
@@ -210,11 +210,11 @@ extension AwesomeMediaManager {
         }
         // Check for Status Changes
         else if keyPath == "status" {
-            var status: AVPlayerItemStatus = .unknown
+            var status: AVPlayerItem.Status = .unknown
             
             // Get the status change from the change dictionary
             if let statusNumber = change?[.newKey] as? NSNumber {
-                status = AVPlayerItemStatus(rawValue: statusNumber.intValue)!
+                status = AVPlayerItem.Status(rawValue: statusNumber.intValue)!
             }
             
             switch status {
