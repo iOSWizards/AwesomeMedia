@@ -61,10 +61,9 @@ public class AwesomeMediaControlView: UIView {
     }
     
     public override func layoutSubviews() {
+        super.layoutSubviews()
         //update cornerRadius of speedLabel depending on size of view
-        if let speedLabelWidth = speedLabel?.frame.width {
-            speedLabel?.layer.cornerRadius = speedLabelWidth / 2
-        }
+        speedLabel?.cornerRadius = speedLabel?.frame.width ?? 0 / 2
     }
     
     // update playback time
