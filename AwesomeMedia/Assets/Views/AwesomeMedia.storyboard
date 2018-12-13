@@ -174,14 +174,18 @@
                                                     <action selector="timeSliderValueChanged:" destination="IZt-ZZ-DsI" eventType="valueChanged" id="XEy-ru-DOK"/>
                                                 </connections>
                                             </slider>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XB8-Te-t6k">
+                                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XB8-Te-t6k">
                                                 <rect key="frame" x="147.66666666666666" y="209" width="80" height="80"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="80" id="20t-k7-2Jj"/>
-                                                    <constraint firstAttribute="width" constant="80" id="EKj-kO-IX2"/>
+                                                    <constraint firstAttribute="height" constant="80" id="20t-k7-2Jj">
+                                                        <variation key="heightClass=regular-widthClass=regular" constant="120"/>
+                                                    </constraint>
+                                                    <constraint firstAttribute="width" constant="80" id="EKj-kO-IX2">
+                                                        <variation key="heightClass=regular-widthClass=regular" constant="120"/>
+                                                    </constraint>
                                                 </constraints>
-                                                <state key="normal" image="btnPlayAudioLarge"/>
-                                                <state key="selected" image="btnPauseAudioLarge"/>
+                                                <state key="normal" backgroundImage="btnPlayAudioLarge"/>
+                                                <state key="selected" backgroundImage="btnPauseAudioLarge"/>
                                                 <connections>
                                                     <action selector="playButtonPressed:" destination="IZt-ZZ-DsI" eventType="touchUpInside" id="9wf-Ej-ZI7"/>
                                                 </connections>
@@ -192,8 +196,12 @@
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1x" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="QXE-5a-BwJ">
                                                         <rect key="frame" x="0.0" y="21" width="38" height="38"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="38" id="Oz3-VU-LO5"/>
-                                                            <constraint firstAttribute="width" constant="38" id="ama-iI-DwL"/>
+                                                            <constraint firstAttribute="height" constant="38" id="Oz3-VU-LO5">
+                                                                <variation key="heightClass=regular-widthClass=regular" constant="58"/>
+                                                            </constraint>
+                                                            <constraint firstAttribute="width" constant="38" id="ama-iI-DwL">
+                                                                <variation key="heightClass=regular-widthClass=regular" constant="58"/>
+                                                            </constraint>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" name="Gilroy-Bold" family="Gilroy" pointSize="12"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -205,14 +213,13 @@
                                                             <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                                                 <real key="value" value="1.5"/>
                                                             </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                <real key="value" value="19"/>
-                                                            </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <variation key="heightClass=regular-widthClass=regular">
+                                                            <fontDescription key="fontDescription" name="Gilroy-Bold" family="Gilroy" pointSize="14"/>
+                                                        </variation>
                                                     </label>
-                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Hj-DU-QD4">
-                                                        <rect key="frame" x="0.0" y="0.0" width="44" height="64"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Hj-DU-QD4">
+                                                        <rect key="frame" x="0.0" y="0.0" width="38" height="80"/>
                                                         <fontDescription key="fontDescription" name="Gilroy-Bold" family="Gilroy" pointSize="17"/>
                                                         <connections>
                                                             <action selector="speedButtonPressed:" destination="IZt-ZZ-DsI" eventType="touchUpInside" id="etI-3D-hg4"/>
@@ -221,15 +228,23 @@
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
+                                                    <constraint firstItem="7Hj-DU-QD4" firstAttribute="top" secondItem="0Ia-mt-rUQ" secondAttribute="top" id="0ih-9E-F7m"/>
                                                     <constraint firstItem="QXE-5a-BwJ" firstAttribute="centerY" secondItem="0Ia-mt-rUQ" secondAttribute="centerY" id="0mz-Om-DPc"/>
-                                                    <constraint firstAttribute="width" constant="38" id="4or-eR-mVW"/>
+                                                    <constraint firstAttribute="width" constant="38" id="4or-eR-mVW">
+                                                        <variation key="heightClass=regular-widthClass=regular" constant="58"/>
+                                                    </constraint>
                                                     <constraint firstItem="QXE-5a-BwJ" firstAttribute="centerX" secondItem="0Ia-mt-rUQ" secondAttribute="centerX" id="ZRB-r7-Apg"/>
+                                                    <constraint firstAttribute="bottom" secondItem="7Hj-DU-QD4" secondAttribute="bottom" id="brw-CX-5mJ"/>
+                                                    <constraint firstItem="7Hj-DU-QD4" firstAttribute="leading" secondItem="0Ia-mt-rUQ" secondAttribute="leading" id="hKd-BZ-OJ6"/>
+                                                    <constraint firstAttribute="trailing" secondItem="7Hj-DU-QD4" secondAttribute="trailing" id="iGb-oj-ROP"/>
                                                 </constraints>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K8p-XK-cjH">
                                                 <rect key="frame" x="77.666666666666671" y="209" width="35" height="80"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="35" id="w4p-tH-42z"/>
+                                                    <constraint firstAttribute="width" constant="35" id="w4p-tH-42z">
+                                                        <variation key="heightClass=regular-widthClass=regular" constant="55"/>
+                                                    </constraint>
                                                 </constraints>
                                                 <state key="normal" image="btnRewindAudioLarge"/>
                                                 <connections>
@@ -539,7 +554,7 @@
                                                     </constraints>
                                                 </view>
                                                 <view key="tableFooterView" contentMode="scaleToFill" id="Ypb-51-Cx4">
-                                                    <rect key="frame" x="0.0" y="811" width="275" height="1"/>
+                                                    <rect key="frame" x="0.0" y="170" width="275" height="1"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 </view>
@@ -732,7 +747,7 @@
                                                     </constraints>
                                                 </view>
                                                 <view key="tableFooterView" contentMode="scaleToFill" id="jpw-IL-oVB">
-                                                    <rect key="frame" x="0.0" y="622" width="275" height="1"/>
+                                                    <rect key="frame" x="0.0" y="218" width="275" height="1"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 </view>
@@ -974,13 +989,13 @@
                                         <color key="backgroundColor" red="0.035294117649999998" green="0.035294117649999998" blue="0.035294117649999998" alpha="0.5" colorSpace="calibratedRGB"/>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="juB-WC-RUW">
-                                        <rect key="frame" x="20" y="113.99999999999997" width="335" height="388.33333333333326"/>
+                                        <rect key="frame" x="20" y="114" width="335" height="533.33333333333337"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="SxS-cm-gZK">
-                                                <rect key="frame" x="0.0" y="0.0" width="335" height="198.33333333333334"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="335" height="343.33333333333331"/>
                                                 <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FmU-0E-FDJ">
-                                                        <rect key="frame" x="109.66666666666666" y="0.0" width="261" height="261"/>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FmU-0E-FDJ">
+                                                        <rect key="frame" x="37" y="0.0" width="261" height="261"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="FmU-0E-FDJ" secondAttribute="height" multiplier="1:1" id="g5d-VM-s59"/>
                                                         </constraints>
@@ -991,7 +1006,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Brett Bevell" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="znp-yC-adW">
-                                                        <rect key="frame" x="105.66666666666666" y="133" width="123.66666666666666" height="29.333333333333343"/>
+                                                        <rect key="frame" x="104.33333333333334" y="278" width="126.33333333333334" height="29.333333333333314"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="29.329999999999998" id="Gz2-Sb-7MV"/>
                                                         </constraints>
@@ -1003,7 +1018,7 @@
                                                         </variation>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Discover Your Purpose" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iLl-Dn-6TE">
-                                                        <rect key="frame" x="86.000000000000014" y="179.33333333333331" width="163.33333333333337" height="19"/>
+                                                        <rect key="frame" x="86.333333333333329" y="324.33333333333331" width="162.33333333333337" height="19"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="19" id="H2v-b0-FYS"/>
                                                         </constraints>
@@ -1021,7 +1036,7 @@
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="BXh-Dw-mIw">
-                                                <rect key="frame" x="0.0" y="228.33333333333331" width="335" height="160"/>
+                                                <rect key="frame" x="0.0" y="373.33333333333331" width="335" height="159.99999999999994"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="QIb-zL-bR1">
                                                         <rect key="frame" x="0.0" y="0.0" width="335" height="30"/>
@@ -1065,7 +1080,7 @@
                                                         </constraints>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="oq0-jv-w93">
-                                                        <rect key="frame" x="0.0" y="60" width="335" height="100"/>
+                                                        <rect key="frame" x="0.0" y="60.000000000000057" width="335" height="100"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jCc-eG-jeA">
                                                                 <rect key="frame" x="0.0" y="0.0" width="32" height="100"/>
@@ -1121,7 +1136,7 @@
                                         </subviews>
                                     </stackView>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XC3-UB-odt">
-                                        <rect key="frame" x="20" y="502.33333333333326" width="335" height="275.66666666666674"/>
+                                        <rect key="frame" x="20" y="647.33333333333337" width="335" height="130.66666666666663"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1129,7 +1144,7 @@
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bz0-Nr-ZRd" customClass="GradientView" customModule="AwesomeUIMagic">
-                                        <rect key="frame" x="0.0" y="646.66666666666663" width="375" height="165.33333333333337"/>
+                                        <rect key="frame" x="0.0" y="733.66666666666663" width="375" height="78.333333333333371"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="color" keyPath="gradientTopColor">

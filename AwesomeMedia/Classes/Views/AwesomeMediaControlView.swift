@@ -60,6 +60,13 @@ public class AwesomeMediaControlView: UIView {
         timeSlider.setThumbImage()
     }
     
+    public override func layoutSubviews() {
+        //update cornerRadius of speedLabel depending on size of view
+        if let speedLabelWidth = speedLabel?.frame.width {
+            speedLabel?.layer.cornerRadius = speedLabelWidth / 2
+        }
+    }
+    
     // update playback time
     public func update(withItem item: AVPlayerItem) {
         if !timerSliderIsSliding {
