@@ -129,11 +129,14 @@ public class AwesomeMediaControlCenter {
                     nowPlayingInfo[MPMediaItemPropertyArtwork] = MPMediaItemArtwork.init(boundsSize: image.size, requestHandler: { (size) -> UIImage in
                         return image
                     })
+                    mediaInfo = nowPlayingInfo
+                } else {
+                    mediaInfo = nowPlayingInfo
                 }
             })
+        } else {
+            mediaInfo = nowPlayingInfo
         }
-        
-        mediaInfo = nowPlayingInfo
     }
     
     public static func resetControlCenter() {
