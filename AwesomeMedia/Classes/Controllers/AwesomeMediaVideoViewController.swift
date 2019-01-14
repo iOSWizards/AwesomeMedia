@@ -84,6 +84,11 @@ public class AwesomeMediaVideoViewController: UIViewController {
     public func markerSelected(marker: AwesomeMediaMarker) {
         
     }
+    
+    //to hide the bottom bar on iPhone X+ after a few seconds
+    override public var prefersHomeIndicatorAutoHidden: Bool {
+        return true
+    }
 }
 
 extension AwesomeMediaVideoViewController {
