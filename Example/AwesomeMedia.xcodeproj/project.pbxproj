@@ -389,7 +389,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-AwesomeMedia_Example/Pods-AwesomeMedia_Example-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-AwesomeMedia_Example/Pods-AwesomeMedia_Example-resources.sh",
 				"${PODS_ROOT}/../../AwesomeMedia/Assets/Views/AwesomeMedia.storyboard",
 				"${PODS_ROOT}/../../AwesomeMedia/Assets/Views/AwesomeMediaAudioPlayerView.xib",
 				"${PODS_ROOT}/../../AwesomeMedia/Assets/Views/AwesomeMediaAudioTableViewCell.xib",
@@ -422,7 +422,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AwesomeMedia_Example/Pods-AwesomeMedia_Example-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AwesomeMedia_Example/Pods-AwesomeMedia_Example-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A708ED875E1F8B1402FE57E3 /* [CP] Check Pods Manifest.lock */ = {
@@ -449,7 +449,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-AwesomeMedia_Example/Pods-AwesomeMedia_Example-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-AwesomeMedia_Example/Pods-AwesomeMedia_Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Appboy-iOS-SDK/Appboy_iOS_SDK.framework",
 				"${BUILT_PRODUCTS_DIR}/AwesomeConstants/AwesomeConstants.framework",
 				"${BUILT_PRODUCTS_DIR}/AwesomeCore/AwesomeCore.framework",
@@ -468,7 +468,6 @@
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
-				"${BUILT_PRODUCTS_DIR}/youtube-ios-player-helper/youtube_ios_player_helper.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -490,11 +489,10 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/youtube_ios_player_helper.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AwesomeMedia_Example/Pods-AwesomeMedia_Example-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AwesomeMedia_Example/Pods-AwesomeMedia_Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FF952DC3CC3CE1D58A6ACF72 /* [CP] Check Pods Manifest.lock */ = {
