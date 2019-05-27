@@ -15,7 +15,6 @@ public class AwesomeMediaPlayerLayer: AVPlayerLayer {
     
     public static var newInstance: AwesomeMediaPlayerLayer {
         let playerLayer = AwesomeMediaPlayerLayer()
-        playerLayer.videoGravity = .resizeAspectFill
         
         return playerLayer
     }
