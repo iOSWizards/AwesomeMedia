@@ -16,17 +16,8 @@ open class AwesomeMediaYoutubeCollectionViewCell: UICollectionViewCell {
     }
     
     public func configure(withMediaParams mediaParams: AwesomeMediaParams) {
-        //        BitmovinTracking.start(withParams: mediaParams)
-        
-        guard let youtubeUrl = mediaParams.youtubeUrl, let youtubeId = AwesomeMedia.extractYoutubeVideoId(videoUrl: youtubeUrl) else {
-            return
-        }
-        
         youtubeView.loadCoverImage(with: mediaParams)
-        youtubeView.youtubePlayerView.load(withVideoId: youtubeId, playerVars: ["playsinline": 0,
-                                                                    "showinfo": 0,
-                                                                    "autohide": 1,
-                                                                    "modestbranding": 1])
+        youtubeView.loadVideoUrl(with: mediaParams)
     }
     
 }

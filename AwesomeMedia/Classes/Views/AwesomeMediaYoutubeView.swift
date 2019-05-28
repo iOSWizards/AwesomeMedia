@@ -7,12 +7,11 @@
 
 import Foundation
 import AwesomeImage
-import youtube_ios_player_helper
+import WebKit
 
 open class AwesomeMediaYoutubeView: UIView {
     
     @IBOutlet weak var contentView: UIView!
-    @IBOutlet weak var youtubePlayerView: YTPlayerView!
     @IBOutlet weak var coverImageView: UIImageView!
     @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var overlayerView: UIView!
@@ -20,11 +19,12 @@ open class AwesomeMediaYoutubeView: UIView {
     // Private variables
     private var playsInLine: Bool = true
     fileprivate var bufferTimer: Timer?
+    var isLoadingYoutube: Bool = false
+    var url: String = ""
     
     override open func awakeFromNib() {
         super.awakeFromNib()
         
-        addObservers()
     }
     
     required public init?(coder aDecoder: NSCoder) {
@@ -32,19 +32,9 @@ open class AwesomeMediaYoutubeView: UIView {
         
         Bundle(for: AwesomeMediaYoutubeView.self).loadNibNamed("AwesomeMediaYoutubeView", owner: self, options: nil)
         
-        if !playsInLine {
-            /*let gesture = UITapGestureRecognizer.init(target: self, action: #selector(playVideo))
-            contentView.addGestureRecognizer(gesture)
-            contentView.isUserInteractionEnabled = true*/
-            youtubePlayerView.isHidden = true
-        }
-        
         addSubview(contentView)
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        
-        youtubePlayerView.delegate = self
-        AwesomeMediaManager.shared.youtubePlayerView = youtubePlayerView
     }
     
 }
@@ -60,6 +50,14 @@ extension AwesomeMediaYoutubeView {
         
         // set the cover image
         coverImageView.setImage(coverImageUrl)
+    }
+    
+    public func loadVideoUrl(with mediaParams: AwesomeMediaParams) {
+        guard let url = mediaParams.youtubeUrl else {
+            return
+        }
+        
+        self.url = url
     }
 }
 
@@ -83,12 +81,31 @@ extension AwesomeMediaYoutubeView {
 
 extension AwesomeMediaYoutubeView {
     
+    func playYoutubeVideo() {
+        
+        if isLoadingYoutube { return }
+        isLoadingYoutube = true
+        
+        let webConfiguration = WKWebViewConfiguration()
+        webConfiguration.allowsInlineMediaPlayback = false
+        webConfiguration.mediaTypesRequiringUserActionForPlayback = []
+        let webView = WKWebView(frame: .zero, configuration: webConfiguration)
+        webView.navigationDelegate = self
+        
+        contentView.addSubview(webView)
+        let youtubeURL = URL(string: url)
+        
+        webView.loadHTMLString("<video width=\"320\" height=\"240\" autoplay> <source src=\"movie.mp4\" type=\"video/mp4\"></video>", baseURL: nil)
+        webView.load(URLRequest(url: youtubeURL!))
+        
+    }
+    
     @IBAction func playVideo(_ sender: UIButton) {
-        showCoverAndPlay(false)
+        //        showCoverAndPlay(false)
         sharedAVPlayer.stop()
-        contentView.startLoadingAnimation()
-        youtubePlayerView.playVideo()
-        startBufferTimer()
+        playYoutubeVideo()
+        //        youtubePlayerView.playVideo()
+        //        startBufferTimer()
     }
     
     public func startBufferTimer() {
@@ -108,7 +125,7 @@ extension AwesomeMediaYoutubeView {
     }
     
     public func reset() {
-        youtubePlayerView.stopVideo()
+        //        youtubePlayerView.stopVideo()
         showCoverAndPlay(true)
         contentView.stopLoadingAnimation()
         cancelBufferTimer()
@@ -116,70 +133,15 @@ extension AwesomeMediaYoutubeView {
     
 }
 
-// MARK: - Youtube Player
-
-extension AwesomeMediaYoutubeView: YTPlayerViewDelegate {
+extension AwesomeMediaYoutubeView: WKNavigationDelegate {
     
-    public func playerView(_ playerView: YTPlayerView, didChangeTo state: YTPlayerState) {
-        if isPad {
-            youtubePlayerView.webView?.allowsPictureInPictureMediaPlayback = false
-            youtubePlayerView.webView?.allowsInlineMediaPlayback = false
-            // these two lines above fix the problem of not playing on iPad
-        }
-        
-        // ends custom animation at this moment
+    public func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
+        contentView.startLoadingAnimation()
+    }
+    
+    public func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        isLoadingYoutube = false
         contentView.stopLoadingAnimation()
-        cancelBufferTimer()
-        showCoverAndPlay(false)
-        
-        if state == .buffering {
-            // it's buffering
-        } else if state == .playing {
-            // it's playing
-        } else if state == .ended {
-            reset()
-        }
-    }
-}
-
-// MARK: - Observers
-
-extension AwesomeMediaYoutubeView: AwesomeMediaEventObserver {
-    
-    public func addObservers() {
-        AwesomeMediaNotificationCenter.addObservers(.basic, to: self)
-    }
-    
-    public func removeObservers() {
-        AwesomeMediaNotificationCenter.removeObservers(from: self)
-    }
-    
-    public func startedPlaying() {
-        reset()
-    }
-    
-    public func pausedPlaying() {
-        reset()
-    }
-    
-    public func stoppedPlaying() {
-        
-    }
-    
-    public func timeUpdated() {
-        
-    }
-    
-    public func startedBuffering() {
-        reset()
-    }
-    
-    public func stoppedBuffering() {
-        reset()
-    }
-    
-    public func finishedPlaying() {
-        
     }
     
 }

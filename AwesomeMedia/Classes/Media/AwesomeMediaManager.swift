@@ -7,14 +7,13 @@
 
 import AVFoundation
 import AwesomeNetwork
-import youtube_ios_player_helper
+import AwesomeTracking
 
 public class AwesomeMediaManager: NSObject {
     
     public static var shared = AwesomeMediaManager()
     
     public var avPlayer = AVPlayer()
-    public var youtubePlayerView: YTPlayerView?
     
     // Private Variables
     fileprivate var timeObserver: AnyObject?
@@ -35,12 +34,12 @@ public class AwesomeMediaManager: NSObject {
         
         // In case there is a view controller and isn't reachable, return callback
         /*if let viewController = viewController, !(AwesomeNetwork.shared?.isReachable ?? false),
-            !url.offlineFileExists {
-            AwesomeMedia.log("No Internet connection")
-            
-            viewController.showNoConnectionAlert()
-            return
-        }*/
+         !url.offlineFileExists {
+         AwesomeMedia.log("No Internet connection")
+         
+         viewController.showNoConnectionAlert()
+         return
+         }*/
         
         // set current media params
         mediaParams = params
@@ -52,7 +51,7 @@ public class AwesomeMediaManager: NSObject {
             avPlayer.play()
             notifyPlaying()
         }
-
+        
         // add player to layer
         playerLayer?.player = avPlayer
         
@@ -65,9 +64,8 @@ public class AwesomeMediaManager: NSObject {
     
     public func prepareMedia(withUrl url: URL, andPlay play: Bool = true) {
         //avPlayer.attachBitmovinTracker()
-        AwesomeMediaManager.shared.youtubePlayerView?.pauseVideo()
         sharedAVPlayer.stop(resetTime: false)
-
+        
         notifyMediaEvent(.buffering)
         AMAVPlayerItem.item(withUrl: url) { (playerItem) in
             notifyMediaEvent(.stoppedBuffering)
@@ -175,20 +173,20 @@ extension AwesomeMediaManager {
     public override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         
         /*switch avPlayer.timeControlStatus {
-        case .waitingToPlayAtSpecifiedRate:
-            AwesomeMedia.log("avPlayer.timeControlStatus: waiting \(avPlayer.reasonForWaitingToPlay ?? AVPlayer.WaitingReason(rawValue: ""))")
-            if avPlayer.reasonForWaitingToPlay == .noItemToPlay {
-                avPlayer.pause()
-            }
-        default:
-            break
-//        case .playing:
-//            notifyMediaEvent(.startedPlaying)
-//            AwesomeMedia.log("avPlayer.timeControlStatus: playing")
-//        case .paused:
-//            notifyMediaEvent(.pausedPlaying)
-//            AwesomeMedia.log("avPlayer.timeControlStatus: paused")
-        }*/
+         case .waitingToPlayAtSpecifiedRate:
+         AwesomeMedia.log("avPlayer.timeControlStatus: waiting \(avPlayer.reasonForWaitingToPlay ?? AVPlayer.WaitingReason(rawValue: ""))")
+         if avPlayer.reasonForWaitingToPlay == .noItemToPlay {
+         avPlayer.pause()
+         }
+         default:
+         break
+         //        case .playing:
+         //            notifyMediaEvent(.startedPlaying)
+         //            AwesomeMedia.log("avPlayer.timeControlStatus: playing")
+         //        case .paused:
+         //            notifyMediaEvent(.pausedPlaying)
+         //            AwesomeMedia.log("avPlayer.timeControlStatus: paused")
+         }*/
         
         // Check for media buffering
         if context == &playbackLikelyToKeepUpContext || context == &playbackBufferFullContext {
@@ -208,7 +206,7 @@ extension AwesomeMediaManager {
                 sharedAVPlayer.currentItem?.saveTime()
             }
         }
-        // Check for Status Changes
+            // Check for Status Changes
         else if keyPath == "status" {
             var status: AVPlayerItem.Status = .unknown
             
@@ -273,6 +271,19 @@ extension AwesomeMediaManager {
     // Finished Playing Observer
     
     @objc public func didFinishPlaying(){
+        // tracking
+        let dict: AwesomeTrackingDictionary = [:]
+        if let courseId = mediaParams.params["courseId"] {
+            dict.addElement(courseId, forKey: .courseID)
+        }
+        if let questId = mediaParams.params["questId"] {
+            dict.addElement(questId, forKey: .questID)
+        }
+        if let assetId = mediaParams.params["assetId"] {
+            dict.addElement(assetId, forKey: .assetID)
+        }
+        AwesomeTracking.track(.assetCompleted, with: dict)
+        
         // stop playing
         sharedAVPlayer.stop(resetTime: true)
         
