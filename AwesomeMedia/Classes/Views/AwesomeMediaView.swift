@@ -106,7 +106,8 @@ public class AwesomeMediaView: UIView {
             controlView?.progressView.progress = 0.0
         }
         
-        controlView?.playCallback = { (isPlaying) in
+        controlView?.playCallback = { [weak self] (isPlaying) in
+            guard let self = self else { return }
             if isPlaying {
                 AwesomeMediaManager.shared.playMedia(
                     withParams: self.mediaParams,
@@ -122,8 +123,8 @@ public class AwesomeMediaView: UIView {
                 sharedAVPlayer.pause()
             }
         }
-        controlView?.toggleViewCallback = { (_) in
-            self.titleView?.toggleView()
+        controlView?.toggleViewCallback = { [weak self] (_) in
+            self?.titleView?.toggleView()
         }
         
         // seek slider
@@ -154,13 +155,13 @@ public class AwesomeMediaView: UIView {
         titleView?.configure(withMediaParams: mediaParams)
         
         // show airplay menu
-        titleView?.airplayCallback = {
-            self.showAirplayMenu()
+        titleView?.airplayCallback = { [weak self] in
+            self?.showAirplayMenu()
         }
         
         // show captions menu
-        titleView?.captionsCallback = {
-            self.parentViewController?.showCaptions { (caption) in
+        titleView?.captionsCallback = { [weak self] in
+            self?.parentViewController?.showCaptions { (caption) in
                 let selected = sharedAVPlayer.currentItem?.selectSubtitle(caption)
                 print("\(caption ?? "none") caption selected: \(selected ?? false)")
             }

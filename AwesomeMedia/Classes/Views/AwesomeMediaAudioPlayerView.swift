@@ -298,7 +298,8 @@ extension UIView {
         }
         
         // add fullscreen callback
-        playerView.fullScreenCallback = {
+        playerView.fullScreenCallback = { [weak self] in
+            guard let self = self else { return }
             guard let playerType = AwesomeMediaPlayerType.type else {
                 return
             }
