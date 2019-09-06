@@ -360,6 +360,7 @@ extension UIViewController {
         viewController.mediaParams = mediaParams
         
         interactor = AwesomeMediaInteractor()
+        viewController.modalPresentationStyle = .fullScreen
         viewController.transitioningDelegate = self
         viewController.interactor = interactor
         
