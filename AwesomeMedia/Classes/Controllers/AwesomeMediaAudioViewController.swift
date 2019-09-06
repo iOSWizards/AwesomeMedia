@@ -85,9 +85,9 @@ public class AwesomeMediaAudioViewController: UIViewController {
         controlView.configure(withParams: mediaParams, trackingSource: .audioFullscreen)
         
         // play/pause
-        controlView.playCallback = { (isPlaying) in
+        controlView.playCallback = { [weak self] (isPlaying) in
             if isPlaying {
-                self.play()
+                self?.play()
             } else {
                 sharedAVPlayer.pause()
             }

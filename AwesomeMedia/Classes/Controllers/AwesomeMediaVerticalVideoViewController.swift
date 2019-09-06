@@ -113,9 +113,9 @@ public class AwesomeMediaVerticalVideoViewController: UIViewController {
         configureSharingAndFavourite()
         
         // play/pause
-        controlView.playCallback = { (isPlaying) in
+        controlView.playCallback = { [weak self] (isPlaying) in
             if isPlaying {
-                self.play()
+                self?.play()
                 //self.controlView.setupAutoHide()
             } else {
                 sharedAVPlayer.pause()
@@ -143,7 +143,8 @@ public class AwesomeMediaVerticalVideoViewController: UIViewController {
         }
         
         // Favourite
-        controlView.favouriteCallback = { (isFavourited) in
+        controlView.favouriteCallback = { [weak self] (isFavourited) in
+            guard let self = self else { return }
             if isFavourited {
                 notifyMediaEvent(.favourited, object: self.mediaParams as AnyObject)
             } else {

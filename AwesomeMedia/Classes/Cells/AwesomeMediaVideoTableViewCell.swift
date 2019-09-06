@@ -46,7 +46,8 @@ public class AwesomeMediaVideoTableViewCell: UITableViewCell {
         
         mediaParams.params = [:]
         
-        playerView.controlView?.fullscreenCallback = {
+        playerView.controlView?.fullscreenCallback = { [weak self] in
+            guard let self = self else { return }
             self.parentViewController?.presentVideoFullscreen(withMediaParams: mediaParams,
                                                               withControls: self.fullScreenControls,
                                                               titleViewVisible: fullScreenTitleViewVisible)

@@ -26,13 +26,14 @@ public class AwesomeMediaVideoViewController: UIViewController {
                              states: .standard,
                              trackingSource: .videoFullscreen,
                              titleViewVisible: titleViewVisible)
-        playerView.controlView?.fullscreenCallback = {
-            self.close()
+        playerView.controlView?.fullscreenCallback = { [weak self] in
+            self?.close()
             
             // track event
             track(event: .toggleFullscreen, source: .videoFullscreen)
         }
-        playerView.controlView?.jumpToCallback = {
+        playerView.controlView?.jumpToCallback = { [weak self] in
+            guard let self = self else { return }
             self.showMarkers(self.mediaParams.markers) { (mediaMarker) in
                 if let mediaMarker = mediaMarker {
                     sharedAVPlayer.seek(toTime: mediaMarker.time)
@@ -40,16 +41,16 @@ public class AwesomeMediaVideoViewController: UIViewController {
                 }
             }
         }
-        playerView.titleView?.closeCallback = {
+        playerView.titleView?.closeCallback = { [weak self] in
             sharedAVPlayer.stop()
-            self.close()
+            self?.close()
             
             // track event
             track(event: .closeFullscreen, source: .videoFullscreen)
             track(event: .stoppedPlaying, source: .videoFullscreen)
         }
-        playerView.finishedPlayingCallback = {
-            self.close()
+        playerView.finishedPlayingCallback = { [weak self] in
+            self?.close()
         }
     }
     
