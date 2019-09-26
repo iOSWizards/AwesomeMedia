@@ -59,6 +59,8 @@ public class AwesomeMediaAudioPlayerView: UIView {
     // MARK: - Events
     
     @IBAction func playButtonPressed(_ sender: Any) {
+        AwesomeMediaPlayerType.type = .audio
+        
         playButton.isSelected = !playButton.isSelected
         
         // Play/Stop media
