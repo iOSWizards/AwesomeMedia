@@ -400,7 +400,6 @@
 				"${PODS_ROOT}/../../AwesomeMedia/Assets/Views/AwesomeMediaVideoTitleView.xib",
 				"${PODS_ROOT}/../../AwesomeMedia/Assets/Views/AwesomeMediaYoutubeTableViewCell.xib",
 				"${PODS_ROOT}/../../AwesomeMedia/Assets/Views/AwesomeMediaYoutubeView.xib",
-				"${PODS_ROOT}/../../AwesomeMedia/Assets/Assets.xcassets",
 				"${PODS_CONFIGURATION_BUILD_DIR}/AwesomeMedia/AwesomeMedia.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/AwesomeTracking/AwesomeTracking.bundle",
 			);
@@ -416,7 +415,6 @@
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AwesomeMediaVideoTitleView.nib",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AwesomeMediaYoutubeTableViewCell.nib",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AwesomeMediaYoutubeView.nib",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Assets.car",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AwesomeMedia.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AwesomeTracking.bundle",
 			);

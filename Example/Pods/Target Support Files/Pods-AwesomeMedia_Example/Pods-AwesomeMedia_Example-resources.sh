@@ -107,7 +107,6 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_resource "${PODS_ROOT}/../../AwesomeMedia/Assets/Views/AwesomeMediaVideoTitleView.xib"
   install_resource "${PODS_ROOT}/../../AwesomeMedia/Assets/Views/AwesomeMediaYoutubeTableViewCell.xib"
   install_resource "${PODS_ROOT}/../../AwesomeMedia/Assets/Views/AwesomeMediaYoutubeView.xib"
-  install_resource "${PODS_ROOT}/../../AwesomeMedia/Assets/Assets.xcassets"
   install_resource "${PODS_CONFIGURATION_BUILD_DIR}/AwesomeMedia/AwesomeMedia.bundle"
   install_resource "${PODS_CONFIGURATION_BUILD_DIR}/AwesomeTracking/AwesomeTracking.bundle"
 fi
@@ -122,7 +121,6 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_resource "${PODS_ROOT}/../../AwesomeMedia/Assets/Views/AwesomeMediaVideoTitleView.xib"
   install_resource "${PODS_ROOT}/../../AwesomeMedia/Assets/Views/AwesomeMediaYoutubeTableViewCell.xib"
   install_resource "${PODS_ROOT}/../../AwesomeMedia/Assets/Views/AwesomeMediaYoutubeView.xib"
-  install_resource "${PODS_ROOT}/../../AwesomeMedia/Assets/Assets.xcassets"
   install_resource "${PODS_CONFIGURATION_BUILD_DIR}/AwesomeMedia/AwesomeMedia.bundle"
   install_resource "${PODS_CONFIGURATION_BUILD_DIR}/AwesomeTracking/AwesomeTracking.bundle"
 fi
