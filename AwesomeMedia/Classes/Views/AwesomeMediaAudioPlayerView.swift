@@ -114,7 +114,7 @@ extension AwesomeMediaAudioPlayerView {
 extension AwesomeMediaAudioPlayerView: AwesomeMediaEventObserver {
     
     public func addObservers() {
-        AwesomeMediaNotificationCenter.addObservers([.basic, .timedOut, .stopped], to: self)
+        AwesomeMediaNotificationCenter.addObservers([.basic, .timedOut, .stopped, .hideMiniPlayer], to: self)
     }
     
     public func removeObservers() {
@@ -187,6 +187,10 @@ extension AwesomeMediaAudioPlayerView: AwesomeMediaEventObserver {
     
     public func timedOut() {
         parentViewController?.showMediaTimedOutAlert()
+    }
+    
+    public func hideMiniPlayer(_ notification: NSNotification) {
+        remove(animated: false)
     }
 }
 
