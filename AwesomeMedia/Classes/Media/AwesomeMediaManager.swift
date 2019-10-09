@@ -238,7 +238,14 @@ extension AwesomeMediaManager {
             }
         } else {
             notifyMediaEvent(.playingAudio, object: mediaParams as AnyObject)
-            notifyMediaEvent(.showMiniPlayer, object: mediaParams as AnyObject)
+            
+            if mediaParams.shouldShowMiniPlayer {
+                notifyMediaEvent(.showMiniPlayer, object: mediaParams as AnyObject)
+            } else {
+                notifyMediaEvent(.hideMiniPlayer, object: mediaParams as AnyObject)
+            }
+            
+            
         }
     }
     
