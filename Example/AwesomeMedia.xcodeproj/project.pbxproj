@@ -332,6 +332,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -402,6 +403,7 @@
 				"${PODS_ROOT}/../../AwesomeMedia/Assets/Views/AwesomeMediaYoutubeView.xib",
 				"${PODS_CONFIGURATION_BUILD_DIR}/AwesomeMedia/AwesomeMedia.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/AwesomeTracking/AwesomeTracking.bundle",
+				"${PODS_ROOT}/../../AwesomeMedia/Assets/Frameworks/GoogleCastSDK-ios-4.4.5_dynamic/GoogleCast.framework",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
@@ -417,6 +419,7 @@
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AwesomeMediaYoutubeView.nib",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AwesomeMedia.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AwesomeTracking.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleCast.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

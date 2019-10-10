@@ -8,12 +8,14 @@
 
 import AwesomeMedia
 
+
 class AwesomeMediaHelper {
     
     static var shared = AwesomeMediaHelper()
     
     static func start() {
 //        BitmovinTracking.configure(with: "testingKey")
+        
     }
     
     static func stop() {

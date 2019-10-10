@@ -1,6 +1,6 @@
 {
   "name": "AwesomeMedia",
-  "version": "1.9.5.4",
+  "version": "1.9.5.5",
   "summary": "Play Sounds and Videos with AvPlayer.",
   "description": "Play Media from any app using this library.",
   "homepage": "https://github.com/iOSWizards/AwesomeMedia",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/iOSWizards/AwesomeMedia.git",
-    "tag": "1.9.5.4"
+    "tag": "1.9.5.5"
   },
   "platforms": {
     "ios": "10.0"
@@ -29,7 +29,7 @@
   },
   "resource_bundles": {
     "AwesomeMedia": [
-      "AwesomeMedia/Assets/**/*.{storyboard,xib,xcassets,json,imageset,png,pdf}"
+      "AwesomeMedia/Assets/**/*.{storyboard,xib,xcassets,json,imageset,png,pdf,framework}"
     ]
   },
   "dependencies": {
