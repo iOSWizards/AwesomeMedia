@@ -370,11 +370,7 @@ extension AwesomeMediaAudioViewController {
             "page type": params.params["page type"] as? String ?? "",
             "group name": params.params["group name"] as? String ?? "",
             "asset id": params.params["asset id"] as? String ?? "",
-            "asset type": params.params["asset type"] as? String ?? "",
-            "release id": params.params["release id"] as? String ?? "",
-            "release type": params.params["release type"] as? String ?? "",
-            "page position": params.params["page position"] as? String ?? "",
-            "page type": params.params["page type"] as? String ?? ""
+            "asset type": params.params["asset type"] as? String ?? ""
         ]
         AwesomeTracking.trackV2("download asset", with: properties)
     }
