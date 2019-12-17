@@ -7,33 +7,45 @@
 
 import Foundation
 
-class QuizResultsCoursesNS {
+class QuizResultsCoursesNS: BaseNS {
     
     static let shared = QuizResultsCoursesNS()
     lazy var awesomeRequester: AwesomeCoreRequester = AwesomeCoreRequester(cacheType: .realm)
     
-    init() {}
+    override init() {}
     
     var lastQuizResultsCoursesRequest: URLSessionDataTask?
     
-    func fetchQuizResultsCourses(withIds ids: String, forcingUpdate: Bool = false, response: @escaping ([QuizCourses], ErrorData?) -> Void) {
+    func fetchQuizResultsCourses(withIds ids: String, params: AwesomeCoreNetworkServiceParams = .standard, response: @escaping ([QuizCourses], ErrorData?) -> Void) {
         
-        lastQuizResultsCoursesRequest?.cancel()
-        lastQuizResultsCoursesRequest = nil
+        func processResponse(data: Data?, error: ErrorData? = nil, response: @escaping ([QuizCourses], ErrorData?) -> Void ) -> Bool {
+            if let jsonObject = data {
+                self.lastQuizResultsCoursesRequest = nil
+                response(QuizResultsCoursesMP.parseQuizCoursesFrom(jsonObject).courses, nil)
+                return true
+            } else {
+                self.lastQuizResultsCoursesRequest = nil
+                if let error = error {
+                    response([], error)
+                    return false
+                }
+                response([], ErrorData(.unknown, "response Data could not be parsed"))
+                return false
+            }
+        }
+        
+        let url = ACConstants.shared.quizResultsCourses
+        let method: URLMethod = .POST
+        let jsonBody = ["sub_category_ids": ids as AnyObject]
+        
+        if params.contains(.shouldFetchFromCache) {
+            _ = processResponse(data: dataFromCache(url, method: method, params: params, bodyDict: jsonBody), response: response)
+        }
         
         lastQuizResultsCoursesRequest = awesomeRequester.performRequestAuthorized(
-            ACConstants.shared.quizResultsCourses, forceUpdate: forcingUpdate, method: .POST, jsonBody: ["sub_category_ids": ids as AnyObject], completion: { (data, error, responseType) in
-                
-                if let jsonObject = data {
-                    self.lastQuizResultsCoursesRequest = nil
-                    response(QuizResultsCoursesMP.parseQuizCoursesFrom(jsonObject).courses, nil)
-                } else {
-                    self.lastQuizResultsCoursesRequest = nil
-                    if let error = error {
-                        response([], error)
-                        return
-                    }
-                    response([], ErrorData(.unknown, "response Data could not be parsed"))
+            url, forceUpdate: true, method: method, jsonBody: jsonBody, completion: { (data, error, responseType) in
+                if processResponse(data: data, error: error, response: response) {
+                    self.saveToCache(url, method: method, bodyDict: jsonBody, data: data)
                 }
         })
     }

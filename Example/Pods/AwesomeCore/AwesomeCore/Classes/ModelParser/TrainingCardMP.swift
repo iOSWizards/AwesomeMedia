@@ -29,7 +29,8 @@ struct TrainingCardMP {
                             categories: categoriesArray,
                             href: AwesomeCoreParser.stringValue(trainingCardJSON, key: "href"),
                             studentCount: AwesomeCoreParser.intValue(trainingCardJSON, key: "student_count"),
-                            rating: AwesomeCoreParser.doubleValue(trainingCardJSON, key: "rating"))
+                            rating: AwesomeCoreParser.doubleValue(trainingCardJSON, key: "rating"),
+                            completionPercentage: AwesomeCoreParser.doubleValue(trainingCardJSON, key: "completion_percentage"))
     }
     
     public static func parseTrainingsFrom(jsonObject: [String: AnyObject]) -> [TrainingCard] {

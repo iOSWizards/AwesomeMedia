@@ -11,7 +11,7 @@ import FBSDKCoreKit
 struct FacebookHelper {
     
     static func track(_ eventName: String, with params: AwesomeTrackingDictionary) {
-        FBSDKAppEvents.logEvent(eventName, parameters: params.stringLiteral())
+        AppEvents.logEvent(AppEvents.Name(rawValue: eventName), parameters: params.stringLiteral())
     }
     
 }

@@ -30,7 +30,7 @@ public struct CourseBO {
         forcingUpdate: Bool = false,
         completion: @escaping (ACCourse?, ErrorData?) -> Void) {
         
-        courseNS.fetchCourse(usingAcademy: usingAcademy, andCourse: andCourse, forcingUpdate: forcingUpdate) { (course, errorData) in
+        courseNS.fetchCourse(usingAcademy: usingAcademy, andCourse: andCourse) { (course, errorData) in
             if course != nil {
                 AwesomeCoreStorage.lastCourseId = andCourse
             }
@@ -63,17 +63,24 @@ public struct CourseBO {
     ///     an array of courses an nill as error.
     public static func fetchCourses(
         usingAcademy: Int = 0,
+        categoryId: Int? = nil,
         isFirstPage: Bool = true,
-        forcingUpdate: Bool = false,
         itemsPerPage: Int = 20,
-        completion: @escaping ([ACCourse], Int, ErrorData?) -> Void) {
+        shouldIncrementPage: Bool = true,
+        params: AwesomeCoreNetworkServiceParams = .standard,
+        completion: @escaping ([ACCourse], Int, ErrorData?, AwesomeResponseType) -> Void) {
         
-        courseNS.fetchCourses(usingAcademy: usingAcademy, isFirstPage: isFirstPage, forcingUpdate: forcingUpdate, itemsPerPage: itemsPerPage) { (courses, paginationData,  error) in
+        courseNS.fetchCourses(usingAcademy: usingAcademy, categoryId: categoryId, isFirstPage: isFirstPage, params: params, itemsPerPage: itemsPerPage, shouldIncrementPage: shouldIncrementPage) { (courses, paginationData, error, responseType) in
             DispatchQueue.main.async {
-                completion(courses, paginationData?.total ?? 0, error)
+                completion(courses, paginationData?.total ?? 0, error, responseType)
             }
+        }
+    }
+
+    public static func cancelAllCoursesRequests() {
+        for request in CourseNS.shared.requests {
+            request.value.cancel()
         }
     }
     
 }
-

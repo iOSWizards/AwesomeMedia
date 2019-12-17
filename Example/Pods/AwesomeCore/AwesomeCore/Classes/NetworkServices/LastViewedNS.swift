@@ -7,31 +7,43 @@
 
 import Foundation
 
-class LastViewedNS {
+class LastViewedNS: BaseNS {
     
     static var shared = LastViewedNS()
     lazy var awesomeRequester: AwesomeCoreRequester = AwesomeCoreRequester(cacheType: .realm)
     
     var lastViewedRequest: URLSessionDataTask?
     
-    init() {}
+    override init() {}
     
-    func fetchLastViewed(forcingUpdate: Bool = false, response: @escaping ([TrainingCard], ErrorData?) -> Void) {
+    func fetchLastViewed(params: AwesomeCoreNetworkServiceParams = .standard, response: @escaping ([TrainingCard], ErrorData?) -> Void) {
         
-        lastViewedRequest?.cancel()
-        lastViewedRequest = nil
-        
-        lastViewedRequest = awesomeRequester.performRequestAuthorized(ACConstants.shared.lastViewedURL, forceUpdate: forcingUpdate) { (data, error, responseType) in
+        func processResponse(data: Data?, error: ErrorData? = nil, response: @escaping ([TrainingCard], ErrorData?) -> Void ) -> Bool {
             if let jsonObject = AwesomeCoreParser.jsonObject(data) as? [String: AnyObject] {
                 self.lastViewedRequest = nil
                 response(TrainingCardMP.parseTrainingsFrom(jsonObject: jsonObject), nil)
+                return true
             } else {
                 self.lastViewedRequest = nil
                 if let error = error {
                     response([], error)
-                    return
+                    return false
                 }
                 response([], ErrorData(.unknown, "response Data could not be parsed"))
+                return false
+            }
+        }
+        
+        let url = ACConstants.shared.lastViewedURL
+        let method: URLMethod = .GET
+        
+        if params.contains(.shouldFetchFromCache) {
+            _ = processResponse(data: dataFromCache(url, method: method, params: params, bodyDict: nil), response: response)
+        }
+        
+        lastViewedRequest = awesomeRequester.performRequestAuthorized(url, forceUpdate: true) { (data, error, responseType) in
+            if processResponse(data: data, error: error, response: response) {
+                self.saveToCache(url, method: method, bodyDict: nil, data: data)
             }
         }
         

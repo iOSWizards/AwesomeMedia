@@ -14,10 +14,6 @@ final public class ACConstants {
     private init() {}
     
     // MARK: - Production APIpo
-    
-    public let api_id          = "5206511708206452"
-    public let api_key         = "2b3bad56a8e1cd7d9c04eb746089fb7a"
-    
     public let basePROD_URL           = "https://api.elula.com/v2/"
     public let baseDEV_URL            = "http://api-elula.mvstg.com/v2/"
     public let baseMembershipPROD_URL = "https://home.mindvalley.com/api/v2/membership/"
@@ -28,14 +24,19 @@ final public class ACConstants {
     public let baseSwaggerDEV_URL     = "https://home.mvstg.com/api/v2/"
     public let baseDiscoverPROD_URL   = "https://home.mindvalley.com/api/v2/discover/"
     public let baseDiscoverDEV_URL    = "https://home.mvstg.com/api/v2/discover/"
-    public let baseQuestsPROD_URL     = "https://api.tribelearn.com/graph/"
-    public let baseQuestsDEV_URL      = "http://api-staging.tribelearn.com/graph"
+    public let baseQuestsPROD_URL     = "https://platform-api.mindvalley.com/graph"
+    public let baseQuestsDEV_URL      = "http://platform-api.mvstg.com/graph"
     public let baseProfileV1PROD_URL  = "https://profile.mindvalley.com/api/v1/"
     public let baseProfileV1DEV_URL   = "http://profile.mvstg.com/api/v1/"
     public let baseChannelsPROD_URL   = "https://home.mindvalley.com/api/v2/channels/"
     public let baseChannelsDEV_URL    = "https://home-bleeding-edge.mvstg.com/api/v2/channels/"
     public let baseEventsPROD_URL     = "https://home.mindvalley.com/api/v2/event/"
     public let baseEventsDEV_URL      = "https://home.mvstg.com/api/v2/event/"
+    public let basePRKPROD_URL        = "https://prk.mindvalley.com/api/v1/"
+    public let basePRKV2PROD_URL      = "https://prk.mindvalley.com/api/v2/"
+    public let baseMVAnalyticsPROD_URL  = "http://analytics.mindvalley.com/v1/"
+    public let baseMVAnalyticsDEV_URL   = "http://analytics.mvstg.com/v1/"
+    public let baseOsirisPROD_URL       = "https://osiris.mindvalley.com/api/"
     
     public var baseURL : String {
         return AwesomeCore.shared.prodEnvironment ? basePROD_URL : baseDEV_URL
@@ -73,6 +74,22 @@ final public class ACConstants {
         return AwesomeCore.shared.prodEnvironment ? baseEventsPROD_URL : baseEventsDEV_URL
     }
     
+    public var baseMvAnalyticsURL: String {
+        return AwesomeCore.shared.prodEnvironment ? baseMVAnalyticsPROD_URL : baseMVAnalyticsDEV_URL
+    }
+    
+    public var basePRKURL: String {
+        return basePRKPROD_URL
+    }
+    
+    public var basePRKV2URL: String {
+        return basePRKV2PROD_URL
+    }
+    
+    public var baseOsirisPROD: String {
+        return baseOsirisPROD_URL
+    }
+    
     // MARK: - API Calls
     
     public var academiesURL         : String { return "\(baseURL)mobile/academies" }
@@ -99,7 +116,8 @@ final public class ACConstants {
     public var membershipAcademies  : String { return "\(baseMembershipURL)academies" }
     public var memberBenefits       : String { return "\(baseMembershipURL)member_benefits"}
     public var happenings           : String { return "\(baseDiscoverURL)happenings" }
-    public var communities          : String { return "\(baseSwaggerURL)user_communities" }
+    public var userCommunities      : String { return "\(baseSwaggerURL)user_communities" }
+    public var communities          : String { return "\(baseSwaggerURL)communities" }
     public var quizCategories       : String { return "\(baseSwaggerURL)quiz/choices" }
     public var quizResultsCourses   : String { return "\(baseSwaggerURL)quiz/results" }
     public var quizAddProduct       : String { return "\(baseSwaggerURL)products" }
@@ -114,6 +132,19 @@ final public class ACConstants {
     public var libraryCollectionsURL   : String { return "\(baseLibraryURL)collections" }
     
     public var userMeURL               : String { return "\(baseSwaggerURL)me.json" }
+    public var prkIAPReceiptURL   : String { return "\(basePRKURL)in_app_purchase_receipts/apple_app_store_submit" }
+    public var prkIAPUsersURL   : String { return "\(basePRKV2URL)users/" }
+    public var mvAnalyticsIdentifyURL   : String { return "\(baseMvAnalyticsURL)identify/" }
+    public var mvAnalyticsRegisterURL   : String { return "\(baseMvAnalyticsURL)register" }
+    public var mvAnalyticsEventURL   : String { return "\(baseMvAnalyticsURL)event/" }
+    public var academyCategory: String { return "\(baseURL)mobile/academies/%d/categories" }
+    public var osirisProductsOwnedByUser: String { return "\(baseOsirisPROD)auth0_jwt/entitlement/product_access" }
+    
+    public var analyticsHeadersMV: [String: String] = AwesomeCore.shared.prodEnvironment ?
+        ["x-mv-client-id": "57ff4749-cff8-4807-88c1-a272d97171bb",
+         "x-mv-client-secret": "cadd3837689f8af0518f1faa8d09497c"] :
+        ["x-mv-client-id": "bebb6d2a-4b18-47da-b38a-4aed6dfc4094",
+         "x-mv-client-secret": "171b5d54a46b86969892e669b8298a52"]
     
     // MARK: - Builders
     

@@ -7,23 +7,23 @@
 
 import Foundation
 
-public class QuestSection: Codable, Equatable {
+public struct QuestSection: Codable, Equatable {
     
     public let coverAsset: QuestAsset?
-    public let duration: Double
+    public let duration: Double?
     public let id: String?
     public let info: QuestSectionInfo?
-    public let position: Int
+    public let position: Int?
     public var primaryAsset: QuestAsset?
     public let type: String?
     public let pageId: String?        // FK to the CDPage
     public let productPageId: String? // FK to the CDProductPage
     
     public init(coverAsset: QuestAsset?,
-         duration: Double,
+         duration: Double?,
          id: String?,
          info: QuestSectionInfo?,
-         position: Int,
+         position: Int?,
          primaryAsset: QuestAsset?,
          type: String?,
          pageId: String? = nil,

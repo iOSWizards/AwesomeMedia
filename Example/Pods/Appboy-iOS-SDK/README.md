@@ -1,11 +1,11 @@
-![Braze Logo](https://github.com/Appboy/appboy-ios-sdk/blob/master/braze-logo.png)
+<img src="https://github.com/Appboy/appboy-ios-sdk/blob/master/braze-logo.png" width="300" title="Braze Logo" />
 
 # iOS SDK
 
 Successful marketing automation is essential to the future of your mobile app. Braze helps you engage your users beyond the download. Visit the following links for details and we'll have you up and running in no time!
 
-- [Braze Academy](http://www.braze.com/academy "Braze Academy")
-- [Technical Documentation](http://documentation.braze.com "Braze Technical Documentation")
+- [Braze User Guide](https://www.braze.com/docs/user_guide/introduction/ "Braze User Guide")
+- [Braze Developer Guide](https://www.braze.com/docs/developer_guide/platform_integration_guides/ios/initial_sdk_setup/ "Braze Developer Guide")
 - [Full Class Documentation](http://appboy.github.io/appboy-ios-sdk/docs/annotated.html "Braze iOS SDK Class Documentation")
 
 ## Components
@@ -21,9 +21,9 @@ Successful marketing automation is essential to the future of your mobile app. B
 
 ## Version Support
 
-The iOS SDK supports iOS 8.0+. 
+The iOS SDK supports iOS 9.0+.
 
-Integrating the iOS SDK [requires Xcode 9](https://github.com/Appboy/appboy-ios-sdk/blob/master/CHANGELOG.md#310). Developers requiring Xcode 8 may integrate Braze iOS SDK version 3.0.2 and below. 
+Integrating the iOS SDK [requires Xcode 11](https://github.com/Appboy/appboy-ios-sdk/blob/master/CHANGELOG.md#3210).
 
 Braze uses [Font Awesome](http://fortawesome.github.io/Font-Awesome/) 4.3.0 for in-app message icons.  Check out the [cheat sheet](http://fortawesome.github.io/Font-Awesome/cheatsheet/) to browse available icons.
 

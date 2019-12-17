@@ -14,11 +14,19 @@ public struct CommunityBO {
     
     private init() {}
     
-    public static func fetchCommunities(forcingUpdate: Bool = false, response: @escaping (Communities, ErrorData?) -> Void) {
+    public static func fetchCommunities(params: AwesomeCoreNetworkServiceParams = .standard, response: @escaping (Communities, ErrorData?) -> Void) {
         
-        communityNS.fetchCommunities(forcingUpdate: forcingUpdate) { (communities, error) in
+        communityNS.fetchCommunities() { (communities, error) in
             DispatchQueue.main.async {
-                
+                response(communities, error)
+            }
+        }
+    }
+    
+    public static func fetchCommunities(withProductId productId: String, params: AwesomeCoreNetworkServiceParams = .standard, response: @escaping ([Community], ErrorData?) -> Void) {
+        
+        communityNS.fetchCommunities(withProductId: productId) { (communities, error) in
+            DispatchQueue.main.async {
                 response(communities, error)
             }
         }

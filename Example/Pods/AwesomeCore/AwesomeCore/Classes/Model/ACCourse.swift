@@ -105,7 +105,7 @@ public struct ACCourse: Codable, Equatable {
     // MARK: - Functions
     
     public func previewsChapter(withChapter currentChapter: ACCourseChapter) -> ACCourseChapter? {
-        if let index = orderedChapters.index(of: currentChapter), index > 0 {
+        if let index = orderedChapters.firstIndex(of: currentChapter), index > 0 {
             let indexBefore = orderedChapters.index(before: index)
             return orderedChapters[indexBefore]
         }
@@ -113,7 +113,7 @@ public struct ACCourse: Codable, Equatable {
     }
     
     public func nextChapter(withChapter currentChapter: ACCourseChapter) ->ACCourseChapter? {
-        if let index = orderedChapters.index(of: currentChapter), (index + 1) < orderedChapters.count {
+        if let index = orderedChapters.firstIndex(of: currentChapter), (index + 1) < orderedChapters.count {
             let indexAfter = orderedChapters.index(after: index)
             return orderedChapters[indexAfter]
         }

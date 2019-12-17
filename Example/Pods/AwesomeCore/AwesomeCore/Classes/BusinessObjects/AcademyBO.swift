@@ -21,7 +21,7 @@ public struct AcademyBO {
     /// - Parameter response: an Array of ACAcademies or in case of error
     ///an empty Array of ACAcademies and the proper error object with.
     public static func fetchAcademies(forcingUpdate: Bool = false, response: @escaping ([ACAcademy], ErrorData?) -> Void) {
-        academyNS.fetchAcademies(forcingUpdate: forcingUpdate) { (academies, error) in
+        academyNS.fetchAcademies() { (academies, error) in
             DispatchQueue.main.async {
                 response(academies, error)
             }
@@ -29,7 +29,7 @@ public struct AcademyBO {
     }
     
     public static func fetchMembershipAcademies(forcingUpdate: Bool = false, response: @escaping ([MembershipAcademy], ErrorData?) -> Void) {
-        academyNS.fetchMembershipAcademies(forcingUpdate: forcingUpdate) { (academies, error) in
+        academyNS.fetchMembershipAcademies() { (academies, error) in
             DispatchQueue.main.async {
                 response(academies, error)
             }
@@ -45,19 +45,24 @@ public struct AcademyBO {
     }
     
     public static func fetchAcademiesAsCollections(
-        itemsPerPage: Int, forcingUpdate: Bool = false, response: @escaping ([ACAcademy], ErrorData?) -> Void) {
-        academyNS.fetchAcademiesTypedAs(.collection, itemsPerPage: itemsPerPage, forcingUpdate: forcingUpdate) { (academiesAsCollections, error) in
+        itemsPerPage: Int,
+        params: AwesomeCoreNetworkServiceParams = .standard,
+        response: @escaping ([ACAcademy],
+        Int?,
+        ErrorData?,
+        AwesomeResponseType) -> Void) {
+        academyNS.fetchAcademiesTypedAs(.collection, itemsPerPage: itemsPerPage, params: params) { (academiesAsCollections, total, error, responseType) in
             DispatchQueue.main.async {
-                response(academiesAsCollections, error)
+                response(academiesAsCollections, total, error, responseType)
             }
         }
     }
     
     public static func fetchAcademiesAsSubscriptions(
-        itemsPerPage: Int, forcingUpdate: Bool = false, response: @escaping ([ACAcademy], ErrorData?) -> Void) {
-        academyNS.fetchAcademiesTypedAs(.subscription, itemsPerPage: itemsPerPage, forcingUpdate: forcingUpdate) { (academiesAsSubscriptions, error) in
+        itemsPerPage: Int, forcingUpdate: Bool = false, response: @escaping ([ACAcademy], Int?, ErrorData?, AwesomeResponseType) -> Void) {
+        academyNS.fetchAcademiesTypedAs(.subscription, itemsPerPage: itemsPerPage) { (academiesAsSubscriptions, total, error, responseType) in
             DispatchQueue.main.async {
-                response(academiesAsSubscriptions, error)
+                response(academiesAsSubscriptions, total, error, responseType)
             }
         }
     }

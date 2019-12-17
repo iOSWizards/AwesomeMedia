@@ -7,33 +7,44 @@
 
 import Foundation
 
-class FreeEpisodesNS {
+class FreeEpisodesNS: BaseNS {
     
     static let shared = FreeEpisodesNS()
     lazy var awesomeRequester: AwesomeCoreRequester = AwesomeCoreRequester(cacheType: .realm)
     
-    init() {}
+    override init() {}
     
     var freeEpisodesRequest: URLSessionDataTask?
     
-    func fetchFreeEpisodes(forcingUpdate: Bool = false, response: @escaping ([FreeCourse], ErrorData?) -> Void) {
+    func fetchFreeEpisodes(params: AwesomeCoreNetworkServiceParams = .standard, response: @escaping ([FreeCourse], ErrorData?) -> Void) {
         
-        freeEpisodesRequest?.cancel()
-        freeEpisodesRequest = nil
+        func processResponse(data: Data?, error: ErrorData? = nil, response: @escaping ([FreeCourse], ErrorData?) -> Void ) -> Bool {
+            if let jsonObject = data {
+                self.freeEpisodesRequest = nil
+                response(FreeEpisodesMP.parsefreeEpisodesFrom(jsonObject).courses, nil)
+                return true
+            } else {
+                self.freeEpisodesRequest = nil
+                if let error = error {
+                    response([], error)
+                    return false
+                }
+                response([], ErrorData(.unknown, "response Data could not be parsed"))
+                return false
+            }
+        }
+        
+        let url = ACConstants.shared.freeEpisodes
+        let method: URLMethod = .GET
+        
+        if params.contains(.shouldFetchFromCache) {
+            _ = processResponse(data: dataFromCache(url, method: method, params: params, bodyDict: nil), response: response)
+        }
         
         freeEpisodesRequest = awesomeRequester.performRequestAuthorized(
-            ACConstants.shared.freeEpisodes, forceUpdate: forcingUpdate, completion: { (data, error, responseType) in
-                
-                if let jsonObject = data {
-                    self.freeEpisodesRequest = nil
-                    response(FreeEpisodesMP.parsefreeEpisodesFrom(jsonObject).courses, nil)
-                } else {
-                    self.freeEpisodesRequest = nil
-                    if let error = error {
-                        response([], error)
-                        return
-                    }
-                    response([], ErrorData(.unknown, "response Data could not be parsed"))
+            url, forceUpdate: true, completion: { (data, error, responseType) in
+                if processResponse(data: data, error: error, response: response) {
+                    self.saveToCache(url, method: method, bodyDict: nil, data: data)
                 }
         })
     }

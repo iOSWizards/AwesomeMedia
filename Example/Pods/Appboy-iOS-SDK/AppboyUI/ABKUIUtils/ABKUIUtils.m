@@ -3,6 +3,9 @@
 
 static NSString *const LocalizedAppboyStringNotFound = @"not found";
 static NSUInteger const iPhoneXHeight = 2436.0;
+static NSUInteger const iPhoneXRHeight = 1792.0;
+static NSUInteger const iPhoneXSMaxHeight = 2688.0;
+static NSUInteger const iPhoneXRScaledHeight = 1624.0;
 
 @implementation ABKUIUtils
 
@@ -48,20 +51,6 @@ static NSUInteger const iPhoneXHeight = 2436.0;
   return NO;
 }
 
-// This method casts the given color on the image
-+ (UIImage *)maskImage:(UIImage *)image toColor:(UIColor*)color {
-  CGRect bounds = CGRectMake(0, 0, image.size.width * image.scale, image.size.height * image.scale);
-  UIGraphicsBeginImageContextWithOptions(bounds.size, NO, 0.0f);
-  CGContextClipToMask(UIGraphicsGetCurrentContext(), bounds, image.CGImage);
-  [color setFill];
-  UIRectFill(bounds);
-  [image drawInRect:bounds blendMode:kCGBlendModeMultiply alpha:CGColorGetAlpha(color.CGColor)];
-  UIImage *tintedImage = UIGraphicsGetImageFromCurrentImageContext();
-  UIGraphicsEndImageContext();
-  
-  return tintedImage;
-}
-
 + (Class)getSDWebImageProxyClass {
   Class SDWebImageProxyClass = NSClassFromString(@"ABKSDWebImageProxy");
   if (SDWebImageProxyClass == nil) {
@@ -79,8 +68,11 @@ static NSUInteger const iPhoneXHeight = 2436.0;
   return NSClassFromString(@"ABKNewsFeedViewController");
 }
 
-+ (BOOL)isiPhoneX {
-  return [[UIScreen mainScreen] nativeBounds].size.height == iPhoneXHeight;
++ (BOOL)isNotchedPhone {
+  return ([[UIScreen mainScreen] nativeBounds].size.height == iPhoneXHeight ||
+          [[UIScreen mainScreen] nativeBounds].size.height == iPhoneXRHeight ||
+          [[UIScreen mainScreen] nativeBounds].size.height == iPhoneXSMaxHeight ||
+          [[UIScreen mainScreen] nativeBounds].size.height == iPhoneXRScaledHeight);
 }
 
 + (UIImage *)getImageWithName:(NSString *)name

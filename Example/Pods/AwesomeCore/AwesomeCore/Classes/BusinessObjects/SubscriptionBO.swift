@@ -15,7 +15,7 @@ public struct SubscriptionBO { // TODO: this class will be called LibraryBO in t
     private init() {}
     
     public static func fetchSubscriptions(forcingUpdate: Bool = false, response: @escaping ([Subscription], ErrorData?) -> Void) {
-        subscriptionNS.fetchSubscriptions(forcingUpdate: forcingUpdate) { (subscriptions, error) in
+        subscriptionNS.fetchSubscriptions() { (subscriptions, error) in
             DispatchQueue.main.async {
                 response(subscriptions, error)
             }
@@ -23,7 +23,7 @@ public struct SubscriptionBO { // TODO: this class will be called LibraryBO in t
     }
     
     public static func fetchCollections(forcingUpdate: Bool = false, response: @escaping ([ACCollection], ErrorData?) -> Void) {
-        collectionNS.fetchCollections(forcingUpdate: forcingUpdate) { (collections, error) in
+        collectionNS.fetchCollections() { (collections, error) in
             DispatchQueue.main.async {
                 response(collections, error)
             }

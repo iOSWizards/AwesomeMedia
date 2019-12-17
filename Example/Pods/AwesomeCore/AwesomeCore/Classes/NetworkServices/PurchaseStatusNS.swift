@@ -7,12 +7,12 @@
 
 import Foundation
 
-class PurchaseStatusNS {
+class PurchaseStatusNS: BaseNS {
     
     static let shared = PurchaseStatusNS()
     lazy var awesomeRequester: AwesomeCoreRequester = AwesomeCoreRequester(cacheType: .realm)
     
-    init() {}
+    override init() {}
     
     var lastPurchaseStatusRequest: URLSessionDataTask?
     
@@ -20,45 +20,33 @@ class PurchaseStatusNS {
     
     func fetchPurchaseStatus(eventSlug: EventCode, params: AwesomeCoreNetworkServiceParams = .standard, forceUpdate: Bool = false, response: @escaping (PurchaseStatus?, ErrorData?) -> Void) {
         
-        var didRespondCachedData = false
-        
-        let url = ACConstants.buildURLWith(format: ACConstants.shared.eventPurchaseStatusURL, with: eventSlug.rawValue)
-        
-        func fetchFromAPI(forceUpdate: Bool) {
-            
-            // cancel previews request only if should
-            if params.contains(.canCancelRequest) {
-                purchaseStatusRequests[url]?.cancel()
-                purchaseStatusRequests[url] = nil
+        func processResponse(data: Data?, error: ErrorData? = nil, response: @escaping (PurchaseStatus?, ErrorData?) -> Void ) -> Bool {
+            guard let data = data else {
+                response(nil, nil)
+                return false
             }
             
-            purchaseStatusRequests[url] = awesomeRequester.performRequestAuthorized(url, forceUpdate: forceUpdate, method: .GET, completion: { (data, error, responseType) in
-                
-                if let jsonObject = data {
-                    self.lastPurchaseStatusRequest = nil
-                    response(PurchaseStatusMP.parsePurchaseStatusFrom(jsonObject), nil)
-                    
-                    if !forceUpdate && responseType == .cached {
-                        didRespondCachedData = true
-                        fetchFromAPI(forceUpdate: true)
-                    }
-                } else {
-                    self.lastPurchaseStatusRequest = nil
-                    if let error = error {
-                        response(nil, error)
-                        return
-                    }
-                    response(nil, ErrorData(.unknown, "PurchaseStatusNS Data could not be parsed"))
-                }
-            })
+            if let error = error {
+                print("Error fetching from API: \(error.message)")
+                response(nil, error)
+                return false
+            }
             
+            response(PurchaseStatusMP.parsePurchaseStatusFrom(data), nil)
+            return true
         }
         
-        // fetches from cache if the case
+        let url = ACConstants.buildURLWith(format: ACConstants.shared.eventPurchaseStatusURL, with: eventSlug.rawValue)
+        let method: URLMethod = .GET
+        
         if params.contains(.shouldFetchFromCache) {
-            fetchFromAPI(forceUpdate: false)
-        } else {
-            fetchFromAPI(forceUpdate: true)
+            _ = processResponse(data: dataFromCache(url, method: method, params: params, bodyDict: nil), response: response)
         }
+        
+        _ = awesomeRequester.performRequestAuthorized(url, forceUpdate: true, method: method, completion: { (data, error, responseType) in
+            if processResponse(data: data, error: error, response: response) {
+                self.saveToCache(url, method: method, bodyDict: nil, data: data)
+            }
+        })
     }
 }

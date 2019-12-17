@@ -130,6 +130,11 @@ extension TimeInterval {
 
 extension Date {
     
+    //get date from milliseconds
+    init(milliseconds:Int) {
+        self = Date(timeIntervalSince1970: TimeInterval(milliseconds) / 1000)
+    }
+    
     func days(from date: Date) -> Int {
         return Calendar.current.dateComponents([.day], from: date, to: self).day ?? 0
     }

@@ -26,7 +26,7 @@ public struct ACAcademy: Equatable {
     public let purchased: Bool
     public let purchasedAt: Date?
     
-    init(id: Int,
+    public init(id: Int,
          domain: String,
          name:String,
          type: String,

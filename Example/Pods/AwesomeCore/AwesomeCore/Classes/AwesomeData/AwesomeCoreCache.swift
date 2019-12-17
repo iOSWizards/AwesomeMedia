@@ -39,9 +39,9 @@ public class AwesomeCoreCache: Object {
     
     public func save() {
         let realm = try? Realm()
-        try? realm?.write {
+        ((try? realm?.write {
             realm?.create(AwesomeCoreCache.self, value: self, update: true)
-        }
+        }) as ()??)
     }
     
     public static func object(forKey key: String) -> AwesomeCoreCache? {

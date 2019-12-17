@@ -1,6 +1,8 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+@class ABKInAppMessageDarkTheme;
+
 /*!
  * The ABKInAppMessageClickActionType defines the action that will be performed when the in-app message is clicked.
  *
@@ -99,7 +101,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /*!
  * When the in-app message's inAppMessageClickActionType is ABKInAppMessageRedirectToURI, if the property is set to YES, 
- * the URI will be opened in a modal UIWebView inside the app. If this property is set to NO, the URI will be opened by
+ * the URI will be opened in a modal WKWebView inside the app. If this property is set to NO, the URI will be opened by
  * the OS and web URIs will be opened in an external web browser app.
  *
  * This property defaults to YES on ABKInAppMessageHTML subclasses and NO on all other ABKInAppMessage subclasses.
@@ -116,12 +118,12 @@ NS_ASSUME_NONNULL_BEGIN
  * backgroundColor defines the background color of the in-app message. The default background color is black with 0.9 alpha for
  * ABKInAppMessageSlideup, and white with 1.0 alpha for ABKInAppMessageModal and ABKInAppMessageFull.
  */
-@property (strong, nullable) UIColor *backgroundColor;
+@property (nonatomic, strong, nullable) UIColor *backgroundColor;
 
 /*!
  * textColor defines the message text color of the in-app message. The default text color is black.
  */
-@property (strong, nullable) UIColor *textColor;
+@property (nonatomic, strong, nullable) UIColor *textColor;
 
 /*!
  * icon the unicode string of the Font Awesome icon for this in-app message.
@@ -134,13 +136,28 @@ NS_ASSUME_NONNULL_BEGIN
  * iconColor defines the font color of icon property.
  * The default font color is white.
  */
-@property (strong, nullable) UIColor *iconColor;
+@property (nonatomic, strong, nullable) UIColor *iconColor;
 
 /*!
  * iconBackgroundColor defines the background color of icon property.
  *  * The default background color's RGB values are R:0 G:115 B:213.
  */
-@property (strong, nullable) UIColor *iconBackgroundColor;
+@property (nonatomic, strong, nullable) UIColor *iconBackgroundColor;
+
+/*!
+ * This boolean determines if the in-app message will attempt to use dark theme colors, granted the device
+ * is in dark mode and the fields are present in the response.
+ *
+ * @discussion The default of this value is YES but can be overriden in `beforeInAppMessageDisplayed:`
+ *             to ensure that the dark theme is disabled for any given in-app message.
+ */
+@property (nonatomic, assign) BOOL enableDarkTheme;
+
+/*!
+ * Data model that contains all the dark theme color info for any visible views, including any buttons
+ * that may be present.
+ */
+@property (nonatomic, strong, nullable) ABKInAppMessageDarkTheme *darkTheme;
 
 /*!
  * imageURI defines the URI of the image icon on in-app message.

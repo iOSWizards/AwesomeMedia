@@ -18,6 +18,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nullable) UIColor *buttonBackgroundColor;
 
 /*!
+ * This property defines the button's border color.
+ * If this property is not sent from the server, the background color is used.
+ */
+@property (strong, nullable) UIColor *buttonBorderColor;
+
+/*!
  * This property defines the button's title color in UIControlStateNormal. Setting this property will also change the
  * button title color.
  */
@@ -45,7 +51,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /*!
  * When the button's buttonClickActionType is ABKInAppMessageRedirectToURI, if the property is set to YES,
- * the URI will be opened in a modal UIWebView inside the app. If this property is set to NO, the URI will be opened by
+ * the URI will be opened in a modal WKWebView inside the app. If this property is set to NO, the URI will be opened by
  * the OS and web URIs will be opened in an external web browser app.
  * 
  * This property defaults to NO.

@@ -13,8 +13,8 @@ public struct CategoryTrainingsBO {
     
     private init() {}
     
-    public static func fetchCategoryTrainings(withCategory category: String, forcingUpdate: Bool = false, response: @escaping (CategoryTrainings?, ErrorData?) -> Void) {
-        categoryTrainingsNS.fetchCategoryTrainings(withCategory: category, forcingUpdate: forcingUpdate) { (categoryTrainings, error) in
+    public static func fetchCategoryTrainings(withCategory category: String, response: @escaping (CategoryTrainings?, ErrorData?) -> Void) {
+        categoryTrainingsNS.fetchCategoryTrainings(withCategory: category) { (categoryTrainings, error) in
             DispatchQueue.main.async {
                 response(categoryTrainings, error)
             }

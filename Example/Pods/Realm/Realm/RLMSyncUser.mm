@@ -239,6 +239,7 @@ PermissionChangeCallback RLMWrapPermissionStatusCallback(RLMPermissionStatusBloc
                                                     errorHandler:nullptr];
     syncConfig.urlPrefix = urlPrefix;
     syncConfig.enableSSLValidation = enableSSLValidation;
+    syncConfig.pinnedCertificateURL = RLMSyncManager.sharedManager.pinnedCertificatePaths[syncConfig.realmURL.host];
     RLMRealmConfiguration *config = [[RLMRealmConfiguration alloc] init];
     config.syncConfiguration = syncConfig;
     return config;
@@ -338,7 +339,7 @@ PermissionChangeCallback RLMWrapPermissionStatusCallback(RLMPermissionStatusBloc
         return;
     }
     [RLMSyncChangePasswordEndpoint sendRequestToServer:self.authenticationServer
-                                       JSON:@{kRLMSyncTokenKey: self._refreshToken,
+                                       JSON:@{kRLMSyncTokenKey: self.refreshToken,
                                               kRLMSyncUserIDKey: userID,
                                               kRLMSyncDataKey: @{kRLMSyncNewPasswordKey: newPassword}}
                                     options:[[RLMSyncManager sharedManager] networkRequestOptions]
@@ -370,8 +371,7 @@ PermissionChangeCallback RLMWrapPermissionStatusCallback(RLMPermissionStatusBloc
                                     userEmail:(NSString *)email
                                    completion:(RLMPasswordChangeStatusBlock)completion {
     [RLMSyncUpdateAccountEndpoint sendRequestToServer:serverURL
-                                                 JSON:@{@"data": @{@"provider_id": email,
-                                                                   @"action": @"request_email_confirmation"}}
+                                                 JSON:@{@"provider_id": email, @"data": @{@"action": @"request_email_confirmation"}}
                                               options:[[RLMSyncManager sharedManager] networkRequestOptions]
                                            completion:completion];
 }
@@ -396,7 +396,7 @@ PermissionChangeCallback RLMWrapPermissionStatusCallback(RLMPermissionStatusBloc
                                        JSON:@{
                                               kRLMSyncProviderKey: provider,
                                               kRLMSyncProviderIDKey: providerUserIdentity,
-                                              kRLMSyncTokenKey: self._refreshToken
+                                              kRLMSyncTokenKey: self.refreshToken
                                               }
                                     timeout:60
                                     options:[[RLMSyncManager sharedManager] networkRequestOptions]
@@ -533,7 +533,7 @@ static void verifyInRunLoop() {
     });
 }
 
-- (NSString *)_refreshToken {
+- (NSString *)refreshToken {
     if (!_user) {
         return nil;
     }
@@ -560,6 +560,14 @@ static void verifyInRunLoop() {
     }
     if (!authServerURL) {
         @throw RLMException(@"A user cannot be logged in without specifying an authentication server URL.");
+    }
+
+    if (credentials.provider == RLMIdentityProviderCustomRefreshToken) {
+        [self _performLoginForCustomRefreshTokenCredentials:credentials
+                                                       user:user
+                                              authServerURL:authServerURL
+                                            completionBlock:completion];
+        return;
     }
 
     // Prepare login network request
@@ -657,6 +665,32 @@ static void verifyInRunLoop() {
         completion(nil, make_auth_error_client_issue());
         return;
     }
+    user->_user = sync_user;
+    completion(user, nil);
+}
+
++ (void)_performLoginForCustomRefreshTokenCredentials:(RLMSyncCredentials *)credentials
+                                                 user:(RLMSyncUser *)user
+                                        authServerURL:(NSURL *)serverURL
+                                      completionBlock:(nonnull RLMUserCompletionBlock)completion {
+    NSString *scheme = serverURL.scheme;
+    if (![scheme isEqualToString:@"http"] && ![scheme isEqualToString:@"https"]) {
+        @throw RLMException(@"The Realm Object Server authentication URL provided for this user, \"%@\", "
+                            @" is invalid. It must begin with http:// or https://.", serverURL);
+    }
+
+    NSString *identity = credentials.userInfo[kRLMSyncIdentityKey];
+    SyncUserIdentifier identifier{identity.UTF8String, serverURL.absoluteString.UTF8String};
+
+    std::shared_ptr<SyncUser> sync_user = SyncManager::shared().get_user(std::move(identifier), credentials.token.UTF8String);
+    if (!sync_user) {
+        completion(nil, make_auth_error_client_issue());
+        return;
+    }
+
+    NSNumber *isAdmin = credentials.userInfo[kRLMSyncIsAdminKey];
+    sync_user->set_is_admin(isAdmin.boolValue);
+
     user->_user = sync_user;
     completion(user, nil);
 }

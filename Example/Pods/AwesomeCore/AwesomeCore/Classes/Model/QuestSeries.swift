@@ -12,12 +12,28 @@ public struct QuestSeries : Codable, Equatable {
     public let id: String?
     public let coverAsset: QuestAsset?
     public let media: [QuestMedia]?
+    public let favouriteMedia: [QuestMedia]?
     public let featuredMedia: [QuestMedia]?
     public let latestMedia: [QuestMedia]?
     public let publishedAt: String?
     public let slug: String?
     public let subtitle: String?
     public let title: String?
+    public let authors: [QuestAuthor]?
+    
+}
+
+// MARK: - JSON Key
+
+public struct SingleQuestSeriesDataKey: Codable {
+    
+    public let data: SingleQuestSeriesKey
+    
+}
+
+public struct SingleQuestSeriesKey: Codable {
+    
+    public let series: QuestSeries
     
 }
 
@@ -45,6 +61,9 @@ extension QuestSeries {
             return false
         }
         if lhs.media != rhs.media {
+            return false
+        }
+        if lhs.authors != rhs.authors {
             return false
         }
         

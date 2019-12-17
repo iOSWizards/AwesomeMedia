@@ -7,21 +7,34 @@
 
 import Foundation
 
+public enum QuestProgress: String {
+    case ongoing = "ongoing"
+    case completed = "completed"
+    case available = "available"
+}
+
 public struct QuestGraphQLModel {
     
     // MARK: - Model Sections
     
     // Quest
     
-    static let questModel = "id name published publishedAt enrollmentStartedAt enrollmentsCount duration courseStartedAt courseEndedAt url settings { \(questSettingsModel) } shareAsset { \(assetImageModel) } coverAsset { \(assetImageModel) } userProgress { \(userProgressModel) } authors { \(authorModel) }"
+    static let questDefaultModel = "id name type courseStartedAt courseEndedAt releases { enrollmentsCount } groups { unlockAfterDays } settings { \(questSettingsModel) } coverAsset { \(assetImageModel) } authors { id name description portraitAsset { \(assetImageModel) } } nextRelease { id courseEndedAt courseStartedAt enrollmentsCount } daysCount lessonsCount description trailerAsset { \(assetModel) } trailerCoverAsset { \(assetImageModel) }"
+    static let questModel = "\( questDefaultModel ) userProgress { \(userProgressModel) }"
+    static let questSpotlightModel = "id name authors { \(authorModel) } pages { \(pageSpotlightModel) }"
     static let questCommunityModel = "id name published settings { \(questSettingsModel) }"
-    static let questContentModel = "\(questModel) pages { \(pageModel) }"
-    static let questSettingsModel = "tribelearnTribeId studentsCount salesUrl shareImageUrl perpetual facebookGroupImageUrl facebookGroupPassPhrase facebookGroupUrl facebookGroupId awcProductId"
-    static let userProgressModel = "daysCompleted introsCompleted totalDays totalDaysCompleted totalIntros totalIntrosCompleted totalDaysMissed started ended startedAt endedAt completed completedAt currentDay { \(pageModel) }"
+    static let questContentModel = "\(questDefaultModel) userProgress { \(userProgressQuestContentModel) } url published publishedAt enrollmentStartedAt enrollmentsCount duration pages { \(pageModel) } materials { \(sectionModel) } groups { \(groupModel) } authors { \(authorModel) } shareAsset { \(assetImageModel) } "
+    static let questSettingsModel = "studentsCount salesUrl shareImageUrl perpetual facebookGroupImageUrl facebookGroupPassPhrase facebookGroupUrl facebookGroupId awcProductId newUi enableReleaseChange"
+    static let userProgressModel = "currentPage { \(pageModel) } daysCompleted ended completed started totalDays totalDaysCompleted totalDaysMissed totalLessons totalLessonsCompleted totalLessonsMissed release { id }"
+    static let userProgressQuestContentModel = "currentPage { \(pageModel) } currentGroup { \(groupModel) } currentLesson { \(pageModel) }  nextPage { id name type position locked } daysCompleted introsCompleted lessonsCompleted ended endedAt completed completedAt enrolledAt enrollmentStartedAt started startedAt totalDays totalDaysCompleted totalDaysMissed totalLessons totalLessonsCompleted totalLessonsMissed totalIntros totalIntrosCompleted"
+    static let releaseModel = "id courseStartedAt courseEndedAt enrollmentsCount"
+    static let questIntakeUserProgressModel = "release { \(releaseModel) }"
+    static let questIntakeModel = "releases(status: \"%@\", limit: %@) { \(releaseModel) } userProgress { \(questIntakeUserProgressModel)}"
+    static let groupModel = "id description name locked position unlockAfterDays secondsTillUnlock"
     
     // My Time
     static let questMyTimeModel = "id name duration courseStartedAt courseEndedAt url settings { \(questSettingsModel) } coverAsset { \(assetImageModel) } userProgress { \(userProgressMyTimeModel) } pages { \(pageMyTimeModel) }"
-    static let userProgressMyTimeModel = "daysCompleted introsCompleted started ended completed totalDaysMissed currentDay { \(pageMyTimeContentModel) }"
+    static let userProgressMyTimeModel = "daysCompleted introsCompleted started ended completed totalDaysMissed totalDays totalDaysCompleted totalLessons totalLessonsCompleted currentPage { \(pageMyTimeContentModel) }"
     static let pageMyTimeModel = "id name type position duration groupName completed coverAsset { \(assetImageModel) }"
     static let pageMyTimeContentModel = "\(pageMyTimeModel) sections { \(sectionMyTimeModel) } "
     static let sectionMyTimeModel = "id duration position type coverAsset { \(assetImageModel) }"
@@ -42,8 +55,9 @@ public struct QuestGraphQLModel {
     
     // Page
     
-    static let pageModel = "id name position description type date completionsCount duration groupName completed coverAsset { \(assetImageModel) }"
-    static let pageContentModel = "\(pageModel) sections { \(sectionModel) } tasks { \(taskModel) }"
+    static let pageModel = "id name position type date completionsCount duration groupName completed coverAsset { \(assetImageModel) } groupLocked locked missed"
+    static let pageSpotlightModel = "id name position type"
+    static let pageContentModel = "\(pageModel) description groupDescription sections { \(sectionModel) } tasks { \(taskModel) } shareAsset { \(assetImageModel) } nextPage { id name type position locked }"
     
     static let taskModel = "completed completionDetails imageUrl id description name position required type coverAsset { \(assetImageModel) }"
     
@@ -54,9 +68,25 @@ public struct QuestGraphQLModel {
     // MARK: - Quests Query
     
     private static let questsModel = "query { quests { \(questModel) } }"
-
+    
     public static func queryQuests() -> [String: AnyObject] {
         return ["query": questsModel as AnyObject]
+    }
+    
+    // MARK: - Quests by State Query
+    
+    private static let questsStateModel = "query { quests(progress:\"%@\") { \(questModel) } }"
+    
+    public static func queryQuests(withProgress progress: QuestProgress) -> [String: AnyObject] {
+        return ["query": String(format: questsStateModel, arguments: [progress.rawValue]) as AnyObject]
+    }
+    
+    // MARK: - Quests Spotlight Query
+    
+    private static let questsSpotlightModel = "query { quests { \(questSpotlightModel) } }"
+    
+    public static func querySpotlightQuests() -> [String: AnyObject] {
+        return ["query": questsSpotlightModel as AnyObject]
     }
     
     // MARK: - My Time Query
@@ -81,6 +111,14 @@ public struct QuestGraphQLModel {
     
     public static func querySingleQuest(withId id: String) -> [String: AnyObject] {
         return ["query": String(format: singleQuestModel, arguments: [id]) as AnyObject]
+    }
+    
+    // MARK: - Single Quest Intake Query
+    
+    private static let singleQuestIntakeModel = "query { quest(id:%@) { \(questIntakeModel) } }"
+    
+    public static func querySingleQuestIntake(withId id: String, releaseStatus: String, releaseLimit: String) -> [String: AnyObject] {
+        return ["query": String(format: singleQuestIntakeModel, arguments: [id, releaseStatus, releaseLimit]) as AnyObject]
     }
     
     // MARK: - Single Quest Page Query
@@ -121,6 +159,14 @@ public struct QuestGraphQLModel {
     
     public static func mutateEnrollUser(withId id: String) -> [String: AnyObject] {
         return ["query": String(format: enrollUserModel, arguments: [id]) as AnyObject]
+    }
+    
+    // MARK: - Enroll Release User Mutation
+    
+    private static let enrollUserReleaseModel = "mutation { enrollUser(questId: %@, releaseId: %@) { quest { id } } }"
+    
+    public static func mutateEnrollUserRelease(withId id: String, releaseId: String) -> [String: AnyObject] {
+        return ["query": String(format: enrollUserReleaseModel, arguments: [id, releaseId]) as AnyObject]
     }
     
 }

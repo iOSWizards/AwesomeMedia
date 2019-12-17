@@ -7,33 +7,44 @@
 
 import Foundation
 
-class SubscriptionNS {
+class SubscriptionNS: BaseNS {
     
     static let shared = SubscriptionNS()
     lazy var awesomeRequester: AwesomeCoreRequester = AwesomeCoreRequester(cacheType: .realm)
     
-    init() {}
+    override init() {}
     
     var lastSubscriptionsRequest: URLSessionDataTask?
     
-    func fetchSubscriptions(forcingUpdate: Bool = false, response: @escaping ([Subscription], ErrorData?) -> Void) {
+    func fetchSubscriptions(params: AwesomeCoreNetworkServiceParams = .standard, response: @escaping ([Subscription], ErrorData?) -> Void) {
         
-        lastSubscriptionsRequest?.cancel()
-        lastSubscriptionsRequest = nil
+        func processResponse(data: Data?, error: ErrorData? = nil, response: @escaping ([Subscription], ErrorData?) -> Void ) -> Bool {
+            if let jsonObject = AwesomeCoreParser.jsonObject(data) as? [String: AnyObject] {
+                self.lastSubscriptionsRequest = nil
+                response(SubscriptionMP.parseSubscriptionsFrom(jsonObject, key: "subscriptions"), nil)
+                return true
+            } else {
+                self.lastSubscriptionsRequest = nil
+                if let error = error {
+                    response([Subscription](), error)
+                    return false
+                }
+                response([Subscription](), ErrorData(.unknown, "response Data could not be parsed"))
+                return false
+            }
+        }
+        
+        let url = ACConstants.shared.librarySubscriptionURL
+        let method: URLMethod = .GET
+        
+        if params.contains(.shouldFetchFromCache) {
+            _ = processResponse(data: dataFromCache(url, method: method, params: params, bodyDict: nil), response: response)
+        }
         
         lastSubscriptionsRequest = awesomeRequester.performRequestAuthorized(
-            ACConstants.shared.librarySubscriptionURL, forceUpdate: forcingUpdate, completion: { (data, error, responseType) in
-                
-                if let jsonObject = AwesomeCoreParser.jsonObject(data) as? [String: AnyObject] {
-                    self.lastSubscriptionsRequest = nil
-                    response(SubscriptionMP.parseSubscriptionsFrom(jsonObject, key: "subscriptions"), nil)
-                } else {
-                    self.lastSubscriptionsRequest = nil
-                    if let error = error {
-                        response([Subscription](), error)
-                        return
-                    }
-                    response([Subscription](), ErrorData(.unknown, "response Data could not be parsed"))
+            url, forceUpdate: true, completion: { (data, error, responseType) in
+                if processResponse(data: data, error: error, response: response) {
+                    self.saveToCache(url, method: method, bodyDict: nil, data: data)
                 }
         })
     }

@@ -163,7 +163,7 @@ public struct HomeUserProfile: Codable {
     public let twitter: String?
     public let tags: [String]?
     public let metaTags: [String]?
-    public let eventTags: [Int]?
+    public let eventTags: [Int?]?
     private let eventRegistrationsPriv: [EventRegistrationKey]?
     
     public var name: String {

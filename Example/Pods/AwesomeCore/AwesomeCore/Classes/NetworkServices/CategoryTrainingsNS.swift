@@ -7,31 +7,43 @@
 
 import Foundation
 
-class CategoryTrainingsNS {
+class CategoryTrainingsNS: BaseNS {
     
     static var shared = CategoryTrainingsNS()
     lazy var awesomeRequester: AwesomeCoreRequester = AwesomeCoreRequester(cacheType: .realm)
     
     var categoryTrainingsRequest: URLSessionDataTask?
     
-    init() {}
+    override init() {}
     
-    func fetchCategoryTrainings(withCategory category: String, forcingUpdate: Bool = false, response: @escaping (CategoryTrainings?, ErrorData?) -> Void) {
+    func fetchCategoryTrainings(withCategory category: String, params: AwesomeCoreNetworkServiceParams = .standard, response: @escaping (CategoryTrainings?, ErrorData?) -> Void) {
         
-        categoryTrainingsRequest?.cancel()
-        categoryTrainingsRequest = nil
-        
-        categoryTrainingsRequest = awesomeRequester.performRequestAuthorized(String(format: ACConstants.shared.categoryTrainingsURL, category), forceUpdate: forcingUpdate) { (data, error, responseType) in
+        func processResponse(data: Data?, error: ErrorData? = nil, response: @escaping (CategoryTrainings?, ErrorData?) -> Void ) -> Bool {
             if let jsonObject = AwesomeCoreParser.jsonObject(data) as? [String: AnyObject] {
                 self.categoryTrainingsRequest = nil
                 response(CategoryTrainingsMP.parseCategoryTrainingsFrom(jsonObject), nil)
+                return true
             } else {
                 self.categoryTrainingsRequest = nil
                 if let error = error {
                     response(nil, error)
-                    return
+                    return false
                 }
                 response(nil, ErrorData(.unknown, "response Data could not be parsed"))
+                return false
+            }
+        }
+        
+        let url = String(format: ACConstants.shared.categoryTrainingsURL, category)
+        let method: URLMethod = .GET
+        
+        if params.contains(.shouldFetchFromCache) {
+            _ = processResponse(data: dataFromCache(url, method: method, params: params, bodyDict: nil), response: response)
+        }
+        
+        categoryTrainingsRequest = awesomeRequester.performRequestAuthorized(url, forceUpdate: true) { (data, error, responseType) in
+            if processResponse(data: data, error: error, response: response) {
+                self.saveToCache(url, method: method, bodyDict: nil, data: data)
             }
         }
         

@@ -47,16 +47,9 @@ public typealias AwesomeResponse = (Data?, ErrorData?, AwesomeResponseType) -> V
 public class AwesomeCoreRequester: NSObject {
     
     lazy var session: URLSessionProtocol = URLSession.shared
-    let cacheType: CacheType
-    var cacheManager: AwesomeCoreCacheManager!
     
-    init(cacheType: CacheType = .urlCache) {
-        self.cacheType = cacheType
-        if cacheType == .realm {
-            self.cacheManager = AwesomeCoreCacheManager()
-        } else {
-            self.cacheManager = nil
-        }
+    public init(cacheType: CacheType = .urlCache) {
+        
     }
     
     // MARK:- Where the magic happens
@@ -117,22 +110,6 @@ public class AwesomeCoreRequester: NSObject {
             urlRequest.timeoutInterval = timeout
         }
         
-        // check if file been cached already
-        if forceUpdate == false && shouldCache {
-            if self.cacheManager == nil {
-                if let data = AwesomeCoreCacheManager.getCachedObject(urlRequest as URLRequest) {
-                    completion(data, nil, .cached)
-                    return nil
-                }
-            } else {
-                let url = buildURLCacheKey(urlRequest.url, method: method, bodyData: bodyData, headerValues: headerValues)
-                if let data = cacheManager.data(forKey: url) {
-                    completion(data, nil, .cached)
-                    return nil
-                }
-            }
-        }
-        
         DispatchQueue.main.async {
             UIApplication.shared.isNetworkActivityIndicatorVisible = true
         }
@@ -156,14 +133,6 @@ public class AwesomeCoreRequester: NSObject {
                 if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 401  {
                     completion(nil, ErrorData(.unauthorized, "attempting to execute a request with an unauthorized token."), .error)
                 } else {
-                    if shouldCache || forceUpdate {
-                        if self.cacheManager == nil {
-                            AwesomeCoreCacheManager.cacheObject(urlRequest as URLRequest, response: response, data: data)
-                        } else if let data = data {
-                            let url = self.buildURLCacheKey(urlRequest.url, method: method, bodyData: bodyData, headerValues: headerValues)
-                            self.cacheManager.cache(data, forKey: url)
-                        }
-                    }
                     completion(data, nil, .fromServer)
                 }
             }
@@ -190,29 +159,45 @@ public class AwesomeCoreRequester: NSObject {
         _ urlString: String?,
         forceUpdate: Bool = false,
         shouldCache: Bool = true,
+        headersParam: [String: String] = [:],
         method: URLMethod? = .GET,
-        jsonBody: [String: AnyObject]? = nil,
+        jsonBody: Any? = nil,
         timeoutAfter timeout: TimeInterval = AwesomeCore.timeoutTime,
         completion:@escaping AwesomeResponse) -> URLSessionDataTask? {
         
-        var headers = [ "Authorization": AwesomeCore.shared.bearerToken ]
+        var headers = [String: String]()
+        
+        for header in headersParam {
+            headers[header.key] = header.value
+        }
+        
+        if AwesomeCore.shared.bearerToken.count > 7 {
+            headers["Authorization"] = AwesomeCore.shared.bearerToken
+        }
         
         headers["Timezone"] = TimeZone.current.identifier
         
         if AwesomeCore.shared.isOICD {
             headers["x-mv-auth0"] = "mobile"
         }
+        if AwesomeCore.shared.app == .mindvalley {
+            headers["x-mv-app"] = "mv-ios"
+        }
         
-        return performRequest(
-            urlString,
-            method: method,
-            forceUpdate: forceUpdate,
-            shouldCache: shouldCache,
-            jsonBody: jsonBody,
-            headers: headers,
-            timeoutAfter: timeout,
-            completion: completion
-        )        
+        AwesomeCore.executeBlock {
+            _ = self.performRequest(
+                urlString,
+                method: method,
+                forceUpdate: forceUpdate,
+                shouldCache: shouldCache,
+                jsonBody: jsonBody,
+                headers: headers,
+                timeoutAfter: timeout,
+                completion: completion
+            )
+        }
+        
+        return nil
     }
     
     public func performRequest(
@@ -220,7 +205,7 @@ public class AwesomeCoreRequester: NSObject {
         forceUpdate: Bool = false,
         shouldCache: Bool = true,
         method: URLMethod? = .GET,
-        jsonBody: [String: AnyObject]? = nil,
+        jsonBody: Any? = nil,
         timeoutAfter timeout: TimeInterval = AwesomeCore.timeoutTime,
         completion:@escaping AwesomeResponse) -> URLSessionDataTask? {
         
@@ -235,7 +220,7 @@ public class AwesomeCoreRequester: NSObject {
             completion: completion
         )
     }
-
+    
 }
 
 // MARK: - Custom Calls
@@ -284,13 +269,13 @@ extension AwesomeCoreRequester {
     public func performRequest(
         _ urlString: String?,
         method: URLMethod?,
-        jsonBody: [String: AnyObject]?,
+        jsonBody: Any?,
         timeoutAfter timeout: TimeInterval = AwesomeCore.timeoutTime,
         completion:@escaping AwesomeResponse) -> URLSessionDataTask? {
         
         var data: Data?
         var headerValues = [[String]]()
-        if let jsonBody = jsonBody {
+        if let jsonBody = jsonBody as? [String: AnyObject] {
             do {
                 try data = JSONSerialization.data(withJSONObject: jsonBody, options: .prettyPrinted)
                 headerValues.append(["application/json", "Content-Type"])
@@ -298,6 +283,10 @@ extension AwesomeCoreRequester {
             } catch{
                 NSLog("Error unwraping json object")
             }
+        } else if let jsonBody = jsonBody as? Data {
+            data = jsonBody
+            headerValues.append(["application/json", "Content-Type"])
+            headerValues.append(["application/json", "Accept"])
         }
         
         return performRequest(
@@ -325,7 +314,7 @@ extension AwesomeCoreRequester {
         method: URLMethod? = .GET,
         forceUpdate: Bool = false,
         shouldCache: Bool = true,
-        jsonBody: [String: AnyObject]? = nil,
+        jsonBody: Any? = nil,
         headers: [String: String],
         timeoutAfter timeout: TimeInterval = AwesomeCore.timeoutTime,
         completion:@escaping AwesomeResponse) -> URLSessionDataTask? {
@@ -333,7 +322,7 @@ extension AwesomeCoreRequester {
         var data: Data?
         var headerValues = [[String]]()
         
-        if let jsonBody = jsonBody {
+        if let jsonBody = jsonBody as? [String: AnyObject] {
             do {
                 try data = JSONSerialization.data(withJSONObject: jsonBody, options: .prettyPrinted)
                 headerValues.append(["application/json", "Content-Type"])
@@ -341,6 +330,10 @@ extension AwesomeCoreRequester {
             } catch{
                 NSLog("Error unwraping json object")
             }
+        } else if let jsonBody = jsonBody as? Data {
+            data = jsonBody
+            headerValues.append(["application/json", "Content-Type"])
+            headerValues.append(["application/json", "Accept"])
         }
         
         for (key, value) in headers {
@@ -357,61 +350,6 @@ extension AwesomeCoreRequester {
             timeoutAfter: timeout,
             completion: completion
         )
-    }
-    
-    // Perform Request with Any instead of AnyObject
-    /* Because Bool using AnyObject resolves to 0 or 1.*/
-    public func performRequest(
-        _ urlString: String?,
-        method: URLMethod? = .GET,
-        forceUpdate: Bool = false,
-        shouldCache: Bool = true,
-        jsonBody: [String: Any]? = nil,
-        headers: [String: String],
-        timeoutAfter timeout: TimeInterval = AwesomeCore.timeoutTime,
-        completion:@escaping AwesomeResponse) -> URLSessionDataTask? {
-        
-        var data: Data?
-        var headerValues = [[String]]()
-        
-        if let jsonBody = jsonBody {
-            do {
-                try data = JSONSerialization.data(withJSONObject: jsonBody, options: .prettyPrinted)
-                headerValues.append(["application/json", "Content-Type"])
-                headerValues.append(["application/json", "Accept"])
-            } catch{
-                NSLog("Error unwraping json object")
-            }
-        }
-        
-        for (key, value) in headers {
-            headerValues.append([value, key])
-        }
-        
-        return performRequest(
-            urlString,
-            method: method,
-            bodyData: data,
-            headerValues: headerValues,
-            forceUpdate: forceUpdate,
-            shouldCache: shouldCache,
-            timeoutAfter: timeout,
-            completion: completion
-        )
-    }
- 
-    // MARK: - Helpers
-    
-    private func buildURLCacheKey(_ url: URL?,
-                                  method: URLMethod?,
-                                  bodyData: Data?,
-                                  headerValues: [[String]]?) -> String {
-        
-        if let bodyData = bodyData, let urlString = url?.absoluteString, let method = method, let headerValues = headerValues {
-            let hashValue = HashBuilder(data: bodyData, method: method, url: urlString, headers: headerValues).hashValue
-            return urlString + "?keyHash=\(hashValue)"
-        }
-        return url?.absoluteString ?? ""
     }
     
 }

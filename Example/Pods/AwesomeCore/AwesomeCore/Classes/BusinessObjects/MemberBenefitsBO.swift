@@ -14,8 +14,8 @@ public struct MemberBenefitsBO {
     
     private init() {}
     
-    public static func fetchMemberBenefits(forcingUpdate: Bool = false, response: @escaping ([Benefits], ErrorData?) -> Void) {
-        memberBenefitsNS.fetchMemberBenefits(forcingUpdate: forcingUpdate, response: { (benefits, error) in
+    public static func fetchMemberBenefits(response: @escaping ([Benefits], ErrorData?) -> Void) {
+        memberBenefitsNS.fetchMemberBenefits(response: { (benefits, error) in
             DispatchQueue.main.async {
                 response(benefits, error)
             }

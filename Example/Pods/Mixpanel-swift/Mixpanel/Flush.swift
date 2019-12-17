@@ -45,51 +45,62 @@ class Flush: AppLifecycle {
         self.lock = lock
     }
 
-    func flushEventsQueue(_ eventsQueue: inout Queue, automaticEventsEnabled: Bool?) {
-        let automaticEventsQueue = orderAutomaticEvents(queue: &eventsQueue,
+    func flushEventsQueue(_ eventsQueue: Queue, automaticEventsEnabled: Bool?) -> Queue? {
+        let (automaticEventsQueue, eventsQueue) = orderAutomaticEvents(queue: eventsQueue,
                                                         automaticEventsEnabled: automaticEventsEnabled)
-        flushQueue(type: .events, queue: &eventsQueue)
+        var mutableEventsQueue = flushQueue(type: .events, queue: eventsQueue)
         if let automaticEventsQueue = automaticEventsQueue {
-            eventsQueue.append(contentsOf: automaticEventsQueue)
+            mutableEventsQueue?.append(contentsOf: automaticEventsQueue)
         }
+        return mutableEventsQueue
     }
-
-    func orderAutomaticEvents(queue: inout Queue, automaticEventsEnabled: Bool?) -> Queue? {
-        if automaticEventsEnabled == nil || !automaticEventsEnabled! {
-            var discardedItems = Queue()
-            for (i, ev) in queue.enumerated().reversed() {
-                if let eventName = ev["event"] as? String, eventName.hasPrefix("$ae_") {
-                    discardedItems.append(ev)
-                    queue.remove(at: i)
+    
+    func orderAutomaticEvents(queue: Queue, automaticEventsEnabled: Bool?) ->
+        (automaticEventQueue: Queue?, eventsQueue: Queue) {
+            var eventsQueue = queue
+            if automaticEventsEnabled == nil || !automaticEventsEnabled! {
+                var discardedItems = Queue()
+                for (i, ev) in eventsQueue.enumerated().reversed() {
+                    if let eventName = ev["event"] as? String, eventName.hasPrefix("$ae_") {
+                        discardedItems.append(ev)
+                        eventsQueue.remove(at: i)
+                    }
+                }
+                if automaticEventsEnabled == nil {
+                    return (discardedItems, eventsQueue)
                 }
             }
-            if automaticEventsEnabled == nil {
-                return discardedItems
-            }
-        }
-        return nil
+            return (nil, eventsQueue)
     }
 
-    func flushPeopleQueue(_ peopleQueue: inout Queue) {
-        flushQueue(type: .people, queue: &peopleQueue)
+    func flushPeopleQueue(_ peopleQueue: Queue) -> Queue? {
+        return flushQueue(type: .people, queue: peopleQueue)
     }
 
-    func flushQueue(type: FlushType, queue: inout Queue) {
+    func flushGroupsQueue(_ groupsQueue: Queue) -> Queue? {
+        return flushQueue(type: .groups, queue: groupsQueue)
+    }
+
+    func flushQueue(type: FlushType, queue: Queue) -> Queue? {
         if flushRequest.requestNotAllowed() {
-            return
+            return queue
         }
-        flushQueueInBatches(&queue, type: type)
+        return flushQueueInBatches(queue, type: type)
     }
 
     func startFlushTimer() {
         stopFlushTimer()
         if flushInterval > 0 {
-            DispatchQueue.main.async() {
+            DispatchQueue.main.async() { [weak self] in
+                guard let self = self else {
+                    return
+                }
+
                 self.timer = Timer.scheduledTimer(timeInterval: self.flushInterval,
-                                                  target: self,
-                                                  selector: #selector(self.flushSelector),
-                                                  userInfo: nil,
-                                                  repeats: true)
+                                                     target: self,
+                                                     selector: #selector(self.flushSelector),
+                                                     userInfo: nil,
+                                                     repeats: true)
             }
         }
     }
@@ -100,15 +111,16 @@ class Flush: AppLifecycle {
 
     func stopFlushTimer() {
         if let timer = timer {
-            DispatchQueue.main.async() {
+            DispatchQueue.main.async() { [weak self, timer] in
                 timer.invalidate()
-                self.timer = nil
+                self?.timer = nil
             }
         }
     }
 
-    func flushQueueInBatches(_ queue: inout Queue, type: FlushType) {
-        while !queue.isEmpty {
+    func flushQueueInBatches(_ queue: Queue, type: FlushType) -> Queue {
+        var mutableQueue = queue
+        while !mutableQueue.isEmpty {
             var shouldContinue = false
             let batchSize = min(queue.count, APIConstants.batchSize)
             let range = 0..<batchSize
@@ -121,13 +133,14 @@ class Flush: AppLifecycle {
                         delegate?.updateNetworkActivityIndicator(true)
                     }
                 #endif // os(iOS)
-                var shadowQueue = queue
+                var shadowQueue = mutableQueue
                 flushRequest.sendRequest(requestData,
                                          type: type,
                                          useIP: useIPAddressForGeoLocation,
-                                         completion: { success in
+                                         completion: { [weak self, semaphore, range] success in
                                             #if os(iOS)
                                                 if !MixpanelInstance.isiOSAppExtension() {
+                                                    guard let self = self else { return }
                                                     self.delegate?.updateNetworkActivityIndicator(false)
                                                 }
                                             #endif // os(iOS)
@@ -142,15 +155,14 @@ class Flush: AppLifecycle {
                                             semaphore.signal()
                 })
                 _ = semaphore.wait(timeout: DispatchTime.distantFuture)
-                self.lock.write {
-                    queue = shadowQueue
-                }
+                mutableQueue = shadowQueue
             }
 
             if !shouldContinue {
                 break
             }
         }
+        return mutableQueue
     }
 
     // MARK: - Lifecycle

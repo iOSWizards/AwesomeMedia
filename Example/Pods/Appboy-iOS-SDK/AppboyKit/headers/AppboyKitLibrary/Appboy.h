@@ -13,7 +13,7 @@
 #import <UserNotifications/UserNotifications.h>
 
 #ifndef APPBOY_SDK_VERSION
-#define APPBOY_SDK_VERSION @"3.7.1"
+#define APPBOY_SDK_VERSION @"3.21.1"
 #endif
 
 #if !TARGET_OS_TV
@@ -24,11 +24,10 @@
 
 @class ABKUser;
 @class ABKFeedController;
+@class ABKContentCardsController;
 @class ABKLocationManager;
-@class ABKFeedback;
 @protocol ABKInAppMessageControllerDelegate;
 @protocol ABKIDFADelegate;
-@protocol ABKAppboyEndpointDelegate;
 @protocol ABKURLDelegate;
 
 NS_ASSUME_NONNULL_BEGIN
@@ -53,32 +52,20 @@ extern NSString *const ABKFlushIntervalOptionKey;
 
 /*!
  * This key can be set to YES or NO and will configure whether Braze will automatically collect location (if the user permits).
- * If set to YES, location will not be recorded for the user unless integrating apps manually call setUserLastKnownLocation on
- * ABKUser (i.e. you must manually set the location, Braze will not).  If it is set to NO or omitted, Braze will collect
- * location if authorized.
+ * If set to YES, Braze will collect location if authorized.
+ * If it is set to NO or omitted, location will not be recorded for the user unless you manually
+ * call setUserLastKnownLocation on ABKUser.
  */
-extern NSString *const ABKDisableAutomaticLocationCollectionKey;
+extern NSString *const ABKEnableAutomaticLocationCollectionKey;
 
 /*!
- * This key can be set to YES or NO and will configure whether Braze will automatically collect significant change location
- * events.  If this key isn't set and the server doesn't provide a value, it will default to false.
+ * This key can be set to YES or NO and will configure whether goefences are enabled.
+ * If set to YES, geofences will be enabled.
+ * If set to NO, geofences will be disabled.
+ * If the field is omitted, we will use the value of ABKEnableAutomaticLocationCollectionKey.
  */
-extern NSString *const ABKSignificantChangeCollectionEnabledOptionKey;
+extern NSString *const ABKEnableGeofencesKey;
 
-/*!
- * This key can be set to an integer value that represents the minimum distance in meters between location events logged to Braze.
- * If this value is set and significant change location is enabled, this value will be used to filter locations that are received from the significant
- * change location provider.  The default and minimum value is 50.  Note that significant change location updates shouldn't occur if the user has
- * gone 50 meters or less.
- */
-extern NSString *const ABKSignificantChangeCollectionDistanceFilterOptionKey;
-
-/*!
- * This key can be set to an integer value that represents the minimum time in seconds between location events logged to Braze.
- * If this value is set and significant change location is enabled, this value will be used to filter locations that are received from the significant
- * change location provider.  The default value is 3600 (1 hour); the minimum is 300 (5 minutes).
- */
-extern NSString *const ABKSignificantChangeCollectionTimeFilterOptionKey;
 
 /*!
  * This key can be set to an instance of a class that extends ABKIDFADelegate, which can be used to pass advertiser tracking information to to Braze.
@@ -86,10 +73,9 @@ extern NSString *const ABKSignificantChangeCollectionTimeFilterOptionKey;
 extern NSString *const ABKIDFADelegateKey;
 
 /*!
- * This key can be set to an instance of a class that conforms to the ABKAppboyEndpointDelegate protocol, which can be used to modify or substitute the API and Resource
- * (e.g. image) URIs used by the Braze SDK.
+ * This key can be set to a custom API endpoint. This gets sent in the format sdk.api.braze.eu.
  */
-extern NSString *const ABKAppboyEndpointDelegateKey;
+extern NSString *const ABKEndpointKey;
 
 /*!
  * This key can be set to an instance of a class that conforms to the ABKURLDelegate protocol, allowing it to handle URLs in a custom way.
@@ -102,6 +88,12 @@ extern NSString *const ABKURLDelegateKey;
 extern NSString *const ABKInAppMessageControllerDelegateKey;
 
 /*!
+ * This key can be set to YES to force the status bar to hide when presenting full screen in-app messages.
+ * If it is not set, the device will instead attempt to display the in-app message on top of the status bar, depending on the OS version.
+ */
+extern NSString *const ABKInAppMessageHideStatusBarKey;
+
+/*!
  * Set the time interval for session time out (in seconds). This will affect the case when user has a session shorter than
  * the set time interval. In that case, the session won't be close even though the user closed the app, but will continue until
  * it times out. The value should be an integer bigger than 0.
@@ -110,7 +102,7 @@ extern NSString *const ABKSessionTimeoutKey;
 
 /*!
  * Set the minimum time interval in seconds between triggers. After a trigger happens, we will ignore any triggers until
- * the minimum time interval elapses. The default value is 30s.
+ * the minimum time interval elapses. The default value is 30s. The minimum valid value is 0s.
  */
 extern NSString *const ABKMinimumTriggerTimeIntervalKey;
 
@@ -118,6 +110,15 @@ extern NSString *const ABKMinimumTriggerTimeIntervalKey;
  * Key to report the SDK flavor currently being used.  For internal use only.
  */
 extern NSString *const ABKSDKFlavorKey;
+
+/*!
+ * Key to specify a whitelist for device fields that are collected by the Braze SDK.
+ *
+ * To specify whitelisted device fields, assign the bitwise `OR` of desired fields to this key. Fields are defined
+ * in `ABKDeviceOptions`. To turn off all fields, set the value of this key to `ABKDeviceOptionNone`. By default,
+ * all fields are collected.
+ */
+extern NSString *const ABKDeviceWhitelistKey;
 
 /*!
  * This key can be set to a string value representing the app group name for the Push Story Notification
@@ -133,35 +134,24 @@ extern NSString *const ABKPushStoryAppGroupKey;
 /*!
  * Possible values for the SDK's request processing policies:
  *   ABKAutomaticRequestProcessing (default) - All server communication is handled automatically. This includes flushing
- *        analytics data to the server, updating the feed, requesting new in-app messages and posting feedback. Braze's
+ *        analytics data to the server, updating the feed, and requesting new in-app messages. Braze's
  *        communication policy is to perform immediate server requests when user facing data is required (new in-app messages,
  *        feed refreshes, etc.), and to otherwise perform periodic flushes of new analytics data every few seconds.
  *        The interval between periodic flushes can be set explicitly using the ABKFlushInterval startup option.
- *   ABKAutomaticRequestProcessingExceptForDataFlush - The same as ABKAutomaticRequestProcessing, except that updates to
+ *   ABKAutomaticRequestProcessingExceptForDataFlush - Deprecated. Use ABKManualRequestProcessing.
+ *   ABKManualRequestProcessing - The same as ABKAutomaticRequestProcessing, except that updates to
  *        custom attributes and triggering of custom events will not automatically flush to the server. Instead, you
- *        must call flushDataAndProcessRequestQueue when you want to synchronize newly updated user data with Braze.
- *   ABKManualRequestProcessing - Braze will automatically add appropriate network requests (feed updates, user
- *        attribute flushes, feedback posts, etc.) to its network queue, but doesn't process
- *        network requests. Braze will make an exception and process requests in the following cases:
- *        - Feedback requests are made via Appboy::submitFeedback:message:isReportingABug:,
- *          Appboy::submitFeedback:withCompletionHandler:, or a FeedbackViewController.
- *        - Feed requests are made via Appboy::requestFeedRefresh or an ABKFeedViewController. The latter typically 
- *          occurs when an ABKFeedViewController is loaded and displayed on the screen or on a pull to refresh.
- *        - Network requests are required for internal features, such as templated in-app messages
- *          and certain location-based features.
- *        You can direct Braze to perform an immediate data flush as well as process any other
- *        requests on its queue by calling <pre>[[Appboy sharedInstance] flushDataAndProcessRequestQueue];</pre>
- *        This mode is only recommended for advanced use cases. If you're merely trying to
- *        control the background flush behavior, consider using ABKAutomaticRequestProcessing
- *        with a custom flush interval or ABKAutomaticRequestProcessingExceptForDataFlush.
+ *        must call flushDataAndProcessRequestQueue when you want to synchronize newly updated user data with Braze. Note that
+ *        the configuration does not turn off all networking, i.e. requests important to the proper functionality of the Braze
+ *        SDK will still occur.
  *
  * Regardless of policy, Braze will intelligently combine requests on the request queue to minimize the total number of
  * requests and their combined payload.
  */
 typedef NS_ENUM(NSInteger, ABKRequestProcessingPolicy) {
   ABKAutomaticRequestProcessing,
-  ABKAutomaticRequestProcessingExceptForDataFlush,
-  ABKManualRequestProcessing
+  ABKManualRequestProcessing,
+  ABKAutomaticRequestProcessingExceptForDataFlush __deprecated_enum_msg("ABKAutomaticRequestProcessingExceptForDataFlush is deprecated. Use ManualRequestProcessing.") = ABKManualRequestProcessing
 };
 
 /*!
@@ -171,22 +161,28 @@ typedef NS_ENUM(NSInteger , ABKSDKFlavor) {
   UNITY = 1,
   REACT,
   CORDOVA,
-  XAMARIN ,
+  XAMARIN,
+  FLUTTER,
   SEGMENT,
-  MPARTICLE
+  MPARTICLE,
+  TEALIUM
 };
 
-/*!
- * Possible values for the result of submitting feedback:
- *   ABKInvalidFeedback - The passed-in feedback isn't valid. Please check the validity of the ABKFeedback
- *        object with instance method `feedbackValidation` before submitting it to Braze.
- *   ABKNetworkIssue - The SDK failed to send the feedback due to network issue. 
- *   ABKFeedbackSentSuccessfully - The feedback is sent to Braze server successfully.
- */
-typedef NS_ENUM(NSInteger, ABKFeedbackSentResult) {
-  ABKInvalidFeedback,
-  ABKNetworkIssue,
-  ABKFeedbackSentSuccessfully
+typedef NS_OPTIONS(NSUInteger, ABKDeviceOptions) {
+  ABKDeviceOptionNone = 0,
+  ABKDeviceOptionResolution = (1 << 0),
+  ABKDeviceOptionCarrier = (1 << 1),
+  ABKDeviceOptionLocale = (1 << 2),
+  ABKDeviceOptionModel = (1 << 3),
+  ABKDeviceOptionOSVersion = (1 << 4),
+  ABKDeviceOptionIDFV = (1 << 5),
+  ABKDeviceOptionIDFA = (1 << 6),
+  ABKDeviceOptionPushEnabled = (1 << 7),
+  ABKDeviceOptionTimezone = (1 << 8),
+  ABKDeviceOptionPushAuthStatus = (1 << 9),
+  ABKDeviceOptionAdTrackingEnabled = (1 << 10),
+  ABKDeviceOptionPushDisplayOptions = (1 << 11),
+  ABKDeviceOptionAll = ~ABKDeviceOptionNone
 };
 
 /*
@@ -252,6 +248,8 @@ typedef NS_ENUM(NSInteger, ABKFeedbackSentResult) {
 
 @property (readonly) ABKFeedController *feedController;
 
+@property (readonly) ABKContentCardsController *contentCardsController;
+
 /*!
 * The policy regarding processing of network requests by the SDK. See the enumeration values for more information on
 * possible options. This value can be set at runtime, or can be injected in at startup via the appboyOptions dictionary.
@@ -265,13 +263,6 @@ typedef NS_ENUM(NSInteger, ABKFeedbackSentResult) {
 * policy, invoke <pre>[[Appboy sharedInstance] flushDataAndProcessRequestQueue]</pre>.
 */
 @property ABKRequestProcessingPolicy requestProcessingPolicy;
-
-
-/*!
- * A class conforming to the ABKAppboyEndpointDelegate protocol can be set to route Braze API and Resource traffic in a custom way.
- * For example, one might proxy Braze image downloads by having the getResourceEndpoint method return a proxy URI.
- */
-@property (nonatomic, weak, nullable) id<ABKAppboyEndpointDelegate> appboyEndpointDelegate;
 
 /*!
  * A class extending ABKIDFADelegate can be set to provide the IDFA to Braze.
@@ -312,15 +303,7 @@ typedef NS_ENUM(NSInteger, ABKFeedbackSentResult) {
  * the queue already contains another request for the current user, that the new data flush request
  * will be merged into the already existing request and only one will execute for that user.
  *
- * If you're using ABKManualRequestProcessing, you need to call this after each network related activity in your app.
- * This includes:
- * * Retrieving an updated feed and in-app message after a new session is opened or the user is changed. Braze will
- * automatically add the request for new data to the network queue, you just need to give it permission to execute
- * that request.
- * * Flushing updated user data (custom events, custom attributes, as well as automatically collected data).
- * * Flushing automatic analytics events such as starting and ending sessions.
- *
- * If you're using ABKAutomaticRequestProcessingExceptForDataFlush, you only need to call this when you want to force
+ * If you're using ABKManualRequestProcessing, you only need to call this when you want to force
  * an immediate flush of updated user data.
  */
 - (void)flushDataAndProcessRequestQueue;
@@ -406,21 +389,18 @@ typedef NS_ENUM(NSInteger, ABKFeedbackSentResult) {
 /*!
  * This method is equivalent to calling logPurchase:inCurrency:atPrice:withQuantity:andProperties: with a quantity of 1 and nil properties.
  * Please see logPurchase:inCurrency:atPrice:withQuantity:andProperties: for more information.
- *
  */
 - (void)logPurchase:(NSString *)productIdentifier inCurrency:(NSString *)currencyCode atPrice:(NSDecimalNumber *)price;
 
 /*!
  * This method is equivalent to calling logPurchase:inCurrency:atPrice:withQuantity:andProperties with a quantity of 1.
  * Please see logPurchase:inCurrency:atPrice:withQuantity:andProperties: for more information.
- *
  */
 - (void)logPurchase:(NSString *)productIdentifier inCurrency:(NSString *)currencyCode atPrice:(NSDecimalNumber *)price withProperties:(nullable NSDictionary *)properties;
 
 /*!
  * This method is equivalent to calling logPurchase:inCurrency:atPrice:withQuantity:andProperties with nil properties.
  * Please see logPurchase:inCurrency:atPrice:withQuantity:andProperties: for more information.
- *
  */
 - (void)logPurchase:(NSString *)productIdentifier inCurrency:(NSString *)currencyCode atPrice:(NSDecimalNumber *)price withQuantity:(NSUInteger)quantity;
 
@@ -454,34 +434,8 @@ typedef NS_ENUM(NSInteger, ABKFeedbackSentResult) {
  *
  * Note: Braze supports purchases in multiple currencies. Purchases that you report in a currency other than USD will
  * be shown in the dashboard in USD based on the exchange rate at the date they were reported.
- *
  */
 - (void)logPurchase:(NSString *)productIdentifier inCurrency:(NSString *)currencyCode atPrice:(NSDecimalNumber *)price withQuantity:(NSUInteger)quantity andProperties:(nullable NSDictionary *)properties;
-
-/*!
- * @param replyToEmail The email address to send feedback replies to.
- * @param message The message input by the user. Must be non-null and non-empty.
- * @param isReportingABug Flag indicating whether or not the feedback describes a bug, or is merely a suggestion/question.
- * @return a boolean indicating whether or not the feedback item was successfully queued for delivery.
- *
- * @discussion Submits a piece of feedback to the Braze feedback center so that it can be handled in the Braze dashboard.
- * The request to submit feedback is made immediately, however, this method does not block and will return as soon as the
- * feedback request is placed on the network queue.
- *
- */
-- (BOOL)submitFeedback:(NSString *)replyToEmail message:(NSString *)message isReportingABug:(BOOL)isReportingABug;
-
-/*!
- * @param feedback The feedback object with feedback message, email, and is-bug flag.
- * @param completionHandler The block to execute when the feedback sending process is complete. An ABKFeedbackSentResult enum
- * will be passed to the block indicating if the feedback was sent successfully.
- *
- * @discussion Submits a piece of feedback to the Braze feedback center so that it can be handled in the Braze dashboard.
- * The request to submit feedback is made immediately. However, this method does not block and will return as soon as the
- * feedback request is placed on the network queue.
- *
- */
-- (void)submitFeedback:(ABKFeedback *)feedback withCompletionHandler:(nullable void (^)(ABKFeedbackSentResult feedbackSentResult))completionHandler;
 
 /*!
  * If you're displaying cards on your own instead of using ABKFeedViewController, you should still report impressions of
@@ -490,11 +444,11 @@ typedef NS_ENUM(NSInteger, ABKFeedbackSentResult) {
 - (void)logFeedDisplayed;
 
 /*!
- * If you're displaying feedback page on your own instead of using ABKFeedbackViewController, you should still report
- * impressions of the feedback page back to Braze with this method so that your campaign reporting features still work
+ * If you're displaying content cards on your own instead of using ABKContentCardsViewController, you should still report
+ * impressions of the content cards back to Braze with this method so that your campaign reporting features still work
  * in the dashboard.
  */
-- (void)logFeedbackDisplayed;
+- (void)logContentCardsDisplayed;
 
 /*!
  * Enqueues a news feed request for the current user. Note that if the queue already contains another request for the
@@ -506,6 +460,11 @@ typedef NS_ENUM(NSInteger, ABKFeedbackSentResult) {
  * or not. For more detail about the ABKFeedUpdatedNotification and the ABKFeedUpdatedIsSuccessfulKey, please check ABKFeedController.
  */
 - (void)requestFeedRefresh;
+
+/*!
+ * Enqueues a content cards request for the current user.
+ */
+- (void)requestContentCardsRefresh;
 
 /*!
  * Get the device ID - the IDFV - which will reset if all apps for a given vendor are removed from the device.
@@ -533,11 +492,11 @@ typedef NS_ENUM(NSInteger, ABKFeedbackSentResult) {
 - (BOOL)pushNotificationWasSentFromAppboy:(NSDictionary *)options __deprecated_msg("Use [ABKPushUtils isAppboyRemoteNotification:] instead.");
 
 /*!
- * @param token The device's push token.
+ * @param deviceToken The device's push token.
  *
  * @discussion This method posts a token to Braze servers to associate the token with the current device.
  */
-- (void)registerPushToken:(NSString *)token;
+- (void)registerDeviceToken:(NSData *)deviceToken;
 
 /*!
  * @param application The app's UIApplication object

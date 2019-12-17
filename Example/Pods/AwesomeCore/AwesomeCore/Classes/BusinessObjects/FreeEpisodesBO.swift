@@ -14,8 +14,8 @@ public struct FreeEpisodesBO {
     
     private init() {}
     
-    public static func fetchFreeEpisodes(forcingUpdate: Bool = false, response: @escaping ([FreeCourse], ErrorData?) -> Void) {
-        freeEpisodesNS.fetchFreeEpisodes(forcingUpdate: forcingUpdate) { (courses, error) in
+    public static func fetchFreeEpisodes(params: AwesomeCoreNetworkServiceParams = .standard, response: @escaping ([FreeCourse], ErrorData?) -> Void) {
+        freeEpisodesNS.fetchFreeEpisodes() { (courses, error) in
             DispatchQueue.main.async {
                 response(courses, error)
             }

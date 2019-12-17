@@ -13,8 +13,8 @@ public struct CategoriesBO {
     
     private init() {}
     
-    public static func fetchCategories(forcingUpdate: Bool = false, response: @escaping ([ACCategory], ErrorData?) -> Void) {
-        categoriesNS.fetchCategories(forcingUpdate: forcingUpdate) { (categories, error) in
+    public static func fetchCategories(response: @escaping ([ACCategory], ErrorData?) -> Void) {
+        categoriesNS.fetchCategories() { (categories, error) in
             DispatchQueue.main.async {
                 response(categories, error)
             }

@@ -15,7 +15,7 @@ public struct QuizResultsCoursesBO {
     private init() {}
     
     public static func fetchQuizResultsCourses(withIds ids: String, forcingUpdate: Bool = false, response: @escaping ([QuizCourses], ErrorData?) -> Void) {
-        quizResultsCoursesNS.fetchQuizResultsCourses(withIds: ids, forcingUpdate: forcingUpdate) { (courses, error) in
+        quizResultsCoursesNS.fetchQuizResultsCourses(withIds: ids) { (courses, error) in
             DispatchQueue.main.async {
                 response(courses, error)
             }
