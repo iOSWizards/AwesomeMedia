@@ -7,7 +7,7 @@
 
 import UIKit
 
-public class AwesomeMediaVideoTableViewCell: UITableViewCell {
+open class AwesomeMediaVideoTableViewCell: UITableViewCell {
 
     // MARK: - Outlets
     
