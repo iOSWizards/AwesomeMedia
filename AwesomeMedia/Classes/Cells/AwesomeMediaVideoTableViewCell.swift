@@ -44,7 +44,7 @@ public class AwesomeMediaVideoTableViewCell: UITableViewCell {
                              states: [.info],
                              trackingSource: .videoCell)
         
-        mediaParams.params = [:]
+        //mediaParams.params = [:]
         
         playerView.controlView?.fullscreenCallback = { [weak self] in
             guard let self = self else { return }
