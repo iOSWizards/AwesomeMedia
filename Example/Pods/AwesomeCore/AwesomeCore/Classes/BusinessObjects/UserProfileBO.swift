@@ -30,7 +30,7 @@ public struct UserProfileBO: UserProfileBOProtocol {
 //    static var courseDA = CourseDA.shared
     
     public static func fetchUserProfile(forcingUpdate: Bool, response: @escaping (UserProfile?, ErrorData?) -> Void) {
-        userProfileNS.fetchUserProfile(forcingUpdate: forcingUpdate) { (userProfile, error) in
+        userProfileNS.fetchUserProfile() { (userProfile, error) in
             DispatchQueue.main.async {
                 response(userProfile, error)
             }
@@ -69,15 +69,8 @@ public struct UserProfileBO: UserProfileBOProtocol {
         }
     }
     
-    public static func updateHomeUserProfile(withEmail email: String? = nil, firstName: String? = nil, lastName: String? = nil, gender: String? = nil, lang: String? = nil,
-                                             dateOfBirth: String? = nil, phone: String? = nil, profession: String? = nil, industry: String? = nil, country: String? = nil, city: String? = nil,
-                                             shortBio: String? = nil, discoverable: Bool? = nil, website: String? = nil, title: String? = nil, facebook: String? = nil,
-                                             twitter: String? = nil, linkedIn: String? = nil, metaTags: String? = nil, ageGroup: String? = nil, response: @escaping (HomeUserProfile?, ErrorData?) -> Void) {
-        
-        userProfileNS.updateHomeUserProfile(withEmail: email, firstName: firstName, lastName: lastName, gender: gender, lang: lang, dateOfBirth: dateOfBirth,
-                                            phone: phone, profession: profession, industry: industry, country: country, city: city,
-                                            shortBio: shortBio, discoverable: discoverable, website: website, title: title, facebook: facebook,
-                                            twitter: twitter, linkedIn: linkedIn, metaTags: metaTags, ageGroup: ageGroup) { (userProfile, error) in
+    public static func updateHomeUserProfile(profileDic: [String: Any], response: @escaping (HomeUserProfile?, ErrorData?) -> Void) {
+        userProfileNS.updateHomeUserProfile(profileDic: profileDic) { (userProfile, error) in
             DispatchQueue.main.async {
                 response(userProfile, error)
             }

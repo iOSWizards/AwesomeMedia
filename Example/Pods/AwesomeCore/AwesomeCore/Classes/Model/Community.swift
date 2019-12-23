@@ -11,49 +11,54 @@ public struct CommunityData: Codable {
     public let communities: Communities
 }
 
+public struct CommunityRootData: Codable {
+    public let data: CommunityListData
+}
+
+public struct CommunityListData: Codable {
+    public let communities: [Community]
+}
+
 public struct Communities: Codable {
-    
     public let publicGroups: [Community]
     public let tribeMembership: [Community]
     public let privateGroups: [Community]
-    
 }
 
 public struct Community: Codable {
-    
-    public let id: Int
-    public let productId: String
-    public let groupId: String
-    public let imageUrl: String
-    public let name: String
-    public var passphrase: String
-    public let type: String
-    public let url: String
-    
+    public let url: String?
+    public let type: String?
+    public let productIds: [String]?
+    public var passphrase: String?
+    public let name: String?
+    public let id: String?
+    public let groupId: String?
+    public let description: String?
+    public let backgroundAsset: QuestAsset?
 }
 
 // MARK: - Coding keys
 
-extension Communities {
-    private enum CodingKeys: String, CodingKey {
-        case publicGroups = "public_pages"
-        case tribeMembership = "tribe_memberships"
-        case privateGroups = "private_groups"
-    }
-}
-
-extension Community {
-    private enum CodingKeys: String, CodingKey {
-        case id
-        case productId = "awc_product_id"
-        case groupId = "group_id"
-        case imageUrl = "image_url"
-        case name
-        case passphrase
-        case type = "group_type"
-        case url
-    }
-}
+//extension Communities {
+//    private enum CodingKeys: String, CodingKey {
+//        case publicGroups = "public_pages"
+//        case tribeMembership = "tribe_memberships"
+//        case privateGroups = "private_groups"
+//    }
+//}
+//
+//extension Community {
+//    private enum CodingKeys: String, CodingKey {
+//        case id
+//        case productId = "awc_product_id"
+//        case groupId = "group_id"
+//        case imageUrl = "image_url"
+//        case name
+//        case passphrase
+//        case type = "group_type"
+//        case url
+//    }
+//}
 
 // MARK: - Equatable
 

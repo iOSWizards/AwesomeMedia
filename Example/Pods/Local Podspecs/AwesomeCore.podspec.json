@@ -1,6 +1,6 @@
 {
   "name": "AwesomeCore",
-  "version": "0.14.4",
+  "version": "0.19.5",
   "summary": "A short description of AwesomeCore.",
   "description": "TODO: Add long description of the pod here.",
   "homepage": "https://github.com/mindvalley/Mobile_iOS_Library_AwesomeCore",
@@ -13,10 +13,10 @@
   },
   "source": {
     "git": "https://github.com/mindvalley/Mobile_iOS_Library_AwesomeCore.git",
-    "tag": "0.14.4"
+    "tag": "0.19.5"
   },
   "platforms": {
-    "ios": "9.0",
+    "ios": "10.0",
     "osx": "10.10",
     "watchos": "4.0",
     "tvos": "10.0"

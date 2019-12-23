@@ -7,6 +7,7 @@
 
 import UIKit
 import AwesomeDownloading
+import AwesomeTracking
 
 public class AwesomeMediaAudioViewController: UIViewController {
     
@@ -147,8 +148,10 @@ public class AwesomeMediaAudioViewController: UIViewController {
             downloadMedia()
         }
         
+        self.trackDownloadedAsset(params: mediaParams)
+        
         // track event
-        track(event: .tappedDownload, source: .audioFullscreen)
+        //track(event: .tappedDownload, source: .audioFullscreen)
     }
     
     fileprivate func downloadMedia() {
@@ -349,6 +352,27 @@ extension AwesomeMediaAudioViewController {
         let storyboard = UIStoryboard(name: "AwesomeMedia", bundle: AwesomeMedia.bundle)
         
         return storyboard.instantiateViewController(withIdentifier: "AwesomeMediaAudioViewController") as! AwesomeMediaAudioViewController
+    }
+}
+
+// MARK: - Tracking
+
+extension AwesomeMediaAudioViewController {
+    func trackDownloadedAsset(params: AwesomeMediaParams) {
+        let properties: [String: String] = [
+            "quest id": params.params["quest id"] as? String ?? "",
+            "quest name": params.params["quest name"] as? String ?? "",
+            "quest type": params.params["quest type"] as? String ?? "",
+            "course started at": params.params["course started at"] as? String ?? "",
+            "release id": params.params["release id"] as? String ?? "",
+            "release type": params.params["release type"] as? String ?? "",
+            "page position":params.params["page position"] as? String ?? "",
+            "page type": params.params["page type"] as? String ?? "",
+            "group name": params.params["group name"] as? String ?? "",
+            "asset id": params.params["asset id"] as? String ?? "",
+            "asset type": params.params["asset type"] as? String ?? ""
+        ]
+        AwesomeTracking.trackV2("download asset", with: properties)
     }
 }
 

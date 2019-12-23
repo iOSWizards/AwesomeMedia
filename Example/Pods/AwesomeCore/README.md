@@ -14,7 +14,7 @@ AwesomeCore is available through [CocoaPods](http://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod 'AwesomeCore', git: 'https://github.com/mindvalley/Mobile_iOS_Library_AwesomeCore.git', tag: '0.14.4'
+pod 'AwesomeCore', git: 'https://github.com/mindvalley/Mobile_iOS_Library_AwesomeCore.git', tag: '0.19.5'
 ```
 
 For a detailed guide, please take a look at our [Wiki](https://github.com/mindvalley/Mobile_iOS_Library_AwesomeCore/wiki).

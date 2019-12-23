@@ -17,7 +17,7 @@ open class AwesomeCoreParser: NSObject {
      * If something goes wrong you receive **nil** as result.
      
      */
-    open static func jsonObject(_ data: Data?) -> AnyObject?{
+    public static func jsonObject(_ data: Data?) -> AnyObject?{
         if let data = data {
             do {
                 let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
@@ -37,7 +37,7 @@ open class AwesomeCoreParser: NSObject {
      * If something goes wrong **nil** is returned on the success block.
      
      */
-    open static func jsonObjectAsync(_ data: Data?, success: @escaping (_ jsonObject: AnyObject?) -> Void) {
+    public static func jsonObjectAsync(_ data: Data?, success: @escaping (_ jsonObject: AnyObject?) -> Void) {
         if let data = data {
             DispatchQueue.global(qos: .default).async {
                 
@@ -61,7 +61,7 @@ open class AwesomeCoreParser: NSObject {
         
     }
     
-    open static func doubleValue(_ jsonObject: [String: Any], key: String) -> Double{
+    public static func doubleValue(_ jsonObject: [String: Any], key: String) -> Double{
         if let value = jsonObject[key] as? Double {
             return value
         }else if let value = jsonObject[key] as? String {
@@ -72,7 +72,7 @@ open class AwesomeCoreParser: NSObject {
         return 0
     }
     
-    open static func intValue(_ jsonObject: [String: Any], key: String) -> Int{
+    public static func intValue(_ jsonObject: [String: Any], key: String) -> Int{
         if let value = jsonObject[key] as? Int {
             return value
         }else if let value = jsonObject[key] as? String {
@@ -83,7 +83,7 @@ open class AwesomeCoreParser: NSObject {
         return 0
     }
     
-    open static func boolValue(_ jsonObject: [String: Any], key: String) -> Bool{
+    public static func boolValue(_ jsonObject: [String: Any], key: String) -> Bool{
         if let value = jsonObject[key] as? Bool {
             return value
         }else if let value = jsonObject[key] as? String {
@@ -94,7 +94,7 @@ open class AwesomeCoreParser: NSObject {
         return false
     }
     
-    open static func stringValue(_ jsonObject: [String: Any], key: String) -> String{
+    public static func stringValue(_ jsonObject: [String: Any], key: String) -> String{
         if let value = jsonObject[key] as? String {
             return value
         }else if let array = jsonObject[key] as? [String] {
@@ -105,14 +105,14 @@ open class AwesomeCoreParser: NSObject {
         return ""
     }
     
-    open static func stringValues(_ jsonObject: [String: Any], key: String) -> [String] {
+    public static func stringValues(_ jsonObject: [String: Any], key: String) -> [String] {
         if let value = jsonObject[key] as? [String] {
             return value
         }
         return []
     }
     
-    open static func dateValue(_ jsonObject: [String: Any], key: String, format: String = "yyyy-MM-dd'T'HH:mm:ss.SSSZ") -> Date?{
+    public static func dateValue(_ jsonObject: [String: Any], key: String, format: String = "yyyy-MM-dd'T'HH:mm:ss.SSSZ") -> Date?{
         let dateString = stringValue(jsonObject, key: key)
         
         let dateFormatter = DateFormatter()
@@ -120,11 +120,11 @@ open class AwesomeCoreParser: NSObject {
         return dateFormatter.date(from: dateString)
     }
     
-    open static func propertyNamesOfObject(_ object: Any) -> [String] {
+    public static func propertyNamesOfObject(_ object: Any) -> [String] {
         return Mirror(reflecting: object).children.filter { $0.label != nil }.map { $0.label! }
     }
     
-    open static func propertyNamesOfClass(_ theClass: Any) -> [String] {
+    public static func propertyNamesOfClass(_ theClass: Any) -> [String] {
         return Mirror(reflecting: theClass).children.filter { $0.label != nil }.map { $0.label! }
     }
 }

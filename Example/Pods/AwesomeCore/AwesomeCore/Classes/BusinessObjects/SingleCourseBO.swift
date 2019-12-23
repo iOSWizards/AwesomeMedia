@@ -13,8 +13,8 @@ public struct SingleCourseBO {
     
     private init() {}
     
-    public static func fetchSingleCourses(forcingUpdate: Bool = false, response: @escaping ([TrainingCard], ErrorData?) -> Void) {
-        singleCourseNS.fetchSingleCourses(forcingUpdate: forcingUpdate) { (courses, error) in
+    public static func fetchSingleCourses(response: @escaping ([TrainingCard], ErrorData?) -> Void) {
+        singleCourseNS.fetchSingleCourses() { (courses, error) in
             DispatchQueue.main.async {
                 response(courses, error)
             }

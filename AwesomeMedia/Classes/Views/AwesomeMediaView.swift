@@ -187,7 +187,7 @@ public class AwesomeMediaView: UIView {
             }
         }
         
-        mediaParams.params = [:]
+        //mediaParams.params = [:]
     }
 }
 

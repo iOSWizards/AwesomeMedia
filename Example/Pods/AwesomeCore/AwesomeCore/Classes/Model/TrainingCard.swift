@@ -21,6 +21,7 @@ public struct TrainingCard: Codable {
     public let href: String
     public let studentCount: Int
     public let rating: Double
+    public let completionPercentage: Double
     
     init(id: Int,
          academyId: Int,
@@ -33,7 +34,8 @@ public struct TrainingCard: Codable {
          categories: [String],
          href: String,
          studentCount: Int,
-         rating: Double) {
+         rating: Double,
+         completionPercentage: Double) {
         
         self.id = id
         self.academyId = academyId
@@ -47,7 +49,6 @@ public struct TrainingCard: Codable {
         self.href = href
         self.studentCount = studentCount
         self.rating = rating
-        
+        self.completionPercentage = completionPercentage
     }
-    
 }

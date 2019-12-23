@@ -7,46 +7,61 @@
 
 import Foundation
 
-class UserProfileNS {
+class UserProfileNS: BaseNS {
     
     static var shared = UserProfileNS()
     lazy var awesomeRequester: AwesomeCoreRequester = AwesomeCoreRequester(cacheType: .realm)
     
     var lastUserProfileRequest: URLSessionDataTask?
-    var lastQuestUserProfileRequest: URLSessionDataTask?
     var lastUserProfilePictureRequest: URLSessionDataTask?
     var lastUpdateProfileRequest: URLSessionDataTask?
     var lastHomeUserProfileRequest: URLSessionDataTask?
     var lastUpdateHomeUserProfileRequest: URLSessionDataTask?
     
-    init() {}
+    override init() {}
     
-    func fetchUserProfile(forcingUpdate: Bool, response: @escaping (UserProfile?, ErrorData?) -> Void) {
+    func fetchUserProfile(params: AwesomeCoreNetworkServiceParams = .standard, response: @escaping (UserProfile?, ErrorData?) -> Void) {
         
-        //        lastUserProfileRequest?.cancel()
-        lastUserProfileRequest = nil
-        
-        lastUserProfileRequest = awesomeRequester.performRequestAuthorized(ACConstants.shared.userProfileURL, forceUpdate: forcingUpdate) { (data, error, responseType) in
+        func processResponse(data: Data?, error: ErrorData? = nil, response: @escaping (UserProfile?, ErrorData?) -> Void ) -> Bool {
             if let jsonObject = AwesomeCoreParser.jsonObject(data) as? [String: AnyObject] {
                 self.lastUserProfileRequest = nil
                 response(UserProfileMP.parseUserProfileFrom(jsonObject), nil)
+                return true
             } else {
                 self.lastUserProfileRequest = nil
                 if let error = error {
                     response(nil, error)
-                    return
+                    return false
                 }
                 response(nil, ErrorData(.unknown, "response Data could not be parsed"))
+                return false
+            }
+        }
+        
+        let url = ACConstants.shared.userProfileURL
+        let method: URLMethod = .GET
+        
+        if params.contains(.shouldFetchFromCache) {
+            _ = processResponse(data: dataFromCache(url, method: method, params: params, bodyDict: nil), response: response)
+        }
+        
+        lastUserProfileRequest = awesomeRequester.performRequestAuthorized(url, forceUpdate: true) { (data, error, responseType) in
+            if processResponse(data: data, error: error, response: response) {
+                self.saveToCache(url, method: method, bodyDict: nil, data: data)
             }
         }
     }
     
     func fetchQuestUserProfile(params: AwesomeCoreNetworkServiceParams = .standard, response: @escaping (UserProfile?, ErrorData?) -> Void) {
         
-        var didRespondCachedData = false
-        
-        func processResponse(data: Data?, response: @escaping (UserProfile?, ErrorData?) -> Void ) -> Bool {
+        func processResponse(data: Data?, error: ErrorData? = nil, response: @escaping (UserProfile?, ErrorData?) -> Void ) -> Bool {
             guard let data = data else {
+                return false
+            }
+            
+            if let error = error {
+                print("Error fetching from API: \(error.message)")
+                response(nil, error)
                 return false
             }
             
@@ -56,48 +71,27 @@ class UserProfileNS {
             return userProfile != nil
         }
         
-        func fetchFromAPI(forceUpdate: Bool) {
-            
-            // cancel previews request only if should
-            if params.contains(.canCancelRequest) {
-                lastQuestUserProfileRequest?.cancel()
-                lastQuestUserProfileRequest = nil
-            }
-            
-            lastQuestUserProfileRequest = awesomeRequester.performRequestAuthorized(
-                ACConstants.shared.questsURL, forceUpdate: forceUpdate, method: .POST, jsonBody: QuestProfileGraphQLModel.queryProfile(), completion: { (data, error, responseType) in
-                    self.lastQuestUserProfileRequest = nil
-                    
-                    //process response
-                    let hasResponse = processResponse(data: data, response: response)
-                    
-                    //fetches again based on response type
-                    if !forceUpdate && responseType == .cached {
-                        didRespondCachedData = hasResponse
-                        
-                        fetchFromAPI(forceUpdate: true)
-                    } else if let error = error {
-                        print("Error fetching from API: \(error.message)")
-                        
-                        if !didRespondCachedData {
-                            response(nil, error)
-                        }
-                    }
-            })
+        let url = ACConstants.shared.questsURL
+        let method: URLMethod = .POST
+        let jsonBody = QuestProfileGraphQLModel.queryProfile()
+        
+        if params.contains(.shouldFetchFromCache) {
+            _ = processResponse(data: dataFromCache(url, method: method, params: params, bodyDict: jsonBody), response: response)
         }
         
-        // fetches from cache if the case
-        if params.contains(.shouldFetchFromCache) {
-            fetchFromAPI(forceUpdate: false)
-        } else {
-            fetchFromAPI(forceUpdate: true)
-        }
+        _ = awesomeRequester.performRequestAuthorized(
+            url, forceUpdate: true, method: method, jsonBody: jsonBody, completion: { (data, error, responseType) in
+                if processResponse(data: data, error: error, response: response) {
+                    self.saveToCache(url, method: method, bodyDict: jsonBody, data: data)
+                }
+        })
+        
     }
     
     func uploadUserProfilePicture(usingPicture picture: UIImage, response: @escaping ([String: AnyObject]?, ErrorData?) -> Void) {
         
         let jpegCompressionQuality: CGFloat = 0.7 // Set this to whatever suits your purpose
-        guard let base64String = UIImageJPEGRepresentation(picture, jpegCompressionQuality)?
+        guard let base64String = picture.jpegData(compressionQuality: jpegCompressionQuality)?
             .base64EncodedString(options: NSData.Base64EncodingOptions.init(rawValue: 0)) else {
                 return
         }
@@ -127,9 +121,6 @@ class UserProfileNS {
     
     func updateProfile(withEmail email: String, firstName: String, lastName: String, response: @escaping (UserProfile?, ErrorData?) -> Void) {
         
-        //        lastUpdateProfileRequest?.cancel()
-        lastUpdateProfileRequest = nil
-        
         lastUpdateProfileRequest = awesomeRequester.performRequestAuthorized(
             ACConstants.shared.questsURL, forceUpdate: true, method: .POST, jsonBody: QuestProfileGraphQLModel.mutateUpdateProfile(email, firstName: firstName, lastname: lastName), completion: { (data, error, responseType) in
                 if let jsonObject = AwesomeCoreParser.jsonObject(data) as? [String: AnyObject] {
@@ -148,10 +139,14 @@ class UserProfileNS {
     
     func fetchHomeUserProfile(forcingUpdate: Bool, params: AwesomeCoreNetworkServiceParams = .standard, response: @escaping (HomeUserProfile?, ErrorData?) -> Void) {
         
-        var didRespondCachedData = false
-        
-        func processResponse(data: Data?, response: @escaping (HomeUserProfile?, ErrorData?) -> Void ) -> Bool {
+        func processResponse(data: Data?, error: ErrorData? = nil, response: @escaping (HomeUserProfile?, ErrorData?) -> Void ) -> Bool {
             guard let data = data else {
+                return false
+            }
+            
+            if let error = error {
+                print("Error fetching from API: \(error.message)")
+                response(nil, error)
                 return false
             }
             
@@ -161,79 +156,25 @@ class UserProfileNS {
             return user != nil
         }
         
-        func fetchFromAPI(forceUpdate: Bool) {
-            
-            // cancel previews request only if should
-            if params.contains(.canCancelRequest) {
-//                lastHomeUserProfileRequest?.cancel()
-                lastHomeUserProfileRequest = nil
-            }
-            
-            lastHomeUserProfileRequest = awesomeRequester.performRequestAuthorized(
-                ACConstants.shared.userProfileForToken, forceUpdate: forceUpdate, method: .GET, completion: { (data, error, responseType) in
-                    self.lastHomeUserProfileRequest = nil
-                    
-                    //process response
-                    let hasResponse = processResponse(data: data, response: response)
-                    
-                    //fetches again based on response type
-                    if !forceUpdate && responseType == .cached {
-                        didRespondCachedData = hasResponse
-                        
-                        fetchFromAPI(forceUpdate: true)
-                    } else if let error = error {
-                        print("Error fetching from API: \(error.message)")
-                        
-                        if !didRespondCachedData {
-                            response(nil, error)
-                        }
-                    }
-            })
-        }
+        let url = ACConstants.shared.userProfileForToken
+        let method: URLMethod = .GET
         
-        // fetches from cache if the case
         if params.contains(.shouldFetchFromCache) {
-            fetchFromAPI(forceUpdate: false)
-        } else {
-            fetchFromAPI(forceUpdate: true)
+            _ = processResponse(data: dataFromCache(url, method: method, params: params, bodyDict: nil), response: response)
         }
         
+        lastHomeUserProfileRequest = awesomeRequester.performRequestAuthorized(
+            url, forceUpdate: true, method: method, completion: { (data, error, responseType) in
+                if processResponse(data: data, error: error, response: response) {
+                    self.saveToCache(url, method: method, bodyDict: nil, data: data)
+                }
+        })
     }
     
     // updateHomeUserProfile
-    func updateHomeUserProfile(withEmail email: String?, firstName: String?, lastName: String?, gender: String?, lang: String?, dateOfBirth: String?,
-                               phone: String?, profession: String?, industry: String?, country: String?, city: String?, shortBio: String?, discoverable: Bool?,
-                               website: String?, title: String?, facebook: String?, twitter: String?, linkedIn: String?, metaTags: String?,
-                               ageGroup: String?, response: @escaping (HomeUserProfile?, ErrorData?) -> Void) {
-        //        lastUpdateHomeUserProfileRequest?.cancel()
-        lastUpdateHomeUserProfileRequest = nil
-        
+    func updateHomeUserProfile(profileDic: [String: Any], response: @escaping (HomeUserProfile?, ErrorData?) -> Void) {
         let headers = AwesomeCore.getMobileRequestHeaderWithApiKeys()
-        
-        var body: [String : Any] = [:]
-        
-        body["email"] = email
-        body["first_name"] = firstName
-        body["last_name"] = lastName
-        body["gender"] = gender
-        body["lang"] = lang
-        body["date_of_birth"] = dateOfBirth // not yet available for updating in the api endpoint. as of today 06.07.2018
-        body["phone"] = phone
-        body["profession"] = profession
-        body["industry"] = industry
-        body["country"] = country
-        body["city"] = city
-        body["bio"] = shortBio
-        body["discoverable"] = discoverable?.description
-        body["website"] = website
-        body["title"] = title
-        body["facebook"] = facebook
-        body["twitter"] = twitter
-        body["linked_in"] = linkedIn
-        body["meta_tags"] = metaTags
-        body["enrolment_group"] = ageGroup
-        
-        lastUpdateHomeUserProfileRequest = awesomeRequester.performRequest(ACConstants.shared.updateUserProfileForToken, method: .PUT, forceUpdate: true, jsonBody: body, headers: headers) { (data, error, responseType) in
+        lastUpdateHomeUserProfileRequest = awesomeRequester.performRequest(ACConstants.shared.updateUserProfileForToken, method: .PUT, forceUpdate: true, jsonBody: profileDic, headers: headers) { (data, error, responseType) in
             if let jsonObject = data {
                 self.lastUpdateHomeUserProfileRequest = nil
                 response(UserProfileMP.parseHomeUserProfileFrom(jsonObject), nil)
@@ -246,6 +187,5 @@ class UserProfileNS {
                 response(nil, ErrorData(.unknown, "response Data could not be parsed"))
             }
         }
-        
     }
 }

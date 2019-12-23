@@ -7,58 +7,78 @@
 
 import Foundation
 
-class ChannelsNS {
+class ChannelsNS: BaseNS {
     
     static let shared = ChannelsNS()
     lazy var awesomeRequester: AwesomeCoreRequester = AwesomeCoreRequester(cacheType: .realm)
     
-    init() {}
+    override init() {}
     
     var channelsRequest: URLSessionDataTask?
     var allChannelsRequest: URLSessionDataTask?
     
-    func fetchChannelData(with academyId: Int, forcingUpdate: Bool = false, response: @escaping (ChannelData?, ErrorData?) -> Void) {
+    let method: URLMethod = .GET
+    
+    func fetchChannelData(with academyId: Int, params: AwesomeCoreNetworkServiceParams = .standard, response: @escaping (ChannelData?, ErrorData?) -> Void) {
         
-        channelsRequest?.cancel()
-        channelsRequest = nil
+        func processResponse(data: Data?, error: ErrorData? = nil, response: @escaping (ChannelData?, ErrorData?) -> Void ) -> Bool {
+            if let jsonObject = data {
+                self.channelsRequest = nil
+                response(ChannelsMP.parseChannelsFrom(jsonObject), nil)
+                return true
+            } else {
+                self.channelsRequest = nil
+                if let error = error {
+                    response(nil, error)
+                    return false
+                }
+                response(nil, ErrorData(.unknown, "response Data for Member Benefits could not be parsed"))
+                return false
+            }
+        }
         
         let url = ACConstants.buildURLWith(format: ACConstants.shared.channelsWithAcademy, with: academyId)
         
+        if params.contains(.shouldFetchFromCache) {
+            _ = processResponse(data: dataFromCache(url, method: method, params: params, bodyDict: nil), response: response)
+        }
+        
         channelsRequest = awesomeRequester.performRequestAuthorized(
-            url, forceUpdate: forcingUpdate, method: .GET, completion: { (data, error, responseType) in
-                
-                if let jsonObject = data {
-                    self.channelsRequest = nil
-                    response(ChannelsMP.parseChannelsFrom(jsonObject), nil)
-                } else {
-                    self.channelsRequest = nil
-                    if let error = error {
-                        response(nil, error)
-                        return
-                    }
-                    response(nil, ErrorData(.unknown, "response Data for Member Benefits could not be parsed"))
+            url, forceUpdate: true, method: method, completion: { (data, error, responseType) in
+                if processResponse(data: data, error: error, response: response) {
+                    self.saveToCache(url, method: self.method, bodyDict: nil, data: data)
                 }
         })
     }
     
-    func fetchAllChannels(forcingUpdate: Bool = false, response: @escaping ([AllChannels], ErrorData?) -> Void) {
+    func fetchAllChannels(params: AwesomeCoreNetworkServiceParams = .standard, response: @escaping ([AllChannels], ErrorData?) -> Void) {
         
-        allChannelsRequest?.cancel()
-        allChannelsRequest = nil
+        func processResponse(data: Data?, error: ErrorData? = nil, response: @escaping ([AllChannels], ErrorData?) -> Void ) -> Bool {
+            if let jsonObject = data {
+                self.allChannelsRequest = nil
+                response(ChannelsMP.parseAllChannelsFrom(jsonObject), nil)
+                return true
+            } else {
+                self.allChannelsRequest = nil
+                if let error = error {
+                    response([], error)
+                    return false
+                }
+                response([], ErrorData(.unknown, "response Data for Member Benefits could not be parsed"))
+                return false
+            }
+        }
+        
+        let url = ACConstants.shared.channels
+        
+        if params.contains(.shouldFetchFromCache) {
+            _ = processResponse(data: dataFromCache(url, method: method, params: params, bodyDict: nil), response: response)
+        }
         
         allChannelsRequest = awesomeRequester.performRequestAuthorized(
-            ACConstants.shared.channels, forceUpdate: forcingUpdate, method: .GET, completion: { (data, error, responseType) in
-                
-                if let jsonObject = data {
-                    self.allChannelsRequest = nil
-                    response(ChannelsMP.parseAllChannelsFrom(jsonObject), nil)
-                } else {
-                    self.allChannelsRequest = nil
-                    if let error = error {
-                        response([], error)
-                        return
-                    }
-                    response([], ErrorData(.unknown, "response Data for Member Benefits could not be parsed"))
+            url, forceUpdate: true, method: method, completion: { (data, error, responseType) in
+                if processResponse(data: data, error: error, response: response) {
+                    self.saveToCache(url, method: self.method, bodyDict: nil, data: data)
                 }
         })
     }

@@ -17,13 +17,16 @@ class QuestPurchaseNS {
     var lastVerifyReceiptRequest: URLSessionDataTask?
     var lastAddPurchaseRequest: URLSessionDataTask?
     
+    let method: URLMethod = .POST
+    let url = ACConstants.shared.questsURL
+    
     func verifyReceipt(withReceipt receipt: String, response: @escaping (Bool, ErrorData?) -> Void) {
         
         lastVerifyReceiptRequest?.cancel()
         lastVerifyReceiptRequest = nil
         
         lastVerifyReceiptRequest = awesomeRequester.performRequestAuthorized(
-            ACConstants.shared.questsURL, forceUpdate: true, method: .POST, jsonBody: QuestPurchaseGraphQLModel.mutateVerifyIAPReceipt(receipt), completion: { (data, error, responseType) in
+            url, forceUpdate: true, method: method, jsonBody: QuestPurchaseGraphQLModel.mutateVerifyIAPReceipt(receipt), completion: { (data, error, responseType) in
                 if data != nil {
                     self.lastVerifyReceiptRequest = nil
                     if let json = try? JSONSerialization.jsonObject(with: data!, options: .allowFragments), let jsonObject = json as? [String: Any] {
@@ -52,7 +55,7 @@ class QuestPurchaseNS {
         lastAddPurchaseRequest = nil
         
         lastAddPurchaseRequest = awesomeRequester.performRequestAuthorized(
-            ACConstants.shared.questsURL, forceUpdate: true, method: .POST, jsonBody: QuestPurchaseGraphQLModel.mutateAddPurchase(withId: productId), completion: { (data, error, responseType) in
+            url, forceUpdate: true, method: method, jsonBody: QuestPurchaseGraphQLModel.mutateAddPurchase(withId: productId), completion: { (data, error, responseType) in
                 if data != nil {
                     self.lastAddPurchaseRequest = nil
                     if let json = try? JSONSerialization.jsonObject(with: data!, options: .allowFragments), let jsonObject = json as? [String: Any] {

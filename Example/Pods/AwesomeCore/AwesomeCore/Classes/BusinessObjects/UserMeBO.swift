@@ -14,7 +14,7 @@ public struct UserMeBO {
     private init() {}
     
     public static func fetchUserMe(forcingUpdate: Bool = false, response: @escaping (UserMe?, ErrorData?) -> Void) {
-        userMeNS.fetchUserMe(forcingUpdate: forcingUpdate) { (user, error) in
+        userMeNS.fetchUserMe() { (user, error) in
             DispatchQueue.main.async {
                 response(user, error)
             }

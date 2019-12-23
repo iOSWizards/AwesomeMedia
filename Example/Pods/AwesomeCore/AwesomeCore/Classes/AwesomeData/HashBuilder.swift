@@ -12,13 +12,11 @@ struct HashBuilder {
     let data: Data
     let method: URLMethod
     let url: String
-    let headers: [[String]]
     
-    init(data: Data, method: URLMethod, url: String, headers: [[String]]) {
+    init(data: Data, method: URLMethod, url: String) {
         self.data = data
         self.method = method
         self.url = url
-        self.headers = headers
     }
 
 }
@@ -33,9 +31,6 @@ extension HashBuilder: Hashable {
             return false
         }
         if lhs.url != rhs.url {
-            return false
-        }
-        if !equalArray(ar1: lhs.headers, ar2: rhs.headers) {
             return false
         }
         return true

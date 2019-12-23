@@ -14,7 +14,7 @@ public struct NewTrainingsBO {
     private init() {}
     
     public static func fetchNewTrainings(forcingUpdate: Bool = false, response: @escaping ([TrainingCard], ErrorData?) -> Void) {
-        newTrainingsNS.fetchNewTrainings(forcingUpdate: forcingUpdate) { (newTrainings, error) in
+        newTrainingsNS.fetchNewTrainings() { (newTrainings, error) in
             DispatchQueue.main.async {
                 response(newTrainings, error)
             }

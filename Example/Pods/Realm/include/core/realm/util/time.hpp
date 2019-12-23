@@ -28,8 +28,6 @@
 #include <ostream>
 #include <sstream>
 
-#include <chrono>
-
 
 namespace realm {
 namespace util {
@@ -48,29 +46,21 @@ std::tm gmtime(std::time_t);
 template<class C, class T>
 void put_time(std::basic_ostream<C,T>&, const std::tm&, const C* format = "%FT%T%z");
 
-/// @{ These functions combine localtime() or gmtime() with put_time() and
+// @{
+/// These functions combine localtime() or gmtime() with put_time() and
 /// std::ostringstream. For detals on the format string, see
 /// std::put_time(). These function are thread safe.
 std::string format_local_time(std::time_t, const char* format = "%FT%T%z");
 std::string format_utc_time(std::time_t, const char* format = "%FT%T%z");
-/// @}
+// @}
 
-struct Clock {
-    using time_point = std::chrono::system_clock::time_point;
-    using duration = std::chrono::system_clock::duration;
+/// The local time since the epoch in microseconds.
+///
+/// FIXME: This function has nothing to do with local time.
+double local_time_microseconds();
 
-    virtual ~Clock() {}
-    virtual time_point now() const noexcept = 0;
-};
 
-struct SystemClock : Clock {
-    time_point now() const noexcept final
-    {
-        return std::chrono::system_clock::now();
-    }
-};
 
-const SystemClock& get_system_clock() noexcept;
 
 // Implementation
 

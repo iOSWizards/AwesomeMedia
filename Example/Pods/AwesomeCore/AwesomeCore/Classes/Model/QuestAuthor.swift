@@ -10,15 +10,17 @@ import Foundation
 public struct QuestAuthor: Codable, Equatable {
     
     public let avatarAsset: QuestAsset?
+    public let portraitAsset: QuestAsset?
     public let description: String?
     public let id: String?
     public let name: String?
     public let slug: String?
     public let questId: String? // FK to the CDQuest
     
-    init(avatarAsset: QuestAsset?, description: String?, id: String?, name: String?,
+    init(avatarAsset: QuestAsset?, portraitAsset: QuestAsset?, description: String?, id: String?, name: String?,
          slug: String?, questId: String? = nil) {
         self.avatarAsset = avatarAsset
+        self.portraitAsset = portraitAsset
         self.description = description
         self.id = id
         self.name = name
@@ -44,6 +46,9 @@ extension QuestAuthor {
             return false
         }
         if lhs.avatarAsset != rhs.avatarAsset {
+            return false
+        }
+        if lhs.portraitAsset != rhs.portraitAsset {
             return false
         }
         if lhs.description != rhs.description {

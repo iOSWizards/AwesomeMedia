@@ -14,7 +14,7 @@ public struct LastViewedBO {
     private init() {}
     
     public static func fetchLastViewed(forcingUpdate: Bool = false, response: @escaping ([TrainingCard], ErrorData?) -> Void) {
-        lastViewedNS.fetchLastViewed(forcingUpdate: forcingUpdate) { (lastViewed, error) in
+        lastViewedNS.fetchLastViewed() { (lastViewed, error) in
             DispatchQueue.main.async {
                 response(lastViewed, error)
             }

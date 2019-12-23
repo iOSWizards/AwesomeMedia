@@ -7,31 +7,41 @@
 
 import Foundation
 
-class SingleCourseNS {
+class SingleCourseNS: BaseNS {
     
     static var shared = SingleCourseNS()
     lazy var awesomeRequester: AwesomeCoreRequester = AwesomeCoreRequester(cacheType: .realm)
     
     var singleCourseRequest: URLSessionDataTask?
     
-    init() {}
+    override init() {}
     
-    func fetchSingleCourses(forcingUpdate: Bool = false, response: @escaping ([TrainingCard], ErrorData?) -> Void) {
+    func fetchSingleCourses(params: AwesomeCoreNetworkServiceParams = .standard, response: @escaping ([TrainingCard], ErrorData?) -> Void) {
         
-        singleCourseRequest?.cancel()
-        singleCourseRequest = nil
-        
-        singleCourseRequest = awesomeRequester.performRequestAuthorized(ACConstants.shared.librarySingleCoursesURL, forceUpdate: forcingUpdate) { (data, error, responseType) in
+        func processResponse(data: Data?, error: ErrorData? = nil, response: @escaping ([TrainingCard], ErrorData?) -> Void ) -> Bool {
             if let jsonObject = AwesomeCoreParser.jsonObject(data) as? [String: AnyObject] {
-                self.singleCourseRequest = nil
                 response(SingleCourseMP.parseSingleCoursesFrom(jsonObject), nil)
+                return true
             } else {
-                self.singleCourseRequest = nil
                 if let error = error {
                     response([], error)
-                    return
+                    return false
                 }
                 response([], ErrorData(.unknown, "response Data could not be parsed"))
+                return false
+            }
+        }
+        
+        let url = ACConstants.shared.librarySingleCoursesURL
+        let method: URLMethod = .GET
+        
+        if params.contains(.shouldFetchFromCache) {
+            _ = processResponse(data: dataFromCache(url, method: method, params: params, bodyDict: nil), response: response)
+        }
+        
+        _ = awesomeRequester.performRequestAuthorized(url, forceUpdate: true) { (data, error, responseType) in
+            if processResponse(data: data, error: error, response: response) {
+                self.saveToCache(url, method: method, bodyDict: nil, data: data)
             }
         }
         

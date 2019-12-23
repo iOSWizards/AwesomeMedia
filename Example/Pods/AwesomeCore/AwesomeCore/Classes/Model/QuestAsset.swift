@@ -140,6 +140,14 @@ public struct QuestAsset: Codable, Equatable {
         return url
     }
     
+    public var durationString: String {
+        guard let duration = duration else { return "" }
+        if duration == 0 {
+            return ""
+        }
+        return duration.timeString
+    }
+    
 }
 
 // MARK: - JSON Key

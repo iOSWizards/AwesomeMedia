@@ -7,9 +7,10 @@ target 'AwesomeMedia_Example' do
   pod 'AwesomeLoading', git: 'https://github.com/iOSWizards/AwesomeLoading.git', tag: '0.1.5'
   pod 'AwesomeNetwork', git: 'https://github.com/iOSWizards/AwesomeNetwork', tag: '0.1.4'
   pod 'AwesomeDownloading', git: 'https://github.com/iOSWizards/AwesomeDownloading', tag: '0.1.2'
-  pod 'AwesomeCore', git: 'https://github.com/mindvalley/Mobile_iOS_Library_AwesomeCore.git', tag: '0.14.4'
+  pod 'AwesomeCore', git: 'https://github.com/mindvalley/Mobile_iOS_Library_AwesomeCore.git', tag: '0.19.5'
+  pod 'Realm', '~> 3.21.0'
   pod 'AwesomeConstants', git: 'https://github.com/Mindvalley/Mobile_iOS_Library_AwesomeConstants.git', tag: '0.2.0'
-  pod 'AwesomeTracking', git: 'https://github.com/Mindvalley/Mobile_iOS_Library_AwesomeTracking.git', tag: '0.1.4'
+  pod 'AwesomeTracking', git: 'https://github.com/Mindvalley/Mobile_iOS_Library_AwesomeTracking.git', tag: '1.0.8'
 
   target 'AwesomeMedia_Tests' do
     inherit! :search_paths
@@ -17,3 +18,6 @@ target 'AwesomeMedia_Example' do
     
   end
 end
+
+# awesomecore swift 5
+# awesomemedia swift 4.2

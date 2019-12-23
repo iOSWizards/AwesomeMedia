@@ -13,8 +13,8 @@ public struct QuestProductGraphQLModel {
     
     // Product
     
-    private static let productModel = "availableAt description featured redeemable comingSoon id discountRate questStartDate questEndDate name publishedAt purchased type questId imageAsset { \(QuestGraphQLModel.assetImageModel) } featuredAsset { \(QuestGraphQLModel.assetImageModel) } quest { \(QuestGraphQLModel.questModel) } variants { \(productVariantModel) } settings { \(QuestProductGraphQLModel.settingsModel) }"
-    private static let productContentModel = "availableAt description featured redeemable comingSoon id discountRate questStartDate questEndDate name publishedAt purchased type questId imageAsset { \(QuestGraphQLModel.assetImageModel) } featuredAsset { \(QuestGraphQLModel.assetImageModel) } quest { \(QuestGraphQLModel.questModel) } pages { \(productPageModel) } variants { \(productVariantModel) } settings { \(QuestProductGraphQLModel.settingsModel) }"
+    private static let productModel = "availableAt description featured redeemable comingSoon id discountRate questStartDate questEndDate name publishedAt purchased type questId imageAsset { \(QuestGraphQLModel.assetImageModel) } featuredAsset { \(QuestGraphQLModel.assetImageModel) } quest { \(QuestGraphQLModel.questModel) authors { \(QuestGraphQLModel.authorModel) } } variants { \(productVariantModel) } settings { \(QuestProductGraphQLModel.settingsModel) }"
+   private static let productContentModel = "availableAt description featured redeemable comingSoon id discountRate questStartDate questEndDate name publishedAt purchased type questId imageAsset { \(QuestGraphQLModel.assetImageModel) } featuredAsset { \(QuestGraphQLModel.assetImageModel) } quest { \(QuestGraphQLModel.questModel) authors { \(QuestGraphQLModel.authorModel) } } pages { \(productPageModel) } variants { \(productVariantModel) } settings { \(QuestProductGraphQLModel.settingsModel) }"
     private static let productPageModel = "description id name position sections { \(QuestGraphQLModel.sectionModel) }"
     private static let productVariantModel = "identifier type price { \(priceModel) }"
     private static let priceModel = "amount currency"

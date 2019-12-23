@@ -10,27 +10,32 @@ import Foundation
 public struct QuestSettings: Codable, Equatable {
     
     public let awcProductId: String?
+    public let enableReleaseChange: Bool?
     public let facebookGroupImageUrl: String?
     public let facebookGroupPassPhrase: String?
     public let facebookGroupUrl: String?
     public let facebookGroupId: String?
-    public let perpetual: Bool
+    public let perpetual: Bool?
     public let salesUrl: String?
     public let shareImageUrl: String?
     public let studentsCount: Int?
     public let questId: String? // FK to the CDQuest
+    public let newUi: Bool?
     
     init(awcProductId: String?,
+         enableReleaseChange: Bool?,
          facebookGroupImageUrl: String?,
          facebookGroupPassPhrase: String?,
          facebookGroupUrl: String?,
          facebookGroupId: String?,
-         perpetual: Bool,
+         perpetual: Bool?,
          salesUrl: String?,
          shareImageUrl: String?,
          studentsCount: Int?,
-         questId: String? = nil) {
+         questId: String? = nil,
+         newUi: Bool? = false) {
         self.awcProductId = awcProductId
+        self.enableReleaseChange = enableReleaseChange
         self.facebookGroupImageUrl = facebookGroupImageUrl
         self.facebookGroupPassPhrase = facebookGroupPassPhrase
         self.facebookGroupUrl = facebookGroupUrl
@@ -40,6 +45,7 @@ public struct QuestSettings: Codable, Equatable {
         self.shareImageUrl = shareImageUrl
         self.studentsCount = studentsCount
         self.questId = questId
+        self.newUi = newUi
     }
     
 }
@@ -57,6 +63,9 @@ public struct QuestSettingsKey: Codable {
 extension QuestSettings {
     public static func ==(lhs: QuestSettings, rhs: QuestSettings) -> Bool {
         if lhs.awcProductId != rhs.awcProductId {
+            return false
+        }
+        if lhs.enableReleaseChange != rhs.enableReleaseChange {
             return false
         }
         if lhs.facebookGroupImageUrl != rhs.facebookGroupImageUrl {
@@ -84,6 +93,9 @@ extension QuestSettings {
             return false
         }
         if lhs.questId != rhs.questId {
+            return false
+        }
+        if lhs.newUi != rhs.newUi {
             return false
         }
         return true

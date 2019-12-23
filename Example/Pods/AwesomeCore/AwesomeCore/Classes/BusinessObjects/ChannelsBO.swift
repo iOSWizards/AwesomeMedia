@@ -15,7 +15,7 @@ public struct ChannelsBO {
     private init() {}
     
     public static func fetchChannel(with academyId: Int, forcingUpdate: Bool = false, response: @escaping (ChannelData?, ErrorData?) -> Void) {
-        channelsNS.fetchChannelData(with: academyId, forcingUpdate: forcingUpdate, response: { (channel, error) in
+        channelsNS.fetchChannelData(with: academyId, response: { (channel, error) in
             DispatchQueue.main.async {
                 response(channel, error)
             }
@@ -23,7 +23,7 @@ public struct ChannelsBO {
     }
     
     public static func fetchAllChannels(forcingUpdate: Bool = false, response: @escaping ([AllChannels], ErrorData?) -> Void) {
-        channelsNS.fetchAllChannels(forcingUpdate: forcingUpdate, response: { (channel, error) in
+        channelsNS.fetchAllChannels(response: { (channel, error) in
             DispatchQueue.main.async {
                 response(channel, error)
             }

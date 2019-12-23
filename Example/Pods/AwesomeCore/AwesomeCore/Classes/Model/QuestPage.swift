@@ -7,39 +7,53 @@
 
 import Foundation
 
-public struct QuestPage: Codable, Equatable {
+public class QuestPage: Codable, Equatable {
     
     public let completionsCount: Int?
     public let date: String?
     public let description: String?
     public let duration: Double?
+    public let groupLocked: Bool?
+    public let groupDescription: String?
     public let groupName: String?
     public let id: String?
     public let name: String?
-    public let position: Int
+    public let position: Int?
     public let sections: [QuestSection]?
     public var tasks: [QuestTask]?
     public let type: String?
     public let url: String?
     public var completed: Bool?
     public let coverAsset: QuestAsset?
+    public let shareAsset: QuestAsset?
+    public let locked: Bool?
+    public weak var nextPage: QuestPage?
+    public let missed: Bool?
     
     // MARK: - Computed properties
-    
     public var dayPosition: String {
-        return "\(self.position)"
+        return "\(self.position ?? 0)"
     }
     
     public var dayTitle: String {
-        return "\(dayType) \(self.position)"
+        return "\(dayType) \(self.position ?? 0)"
     }
     
     public var dayTitleFull: String {
-        return "\(dayType) \(self.position) - \(self.name ?? "")"
+        return "\(dayType) \(self.position ?? 0) - \(self.name ?? "")"
     }
     
     public var dayType: String {
-        return self.type == QuestContentType.warmup.rawValue ? "Part".localized : "Day".localized
+        switch self.type {
+        case QuestContentType.day.rawValue:
+            return "quest_page_type_day".localized
+        case QuestContentType.lesson.rawValue:
+            return "quest_page_type_lesson".localized
+        case QuestContentType.warmup.rawValue:
+            return "quest_page_type_part".localized
+        default:
+            return "quest_page_type_day".localized
+        }
     }
     
     public var durationString: String {
@@ -56,7 +70,7 @@ public struct QuestPage: Codable, Equatable {
             return false
         }
         
-        if let currentDay = quest.userProgress?.currentDay {
+        if let currentDay = quest.userProgress?.currentPage {
             return self.position == currentDay.position
         }
         
@@ -73,8 +87,8 @@ public struct QuestPage: Codable, Equatable {
             return false
         }
         
-        if let currentDay = quest.userProgress?.currentDay {
-            return self.position > currentDay.position
+        if let currentDay = quest.userProgress?.currentPage {
+            return self.position ?? 0 > currentDay.position ?? 0
         }
         
         return true
@@ -89,7 +103,7 @@ public struct QuestPage: Codable, Equatable {
             return false
         }
         
-        if let currentDay = quest.userProgress?.currentDay {
+        if let currentDay = quest.userProgress?.currentPage {
             return (self.position == currentDay.position && !isFuturePage(quest: quest)) ? true : false
         }
         
@@ -160,6 +174,18 @@ extension QuestPage {
         if lhs.groupName != rhs.groupName {
             return false
         }
+        if lhs.groupDescription != rhs.groupDescription {
+            return false
+        }
+        if lhs.groupLocked != rhs.groupLocked {
+            return false
+        }
+        if lhs.locked != rhs.locked {
+            return false
+        }
+        if lhs.shareAsset != rhs.shareAsset {
+            return false
+        }
         if lhs.id != rhs.id {
             return false
         }
@@ -185,6 +211,9 @@ extension QuestPage {
             return false
         }
         if lhs.coverAsset != rhs.coverAsset {
+            return false
+        }
+        if lhs.missed != rhs.missed {
             return false
         }
         return true

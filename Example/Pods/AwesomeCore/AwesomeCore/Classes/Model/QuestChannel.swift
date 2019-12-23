@@ -10,14 +10,21 @@ import Foundation
 public struct QuestChannel : Codable, Equatable {
     
     public let id: String?
+    public let iconAsset: QuestAsset?
     public let coverAsset: QuestAsset?
+    public let mediaCount: Int?
+    public let publishedMediaCount: Int?
     public let description: String?
     public let publishedAt: String?
     public let series: [QuestSeries]?
     public let featuredMedia: [QuestMedia]?
+    public let favouriteMedia: [QuestMedia]?
     public let latestMedia: [QuestMedia]?
+    public let attendingMedia: [QuestMedia]?
+    public let media: [QuestMedia]?
     public let slug: String?
     public let title: String?
+    public let authors: [QuestAuthor]?
     
 }
 
@@ -57,6 +64,15 @@ extension QuestChannel {
         if lhs.coverAsset != rhs.coverAsset {
             return false
         }
+        if lhs.mediaCount != rhs.mediaCount {
+            return false
+        }
+        if lhs.publishedMediaCount != rhs.publishedMediaCount {
+            return false
+        }
+        if lhs.iconAsset != rhs.iconAsset {
+            return false
+        }
         if lhs.description != rhs.description {
             return false
         }
@@ -76,6 +92,18 @@ extension QuestChannel {
             return false
         }
         if lhs.latestMedia != rhs.latestMedia {
+            return false
+        }
+        if lhs.authors != rhs.authors {
+            return false
+        }
+        if lhs.attendingMedia != rhs.attendingMedia {
+            return false
+        }
+        if lhs.favouriteMedia != rhs.favouriteMedia {
+            return false
+        }
+        if lhs.media != rhs.media {
             return false
         }
         

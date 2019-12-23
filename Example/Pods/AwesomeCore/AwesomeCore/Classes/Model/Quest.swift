@@ -7,12 +7,18 @@
 
 import Foundation
 
-enum QuestContentType: String {
+public enum QuestContentType: String {
     case warmup = "intro"
-    case day = "day"
+    case day
+    case lesson
 }
 
-public class Quest: Codable, Equatable {
+public enum QuestType: String {
+    case weekly
+    case daily
+}
+
+public struct Quest: Codable, Equatable {
     
     public let authors: [QuestAuthor]?
     public let categories: [QuestCategory]?
@@ -31,6 +37,16 @@ public class Quest: Codable, Equatable {
     public let publishedAt: String?
     public let settings: QuestSettings?
     public var userProgress: QuestUserProgress?
+    public var type: String?
+    public var materials: [QuestSection]?
+    public var groups: [QuestGroup]?
+    public var releases: [QuestRelease]?
+    public var description: String?
+    public var nextRelease: QuestRelease?
+    public var trailerAsset: QuestAsset?
+    public var trailerCoverAsset: QuestAsset?
+    public var daysCount: Int?
+    public var lessonsCount: Int?
     
     init(authors: [QuestAuthor]?,
          categories: [QuestCategory]?,
@@ -48,7 +64,17 @@ public class Quest: Codable, Equatable {
          publishedAt: String?,
          url: String?,
          settings: QuestSettings?,
-         userProgress: QuestUserProgress?) {
+         userProgress: QuestUserProgress?,
+         type: String?,
+         materials: [QuestSection]?,
+         groups: [QuestGroup]?,
+         releases: [QuestRelease]?,
+         description: String?,
+         nextRelease: QuestRelease?,
+         trailerAsset: QuestAsset?,
+         trailerCoverAsset: QuestAsset?,
+         daysCount: Int?,
+         lessonsCount: Int?) {
         self.authors = authors
         self.categories = categories
         self.courseEndedAt = courseEndedAt
@@ -66,9 +92,23 @@ public class Quest: Codable, Equatable {
         self.url = url
         self.settings = settings
         self.userProgress = userProgress
+        self.type = type
+        self.materials = materials
+        self.groups = groups
+        self.releases = releases
+        self.description = description
+        self.nextRelease = nextRelease
+        self.trailerAsset = trailerAsset
+        self.trailerCoverAsset = trailerCoverAsset
+        self.daysCount = daysCount
+        self.lessonsCount = lessonsCount
     }
     
     // MARK: - Computed properties
+    
+    public var questType: QuestType {
+        return QuestType(rawValue: type ?? "") ?? .daily
+    }
     
     public var didStart: Bool {
         return userProgress?.started ?? false
@@ -82,12 +122,27 @@ public class Quest: Codable, Equatable {
         return settings?.perpetual ?? false
     }
     
+    public var totalEnrollmentsCount: Int {
+        guard let releases = releases else { return 0 }
+        var studentsCount = 0
+        for release in releases { studentsCount += (release.enrollmentsCount ?? 0) }
+        return studentsCount
+    }
+    
     public var progressTitleLibrary: String? {
-        return "\(userProgress?.currentDay?.type ?? "Day".localized) \(userProgress?.currentDay?.position ?? 1) \("of".localized) \(userProgress?.totalDays ?? 0)"
+        var totalActivities: Int = userProgress?.totalDays ?? 0
+        if type == QuestType.weekly.rawValue {
+            totalActivities = userProgress?.totalLessons ?? 0
+        }
+        return "\(userProgress?.currentPage?.type?.capitalized.localized ?? "Day".localized) \(userProgress?.currentPage?.position ?? 1) \("of".localized) \(totalActivities)"
     }
     
     public var progressTitleTOC: String? {
-        return "\(userProgress?.totalDaysCompleted ?? 0) \("of".localized) \(userProgress?.totalDays ?? 0) \("Completed".localized.lowercased())"
+        if type == QuestType.weekly.rawValue { //for weekly
+            return "\(userProgress?.totalLessonsCompleted ?? 0) \("of".localized) \(userProgress?.totalLessons ?? 0) \("Completed".localized.lowercased())"
+        } else {
+            return "\(userProgress?.totalDaysCompleted ?? 0) \("of".localized) \(userProgress?.totalDays ?? 0) \("Completed".localized.lowercased())"
+        }
     }
     
     public var startDate: String {
@@ -106,13 +161,20 @@ public class Quest: Codable, Equatable {
     }
     
     public var currentDayPosition: String {
-        return userProgress?.currentDay?.dayPosition ?? ""
+        return userProgress?.currentPage?.dayPosition ?? ""
     }
     
-    public var progress : Float {
-        let daysCompleted = Float(userProgress?.totalDaysCompleted ?? 0)
-        let totalDays = Float(userProgress?.totalDays ?? 0)
-        let result = Float(daysCompleted/totalDays)
+    public var progress: Float {
+        var completed: Float = 0
+        var total: Float = 0
+        if type == QuestType.weekly.rawValue { //for weekly
+            completed = Float(userProgress?.totalLessonsCompleted ?? 0)
+            total = Float(userProgress?.totalLessons ?? 0)
+        } else {
+            completed = Float(userProgress?.totalDaysCompleted ?? 0)
+            total = Float(userProgress?.totalDays ?? 0)
+        }
+        let result = Float(completed/total)
         if result.isInfinite || result.isNaN {
             return 0
         }
@@ -150,7 +212,9 @@ public class Quest: Codable, Equatable {
     }
     
     public var dayContents: [QuestPage] {
-        return contents(withType: QuestContentType.day)
+        var content = contents(withType: QuestContentType.day)
+        content.append(contentsOf: contents(withType: QuestContentType.lesson))
+        return content
     }
     
     public var warmupContents: [QuestPage] {
@@ -195,7 +259,7 @@ public class Quest: Codable, Equatable {
         return pages.filter { (page) -> Bool in
             return page.type == type.rawValue
             }.sorted { (page1, page2) -> Bool in
-                return page1.position < page2.position
+                return page1.position ?? 0 < page2.position ?? 0
         }
     }
     
@@ -281,6 +345,33 @@ extension Quest {
             return false
         }
         if lhs.userProgress != rhs.userProgress {
+            return false
+        }
+        if lhs.type != rhs.type {
+            return false
+        }
+        if lhs.materials != rhs.materials {
+            return false
+        }
+        if lhs.releases != rhs.releases {
+            return false
+        }
+        if lhs.description != rhs.description {
+            return false
+        }
+        if lhs.nextRelease != rhs.nextRelease {
+            return false
+        }
+        if lhs.trailerAsset != rhs.trailerAsset {
+            return false
+        }
+        if lhs.trailerCoverAsset != rhs.trailerCoverAsset {
+            return false
+        }
+        if lhs.daysCount != rhs.daysCount {
+            return false
+        }
+        if lhs.lessonsCount != rhs.lessonsCount {
             return false
         }
         return true

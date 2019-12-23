@@ -14,7 +14,7 @@ import UIKit
 /// The primary class for integrating Mixpanel with your app.
 open class Mixpanel {
 
-    #if !os(OSX)
+    #if !os(OSX) && !WATCH_OS
     /**
      Initializes an instance of the API with the given project token.
 
@@ -37,7 +37,7 @@ open class Mixpanel {
      */
     @discardableResult
     open class func initialize(token apiToken: String,
-                               launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil,
+                               launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil,
                                flushInterval: Double = 60,
                                instanceName: String = UUID().uuidString,
                                automaticPushTracking: Bool = true,
@@ -99,13 +99,13 @@ open class Mixpanel {
      - returns: returns the main Mixpanel instance
      */
     open class func mainInstance() -> MixpanelInstance {
-        let instance = MixpanelManager.sharedInstance.getMainInstance()
-        if instance == nil {
-            fatalError("You have to call initialize(token:) before calling the main instance, " +
+        if let instance = MixpanelManager.sharedInstance.getMainInstance() {
+            return instance
+        } else {
+            assert(false, "You have to call initialize(token:) before calling the main instance, " +
                 "or define a new main instance if removing the main one")
+            return Mixpanel.initialize(token: "")
         }
-
-        return instance!
     }
 
     /**
@@ -139,9 +139,9 @@ class MixpanelManager {
         Logger.addLogging(PrintLogging())
     }
 
-    #if !os(OSX)
+    #if !os(OSX) && !WATCH_OS
     func initialize(token apiToken: String,
-                    launchOptions: [UIApplicationLaunchOptionsKey : Any]?,
+                    launchOptions: [UIApplication.LaunchOptionsKey : Any]?,
                     flushInterval: Double,
                     instanceName: String,
                     automaticPushTracking: Bool = true,

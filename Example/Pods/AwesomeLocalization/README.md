@@ -10,7 +10,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## Requirements
 
-- iOS 9.0 or Higher
+- iOS 9.3 or Higher
 - Swift 4
 
 ## Installation
@@ -18,7 +18,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 AwesomeLocalization is a public pod, only available through the address below.
 
 ```ruby
-pod 'AwesomeLocalization', git: 'https://github.com/iOSWizards/AwesomeLocalization.git', tag: '0.2.1'
+pod 'AwesomeLocalization', git: 'https://github.com/iOSWizards/AwesomeLocalization.git', tag: '0.1.9'
 ```
 
 ## Usage

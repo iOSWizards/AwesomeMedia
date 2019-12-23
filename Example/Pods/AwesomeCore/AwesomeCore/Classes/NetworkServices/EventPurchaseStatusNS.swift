@@ -7,25 +7,30 @@
 
 import Foundation
 
-class EventPurchaseStatusNS {
+class EventPurchaseStatusNS: BaseNS {
     
     static let shared = EventPurchaseStatusNS()
     lazy var requester: AwesomeCoreRequester = AwesomeCoreRequester(cacheType: .realm)
     
-    init() {}
+    override init() {}
     
     var requests = [String: URLSessionDataTask]()
     
     func fetchPurchaseStatus(eventSlug: EventCode, params: AwesomeCoreNetworkServiceParams = .standard, response: @escaping (Bool?, ErrorData?) -> Void) {
         
-        var didRespondCachedData = false
-        
-        func processResponse(data: Data?, response: @escaping (Bool?, ErrorData?) -> Void ) -> Bool {
+        func processResponse(data: Data?, error: ErrorData? = nil, response: @escaping (Bool?, ErrorData?) -> Void ) -> Bool {
             guard let data = data else {
                 return false
             }
             
             guard let status = String(data: data, encoding: .utf8) else {
+                return false
+            }
+            
+            if let error = error {
+                print("Error fetching from API: \(error.message)")
+                
+                response(nil, error)
                 return false
             }
             
@@ -39,43 +44,18 @@ class EventPurchaseStatusNS {
         }
         
         let url = ACConstants.buildURLWith(format: ACConstants.shared.eventPurchaseStatusURL, with: eventSlug.rawValue)
+        let method: URLMethod = .GET
         
-        func fetchFromAPI(forceUpdate: Bool) {
-            
-            // cancel previews request only if should
-            if params.contains(.canCancelRequest) {
-                requests[url]?.cancel()
-                requests[url] = nil
-            }
-            
-            requests[url] = requester.performRequestAuthorized(
-                url, forceUpdate: forceUpdate, method: .GET, completion: { (data, error, responseType) in
-                    self.requests[url] = nil
-                    
-                    //process response
-                    let hasResponse = processResponse(data: data, response: response)
-                    
-                    //fetches again based on response type
-                    if !forceUpdate && responseType == .cached {
-                        didRespondCachedData = hasResponse
-                        
-                        fetchFromAPI(forceUpdate: true)
-                    } else if let error = error {
-                        print("Error fetching from API: \(error.message)")
-                        
-                        if !didRespondCachedData {
-                            response(nil, error)
-                        }
-                    }
-            })
-        }
-        
-        // fetches from cache if the case
         if params.contains(.shouldFetchFromCache) {
-            fetchFromAPI(forceUpdate: false)
-        } else {
-            fetchFromAPI(forceUpdate: true)
+            _ = processResponse(data: dataFromCache(url, method: method, params: params, bodyDict: nil), response: response)
         }
+        
+        _ = requester.performRequestAuthorized(
+            url, forceUpdate: true, method: method, completion: { (data, error, responseType) in
+                if processResponse(data: data, error: error, response: response) {
+                    self.saveToCache(url, method: method, bodyDict: nil, data: data)
+                }
+        })
     }
 }
 

@@ -14,7 +14,7 @@ public struct HappeningsBO {
     private init() {}
     
     public static func fetchHappenings(forcingUpdate: Bool = false, response: @escaping ([Happening], ErrorData?) -> Void) {
-        happeningsNS.fetchHappenings(forcingUpdate: forcingUpdate) { (happenings, error) in
+        happeningsNS.fetchHappenings() { (happenings, error) in
             DispatchQueue.main.async {
                 response(happenings, error)
             }

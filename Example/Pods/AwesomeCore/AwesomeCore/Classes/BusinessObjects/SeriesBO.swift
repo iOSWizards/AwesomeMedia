@@ -14,8 +14,8 @@ public struct SeriesBO {
     
     private init() {}
     
-    public static func fetchSerie(with academyId: Int, serieId: Int, forcingUpdate: Bool = false, response: @escaping (SeriesData?, ErrorData?) -> Void) {
-        seriesNS.fetchSeriesData(with: academyId, serieId: serieId, forcingUpdate: forcingUpdate, response: { (series, error) in
+    public static func fetchSerie(with academyId: Int, serieId: Int, response: @escaping (SeriesData?, ErrorData?) -> Void) {
+        seriesNS.fetchSeriesData(with: academyId, serieId: serieId, response: { (series, error) in
             DispatchQueue.main.async {
                 response(series, error)
             }
